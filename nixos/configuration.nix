@@ -70,34 +70,51 @@ boot.loader = {
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
   
-  # Enable Sway Enviroment.
+programs.hyprland = {
+   enable = true;
+   xwayland = {
+     enable = true;
+     hidpi = true;
+   };
+   nvidiaPatches = true;
+ };
 
-  # services.xserver.displayManager.gdm = {
-  #  enable = true;
-  #  wayland = true;
-  # };
+ # enable greetd
+   # services.greetd = {
+   #   enable = true;
+   #   settings = rec {
+   #     initial_session = {
+   #       command = "Hyprland";
+   #       user = "redyf";
+   #     };
+   #     default_session = initial_session;
+   #   };
+   # };
 
-  #programs.sway = {
-  # 	enable = true;
-  #	wrapperFeatures.gtk = true;
-  #	extraPackages = with pkgs; [
-  #	swaylock-fancy
-  #	swaylock-effects
-  #	dmenu
-  #	waybar
-  #	wofi
-  #	grim
-  #	slurp
-  #	mako
-  #	alacritty
-#  ];
-# };
+   # environment.etc."greetd/environments".text = ''
+   #   Hyprland
+   # '';
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  #hardware.opengl.enable = true;
+
+ environment.variables = {
+   GBM_BACKEND = "nvidia-drm";
+   LIBVA_DRIVER_NAME = "nvidia";
+   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+ };
+
+ hardware = {
+   nvidia = {
+     open = true;
+     powerManagement.enable = true;
+     modesetting.enable = true;
+   };
+   opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+ };
 
   # Configure keymap in X11
   services.xserver = {
@@ -152,7 +169,6 @@ boot.loader = {
   };
 
   # Allow unfree packages
-  #nixpkgs.config.allowUnfree = true;
   nixpkgs.config = {
   allowUnfree = true;
 };
@@ -227,6 +243,11 @@ programs.steam.enable = true;
        );
      })
   ];
+
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
