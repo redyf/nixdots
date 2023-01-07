@@ -1,0 +1,310 @@
+* {
+    font-family: Cascadia Code, Noto Sans, Roboto, Helvetica, Arial;
+    font-size: 14px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-expand,
+#custom-cycle_wall,
+#custom-ss,
+#custom-dynamic_pill,
+#mpd {
+    padding: 0 10px;
+    border-radius: 15px;
+    background: #11111b;
+    color: #b4befe;
+    box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+#custom-dynamic_pill label {
+    color: #11111b;
+    font-weight: bold;
+}
+
+#custom-dynamic_pill.paused label {
+    color: 	#89b4fa ;
+    font-weight: bolder; 
+}
+
+#workspaces button label{
+    color: 	#89b4fa ;
+    font-weight: bolder;
+}
+
+#workspaces button.active label{
+    color: #11111b;
+    font-weight: bolder;
+}
+
+#workspaces{
+    background-color: transparent;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+#workspaces button{
+    box-shadow: rgba(0, 0, 0, 0.116) 2 2 5 2px;
+    background-color: #11111b ;
+    border-radius: 15px;
+    margin-right: 10px;
+    padding: 10px;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    font-weight: bolder;
+    color: 	rgba(203,166,247,1);
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+}
+
+#workspaces button.active{
+    padding-right: 20px;
+    box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    background: rgb(203,166,247);
+    background: radial-gradient(circle, rgba(203,166,247,1) 0%, rgba(203,166,247,1) 12%, rgb(193, 153, 241) 19%, rgb(196, 147, 255) 20%, rgba(203,166,247,1) 24%, rgba(247, 149, 250, 1) 36%, rgba(177,172,247,1) 37%, rgba(203,166,247,1) 48%, rgb(218, 189, 253) 52%, rgba(203,166,247,1) 52%, rgb(174, 166, 247) 59%, rgba(203,166,247,1) 66%, rgb(195, 162, 236) 67%, rgb(193, 153, 241) 68%, rgb(247, 184, 198) 77%, rgba(203,166,247,1) 78%, rgb(215, 193, 241) 82%, rgba(203,166,247,1) 83%, rgba(203,166,247,1) 90%, rgba(203,166,247,1) 100%); 
+    background-size: 400% 400%;
+    animation: gradient_f 20s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 30%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient_f {
+	0% {
+		background-position: 0% 200%;
+	}
+    50% {
+        background-position: 200% 0%;
+    }
+	100% {
+		background-position: 400% 200%;
+	}
+}
+
+@keyframes gradient_f_nh {
+	0% {
+		background-position: 0% 200%;
+	}
+	100% {
+		background-position: 200% 200%;
+	}
+}
+
+
+
+#custom-dynamic_pill.low{
+    background: #11111b;
+    background: linear-gradient(52deg, rgb(203,166,247) 0%, rgb(203,166,247) 19%, rgb(215,193,241) 43%, rgb(215,193,241) 56%, rgb(203,166,247) 80%, rgb(203,166,247) 100%); 
+    background-size: 300% 300%;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    animation: gradient 15s ease infinite;
+    font-weight: bolder;
+    color: #fff;
+}
+#custom-dynamic_pill.normal {
+    background: rgb(69,71,90);
+    background: radial-gradient(circle, rgb(147,153,178) 0%, rgb(69,71,90) 21%, rgb(69,71,90) 34%, rgb(69,71,90) 35%, rgb(147,153,178) 59%, rgb(69,71,90) 74%, rgb(147,153,178) 74%, rgb(147,153,178) 100%); 
+    background-size: 400% 400%;
+    animation: gradient_f 4s ease infinite;
+    font-weight: bolder;
+    color: #fff;
+}
+#custom-dynamic_pill.critical{
+    background: rgb(235,160,172);
+    background: linear-gradient(52deg, rgba(235,160,172,1) 0%, rgba(243,139,168,1) 30%, rgba(231,130,132,1) 48%, rgba(250,179,135,1) 77%, rgba(249,226,175,1) 100%); 
+    background-size: 300% 300%;
+    animation: gradient_f 4s cubic-bezier(.55,-0.68,.48,1.68) infinite;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bolder;
+    color: #fff;
+}
+
+#custom-dynamic_pill.playing{
+    background: rgb(30,30,46);
+    background: radial-gradient(circle, rgba(203,166,247,1) 0%, rgba(203,166,247,1) 12%, rgb(193, 153, 241) 19%, rgb(196, 147, 255) 20%, rgba(203,166,247,1) 24%, rgba(247, 149, 250, 1) 36%, rgba(247, 149, 250, 1) 37%, rgba(203,166,247,1) 48%, rgb(218, 189, 253) 52%, rgba(203,166,247,1) 52%, rgb(174, 166, 247) 59%, rgba(203,166,247,1) 66%, rgb(195, 162, 236) 67%, rgb(193, 153, 241) 68%, rgb(247, 184, 198) 77%, rgba(203,166,247,1) 78%, rgb(215, 193, 241) 82%, rgba(203,166,247,1) 83%, rgba(203,166,247,1) 90%, rgba(203,166,247,1) 100%); 
+    background-size: 400% 400%;
+    animation: gradient_f 9s cubic-bezier(.72,.39,.21,1) infinite;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bold;
+    color:#4c4f69;
+}
+
+#custom-dynamic_pill.paused{
+    background: #11111b ;
+    font-weight: bolder;
+    color: #b4befe;
+}
+
+
+
+
+#clock {
+    color: 	#cdd6f4;
+    font-weight: bolder;
+}
+
+#clock {
+    background: rgb(30,30,46);
+    background: linear-gradient(118deg, rgba(30,30,46,1) 5%, rgb(136, 57, 239) 5%, rgb(136, 57, 239) 20%, rgba(30,30,46,1) 20%, rgba(30,30,46,1) 40%, rgb(136, 57, 239) 40%, rgb(136, 57, 239) 60%, rgba(30,30,46,1) 60%, rgba(30,30,46,1) 80%, rgb(136, 57, 239) 80%, rgb(136, 57, 239) 95%, rgba(30,30,46,1) 95%); 
+    background-size: 200% 300%;
+    animation: gradient_f_nh 4s linear infinite;
+    margin-right: 25px;
+    color: #c6d0f5;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+    font-weight: bolder;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-right: 21px;
+    font-weight: bolder;
+    padding-left: 20px;
+}
+
+#battery.charging, #battery.plugged {
+    background-color: rgb(30,30,46);
+    background: radial-gradient(circle, rgba(30,30,46,1) 30%, rgba(17,17,27,1) 100%); 
+}
+
+#battery {
+    background-color: rgb(30,30,46);
+    background: radial-gradient(circle, rgba(30,30,46,1) 30%, rgba(17,17,27,1) 100%); 
+    color:#a6e3a1;
+    font-weight: bolder;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #f9e2af;
+        color:#96804e;
+    }
+}
+
+
+
+#battery.critical:not(.charging) {
+    background-color: #11111b;
+    color:#f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu label{
+    color:#89dceb;
+}
+
+#cpu {
+    background: rgb(30,30,46);
+    background: radial-gradient(circle, rgba(30,30,46,1) 30%, rgba(17,17,27,1) 100%); 
+    color: 	#89b4fa;
+}
+
+#memory {
+    background-color: #cba6f7;
+    color: 	#9a75c7;
+    font-weight: bolder;
+}
+
+#disk {
+    color: #964B00;
+}
+
+#backlight {
+    color: #90b1b1;
+}
+
+#network{
+    color:#000;
+}
+
+#network.disabled{
+    background-color: #45475a;
+}
+
+#network.disconnected{
+    background: rgb(243,139,168);
+    background: linear-gradient(45deg, rgba(243,139,168,1) 0%, rgba(250,179,135,1) 100%); 
+    color: #fff;
+    font-weight: bolder;
+    padding-top: 3px;
+    padding-right: 11px;
+}
+
+#network.linked, #network.wifi{
+    background-color: #a6e3a1 ;
+}
+
+#network.ethernet{
+    background-color:#f9e2af;
+}
+
+#pulseaudio {
+    background-color: rgb(30,30,46);
+    background: radial-gradient(circle, rgba(30,30,46,1) 30%, rgba(17,17,27,1) 100%); 
+    color: #f5c2e7;
+    font-weight: bolder;
+}
+
+#pulseaudio.muted {
+    background-color: rgb(30,30,46);
+    background: radial-gradient(circle, rgba(30,30,46,1) 30%, rgba(17,17,27,1) 100%); 
+}
+
+
+#temperature {
+    background-color: #f9e2af;
+    color:#96804e;
+}
+
+#temperature.critical {
+    background-color: #f38ba8 ;
+    color:#bf5673;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
