@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -17,15 +18,16 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, hyprland, home-manager, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
       redyf = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        specialArgs = { inherit inputs hyprland; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
-        modules = [ ./nixos/configuration.nix ];
+        modules = [ ./nixos/configuration.nix hyprland.nixosModules.default
+        {programs.hyprland.enable = true;} ];
       };
     };
 
