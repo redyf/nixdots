@@ -76,6 +76,7 @@
     sxhkd
     wofi
     waybar
+    hyprpaper
 
   # Fonts
     dejavu_fonts
@@ -95,8 +96,10 @@
     powerline-symbols
     (pkgs.nerdfonts.override { fonts = [ "UbuntuMono" "Terminus" "CascadiaCode" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
-  # Streaming
+  # Streaming/screenshot
     obs-studio
+    grim # Screenshot tool for hyprland
+    slurp # works with grim to screenshot on wayland
 
   # Others
   	steam
@@ -116,15 +119,6 @@ programs.git = {
   init = { defaultBranch = "main"; };
   };
 };
-
-# programs.hyprland = { # or wayland.windowManager.hyprland
-#   enable = true;
-#   xwayland = {
-#     enable = true;
-#     hidpi = true;
-#   };
-#   nvidiaPatches = true;
-# };
 
 gtk = {
     enable = true;
