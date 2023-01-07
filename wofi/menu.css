@@ -1,0 +1,5 @@
+@import ".config/wofi/style.css";
+window {
+	font-family: "Cascadia Code";
+	font-size: 14px;
+}
