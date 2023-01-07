@@ -99,12 +99,15 @@ programs.hyprland = {
   # services.xserver.libinput.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
-  #hardware.opengl.enable = true;
-
+  
  environment.variables = {
    GBM_BACKEND = "nvidia-drm";
    LIBVA_DRIVER_NAME = "nvidia";
    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+ };
+
+ environment.sessionVariables = {
+   WLR_NO_HARDWARE_CURSORS = "1";
  };
 
  hardware = {
@@ -113,6 +116,7 @@ programs.hyprland = {
      powerManagement.enable = true;
      modesetting.enable = true;
    };
+   opengl.enable = true;
    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
  };
 
