@@ -74,6 +74,8 @@
   	picom-next
     cmatrix
     sxhkd
+    wofi
+    waybar
 
   # Fonts
     dejavu_fonts
