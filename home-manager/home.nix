@@ -45,6 +45,7 @@
   	unzip
   	polkit_gnome
   	flameshot
+    jq
 
   # Terminal && prompt	
 	  kitty
@@ -77,6 +78,8 @@
     wofi
     waybar
     hyprpaper
+
+  # Xdg
 
   # Fonts
     dejavu_fonts
@@ -148,4 +151,3 @@ gtk = {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
-
