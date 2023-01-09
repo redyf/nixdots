@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, nix-colors, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -18,9 +18,11 @@
 
   # customNeovim = import ./config/nvim/nvim.nix;
   home.packages = with pkgs; [
-  # Text Editors/Editing/Compiler 
+  # Text Editors
     neovim 
     neovide
+
+  # Compiler
   	gcc
     python
   	cargo
@@ -30,6 +32,8 @@
     gnupatch
     gnumake
     nodejs
+
+  # NPM packages
     nodePackages.npm
     nodePackages.live-server
   
@@ -46,6 +50,9 @@
   	polkit_gnome
   	flameshot
     jq
+    zig
+    fzf
+    mpd
 
   # Terminal && prompt	
 	  kitty
@@ -76,8 +83,8 @@
     cmatrix
     sxhkd
     wofi
-    waybar
     hyprpaper
+    waybar
 
   # Xdg
 
@@ -103,6 +110,7 @@
     obs-studio
     grim # Screenshot tool for hyprland
     slurp # works with grim to screenshot on wayland
+    wl-clipboard # Enables copy/paste on wayland
 
   # Others
   	steam

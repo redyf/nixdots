@@ -182,6 +182,10 @@ programs.steam.enable = true;
   # (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" "FiraCode" "Hack" "Iosevka" ]; })
   #];
 
+#   fonts = {
+#   fonts = with pkgs; [ sf-mono-liga-bin ];
+# };
+
   #  Default Shell
      
   #   programs.zsh.enable = true;
