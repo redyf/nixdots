@@ -6,7 +6,7 @@ scripts=$config/scripts
 
 # waybar
 $scripts/launch_waybar &
-#$scripts/tools/dynamic &
+$scripts/tools/dynamic &
 
 # wallpaper
 #swww kill
@@ -20,7 +20,6 @@ dunst &
 # cursor
 #hyprctl setcursor "Catppuccin-Mocha-Mauve-Cursors" 24
 #hyprctl setcursor "macOS-BigSur" 24
-exec nitrogen --restore &
 # other
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &

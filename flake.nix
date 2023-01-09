@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "redyf's nix config";
 
   inputs = {
     # Nixpkgs
@@ -7,26 +7,23 @@
     hyprland.url = "github:hyprwm/Hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
+    # SFMono w/ patches
+    sf-mono-liga-src = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
+    };
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
 
-    # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
-  };
+      };
 
-  outputs = { nixpkgs, hyprland, home-manager, ... }@inputs: {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
+  outputs = { self, nixpkgs, hyprland, home-manager, ... }@inputs: {
+
     nixosConfigurations = {
-      # FIXME replace with your hostname
       redyf = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs hyprland; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
+        specialArgs = { inherit inputs hyprland; }; 
         modules = [ ./nixos/configuration.nix hyprland.nixosModules.default
         {programs.hyprland.enable = true;} ];
       };
