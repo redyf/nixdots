@@ -226,13 +226,13 @@ programs.steam.enable = true;
    };
 
 # Overlays
-   nixpkgs.overlays = [
-      (self: super: {
-        discord = super.discord.overrideAttrs (
-          _: { src = builtins.fetchTarball https://discord.com/api/download?platform=linux&format=tar.gz; }
-        );
-      })
-   ];
+   # nixpkgs.overlays = [
+   #    (self: super: {
+   #      discord = super.discord.overrideAttrs (
+   #        _: { src = builtins.fetchTarball https://discord.com/api/download?platform=linux&format=tar.gz; }
+   #      );
+   #    })
+   # ];
 
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
