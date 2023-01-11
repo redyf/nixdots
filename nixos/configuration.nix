@@ -181,11 +181,6 @@ programs.steam.enable = true;
   # (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" "FiraCode" "Hack" "Iosevka" ]; })
   #];
 
-  #  Default Shell
-     
-  #   programs.zsh.enable = true;
-  #  users.defaultUserShell = pkgs.zsh;
-
   programs.zsh = {
   enable = true;
   autosuggestions.enable = true;
@@ -224,15 +219,6 @@ programs.steam.enable = true;
       options = "--delete-older-than 7d";
      };
    };
-
-# Overlays
-   # nixpkgs.overlays = [
-   #    (self: super: {
-   #      discord = super.discord.overrideAttrs (
-   #        _: { src = builtins.fetchTarball https://discord.com/api/download?platform=linux&format=tar.gz; }
-   #      );
-   #    })
-   # ];
 
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
