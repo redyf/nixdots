@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
+{ inputs, config, nix-colors, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "redyf";
   home.homeDirectory = "/home/redyf";
-  nixpkgs.config.allowUnfree = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -17,20 +16,36 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
+  nixpkgs.overlays = [ 
+  	(self: super: {
+		discord = super.discord.overrideAttrs (
+			_: { src = builtins.fetchTarball {
+			url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+			}; }
+		);
+	})
+  (import ~/flake/overlays/firefox-overlay.nix)
+];
+
+  
   # customNeovim = import ./config/nvim/nvim.nix;
   home.packages = with pkgs; [
-  # Text Editors/Editing/Compiler 
+  # Text Editors
     neovim 
     neovide
+
+  # Compiler
   	gcc
-    python
+    #python
   	cargo
   	lua
-  	python3
+  	#python3
     cmake
     gnupatch
     gnumake
     nodejs
+
+  # NPM packages
     nodePackages.npm
     nodePackages.live-server
   
@@ -46,6 +61,10 @@
   	unzip
   	polkit_gnome
   	flameshot
+    jq
+    zig
+    fzf
+    mpd
 
   # Terminal && prompt	
 	  kitty
@@ -55,9 +74,10 @@
     zsh
   	sl
     oh-my-zsh
+    neofetch
 
   # Browser, vc, pdf
-	  firefox	
+    latest.firefox-nightly-bin
 	  discord
 	  zathura
 	
@@ -66,6 +86,7 @@
 	  papirus-icon-theme
 	  brightnessctl
   	xfce.thunar
+    xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
   	dunst
   	nitrogen
   	cava
@@ -74,6 +95,9 @@
   	picom-next
     cmatrix
     sxhkd
+    wofi
+    hyprpaper
+    waybar
 
   # Fonts
     dejavu_fonts
@@ -91,10 +115,14 @@
     font-awesome
     material-design-icons
     powerline-symbols
-    (pkgs.nerdfonts.override { fonts = [ "UbuntuMono" "Terminus" "CascadiaCode" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
+    nur.repos.oluceps.san-francisco
+    (pkgs.nerdfonts.override { fonts = [ "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
-  # Streaming
+  # Streaming/screenshot
     obs-studio
+    grim # Screenshot tool for hyprland
+    slurp # works with grim to screenshot on wayland
+    wl-clipboard # Enables copy/paste on wayland
 
   # Others
   	steam
@@ -104,6 +132,17 @@
     pavucontrol
 ];
 
+  nixpkgs.config.packageOverrides = pkgs: {
+  # integrates nur within Home-Manager
+  nur = import (builtins.fetchTarball {
+    url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+    sha256 = "0chga5llgczr04varsa5x6fsw319sswjpnfsrijcbwly6rgpzym4";
+  }) { inherit pkgs; };
+  };
+
+
+nixpkgs.config.allowUnfreePredicate = (pkg: true);
+
 programs.git = {
   enable = true;
   userName = "Redyf";
@@ -112,18 +151,6 @@ programs.git = {
   init = { defaultBranch = "main"; };
   };
 };
-
-# gtk = {
-#     enable = true;
-#      iconTheme = {
-#        name = "Adwaita-dark";
-#        package = pkgs.gnome.adwaita-icon-theme;
-#     };
-#      theme = {
-#        name = "Adwaita-dark";
-#        package = pkgs.gnome.adwaita-icon-theme;
-#     };
-#   };
 
 gtk = {
     enable = true;

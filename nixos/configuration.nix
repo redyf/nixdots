@@ -70,34 +70,39 @@ boot.loader = {
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
   
-  # Enable Sway Enviroment.
-
-  # services.xserver.displayManager.gdm = {
-  #  enable = true;
-  #  wayland = true;
-  # };
-
-  #programs.sway = {
-  # 	enable = true;
-  #	wrapperFeatures.gtk = true;
-  #	extraPackages = with pkgs; [
-  #	swaylock-fancy
-  #	swaylock-effects
-  #	dmenu
-  #	waybar
-  #	wofi
-  #	grim
-  #	slurp
-  #	mako
-  #	alacritty
-#  ];
-# };
+programs.hyprland = {
+   enable = true;
+   xwayland = {
+     enable = true;
+     hidpi = true;
+   };
+   nvidiaPatches = true;
+ };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  
+ environment.variables = {
+   GBM_BACKEND = "nvidia-drm";
+   LIBVA_DRIVER_NAME = "nvidia";
+   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+ };
+
+ environment.sessionVariables = {
+   WLR_NO_HARDWARE_CURSORS = "1";
+ };
+
+ hardware = {
+   nvidia = {
+     open = true;
+     powerManagement.enable = true;
+     modesetting.enable = true;
+   };
+   opengl.enable = true;
+   opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+ };
 
   # Configure keymap in X11
   services.xserver = {
@@ -131,12 +136,13 @@ boot.loader = {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # media-session.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -144,15 +150,16 @@ boot.loader = {
     isNormalUser = true;
     description = "redyf";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
-      firefox
     #  thunderbird
     ];
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+  allowUnfree = true;
+};
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -164,6 +171,7 @@ boot.loader = {
    zsh-syntax-highlighting
    zsh-z
    fzf
+   xdg-desktop-portal-gtk
    # wget
   ];
 
@@ -205,6 +213,7 @@ programs.steam.enable = true;
       dotDir = "~/.config/zsh";
     };
 };
+
   nix = {
      package = pkgs.nixFlakes;
      extraOptions = "experimental-features = nix-command flakes";
@@ -217,13 +226,18 @@ programs.steam.enable = true;
    };
 
 # Overlays
-  nixpkgs.overlays = [
-     (self: super: {
-       discord = super.discord.overrideAttrs (
-         _: { src = builtins.fetchTarball https://discord.com/api/download?platform=linux&format=tar.gz; }
-       );
-     })
-  ];
+   # nixpkgs.overlays = [
+   #    (self: super: {
+   #      discord = super.discord.overrideAttrs (
+   #        _: { src = builtins.fetchTarball https://discord.com/api/download?platform=linux&format=tar.gz; }
+   #      );
+   #    })
+   # ];
+
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
