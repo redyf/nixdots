@@ -12,7 +12,7 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
 lvim.colorscheme = "oxocarbon"
-vim.opt.guifont = "FiraCode Nerd Font:h13"
+vim.opt.guifont = "SF Mono Bold:h13"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 

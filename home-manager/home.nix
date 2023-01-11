@@ -16,6 +16,8 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
+  nixpkgs.overlays = [ (import ~/flake/overlays/firefox-overlay.nix) ];
+  
   # customNeovim = import ./config/nvim/nvim.nix;
   home.packages = with pkgs; [
   # Text Editors
@@ -65,7 +67,8 @@
     neofetch
 
   # Browser, vc, pdf
-	  firefox	
+    latest.firefox-nightly-bin
+    google-chrome
 	  discord
 	  zathura
 	
@@ -74,6 +77,7 @@
 	  papirus-icon-theme
 	  brightnessctl
   	xfce.thunar
+    xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
   	dunst
   	nitrogen
   	cava
@@ -85,8 +89,6 @@
     wofi
     hyprpaper
     waybar
-
-  # Xdg
 
   # Fonts
     dejavu_fonts
@@ -104,7 +106,8 @@
     font-awesome
     material-design-icons
     powerline-symbols
-    (pkgs.nerdfonts.override { fonts = [ "UbuntuMono" "Terminus" "CascadiaCode" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
+    nur.repos.oluceps.san-francisco
+    (pkgs.nerdfonts.override { fonts = [ "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
   # Streaming/screenshot
     obs-studio
@@ -119,6 +122,15 @@
   	notion-app-enhanced  
     pavucontrol
 ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+  # integrates nur within Home-Manager
+  nur = import (builtins.fetchTarball {
+    url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+    sha256 = "0chga5llgczr04varsa5x6fsw319sswjpnfsrijcbwly6rgpzym4";
+  }) { inherit pkgs; };
+  };
+
 
 nixpkgs.config.allowUnfreePredicate = (pkg: true);
 

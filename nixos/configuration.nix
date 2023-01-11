@@ -150,9 +150,8 @@ programs.hyprland = {
     isNormalUser = true;
     description = "redyf";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
-      firefox
     #  thunderbird
     ];
   };
@@ -181,10 +180,6 @@ programs.steam.enable = true;
   #fonts.fonts = with pkgs; [
   # (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" "FiraCode" "Hack" "Iosevka" ]; })
   #];
-
-#   fonts = {
-#   fonts = with pkgs; [ sf-mono-liga-bin ];
-# };
 
   #  Default Shell
      
@@ -218,6 +213,7 @@ programs.steam.enable = true;
       dotDir = "~/.config/zsh";
     };
 };
+
   nix = {
      package = pkgs.nixFlakes;
      extraOptions = "experimental-features = nix-command flakes";
