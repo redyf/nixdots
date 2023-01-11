@@ -16,6 +16,8 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
+  # Overlays
+
   nixpkgs.overlays = [ 
   	(self: super: {
 		discord = super.discord.overrideAttrs (
