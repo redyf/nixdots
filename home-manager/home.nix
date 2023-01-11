@@ -16,7 +16,17 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
-  nixpkgs.overlays = [ (import ~/flake/overlays/firefox-overlay.nix) ];
+  nixpkgs.overlays = [ 
+  	(self: super: {
+		discord = super.discord.overrideAttrs (
+			_: { src = builtins.fetchTarball {
+			url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+			}; }
+		);
+	})
+  (import ~/flake/overlays/firefox-overlay.nix)
+];
+
   
   # customNeovim = import ./config/nvim/nvim.nix;
   home.packages = with pkgs; [
@@ -26,10 +36,10 @@
 
   # Compiler
   	gcc
-    python
+    #python
   	cargo
   	lua
-  	python3
+  	#python3
     cmake
     gnupatch
     gnumake
@@ -68,7 +78,6 @@
 
   # Browser, vc, pdf
     latest.firefox-nightly-bin
-    google-chrome
 	  discord
 	  zathura
 	
