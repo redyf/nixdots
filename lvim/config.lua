@@ -170,7 +170,13 @@ lvim.plugins = {
 --       cmd = "TroubleToggle",
 --     },
      {'andweeb/presence.nvim'},
-     {'nyoom-engineering/oxocarbon.nvim'}
+     {'nyoom-engineering/oxocarbon.nvim'},
+  {
+  "Pocco81/auto-save.nvim",
+  config = function()
+    require("auto-save").setup()
+  end,
+},
 }
 
 -- The setup config table shows all available config options with their default values:
