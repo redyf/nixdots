@@ -1,5 +1,41 @@
 {
   "nodes": {
+    "base16": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1643595475,
+        "narHash": "sha256-jWCp0r5BC7U3rKy7RmL6YPhtUrQmfsZoFH5+xb+wDZ8=",
+        "owner": "shaunsingh",
+        "repo": "base16.nix",
+        "rev": "3d21c5c21cc2de27b0f29d6d5aa2693505508d9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shaunsingh",
+        "repo": "base16.nix",
+        "type": "github"
+      }
+    },
+    "base16-oxocarbon": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670657301,
+        "narHash": "sha256-SXrj2ao4049NfkLgDyLaxogcCen1EhtCDEH+xH7L9tk=",
+        "owner": "nyoom-engineering",
+        "repo": "base16-oxocarbon",
+        "rev": "f6944a9536b1e2f2879a32e49b104b2b4c09dfe0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nyoom-engineering",
+        "repo": "base16-oxocarbon",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -149,6 +185,8 @@
     },
     "root": {
       "inputs": {
+        "base16": "base16",
+        "base16-oxocarbon": "base16-oxocarbon",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_2",
