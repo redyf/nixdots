@@ -8,6 +8,18 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = github:nix-community/NUR;
 
+    # Themeing
+    base16 = {
+       url = "github:shaunsingh/base16.nix";
+     inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # IBM-Carbon-Theme (see IBM-design: colors)
+    base16-oxocarbon = {
+      url = "github:nyoom-engineering/base16-oxocarbon";
+      flake = false;
+    };
+
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
@@ -17,7 +29,6 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
       };
 
   outputs = { self, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
@@ -26,7 +37,7 @@
       redyf = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs hyprland sf-mono-liga-src; }; 
         modules = [ ./nixos/configuration.nix hyprland.nixosModules.default
-        {programs.hyprland.enable = true;} ];
+        {programs.hyprland.enable = true;}];
       };
     };
     
