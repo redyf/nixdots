@@ -29,7 +29,7 @@
   (import ~/flake/overlays/firefox-overlay.nix)
 ];
 
-  
+
   # customNeovim = import ./config/nvim/nvim.nix;
   home.packages = with pkgs; [
   # Text Editors

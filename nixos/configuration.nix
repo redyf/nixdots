@@ -177,9 +177,34 @@ programs.hyprland = {
 
 programs.steam.enable = true;
 
-  #fonts.fonts = with pkgs; [
-  # (nerdfonts.override { fonts = [ "CascadiaCode" "JetBrainsMono" "FiraCode" "Hack" "Iosevka" ]; })
-  #];
+ # fonts = {
+ #    fonts = with pkgs; [
+ #      inter
+ #       sf-mono-liga-bin
+ #      material-symbols
+ #      noto-fonts
+ #      noto-fonts-cjk
+ #      noto-fonts-emoji
+ #    ];
+ #    fontconfig = {
+ #      enable = true;
+ #      antialias = true;
+ #      hinting = {
+ #        enable = true;
+ #        autohint = true;
+ #        style = "hintfull";
+ #      };
+
+ #      subpixel.lcdfilter = "default";
+
+ #      defaultFonts = {
+ #        emoji = ["Noto Color Emoji"];
+ #        monospace = ["SFLiga Mono Nerd Font"];
+ #        sansSerif = ["Noto Sans" "Noto Color Emoji"];
+ #        serif = ["Noto Serif" "Noto Color Emoji"];
+ #      };
+ #    };
+ # };
 
   programs.zsh = {
   enable = true;

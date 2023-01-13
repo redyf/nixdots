@@ -20,16 +20,16 @@
 
       };
 
-  outputs = { self, nixpkgs, hyprland, home-manager, ... }@inputs: {
-
+  outputs = { self, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
+  
     nixosConfigurations = {
       redyf = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs hyprland; }; 
+        specialArgs = { inherit inputs hyprland sf-mono-liga-src; }; 
         modules = [ ./nixos/configuration.nix hyprland.nixosModules.default
         {programs.hyprland.enable = true;} ];
       };
     };
-
+    
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
