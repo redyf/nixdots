@@ -9,6 +9,8 @@
     nur.url = github:nix-community/NUR;
 
     # Themeing
+    nix-colors.url = "github:misterio77/nix-colors";
+
     base16 = {
        url = "github:shaunsingh/base16.nix";
      inputs.nixpkgs.follows = "nixpkgs";
@@ -31,13 +33,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
       };
 
-  outputs = { self, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
+  outputs = { self, nix-colors, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
   
     nixosConfigurations = {
       redyf = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs hyprland sf-mono-liga-src; }; 
         modules = [ ./nixos/configuration.nix hyprland.nixosModules.default
-        {programs.hyprland.enable = true;}];
+        {programs.hyprland.enable = true;} ];
       };
     };
     
@@ -46,7 +48,7 @@
     homeConfigurations = {
       "redyf@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        extraSpecialArgs = { inherit inputs nix-colors; }; # Pass flake inputs to our config
         # > Our main home-manager configuration file <
         modules = [ ./home-manager/home.nix ];
       };
