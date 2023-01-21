@@ -1,4 +1,4 @@
-{ inputs, config, nix-colors, pkgs, ... }:
+{ inputs, base16, config, nix-colors, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -83,6 +83,9 @@
     gnumake
     nodejs
 
+  # Design
+    figma-linux
+
   # NPM packages
     nodePackages.npm
     nodePackages.live-server
@@ -154,7 +157,7 @@
     material-design-icons
     powerline-symbols
     nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override { fonts = [ "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
   # Streaming/screenshot
     obs-studio
@@ -174,7 +177,7 @@
   # integrates nur within Home-Manager
   nur = import (builtins.fetchTarball {
     url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-    sha256 = "0chga5llgczr04varsa5x6fsw319sswjpnfsrijcbwly6rgpzym4";
+    sha256 = "1zikzmrdglddzwmz8lzh9bnz55l7kjn991w02mw59x1p1rwv5f7m";
   }) { inherit pkgs; };
   };
 
