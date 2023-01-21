@@ -33,7 +33,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
       };
 
-  outputs = { self, nix-colors, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
+  outputs = { self, nix-colors, base16, base16-oxocarbon, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
   
     nixosConfigurations = {
       redyf = nixpkgs.lib.nixosSystem {
@@ -48,7 +48,7 @@
     homeConfigurations = {
       "redyf@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs nix-colors; }; # Pass flake inputs to our config
+        extraSpecialArgs = { inherit inputs nix-colors base16 base16-oxocarbon; }; # Pass flake inputs to our config
         # > Our main home-manager configuration file <
         modules = [ ./home-manager/home.nix ];
       };
