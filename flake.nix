@@ -34,7 +34,7 @@
       };
 
   outputs = { self, nix-colors, base16, base16-oxocarbon, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
-  
+
     nixosConfigurations = {
       redyf = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs hyprland sf-mono-liga-src; }; 

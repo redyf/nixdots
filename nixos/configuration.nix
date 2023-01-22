@@ -156,6 +156,13 @@ programs.hyprland = {
     ];
   };
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      sha256 = "127n3l0iblbnckal20xs4ck1av7i2khj40dzz85wqv6wqmrkdjij";
+    }))
+  ];
+
   # Allow unfree packages
   nixpkgs.config = {
   allowUnfree = true;
@@ -165,7 +172,7 @@ programs.hyprland = {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
    # vim
-   # git 
+   # git
    zsh
    oh-my-zsh
    zsh-syntax-highlighting

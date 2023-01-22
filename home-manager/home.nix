@@ -74,10 +74,9 @@
 
   # Compiler
   	gcc
-    #python
-  	cargo
+    cargo
   	lua
-  	#python3
+  	python3
     cmake
     gnupatch
     gnumake
