@@ -6,8 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-	./hardware-configuration.nix
+    [
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -15,9 +16,9 @@
   #boot.loader.efi.canTouchEfiVariables = true;
   #boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-boot.loader = {
+  boot.loader = {
     systemd-boot.enable = false;
-    timeout = 0;
+    timeout = 30;
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
@@ -69,40 +70,41 @@ boot.loader = {
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
-  
-programs.hyprland = {
-   enable = true;
-   xwayland = {
-     enable = true;
-     hidpi = true;
-   };
-   nvidiaPatches = true;
- };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
+    nvidiaPatches = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
-  
- environment.variables = {
-   GBM_BACKEND = "nvidia-drm";
-   LIBVA_DRIVER_NAME = "nvidia";
-   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
- };
 
- environment.sessionVariables = {
-   WLR_NO_HARDWARE_CURSORS = "1";
- };
+  environment.variables = {
+    GBM_BACKEND = "nvidia-drm";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
 
- hardware = {
-   nvidia = {
-     open = true;
-     powerManagement.enable = true;
-     modesetting.enable = true;
-   };
-   opengl.enable = true;
-   opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
- };
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
+  hardware = {
+    nvidia = {
+      open = true;
+      powerManagement.enable = true;
+      modesetting.enable = true;
+    };
+    opengl.enable = true;
+    opengl.driSupport32Bit = true;
+    opengl.extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -152,79 +154,79 @@ programs.hyprland = {
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-      sha256 = "127n3l0iblbnckal20xs4ck1av7i2khj40dzz85wqv6wqmrkdjij";
+      sha256 = "1z12wgda1nfjh32qjbi60y78in6d6l3s7iyijdn32rx9wmir4fl4";
     }))
   ];
 
   # Allow unfree packages
   nixpkgs.config = {
-  allowUnfree = true;
-};
+    allowUnfree = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   # vim
-   # git
-   zsh
-   oh-my-zsh
-   zsh-syntax-highlighting
-   zsh-z
-   fzf
-   xdg-desktop-portal-gtk
-   # wget
+    # vim
+    # git
+    zsh
+    oh-my-zsh
+    zsh-syntax-highlighting
+    zsh-z
+    fzf
+    xdg-desktop-portal-gtk
+    # wget
   ];
 
-programs.steam.enable = true;
+  programs.steam.enable = true;
 
- # fonts = {
- #    fonts = with pkgs; [
- #      inter
- #       sf-mono-liga-bin
- #      material-symbols
- #      noto-fonts
- #      noto-fonts-cjk
- #      noto-fonts-emoji
- #    ];
- #    fontconfig = {
- #      enable = true;
- #      antialias = true;
- #      hinting = {
- #        enable = true;
- #        autohint = true;
- #        style = "hintfull";
- #      };
+  # fonts = {
+  #    fonts = with pkgs; [
+  #      inter
+  #       sf-mono-liga-bin
+  #      material-symbols
+  #      noto-fonts
+  #      noto-fonts-cjk
+  #      noto-fonts-emoji
+  #    ];
+  #    fontconfig = {
+  #      enable = true;
+  #      antialias = true;
+  #      hinting = {
+  #        enable = true;
+  #        autohint = true;
+  #        style = "hintfull";
+  #      };
 
- #      subpixel.lcdfilter = "default";
+  #      subpixel.lcdfilter = "default";
 
- #      defaultFonts = {
- #        emoji = ["Noto Color Emoji"];
- #        monospace = ["SFLiga Mono Nerd Font"];
- #        sansSerif = ["Noto Sans" "Noto Color Emoji"];
- #        serif = ["Noto Serif" "Noto Color Emoji"];
- #      };
- #    };
- # };
+  #      defaultFonts = {
+  #        emoji = ["Noto Color Emoji"];
+  #        monospace = ["SFLiga Mono Nerd Font"];
+  #        sansSerif = ["Noto Sans" "Noto Color Emoji"];
+  #        serif = ["Noto Serif" "Noto Color Emoji"];
+  #      };
+  #    };
+  # };
 
   programs.zsh = {
-  enable = true;
-  autosuggestions.enable = true;
-  ohMyZsh.enable = true;
-  ohMyZsh.plugins = [ 
-  "git"
-  "history-substring-search"
-  "colored-man-pages"
-  ];
-  ohMyZsh.theme = "agnoster";
-  syntaxHighlighting.enable = true;
-  shellAliases = {
+    enable = true;
+    autosuggestions.enable = true;
+    ohMyZsh.enable = true;
+    ohMyZsh.plugins = [
+      "git"
+      "history-substring-search"
+      "colored-man-pages"
+    ];
+    ohMyZsh.theme = "agnoster";
+    syntaxHighlighting.enable = true;
+    shellAliases = {
       f = "pfetch";
       v = "lvim";
       nv = "lvimn";
@@ -239,22 +241,22 @@ programs.steam.enable = true;
       gs = "git status";
       dotDir = "~/.config/zsh";
     };
-};
+  };
 
   nix = {
-     package = pkgs.nixFlakes;
-     extraOptions = "experimental-features = nix-command flakes";
-     settings.auto-optimise-store = true;
-     gc = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+    settings.auto-optimise-store = true;
+    gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
-     };
-   };
+    };
+  };
 
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
