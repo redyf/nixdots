@@ -17,9 +17,9 @@
   home.stateVersion = "22.11";
 
   # Imports
-    imports = [
-      nix-colors.homeManagerModule
-    ];
+  imports = [
+    nix-colors.homeManagerModule
+  ];
 
   #   colorScheme = {
   #   slug = "oxocarbon-dark";
@@ -45,105 +45,109 @@
   #   };
   # };
 
-# programs = {
-#     kitty = {
-#       enable = true;
-#       settings = {
-#         foreground = "#${config.colorScheme.colors.base05}";
-#         background = "#${config.colorScheme.colors.base00}";
-#         # ...
-#       };
+  # programs = {
+  #     kitty = {
+  #       enable = true;
+  #       settings = {
+  #         foreground = "#${config.colorScheme.colors.base05}";
+  #         background = "#${config.colorScheme.colors.base00}";
+  #         # ...
+  #       };
 
   # Overlays
-  nixpkgs.overlays = [ 
-  	(self: super: {
-		discord = super.discord.overrideAttrs (
-			_: { src = builtins.fetchTarball {
-			url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-			}; }
-		);
-	})
-  (import ~/flake/overlays/firefox-overlay.nix)
-];
+  nixpkgs.overlays = [
+    (self: super: {
+      discord = super.discord.overrideAttrs (
+        _: {
+          src = builtins.fetchTarball {
+            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+          };
+        }
+      );
+    })
+    (import ~/flake/overlays/firefox-overlay.nix)
+  ];
 
   # customNeovim = import ./config/nvim/nvim.nix;
   home.packages = with pkgs; [
-  # Text Editors
-    neovim 
+    # Text Editors
+    neovim
     neovide
 
-  # Compiler
-  	gcc
+    # Compiler
+    gcc
     cargo
-  	lua
-  	python3
+    lua
+    python3
     cmake
     gnupatch
     gnumake
     nodejs
 
-  # Design
+    # Design
     figma-linux
 
-  # NPM packages
+    # NPM packages
     nodePackages.npm
     nodePackages.live-server
-  
-  # System Utils	
+
+    # System Utils	
     fd
-  	git
-  	exa
-  	wget
-  	fuse
-  	tree
-  	ripgrep
-  	appimage-run
-  	unzip
-  	polkit_gnome
-  	flameshot
+    git
+    exa
+    wget
+    fuse
+    tree
+    ripgrep
+    appimage-run
+    unzip
+    polkit_gnome
+    flameshot
     jq
     zig
     fzf
     mpd
 
-  # Terminal && prompt	
-	  kitty
-	  starship
-	  pfetch
-  	htop
+    # Terminal && prompt	
+    kitty
+    starship
+    pfetch
+    htop
     zsh
-  	sl
+    sl
     oh-my-zsh
     neofetch
 
-  # Browser, vc, pdf
-    latest.firefox-nightly-bin
-	  discord
-	  zathura
-	
-  # Rice
-  	lxappearance
-	  papirus-icon-theme
-	  brightnessctl
-  	xfce.thunar
+    # Browser, vc, pdf
+    # latest.firefox-nightly-bin
+    firefox
+    google-chrome
+    discord
+    zathura
+
+    # Rice
+    lxappearance
+    papirus-icon-theme
+    brightnessctl
+    xfce.thunar
     xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
-  	dunst
-  	nitrogen
-  	cava
-  	rofi
-  	polybar
-  	picom-next
+    dunst
+    nitrogen
+    cava
+    rofi
+    polybar
+    picom-next
     cmatrix
     sxhkd
     wofi
     hyprpaper
     waybar
 
-  # Fonts
+    # Fonts
     dejavu_fonts
     go-font
     nerdfonts
-    font-awesome 
+    font-awesome
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -158,59 +162,67 @@
     nur.repos.oluceps.san-francisco
     (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
-  # Streaming/screenshot
+    # Streaming/screenshot
     obs-studio
     grim # Screenshot tool for hyprland
     slurp # works with grim to screenshot on wayland
     wl-clipboard # Enables copy/paste on wayland
 
-  # Others
-  	steam
-  	spotify
-  	minecraft
-  	notion-app-enhanced  
+    # Gaming
+    wine
+    grapejuice
+    gnutls
+    libpulseaudio
+    minecraft
+
+    # Others
+    steam
+    spotify
+    notion-app-enhanced
     pavucontrol
-];
+  ];
 
   nixpkgs.config.packageOverrides = pkgs: {
-  # integrates nur within Home-Manager
-  nur = import (builtins.fetchTarball {
-    url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-    sha256 = "1zikzmrdglddzwmz8lzh9bnz55l7kjn991w02mw59x1p1rwv5f7m";
-  }) { inherit pkgs; };
+    # integrates nur within Home-Manager
+    nur = import
+      (builtins.fetchTarball {
+        url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+        sha256 = "0wa4yraj7vz89ma4hq4cd60am5b20hy94pm3rlz9gw1rp8z1r2ri";
+      })
+      { inherit pkgs; };
   };
 
 
-nixpkgs.config.allowUnfreePredicate = (pkg: true);
+  nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
-programs.git = {
-  enable = true;
-  userName = "Redyf";
-  userEmail = "mateusalvespereira7@gmail.com";
-  extraConfig = {
-  init = { defaultBranch = "main"; };
-  };
-};
-
-gtk = {
+  programs.git = {
     enable = true;
-     cursorTheme = {
-       name = "macOS-BigSur";
-       package = pkgs.apple-cursor;
+    userName = "Redyf";
+    userEmail = "mateusalvespereira7@gmail.com";
+    extraConfig = {
+      init = { defaultBranch = "main"; };
     };
-     theme = {
-       name = "whitesur-gtk-theme";
-       package = pkgs.whitesur-gtk-theme;
+  };
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "macOS-BigSur";
+      package = pkgs.apple-cursor;
     };
-     iconTheme = {
-       name = "Papirus-Dark";
-       package = pkgs.papirus-folders;
+    theme = {
+      name = "whitesur-gtk-theme";
+      package = pkgs.whitesur-gtk-theme;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-folders;
     };
   };
 
   # Other themes: macOS-BigSur-White, macOS-BigSur, macOS-Monterey-White, macOS-Monterey
 
-    fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
 
   # add support for .local/bin
   home.sessionPath = [
