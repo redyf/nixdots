@@ -73,6 +73,7 @@
     # Text Editors
     neovim
     neovide
+    vscode
 
     # Compiler
     gcc
@@ -174,9 +175,9 @@
     gnutls
     libpulseaudio
     minecraft
+    steam
 
     # Others
-    steam
     spotify
     notion-app-enhanced
     pavucontrol
@@ -187,7 +188,7 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0wa4yraj7vz89ma4hq4cd60am5b20hy94pm3rlz9gw1rp8z1r2ri";
+        sha256 = "0wxk3lrd6hl6gvz088am4q4sly9nwfhn1v1s11ayz48afa5z467j";
       })
       { inherit pkgs; };
   };
