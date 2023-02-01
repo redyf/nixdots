@@ -80,6 +80,7 @@
     cargo
     lua
     python3
+    python310Packages.debugpy
     cmake
     gnupatch
     gnumake
