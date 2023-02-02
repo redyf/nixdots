@@ -162,7 +162,7 @@
     material-design-icons
     powerline-symbols
     nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
     # Streaming/screenshot
     obs-studio
@@ -180,6 +180,7 @@
 
     # Others
     spotify
+    obsidian
     notion-app-enhanced
     pavucontrol
   ];
