@@ -75,7 +75,7 @@
     neovide
     vscode
 
-    # Compiler
+    # Compilers
     gcc
     cargo
     lua
@@ -100,6 +100,7 @@
     wget
     fuse
     tree
+    peek
     ripgrep
     appimage-run
     unzip
@@ -190,7 +191,7 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0wxk3lrd6hl6gvz088am4q4sly9nwfhn1v1s11ayz48afa5z467j";
+        sha256 = "0c6vrlrid5vh759qly3jk6zwrd8c16hpql06qgj7f5iav1bwz4ms";
       })
       { inherit pkgs; };
   };
