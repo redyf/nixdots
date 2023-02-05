@@ -34,11 +34,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-colors, base16, base16-oxocarbon, nixpkgs, sf-mono-liga-src, hyprland, home-manager, ... }@inputs: {
+  outputs = { self, nix-colors, base16, base16-oxocarbon, nixpkgs, hyprland, home-manager, ... }@inputs: {
 
     nixosConfigurations = {
       redyf = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs hyprland sf-mono-liga-src; };
+        specialArgs = { inherit inputs hyprland; };
         modules = [
           ./nixos/configuration.nix
           hyprland.nixosModules.default
