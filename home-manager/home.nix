@@ -80,7 +80,6 @@
     cargo
     lua
     python3
-    python310Packages.debugpy
     cmake
     gnupatch
     gnumake
@@ -89,44 +88,50 @@
     # Design
     figma-linux
 
+    #Python/pip packages
+    python310Packages.pip
+    python3Packages.tqdm
+    python310Packages.debugpy
+
     # NPM packages
     nodePackages.npm
     nodePackages.live-server
 
     # System Utils	
     fd
+    jq
     git
     exa
+    zig
+    fzf
+    mpd
     wget
     fuse
     tree
     peek
-    ripgrep
-    appimage-run
     unzip
-    polkit_gnome
+    lazygit
+    ripgrep
     flameshot
-    jq
-    zig
-    fzf
-    mpd
+    appimage-run
+    polkit_gnome
 
     # Terminal && prompt	
-    kitty
-    starship
-    pfetch
-    htop
-    zsh
     sl
-    oh-my-zsh
+    zsh
+    htop
+    kitty
+    pfetch
+    starship
     neofetch
+    oh-my-zsh
 
     # Browser, vc, pdf
     # latest.firefox-nightly-bin
     firefox
-    google-chrome
     discord
     zathura
+    google-chrome
 
     # Rice
     lxappearance
