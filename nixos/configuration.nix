@@ -158,12 +158,12 @@
     ];
   };
 
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-      sha256 = "1af9brch9gk3px8d8x99pab1j66dmjzz21qdwidhrdm7apa0z9h8";
-    }))
-  ];
+  # nixpkgs.overlays = [
+  #   (import (builtins.fetchTarball {
+  #     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+  #     sha256 = "16advd3xbwxd705n9ngs6npg0bwgvqmdfg4g80nbisimw3h5ww3v";
+  #   }))
+  # ];
 
   # Allow unfree packages
   nixpkgs.config = {
