@@ -17,42 +17,6 @@
   home.stateVersion = "22.11";
 
   # Imports
-  imports = [
-    nix-colors.homeManagerModule
-  ];
-
-  #   colorScheme = {
-  #   slug = "oxocarbon-dark";
-  #   name = "Oxocarbon-Dark";
-  #   author = "shaunsingh/IBM";
-  #   colors = {
-  #     base00 = "#161616";
-  #     base01 = "#262626";
-  #     base02 = "#393939";
-  #     base03 = "#525252";
-  #     base04 = "#dde1e6";
-  #     base05 = "#f2f4f8";
-  #     base06 = "#ffffff";
-  #     base07 = "#08bdba";
-  #     base08 = "#3ddbd9";
-  #     base09 = "#78a9ff";
-  #     base0A = "#ee5396";
-  #     base0B = "#33b1ff";
-  #     base0C = "#ff7eb6";
-  #     base0D = "#42be65";
-  #     base0E = "#be95ff"; 
-  #     base0F = "#82cfff";
-  #   };
-  # };
-
-  # programs = {
-  #     kitty = {
-  #       enable = true;
-  #       settings = {
-  #         foreground = "#${config.colorScheme.colors.base05}";
-  #         background = "#${config.colorScheme.colors.base00}";
-  #         # ...
-  #       };
 
   # Overlays
   nixpkgs.overlays = [
@@ -71,7 +35,6 @@
     # }))
   ];
 
-  # customNeovim = import ./config/nvim/nvim.nix;
   home.packages = with pkgs; [
     # Text Editors
     neovim
@@ -80,13 +43,14 @@
 
     # Compilers
     gcc
-    cargo
+    jdk
     lua
-    python3
+    cargo
     cmake
-    gnupatch
-    gnumake
     nodejs
+    gnumake
+    python3
+    gnupatch
 
     # Design
     figma-linux
@@ -196,6 +160,7 @@
     pavucontrol
   ];
 
+
   nixpkgs.config.packageOverrides = pkgs: {
     # integrates nur within Home-Manager
     nur = import
@@ -233,8 +198,6 @@
       package = pkgs.papirus-folders;
     };
   };
-
-  # Other themes: macOS-BigSur-White, macOS-BigSur, macOS-Monterey-White, macOS-Monterey
 
   fonts.fontconfig.enable = true;
 
