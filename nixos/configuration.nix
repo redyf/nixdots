@@ -18,7 +18,7 @@
 
   boot.loader = {
     systemd-boot.enable = false;
-    timeout = 30;
+    timeout = 20;
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
@@ -153,9 +153,6 @@
     description = "redyf";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "input" ];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
   };
 
   # nixpkgs.overlays = [
