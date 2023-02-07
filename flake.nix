@@ -6,8 +6,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/NUR";
     waybar.url = "github:alexays/Waybar";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # Themeing
     nix-colors.url = "github:misterio77/nix-colors";
@@ -35,7 +36,6 @@
   };
 
   outputs = { self, nix-colors, base16, base16-oxocarbon, nixpkgs, hyprland, home-manager, ... }@inputs: {
-
     nixosConfigurations = {
       redyf = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs hyprland; };

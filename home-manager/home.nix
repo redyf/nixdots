@@ -66,6 +66,9 @@
       );
     })
     (import ~/flake/overlays/firefox-overlay.nix)
+    # (import (builtins.fetchTarball {
+    #   url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    # }))
   ];
 
   # customNeovim = import ./config/nvim/nvim.nix;
@@ -113,6 +116,7 @@
     lazygit
     ripgrep
     flameshot
+    tree-sitter
     appimage-run
     polkit_gnome
 
@@ -167,6 +171,7 @@
     font-awesome
     material-design-icons
     powerline-symbols
+    comic-mono
     nur.repos.oluceps.san-francisco
     (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
@@ -196,7 +201,7 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0c6vrlrid5vh759qly3jk6zwrd8c16hpql06qgj7f5iav1bwz4ms";
+        sha256 = "1921qip12bn612slvm4jqpcx4jhw4qcfplcd8h7w9mc14s4niyv2";
       })
       { inherit pkgs; };
   };
