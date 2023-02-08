@@ -59,6 +59,7 @@
     python310Packages.pip
     python3Packages.tqdm
     python310Packages.debugpy
+    python310Packages.ascii-magic
 
     # NPM packages
     nodePackages.npm
@@ -166,7 +167,7 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "1921qip12bn612slvm4jqpcx4jhw4qcfplcd8h7w9mc14s4niyv2";
+        sha256 = "09amvsfldxcy7iba55axyqfzvm8ww7za0avmymx17jfjbzipvz05";
       })
       { inherit pkgs; };
   };
