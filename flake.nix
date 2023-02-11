@@ -34,7 +34,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, base16, base16-oxocarbon, nixpkgs, hyprland, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, hyprland, home-manager, ... }@inputs: {
     nixosConfigurations = {
       redyf = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs hyprland; };
