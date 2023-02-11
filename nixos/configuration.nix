@@ -223,7 +223,7 @@
     ];
     ohMyZsh.theme = "agnoster";
     syntaxHighlighting.enable = true;
-    autosuggestions.highlightStyle = "fg=#E9729D";
+    # autosuggestions.highlightStyle = "fg=#E9729D";
     shellAliases = {
       f = "pfetch";
       v = "lvim";

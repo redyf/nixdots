@@ -56,14 +56,18 @@
     figma-linux
 
     #Python/pip packages
-    python310Packages.pip
+    python3Packages.pip
     python3Packages.tqdm
-    python310Packages.debugpy
-    python310Packages.ascii-magic
+    python3Packages.debugpy
+    python3Packages.ascii-magic
 
     # NPM packages
     nodePackages.npm
     nodePackages.live-server
+
+    # Lua packages
+    stylua # Lua formatter
+    luajitPackages.luarocks-nix
 
     # System Utils	
     fd
@@ -141,10 +145,12 @@
     (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
     # Streaming/screenshot
-    obs-studio
     grim # Screenshot tool for hyprland
-    slurp # works with grim to screenshot on wayland
+    slurp # Works with grim to screenshot on wayland
+    ffmpeg # A complete, cross-platform solution to record, convert and stream audio and video
+    obs-studio # Livestreams
     wl-clipboard # Enables copy/paste on wayland
+    davinci-resolve # Video editing
 
     # Gaming
     wine
@@ -161,6 +167,9 @@
     pavucontrol
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "python-2.7.18.6"
+  ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     # integrates nur within Home-Manager
