@@ -157,11 +157,11 @@
     grapejuice
     gnutls
     libpulseaudio
-    minecraft
+    # minecraft
     steam
 
     # Others
-    spotify
+    # spotify
     obsidian
     notion-app-enhanced
     pavucontrol
@@ -176,7 +176,7 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "09amvsfldxcy7iba55axyqfzvm8ww7za0avmymx17jfjbzipvz05";
+        sha256 = "0sqgyvrg3pvkrvsqbyx8jd09hz7nncw1aypsqirkc8ylds1149j8";
       })
       { inherit pkgs; };
   };
