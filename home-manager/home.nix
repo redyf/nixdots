@@ -157,7 +157,7 @@
     grapejuice
     gnutls
     libpulseaudio
-    # minecraft
+    minecraft
     steam
 
     # Others
