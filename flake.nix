@@ -9,25 +9,6 @@
     nur.url = "github:nix-community/NUR";
     waybar.url = "github:alexays/Waybar";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    
-    # Games
-
-    # Theming
-    base16 = {
-      url = "github:shaunsingh/base16.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    base16-oxocarbon = {
-      url = "github:nyoom-engineering/base16-oxocarbon";
-      flake = false;
-    };
-
-    # SFMono w/patches
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
