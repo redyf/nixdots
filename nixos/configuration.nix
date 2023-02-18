@@ -31,13 +31,34 @@
       efiSupport = true;
       useOSProber = true;
       configurationLimit = 5;
-      theme = pkgs.fetchFromGitHub {
-        # current as of 11/2022
-        owner = "shvchk";
-        repo = "fallout-grub-theme";
-        rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
-        sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
-      };
+      # theme = pkgs.fetchFromGitHub {
+      #   owner = "shvchk";
+      #   repo = "fallout-grub-theme";
+      #   rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
+      #   sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
+      # };
+      #   theme = (pkgs.fetchFromGitHub
+      #     {
+      #       owner = "catppuccin";
+      #       repo = "grub";
+      #       rev = "803c5df0e83aba61668777bb96d90ab8f6847106";
+      #       sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
+      #     } + "/src/catppuccin-mocha-grub-theme");
+      # };
+      # theme = (pkgs.fetchFromGitHub
+      #   {
+      #     owner = "OliveThePuffin";
+      #     repo = "yorha-grub-theme";
+      #     rev = "4d9cd37baf56c4f5510cc4ff61be278f11077c81";
+      #     sha256 = "0r6i95wbc5v7b50chy0lmfjrhf6akbm68y6ipm1hzvac087xhp2x";
+      #   } + "/yorha-1920x1080");
+      theme = pkgs.fetchFromGitHub
+        {
+          owner = "Lxtharia";
+          repo = "minegrub-theme";
+          rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
+          sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
+        };
     };
   };
 
@@ -86,6 +107,9 @@
     };
     nvidiaPatches = true;
   };
+
+  programs.haguichi.enable = true;
+  services.logmein-hamachi.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
