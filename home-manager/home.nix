@@ -30,9 +30,6 @@
       );
     })
     (import ~/flake/overlays/firefox-overlay.nix)
-    # (import (builtins.fetchTarball {
-    #   url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-    # }))
   ];
 
   home.packages = with pkgs; [
@@ -67,6 +64,7 @@
 
     # Lua packages
     stylua # Lua formatter
+    selene # Lua linter written in rust
     luajitPackages.luarocks-nix
 
     # System Utils	
@@ -81,6 +79,7 @@
     fuse
     tree
     peek
+    # chafa # Transform images into colorful ascii (works with gifs too)
     unzip
     lazygit
     ripgrep
@@ -88,6 +87,7 @@
     tree-sitter
     appimage-run
     polkit_gnome
+    nix-prefetch-git # Script used to obtain source hashes for fetchgit
 
     # Terminal && prompt	
     sl
@@ -107,22 +107,23 @@
     google-chrome
 
     # Rice
-    lxappearance
-    papirus-icon-theme
-    brightnessctl
-    xfce.thunar
-    xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
-    dunst
-    nitrogen
+    wofi
     cava
     rofi
-    polybar
-    picom-next
-    cmatrix
+    dunst
     sxhkd
-    wofi
-    hyprpaper
     waybar
+    cmatrix
+    polybar
+    nitrogen
+    hyprpaper
+    picom-next
+    xfce.thunar
+    lxappearance
+    brightnessctl
+    betterdiscordctl
+    papirus-icon-theme
+    xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
 
     # Fonts
     dejavu_fonts
@@ -130,16 +131,13 @@
     nerdfonts
     font-awesome
     noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
     liberation_ttf
-    fira-code
     fira-code-symbols
     mplus-outline-fonts.githubRelease
-    jetbrains-mono
     font-awesome
     material-design-icons
     powerline-symbols
+    powerline-fonts
     comic-mono
     nur.repos.oluceps.san-francisco
     (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
@@ -147,7 +145,7 @@
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
     slurp # Works with grim to screenshot on wayland
-    ffmpeg # A complete, cross-platform solution to record, convert and stream audio and video
+    # ffmpeg_5 # A complete, cross-platform solution to record, convert and stream audio and video
     obs-studio # Livestreams
     wl-clipboard # Enables copy/paste on wayland
     davinci-resolve # Video editing
@@ -158,13 +156,15 @@
     gnutls
     libpulseaudio
     minecraft
+    lunar-client # Minecraft client
+    logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
     steam
 
     # Others
-    # spotify
+    spotify
     obsidian
-    notion-app-enhanced
     pavucontrol
+    notion-app-enhanced
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
