@@ -161,7 +161,6 @@
     gnutls
     libpulseaudio
     minecraft
-    lunar-client # Minecraft client
     logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
     steam
 
@@ -181,11 +180,10 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0sqgyvrg3pvkrvsqbyx8jd09hz7nncw1aypsqirkc8ylds1149j8";
+        sha256 = "1qf5ypma8b33slr4qgrf5z9x8bnv38fcpnlpv26jkbax1013053v";
       })
       { inherit pkgs; };
   };
-
 
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
@@ -224,3 +222,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
+
