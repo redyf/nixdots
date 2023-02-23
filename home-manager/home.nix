@@ -43,13 +43,17 @@
     neovide
     vscode
 
-    # Compilers
+    # Compilers/Development
     gcc
     jdk
     lua
     cargo
     cmake
+    rlwrap # Clojure dependency
     nodejs
+    zprint # Clojure formatter
+    clj-kondo # Linter for Closure
+    clojure
     gnumake
     python3
     gnupatch
@@ -58,19 +62,29 @@
     figma-linux
 
     #Python/pip packages
+    black # Python formatter
     python3Packages.pip
     python3Packages.tqdm
     python3Packages.debugpy
+    python3Packages.flake8 # Python linter
     python3Packages.ascii-magic
 
     # NPM packages
-    nodePackages.npm
-    nodePackages.live-server
+    nodePackages.npm # Package manager
+    nodePackages.live-server # Live server
+    nodePackages_latest.eslint_d # JS linter
+    nodePackages_latest.prettier # Formatter
 
     # Lua packages
     stylua # Lua formatter
     selene # Lua linter written in rust
-    luajitPackages.luarocks-nix
+    luaformatter # Lua formatter (currently using this one)
+    lua-language-server # Lua LSP
+    luajitPackages.luacheck # Lua linter
+    luajitPackages.luarocks-nix # Package manager for Lua on Nix
+
+    # Other packages for nvim
+    shellcheck # Shell script analysis tool
 
     # System Utils	
     fd
