@@ -43,6 +43,9 @@
     neovide
     vscode
 
+    # Neovim packages/plugins
+    vimPlugins.presence-nvim
+
     # Compilers/Development
     gcc
     jdk
@@ -50,13 +53,15 @@
     cargo
     cmake
     rlwrap # Clojure dependency
+    erlangR25 # Programming language used for massively scalable soft real-time systems
     nodejs
     zprint # Clojure formatter
-    clj-kondo # Linter for Closure
+    clj-kondo # Linter for Clojure
     clojure
     gnumake
     python3
     gnupatch
+    elixir_1_14 # Elixir language 
 
     # Design
     figma-linux
@@ -82,6 +87,14 @@
     lua-language-server # Lua LSP
     luajitPackages.luacheck # Lua linter
     luajitPackages.luarocks-nix # Package manager for Lua on Nix
+
+    # Clojure packages
+    babashka # Native, fast starting Clojure interpreter for scripting
+    leiningen # Project automation for Clojure
+    clojure-lsp # Language server protocol for Clojure
+
+    # Elixir packages
+    vscode-extensions.elixir-lsp.vscode-elixir-ls
 
     # Other packages for nvim
     shellcheck # Shell script analysis tool
