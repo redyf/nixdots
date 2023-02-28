@@ -53,14 +53,14 @@
     cargo
     cmake
     rlwrap # Clojure dependency
-    erlangR25 # Programming language used for massively scalable soft real-time systems
     nodejs
     zprint # Clojure formatter
-    clj-kondo # Linter for Clojure
     clojure
     gnumake
     python3
+    beautysh # Shell formatter
     gnupatch
+    clj-kondo # Linter for Clojure
     elixir_1_14 # Elixir language 
 
     # Design
@@ -207,7 +207,7 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "1qf5ypma8b33slr4qgrf5z9x8bnv38fcpnlpv26jkbax1013053v";
+        sha256 = "0c7h08145xk1yhbi39zd9i6yjp1w2vwdq10772bdhb1hn4llv1np";
       })
       { inherit pkgs; };
   };
