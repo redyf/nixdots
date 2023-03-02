@@ -153,7 +153,7 @@
     xfce.thunar
     lxappearance
     brightnessctl
-    betterdiscordctl
+    # betterdiscordctl
     papirus-icon-theme
     xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
 
@@ -177,7 +177,7 @@
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
     slurp # Works with grim to screenshot on wayland
-    # ffmpeg_5 # A complete, cross-platform solution to record, convert and stream audio and video
+    ffmpeg_5 # A complete, cross-platform solution to record, convert and stream audio and video
     obs-studio # Livestreams
     wl-clipboard # Enables copy/paste on wayland
     davinci-resolve # Video editing
