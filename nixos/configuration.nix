@@ -52,13 +52,20 @@
       #     rev = "4d9cd37baf56c4f5510cc4ff61be278f11077c81";
       #     sha256 = "0r6i95wbc5v7b50chy0lmfjrhf6akbm68y6ipm1hzvac087xhp2x";
       #   } + "/yorha-1920x1080");
+      # theme = pkgs.fetchFromGitHub
+      #   {
+      #     owner = "Lxtharia";
+      #     repo = "minegrub-theme";
+      #     rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
+      #     sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
+      #   };
       theme = pkgs.fetchFromGitHub
         {
-          owner = "Lxtharia";
-          repo = "minegrub-theme";
-          rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
-          sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
-        };
+          owner = "Patato777";
+          repo = "dotfiles";
+          rev = "d6f96fa59327a936d335f01a7295815250f96ff7";
+          sha256 = "18mra67kd20bld5zxlvb89ik8psr2pj0v9iaizqpd485sywgqwiq";
+        } + "/grub/themes/virtuaverse";
     };
   };
 
@@ -95,7 +102,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
 
@@ -252,7 +259,7 @@
       "history-substring-search"
       "colored-man-pages"
     ];
-    ohMyZsh.theme = "agnoster";
+    ohMyZsh.theme = "bira";
     syntaxHighlighting.enable = true;
     # autosuggestions.highlightStyle = "fg=#E9729D";
     shellAliases = {
