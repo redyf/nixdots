@@ -63,12 +63,16 @@
     clj-kondo # Linter for Clojure
     elixir_1_14 # Elixir language 
 
+    # Nix Packages
+    alejandra # Nix formatter written in Rust
+    statix # Lints and suggestions for the nix programming language
+
     # Design
     figma-linux
 
     #Python/pip packages
     black # Python formatter
-    python3Packages.pip
+    python310Packages.pip
     python3Packages.tqdm
     python3Packages.debugpy
     python3Packages.flake8 # Python linter
@@ -94,7 +98,7 @@
     clojure-lsp # Language server protocol for Clojure
 
     # Elixir packages
-    vscode-extensions.elixir-lsp.vscode-elixir-ls
+    elixir_ls
 
     # Other packages for nvim
     shellcheck # Shell script analysis tool
@@ -183,7 +187,6 @@
     davinci-resolve # Video editing
 
     # Gaming
-    wine
     grapejuice
     gnutls
     libpulseaudio
@@ -207,7 +210,7 @@
     nur = import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0c7h08145xk1yhbi39zd9i6yjp1w2vwdq10772bdhb1hn4llv1np";
+        sha256 = "16fng6yy0f17lv1kvd6qjp7r467ak0jkc3x1i3dslnhzqqshckli";
       })
       { inherit pkgs; };
   };

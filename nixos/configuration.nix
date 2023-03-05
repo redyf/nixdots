@@ -1,15 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  final,
+  prev,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
@@ -59,15 +62,30 @@
       #     rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
       #     sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
       #   };
-      theme = pkgs.fetchFromGitHub
+      theme =
+        pkgs.fetchFromGitHub
         {
           owner = "Patato777";
           repo = "dotfiles";
           rev = "d6f96fa59327a936d335f01a7295815250f96ff7";
           sha256 = "18mra67kd20bld5zxlvb89ik8psr2pj0v9iaizqpd485sywgqwiq";
-        } + "/grub/themes/virtuaverse";
+        }
+        + "/grub/themes/virtuaverse";
     };
   };
+
+  # (final: prev: {
+  #   sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
+  #     pname = "sf-mono-liga-bin";
+  #     version = "dev";
+  #     src = inputs.sf-mono-liga-src;
+  #     dontConfigure = true;
+  #     installPhase = ''
+  #       mkdir -p $out/share/fonts/opentype
+  #       cp -R $src/*.otf $out/share/fonts/opentype/
+  #     '';
+  #   };
+  # });
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -121,7 +139,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   environment.variables = {
     GBM_BACKEND = "nvidia-drm";
@@ -141,7 +159,7 @@
     };
     opengl.enable = true;
     opengl.driSupport32Bit = true;
-    opengl.extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
   };
 
   # Configure keymap in X11
@@ -190,7 +208,7 @@
     isNormalUser = true;
     description = "redyf";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = ["networkmanager" "wheel" "input"];
   };
 
   # nixpkgs.overlays = [
@@ -291,8 +309,8 @@
   };
 
   nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -321,5 +339,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
