@@ -1,6 +1,11 @@
-{ inputs, base16, config, nix-colors, pkgs, ... }:
-
 {
+  inputs,
+  base16,
+  config,
+  nix-colors,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "redyf";
@@ -31,7 +36,7 @@
     })
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       });
     })
     (import ~/flake/overlays/firefox-overlay.nix)
@@ -39,9 +44,9 @@
 
   home.packages = with pkgs; [
     # Text Editors
+    emacs
     neovim
     neovide
-    vscode
 
     # Neovim packages/plugins
     vimPlugins.presence-nvim
@@ -61,7 +66,7 @@
     beautysh # Shell formatter
     gnupatch
     clj-kondo # Linter for Clojure
-    elixir_1_14 # Elixir language 
+    elixir_1_14 # Elixir language
 
     # Nix Packages
     alejandra # Nix formatter written in Rust
@@ -103,7 +108,7 @@
     # Other packages for nvim
     shellcheck # Shell script analysis tool
 
-    # System Utils	
+    # System Utils
     fd
     jq
     git
@@ -125,7 +130,7 @@
     polkit_gnome
     nix-prefetch-git # Script used to obtain source hashes for fetchgit
 
-    # Terminal && prompt	
+    # Terminal && prompt
     sl
     zsh
     htop
@@ -176,7 +181,7 @@
     powerline-fonts
     comic-mono
     nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
+    (pkgs.nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka"];})
 
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
@@ -207,22 +212,23 @@
 
   nixpkgs.config.packageOverrides = pkgs: {
     # integrates nur within Home-Manager
-    nur = import
+    nur =
+      import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
         sha256 = "16fng6yy0f17lv1kvd6qjp7r467ak0jkc3x1i3dslnhzqqshckli";
       })
-      { inherit pkgs; };
+      {inherit pkgs;};
   };
 
-  nixpkgs.config.allowUnfreePredicate = (pkg: true);
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
 
   programs.git = {
     enable = true;
     userName = "Redyf";
     userEmail = "mateusalvespereira7@gmail.com";
     extraConfig = {
-      init = { defaultBranch = "main"; };
+      init = {defaultBranch = "main";};
     };
   };
 
@@ -252,4 +258,3 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
-
