@@ -281,6 +281,7 @@
     syntaxHighlighting.enable = true;
     # autosuggestions.highlightStyle = "fg=#E9729D";
     shellAliases = {
+      e = "emacsclient -c -a 'emacs'";
       f = "pfetch";
       v = "lvim";
       nv = "lvimn";
