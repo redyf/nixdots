@@ -105,6 +105,12 @@
     # Elixir packages
     elixir_ls
 
+    # Lsp
+
+    # Linters
+
+    # Formatters
+
     # Other packages for nvim
     shellcheck # Shell script analysis tool
 
@@ -124,6 +130,7 @@
     unzip
     lazygit
     ripgrep
+    findutils
     flameshot
     tree-sitter
     appimage-run
@@ -136,6 +143,8 @@
     htop
     kitty
     pfetch
+    # hilbish # An interactive Unix-like shell written in Go
+    # wezterm
     starship
     neofetch
     oh-my-zsh
@@ -216,7 +225,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "16fng6yy0f17lv1kvd6qjp7r467ak0jkc3x1i3dslnhzqqshckli";
+        sha256 = "17nq1qbzar486lip1mpixl090m7lqlj2x97f902ijm2d0wmvc3qg";
       })
       {inherit pkgs;};
   };
