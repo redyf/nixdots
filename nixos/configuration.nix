@@ -208,7 +208,13 @@
     isNormalUser = true;
     description = "redyf";
     shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "input"];
+    extraGroups = ["networkmanager" "wheel" "input" "docker"];
+  };
+
+  # Enables docker in rootless mode
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
   };
 
   # nixpkgs.overlays = [

@@ -53,7 +53,8 @@
 
     # Compilers/Development
     gcc
-    jdk
+    # jdk # Java development kit
+    jdk8
     lua
     cargo
     cmake
@@ -225,7 +226,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "17nq1qbzar486lip1mpixl090m7lqlj2x97f902ijm2d0wmvc3qg";
+        sha256 = "102zkygas5wdpbh96qi0ya2h4pyhqyvic5ak64rlp5cvxhcbxa6n";
       })
       {inherit pkgs;};
   };
