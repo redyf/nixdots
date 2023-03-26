@@ -244,6 +244,7 @@
   ];
 
   programs.steam.enable = true;
+  services.flatpak.enable = true;
 
   # fonts = {
   #    fonts = with pkgs; [
@@ -287,6 +288,8 @@
     syntaxHighlighting.enable = true;
     # autosuggestions.highlightStyle = "fg=#E9729D";
     shellAliases = {
+      badlion = "appimage-run ~/Downloads/BadlionClient";
+      lunar = "flatpak run com.lunarclient.LunarClient";
       e = "emacsclient -c -a 'emacs'";
       f = "pfetch";
       v = "lvim";
