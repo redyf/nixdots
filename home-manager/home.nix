@@ -44,7 +44,6 @@
 
   home.packages = with pkgs; [
     # Text Editors
-    emacs
     neovim
     neovide
 
@@ -123,7 +122,9 @@
     zig
     fzf
     mpd
+    mpv
     wget
+    file
     fuse
     tree
     peek
@@ -167,6 +168,7 @@
     cmatrix
     polybar
     nitrogen
+    mpvpaper
     hyprpaper
     picom-next
     xfce.thunar
@@ -226,7 +228,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "102zkygas5wdpbh96qi0ya2h4pyhqyvic5ak64rlp5cvxhcbxa6n";
+        sha256 = "1vczsl7jyhhmzb6i1648xbyydy9b3dnpzmzkl0zrbla1dx9d6zvk";
       })
       {inherit pkgs;};
   };
