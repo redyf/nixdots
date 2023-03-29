@@ -135,6 +135,8 @@
 
   programs.haguichi.enable = true;
   services.logmein-hamachi.enable = true;
+  programs.steam.enable = true;
+  services.flatpak.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -242,38 +244,6 @@
     xdg-desktop-portal-gtk
     # wget
   ];
-
-  programs.steam.enable = true;
-  services.flatpak.enable = true;
-
-  # fonts = {
-  #    fonts = with pkgs; [
-  #      inter
-  #       sf-mono-liga-bin
-  #      material-symbols
-  #      noto-fonts
-  #      noto-fonts-cjk
-  #      noto-fonts-emoji
-  #    ];
-  #    fontconfig = {
-  #      enable = true;
-  #      antialias = true;
-  #      hinting = {
-  #        enable = true;
-  #        autohint = true;
-  #        style = "hintfull";
-  #      };
-
-  #      subpixel.lcdfilter = "default";
-
-  #      defaultFonts = {
-  #        emoji = ["Noto Color Emoji"];
-  #        monospace = ["SFLiga Mono Nerd Font"];
-  #        sansSerif = ["Noto Sans" "Noto Color Emoji"];
-  #        serif = ["Noto Serif" "Noto Color Emoji"];
-  #      };
-  #    };
-  # };
 
   programs.zsh = {
     enable = true;
