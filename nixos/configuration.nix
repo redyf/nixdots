@@ -74,19 +74,6 @@
     };
   };
 
-  # (final: prev: {
-  #   sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
-  #     pname = "sf-mono-liga-bin";
-  #     version = "dev";
-  #     src = inputs.sf-mono-liga-src;
-  #     dontConfigure = true;
-  #     installPhase = ''
-  #       mkdir -p $out/share/fonts/opentype
-  #       cp -R $src/*.otf $out/share/fonts/opentype/
-  #     '';
-  #   };
-  # });
-
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -133,10 +120,17 @@
     nvidiaPatches = true;
   };
 
+  # Enable programs/services
   programs.haguichi.enable = true;
   services.logmein-hamachi.enable = true;
   programs.steam.enable = true;
   services.flatpak.enable = true;
+
+  # Enables docker in rootless mode
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -211,12 +205,6 @@
     description = "redyf";
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel" "input" "docker"];
-  };
-
-  # Enables docker in rootless mode
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
   };
 
   # nixpkgs.overlays = [
