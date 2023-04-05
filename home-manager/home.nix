@@ -52,9 +52,8 @@
 
     # Compilers/Development
     gcc
-    # jdk # Java development kit
-    jdk8
     lua
+    jdk8
     cargo
     cmake
     rlwrap # Clojure dependency
@@ -67,6 +66,9 @@
     gnupatch
     clj-kondo # Linter for Clojure
     elixir_1_14 # Elixir language
+
+    # C/C++ Packages
+    ccls #A c/c++ language server powered by clang
 
     # Nix Packages
     alejandra # Nix formatter written in Rust
