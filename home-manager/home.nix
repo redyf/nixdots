@@ -71,6 +71,7 @@
     # Nix Packages
     alejandra # Nix formatter written in Rust
     statix # Lints and suggestions for the nix programming language
+    rnix-lsp # Nix LSP
 
     # Design
     figma-linux
@@ -80,8 +81,9 @@
     python310Packages.pip
     python3Packages.tqdm
     python3Packages.debugpy
-    python3Packages.flake8 # Python linter
+    python310Packages.flake8 # Python linter
     python3Packages.ascii-magic
+    python310Packages.pygobject3
 
     # NPM packages
     nodePackages.npm # Package manager
@@ -130,7 +132,7 @@
     peek
     # chafa # Transform images into colorful ascii (works with gifs too)
     unzip
-    lazygit
+    # lazygit # Amazing CLI git tool
     ripgrep
     findutils
     flameshot
@@ -142,9 +144,10 @@
     # Terminal && prompt
     sl
     zsh
-    htop
+    btop
     kitty
-    pfetch
+    nitch # Incredibly fast system fetch written in nim
+    # pfetch
     # hilbish # An interactive Unix-like shell written in Go
     # wezterm
     starship
@@ -160,6 +163,7 @@
 
     # Rice
     wofi
+    swww
     cava
     rofi
     dunst
@@ -191,7 +195,8 @@
     material-design-icons
     powerline-symbols
     powerline-fonts
-    comic-mono
+    cantarell-fonts
+    source-code-pro
     nur.repos.oluceps.san-francisco
     (pkgs.nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka"];})
 
@@ -228,7 +233,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "1vczsl7jyhhmzb6i1648xbyydy9b3dnpzmzkl0zrbla1dx9d6zvk";
+        sha256 = "0v10icx8amr4ji5hbh4rzrf5r35h87j9ddjg29id7r12flnmifzk";
       })
       {inherit pkgs;};
   };
