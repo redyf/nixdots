@@ -124,7 +124,7 @@
   programs.haguichi.enable = true;
   services.logmein-hamachi.enable = true;
   programs.steam.enable = true;
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   # Enables docker in rootless mode
   virtualisation.docker.rootless = {
@@ -247,9 +247,9 @@
     # autosuggestions.highlightStyle = "fg=#E9729D";
     shellAliases = {
       badlion = "appimage-run ~/Downloads/BadlionClient";
-      lunar = "flatpak run com.lunarclient.LunarClient";
       e = "emacsclient -c -a 'emacs'";
-      f = "pfetch";
+      f = "nitch";
+      fetch = "neofetch";
       v = "lvim";
       nv = "lvimn";
       ll = "ls -l";

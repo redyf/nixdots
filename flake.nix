@@ -8,7 +8,6 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
     waybar.url = "github:alexays/Waybar";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
