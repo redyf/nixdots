@@ -51,7 +51,7 @@
     vimPlugins.presence-nvim
 
     # Compilers/Development
-    gcc
+    gcc # GNU Compiler Collection
     lua
     jdk8
     cargo
@@ -68,7 +68,10 @@
     elixir_1_14 # Elixir language
 
     # C/C++ Packages
-    ccls #A c/c++ language server powered by clang
+    astyle # Source code indenter, formatter, and beautifier for C, C++, C# and Java
+    cpplint # Static code checker for C/C++
+    clang-tools # Standalone command line tools for C++ development
+    # uncrustify # Source code beautifier for C, C++, C#, ObjectiveC, D, Java, Pawn and VALA
 
     # Nix Packages
     alejandra # Nix formatter written in Rust
@@ -109,12 +112,6 @@
     # Elixir packages
     elixir_ls
 
-    # Lsp
-
-    # Linters
-
-    # Formatters
-
     # Other packages for nvim
     shellcheck # Shell script analysis tool
 
@@ -134,7 +131,7 @@
     peek
     # chafa # Transform images into colorful ascii (works with gifs too)
     unzip
-    # lazygit # Amazing CLI git tool
+    lazygit # Amazing CLI git tool
     ripgrep
     findutils
     flameshot
@@ -235,7 +232,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0v10icx8amr4ji5hbh4rzrf5r35h87j9ddjg29id7r12flnmifzk";
+        sha256 = "1gvks0qglmanxn8b84wrf31iihjslf9ic0qqsnd4knwiz5h5w1kz";
       })
       {inherit pkgs;};
   };
