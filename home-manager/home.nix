@@ -129,8 +129,12 @@
     fuse
     tree
     peek
+    jp2a
+    xclip
     # chafa # Transform images into colorful ascii (works with gifs too)
     unzip
+    lolcat
+    figlet # Program for making large letters out of ordinary text
     lazygit # Amazing CLI git tool
     ripgrep
     findutils
@@ -189,7 +193,6 @@
     noto-fonts
     liberation_ttf
     fira-code-symbols
-    mplus-outline-fonts.githubRelease
     font-awesome
     material-design-icons
     powerline-symbols
@@ -232,7 +235,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "1gvks0qglmanxn8b84wrf31iihjslf9ic0qqsnd4knwiz5h5w1kz";
+        sha256 = "1d1wyk0dyhyci6w7jpfwp8zmpqpx3vyzizxp3z1d7avsnvqr43fr";
       })
       {inherit pkgs;};
   };
