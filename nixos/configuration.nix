@@ -48,30 +48,33 @@
       #       sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
       #     } + "/src/catppuccin-mocha-grub-theme");
       # };
-      # theme = (pkgs.fetchFromGitHub
-      #   {
-      #     owner = "OliveThePuffin";
-      #     repo = "yorha-grub-theme";
-      #     rev = "4d9cd37baf56c4f5510cc4ff61be278f11077c81";
-      #     sha256 = "0r6i95wbc5v7b50chy0lmfjrhf6akbm68y6ipm1hzvac087xhp2x";
-      #   } + "/yorha-1920x1080");
-      # theme = pkgs.fetchFromGitHub
-      #   {
-      #     owner = "Lxtharia";
-      #     repo = "minegrub-theme";
-      #     rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
-      #     sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
-      #   };
       theme =
         pkgs.fetchFromGitHub
         {
-          owner = "Patato777";
-          repo = "dotfiles";
-          rev = "d6f96fa59327a936d335f01a7295815250f96ff7";
-          sha256 = "18mra67kd20bld5zxlvb89ik8psr2pj0v9iaizqpd485sywgqwiq";
+          owner = "OliveThePuffin";
+          repo = "yorha-grub-theme";
+          rev = "4d9cd37baf56c4f5510cc4ff61be278f11077c81";
+          sha256 = "0r6i95wbc5v7b50chy0lmfjrhf6akbm68y6ipm1hzvac087xhp2x";
         }
-        + "/grub/themes/virtuaverse";
+        + "/yorha-1920x1080";
     };
+    # theme = pkgs.fetchFromGitHub
+    #   {
+    #     owner = "Lxtharia";
+    #     repo = "minegrub-theme";
+    #     rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
+    #     sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
+    #   };
+    #   theme =
+    #     pkgs.fetchFromGitHub
+    #     {
+    #       owner = "Patato777";
+    #       repo = "dotfiles";
+    #       rev = "d6f96fa59327a936d335f01a7295815250f96ff7";
+    #       sha256 = "18mra67kd20bld5zxlvb89ik8psr2pj0v9iaizqpd485sywgqwiq";
+    #     }
+    #     + "/grub/themes/virtuaverse";
+    # };
   };
 
   networking.hostName = "nixos"; # Define your hostname.

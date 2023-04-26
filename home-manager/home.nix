@@ -87,6 +87,7 @@
     python3Packages.tqdm
     python3Packages.debugpy
     python310Packages.flake8 # Python linter
+    python310Packages.img2pdf
     python3Packages.ascii-magic
     python310Packages.pygobject3
 
@@ -135,6 +136,7 @@
     unzip
     lolcat
     figlet # Program for making large letters out of ordinary text
+    img2pdf # Convert images to pdf
     lazygit # Amazing CLI git tool
     ripgrep
     findutils
@@ -235,7 +237,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "1d1wyk0dyhyci6w7jpfwp8zmpqpx3vyzizxp3z1d7avsnvqr43fr";
+        sha256 = "0npi610l3x6540nw5vc59y8xcqqhrak0xn5yd87zgin63605f3k3";
       })
       {inherit pkgs;};
   };
