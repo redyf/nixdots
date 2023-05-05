@@ -21,7 +21,7 @@
 
   boot.loader = {
     systemd-boot.enable = false;
-    timeout = 20;
+    timeout = 15;
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
@@ -48,16 +48,28 @@
       #       sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
       #     } + "/src/catppuccin-mocha-grub-theme");
       # };
+      #   theme =
+      #     pkgs.fetchFromGitHub
+      #     {
+      #       owner = "OliveThePuffin";
+      #       repo = "yorha-grub-theme";
+      #       rev = "4d9cd37baf56c4f5510cc4ff61be278f11077c81";
+      #       sha256 = "0r6i95wbc5v7b50chy0lmfjrhf6akbm68y6ipm1hzvac087xhp2x";
+      #     }
+      #     + "/yorha-1920x1080";
+      # };
+
       theme =
         pkgs.fetchFromGitHub
         {
-          owner = "OliveThePuffin";
-          repo = "yorha-grub-theme";
-          rev = "4d9cd37baf56c4f5510cc4ff61be278f11077c81";
-          sha256 = "0r6i95wbc5v7b50chy0lmfjrhf6akbm68y6ipm1hzvac087xhp2x";
+          owner = "semimqmo";
+          repo = "sekiro_grub_theme";
+          rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
+          sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
         }
-        + "/yorha-1920x1080";
+        + "/Sekiro";
     };
+
     # theme = pkgs.fetchFromGitHub
     #   {
     #     owner = "Lxtharia";
@@ -65,6 +77,7 @@
     #     rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
     #     sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
     #   };
+
     #   theme =
     #     pkgs.fetchFromGitHub
     #     {
