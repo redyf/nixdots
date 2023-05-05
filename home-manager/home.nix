@@ -45,7 +45,7 @@
   home.packages = with pkgs; [
     # Text Editors
     neovim
-    neovide
+    neovide # Gui neovim editor with cool animations
 
     # Neovim packages/plugins
     vimPlugins.presence-nvim
@@ -54,6 +54,7 @@
     gcc # GNU Compiler Collection
     lua
     jdk8
+    dart
     cargo
     cmake
     rlwrap # Clojure dependency
@@ -193,6 +194,7 @@
     nerdfonts
     font-awesome
     noto-fonts
+    maple-mono-NF
     liberation_ttf
     fira-code-symbols
     font-awesome
@@ -237,7 +239,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0npi610l3x6540nw5vc59y8xcqqhrak0xn5yd87zgin63605f3k3";
+        sha256 = "0rfavncyl4097i4iflrnxaia4k8n1j7p7my28nqp78y0ypkww5lb";
       })
       {inherit pkgs;};
   };
