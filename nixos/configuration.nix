@@ -120,12 +120,14 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
+
+  # Enable programs
+  programs.haguichi.enable = true;
+  programs.steam.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -136,10 +138,41 @@
     nvidiaPatches = true;
   };
 
-  # Enable programs/services
-  programs.haguichi.enable = true;
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+    ohMyZsh.enable = true;
+    ohMyZsh.plugins = [
+      "git"
+      "history-substring-search"
+      "colored-man-pages"
+    ];
+    ohMyZsh.theme = "bira";
+    syntaxHighlighting.enable = true;
+    # autosuggestions.highlightStyle = "fg=#E9729D";
+    shellAliases = {
+      badlion = "appimage-run ~/Downloads/BadlionClient";
+      c = "nvim";
+      cp = "cp -i";
+      dotDir = "~/.config/zsh";
+      e = "emacsclient -c -a 'emacs'";
+      f = "nitch";
+      fetch = "neofetch";
+      g = "git";
+      gs = "git status";
+      grep = "grep --color=auto";
+      ll = "ls -l";
+      ls = "exa";
+      la = "exa -a";
+      mv = "mv -i";
+      nv = "lvimn";
+      rm = "rm -i";
+      v = "lvim";
+    };
+  };
+
+  # Enables services
   services.logmein-hamachi.enable = true;
-  programs.steam.enable = true;
   # services.flatpak.enable = true;
 
   # Enables docker in rootless mode
@@ -184,7 +217,6 @@
         accelProfile = "flat";
       };
 
-      # disabling touchpad acceleration
       touchpad = {
         accelProfile = "flat";
       };
@@ -223,13 +255,6 @@
     extraGroups = ["networkmanager" "wheel" "input" "docker"];
   };
 
-  # nixpkgs.overlays = [
-  #   (import (builtins.fetchTarball {
-  #     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-  #     sha256 = "16advd3xbwxd705n9ngs6npg0bwgvqmdfg4g80nbisimw3h5ww3v";
-  #   }))
-  # ];
-
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
@@ -249,38 +274,7 @@
     # wget
   ];
 
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    ohMyZsh.enable = true;
-    ohMyZsh.plugins = [
-      "git"
-      "history-substring-search"
-      "colored-man-pages"
-    ];
-    ohMyZsh.theme = "bira";
-    syntaxHighlighting.enable = true;
-    # autosuggestions.highlightStyle = "fg=#E9729D";
-    shellAliases = {
-      badlion = "appimage-run ~/Downloads/BadlionClient";
-      e = "emacsclient -c -a 'emacs'";
-      f = "nitch";
-      fetch = "neofetch";
-      v = "lvim";
-      nv = "lvimn";
-      ll = "ls -l";
-      ls = "exa";
-      la = "exa -a";
-      grep = "grep --color=auto";
-      cp = "cp -i";
-      mv = "mv -i";
-      rm = "rm -i";
-      g = "git";
-      gs = "git status";
-      dotDir = "~/.config/zsh";
-    };
-  };
-
+  # Enables flakes + garbage collector
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
