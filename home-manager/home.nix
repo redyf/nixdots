@@ -21,8 +21,6 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
-  # Imports
-
   # Overlays
   nixpkgs.overlays = [
     (self: super: {
@@ -39,6 +37,9 @@
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       });
     })
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
     (import ~/flake/overlays/firefox-overlay.nix)
   ];
 
@@ -134,7 +135,7 @@
     jp2a
     xclip
     # chafa # Transform images into colorful ascii (works with gifs too)
-    unzip
+    unzip # Unzip files using the terminal
     lolcat
     figlet # Program for making large letters out of ordinary text
     img2pdf # Convert images to pdf
@@ -143,20 +144,20 @@
     findutils
     flameshot
     tree-sitter
-    appimage-run
+    appimage-run # Run appimage files in the terminal
     polkit_gnome
     nix-prefetch-git # Script used to obtain source hashes for fetchgit
 
     # Terminal && prompt
     sl
-    zsh
+    zsh # Best Shell
     btop
-    kitty
+    kitty # My favorite terminal
     nitch # Incredibly fast system fetch written in nim
     # pfetch
     # hilbish # An interactive Unix-like shell written in Go
     # wezterm
-    starship
+    starship # Customizable shell i use with zsh
     neofetch
     oh-my-zsh
 
@@ -169,20 +170,18 @@
 
     # Rice
     wofi
-    swww
+    swww # Cool wallpapers/gifs transitions
     cava
     rofi
-    dunst
-    sxhkd
-    waybar
+    dunst # Notifications for your system
+    sxhkd # BSPWM keybindings
+    waybar # Best bar for wayland
     cmatrix
-    polybar
-    nitrogen
-    mpvpaper
-    hyprpaper
-    picom-next
-    xfce.thunar
-    lxappearance
+    polybar # Bar i use on X11
+    nitrogen # Wallpaper utility for X11
+    picom-next # Compositor for X11
+    xfce.thunar # File manager
+    lxappearance # Gui software to change icons/themes
     brightnessctl
     # betterdiscordctl
     papirus-icon-theme
@@ -226,7 +225,6 @@
     spotify
     obsidian
     pavucontrol
-    notion-app-enhanced
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
