@@ -1,13 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  final,
-  prev,
-  inputs,
-  ...
+{ config
+, pkgs
+, final
+, prev
+, inputs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -61,12 +60,12 @@
 
       theme =
         pkgs.fetchFromGitHub
-        {
-          owner = "semimqmo";
-          repo = "sekiro_grub_theme";
-          rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
-          sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
-        }
+          {
+            owner = "semimqmo";
+            repo = "sekiro_grub_theme";
+            rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
+            sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
+          }
         + "/Sekiro";
     };
 
@@ -99,6 +98,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # Disabled service to update system
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/Bahia";
@@ -125,6 +126,10 @@
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
 
+  # Enables services
+  services.logmein-hamachi.enable = true;
+  # services.flatpak.enable = true;
+
   # Enable programs
   programs.haguichi.enable = true;
   programs.steam.enable = true;
@@ -141,17 +146,9 @@
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
-    ohMyZsh.enable = true;
-    ohMyZsh.plugins = [
-      "git"
-      "history-substring-search"
-      "colored-man-pages"
-    ];
-    ohMyZsh.theme = "bira";
     syntaxHighlighting.enable = true;
-    # autosuggestions.highlightStyle = "fg=#E9729D";
     shellAliases = {
-      badlion = "appimage-run ~/Downloads/BadlionClient";
+      bad = "appimage-run ~/Downloads/BadlionClient";
       c = "nvim";
       cp = "cp -i";
       dotDir = "~/.config/zsh";
@@ -169,11 +166,17 @@
       rm = "rm -i";
       v = "lvim";
     };
+    ohMyZsh = {
+      enable = true;
+      theme = "bira";
+      plugins = [
+        "git"
+        "git z"
+        "colored-man-pages"
+        "history-substring-search"
+      ];
+    };
   };
-
-  # Enables services
-  services.logmein-hamachi.enable = true;
-  # services.flatpak.enable = true;
 
   # Enables docker in rootless mode
   virtualisation.docker.rootless = {
@@ -184,7 +187,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   environment.variables = {
     GBM_BACKEND = "nvidia-drm";
@@ -204,7 +207,7 @@
     };
     opengl.enable = true;
     opengl.driSupport32Bit = true;
-    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+    opengl.extraPackages = with pkgs; [ nvidia-vaapi-driver ];
   };
 
   # Configure keymap in X11
@@ -216,7 +219,6 @@
       mouse = {
         accelProfile = "flat";
       };
-
       touchpad = {
         accelProfile = "flat";
       };
@@ -239,7 +241,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-    # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
@@ -252,7 +253,7 @@
     isNormalUser = true;
     description = "redyf";
     shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "input" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
   };
 
   # Allow unfree packages
@@ -260,18 +261,8 @@
     allowUnfree = true;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # vim
-    # git
-    zsh
-    oh-my-zsh
-    zsh-syntax-highlighting
-    zsh-z
-    fzf
     xdg-desktop-portal-gtk
-    # wget
   ];
 
   # Enables flakes + garbage collector
@@ -287,8 +278,8 @@
   };
 
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
