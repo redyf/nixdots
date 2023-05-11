@@ -37,9 +37,9 @@
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       });
     })
-    (import (builtins.fetchTarball {
-      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
+    # (import (builtins.fetchTarball {
+    #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    # }))
     (import ~/flake/overlays/firefox-overlay.nix)
   ];
 
@@ -49,9 +49,11 @@
     neovide # Gui neovim editor with cool animations
 
     # Neovim packages/plugins
+    # vimPlugins.null-ls-nvim
     vimPlugins.presence-nvim
 
     # Compilers/Development
+    go # Programming language
     gcc # GNU Compiler Collection
     lua
     jdk8
@@ -115,6 +117,9 @@
     # Elixir packages
     elixir_ls
 
+    # Go packages
+    gopls
+
     # Other packages for nvim
     shellcheck # Shell script analysis tool
 
@@ -146,6 +151,7 @@
     tree-sitter
     appimage-run # Run appimage files in the terminal
     polkit_gnome
+    networkmanager
     nix-prefetch-git # Script used to obtain source hashes for fetchgit
 
     # Terminal && prompt
@@ -159,6 +165,7 @@
     # wezterm
     starship # Customizable shell i use with zsh
     neofetch
+    alacritty
     oh-my-zsh
 
     # Browser, vc, pdf
@@ -188,20 +195,22 @@
     xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
 
     # Fonts
-    dejavu_fonts
     go-font
+    nerdfix # Helps you find/fix obsolete Nerd font icons
     nerdfonts
-    font-awesome
     noto-fonts
-    maple-mono-NF
-    liberation_ttf
-    fira-code-symbols
+    dejavu_fonts
     font-awesome
-    material-design-icons
-    powerline-symbols
+    maple-mono
+    maple-mono-NF # Nerd fonts version
+    jetbrains-mono
+    liberation_ttf
     powerline-fonts
     cantarell-fonts
     source-code-pro
+    fira-code-symbols
+    powerline-symbols
+    material-design-icons
     nur.repos.oluceps.san-francisco
     (pkgs.nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka"];})
 
@@ -237,7 +246,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0rfavncyl4097i4iflrnxaia4k8n1j7p7my28nqp78y0ypkww5lb";
+        sha256 = "0prip61h14vxak30p3war7610v0jg0a4biijsv5212lw2c3d7yi7";
       })
       {inherit pkgs;};
   };
