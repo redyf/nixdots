@@ -44,16 +44,8 @@
   ];
 
   home.packages = with pkgs; [
-    # Text Editors
-    neovim
-    neovide # Gui neovim editor with cool animations
-
-    # Neovim packages/plugins
-    # vimPlugins.null-ls-nvim
-    vimPlugins.presence-nvim
-
     # Compilers/Development
-    go # Programming language
+    # go # Programming language
     gcc # GNU Compiler Collection
     lua
     jdk8
@@ -71,6 +63,17 @@
     clj-kondo # Linter for Clojure
     elixir_1_14 # Elixir language
 
+    # Clojure packages
+    babashka # Native, fast starting Clojure interpreter for scripting
+    leiningen # Project automation for Clojure
+    clojure-lsp # Language server protocol for Clojure
+
+    # Design
+    figma-linux
+
+    # Elixir packages
+    elixir_ls
+
     # C/C++ Packages
     astyle # Source code indenter, formatter, and beautifier for C, C++, C# and Java
     cpplint # Static code checker for C/C++
@@ -82,14 +85,11 @@
     statix # Lints and suggestions for the nix programming language
     rnix-lsp # Nix LSP
 
-    # Design
-    figma-linux
-
     #Python/pip packages
     black # Python formatter
     python310Packages.pip
     python3Packages.tqdm
-    python3Packages.debugpy
+    python310Packages.debugpy
     python310Packages.flake8 # Python linter
     python310Packages.img2pdf
     python3Packages.ascii-magic
@@ -109,19 +109,8 @@
     luajitPackages.luacheck # Lua linter
     luajitPackages.luarocks-nix # Package manager for Lua on Nix
 
-    # Clojure packages
-    babashka # Native, fast starting Clojure interpreter for scripting
-    leiningen # Project automation for Clojure
-    clojure-lsp # Language server protocol for Clojure
-
-    # Elixir packages
-    elixir_ls
-
     # Go packages
-    gopls
-
-    # Other packages for nvim
-    shellcheck # Shell script analysis tool
+    # gopls
 
     # System Utils
     fd
@@ -158,15 +147,26 @@
     sl
     zsh # Best Shell
     btop
+    foot # Great terminal for wayland
     kitty # My favorite terminal
     nitch # Incredibly fast system fetch written in nim
     # pfetch
     # hilbish # An interactive Unix-like shell written in Go
-    # wezterm
     starship # Customizable shell i use with zsh
     neofetch
-    alacritty
     oh-my-zsh
+
+    # Text Editors
+    neovim
+    neovide # Gui neovim editor with cool animations
+
+    # Neovim plugins
+    # vimPlugins.null-ls-nvim
+    # vimPlugins.neogit # Git tool for neovim
+    vimPlugins.presence-nvim
+
+    # Other packages for nvim
+    shellcheck # Shell script analysis tool
 
     # Browser, vc, pdf
     # latest.firefox-nightly-bin
@@ -187,6 +187,7 @@
     polybar # Bar i use on X11
     nitrogen # Wallpaper utility for X11
     picom-next # Compositor for X11
+    eww-wayland # Cool widgets for wayland
     xfce.thunar # File manager
     lxappearance # Gui software to change icons/themes
     brightnessctl
@@ -201,9 +202,7 @@
     noto-fonts
     dejavu_fonts
     font-awesome
-    maple-mono
     maple-mono-NF # Nerd fonts version
-    jetbrains-mono
     liberation_ttf
     powerline-fonts
     cantarell-fonts
@@ -246,7 +245,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0prip61h14vxak30p3war7610v0jg0a4biijsv5212lw2c3d7yi7";
+        sha256 = "0g7c8kwcg1x4zi0pgn8wizvfqqn46rbs6kw7hqkal9p3j0lzcnkb";
       })
       {inherit pkgs;};
   };
@@ -280,7 +279,7 @@
 
   fonts.fontconfig.enable = true;
 
-  # add support for .local/bin
+  # Add support for .local/bin
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
