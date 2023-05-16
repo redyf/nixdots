@@ -1,5 +1,5 @@
 {
-  description = "Redyf's NixOS config";
+  description = "Redyf's NixOS config for desktop and laptop";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -23,6 +23,7 @@
     } @ inputs: {
       nixosConfigurations = {
         redyf = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           specialArgs = { inherit inputs hyprland; };
           modules = [
             ./nixos/configuration.nix
@@ -32,12 +33,24 @@
         };
       };
 
+      nixosConfigurations.laptop =
+        nixpkgs.lib.nixosSystem
+          {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs hyprland; };
+            modules = [
+              ./nixos/laptop/configuration.nix
+              hyprland.nixosModules.default
+              { programs.hyprland.enable = true; }
+            ];
+          };
+
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         "redyf@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          extraSpecialArgs = { inherit inputs; };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/home.nix ];
         };
