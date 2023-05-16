@@ -1,15 +1,14 @@
 {
-  description = "Redyf's nixOS config";
+  description = "Redyf's NixOS config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     hyprland.url = "github:hyprwm/Hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
     waybar.url = "github:alexays/Waybar";
 
-    # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -19,6 +18,7 @@
     , nixpkgs
     , hyprland
     , home-manager
+    , utils
     , ...
     } @ inputs: {
       nixosConfigurations = {

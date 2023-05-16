@@ -173,6 +173,7 @@
         "git"
         "git z"
         "colored-man-pages"
+        "command-not-found"
         "history-substring-search"
       ];
     };
