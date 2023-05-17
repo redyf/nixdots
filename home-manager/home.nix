@@ -1,15 +1,15 @@
-{
-  inputs,
-  base16,
-  config,
-  nix-colors,
-  pkgs,
-  ...
+{ inputs
+, config
+, pkgs
+, ...
 }: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "redyf";
   home.homeDirectory = "/home/redyf";
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -34,13 +34,14 @@
     })
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       });
     })
     # (import (builtins.fetchTarball {
     #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     # }))
-    (import ~/flake/overlays/firefox-overlay.nix)
+    # (import ~/flake/overlays/firefox-overlay.nix)
+    # (import ~/flake/pkgs/xwaylandvideobridge.nix)
   ];
 
   home.packages = with pkgs; [
@@ -150,10 +151,11 @@
     foot # Great terminal for wayland
     kitty # My favorite terminal
     nitch # Incredibly fast system fetch written in nim
-    # pfetch
+    pfetch
     # hilbish # An interactive Unix-like shell written in Go
     starship # Customizable shell i use with zsh
     neofetch
+    alacritty
     oh-my-zsh
 
     # Text Editors
@@ -211,7 +213,7 @@
     powerline-symbols
     material-design-icons
     nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka"];})
+    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
@@ -243,11 +245,11 @@
     # integrates nur within Home-Manager
     nur =
       import
-      (builtins.fetchTarball {
-        url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0g7c8kwcg1x4zi0pgn8wizvfqqn46rbs6kw7hqkal9p3j0lzcnkb";
-      })
-      {inherit pkgs;};
+        (builtins.fetchTarball {
+          url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+          sha256 = "0z3m4m499bxwpiq8dmn7myxrzifjkwg8jx18qk55w1fbxqds0j4j";
+        })
+        { inherit pkgs; };
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: true;
@@ -257,7 +259,7 @@
     userName = "Redyf";
     userEmail = "mateusalvespereira7@gmail.com";
     extraConfig = {
-      init = {defaultBranch = "main";};
+      init = { defaultBranch = "main"; };
     };
   };
 
@@ -283,7 +285,4 @@
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
