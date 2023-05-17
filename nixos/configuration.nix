@@ -14,10 +14,6 @@
   ];
 
   # Bootloader.
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-  #boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
   boot.loader = {
     systemd-boot.enable = false;
     timeout = 15;
@@ -28,17 +24,18 @@
 
     grub = {
       enable = true;
-      version = 2;
       device = "nodev";
       efiSupport = true;
       useOSProber = true;
       configurationLimit = 5;
+
       # theme = pkgs.fetchFromGitHub {
       #   owner = "shvchk";
       #   repo = "fallout-grub-theme";
       #   rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
       #   sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
       # };
+
       #   theme = (pkgs.fetchFromGitHub
       #     {
       #       owner = "catppuccin";
@@ -47,6 +44,7 @@
       #       sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
       #     } + "/src/catppuccin-mocha-grub-theme");
       # };
+
       #   theme =
       #     pkgs.fetchFromGitHub
       #     {
@@ -89,17 +87,15 @@
     # };
   };
 
+  # Enable networking
+  networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  # Disabled service to update system
-  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/Bahia";
@@ -122,9 +118,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Enables services
   services.logmein-hamachi.enable = true;
