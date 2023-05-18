@@ -24,6 +24,7 @@
   # Imports
   imports = [
     ./terminal
+    ../pkgs
   ];
 
   # Overlays
