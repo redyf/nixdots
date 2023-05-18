@@ -21,6 +21,11 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
+  # Imports
+  imports = [
+    ./terminal
+  ];
+
   # Overlays
   nixpkgs.overlays = [
     (self: super: {
@@ -146,17 +151,14 @@
 
     # Terminal && prompt
     sl
-    zsh # Best Shell
     btop
     foot # Great terminal for wayland
     kitty # My favorite terminal
     nitch # Incredibly fast system fetch written in nim
     pfetch
-    # hilbish # An interactive Unix-like shell written in Go
     starship # Customizable shell i use with zsh
     neofetch
     alacritty
-    oh-my-zsh
 
     # Text Editors
     neovim
@@ -213,7 +215,7 @@
     powerline-symbols
     material-design-icons
     nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "UbuntuMono" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
 
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
@@ -247,7 +249,7 @@
       import
         (builtins.fetchTarball {
           url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-          sha256 = "0z3m4m499bxwpiq8dmn7myxrzifjkwg8jx18qk55w1fbxqds0j4j";
+          sha256 = "0mc42yv06flsa8dk9p6sb903iw7g2m1i9yfwzlx2x8sshl4idx3y";
         })
         { inherit pkgs; };
   };
