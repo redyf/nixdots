@@ -140,42 +140,6 @@
     nvidiaPatches = true;
   };
 
-  # programs.zsh = {
-  #   enable = true;
-  #   autosuggestions.enable = true;
-  #   syntaxHighlighting.enable = true;
-  #   shellAliases = {
-  #     bad = "appimage-run ~/Downloads/BadlionClient";
-  #     c = "nvim";
-  #     cp = "cp -i";
-  #     dotDir = "~/.config/zsh";
-  #     e = "emacsclient -c -a 'emacs'";
-  #     f = "nitch";
-  #     fetch = "neofetch";
-  #     g = "git";
-  #     gs = "git status";
-  #     grep = "grep --color=auto";
-  #     ll = "ls -l";
-  #     ls = "exa";
-  #     la = "exa -a";
-  #     mv = "mv -i";
-  #     nv = "lvimn";
-  #     rm = "rm -i";
-  #     v = "lvim";
-  #   };
-  #   ohMyZsh = {
-  #     enable = true;
-  #     theme = "bira";
-  #     plugins = [
-  #       "git"
-  #       "git z"
-  #       "colored-man-pages"
-  #       "command-not-found"
-  #       "history-substring-search"
-  #     ];
-  #   };
-  # };
-
   # Enables docker in rootless mode
   virtualisation.docker.rootless = {
     enable = true;
