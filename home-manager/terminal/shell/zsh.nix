@@ -5,7 +5,7 @@
 }: {
   programs.zsh = {
     enable = true;
-    dotDir = "~/.config/zsh";
+    dotDir = ".config/zsh";
     enableCompletion = true;
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
@@ -112,8 +112,8 @@
       c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
-      f = "nitch";
-      fetch = "neofetch";
+      f = "neofetch";
+      fetch = "nitch";
       g = "git";
       gs = "git status";
       grep = "grep --color=auto";

@@ -18,6 +18,7 @@ _: {
       python.symbol = "[](blue) ";
       nix_shell.symbol = "[](blue) ";
       rust.symbol = "[](red) ";
+      dart.symbol = "[](blue) ";
       package.symbol = "📦  ";
 
       username = {
