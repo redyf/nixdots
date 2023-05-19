@@ -1,9 +1,11 @@
 _: {
   programs.starship = {
     enable = true;
+
     settings = {
       add_newline = false;
       scan_timeout = 5;
+
       character = {
         success_symbol = "[](#cbced3)";
         error_symbol = "[](#dd6777)";
@@ -21,8 +23,11 @@ _: {
       dart.symbol = "[](blue) ";
       package.symbol = "📦  ";
 
+      # TODO: add git options and change color to #7aa2f7
+      # TODO: add new icons to languages
+
       username = {
-        show_always = true;
+        show_always = false;
         style_user = "bold bg:#1E1E2E fg:blue";
         format = "[$user]($style)";
       };
@@ -30,14 +35,14 @@ _: {
       hostname = {
         ssh_only = false;
         format = "@[$hostname](bold #CDD6F4) ";
-        disabled = false;
+        disabled = true;
       };
 
       directory = {
         read_only = " ";
         truncation_length = 3;
         truncation_symbol = "./";
-        style = "bold bg:none fg:yellow";
+        style = "bold bg:none fg:#7aa2f7";
       };
     };
   };

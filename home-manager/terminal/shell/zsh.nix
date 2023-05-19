@@ -10,7 +10,8 @@
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
     initExtra = ''
-      # Start starship prompt automatically
+
+      # Export PATHs for applications
 
       export PATH=$PATH:~/.local/bin/
       export PATH=/tmp/lazy-lvim/bin:$PATH
@@ -18,6 +19,7 @@
       export PATH="$PATH:/home/redyf/.nix-profile/bin/elixir"
       export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
       export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
+      export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
 
       # Autosuggest
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
@@ -124,6 +126,19 @@
       nv = "lvimn";
       rm = "rm -i";
       v = "lvim";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "bira";
+      plugins = [
+        "git"
+        "git z"
+        "colorize"
+        "colored-man-pages"
+        "command-not-found"
+        "history-substring-search"
+      ];
     };
 
     plugins = with pkgs; [
