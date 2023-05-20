@@ -53,6 +53,7 @@
 
   home.packages = with pkgs; [
     # Compilers/Development
+
     # go # Programming language
     gcc # GNU Compiler Collection
     lua
@@ -163,7 +164,6 @@
     alacritty
 
     # Text Editors
-    neovim
     neovide # Gui neovim editor with cool animations
 
     # Neovim plugins
@@ -217,7 +217,7 @@
     powerline-symbols
     material-design-icons
     nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "Terminus" "FiraCode" "JetBrainsMono" "Hack" "Iosevka" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "Terminus" "FiraCode" "JetBrainsMono" "Iosevka" ]; })
 
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
@@ -251,7 +251,7 @@
       import
         (builtins.fetchTarball {
           url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-          sha256 = "0pqa11si5hhargvd7rh9fzpbv36m0yab08vsfp5lqq4c6s159mvr";
+          sha256 = "1gxaidh1iji0kkvmwaq6mli9wn9n592a1x2n8aqxaj0bfnf5wmak";
         })
         { inherit pkgs; };
   };
