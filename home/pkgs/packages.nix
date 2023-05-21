@@ -23,6 +23,7 @@
     gnupatch
     clj-kondo # Linter for Clojure
     elixir_1_14 # Elixir language
+    deno
 
     # Clojure packages
     babashka # Native, fast starting Clojure interpreter for scripting
@@ -106,13 +107,11 @@
     # Terminal && prompt
     sl
     btop
-    foot # Great terminal for wayland
     kitty # My favorite terminal
     nitch # Incredibly fast system fetch written in nim
     pfetch
     starship # Customizable shell i use with zsh
     neofetch
-    alacritty
 
     # Text Editors
     neovide # Gui neovim editor with cool animations
