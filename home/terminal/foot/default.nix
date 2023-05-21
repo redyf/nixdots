@@ -22,7 +22,7 @@
         };
         colors = {
           # catppuccin
-          alpha = "0.80";
+          alpha = "1.0";
           foreground = "D9E0EE";
           background = "1E1D2F";
           regular0 = "6E6C7E"; # black
