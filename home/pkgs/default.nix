@@ -1,7 +1,7 @@
 _: {
   imports = [
-    # ./docker.nix
     ./packages.nix
+    # ./docker.nix
     # ./webcord.nix
   ];
 }

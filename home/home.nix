@@ -48,7 +48,7 @@
     #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     # }))
     # (import ~/flake/overlays/firefox-overlay.nix)
-    # (import ~/flake/pkgs/xwaylandvideobridge.nix)
+    # (import ~/flake/overlays/sf-mono-liga-bin.nix)
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

@@ -9,12 +9,6 @@
     nur.url = "github:nix-community/NUR";
     waybar.url = "github:alexays/Waybar";
 
-    # SFMono w/ patches
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
