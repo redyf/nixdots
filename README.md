@@ -9,6 +9,7 @@ Personal dotfiles for my system
 * **Launcher** • [Rofi ](https://github.com/davatorium/rofi) 🚀 Really fast and customizable!
 * **File Manager** • [Thunar ](https://github.com/xfce-mirror/thunar)🔖 custom!
 * **IDE** • [NvChad ](https://nvchad.com/) Complete terminal based IDE!
+* **RedVim** • [RedVim](https://github.com/Redyf/RedVim) Personal configuration based on NvChad!
 
 ![image](https://github.com/Redyf/nixdots/assets/98139059/a6c8d798-18b4-4bbf-8823-d59acc2c1232)
 
