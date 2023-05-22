@@ -108,8 +108,6 @@
     sl
     btop
     kitty # My favorite terminal
-    nitch # Incredibly fast system fetch written in nim
-    pfetch
     starship # Customizable shell i use with zsh
     neofetch
 
@@ -138,7 +136,7 @@
     rofi
     dunst # Notifications for your system
     sxhkd # BSPWM keybindings
-    waybar # Best bar for wayland
+    # waybar # Best bar for wayland
     cmatrix
     polybar # Bar i use on X11
     nitrogen # Wallpaper utility for X11

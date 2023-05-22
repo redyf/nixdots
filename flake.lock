@@ -278,11 +278,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1684013130,
-        "narHash": "sha256-SDi4KVnDwAeFo9HrnaYv1kkUS7sYROxttHSN4vsg2vA=",
+        "lastModified": 1684734014,
+        "narHash": "sha256-s1LNE5duBTZ8V1JkyQBHPBeVLDKN/kTWRux3FCb48j4=",
         "owner": "alexays",
         "repo": "Waybar",
-        "rev": "7b704071ff70d4888517c5018afe6b8783687888",
+        "rev": "2b24b160230d2166b74a175c6bed530c2720963d",
         "type": "github"
       },
       "original": {

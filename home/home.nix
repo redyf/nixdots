@@ -23,9 +23,11 @@
 
   # Imports
   imports = [
+    ./graphical
     ./terminal
     ./themes
     ./pkgs
+    ./services
   ];
 
   # Overlays
@@ -60,7 +62,7 @@
       import
         (builtins.fetchTarball {
           url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-          sha256 = "1gxaidh1iji0kkvmwaq6mli9wn9n592a1x2n8aqxaj0bfnf5wmak";
+          sha256 = "0ccwql56xyav9gna0hkhcd0xahxqlybn8f43r9kqjxy17mwkavwy";
         })
         { inherit pkgs; };
   };
