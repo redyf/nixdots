@@ -8,6 +8,7 @@
     waybar-hyprland.url = "github:hyprwm/hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
+    nix-colors.url = "github:misterio77/nix-colors";
 
     home-manager = {
       url = "github:nix-community/home-manager";
