@@ -5,10 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     hyprland.url = "github:hyprwm/Hyprland";
-    # waybar-hyprland.url = "github:hyprwm/hyprland";
+    waybar-hyprland.url = "github:hyprwm/hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
-    waybar.url = "github:alexays/Waybar";
 
     home-manager = {
       url = "github:nix-community/home-manager";
