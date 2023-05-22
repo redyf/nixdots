@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+images_path=~/Pictures/ 
+variations=(nix-black-4k.png lofi.gif cleanroom.jpg sakuratree.png)
+number=$(($RANDOM % 4))
+image=${variations[$number]}
+wallpaper=$images_path$image
+swww_fork=~/.config/hypr/scripts/tools/swww
+swww init
+swww img $wallpaper --transition-type grow --transition-pos 0.9,0.1 --transition-duration 2 --transition-fps 90
