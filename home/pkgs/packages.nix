@@ -108,7 +108,6 @@
     sl
     btop
     kitty # My favorite terminal
-    starship # Customizable shell i use with zsh
     neofetch
 
     # Text Editors
@@ -145,7 +144,6 @@
     lxappearance # Gui software to change icons/themes
     brightnessctl
     # betterdiscordctl
-    papirus-icon-theme
     xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
 
     # Fonts
