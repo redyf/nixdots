@@ -115,7 +115,6 @@
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
       f = "neofetch";
-      fetch = "nitch";
       g = "git";
       gs = "git status";
       grep = "grep --color=auto";
