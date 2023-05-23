@@ -1,5 +1,5 @@
 _: {
   imports = [
-    # ./packages.nix
+    ./packages.nix
   ];
 }
