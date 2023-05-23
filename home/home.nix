@@ -24,8 +24,8 @@
 
   # Imports
   imports = [
-    # ./dev
-    ./pkgs
+    ./dev
+    # ./pkgs
     ./themes
     ./services
     ./terminal
@@ -43,16 +43,12 @@
         }
       );
     })
-    # (import ../packages/xwaylandvideobridge.nix)
-    # (import ../packages/overlays/xwaylandvideobridge.nix)
+    # (import ./pkgs/xwaylandvideobridge.nix)
+    # (import ./pkgs/default.nix)
     # (import (builtins.fetchTarball {
     #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     # }))
     # (import ~/flake/overlays/firefox-overlay.nix)
-  ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "python-2.7.18.6"
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {

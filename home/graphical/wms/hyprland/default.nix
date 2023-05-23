@@ -9,7 +9,6 @@
         monitor=,preferred,auto,1
 
         exec-once = $HOME/.config/hypr/autostart
-        exec-once = flatpak run org.kde.xwaylandvideobridge &
 
         # The general config of a monitor looks like this:
         # monitor=name,resolution,position,scale
@@ -46,7 +45,7 @@
             layout = dwindle
             gaps_in=2
             gaps_out=5
-            border_size=4
+            border_size=2
             #col.active_border = rgb(b2b2ff) rgb(f5c2e7) rgb(70a5eb) 270deg
             #bezier = linear, 0.0, 0.0, 1.0, 1.0
             #animation = borderangle, 1, 100, linear, loop
@@ -66,17 +65,21 @@
             active_opacity = 1
             inactive_opacity = 1
             fullscreen_opacity = 1.0
-            drop_shadow = true
+            drop_shadow = false
             shadow_range=6
             shadow_render_power=4
             shadow_ignore_window = true
             col.shadow=0x22000000 # 0xbbf5c2e7
             col.shadow_inactive=0x22000000
             rounding = 16
-            blur = true
+            dim_inactive = false
+            dim_strength = 0.5
+            dim_special = 0.0
+            dim_around = 0.0
+            blur = false
             blur_new_optimizations = true
-            blur_size = 10 # Minimum 1
-            blur_passes = 4 # Minimum 1, more passes = more resource intensive.
+            blur_size = 10
+            blur_passes = 4
             blur_ignore_opacity = true
         }
 
@@ -160,8 +163,6 @@
         windowrule = tile,^(Spotify)$
         windowrule = tile,^(neovide)$
         windowrule = opacity 1.0 override 1.0 override,^(neovide)$ # Active/inactive opacity
-        windowrulev2 = opacity 0.4 0.4,class:^(wofi)$
-        windowrulev2 = move 30 100,class:^(wofi)$
 
         # Mouse binds
         bind=SUPER,mouse_down,workspace,e+1

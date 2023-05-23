@@ -124,7 +124,7 @@
 
   # Enables services
   services.logmein-hamachi.enable = true;
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   # Enable programs
   programs.zsh.enable = true;
@@ -225,6 +225,7 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
+    inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge
   ];
 
   # Enables flakes + garbage collector
