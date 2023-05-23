@@ -114,11 +114,14 @@
                       battery_display="on"
                       disk_display="off"
 
-                      image_backend="ascii"
-      image_source="${config.home.homeDirectory}/home/redyf/.config/neofetch/ascii/anime"
+                      image_backend="--w3m"
+
+      image_source="${config.home.homeDirectory}/home/redyf/.config/neofetch/images/sakurafetch.png"
+
+      ascii_logo = ~/.config/neofetch/ascii/book
+
                       image_size="small"
                       image_loop="off"
-
                       ascii_distro="auto"
                       ascii_colors=(distro)
                       ascii_bold="on"
