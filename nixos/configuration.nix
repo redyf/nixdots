@@ -124,7 +124,7 @@
 
   # Enables services
   services.logmein-hamachi.enable = true;
-  # services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   # Enable programs
   programs.zsh.enable = true;
