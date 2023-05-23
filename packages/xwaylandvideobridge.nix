@@ -9,7 +9,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "xwaylandvideobridge";
-  version = "unstable-2023-03-28";
+  version = "unstable-2023-03-18";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
     qt5.qtx11extras
     libsForQt5.kdelibs4support
     (libsForQt5.kpipewire.overrideAttrs (oldAttrs: {
-      version = "unstable-2023-03-28";
+      version = "unstable-2023-02-27";
 
       src = fetchFromGitLab {
         domain = "invent.kde.org";

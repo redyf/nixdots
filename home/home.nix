@@ -1,5 +1,6 @@
 { inputs
 , config
+, nix-colors
 , pkgs
 , ...
 }: {
@@ -23,11 +24,12 @@
 
   # Imports
   imports = [
-    ./graphical
-    ./terminal
-    ./themes
+    # ./dev
     ./pkgs
+    ./themes
     ./services
+    ./terminal
+    ./graphical
   ];
 
   # Overlays
@@ -41,6 +43,8 @@
         }
       );
     })
+    # (import ../packages/xwaylandvideobridge.nix)
+    # (import ../packages/overlays/xwaylandvideobridge.nix)
     # (import (builtins.fetchTarball {
     #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     # }))

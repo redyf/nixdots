@@ -8,7 +8,8 @@
         source=~/.config/hypr/mocha.conf
         monitor=,preferred,auto,1
 
-        exec-once=$HOME/.config/hypr/autostart
+        exec-once = $HOME/.config/hypr/autostart
+        exec-once = flatpak run org.kde.xwaylandvideobridge &
 
         # The general config of a monitor looks like this:
         # monitor=name,resolution,position,scale
