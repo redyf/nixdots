@@ -20,30 +20,38 @@
   outputs =
     { self
     , nixpkgs
+    , xwaylandvideobridge
     , hyprland
     , home-manager
     , utils
     , ...
     } @ inputs: {
       nixosConfigurations = {
-        redyf = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs hyprland; };
-          modules = [
-            ./nixos/configuration.nix
-            home-manager.nixosModules.home-manager
+        redyf =
+          nixpkgs.lib.nixosSystem
             {
-              home-manager = {
-                useUserPackages = true;
-                useGlobalPkgs = false;
-                extraSpecialArgs = { inherit inputs; };
-                users.redyf = ./home/home.nix;
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit
+                  inputs
+                  hyprland
+                  ;
               };
-            }
-            hyprland.nixosModules.default
-            { programs.hyprland.enable = true; }
-          ];
-        };
+              modules = [
+                ./nixos/configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useUserPackages = true;
+                    useGlobalPkgs = false;
+                    extraSpecialArgs = { inherit inputs xwaylandvideobridge; };
+                    users.redyf = ./home/home.nix;
+                  };
+                }
+                hyprland.nixosModules.default
+                { programs.hyprland.enable = true; }
+              ];
+            };
       };
     };
 }
