@@ -16,10 +16,10 @@
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
     </a>
     <br>
+    </div>
    </h1>
+   <br>
     
-    [<img align="right" src="./assets/rice.png" alt="Rice Preview" width="400px"/>](./assets/rice.mp4)
-
 <h1></h1>
 
 # ❄️ NixOS dotfiles ❄️
@@ -36,7 +36,8 @@ _Minha configuração para o NixOS. sinta-se livre para explorar!_
 - [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
 - [NotAShelf's dotfiles](https://github.com/NotAShelf/nyx)
 
-![Screenshot of my desktop](https://github.com/Redyf/nixdots/assets/98139059/82b84210-99c7-4d7e-98ca-ae584e11365c)
+[<img align="right" src="./assets/rice.png" alt="Rice Preview" width="400px"/>](./assets/rice.mp4)
+[<img align="right" src="./assets/nvim.png" alt"Rice Preview2" width="400px"/>](https://github.com/Redyf/RedVim)
 
 ```mint
 ⠀⠀   🌸 Setup / Hyprland 🌸
