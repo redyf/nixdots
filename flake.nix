@@ -10,6 +10,7 @@
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     xwaylandvideobridge.url = "github:dacioromero/nix-config";
+    webcord.url = "github:fufexan/webcord-flake";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -23,6 +24,7 @@
     , xwaylandvideobridge
     , hyprland
     , home-manager
+    , webcord
     , utils
     , ...
     } @ inputs: {
