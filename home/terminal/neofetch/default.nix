@@ -1,9 +1,10 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }: {
-  home.packages = [ pkgs.neofetch ];
+  home.packages = [pkgs.neofetch];
 
   home.file."/home/redyf/.config/neofetch/config.conf" = {
     text = ''
@@ -26,7 +27,7 @@
                       #    info " ​ ​  " term_font
                       #    info " ​ ​ │  " font
                          # info " ​ ​ 󰉼 " theme
-                          # info " ​ ​ 󰀻 " icons
+                           info " ​ ​ 󰀻 " icons
                           info " ​ ​ 󰊠 " packages
                           info " ​ ​  " uptime
                       #     info " ​ ​   " gpu_driver  # Linux/macOS only

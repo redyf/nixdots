@@ -1,11 +1,7 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  callPackage = pkgs.lib.callPackageWith pkgs;
-in
-  with pkgs; {
-    # xwaylandvideobridge = callPackage ./xwaylandvideobridge.nix {};
-    sf-mono-liga-src = callPackage ./sf-mono-liga.nix {};
+self: (
+  super: {
+    ly = super.callPackage ../pkgs/ly {};
+    sf-mono-liga-src = super.callPackage ./sf-mono-liga.nix {};
+    xwaylandvideobridge = super.callPackage ./xwaylandvideobridge.nix {};
   }
+)

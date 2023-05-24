@@ -1,3 +1,27 @@
+<h1 align="center">
+<a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
+  <br>
+  <br>
+  <div>
+    <a href="https://github.com/Redyf/nixdots/issues">
+        <img src="https://img.shields.io/github/issues/Redyf/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
+    </a>
+    <a href="https://github.com/Redyf/nixdots/stargazers">
+        <img src="https://img.shields.io/github/stars/Redyf/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
+    </a>
+    <a href="https://github.com/PROxZIMA/.dotfiles/">
+        <img src="https://img.shields.io/github/repo-size/Redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
+    </a>
+    <a href="https://github.com/Redyf/nixdots/blob/master/LICENSE">
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
+    </a>
+    <br>
+   </h1>
+    
+    [<img align="right" src="./assets/rice.png" alt="Rice Preview" width="400px"/>](./assets/rice.mp4)
+
+<h1></h1>
+
 # ❄️ NixOS dotfiles ❄️
 
 _Minha configuração para o NixOS. sinta-se livre para explorar!_
@@ -14,15 +38,30 @@ _Minha configuração para o NixOS. sinta-se livre para explorar!_
 
 ![Screenshot of my desktop](https://github.com/Redyf/nixdots/assets/98139059/82b84210-99c7-4d7e-98ca-ae584e11365c)
 
-## Info
+```mint
+⠀⠀   🌸 Setup / Hyprland 🌸
+ -----------------------------------
 
-- Uso o tema [catppuccin](https://github.com/catppuccin)
-- Terminal emulator: foot
-- Window manager: Hyprland
-- Shell: zsh
-- Editor: Neovim
-- Browser: Firefox and Chrome
-- Outros: dunst, swww, eww, wofi.
+ ╭─ Distro  -> NixOS
+ ├─ Editor  -> NeoVim
+ ├─ Browser -> Firefox / Chrome
+ ├─ Shell   -> ZSH
+ ╰─ Resource Monitor -> Btop
+
+ ╭─ Model -> DELL XPS 8940
+ ├─ CPU   -> Ryzen 7 4800H @ 4.3GHz
+ ├─ GPU   -> NVIDIA GeForce GTX 1650 SUPER
+ ╰─ Resolution -> 1920x1080
+
+ ╭─ WM       -> Hyprland
+ ├─ Terminal -> Foot
+ ├─ Theme    -> Catppuccin-Mocha
+ ├─ Icons    -> Papirus-Dark
+ ├─ Font     -> JetBrains Mono Nerd Font
+ ╰─ Hotel    -> Trivago
+
+                        
+```
 
 ## Comandos que você deve saber
 
