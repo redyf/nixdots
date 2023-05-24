@@ -10,7 +10,12 @@
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     xwaylandvideobridge.url = "github:dacioromero/nix-config";
-    webcord.url = "github:fufexan/webcord-flake";
+
+    # SFMono w/ patches
+    sf-mono-liga-src = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,42 +23,41 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , xwaylandvideobridge
-    , hyprland
-    , home-manager
-    , webcord
-    , utils
-    , ...
-    } @ inputs: {
-      nixosConfigurations = {
-        redyf =
-          nixpkgs.lib.nixosSystem
+  outputs = {
+    self,
+    nixpkgs,
+    xwaylandvideobridge,
+    hyprland,
+    home-manager,
+    utils,
+    ...
+  } @ inputs: {
+    nixosConfigurations = {
+      redyf =
+        nixpkgs.lib.nixosSystem
+        {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit
+              inputs
+              hyprland
+              ;
+          };
+          modules = [
+            ./nixos/configuration.nix
+            home-manager.nixosModules.home-manager
             {
-              system = "x86_64-linux";
-              specialArgs = {
-                inherit
-                  inputs
-                  hyprland
-                  ;
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = false;
+                extraSpecialArgs = {inherit inputs;};
+                users.redyf = ./home/home.nix;
               };
-              modules = [
-                ./nixos/configuration.nix
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    useUserPackages = true;
-                    useGlobalPkgs = false;
-                    extraSpecialArgs = { inherit inputs xwaylandvideobridge; };
-                    users.redyf = ./home/home.nix;
-                  };
-                }
-                hyprland.nixosModules.default
-                { programs.hyprland.enable = true; }
-              ];
-            };
-      };
+            }
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
+          ];
+        };
     };
+  };
 }
