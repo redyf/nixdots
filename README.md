@@ -16,7 +16,7 @@ _Minha configuração para o NixOS. sinta-se livre para explorar!_
 
 ## Info
 
-- Usa o tema [catppuccin](https://github.com/catppuccin)
+- Uso o tema [catppuccin](https://github.com/catppuccin)
 - Terminal emulator: foot
 - Window manager: Hyprland
 - Shell: zsh
@@ -93,6 +93,6 @@ sudo nixos-rebuild switch --flake .#yourComputer
 
 E isso deve ser tudo! Se tiver algum problema, pode criar uma issue (https://github.com/Redyf/nixdots/issues) ou me contate.
 
-## Conclusion
+## Conclusão
 
 E então essa foi minha configuração para o NixOS. O código está registrado sobre a licença MIT, então você pode usar ou distribuir o código como bem quiser. Se você quiser tirar alguma dúvida, pode me chamar no Discord: `Redyf#1337`.
