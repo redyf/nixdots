@@ -6,9 +6,9 @@
   imports = [
     inputs.webcord.homeManagerModules.default
   ];
-
   programs.webcord = {
     enable = true;
+    package = inputs.webcord.packages.${pkgs.system}.default;
     themes =
       let
         catppuccin = pkgs.fetchFromGitHub {

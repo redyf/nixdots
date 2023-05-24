@@ -5,7 +5,7 @@
 }: {
   home.packages = [ pkgs.neofetch ];
 
-  home.file."config/neofetch/config.conf" = {
+  home.file."/home/redyf/.config/neofetch/config.conf" = {
     text = ''
                       print_info() {
                           prin "    ┌─────────\n Hardware Information \n─────────┐"
@@ -117,8 +117,6 @@
                       image_backend="--w3m"
 
       image_source="${config.home.homeDirectory}/home/redyf/.config/neofetch/images/sakurafetch.png"
-
-      ascii_logo = ~/.config/neofetch/ascii/book
 
                       image_size="small"
                       image_loop="off"
