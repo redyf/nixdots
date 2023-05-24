@@ -1,7 +1,8 @@
-{ inputs
-, config
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  ...
 }: {
   home.packages = with pkgs; [
     # Compilers/Development
@@ -45,7 +46,7 @@
     # Nix Packages
     alejandra # Nix formatter written in Rust
     statix # Lints and suggestions for the nix programming language
-    rnix-lsp # Nix LSP
+    nil # Nix LSP
 
     #Python/pip packages
     black # Python formatter
@@ -103,6 +104,7 @@
     polkit_gnome
     networkmanager
     nix-prefetch-git # Script used to obtain source hashes for fetchgit
+    inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
 
     # Terminal && prompt
     sl
@@ -126,6 +128,7 @@
     firefox
     discord
     zathura
+    vivaldi
     google-chrome
 
     # Rice
@@ -162,7 +165,7 @@
     powerline-symbols
     material-design-icons
     nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "Terminus" "FiraCode" "JetBrainsMono" "Iosevka" ]; })
+    (pkgs.nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "Terminus" "FiraCode" "JetBrainsMono" "Iosevka"];})
 
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
