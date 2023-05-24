@@ -35,9 +35,13 @@ _Minha configuração para o NixOS. sinta-se livre para explorar!_
 - [Siduck76's NvChad](https://github.com/siduck76/nvchad/)
 - [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
 - [NotAShelf's dotfiles](https://github.com/NotAShelf/nyx)
+- [AlphaTechnolog's dotfiles](https://github.com/AlphaTechnolog/nixdots)
 
-[<img align="right" src="./assets/rice.png" alt="Rice Preview" width="400px"/>](./assets/rice.mp4)
-[<img align="right" src="./assets/nvim.png" alt"Rice Preview2" width="400px"/>](https://github.com/Redyf/RedVim)
+<div align="center">
+<img align="right" src="./assets/rice.png" alt="Rice Preview" width="400px" height="253"/>
+<img align="right" src="./assets/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
+  <a href="https://github.com/Redyf/RedVim">Neovim</a>
+</div>
 
 ```mint
 ⠀⠀   🌸 Setup / Hyprland 🌸
@@ -131,7 +135,7 @@ Por último, construa sua configuração com:
 sudo nixos-rebuild switch --flake .#yourComputer
 ```
 
-E isso deve ser tudo! Se tiver algum problema, pode criar uma issue (https://github.com/Redyf/nixdots/issues) ou me contate.
+E isso deve ser tudo! Se tiver algum problema, pode criar uma issue (https://github.com/Redyf/nixdots/issues).
 
 ## Conclusão
 
