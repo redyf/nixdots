@@ -27,6 +27,7 @@
   imports = [
     ./dev
     # ./pkgs
+    ./system
     ./themes
     ./services
     ./terminal
