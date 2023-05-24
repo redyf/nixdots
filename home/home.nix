@@ -1,8 +1,9 @@
-{ inputs
-, config
-, nix-colors
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  nix-colors,
+  pkgs,
+  ...
 }: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -55,11 +56,11 @@
     # integrates nur within Home-Manager
     nur =
       import
-        (builtins.fetchTarball {
-          url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-          sha256 = "1qdwb4iaf9rhqqlmdrc85w0h1ky5faddvvn2vxanyirxawyx0pqg";
-        })
-        { inherit pkgs; };
+      (builtins.fetchTarball {
+        url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+        sha256 = "0c44dz7k6nxhnhrcz90w112x22ba46m20xkvgsgx32ysi3p8dmj3";
+      })
+      {inherit pkgs;};
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: true;

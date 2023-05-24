@@ -1,12 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config
-, pkgs
-, final
-, prev
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  final,
+  prev,
+  inputs,
+  ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -16,7 +17,7 @@
   # Bootloader.
   boot.loader = {
     systemd-boot.enable = false;
-    timeout = 15;
+    timeout = 5;
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
@@ -58,12 +59,12 @@
 
       theme =
         pkgs.fetchFromGitHub
-          {
-            owner = "semimqmo";
-            repo = "sekiro_grub_theme";
-            rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
-            sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
-          }
+        {
+          owner = "semimqmo";
+          repo = "sekiro_grub_theme";
+          rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
+          sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
+        }
         + "/Sekiro";
     };
 
@@ -149,7 +150,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   environment.variables = {
     GBM_BACKEND = "nvidia-drm";
@@ -170,7 +171,7 @@
     };
     opengl.enable = true;
     opengl.driSupport32Bit = true;
-    opengl.extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
   };
 
   # Configure keymap in X11
@@ -216,7 +217,7 @@
     isNormalUser = true;
     description = "redyf";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "input" "docker"];
   };
 
   # Allow unfree packages
@@ -242,8 +243,8 @@
   };
 
   nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
