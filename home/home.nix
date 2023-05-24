@@ -32,6 +32,8 @@
     ./graphical
   ];
 
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # Overlays
   nixpkgs.overlays = [
     (self: super: {
@@ -43,8 +45,6 @@
         }
       );
     })
-    # (import ./pkgs/xwaylandvideobridge.nix)
-    # (import ./pkgs/default.nix)
     # (import (builtins.fetchTarball {
     #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     # }))
@@ -57,7 +57,7 @@
       import
         (builtins.fetchTarball {
           url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-          sha256 = "0ccwql56xyav9gna0hkhcd0xahxqlybn8f43r9kqjxy17mwkavwy";
+          sha256 = "1qdwb4iaf9rhqqlmdrc85w0h1ky5faddvvn2vxanyirxawyx0pqg";
         })
         { inherit pkgs; };
   };
