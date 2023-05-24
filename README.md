@@ -19,14 +19,13 @@
     </div>
    </h1>
    <br>
-    
-<h1></h1>
+
 
 # ❄️ NixOS dotfiles ❄️
 
 _Minha configuração para o NixOS. sinta-se livre para explorar!_
 
-# Agradecimentos especiais a:
+## Agradecimentos especiais a:
 
 - [NixOS Manual](https://nixos.org/manual/nixos/stable/)
 - [ZerotoNix](https://zero-to-nix.com)
