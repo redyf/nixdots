@@ -104,13 +104,12 @@
     polkit_gnome
     networkmanager
     nix-prefetch-git # Script used to obtain source hashes for fetchgit
-    inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
+    # inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
 
     # Terminal && prompt
     sl
     btop
     kitty # My favorite terminal
-    neofetch
 
     # Text Editors
     neovide # Gui neovim editor with cool animations
@@ -148,24 +147,6 @@
     brightnessctl
     # betterdiscordctl
     xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
-
-    # Fonts
-    go-font
-    nerdfix # Helps you find/fix obsolete Nerd font icons
-    nerdfonts
-    noto-fonts
-    dejavu_fonts
-    font-awesome
-    maple-mono-NF # Nerd fonts version
-    liberation_ttf
-    powerline-fonts
-    cantarell-fonts
-    source-code-pro
-    fira-code-symbols
-    powerline-symbols
-    material-design-icons
-    nur.repos.oluceps.san-francisco
-    (pkgs.nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "Terminus" "FiraCode" "JetBrainsMono" "Iosevka"];})
 
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
