@@ -11,7 +11,8 @@
       settings = {
         main = {
           term = "xterm-256color";
-          font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=14";
+          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=14";
+          font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=14";
           dpi-aware = "auto";
           pad = "8x4 center";
         };
