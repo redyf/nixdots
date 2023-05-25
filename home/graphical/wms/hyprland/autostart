@@ -13,7 +13,6 @@ $scripts/tools/dynamic &
 swww kill
 swww init
 # swww img ~/Pictures/programmer.gif
-# swww img ~/.config/hypr/wallpapers/wall.mp4
 
 # Dunst (Notifications)
 dunst &

@@ -1,17 +1,16 @@
-{ colorscheme }:
+{colorscheme}:
 with colorscheme.colors; let
   OSLogo = builtins.fetchurl rec {
     name = "OSLogo-${sha256}.png";
     sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
     url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake.svg";
   };
-in
-''
+in ''
   * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMono Nerd Font;
     font-size: 13px;
-    border-radius: 15px;
+    border-radius: 17px;
   }
 
   #clock,
@@ -85,7 +84,7 @@ in
   }
 
   #workspaces button.active {
-    min-width: 40px;
+    min-width: 50px;
     box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
     background-color: rgb(245, 194, 231);
     background-size: 400% 400%;
@@ -191,6 +190,7 @@ in
     background-size: 400% 100%;
     animation: grey-gradient 3s linear infinite;
     min-width: 500px;
+    border-radius: 17px;
   }
 
   #custom-notification.collapsed_muted {

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 images_path=~/flake/home/graphical/wms/hyprland/wallpapers/
-variations=(programmer.gif eye.jpg)
-number=$(($RANDOM % 4))
+variations=(1.jpg 2.jpg 3.png 4.png 5.png programmer.gif eye.jpg)
+number=$(($RANDOM % 20))
 image=${variations[$number]}
 wallpaper=$images_path$image
 swww init
