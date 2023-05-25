@@ -100,6 +100,7 @@
     ripgrep
     findutils
     flameshot
+    playerctl
     tree-sitter
     appimage-run # Run appimage files in the terminal
     polkit_gnome
