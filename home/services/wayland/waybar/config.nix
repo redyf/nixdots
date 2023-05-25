@@ -1,13 +1,13 @@
-{ config
-, pkgs
-, lib
-, osConfig
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  osConfig,
+  ...
 }:
 with lib; let
   sys = osConfig.modules.system;
-in
-{
+in {
   mainBar = {
     layer = "top";
     # position = "bottom";
@@ -109,7 +109,7 @@ in
         phone = "";
         portable = "";
         car = "";
-        default = [ "" "" "" ];
+        default = ["" "" ""];
       };
       on-click = "pavucontrol";
     };
@@ -129,7 +129,7 @@ in
     "custom/notification" = {
       exec = "~/.config/waybar/scripts/notification.sh";
       on-click = "dunstctl set-paused toggle";
-      on-click-right = "notify-send -t 1 'swww' '1' & ~/.config/hypr/scripts/wall";
+      on-click-right = "notify-send -t 1 'swww' '1' & ~/flake/home/graphical/wms/hyprland/scripts/wall";
       return-type = "json";
       max-length = 50;
       format = "{}";
