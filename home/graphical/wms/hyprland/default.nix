@@ -1,8 +1,9 @@
-{ config
-, pkgs
-, osConfig
-, lib
-, ...
+{
+  config,
+  pkgs,
+  osConfig,
+  lib,
+  ...
 }: {
   home.file.".config/hypr/hyprland.conf".text = ''
         source=~/.config/hypr/mocha.conf
