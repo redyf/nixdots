@@ -19,7 +19,6 @@
     zprint # Clojure formatter
     clojure
     gnumake
-    python3
     beautysh # Shell formatter
     gnupatch
     clj-kondo # Linter for Clojure
@@ -47,17 +46,6 @@
     alejandra # Nix formatter written in Rust
     statix # Lints and suggestions for the nix programming language
     nil # Nix LSP
-
-    #Python/pip packages
-    black # Python formatter
-    python310Packages.pip
-    python310Packages.tqdm
-    python310Packages.pynvim
-    python310Packages.flake8 # Python linter
-    python310Packages.debugpy
-    python310Packages.img2pdf
-    python310Packages.ascii-magic
-    python310Packages.pygobject3
 
     # NPM packages
     nodePackages.npm # Package manager
