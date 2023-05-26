@@ -114,7 +114,7 @@ in {
       on-click = "pavucontrol";
     };
     "custom/spotify" = {
-      exec = "python ~/.config/waybar/scripts/mediaplayer.py --player spotify";
+      # exec = "python ~/.config/waybar/scripts/mediaplayer.py --player spotify";
       format = " {}";
       return-type = "json";
       on-click = "playerctl --player=spotify play-pause";
