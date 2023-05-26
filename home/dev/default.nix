@@ -1,7 +1,7 @@
 _: {
   imports = [
     # ./docker.nix
-    ./python.nix
+    ./python
     ./packages.nix
   ];
 }

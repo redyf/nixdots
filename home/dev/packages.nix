@@ -46,6 +46,7 @@
     alejandra # Nix formatter written in Rust
     statix # Lints and suggestions for the nix programming language
     nil # Nix LSP
+    nix-init # Command line tool to generate Nix packages from URLs
 
     # NPM packages
     nodePackages.npm # Package manager
@@ -72,6 +73,7 @@
     fzf
     mpd
     mpv
+    glib # C library of programming buildings blocks
     wget
     file
     fuse
@@ -94,7 +96,8 @@
     polkit_gnome
     networkmanager
     nix-prefetch-git # Script used to obtain source hashes for fetchgit
-    # inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
+    gobject-introspection # A middleware layer between C libraries and language bindings
+    inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
 
     # Terminal && prompt
     sl
@@ -117,7 +120,6 @@
     firefox
     discord
     zathura
-    vivaldi
     google-chrome
 
     # Rice
