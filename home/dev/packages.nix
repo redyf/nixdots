@@ -47,6 +47,7 @@
     statix # Lints and suggestions for the nix programming language
     nil # Nix LSP
     nix-init # Command line tool to generate Nix packages from URLs
+    nix-prefetch-git # Script used to obtain source hashes for fetchgit
 
     # NPM packages
     nodePackages.npm # Package manager
@@ -95,7 +96,6 @@
     appimage-run # Run appimage files in the terminal
     polkit_gnome
     networkmanager
-    nix-prefetch-git # Script used to obtain source hashes for fetchgit
     gobject-introspection # A middleware layer between C libraries and language bindings
     inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
 
@@ -126,7 +126,7 @@
     wofi
     swww # Cool wallpapers/gifs transitions
     cava
-    rofi
+    # rofi
     dunst # Notifications for your system
     sxhkd # BSPWM keybindings
     cmatrix
