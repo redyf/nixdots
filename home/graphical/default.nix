@@ -1,7 +1,7 @@
 _: {
   imports = [
     # ./apps
-    # ./launchers
+    ./launchers
     ./wms
   ];
 }
