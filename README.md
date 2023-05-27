@@ -20,10 +20,12 @@
    </h1>
    <br>
 
-
-# ❄️ NixOS dotfiles ❄️
-
-_Minha configuração para o NixOS. sinta-se livre para explorar!_
+<div align="center">
+<h1>
+❄️ NixOS dotfiles ❄️
+</h1>
+</div>
+<h2 align="center">Minha configuração para o NixOS. sinta-se livre para explorar!</h2>
 
 ## Agradecimentos especiais a:
 
