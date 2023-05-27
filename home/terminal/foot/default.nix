@@ -24,7 +24,7 @@
         };
         colors = {
           # catppuccin mocha
-          alpha = "1.0";
+          alpha = "0.4";
           foreground = "cdd6f4"; # Text
           background = "1E1D2F"; # Base
           regular0 = "45475a"; # Surface 1

@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./shell.nix
+    # ./shell.nix
     ./python.nix
   ];
 }
