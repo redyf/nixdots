@@ -47,17 +47,6 @@
       #     } + "/src/catppuccin-mocha-grub-theme");
       # };
 
-      #   theme =
-      #     pkgs.fetchFromGitHub
-      #     {
-      #       owner = "OliveThePuffin";
-      #       repo = "yorha-grub-theme";
-      #       rev = "4d9cd37baf56c4f5510cc4ff61be278f11077c81";
-      #       sha256 = "0r6i95wbc5v7b50chy0lmfjrhf6akbm68y6ipm1hzvac087xhp2x";
-      #     }
-      #     + "/yorha-1920x1080";
-      # };
-
       theme =
         pkgs.fetchFromGitHub
         {
@@ -132,7 +121,6 @@
   programs.zsh.enable = true;
   programs.haguichi.enable = true;
   programs.steam.enable = true;
-
   programs.hyprland = {
     enable = true;
     xwayland = {
@@ -207,13 +195,8 @@
     pulse.enable = true;
     wireplumber.enable = true;
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    # media-session.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.redyf = {
     isNormalUser = true;
     description = "redyf";
@@ -228,7 +211,6 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
-    # inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge
   ];
 
   # Enables flakes + garbage collector
