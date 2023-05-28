@@ -10,6 +10,7 @@
     # go # Programming language
     gcc # GNU Compiler Collection
     lua
+    deno
     jdk8
     dart
     cargo
@@ -23,7 +24,6 @@
     gnupatch
     clj-kondo # Linter for Clojure
     elixir_1_14 # Elixir language
-    deno
 
     # Clojure packages
     babashka # Native, fast starting Clojure interpreter for scripting
@@ -123,10 +123,7 @@
     google-chrome
 
     # Rice
-    wofi
     swww # Cool wallpapers/gifs transitions
-    cava
-    # rofi
     dunst # Notifications for your system
     sxhkd # BSPWM keybindings
     cmatrix
