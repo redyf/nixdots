@@ -50,6 +50,7 @@
     nix-prefetch-git # Script used to obtain source hashes for fetchgit
 
     # NPM packages
+    node2nix
     nodePackages.npm # Package manager
     nodePackages.live-server # Live server
     nodePackages_latest.eslint_d # JS linter
@@ -119,8 +120,8 @@
     # latest.firefox-nightly-bin
     firefox
     discord
+    betterdiscordctl
     zathura
-    google-chrome
 
     # Rice
     swww # Cool wallpapers/gifs transitions
