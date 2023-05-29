@@ -228,6 +228,7 @@ in ''
     padding-left: 12px;
     padding-right: 15px;
     padding-top: 3px;
+    border-radius: 17px;
   }
 
 ''
