@@ -137,7 +137,8 @@ in {
     };
     "custom/colorpicker" = {
       format = "";
-      on-right-click = "hyprpicker -a -f hex";
+      on-click = "hyprpicker -a -f hex";
+      on-click-right = "hyprpicker -a -f rgb";
     };
   };
 }
