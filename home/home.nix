@@ -34,8 +34,6 @@
     ./graphical
   ];
 
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
-
   # Overlays
   nixpkgs.overlays = [
     (self: super: {
@@ -59,7 +57,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "1y8k424jjp2556ip0jf3m95v75apqr7ma41klxv926f6hpv4mwqn";
+        sha256 = "0mw9z83f3rkjpsnvmx1d2g585n8p8xhqpp0hpavwjhkgyal1kdqx";
       })
       {inherit pkgs;};
   };
