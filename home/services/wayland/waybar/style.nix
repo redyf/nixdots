@@ -17,7 +17,7 @@ in ''
   #custom-notification,
   #custom-launcher,
   #custom-power-menu,
-  #custom-colorpicker,
+  /*#custom-colorpicker,*/
   #custom-window,
   #memory,
   #network,
@@ -223,12 +223,8 @@ in ''
     animation: colored-gradient 3s ease infinite;
   }
 
-    #custom-colorpicker {
-    margin-right: 10px;
-    padding-left: 12px;
-    padding-right: 15px;
-    padding-top: 3px;
-    border-radius: 17px;
-  }
+  /*   #custom-colorpicker {
+     border-radius: 17px;
+   } */
 
 ''

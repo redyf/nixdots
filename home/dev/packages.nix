@@ -83,7 +83,7 @@
     peek
     jp2a
     xclip
-    # chafa # Transform images into colorful ascii (works with gifs too)
+    chafa # Transform images into colorful ascii (works with gifs too)
     unzip # Unzip files using the terminal
     lolcat
     figlet # Program for making large letters out of ordinary text

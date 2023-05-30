@@ -27,7 +27,7 @@ in {
       "hyprland/window"
     ];
     modules-right = [
-      "custom/colorpicker"
+      # "custom/colorpicker"
       "custom/notification"
       "custom/cava"
       "memory"
@@ -135,10 +135,10 @@ in {
       max-length = 50;
       format = "{}";
     };
-    "custom/colorpicker" = {
-      format = "";
-      on-click = "hyprpicker -a -f hex";
-      on-click-right = "hyprpicker -a -f rgb";
-    };
+    # "custom/colorpicker" = {
+    #   format = "";
+    #   on-click = "hyprpicker -a -f hex";
+    #   on-click-right = "hyprpicker -a -f rgb";
+    # };
   };
 }

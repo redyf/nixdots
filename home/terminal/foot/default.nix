@@ -16,7 +16,7 @@
           font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=16";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=16";
           dpi-aware = "auto";
-          pad = "8x4 center";
+          pad = "2x2 center";
         };
         cursor = {
           color = "a9b1d6 f5f5f5"; #Dark-decay
@@ -28,25 +28,25 @@
 
         colors = {
           # Dark-decay
-          alpha = "1.0";
-          foreground = "b6beca";
-          background = "101419";
-          regular0 = "1c252c";
-          regular1 = "e05f65";
-          regular2 = "78dba9";
-          regular3 = "f1cf8a";
-          regular4 = "70a5eb";
-          regular5 = "c68aee";
-          regular6 = "74bee9";
-          regular7 = "dee1e6";
-          bright0 = "384148";
-          bright1 = "fc7b81";
-          bright2 = "94f7c5";
-          bright3 = "ffeba6";
-          bright4 = "8cc1ff";
-          bright5 = "e2a6ff";
-          bright6 = "90daff";
-          bright7 = "fafdff";
+          # alpha = "1.0";
+          # foreground = "b6beca";
+          # background = "101419";
+          # regular0 = "1c252c";
+          # regular1 = "e05f65";
+          # regular2 = "78dba9";
+          # regular3 = "f1cf8a";
+          # regular4 = "70a5eb";
+          # regular5 = "c68aee";
+          # regular6 = "74bee9";
+          # regular7 = "dee1e6";
+          # bright0 = "384148";
+          # bright1 = "fc7b81";
+          # bright2 = "94f7c5";
+          # bright3 = "ffeba6";
+          # bright4 = "8cc1ff";
+          # bright5 = "e2a6ff";
+          # bright6 = "90daff";
+          # bright7 = "fafdff";
 
           # catppuccin mocha
           # alpha = "0.4";
@@ -70,25 +70,25 @@
           # bright7 = "a6adc8"; # Subtext 0
 
           # catppuccin macchiato
-          # alpha = "0.4";
-          # foreground = "cad3f5"; # Text
-          # background = "24273a"; # Base
-          # regular0 = "494d64"; # Surface 1
-          # regular1 = "ed8796"; # red
-          # regular2 = "a6da95"; # green
-          # regular3 = "eed49f"; # yellow
-          # regular4 = "8aadf4"; # blue
-          # regular5 = "f5bde6"; # pink
-          # regular6 = "8bd5ca"; # teal
-          # regular7 = "b8c0e0"; # Subtext 1
-          # bright0 = "5b6078"; # Surface 2
-          # bright1 = "ed8796"; # red
-          # bright2 = "a6da95"; # green
-          # bright3 = "eed49f"; # yellow
-          # bright4 = "8aadf4"; # blue
-          # bright5 = "f5bde6"; # pink
-          # bright6 = "8bd5ca"; # teal
-          # bright7 = "a5adcb"; # Subtext 0
+          alpha = "0.4";
+          foreground = "cad3f5"; # Text
+          background = "24273a"; # Base
+          regular0 = "494d64"; # Surface 1
+          regular1 = "ed8796"; # red
+          regular2 = "a6da95"; # green
+          regular3 = "eed49f"; # yellow
+          regular4 = "8aadf4"; # blue
+          regular5 = "f5bde6"; # pink
+          regular6 = "8bd5ca"; # teal
+          regular7 = "b8c0e0"; # Subtext 1
+          bright0 = "5b6078"; # Surface 2
+          bright1 = "ed8796"; # red
+          bright2 = "a6da95"; # green
+          bright3 = "eed49f"; # yellow
+          bright4 = "8aadf4"; # blue
+          bright5 = "f5bde6"; # pink
+          bright6 = "8bd5ca"; # teal
+          bright7 = "a5adcb"; # Subtext 0
         };
       };
     };
