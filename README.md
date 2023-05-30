@@ -49,19 +49,19 @@
  -----------------------------------
 
  ╭─ Distro  -> NixOS
- ├─ Editor  -> NeoVim
+ ├─ Editor  -> Neovim
  ├─ Browser -> Firefox / Chrome
  ├─ Shell   -> ZSH
  ╰─ Resource Monitor -> Btop
 
  ╭─ Model -> DELL XPS 8940
- ├─ CPU   -> Ryzen 7 4800H @ 4.3GHz
+ ├─ CPU   -> Intel i5-10400f @ 4.3GHz
  ├─ GPU   -> NVIDIA GeForce GTX 1650 SUPER
- ╰─ Resolution -> 1920x1080
+ ╰─ Resolution -> 1920x1080@165hz
 
  ╭─ WM       -> Hyprland
  ├─ Terminal -> Foot
- ├─ Theme    -> Catppuccin-Mocha
+ ├─ Theme    -> Catppuccin
  ├─ Icons    -> Papirus-Dark
  ├─ Font     -> JetBrains Mono Nerd Font
  ╰─ Hotel    -> Trivago
@@ -91,7 +91,7 @@ iwctl --passphrase [passphrase] station [device] connect [SSID]
 
 ## Instalação
 
-\*\* IMPORTANTE: Não use meu configuration.nix e/ou hardware-configuration.nix! Esses arquivos possuem as configurações específicas para meus drives e provavelmente não terão uma reação positiva no seu dispositivo!
+> IMPORTANTE: Não use meu configuration.nix e/ou hardware-configuration.nix! Esses arquivos possuem as configurações específicas para meus drives e provavelmente não terão uma reação positiva no seu dispositivo!
 
 Talvez não funcione perfeitamente logo após instalação, você foi avisado!
 
