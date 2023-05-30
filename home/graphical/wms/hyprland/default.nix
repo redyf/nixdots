@@ -43,7 +43,7 @@
               }
 
               general {
-                  layout = dwindle
+                  layout = master
                   gaps_in=10
                   gaps_out=10
                   border_size=3
@@ -63,6 +63,7 @@
               }
 
               decoration {
+                  multisample_edges = true
                   active_opacity = 1
                   inactive_opacity = 1
                   fullscreen_opacity = 1.0
@@ -72,7 +73,7 @@
                   shadow_ignore_window = true
                   col.shadow=0x22000000 # 0xbbf5c2e7
                   col.shadow_inactive=0x22000000
-                  rounding = 16
+                  rounding = 0
                   dim_inactive = false
                   dim_strength = 0.5
                   dim_special = 0.0
@@ -134,18 +135,22 @@
               }
 
               dwindle {
+                no_gaps_when_only = false
                   pseudotile=0 # enable pseudotiling on dwindle
-                  force_split=2
+                  special_scale_factor = 0.8
+        split_width_multiplier = 1.0
+        use_active_for_splits = true
+                  force_split=0
                   preserve_split = true
                   default_split_ratio = 1.0
               }
 
               master {
-                mfact = 0.55
-                new_on_top = false
                 orientation = right
                 no_gaps_when_only=true
-                special_scale_factor = 1
+                special_scale_factor = 0.8
+        new_is_master = true
+        no_gaps_when_only = false
               }
 
               gestures {
