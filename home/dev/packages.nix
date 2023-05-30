@@ -15,25 +15,25 @@
     dart
     cargo
     cmake
-    rlwrap # Clojure dependency
     nodejs
-    zprint # Clojure formatter
-    clojure
     gnumake
     beautysh # Shell formatter
     gnupatch
-    clj-kondo # Linter for Clojure
-    elixir_1_14 # Elixir language
 
     # Clojure packages
+    clojure # Clojure programming language
     babashka # Native, fast starting Clojure interpreter for scripting
     leiningen # Project automation for Clojure
     clojure-lsp # Language server protocol for Clojure
+    clj-kondo # Linter for Clojure
+    rlwrap # Clojure dependency
+    zprint # Clojure formatter
 
     # Design
     figma-linux
 
     # Elixir packages
+    elixir_1_14 # Elixir language
     elixir_ls
 
     # C/C++ Packages
@@ -55,6 +55,7 @@
     nodePackages.live-server # Live server
     nodePackages_latest.eslint_d # JS linter
     nodePackages_latest.prettier # Formatter
+    nodePackages_latest.tailwindcss
 
     # Lua packages
     stylua # Lua formatter

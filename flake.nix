@@ -11,12 +11,6 @@
     nix-colors.url = "github:misterio77/nix-colors";
     xwaylandvideobridge.url = "github:dacioromero/nix-config";
 
-    # SFMono w/ patches
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
