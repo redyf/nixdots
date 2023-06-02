@@ -1,8 +1,8 @@
 ''
   print_info()
   {
-      info title
-      info underline
+      # info title
+      # info underline
       info " " distro
       info " " kernel
       info " " packages
@@ -64,8 +64,8 @@
   memory_display="off"
   battery_display="off"
   disk_display="off"
-  image_backend="kitty"
-  image_source="${./sakurafetch.png}"
+  image_backend="w3m"
+  image_source="${./ascii/idk.txt}"
   ascii_distro="auto"
   ascii_colors=(distro)
   ascii_bold="on"
