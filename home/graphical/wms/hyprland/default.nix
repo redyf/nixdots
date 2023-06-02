@@ -78,7 +78,7 @@
                   dim_strength = 0.5
                   dim_special = 0.0
                   dim_around = 0.0
-                  blur = true
+                  blur = false
                   blur_new_optimizations = true
                   blur_size = 10
                   blur_passes = 4

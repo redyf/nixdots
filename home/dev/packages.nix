@@ -5,68 +5,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    # Compilers/Development
-
-    # go # Programming language
-    gcc # GNU Compiler Collection
-    lua
-    deno
-    jdk8
-    dart
-    cargo
-    cmake
-    nodejs
-    gnumake
-    beautysh # Shell formatter
-    gnupatch
-
-    # Clojure packages
-    clojure # Clojure programming language
-    babashka # Native, fast starting Clojure interpreter for scripting
-    leiningen # Project automation for Clojure
-    clojure-lsp # Language server protocol for Clojure
-    clj-kondo # Linter for Clojure
-    rlwrap # Clojure dependency
-    zprint # Clojure formatter
-
     # Design
     figma-linux
-
-    # Elixir packages
-    elixir_1_14 # Elixir language
-    elixir_ls
-
-    # C/C++ Packages
-    astyle # Source code indenter, formatter, and beautifier for C, C++, C# and Java
-    cpplint # Static code checker for C/C++
-    clang-tools # Standalone command line tools for C++ development
-    # uncrustify # Source code beautifier for C, C++, C#, ObjectiveC, D, Java, Pawn and VALA
-
-    # Nix Packages
-    alejandra # Nix formatter written in Rust
-    statix # Lints and suggestions for the nix programming language
-    nil # Nix LSP
-    nix-init # Command line tool to generate Nix packages from URLs
-    nix-prefetch-git # Script used to obtain source hashes for fetchgit
-
-    # NPM packages
-    node2nix
-    nodePackages.npm # Package manager
-    nodePackages.live-server # Live server
-    nodePackages_latest.eslint_d # JS linter
-    nodePackages_latest.prettier # Formatter
-    nodePackages_latest.tailwindcss
-
-    # Lua packages
-    stylua # Lua formatter
-    selene # Lua linter written in rust
-    luaformatter # Lua formatter (currently using this one)
-    lua-language-server # Lua LSP
-    luajitPackages.luacheck # Lua linter
-    luajitPackages.luarocks-nix # Package manager for Lua on Nix
-
-    # Go packages
-    # gopls
 
     # System Utils
     fd
@@ -121,7 +61,6 @@
     # latest.firefox-nightly-bin
     firefox
     discord
-    betterdiscordctl
     zathura
 
     # Rice
@@ -136,7 +75,6 @@
     xfce.thunar # File manager
     lxappearance # Gui software to change icons/themes
     brightnessctl
-    # betterdiscordctl
     xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
 
     # Streaming/screenshot
