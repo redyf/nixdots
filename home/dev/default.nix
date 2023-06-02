@@ -1,7 +1,14 @@
 _: {
   imports = [
-    # ./docker.nix
+    ./c
+    ./clojure
+    ./dart
+    ./elixir
+    ./go
+    ./js
     ./python
+    ./rust
+    # ./docker.nix
     ./packages.nix
   ];
 }
