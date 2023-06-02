@@ -1,14 +1,18 @@
 _: {
   imports = [
     ./c
-    ./clojure
+    # ./clojure
+    ./compilers
     ./dart
-    ./elixir
-    ./go
+    # ./elixir
+    # ./go
     ./js
+    ./lua
+    ./nix
     ./python
     ./rust
     # ./docker.nix
+    ./virt-manager
     ./packages.nix
   ];
 }

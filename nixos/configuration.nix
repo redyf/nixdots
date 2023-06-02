@@ -201,7 +201,7 @@
     isNormalUser = true;
     description = "redyf";
     shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "input" "docker"];
+    extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
   };
 
   # Allow unfree packages
