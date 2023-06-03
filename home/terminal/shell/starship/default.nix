@@ -16,7 +16,8 @@
           success_symbol = "[](#cbced3)";
           error_symbol = "[](#dd6777)";
           vicmd_symbol = "[](#ecd3a0)";
-          format = "$symbol [λ ](bold #73daca) ";
+          format = "$symbol [✗ ](bold #73daca) ";
+          # format = "$symbol [λ ](bold #73daca) ";
         };
 
         palette = "catppuccin_${flavour}";
@@ -36,14 +37,14 @@
         username = {
           show_always = true;
           style_user = "bold bg:none fg:blue";
-          format = "[$user]($style)";
+          format = "[$user]($style) ";
         };
 
         hostname = {
           ssh_only = false;
           style = "bold bg:none fg:#CDD6F4";
           format = "@[$hostname]($style) ";
-          disabled = false;
+          disabled = true;
         };
 
         directory = {

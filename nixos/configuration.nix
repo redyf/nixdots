@@ -119,8 +119,9 @@
 
   # Enable programs
   programs.zsh.enable = true;
-  programs.haguichi.enable = true;
   programs.steam.enable = true;
+  programs.dconf.enable = true;
+  programs.haguichi.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland = {
@@ -135,6 +136,9 @@
     enable = true;
     setSocketVariable = true;
   };
+
+  # Enables virtualization for virt-manager
+  virtualisation.libvirtd.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

@@ -18,11 +18,6 @@
               # monitor=DP-1,1920x1080@165,0x0,1
               monitor=,highrr,auto,1
 
-            # Effects
-              layerrule = blur, rofi
-              layerrule = blur, wofi
-              layerrule = blur, thunar
-
               input {
                   kb_layout=br
                   kb_variant=
