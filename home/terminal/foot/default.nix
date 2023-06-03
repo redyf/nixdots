@@ -11,10 +11,10 @@
       settings = {
         main = {
           term = "xterm-256color";
-          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=16";
-          # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=16";
-          font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=16";
-          # font = "Maple Mono NF:Bold:style=Extra Bold:size=16";
+          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=13";
+          # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=13";
+          font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=13";
+          # font = "Maple Mono NF:Bold:style=Extra Bold:size=13";
           dpi-aware = "auto";
           pad = "2x2 center";
         };
