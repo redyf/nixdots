@@ -45,6 +45,7 @@
     sl
     btop
     kitty # My favorite terminal
+    nerdfix # Helps you find/fix obsolete Nerd font icons
 
     # Text Editors
     neovide # Gui neovim editor with cool animations
@@ -61,6 +62,7 @@
     # latest.firefox-nightly-bin
     firefox
     discord
+    discord-canary
     zathura
 
     # Rice
