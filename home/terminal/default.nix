@@ -3,7 +3,7 @@ _: {
     ./foot
     ./cava
     ./shell
-    ./pfetch
+    # ./pfetch
     ./editors
     ./neofetch
   ];
