@@ -39,7 +39,7 @@
     polkit_gnome
     networkmanager
     gobject-introspection # A middleware layer between C libraries and language bindings
-    inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
+    # inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
 
     # Terminal && prompt
     sl

@@ -15,6 +15,9 @@
     ./hardware-configuration.nix
   ];
 
+  # Kernel Modules
+  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
+
   # Bootloader.
   boot.loader = {
     systemd-boot.enable = false;
