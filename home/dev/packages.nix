@@ -39,7 +39,6 @@
     polkit_gnome
     networkmanager
     gobject-introspection # A middleware layer between C libraries and language bindings
-    # inputs.xwaylandvideobridge.packages.${pkgs.system}.xwaylandvideobridge # Make screensharing work on wayland
 
     # Terminal && prompt
     sl
@@ -53,7 +52,7 @@
     # Neovim plugins
     # vimPlugins.null-ls-nvim
     # vimPlugins.neogit # Git tool for neovim
-    vimPlugins.presence-nvim
+    # vimPlugins.presence-nvim
 
     # Other packages for nvim
     shellcheck # Shell script analysis tool
@@ -62,7 +61,6 @@
     # latest.firefox-nightly-bin
     firefox
     discord
-    discord-canary
     zathura
 
     # Rice
