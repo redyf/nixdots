@@ -9,7 +9,6 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
-    xwaylandvideobridge.url = "github:dacioromero/nix-config";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,7 +19,6 @@
   outputs = {
     self,
     nixpkgs,
-    xwaylandvideobridge,
     hyprland,
     home-manager,
     utils,
