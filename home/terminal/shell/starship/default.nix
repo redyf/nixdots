@@ -11,7 +11,7 @@
       {
         add_newline = false;
         scan_timeout = 5;
-
+        # TODO: oxocarbon purple for cursor color when using oxocarbon colorscheme
         character = {
           success_symbol = "[](#cbced3)";
           error_symbol = "[](#dd6777)";
