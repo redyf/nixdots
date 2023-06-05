@@ -268,6 +268,7 @@
 
           bind=SUPER,g,togglegroup
           bind=SUPER,tab,changegroupactive
+          bind=SUPER $mainMod SHIFT,B,exec, killall -3 eww & sleep 1 && ~/.config/hypr/themes/winter/eww/launch_bar
 
           exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
           exec_always {
