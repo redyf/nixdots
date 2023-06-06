@@ -20,7 +20,7 @@
           vicmd_symbol = "[](#ecd3a0)";
           # format = "$symbol [λ ](bold #73daca) ";
           # format = "$symbol [✗ ](bold #be95ff) ";
-          format = "$symbol [ℵ ](bold blue) ";
+          format = "$symbol[ℵ ](bold blue) ";
         };
 
         palette = "catppuccin_${flavour}";
@@ -33,6 +33,7 @@
         rust.symbol = "[](red) ";
         dart.symbol = "[](blue) ";
         nodejs.symbol = "[󰎙](blue) ";
+        nodejs.version_format = "v$raw(blue)";
         package.symbol = "📦  ";
 
         username = {

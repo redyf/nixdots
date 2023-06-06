@@ -16,7 +16,7 @@
           font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=13";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=13";
           dpi-aware = "auto";
-          pad = "4x8 center";
+          pad = "2x2 center";
         };
         cursor = {
           color = "1A1826 D9E0EE"; # Cattpuccin
@@ -33,8 +33,8 @@
         };
 
         colors = {
-          # catppuccin mocha
-          # alpha = "0.4";
+          # Cattpuccin mocha
+          # alpha = "0.8";
           # foreground = "cdd6f4"; # Text
           # background = "1E1D2F"; # Base
           # regular0 = "45475a"; # Surface 1
@@ -54,8 +54,8 @@
           # bright6 = "94e2d5"; # teal
           # bright7 = "a6adc8"; # Subtext 0
 
-          # catppuccin macchiato
-          alpha = "0.4";
+          # Cattpuccin macchiato
+          alpha = "0.8";
           foreground = "cad3f5"; # Text
           background = "24273a"; # Base
           regular0 = "494d64"; # Surface 1
