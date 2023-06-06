@@ -36,7 +36,7 @@
               ;
           };
           modules = [
-            ./nixos/configuration.nix
+            ./hosts/redyf/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -50,6 +50,26 @@
             {programs.hyprland.enable = true;}
           ];
         };
+      laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs hyprland;
+        };
+        modules = [
+          ./hosts/laptop/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = false;
+              extraSpecialArgs = {inherit inputs;};
+              users.redyf = ./home/home.nix;
+            };
+          }
+          hyprland.nixosModules.default
+          {programs.hyprland.enable = true;}
+        ];
+      };
     };
   };
 }
