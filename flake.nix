@@ -63,7 +63,7 @@
               useUserPackages = true;
               useGlobalPkgs = false;
               extraSpecialArgs = {inherit inputs;};
-              users.redyf = ./home/home.nix;
+              users.redyf = ./home/laptop.nix;
             };
           }
           hyprland.nixosModules.default
