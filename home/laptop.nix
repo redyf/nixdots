@@ -7,8 +7,8 @@
 }: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "mateus";
-  home.homeDirectory = "/home/mateus";
+  home.username = "redyf";
+  home.homeDirectory = "/home/redyf";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
