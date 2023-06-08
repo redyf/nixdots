@@ -71,5 +71,12 @@
         ];
       };
     };
+    homeConfigurations = {
+      "redyf@laptop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs;};
+        modules = [./home/laptop.nix];
+      };
+    };
   };
 }
