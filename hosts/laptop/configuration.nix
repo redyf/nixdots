@@ -209,6 +209,7 @@
   users.users.redyf = {
     isNormalUser = true;
     description = "redyf";
+    initialPassword = "red123";
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
   };
