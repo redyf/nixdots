@@ -57,7 +57,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0lk0fhdw2qfn3dfvdgld1zdgxf00cp3ksmqxfly8y7wwkmwjn6gc";
+        sha256 = "0hd8z4r2dxrjhd982p2flxdi0kpg36pl709cxc0l0z5n301hi68x";
       })
       {inherit pkgs;};
   };
