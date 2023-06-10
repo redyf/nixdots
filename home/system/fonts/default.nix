@@ -20,9 +20,6 @@
     fira-code-symbols
     powerline-symbols
     material-design-icons
-    nur.repos.oluceps.san-francisco
-    # inputs.sf-mono-liga-src.packages.${pkgs.system}.SFMono-Nerd-Font-Ligaturized
-
     (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "Iosevka"];})
   ];
 }
