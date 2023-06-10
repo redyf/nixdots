@@ -1,7 +1,9 @@
 _: {
   imports = [
-    ./foot
+    ./btop
     ./cava
+    ./foot
+    ./kitty
     ./shell
     # ./pfetch
     ./editors

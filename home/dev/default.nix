@@ -3,14 +3,14 @@ _: {
     ./c
     # ./clojure
     ./compilers
-    # ./dart
+    ./dart
     # ./elixir
     # ./go
     ./js
     ./lua
     ./nix
     ./python
-    # ./rust
+    ./rust
     # ./docker.nix
     ./virt-manager
     ./packages.nix
