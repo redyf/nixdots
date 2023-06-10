@@ -5,15 +5,15 @@
   #: individual font faces and even specify special fonts for particular
   #: characters.
 
-  # font_family      SF Mono Bold
-  # bold_font        SF Mono Bold
-  # italic_font      SF Mono Bold
-  # bold_italic_font SF Mono Bold
+  font_family        Liga SFMono Nerd Font
+  bold_font          Liga SFMono Nerd Font
+  italic_font        Liga SFMono Nerd Font
+  bold_italic_font   Liga SFMono Nerd Font
 
-  font_family      Maple Mono NF Bold
-  bold_font        Maple Mono NF Bold
-  italic_font      Maple Mono NF Bold
-  bold_italic_font Maple Mono NF Bold
+  # font_family      Maple Mono NF Bold
+  # bold_font        Maple Mono NF Bold
+  # italic_font      Maple Mono NF Bold
+  # bold_italic_font Maple Mono NF Bold
 
   # font_family      Blex Mono Bold Nerd Font Complete Mono
   # bold_font        Blex Mono Bold Nerd Font Complete Mono
