@@ -11,6 +11,7 @@
       {
         add_newline = false;
         scan_timeout = 5;
+
         # TODO: oxocarbon purple for cursor color when using oxocarbon colorscheme
         # TODO: add git options and change color to #7aa2f7
         # TODO: add new icons to languages
@@ -21,6 +22,7 @@
           # format = "$symbol [λ ](bold #73daca) ";
           # format = "$symbol [✗ ](bold #be95ff) ";
           format = "$symbol[ℵ ](bold blue) ";
+          # format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
         };
 
         palette = "catppuccin_${flavour}";
