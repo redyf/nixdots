@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+_: {
   programs = {
     foot = {
       enable = true;
@@ -14,22 +9,23 @@
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=11";
-          font = "Liga SFMono Nerd Font:Bold:style=Extra Bold:size=11";
+          font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=11";
           dpi-aware = "auto";
           pad = "2x2 center";
         };
         cursor = {
-          color = "1A1826 D9E0EE"; # Cattpuccin
+          # color = "1A1826 D9E0EE"; # Cattpuccin
           # color = "a9b1d6 f5f5f5"; # Decay
           # color = "a9b1d6 f5f5f5"; # Dark-decay
           # color = "a5b6cf cbced3"; # Decayce
           # color = "c5c8cd 101419"; # Light-decay
+          color = "1a1b26 c0caf5"; # Lunar
           # color = "192330 cdcecf"; # Nightfox
-          # color = "161616 f2f4f8"; # Nightfox
+          # color = "161616 f2f4f8"; # Carbonfox
           # color = "161616 ffffff"; # Oxocarbon
           blink = false;
-          style = "beam";
+          style = "block";
           beam-thickness = "1.5";
         };
 
@@ -56,25 +52,25 @@
           # bright7 = "a6adc8"; # Subtext 0
 
           # Cattpuccin macchiato
-          alpha = "0.8";
-          foreground = "cad3f5"; # Text
-          background = "24273a"; # Base
-          regular0 = "494d64"; # Surface 1
-          regular1 = "ed8796"; # red
-          regular2 = "a6da95"; # green
-          regular3 = "eed49f"; # yellow
-          regular4 = "8aadf4"; # blue
-          regular5 = "f5bde6"; # pink
-          regular6 = "8bd5ca"; # teal
-          regular7 = "b8c0e0"; # Subtext 1
-          bright0 = "5b6078"; # Surface 2
-          bright1 = "ed8796"; # red
-          bright2 = "a6da95"; # green
-          bright3 = "eed49f"; # yellow
-          bright4 = "8aadf4"; # blue
-          bright5 = "f5bde6"; # pink
-          bright6 = "8bd5ca"; # teal
-          bright7 = "a5adcb"; # Subtext 0
+          # alpha = "0.8";
+          # foreground = "cad3f5"; # Text
+          # background = "24273a"; # Base
+          # regular0 = "494d64"; # Surface 1
+          # regular1 = "ed8796"; # red
+          # regular2 = "a6da95"; # green
+          # regular3 = "eed49f"; # yellow
+          # regular4 = "8aadf4"; # blue
+          # regular5 = "f5bde6"; # pink
+          # regular6 = "8bd5ca"; # teal
+          # regular7 = "b8c0e0"; # Subtext 1
+          # bright0 = "5b6078"; # Surface 2
+          # bright1 = "ed8796"; # red
+          # bright2 = "a6da95"; # green
+          # bright3 = "eed49f"; # yellow
+          # bright4 = "8aadf4"; # blue
+          # bright5 = "f5bde6"; # pink
+          # bright6 = "8bd5ca"; # teal
+          # bright7 = "a5adcb"; # Subtext 0
 
           # Decay
           # alpha = "1.0";
@@ -159,6 +155,27 @@
           # bright5 = "a86cd0";
           # bright6 = "56a0cb";
           # bright7 = "1f2328";
+
+          # Lunar
+          alpha = "1.0";
+          foreground = "a9b1d6";
+          background = "1a1b26";
+          regular0 = "414868";
+          regular1 = "f7768e";
+          regular2 = "73daca";
+          regular3 = "e0af68";
+          regular4 = "7aa2f7";
+          regular5 = "bb9af7";
+          regular6 = "7dcfff";
+          regular7 = "c0caf5";
+          bright0 = "414868";
+          bright1 = "f7768e";
+          bright2 = "73daca";
+          bright3 = "e0af68";
+          bright4 = "7aa2f7";
+          bright5 = "bb9af7";
+          bright6 = "7dcfff";
+          bright7 = "c0caf5";
 
           # carbonfox
           # alpha = "1.0";

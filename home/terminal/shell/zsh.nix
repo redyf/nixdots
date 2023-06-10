@@ -11,19 +11,25 @@
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
     initExtra = ''
+                  # Export PATHs for applications
 
-      # Export PATHs for applications
+                  export PATH=$PATH:~/.local/bin/
+                  export PATH=/tmp/lazy-lvim/bin:$PATH
+                  export PATH="$HOME/.emacs.d/bin:$PATH"
+                  export PATH="$PATH:/home/redyf/.nix-profile/bin/elixir"
+                  export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
+                  export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
+                  export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+                  export PATH="$PATH:/home/redyf/.config/nvim/bin"
+                  export PATH="$PATH:/home/redyf/.config/nyoom.nvim/bin"
+                  NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
 
-      export PATH=$PATH:~/.local/bin/
-      export PATH=/tmp/lazy-lvim/bin:$PATH
-      export PATH="$HOME/.emacs.d/bin:$PATH"
-      export PATH="$PATH:/home/redyf/.nix-profile/bin/elixir"
-      export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
-      export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
-      export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
-      export PATH="$PATH:/home/redyf/.config/nvim/bin"
-      export PATH="$PATH:/home/redyf/.config/nyoom.nvim/bin"
-      NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
+                  # Neovim config switcher
+                  alias nvim-lunar="NVIM_APPNAME=LunarVim nvim"
+                  alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+                  alias nvim-chad="NVIM_APPNAME=NvChad nvim"
+                  alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+                  alias nvim-nyoom="NVIM_APPNAME=nyoom.nvim nvim"
 
       # Autosuggest
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
