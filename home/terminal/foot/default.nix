@@ -13,7 +13,8 @@
           term = "xterm-256color";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=11";
-          font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=11";
+          # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=11";
+          font = "Liga SFMono Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=11";
           dpi-aware = "auto";
           pad = "2x2 center";
