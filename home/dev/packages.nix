@@ -42,7 +42,6 @@
 
     # Terminal && prompt
     sl
-    btop
     kitty # My favorite terminal
     nerdfix # Helps you find/fix obsolete Nerd font icons
 
@@ -61,6 +60,7 @@
     # latest.firefox-nightly-bin
     firefox
     discord
+    element-desktop # Matrix client
     zathura
 
     # Rice
