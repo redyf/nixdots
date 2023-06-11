@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Variables
+config=$HOME/.config/hypr
+scripts=$config/scripts
+
+# Waybar
+pkill waybar
+$scripts/launch_waybar &
+$scripts/tools/dynamic &
+
+# Wallpaper
+swww kill
+swww init
+# swww img ~/Pictures/programmer.gif
+
+# Dunst (Notifications)
+dunst &
+
+# Cursor
+#hyprctl setcursor "Catppuccin-Mocha-Mauve-Cursors" 24
+hyprctl setcursor "macOS-BigSur" 24
+
+# Others
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
