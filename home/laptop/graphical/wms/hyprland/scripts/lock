@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+swaylockd \
+--screenshot \
+--font "Cascadia Code" \
+--clock \
+--indicator \
+--indicator-radius 100 \
+--indicator-thickness 20 \
+--line-color 181825 \
+--ring-color 181825 \
+--inside-color 181825 \
+--key-hl-color cba6f7 \
+--separator-color 00000000 \
+--text-color cdd6f4 \
+--text-caps-lock-color "" \
+--line-ver-color cba6f7 \
+--ring-ver-color cba6f7 \
+--inside-ver-color 181825 \
+--text-ver-color cdd6f4 \
+--ring-wrong-color f38ba8 \
+--text-wrong-color f38ba8 \
+--inside-wrong-color 181825 \
+--inside-clear-color 181825 \
+--text-clear-color cdd6f4 \
+--ring-clear-color cba6f7 \
+--line-clear-color 181825 \
+--line-wrong-color 181825 \
+--bs-hl-color f38ba8 \
+--line-uses-ring false \
+--datestr "%d.%m" \
+--fade-in "0.1" \
+--effect-blur 10x4 &
+

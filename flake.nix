@@ -49,7 +49,7 @@
                 useUserPackages = true;
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs;};
-                users.redyf = ./home/home.nix;
+                users.redyf = ./home/desktop/home.nix;
               };
             }
             hyprland.nixosModules.default
@@ -79,9 +79,9 @@
     };
     homeConfigurations = {
       "redyf@laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
-        modules = [./home/laptop.nix];
+        modules = [./home/laptop/laptop.nix];
       };
     };
   };

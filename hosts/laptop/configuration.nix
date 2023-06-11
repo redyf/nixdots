@@ -133,7 +133,6 @@
       enable = true;
       hidpi = true;
     };
-    # nvidiaPatches = true;
   };
 
   # Enables docker in rootless mode
@@ -148,13 +147,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # services.xserver.videoDrivers = ["nvidia"];
-
-  # environment.variables = {
-  #   GBM_BACKEND = "nvidia-drm";
-  #   LIBVA_DRIVER_NAME = "nvidia";
-  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  # };
+  services.xserver.videoDrivers = ["intel"];
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -162,14 +155,8 @@
   };
 
   hardware = {
-    # nvidia = {
-    #   open = true;
-    #   powerManagement.enable = true;
-    #   modesetting.enable = true;
-    # };
     opengl.enable = true;
     opengl.driSupport32Bit = true;
-    # opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
   };
 
   # Configure keymap in X11
