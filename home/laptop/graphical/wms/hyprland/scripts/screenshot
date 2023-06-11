@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+grimblast copysave area ~/Pictures/screenshots/img
+notify-send "Screenshot copied to clipboard" -a "ss"
