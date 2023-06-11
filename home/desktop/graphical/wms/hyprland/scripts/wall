@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+images_path=~/flake/home/graphical/wms/hyprland/wallpapers/
+variations=(1.jpg 2.jpg 3.png programmer.gif tokyonight-mchouse.png catppuccin.png girl.gif wall.mp4 lofi.gif waterfall.gif pixel.mp4 cityspace2.jpg gruvbox_Animesummer.png nix.png nixos.png)
+number=$(($RANDOM % 20))
+image=${variations[$number]}
+wallpaper=$images_path$image
+swww init
+swww img $wallpaper --transition-type grow --transition-pos 0.9,0.1 --transition-duration 1.5 --transition-fps 90
