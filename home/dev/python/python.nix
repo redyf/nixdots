@@ -3,8 +3,9 @@
     (python311.withPackages (ps:
       with ps; [
         pip
-        black # Python formatter
+        glib
         tqdm
+        black # Python formatter
         pynvim
         flake8 # Linter for Python
         pygobject3 # Python bindings for Glib

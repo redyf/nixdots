@@ -17,6 +17,7 @@
     mpd
     mpv
     glib # C library of programming buildings blocks
+    glibc
     wget
     file
     fuse
@@ -34,7 +35,7 @@
     findutils
     flameshot
     playerctl
-    tree-sitter
+    tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
     networkmanager
@@ -42,22 +43,12 @@
 
     # Terminal && prompt
     sl
-    kitty # My favorite terminal
     nerdfix # Helps you find/fix obsolete Nerd font icons
 
     # Text Editors
     neovide # Gui neovim editor with cool animations
 
-    # Neovim plugins
-    # vimPlugins.null-ls-nvim
-    # vimPlugins.neogit # Git tool for neovim
-    # vimPlugins.presence-nvim
-
-    # Other packages for nvim
-    shellcheck # Shell script analysis tool
-
     # Browser, vc, pdf
-    # latest.firefox-nightly-bin
     firefox
     discord
     element-desktop # Matrix client
@@ -82,7 +73,6 @@
     slurp # Works with grim to screenshot on wayland
     ffmpeg_5 # A complete, cross-platform solution to record, convert and stream audio and video
     obs-studio # Livestreams
-    hyprpicker # Color picker for wayland
     wl-clipboard # Enables copy/paste on wayland
 
     # Gaming
