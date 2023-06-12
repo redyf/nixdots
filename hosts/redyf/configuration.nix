@@ -240,6 +240,7 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
+    google-chrome
   ];
 
   # Enables flakes + garbage collector
