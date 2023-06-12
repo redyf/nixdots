@@ -49,7 +49,6 @@
     neovide # Gui neovim editor with cool animations
 
     # Browser, vc, pdf
-    firefox
     discord
     element-desktop # Matrix client
     zathura
