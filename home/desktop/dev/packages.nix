@@ -16,8 +16,8 @@
     fzf
     mpd
     mpv
-    glib # C library of programming buildings blocks
-    glibc
+    # glib # C library of programming buildings blocks
+    # glibc
     wget
     file
     fuse
@@ -56,11 +56,11 @@
     # Rice
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
-    sxhkd # BSPWM keybindings
+    # sxhkd # BSPWM keybindings
     cmatrix
-    polybar # Bar i use on X11
-    nitrogen # Wallpaper utility for X11
-    picom-next # Compositor for X11
+    # polybar # Bar i use on X11
+    # nitrogen # Wallpaper utility for X11
+    # picom-next # Compositor for X11
     eww-wayland # Cool widgets for wayland
     xfce.thunar # File manager
     lxappearance # Gui software to change icons/themes
