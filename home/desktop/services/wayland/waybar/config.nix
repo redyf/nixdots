@@ -130,7 +130,7 @@ in {
     "custom/notification" = {
       exec = "~/.config/waybar/scripts/notification.sh";
       on-click = "dunstctl set-paused toggle";
-      on-click-right = "notify-send -t 1 'swww' '1' & ~/flake/home/graphical/wms/hyprland/scripts/wall";
+      on-click-right = "notify-send -t 1 'swww' '1' & ~/flake/home/desktop/graphical/wms/hyprland/scripts/wall";
       return-type = "json";
       max-length = 50;
       format = "{}";

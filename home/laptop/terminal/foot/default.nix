@@ -20,15 +20,15 @@ _: {
           # color = "a9b1d6 f5f5f5"; # Dark-decay
           # color = "a5b6cf cbced3"; # Decayce
           # color = "c5c8cd 101419"; # Light-decay
-          color = "1a1b26 c0caf5"; # Lunar
+          # color = "1a1b26 c0caf5"; # Lunar
           # color = "192330 cdcecf"; # Nightfox
           # color = "161616 f2f4f8"; # Carbonfox
+          color = "11121d a0a8cd"; # Tokyodark
           # color = "161616 ffffff"; # Oxocarbon
           blink = false;
           style = "block";
           beam-thickness = "1.5";
         };
-
         colors = {
           # Cattpuccin mocha
           # alpha = "0.8";
@@ -157,25 +157,25 @@ _: {
           # bright7 = "1f2328";
 
           # Lunar
-          alpha = "1.0";
-          foreground = "a9b1d6";
-          background = "1a1b26";
-          regular0 = "414868";
-          regular1 = "f7768e";
-          regular2 = "73daca";
-          regular3 = "e0af68";
-          regular4 = "7aa2f7";
-          regular5 = "bb9af7";
-          regular6 = "7dcfff";
-          regular7 = "c0caf5";
-          bright0 = "414868";
-          bright1 = "f7768e";
-          bright2 = "73daca";
-          bright3 = "e0af68";
-          bright4 = "7aa2f7";
-          bright5 = "bb9af7";
-          bright6 = "7dcfff";
-          bright7 = "c0caf5";
+          # alpha = "1.0";
+          # foreground = "a9b1d6";
+          # background = "1a1b26";
+          # regular0 = "414868";
+          # regular1 = "f7768e";
+          # regular2 = "73daca";
+          # regular3 = "e0af68";
+          # regular4 = "7aa2f7";
+          # regular5 = "bb9af7";
+          # regular6 = "7dcfff";
+          # regular7 = "c0caf5";
+          # bright0 = "414868";
+          # bright1 = "f7768e";
+          # bright2 = "73daca";
+          # bright3 = "e0af68";
+          # bright4 = "7aa2f7";
+          # bright5 = "bb9af7";
+          # bright6 = "7dcfff";
+          # bright7 = "c0caf5";
 
           # carbonfox
           # alpha = "1.0";
@@ -218,6 +218,27 @@ _: {
           # bright5 = "baa1e2";
           # bright6 = "7ad5d6";
           # bright7 = "e4e4e5";
+
+          # tokyodark
+          alpha = "1.0";
+          foreground = "a0a8cd";
+          background = "11121d";
+          regular0 = "06080a";
+          regular1 = "ee6d85";
+          regular2 = "95c561";
+          regular3 = "d7a65f";
+          regular4 = "7199ee";
+          regular5 = "a485dd";
+          regular6 = "38a89d";
+          regular7 = "a0a8cd";
+          bright0 = "212234";
+          bright1 = "ee6d85";
+          bright2 = "95c561";
+          bright3 = "d7a65f";
+          bright4 = "7199ee";
+          bright5 = "a485dd";
+          bright6 = "38a89d";
+          bright7 = "a0a8cd";
 
           # oxocarbon
           # alpha = "1.0";
