@@ -2,7 +2,7 @@ _: {
   programs = {
     foot = {
       enable = true;
-      server.enable = false;
+      server.enable = true;
       settings = {
         main = {
           term = "xterm-256color";
@@ -23,8 +23,8 @@ _: {
           # color = "1a1b26 c0caf5"; # Lunar
           # color = "192330 cdcecf"; # Nightfox
           # color = "161616 f2f4f8"; # Carbonfox
-          color = "11121d a0a8cd"; # Tokyodark
-          # color = "161616 ffffff"; # Oxocarbon
+          # color = "11121d a0a8cd"; # Tokyodark
+          color = "161616 ffffff"; # Oxocarbon
           blink = false;
           style = "block";
           beam-thickness = "1.5";
@@ -220,46 +220,46 @@ _: {
           # bright7 = "e4e4e5";
 
           # tokyodark
-          alpha = "1.0";
-          foreground = "a0a8cd";
-          background = "11121d";
-          regular0 = "06080a";
-          regular1 = "ee6d85";
-          regular2 = "95c561";
-          regular3 = "d7a65f";
-          regular4 = "7199ee";
-          regular5 = "a485dd";
-          regular6 = "38a89d";
-          regular7 = "a0a8cd";
-          bright0 = "212234";
-          bright1 = "ee6d85";
-          bright2 = "95c561";
-          bright3 = "d7a65f";
-          bright4 = "7199ee";
-          bright5 = "a485dd";
-          bright6 = "38a89d";
-          bright7 = "a0a8cd";
+          # alpha = "1.0";
+          # foreground = "a0a8cd";
+          # background = "11121d";
+          # regular0 = "06080a";
+          # regular1 = "ee6d85";
+          # regular2 = "95c561";
+          # regular3 = "d7a65f";
+          # regular4 = "7199ee";
+          # regular5 = "a485dd";
+          # regular6 = "38a89d";
+          # regular7 = "a0a8cd";
+          # bright0 = "212234";
+          # bright1 = "ee6d85";
+          # bright2 = "95c561";
+          # bright3 = "d7a65f";
+          # bright4 = "7199ee";
+          # bright5 = "a485dd";
+          # bright6 = "38a89d";
+          # bright7 = "a0a8cd";
 
           # oxocarbon
-          # alpha = "1.0";
-          # foreground = "f2f4f8";
-          # background = "161616";
-          # regular0 = "262626";
-          # regular1 = "ee5396";
-          # regular2 = "42be65";
-          # regular3 = "ffe97b";
-          # regular4 = "33b1ff";
-          # regular5 = "ff7eb6";
-          # regular6 = "3ddbd9";
-          # regular7 = "dde1e6";
-          # bright0 = "393939";
-          # bright1 = "ee5396";
-          # bright2 = "42be65";
-          # bright3 = "ffe97b";
-          # bright4 = "33b1ff";
-          # bright5 = "ff7eb6";
-          # bright6 = "3ddbd9";
-          # bright7 = "ffffff";
+          alpha = "1.0";
+          foreground = "f2f4f8";
+          background = "161616";
+          regular0 = "262626";
+          regular1 = "ee5396";
+          regular2 = "42be65";
+          regular3 = "ffe97b";
+          regular4 = "33b1ff";
+          regular5 = "ff7eb6";
+          regular6 = "3ddbd9";
+          regular7 = "dde1e6";
+          bright0 = "393939";
+          bright1 = "ee5396";
+          bright2 = "42be65";
+          bright3 = "ffe97b";
+          bright4 = "33b1ff";
+          bright5 = "ff7eb6";
+          bright6 = "3ddbd9";
+          bright7 = "ffffff";
         };
       };
     };

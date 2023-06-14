@@ -2,7 +2,7 @@ _: {
   programs = {
     foot = {
       enable = true;
-      server.enable = false;
+      server.enable = true;
       settings = {
         main = {
           term = "xterm-256color";
@@ -20,15 +20,15 @@ _: {
           # color = "a9b1d6 f5f5f5"; # Dark-decay
           # color = "a5b6cf cbced3"; # Decayce
           # color = "c5c8cd 101419"; # Light-decay
-          color = "1a1b26 c0caf5"; # Lunar
+          # color = "1a1b26 c0caf5"; # Lunar
           # color = "192330 cdcecf"; # Nightfox
           # color = "161616 f2f4f8"; # Carbonfox
-          # color = "161616 ffffff"; # Oxocarbon
+          # color = "11121d a0a8cd"; # Tokyodark
+          color = "161616 ffffff"; # Oxocarbon
           blink = false;
           style = "block";
           beam-thickness = "1.5";
         };
-
         colors = {
           # Cattpuccin mocha
           # alpha = "0.8";
@@ -157,25 +157,25 @@ _: {
           # bright7 = "1f2328";
 
           # Lunar
-          alpha = "1.0";
-          foreground = "a9b1d6";
-          background = "1a1b26";
-          regular0 = "414868";
-          regular1 = "f7768e";
-          regular2 = "73daca";
-          regular3 = "e0af68";
-          regular4 = "7aa2f7";
-          regular5 = "bb9af7";
-          regular6 = "7dcfff";
-          regular7 = "c0caf5";
-          bright0 = "414868";
-          bright1 = "f7768e";
-          bright2 = "73daca";
-          bright3 = "e0af68";
-          bright4 = "7aa2f7";
-          bright5 = "bb9af7";
-          bright6 = "7dcfff";
-          bright7 = "c0caf5";
+          # alpha = "1.0";
+          # foreground = "a9b1d6";
+          # background = "1a1b26";
+          # regular0 = "414868";
+          # regular1 = "f7768e";
+          # regular2 = "73daca";
+          # regular3 = "e0af68";
+          # regular4 = "7aa2f7";
+          # regular5 = "bb9af7";
+          # regular6 = "7dcfff";
+          # regular7 = "c0caf5";
+          # bright0 = "414868";
+          # bright1 = "f7768e";
+          # bright2 = "73daca";
+          # bright3 = "e0af68";
+          # bright4 = "7aa2f7";
+          # bright5 = "bb9af7";
+          # bright6 = "7dcfff";
+          # bright7 = "c0caf5";
 
           # carbonfox
           # alpha = "1.0";
@@ -219,26 +219,68 @@ _: {
           # bright6 = "7ad5d6";
           # bright7 = "e4e4e5";
 
+          # tokyodark
+          # alpha = "1.0";
+          # foreground = "a0a8cd";
+          # background = "11121d";
+          # regular0 = "06080a";
+          # regular1 = "ee6d85";
+          # regular2 = "95c561";
+          # regular3 = "d7a65f";
+          # regular4 = "7199ee";
+          # regular5 = "a485dd";
+          # regular6 = "38a89d";
+          # regular7 = "a0a8cd";
+          # bright0 = "212234";
+          # bright1 = "ee6d85";
+          # bright2 = "95c561";
+          # bright3 = "d7a65f";
+          # bright4 = "7199ee";
+          # bright5 = "a485dd";
+          # bright6 = "38a89d";
+          # bright7 = "a0a8cd";
+
           # oxocarbon
           # alpha = "1.0";
           # foreground = "f2f4f8";
           # background = "161616";
           # regular0 = "262626";
           # regular1 = "ee5396";
-          # regular2 = "42be65";
+          # regular2 = "00C15A";
           # regular3 = "ffe97b";
           # regular4 = "33b1ff";
           # regular5 = "ff7eb6";
-          # regular6 = "3ddbd9";
+          # regular6 = "00C1BB";
           # regular7 = "dde1e6";
           # bright0 = "393939";
           # bright1 = "ee5396";
-          # bright2 = "42be65";
+          # bright2 = "00C15A";
           # bright3 = "ffe97b";
           # bright4 = "33b1ff";
           # bright5 = "ff7eb6";
           # bright6 = "3ddbd9";
           # bright7 = "ffffff";
+
+          # oxocarbon (base16)
+          alpha = "1.0";
+          foreground = "f2f4f8";
+          background = "161616";
+          regular0 = "161616";
+          regular1 = "262626";
+          regular2 = "393939";
+          regular3 = "525252";
+          regular4 = "dde1e6";
+          regular5 = "f2f4f8";
+          regular6 = "ffffff";
+          regular7 = "08bdba";
+          bright0 = "3ddbd9";
+          bright1 = "78a9ff";
+          bright2 = "ee5396";
+          bright3 = "33b1ff";
+          bright4 = "ff7eb6";
+          bright5 = "42be65";
+          bright6 = "be95ff";
+          bright7 = "82cfff";
         };
       };
     };

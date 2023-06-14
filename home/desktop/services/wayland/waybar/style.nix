@@ -84,12 +84,12 @@ in ''
       transition: all 0.3s ease;
     }
 
-    #workspaces button.active {
+      #workspaces button.active {
       min-width: 50px;
       box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
       background-color: rgb(245, 194, 231);
       background-size: 400% 400%;
-      transition: all 0.5s ease;
+      transition: all 0.3s ease;
       background: linear-gradient(
         58deg,
         #69ABFF,
@@ -101,7 +101,7 @@ in ''
         #F38BA8
       );
       background-size: 300% 300%;
-      animation: colored-gradient 20s ease infinite;
+      animation: colored-gradient 18s ease infinite;
     }
 
     @keyframes colored-gradient {
@@ -249,6 +249,26 @@ in ''
       animation: colored-gradient 20s ease infinite;
     }
 
+  oxocarbon
+        #workspaces button.active {
+      min-width: 50px;
+      box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+      background-color: rgb(245, 194, 231);
+      background-size: 400% 400%;
+      transition: all 0.3s ease;
+      background: linear-gradient(
+        58deg,
+        #69ABFF,
+        #69ABFF,
+        #69ABFF,
+        #2EB8B3,
+        #2EB8B3,
+        #2EB8B3,
+        #F38BA8
+      );
+      background-size: 300% 300%;
+      animation: colored-gradient 20s ease infinite;
+    }
   */
 
 ''
