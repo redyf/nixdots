@@ -5,8 +5,8 @@ _: {
     ./foot
     ./kitty
     ./shell
-    # ./pfetch
+    ./pfetch
     ./editors
-    ./neofetch
+    # ./neofetch
   ];
 }
