@@ -189,7 +189,9 @@
           bind=SUPER,Q,killactive,
           bind=SUPER,M,exit,
           bind=SUPER,S,togglefloating,
-          bind=SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
+          bind=SUPER,space,exec,bemenu-run
+          # bind=SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
+
           bind=SUPER,P,pseudo,
           bind=SUPER SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip
           bind=SUPER SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker
