@@ -6,7 +6,6 @@ _: {
     ./kitty
     ./shell
     ./pfetch
-    ./editors
     # ./neofetch
   ];
 }
