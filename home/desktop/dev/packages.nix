@@ -59,6 +59,7 @@
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
     # sxhkd # BSPWM keybindings
+    bemenu # Dmenu for wayland
     cmatrix
     # polybar # Bar i use on X11
     # nitrogen # Wallpaper utility for X11
