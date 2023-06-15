@@ -8,6 +8,9 @@
     # Design
     figma-linux
 
+    # Game dev
+    unityhub
+
     # System Utils
     fd
     jq
@@ -50,7 +53,6 @@
 
     # Browser, vc, pdf
     discord
-    element-desktop # Matrix client
     zathura
 
     # Rice
