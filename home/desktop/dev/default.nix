@@ -4,6 +4,7 @@ _: {
     # ./clojure
     ./compilers
     ./dart
+    ./editors
     # ./elixir
     # ./go
     ./js
