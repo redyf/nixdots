@@ -113,10 +113,11 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.windowManager.awesome.enable = true;
+  services.xserver.desktopManager.mate.enable = true;
   # services.xserver.windowManager.i3.enable = true;
   # services.xserver.windowManager.bspwm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.desktopManager.mate.enable = true;
 
   # Enables services
   services.logmein-hamachi.enable = true;
@@ -136,6 +137,7 @@
     nvidiaPatches = true;
   };
 
+  # Use overlays
   nixpkgs.overlays = [
     (
       final: prev: {
@@ -227,11 +229,32 @@
     #jack.enable = true;
   };
 
-  users.users.redyf = {
-    isNormalUser = true;
-    description = "redyf";
-    shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
+  users = {
+    users = {
+      redyf = {
+        isNormalUser = true;
+        description = "redyf";
+        initialPassword = "red123";
+        shell = pkgs.zsh;
+        extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
+      };
+    };
+  };
+
+  # Use doas instead-of sudo
+  security = {
+    sudo.enable = false;
+    doas = {
+      enable = true;
+      wheelNeedsPassword = true;
+      extraRules = [
+        {
+          users = ["redyf"];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
+    };
   };
 
   # Allow unfree packages
@@ -241,7 +264,6 @@
 
   environment.systemPackages = with pkgs; [
     xdg-desktop-portal-gtk
-    google-chrome
   ];
 
   # Enables flakes + garbage collector
