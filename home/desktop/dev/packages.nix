@@ -27,11 +27,10 @@
     tree
     peek
     jp2a
+    light # GNU/Linux application to control backlights
     xclip
     chafa # Transform images into colorful ascii (works with gifs too)
     unzip # Unzip files using the terminal
-    lolcat
-    figlet # Program for making large letters out of ordinary text
     img2pdf # Convert images to pdf
     # lazygit # Amazing CLI git tool
     ripgrep
@@ -48,6 +47,7 @@
     nerdfix # Helps you find/fix obsolete Nerd font icons
 
     # Text Editors
+    emacs
     neovide # Gui neovim editor with cool animations
 
     # Browser, vc, pdf
