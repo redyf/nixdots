@@ -33,11 +33,10 @@
     lolcat
     figlet # Program for making large letters out of ordinary text
     img2pdf # Convert images to pdf
-    lazygit # Amazing CLI git tool
+    # lazygit # Amazing CLI git tool
     ripgrep
     findutils
     flameshot
-    playerctl
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
