@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./awesome
+    # ./awesome
     ./hyprland
   ];
 }
