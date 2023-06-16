@@ -85,6 +85,14 @@
   # Enable networking
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  networking = {
+    # no need to wait interfaces to have an IP to continue booting
+    dhcpcd.wait = "background";
+    # avoid checking if IP is already taken to boot a few seconds faster
+    dhcpcd.extraConfig = "noarp";
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -263,6 +271,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    git
+    playerctl
     xdg-desktop-portal-gtk
   ];
 
