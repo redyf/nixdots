@@ -1,8 +1,8 @@
 {inputs, ...}: let
   # inherit (inputs.nix-colors) colorSchemes;
-  catppuccin-mocha = (import ./palettes/catppuccin-mocha.nix).colorscheme;
+  # catppuccin-mocha = (import ./palettes/catppuccin-mocha.nix).colorscheme;
   # catppuccin-macchiato = (import ./palettes/catppuccin-mocha.nix).colorscheme;
-  # oxocarbon-dark = (import ./palettes/oxocarbon-dark.nix).colorscheme;
+  oxocarbon-dark = (import ./palettes/oxocarbon-dark.nix).colorscheme;
 in {
   imports = [
     inputs.nix-colors.homeManagerModule
@@ -12,5 +12,6 @@ in {
   #colorscheme = colorSchemes.ashes;
 
   # use the self-declared color scheme from palettes directory
-  colorscheme = catppuccin-mocha;
+  # colorscheme = catppuccin-mocha;
+  colorscheme = oxocarbon-dark;
 }
