@@ -77,11 +77,11 @@
     wl-clipboard # Enables copy/paste on wayland
 
     # Gaming
-    grapejuice
-    gnutls
-    libpulseaudio
-    minecraft
-    logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
+    # grapejuice
+    # gnutls
+    # libpulseaudio
+    # minecraft
+    # logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
     steam
 
     # Others

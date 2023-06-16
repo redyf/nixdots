@@ -121,7 +121,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.windowManager.awesome.enable = true;
+  # services.xserver.windowManager.awesome.enable = true;
   services.xserver.desktopManager.mate.enable = true;
   # services.xserver.windowManager.i3.enable = true;
   # services.xserver.windowManager.bspwm.enable = true;

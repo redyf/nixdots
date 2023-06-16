@@ -6,7 +6,7 @@
   ...
 }: {
   home.file.".config/hypr/hyprland.conf".text = ''
-          source=~/.config/hypr/mocha.conf
+          # source=~/.config/hypr/mocha.conf
           monitor=,preferred,auto,1
 
           exec-once = $HOME/.config/hypr/autostart
@@ -41,7 +41,7 @@
               layout = master
               gaps_in=10
               gaps_out=10
-              border_size=3
+              border_size=4
               #col.active_border = rgb(b2b2ff) rgb(f5c2e7) rgb(70a5eb) 270deg
               #bezier = linear, 0.0, 0.0, 1.0, 1.0
               #animation = borderangle, 1, 100, linear, loop
@@ -286,9 +286,10 @@
           }
 
           # Themes
-          #source=~/.config/hypr/themes/neon/theme.conf
-          #source=~/.config/hypr/themes/cyber/theme.conf
-          #source=~/.config/hypr/themes/garden/theme.conf
-          source=~/.config/hypr/themes/catppuccin-macchiato.conf
+          # source=~/.config/hypr/themes/neon/theme.conf
+          # source=~/.config/hypr/themes/cyber/theme.conf
+          # source=~/.config/hypr/themes/garden/theme.conf
+          # source=~/.config/hypr/themes/catppuccin-macchiato.conf
+          source=~/.config/hypr/themes/jabuti.conf
   '';
 }

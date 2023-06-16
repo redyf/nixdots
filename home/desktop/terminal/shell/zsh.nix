@@ -21,7 +21,7 @@
                   export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
                   export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
                   export PATH="$PATH:/home/redyf/.config/nvim/bin"
-                  export PATH="$PATH:/home/redyf/.config/nyoom.nvim/bin"
+                  export PATH="$PATH:/home/redyf/.config/nyoom/bin"
                   NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
 
                   # Neovim config switcher

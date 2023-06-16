@@ -6,13 +6,13 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
+          font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=11";
-          font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=11";
           dpi-aware = "auto";
-          pad = "2x2 center";
+          pad = "12x12";
         };
         cursor = {
           # color = "1A1826 D9E0EE"; # Cattpuccin
@@ -24,8 +24,9 @@ _: {
           # color = "192330 cdcecf"; # Nightfox
           # color = "161616 f2f4f8"; # Carbonfox
           # color = "11121d a0a8cd"; # Tokyodark
-          color = "161616 ffffff"; # Oxocarbon
-          blink = false;
+          # color = "161616 ffffff"; # Oxocarbon
+          color = "292a37 d9e0ee "; # Jabuti
+          blink = true;
           style = "block";
           beam-thickness = "1.5";
         };
@@ -241,25 +242,46 @@ _: {
           # bright7 = "a0a8cd";
 
           # oxocarbon
-          alpha = "1.0";
-          foreground = "f2f4f8";
-          background = "161616";
-          regular0 = "262626";
-          regular1 = "ee5396";
-          regular2 = "00C15A";
-          regular3 = "ffe97b";
-          regular4 = "33b1ff";
-          regular5 = "ff7eb6";
-          regular6 = "00C1BB";
-          regular7 = "dde1e6";
-          bright0 = "393939";
-          bright1 = "ee5396";
-          bright2 = "00C15A";
-          bright3 = "ffe97b";
-          bright4 = "33b1ff";
-          bright5 = "ff7eb6";
-          bright6 = "3ddbd9";
-          bright7 = "ffffff";
+          # alpha = "1.0";
+          # foreground = "f2f4f8";
+          # background = "161616";
+          # regular0 = "262626";
+          # regular1 = "ee5396";
+          # regular2 = "00C15A";
+          # regular3 = "ffe97b";
+          # regular4 = "33b1ff";
+          # regular5 = "ff7eb6";
+          # regular6 = "00C1BB";
+          # regular7 = "dde1e6";
+          # bright0 = "393939";
+          # bright1 = "ee5396";
+          # bright2 = "00C15A";
+          # bright3 = "ffe97b";
+          # bright4 = "33b1ff";
+          # bright5 = "ff7eb6";
+          # bright6 = "3ddbd9";
+          # bright7 = "ffffff";
+
+          # jabuti
+          foreground = "d9e0ee";
+          background = "292a37";
+          ## Normal/regular colors (color palette 0-7)
+          regular0 = "303241"; # black
+          regular1 = "ec6a88";
+          regular2 = "3fdaa4";
+          regular3 = "efb993";
+          regular4 = "3fc6de";
+          regular5 = "b771dc";
+          regular6 = "6be6e6";
+          regular7 = "d9e0ee";
+          bright0 = "393a4d"; # bright black
+          bright1 = "e95678"; # bright red
+          bright2 = "29d398"; # bright green
+          bright3 = "efb993"; # bright yellow
+          bright4 = "26bbd9";
+          bright5 = "b072d1"; # bright magenta
+          bright6 = "59e3e3"; # bright cyan
+          bright7 = "d9e0ee"; # bright white
         };
       };
     };
