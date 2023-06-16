@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="447.01" height="447.01" version="1.1" viewBox="0 0 447.01 447.01" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(94.471 92.734)" fill="none">
+  <rect width="256" height="256"/>
+  <g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+   <circle cx="128" cy="128" r="60"/>
+   <line x1="128" x2="128" y1="28" y2="12"/>
+   <line x1="198.7" x2="210" y1="57.3" y2="46"/>
+   <line x1="228" x2="244" y1="128" y2="128"/>
+   <line x1="198.7" x2="210" y1="198.7" y2="210"/>
+   <line x1="128" x2="128" y1="228" y2="244"/>
+   <line x1="57.3" x2="46" y1="198.7" y2="210"/>
+   <line x1="28" x2="12" y1="128" y2="128"/>
+   <line x1="57.3" x2="46" y1="57.3" y2="46"/>
+  </g>
+ </g>
+</svg>

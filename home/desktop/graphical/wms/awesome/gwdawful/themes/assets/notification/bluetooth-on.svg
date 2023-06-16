@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="447.01" height="447.01" version="1.1" viewBox="0 0 447.01 447.01" xmlns="http://www.w3.org/2000/svg">
+ <g fill="none">
+  <rect x="97.086" y="92.38" width="256" height="256"/>
+  <g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+   <polygon transform="translate(97.086 92.38)" points="184 80 120 128 120 32"/>
+   <polygon transform="translate(97.086 92.38)" points="184 176 120 224 120 128"/>
+   <line x1="153.09" x2="217.09" y1="172.38" y2="220.38"/>
+   <line x1="153.09" x2="217.09" y1="268.38" y2="220.38"/>
+  </g>
+ </g>
+ <circle cx="149.09" cy="220.38" r="16"/>
+ <circle cx="293.09" cy="220.38" r="16"/>
+</svg>

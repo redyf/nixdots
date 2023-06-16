@@ -1,0 +1,12 @@
+[submodule "systems/shared/config/wm/awesome/gwdawful/modules/awesome-battery_widget"]
+	path = systems/shared/config/wm/awesome/gwdawful/modules/awesome-battery_widget
+	url = https://github.com/Aire-One/awesome-battery_widget
+[submodule "systems/shared/config/wm/awesome/gwdawful/modules/bling"]
+	path = systems/shared/config/wm/awesome/gwdawful/modules/bling
+	url = https://github.com/blingcorp/bling
+[submodule "systems/shared/config/wm/awesome/gwdawful/modules/rubato"]
+	path = systems/shared/config/wm/awesome/gwdawful/modules/rubato
+	url = https://github.com/andorlando/rubato
+[submodule "systems/shared/config/wm/awesome/gwdawful/modules/color"]
+	path = systems/shared/config/wm/awesome/gwdawful/modules/color
+	url = https://github.com/andorlando/color
