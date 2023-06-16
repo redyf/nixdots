@@ -26,7 +26,7 @@
   # Imports
   imports = [
     ./dev
-    # ./pkgs
+    ./pkgs
     ./system
     ./themes
     ./services
@@ -57,7 +57,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0hd8z4r2dxrjhd982p2flxdi0kpg36pl709cxc0l0z5n301hi68x";
+        sha256 = "0lzqqqq2vysiap9g34zvv5v4wxfdvvqszfdg0srnm641yx3d1ql1";
       })
       {inherit pkgs;};
   };
