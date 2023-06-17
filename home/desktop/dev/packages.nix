@@ -35,7 +35,7 @@
     # lazygit # Amazing CLI git tool
     ripgrep
     findutils
-    flameshot
+    # flameshot
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
@@ -43,7 +43,6 @@
     # gobject-introspection # A middleware layer between C libraries and language bindings
 
     # Terminal && prompt
-    sl
     nerdfix # Helps you find/fix obsolete Nerd font icons
 
     # Text Editors
