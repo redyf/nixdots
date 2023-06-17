@@ -124,7 +124,7 @@
       c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
-      f = "pfetch";
+      f = "nitch";
       g = "git";
       gs = "git status";
       grep = "grep --color=auto";

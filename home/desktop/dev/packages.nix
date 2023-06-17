@@ -9,7 +9,7 @@
     figma-linux
 
     # Game dev
-    unityhub
+    # unityhub
 
     # System Utils
     fd
