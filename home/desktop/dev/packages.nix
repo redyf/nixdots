@@ -21,7 +21,6 @@
     mpv
     # glib # C library of programming buildings blocks
     # glibc
-    wget
     file
     fuse
     tree

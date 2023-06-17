@@ -272,6 +272,7 @@
 
   environment.systemPackages = with pkgs; [
     git
+    wget
     playerctl
     xdg-desktop-portal-gtk
   ];
