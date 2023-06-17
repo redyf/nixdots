@@ -1,7 +1,22 @@
-{ config
-, pkgs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  ...
+}:
+# let
+#  cfg = config.modules.nvim;
+#  # Source my theme
+#  jabuti-nvim = pkgs.vimUtils.buildVimPlugin {
+#    name = "jabuti-nvim";
+#    src = pkgs.fetchFromGitHub {
+#      owner = "jabuti-theme";
+#      repo = "jabuti-nvim";
+#      rev = "17f1b94cbf1871a89cdc264e4a8a2b3b4f7c76d2";
+#      sha256 = "sha256-iPjwx/rTd98LUPK1MUfqKXZhQ5NmKx/rN8RX1PIuDFA=";
+#    };
+#  };
+# in {
+{
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;
@@ -38,7 +53,11 @@
     #       nodePackages.bash-language-server
     #       nodePackages.node2nix # node and tix, we game
     #     ];
-    #     plugins = with pkgs.vimPlugins; [
+    # plugins = with pkgs.vimPlugins; [
+    #  {
+    #    plugin = jabuti-nvim;
+    #    config = "colorscheme jabuti";
+    #  }
     #       copilot-lua
     #       lsp_lines-nvim
     #       vim-nix
@@ -104,6 +123,6 @@
     #           tree-sitter-dockerfile
     #           tree-sitter-markdown
     #         ]))
-    #     ];
+    #];
   };
 }
