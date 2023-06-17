@@ -11,17 +11,15 @@
       {
         add_newline = false;
         scan_timeout = 5;
-
-        # TODO: oxocarbon purple for cursor color when using oxocarbon colorscheme
         # TODO: add git options and change color to #7aa2f7
         # TODO: add new icons to languages
         character = {
           success_symbol = "[](#cbced3)";
           error_symbol = "[](#dd6777)";
           vicmd_symbol = "[](#ecd3a0)";
-          # format = "$symbol [λ ](bold #73daca) ";
+          format = "$symbol [λ ](bold #3fdaa4) ";
           # format = "$symbol [✗ ](bold #be95ff) ";
-          format = "$symbol[ℵ ](bold blue) ";
+          # format = "$symbol[ℵ ](bold blue) ";
           # format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
         };
 
@@ -34,7 +32,8 @@
         nix_shell.symbol = "[](blue) ";
         rust.symbol = "[](red) ";
         dart.symbol = "[](blue) ";
-        nodejs.symbol = "[󰎙](blue) ";
+        # nodejs.symbol = "[󰎙](#29d398) ";
+        # nodejs.symbol = "[󰎙](blue) ";
         nodejs.version_format = "v$raw(blue)";
         package.symbol = "📦  ";
 
@@ -57,7 +56,8 @@
           truncation_length = 3;
           truncation_symbol = "./";
           # style = "bold bg:none fg:#7aa2f7";
-          style = "bold bg:none fg:#7dcfff";
+          # style = "bold bg:none fg:#7dcfff";
+          style = "bold bg:none fg:#26bbd9";
         };
       }
       // builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub

@@ -46,11 +46,7 @@
               #bezier = linear, 0.0, 0.0, 1.0, 1.0
               #animation = borderangle, 1, 100, linear, loop
 
-              #col.active_border=0xfff5c2e7   # pink
-              #col.active_border=0xffb2b2ff   # purple
               #col.active_border=0xff8cc1ff   # decayce
-              #col.active_border=0xffcdd6f4   # Catppuccin
-              #col.active_border=0xffb4befe   # Catppuccin mocha
               #col.inactive_border=0xff1e1e2e
               col.group_border_active=0xfff9e2af
               col.group_border=0xff89dceb
