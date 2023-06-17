@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home = {
-    packages = with pkgs; [ pfetch ];
-    sessionVariables.PF_INFO = "ascii title os kernel uptime shell term desktop scheme palette";
+    packages = with pkgs; [pfetch];
+    sessionVariables.PF_INFO = "ascii title os kernel shell term desktop memory pkgs uptime scheme palette";
   };
 }
