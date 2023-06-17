@@ -88,25 +88,25 @@ in {
     };
     network = {
       # interface = "wlp2*"; # Optional
-      format-wifi = "直 {signalStrength}%";
-      format-ethernet = " {cidr}";
+      format-wifi = "󰖩 {signalStrength}%";
+      format-ethernet = "󰈀 {cidr}";
       tooltip-format = "{ifname} via {gwaddr}";
       format-linked = "{ifname} (No IP)";
-      format-disconnect = "睊";
+      format-disconnect = "󰖪";
       on-click = "foot -e nmtui";
     };
     pulseaudio = {
       # scroll-step = 1; # %, can be a float
       format = "{icon} {volume}%";
       format-bluetooth = "{volume}%  {format_source}";
-      format-bluetooth-muted = "婢 ";
-      format-muted = "婢";
+      format-bluetooth-muted = "󰖁 ";
+      format-muted = "󰖁";
       # format-source = "{volume}% ";
       # format-source-muted = "";
       format-icons = {
         headphone = "";
-        hands-free = "";
-        headset = "";
+        hands-free = "󰂑";
+        headset = "󰂑";
         phone = "";
         portable = "";
         car = "";

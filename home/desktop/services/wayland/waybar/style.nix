@@ -92,16 +92,16 @@ in ''
       transition: all 0.3s ease;
       background: linear-gradient(
         58deg,
-        #69ABFF,
-        #69ABFF,
-        #69ABFF,
-        #2EB8B3,
-        #2EB8B3,
-        #2EB8B3,
+        #29d398,
+        #29d398,
+        #29d398,
+        #ec6a88,
+        #ec6a88,
+        #ec6a88,
         #F38BA8
       );
       background-size: 300% 300%;
-      animation: colored-gradient 18s ease infinite;
+      animation: colored-gradient 20s ease infinite;
     }
 
     @keyframes colored-gradient {
