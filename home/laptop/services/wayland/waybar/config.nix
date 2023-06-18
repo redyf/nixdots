@@ -9,7 +9,7 @@ with lib; let
   sys = osConfig.modules.system;
 in {
   mainBar = {
-    layer = "top";
+    layer = "top"; # Original
     # position = "bottom";
     height = 32;
     # width = "1280";
