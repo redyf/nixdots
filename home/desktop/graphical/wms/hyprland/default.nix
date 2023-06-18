@@ -41,7 +41,7 @@
               layout = master
               gaps_in=10
               gaps_out=10
-              border_size=4
+              border_size=5
               #col.active_border = rgb(b2b2ff) rgb(f5c2e7) rgb(70a5eb) 270deg
               #bezier = linear, 0.0, 0.0, 1.0, 1.0
               #animation = borderangle, 1, 100, linear, loop

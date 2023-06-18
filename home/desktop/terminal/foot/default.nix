@@ -262,7 +262,7 @@ _: {
           # bright6 = "3ddbd9";
           # bright7 = "ffffff";
 
-          # jabuti
+          # Jabuti
           foreground = "d9e0ee";
           background = "292a37";
           ## Normal/regular colors (color palette 0-7)
