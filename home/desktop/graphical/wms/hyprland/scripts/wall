@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 images_path=~/flake/home/desktop/graphical/wms/hyprland/wallpapers/
-variations=(1.jpg 2.jpg 3.png programmer.gif tokyonight-mchouse.png catppuccin.png girl.gif wall.mp4 lofi.gif waterfall.gif pixel.mp4 cityspace2.jpg gruvbox_Animesummer.png nix.png nixos.png oxocarbon.png jabuti-colorscheme.png)
+variations=(1.jpg 2.jpg anime.png programmer.gif tokyonight-mchouse.png catppuccin.png lofi.gif waterfall.gif cityscape.jpg nix.png nixos.png oxocarbon.png jabuti.png)
 number=$(($RANDOM % 20))
 image=${variations[$number]}
 wallpaper=$images_path$image

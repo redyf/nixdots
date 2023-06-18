@@ -9,8 +9,8 @@ with lib; let
   sys = osConfig.modules.system;
 in {
   mainBar = {
-    layer = "top";
-    # position = "bottom";
+    layer = "top"; # Original
+    # position = "bottom"; # Original
     height = 32;
     # width = "1280";
     spacing = 8;
