@@ -100,6 +100,14 @@ in ''
         #ec6a88,
         #F38BA8
       );
+      /*#936FDC,
+        #e95678,
+        #ec6a88,
+        #efb993,
+        #efb993,
+        #3FDAA4,
+        #78a9ff
+      */
       background-size: 300% 300%;
       animation: colored-gradient 20s ease infinite;
     }
@@ -264,6 +272,27 @@ in ''
         #2EB8B3,
         #2EB8B3,
         #2EB8B3,
+        #F38BA8
+      );
+      background-size: 300% 300%;
+      animation: colored-gradient 20s ease infinite;
+    }
+
+      jabuti
+      #workspaces button.active {
+      min-width: 50px;
+      box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+      background-color: rgb(245, 194, 231);
+      background-size: 400% 400%;
+      transition: all 0.3s ease;
+      background: linear-gradient(
+        58deg,
+        #29d398,
+        #29d398,
+        #29d398,
+        #ec6a88,
+        #ec6a88,
+        #ec6a88,
         #F38BA8
       );
       background-size: 300% 300%;
