@@ -1,0 +1,311 @@
+$base: #44465c;
+$blue: #3fc6de;
+$surface0: #44465c;
+$surface1: #44465c;
+$text: #d9e0ee;
+$overlay0: #6e738d;
+$red: #ec6a88;
+$peach: #efb993;
+$yellow: #efb993;
+$mauve: #b072d1;
+$green: #3fdaa4;
+$mantle: #292a37;
+$crust: #2e303e;
+$light-gray: #9699b7;
+
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+.icon {
+  font-family: monospace;
+  font-size: 1.4rem;
+}
+
+button {
+  transition: background-color 200ms, color 200ms;
+}
+
+.active {
+  color: $green;
+  font-size: 1.4rem;
+}
+
+.inactive {
+  color: $base;
+  font-size: 1.4rem;
+}
+
+.inactive:hover {
+  color: $light-gray;
+}
+
+.bar {
+  background-color: $mantle;
+  border-left: 4px dotted $red;
+}
+
+.dashboard {
+  background-color: $mantle;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cal-box {
+  padding: 1rem 1rem 0.2rem;
+}
+
+.cal {
+  padding: 0;
+  border-radius: 8px;
+}
+
+.calendar_box {
+  padding: 1rem;
+  calendar:selected {
+    color: $blue;
+  }
+
+  calendar.header {
+    color: $blue;
+    font-weight: bold;
+  }
+
+  calendar.button {
+    color: $blue;
+  }
+
+  calendar.highlight {
+    color: $green;
+    font-weight: bold;
+  }
+
+  calendar:indeterminate {
+    color: rgba(205, 219, 249, 0.3);
+  }
+}
+
+.sysinfo_box {
+  padding: 1rem;
+  .iconmem {
+    font-size: 3rem;
+    color: $yellow;
+  }
+  .iconcpu {
+    font-size: 3rem;
+    color: $blue;
+  }
+  .icondisk {
+    font-size: 3rem;
+    color: $green;
+  }
+  .cpubar,
+  .membar,
+  .diskbar {
+    background-color: $crust;
+  }
+}
+.slider_box {
+  padding: 0 1rem;
+  scale {
+    background-color: $crust;
+    border-radius: 100px;
+    margin: 0.5rem 0;
+  }
+
+  scale trough {
+    border-radius: 100px;
+  }
+
+  scale highlight {
+    padding: 8px;
+    margin: 8px;
+    border-radius: 100px;
+  }
+
+  .brightness_slider highlight {
+    background-color: $yellow;
+  }
+
+  .volume_slider highlight {
+    background-color: $blue;
+  }
+
+  .micvolume_slider highlight {
+    background-color: $green;
+  }
+
+  .slider_icon {
+    font-size: 2rem;
+    padding-right: 0.75rem;
+  }
+}
+
+.notification_box {
+}
+
+.wifi {
+  font-size: 2rem;
+  color: $blue;
+}
+
+.clock {
+  font-weight: bold;
+  background-color: $base;
+  color: $text;
+  border-radius: 10px;
+  padding: 0.2rem;
+  margin: 0.5rem;
+}
+
+.cpubar {
+  color: $blue;
+  background-color: $surface1;
+  margin: 4px 0;
+}
+
+.diskbar {
+  color: $green;
+  background-color: $surface1;
+  margin: 4px 0;
+}
+
+.membar {
+  color: $yellow;
+  background-color: $surface1;
+  margin: 4px 0;
+}
+
+.iconmem,
+.iconcpu,
+.icondisk {
+  color: $base;
+  font-size: 2.5rem;
+}
+
+.date {
+  font-size: 1.5rem;
+}
+
+.reg-btn {
+  font-size: 2rem;
+  margin: 2px 8px;
+  border-radius: 10px;
+}
+
+.dashbutton {
+  color: $mauve;
+}
+
+.dashbutton:hover {
+  background-color: $base;
+}
+
+.dashbutton:active {
+  background-color: $mauve;
+  color: $mantle;
+}
+
+.powerbutton {
+  color: $red;
+}
+
+.powerbutton:hover {
+  background-color: $base;
+}
+
+.powerbutton:active {
+  background-color: $red;
+  color: $mantle;
+}
+
+.launchbutton {
+  background-color: $blue;
+  color: $mantle;
+  margin-top: 6px;
+}
+
+.launchbutton:hover {
+  background-color: $mauve;
+}
+
+.launchbutton:active {
+  color: $mauve;
+  background-color: $mantle;
+}
+
+.battery {
+  font-size: 1.5rem;
+  color: $blue;
+}
+
+// Credits AlphaTechnolog
+.powermenu-box {
+  padding: 0 2px;
+  margin: 7px 7px 7px 0px;
+  background: inherit;
+  .dispatcher {
+    border-radius: 15px;
+    background: $base;
+    color: $red;
+    font-size: 14px;
+    padding: 0 14px 0 10px;
+    &:hover {
+      background-color: $surface0;
+    }
+    &:active {
+      background-color: $surface1;
+    }
+  }
+}
+
+// powermenu
+.powermenu-container {
+  background: $crust;
+  color: $text;
+  padding: 10px;
+  font-size: 55px;
+
+  transition: all 200ms cubic-bezier(0.1, -0, 0, 1.49);
+
+  .btn {
+    margin: 1rem;
+  }
+  // shutdown
+  .shutdown-btn-box .btn {
+    color: $red;
+    border-radius: 15px;
+    background-color: $mantle;
+    &:hover {
+      background-color: $base;
+    }
+    &:active {
+      background-color: $surface1;
+    }
+  }
+  // reboot
+  .reboot-btn-box .btn {
+    color: $mauve;
+    border-radius: 15px;
+    background-color: $mantle;
+    &:hover {
+      background-color: $base;
+    }
+    &:active {
+      background-color: $surface1;
+    }
+  }
+  // exit
+  .exit-btn-box .btn {
+    color: $yellow;
+    border-radius: 15px;
+    background-color: $mantle;
+    &:hover {
+      background-color: $base;
+    }
+    &:active {
+      background-color: $surface1;
+    }
+  }
+}

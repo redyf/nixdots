@@ -17,8 +17,8 @@
           success_symbol = "[](#cbced3)";
           error_symbol = "[](#dd6777)";
           vicmd_symbol = "[](#ecd3a0)";
-          format = "$symbol [λ ](bold #3fdaa4) ";
-          # format = "$symbol [✗ ](bold #be95ff) ";
+          # format = "$symbol [λ ](bold #3fdaa4) ";
+          format = "$symbol [✗ ](bold #3fdaa4) ";
           # format = "$symbol[ℵ ](bold blue) ";
           # format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
         };
@@ -32,7 +32,7 @@
         nix_shell.symbol = "[](blue) ";
         rust.symbol = "[](red) ";
         dart.symbol = "[](blue) ";
-        # nodejs.symbol = "[󰎙](#29d398) ";
+        # nodejs.symbol = "[󰎙](#3fdaa4) ";
         # nodejs.symbol = "[󰎙](blue) ";
         nodejs.version_format = "v$raw(blue)";
         package.symbol = "📦  ";
@@ -40,7 +40,6 @@
         username = {
           show_always = false;
           style_user = "bold bg:none fg:blue";
-          # style_user = "bold bg:none fg:#be95ff";
           format = "[$user]($style) ";
         };
 
