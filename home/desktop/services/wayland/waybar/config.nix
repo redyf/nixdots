@@ -14,10 +14,10 @@ in {
     height = 32;
     # width = "1280";
     spacing = 8;
-    margin-top = 10;
-    margin-bottom = 10;
-    margin-right = 0;
-    margin-left = 10;
+    margin-top = 6;
+    margin-bottom = 6;
+    margin-right = 8;
+    margin-left = 8;
     fixed-center = false;
     modules-left = [
       "wlr/workspaces"
