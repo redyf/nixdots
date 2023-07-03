@@ -1,7 +1,7 @@
 {
   colorscheme = {
-    slug = "catppuccin-mocha";
-    name = "Catppuccin Mocha";
+    slug = "catppuccin-macchiato";
+    name = "Catppuccin Macchiato";
     kind = "dark";
     colors = {
       base00 = "#24273a"; # Base

@@ -18,8 +18,8 @@
           error_symbol = "[](#dd6777)";
           vicmd_symbol = "[](#ecd3a0)";
           # format = "$symbol [λ ](bold #3fdaa4) ";
-          format = "$symbol [✗ ](bold #3fdaa4) ";
-          # format = "$symbol[ℵ ](bold blue) ";
+          # format = "$symbol [✗ ](bold #3fdaa4) ";
+          format = "$symbol[ℵ ](bold #3fdaa4) ";
           # format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
         };
 
