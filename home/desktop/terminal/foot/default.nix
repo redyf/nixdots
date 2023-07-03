@@ -12,7 +12,7 @@ _: {
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=11";
           dpi-aware = "auto";
-          pad = "8x8 center";
+          pad = "6x4 center";
         };
         cursor = {
           # color = "1A1826 D9E0EE"; # Cattpuccin
@@ -25,7 +25,7 @@ _: {
           # color = "161616 f2f4f8"; # Carbonfox
           # color = "11121d a0a8cd"; # Tokyodark
           # color = "161616 ffffff"; # Oxocarbon
-          color = "292a37 d9e0ee "; # Jabuti
+          color = "292a37 d9e0ee"; # Jabuti
           blink = true;
           style = "block";
           beam-thickness = "1.5";

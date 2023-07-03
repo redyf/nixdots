@@ -3,7 +3,7 @@ _: {
     ./c
     # ./clojure
     ./compilers
-    ./dart
+    # ./dart
     ./editors
     # ./elixir
     # ./go
