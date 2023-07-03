@@ -64,7 +64,7 @@
               shadow_ignore_window = true
               col.shadow=0x22000000 # 0xbbf5c2e7
               col.shadow_inactive=0x22000000
-              rounding = 0
+              rounding = 8
               dim_inactive = false
               dim_strength = 0.5
               dim_special = 0.0
