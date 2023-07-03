@@ -49,6 +49,7 @@
     neovide # Gui neovim editor with cool animations
 
     # Browser, vc, pdf
+    google-chrome
     discord
     zathura
 
@@ -78,7 +79,7 @@
     # grapejuice
     # gnutls
     # libpulseaudio
-    # minecraft
+    minecraft
     # logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
     steam
 
