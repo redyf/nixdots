@@ -49,7 +49,7 @@
     neovide # Gui neovim editor with cool animations
 
     # Browser, vc, pdf
-    google-chrome
+    # google-chrome
     discord
     zathura
 
