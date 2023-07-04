@@ -131,34 +131,67 @@
   #     };
   #   };
   # };
+
   xdg.mimeApps = {
     enable = true;
     associations.added = {
-      "application/pdf" = ["firefox.desktop"];
-      "video/mp4" = ["mpv.desktop"];
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-      "text/html" = ["firefox.desktop"];
+      "application/pdf" = ["org.gnome.Evince.desktop"];
+      "video/mp4" = ["google-chrome.desktop"];
+      "x-scheme-handler/http" = ["google-chrome.desktop"];
+      "x-scheme-handler/https" = ["google-chrome.desktop"];
+      "text/html" = ["google-chrome.desktop"];
     };
     defaultApplications = {
-      "application/pdf" = ["firefox.desktop"];
-      "application/x-extension-htm" = ["firefox.desktop"];
-      "application/x-extension-html" = ["firefox.desktop"];
-      "application/x-extension-shtml" = ["firefox.desktop"];
-      "application/x-extension-xht" = ["firefox.desktop"];
-      "application/x-extension-xhtml" = ["firefox.desktop"];
-      "application/x-www-browser" = ["firefox.desktop"];
-      "application/xhtml+xml" = ["firefox.desktop"];
-      "text/html" = ["firefox.desktop"];
-      "x-scheme-handler/chrome" = ["firefox.desktop"];
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-      "x-scheme-handler/ftp" = ["firefox.desktop"];
-      "x-scheme-handler/about" = ["firefox.desktop"];
-      "x-scheme-handler/unknown" = ["firefox.desktop"];
-      "x-scheme-handler/webcal" = ["firefox.desktop"];
-      "x-www-browser" = ["firefox.desktop"];
-      "video/mp4" = ["mpv.desktop"];
+      "application/pdf" = ["org.gnome.Evince.desktop"];
+      "application/x-extension-htm" = ["google-chrome.desktop"];
+      "application/x-extension-html" = ["google-chrome.desktop"];
+      "application/x-extension-shtml" = ["google-chrome.desktop"];
+      "application/x-extension-xht" = ["google-chrome.desktop"];
+      "application/x-extension-xhtml" = ["google-chrome.desktop"];
+      "application/x-www-browser" = ["google-chrome.desktop"];
+      "application/xhtml+xml" = ["google-chrome.desktop"];
+      "text/html" = ["google-chrome.desktop"];
+      "x-scheme-handler/chrome" = ["google-chrome.desktop"];
+      "x-scheme-handler/http" = ["google-chrome.desktop"];
+      "x-scheme-handler/https" = ["google-chrome.desktop"];
+      "x-scheme-handler/ftp" = ["google-chrome.desktop"];
+      "x-scheme-handler/about" = ["google-chrome.desktop"];
+      "x-scheme-handler/unknown" = ["google-chrome.desktop"];
+      "x-scheme-handler/webcal" = ["google-chrome.desktop"];
+      "x-www-browser" = ["google-chrome.desktop"];
+      "video/mp4" = ["google-chrome.desktop"];
+      "browser" = ["google-chrome.desktop"];
     };
   };
+
+  # xdg.mimeApps = {
+  #   enable = true;
+  #   associations.added = {
+  #     "application/pdf" = ["firefox.desktop"];
+  #     "video/mp4" = ["mpv.desktop"];
+  #     "x-scheme-handler/http" = ["firefox.desktop"];
+  #     "x-scheme-handler/https" = ["firefox.desktop"];
+  #     "text/html" = ["firefox.desktop"];
+  #   };
+  #   defaultApplications = {
+  #     "application/pdf" = ["firefox.desktop"];
+  #     "application/x-extension-htm" = ["firefox.desktop"];
+  #     "application/x-extension-html" = ["firefox.desktop"];
+  #     "application/x-extension-shtml" = ["firefox.desktop"];
+  #     "application/x-extension-xht" = ["firefox.desktop"];
+  #     "application/x-extension-xhtml" = ["firefox.desktop"];
+  #     "application/x-www-browser" = ["firefox.desktop"];
+  #     "application/xhtml+xml" = ["firefox.desktop"];
+  #     "text/html" = ["firefox.desktop"];
+  #     "x-scheme-handler/chrome" = ["firefox.desktop"];
+  #     "x-scheme-handler/http" = ["firefox.desktop"];
+  #     "x-scheme-handler/https" = ["firefox.desktop"];
+  #     "x-scheme-handler/ftp" = ["firefox.desktop"];
+  #     "x-scheme-handler/about" = ["firefox.desktop"];
+  #     "x-scheme-handler/unknown" = ["firefox.desktop"];
+  #     "x-scheme-handler/webcal" = ["firefox.desktop"];
+  #     "x-www-browser" = ["firefox.desktop"];
+  #     "video/mp4" = ["mpv.desktop"];
+  #   };
+  # };
 }
