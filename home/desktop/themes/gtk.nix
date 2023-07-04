@@ -25,4 +25,9 @@
       package = pkgs.papirus-folders;
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
 }

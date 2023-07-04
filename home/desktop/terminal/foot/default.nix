@@ -31,6 +31,28 @@ _: {
           beam-thickness = "1.5";
         };
         colors = {
+          # Jabuti
+          alpha = "0.5";
+          foreground = "d9e0ee";
+          background = "292a37";
+          ## Normal/regular colors (color palette 0-7)
+          regular0 = "303241"; # black
+          regular1 = "ec6a88";
+          regular2 = "3fdaa4";
+          regular3 = "efb993";
+          regular4 = "3fc6de";
+          regular5 = "b771dc";
+          regular6 = "6be6e6";
+          regular7 = "d9e0ee";
+          bright0 = "393a4d"; # bright black
+          bright1 = "e95678"; # bright red
+          bright2 = "29d398"; # bright green
+          bright3 = "efb993"; # bright yellow
+          bright4 = "26bbd9";
+          bright5 = "b072d1"; # bright magenta
+          bright6 = "59e3e3"; # bright cyan
+          bright7 = "d9e0ee"; # bright white
+
           # Cattpuccin mocha
           # alpha = "0.8";
           # foreground = "cdd6f4"; # Text
@@ -178,7 +200,7 @@ _: {
           # bright6 = "7dcfff";
           # bright7 = "c0caf5";
 
-          # carbonfox
+          # Carbonfox
           # alpha = "1.0";
           # foreground = "f2f4f8";
           # background = "161616";
@@ -199,7 +221,7 @@ _: {
           # bright6 = "52bdff";
           # bright7 = "e4e4e5";
 
-          # nightfox
+          # Nightfox
           # alpha = "1.0";
           # foreground = "cdcecf";
           # background = "192330";
@@ -220,7 +242,7 @@ _: {
           # bright6 = "7ad5d6";
           # bright7 = "e4e4e5";
 
-          # tokyodark
+          # Tokyodark
           # alpha = "1.0";
           # foreground = "a0a8cd";
           # background = "11121d";
@@ -241,7 +263,7 @@ _: {
           # bright6 = "38a89d";
           # bright7 = "a0a8cd";
 
-          # oxocarbon
+          # Oxocarbon
           # alpha = "1.0";
           # foreground = "f2f4f8";
           # background = "161616";
@@ -261,27 +283,6 @@ _: {
           # bright5 = "ff7eb6";
           # bright6 = "3ddbd9";
           # bright7 = "ffffff";
-
-          # Jabuti
-          foreground = "d9e0ee";
-          background = "292a37";
-          ## Normal/regular colors (color palette 0-7)
-          regular0 = "303241"; # black
-          regular1 = "ec6a88";
-          regular2 = "3fdaa4";
-          regular3 = "efb993";
-          regular4 = "3fc6de";
-          regular5 = "b771dc";
-          regular6 = "6be6e6";
-          regular7 = "d9e0ee";
-          bright0 = "393a4d"; # bright black
-          bright1 = "e95678"; # bright red
-          bright2 = "29d398"; # bright green
-          bright3 = "efb993"; # bright yellow
-          bright4 = "26bbd9";
-          bright5 = "b072d1"; # bright magenta
-          bright6 = "59e3e3"; # bright cyan
-          bright7 = "d9e0ee"; # bright white
         };
       };
     };
