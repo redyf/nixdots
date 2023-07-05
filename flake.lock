@@ -264,11 +264,11 @@
     "sf-mono-liga-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1670759310,
-        "narHash": "sha256-vPUl6O/ji4hHIH7/qSbUe7q1QdugE1D1ZRw92QcSSDQ=",
+        "lastModified": 1688258025,
+        "narHash": "sha256-AYjKrVLISsJWXN6Cj74wXmbJtREkFDYOCRw1t2nVH2w=",
         "owner": "shaunsingh",
         "repo": "SFMono-Nerd-Font-Ligaturized",
-        "rev": "7723040ef50633da5094f01f93b96dae5e9b9299",
+        "rev": "dc5a3e6fcc2e16ad476b7be3c3c17c2273b260ea",
         "type": "github"
       },
       "original": {
