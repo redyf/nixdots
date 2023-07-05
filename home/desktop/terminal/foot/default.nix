@@ -12,7 +12,7 @@ _: {
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=11";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=11";
           dpi-aware = "auto";
-          pad = "6x4 center";
+          pad = "4x4 center";
         };
         cursor = {
           # color = "1A1826 D9E0EE"; # Cattpuccin
