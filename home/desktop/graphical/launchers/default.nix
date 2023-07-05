@@ -1,6 +1,6 @@
 _: {
   imports = [
     ./rofi
-    ./wofi
+    # ./wofi
   ];
 }
