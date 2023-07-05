@@ -191,9 +191,8 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __GL_GSYNC_ALLOWED = "1";
     __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
-    GTK_THEME = "Catppuccin-Mocha-Compact-Blue-Dark";
-    XCURSOR_THEME = "macOS-BigSur";
-    XCURSOR_SIZE = "30";
+    # GTK_THEME = "Catppuccin-Mocha-Compact-Blue-Dark";
+    # GTK_THEME = "whitesur-gtk-theme";
   };
 
   environment.sessionVariables = {
