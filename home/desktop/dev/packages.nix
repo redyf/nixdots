@@ -45,7 +45,7 @@
     nerdfix # Helps you find/fix obsolete Nerd font icons
 
     # Text Editors
-    emacs
+    # emacs
     neovide # Gui neovim editor with cool animations
 
     # Browser, vc, pdf

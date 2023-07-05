@@ -9,7 +9,7 @@
     dotDir = ".config/zsh";
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     initExtra = ''
                   # Export PATHs for applications
 
