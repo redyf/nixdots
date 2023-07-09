@@ -18,9 +18,24 @@
     };
 
     iconTheme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
+
+    # theme = {
+    #   name = "whitesur-gtk-theme";
+    #   package = pkgs.whitesur-gtk-theme;
+    # };
+    #
+    # iconTheme = {
+    #   name = "Papirus-Dark";
+    #   package = pkgs.papirus-folders;
+    # };
+
+    # iconTheme = {
+    #   name = "WhiteSur";
+    #   package = pkgs.whitesur-icon-theme;
+    # };
 
     # theme = {
     #   name = "Catppuccin-Mocha-Compact-Blue-Dark";
@@ -29,11 +44,6 @@
     #     accents = ["blue"];
     #     variant = "mocha";
     #   };
-    # };
-
-    # iconTheme = {
-    #   name = "Papirus-Dark";
-    #   package = pkgs.papirus-folders;
     # };
   };
 }
