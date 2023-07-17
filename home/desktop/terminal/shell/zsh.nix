@@ -11,26 +11,17 @@
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
     initExtra = ''
-                  # Export PATHs for applications
-
-                  export PATH=$PATH:~/.local/bin/
-                  export PATH=/tmp/lazy-lvim/bin:$PATH
-                  export PATH="$HOME/.emacs.d/bin:$PATH"
-                  export PATH="$PATH:/home/redyf/.nix-profile/bin/elixir"
-                  export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
-                  export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
-                  export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
-                  export PATH="$PATH:/home/redyf/.config/nvim/bin"
-                  export PATH="$PATH:/home/redyf/.config/nyoom/bin"
-                  NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
-
-                  # Neovim config switcher
-                  alias nvim-lunar="NVIM_APPNAME=LunarVim nvim"
-                  alias nvim-kick="NVIM_APPNAME=kickstart nvim"
-                  alias nvim-chad="NVIM_APPNAME=NvChad nvim"
-                  alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
-                  alias nvim-nyoom="NVIM_APPNAME=nyoom.nvim nvim"
-
+      # Export PATHs for applications
+      export PATH=$PATH:~/.local/bin/
+      export PATH=/tmp/lazy-lvim/bin:$PATH
+      export PATH="$HOME/.emacs.d/bin:$PATH"
+      export PATH="$PATH:/home/redyf/.nix-profile/bin/elixir"
+      export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
+      export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
+      export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+      export PATH="$PATH:/home/redyf/.config/nvim/bin"
+      export PATH="$PATH:/home/redyf/.config/nyoom/bin"
+      NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
       # Autosuggest
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
@@ -79,43 +70,43 @@
       zstyle ':completion:*' sort false
       zstyle ':completion:complete:*:options' sort false
       zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-      zstyle ':completion:*' special-dirs true
-      zstyle ':completion:*' rehash true
+       zstyle ':completion:*' special-dirs true
+       zstyle ':completion:*' rehash true
 
-      zstyle ':completion:*' menu yes select # search
-      zstyle ':completion:*' list-grouped false
-      zstyle ':completion:*' list-separator '''
-      zstyle ':completion:*' group-name '''
-      zstyle ':completion:*' verbose yes
-      zstyle ':completion:*:matches' group 'yes'
-      zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-      zstyle ':completion:*:messages' format '%d'
-      zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-      zstyle ':completion:*:descriptions' format '[%d]'
+       zstyle ':completion:*' menu yes select # search
+       zstyle ':completion:*' list-grouped false
+       zstyle ':completion:*' list-separator '''
+       zstyle ':completion:*' group-name '''
+       zstyle ':completion:*' verbose yes
+       zstyle ':completion:*:matches' group 'yes'
+       zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
+       zstyle ':completion:*:messages' format '%d'
+       zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+       zstyle ':completion:*:descriptions' format '[%d]'
 
-      # Fuzzy match mistyped completions.
-      zstyle ':completion:*' completer _complete _match _approximate
-      zstyle ':completion:*:match:*' original only
-      zstyle ':completion:*:approximate:*' max-errors 1 numeric
+       # Fuzzy match mistyped completions.
+       zstyle ':completion:*' completer _complete _match _approximate
+       zstyle ':completion:*:match:*' original only
+       zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-      # Don't complete unavailable commands.
-      zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+       # Don't complete unavailable commands.
+       zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
 
-      # Array completion element sorting.
-      zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+       # Array completion element sorting.
+       zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
-      # fzf-tab
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
-      zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-      zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
-      zstyle ':fzf-tab:*' switch-group ',' '.'
-      zstyle ":completion:*:git-checkout:*" sort false
-      zstyle ':completion:*' file-sort modification
-      zstyle ':completion:*:exa' sort false
-      zstyle ':completion:files' sort false
+       # fzf-tab
+       zstyle ':fzf-tab:complete:_zlua:*' query-string input
+       zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
+       zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
+       zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
+       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+       zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+       zstyle ':fzf-tab:*' switch-group ',' '.'
+       zstyle ":completion:*:git-checkout:*" sort false
+       zstyle ':completion:*' file-sort modification
+       zstyle ':completion:*:exa' sort false
+       zstyle ':completion:files' sort false
 
     '';
 
@@ -135,6 +126,7 @@
       nv = "lvimn";
       rm = "rm -i";
       v = "lvim";
+      rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
     };
 
     oh-my-zsh = {

@@ -8,9 +8,6 @@
     # Design
     figma-linux
 
-    # Game dev
-    # unityhub
-
     # System Utils
     fd
     jq
@@ -26,10 +23,14 @@
     tree
     peek
     jp2a
+    timer # CLI sleep progress app
     light # GNU/Linux application to control backlights
     xclip
     chafa # Transform images into colorful ascii (works with gifs too)
     unzip # Unzip files using the terminal
+    lolcat
+    speechd
+    libnotify
     img2pdf # Convert images to pdf
     # lazygit # Amazing CLI git tool
     ripgrep
@@ -61,12 +62,14 @@
     cmatrix
     # polybar # Bar i use on X11
     nitrogen # Wallpaper utility for X11
-    picom-next # Compositor for X11
+    # picom-next # Compositor for X11
     # eww-wayland # Cool widgets for wayland
-    xfce.thunar # File manager
+    # lf # CLI file manager written in GO
     lxappearance # Gui software to change icons/themes
     # brightnessctl
-    xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
+    # xfce.thunar # File manager
+    # xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
+    cinnamon.nemo # Cinnamon File manager
 
     # Streaming/screenshot
     grim # Screenshot tool for hyprland
