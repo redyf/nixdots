@@ -33,23 +33,7 @@
       device = "nodev";
       efiSupport = true;
       useOSProber = true;
-      configurationLimit = 5;
-
-      # theme = pkgs.fetchFromGitHub {
-      #   owner = "shvchk";
-      #   repo = "fallout-grub-theme";
-      #   rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
-      #   sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
-      # };
-
-      #   theme = (pkgs.fetchFromGitHub
-      #     {
-      #       owner = "catppuccin";
-      #       repo = "grub";
-      #       rev = "803c5df0e83aba61668777bb96d90ab8f6847106";
-      #       sha256 = "sha256-/bSolCta8GCZ4lP0u5NVqYQ9Y3ZooYCNdTwORNvR7M0=";
-      #     } + "/src/catppuccin-mocha-grub-theme");
-      # };
+      configurationLimit = 3;
 
       theme =
         pkgs.fetchFromGitHub
@@ -61,6 +45,13 @@
         }
         + "/Sekiro";
     };
+
+    # theme = pkgs.fetchFromGitHub {
+    #   owner = "shvchk";
+    #   repo = "fallout-grub-theme";
+    #   rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
+    #   sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
+    # };
 
     # theme = pkgs.fetchFromGitHub
     #   {
@@ -83,9 +74,12 @@
   };
 
   # Change systemd stop job timeout in NixOS configuration (Default = 90s)
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
+  systemd = {
+    services.NetworkManager-wait-online.enable = false;
+    extraConfig = ''
+      DefaultTimeoutStopSec=10s
+    '';
+  };
 
   # Enable networking
   networking = {
@@ -101,8 +95,6 @@
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
-
-  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "America/Bahia";
@@ -136,17 +128,19 @@
   # services.flatpak.enable = true;
 
   # Enable programs
-  programs.zsh.enable = true;
-  programs.steam.enable = true;
-  programs.dconf.enable = true;
-  programs.haguichi.enable = true;
-  programs.hyprland = {
-    enable = true;
-    xwayland = {
+  programs = {
+    zsh.enable = true;
+    steam.enable = true;
+    dconf.enable = true;
+    haguichi.enable = true;
+    hyprland = {
       enable = true;
-      hidpi = true;
+      xwayland = {
+        enable = true;
+        hidpi = true;
+      };
+      nvidiaPatches = true;
     };
-    nvidiaPatches = true;
   };
 
   # Use overlays
@@ -168,7 +162,21 @@
   ];
 
   fonts = {
-    fonts = with pkgs; [sf-mono-liga-bin];
+    enableDefaultFonts = true;
+    fonts = with pkgs; [
+      sf-mono-liga-bin
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = ["SF Pro"];
+        sansSerif = ["SF Pro"];
+        monospace = ["SF Pro"];
+        # serif = ["Times, Noto Serif"];
+        # sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
+        # monospace = ["Courier Prime, Courier, Noto Sans Mono"];
+      };
+    };
   };
 
   # Enables docker in rootless mode
@@ -191,8 +199,6 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __GL_GSYNC_ALLOWED = "1";
     __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
-    # GTK_THEME = "Catppuccin-Mocha-Compact-Blue-Dark";
-    # GTK_THEME = "whitesur-gtk-theme";
   };
 
   environment.sessionVariables = {
@@ -273,17 +279,17 @@
     };
   };
 
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   environment.systemPackages = with pkgs; [
     git
     wget
     playerctl
     xdg-desktop-portal-gtk
   ];
+
+  # Allow unfree packages
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   # Enables flakes + garbage collector
   nix = {

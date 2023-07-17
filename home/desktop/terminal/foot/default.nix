@@ -27,7 +27,7 @@ _: {
           # color = "161616 ffffff"; # Oxocarbon
           color = "292a37 d9e0ee"; # Jabuti
           blink = false;
-          style = "beam";
+          style = "block";
           beam-thickness = "2";
           underline-thickness = "2";
         };
@@ -305,6 +305,10 @@ _: {
           # bright5 = "ff7eb6";
           # bright6 = "3ddbd9";
           # bright7 = "ffffff";
+        };
+        tweak = {
+          font-monospace-warn = "no"; # reduces startup time
+          sixel = "yes";
         };
       };
     };
