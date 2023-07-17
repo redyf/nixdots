@@ -42,12 +42,7 @@
               gaps_in=4
               gaps_out=4
               border_size=5
-              #col.active_border = rgb(b2b2ff) rgb(f5c2e7) rgb(70a5eb) 270deg
-              #bezier = linear, 0.0, 0.0, 1.0, 1.0
-              #animation = borderangle, 1, 100, linear, loop
 
-              #col.active_border=0xff8cc1ff   # decayce
-              #col.inactive_border=0xff1e1e2e
               col.group_border_active=0xfff9e2af
               col.group_border=0xff89dceb
               apply_sens_to_raw=1 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -86,7 +81,7 @@
              animation=windowsOut,1,6,md3_decel,slide
              animation=windowsMove,1,6,md3_decel,slide
              animation=fade,1,10,md3_decel
-             animation=workspaces,1,7,md3_decel,slide
+             animation=workspaces,1,9,md3_decel,slide
              animation=specialWorkspace,1,8,md3_decel,slide
              animation=border,1,10,md3_decel
 

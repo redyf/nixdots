@@ -13,7 +13,7 @@
     dejavu_fonts
     font-awesome
     # maple-mono-NF
-    # liberation_ttf
+    liberation_ttf
     # powerline-fonts
     # cantarell-fonts
     # source-code-pro
