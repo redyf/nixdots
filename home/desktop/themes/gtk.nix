@@ -13,8 +13,13 @@
     };
 
     theme = {
-      name = "whitesur-gtk-theme";
-      package = pkgs.whitesur-gtk-theme;
+      name = "Catppuccin-Macchiato-Compact-Blue-dark";
+      package = pkgs.catppuccin-gtk.override {
+        size = "compact";
+        accents = ["blue"];
+        # tweaks = ["rimless" "black"]; # You can also specify multiple tweaks here
+        variant = "macchiato";
+      };
     };
 
     iconTheme = {
@@ -22,28 +27,19 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    # theme = {
-    #   name = "whitesur-gtk-theme";
-    #   package = pkgs.whitesur-gtk-theme;
-    # };
-    #
     # iconTheme = {
     #   name = "Papirus-Dark";
     #   package = pkgs.papirus-folders;
     # };
 
+    # theme = {
+    #   name = "whitesur-gtk-theme";
+    #   package = pkgs.whitesur-gtk-theme;
+    # };
+
     # iconTheme = {
     #   name = "WhiteSur";
     #   package = pkgs.whitesur-icon-theme;
-    # };
-
-    # theme = {
-    #   name = "Catppuccin-Mocha-Compact-Blue-Dark";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     size = "compact";
-    #     accents = ["blue"];
-    #     variant = "mocha";
-    #   };
     # };
   };
 }
