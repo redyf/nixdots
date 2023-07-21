@@ -9,7 +9,7 @@
     cursorTheme = {
       name = "macOS-BigSur";
       package = pkgs.apple-cursor;
-      size = 32; # Affects gtk applications as the name suggests
+      size = 40; # Affects gtk applications as the name suggests
     };
 
     theme = {

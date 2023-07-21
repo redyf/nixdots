@@ -39,8 +39,8 @@
 
           general {
               layout = master
-              gaps_in=4
-              gaps_out=4
+              gaps_in=0
+              gaps_out=0
               border_size=5
 
               col.group_border_active=0xfff9e2af
@@ -59,12 +59,12 @@
               shadow_ignore_window = true
               col.shadow=0x22000000 # 0xbbf5c2e7
               col.shadow_inactive=0x22000000
-              rounding = 8
+              rounding = 0
               dim_inactive = false
               dim_strength = 0.5
               dim_special = 0.0
               dim_around = 0.0
-              blur = false
+              blur = true
               blur_new_optimizations = true
               blur_size = 10
               blur_passes = 4
@@ -73,17 +73,29 @@
 
           animations {
 
-             # Selmer443 config
+             # Minimal config
              bezier=pace,0.46, 1, 0.29, 0.99
              bezier=overshot,0.13,0.99,0.29,1.1
              bezier = md3_decel, 0.05, 0.7, 0.1, 1
-             animation=windowsIn,1,6,md3_decel,slide
-             animation=windowsOut,1,6,md3_decel,slide
-             animation=windowsMove,1,6,md3_decel,slide
-             animation=fade,1,10,md3_decel
-             animation=workspaces,1,9,md3_decel,slide
-             animation=specialWorkspace,1,8,md3_decel,slide
-             animation=border,1,10,md3_decel
+             animation=windowsIn,0,6,md3_decel,slide
+             animation=windowsOut,0,6,md3_decel,slide
+             animation=windowsMove,0,6,md3_decel,slide
+             animation=fade,0,10,md3_decel
+             animation=workspaces,0,9,md3_decel,slide
+             animation=specialWorkspace,0,8,md3_decel,slide
+             animation=border,0,10,md3_decel
+
+             # Selmer443 config
+             # bezier=pace,0.46, 1, 0.29, 0.99
+             # bezier=overshot,0.13,0.99,0.29,1.1
+             # bezier = md3_decel, 0.05, 0.7, 0.1, 1
+             # animation=windowsIn,1,6,md3_decel,slide
+             # animation=windowsOut,1,6,md3_decel,slide
+             # animation=windowsMove,1,6,md3_decel,slide
+             # animation=fade,1,10,md3_decel
+             # animation=workspaces,1,9,md3_decel,slide
+             # animation=specialWorkspace,1,8,md3_decel,slide
+             # animation=border,1,10,md3_decel
 
              #  PROxZima animations
              #  bezier = overshot, 0.13, 0.99, 0.29, 1.1
@@ -151,16 +163,17 @@
           # Window rules
           windowrule=tile,title:^(kitty)$
           windowrule=float,title:^(fly_is_kitty)$
+          windowrule = opacity 1.0 override 1.0 override,^(foot)$ # Active/inactive opacity
           windowrule = opacity 1.0 override 1.0 override,^(kitty)$ # Active/inactive opacity
           windowrule = tile,^(Spotify)$
           windowrule = tile,^(neovide)$
-          windowrule = opacity 1.0 override 1.0 override,^(neovide)$ # Active/inactive opacity
+          windowrule = opacity 0.6 override 0.6 override,^(neovide)$ # Active/inactive opacity
           windowrulev2 = opacity 1.0 1.0,class:^(wofi)$
 
           windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
-    windowrulev2 = noanim,class:^(xwaylandvideobridge)$
-    windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
-    windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
+          windowrulev2 = noanim,class:^(xwaylandvideobridge)$
+          windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
+          windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
 
           # Animation override
           windowrule = animation move 60%, Rofi
