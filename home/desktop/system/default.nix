@@ -1,6 +1,6 @@
 _: {
   imports = [
     ./fonts
-    ./bootloader
+    # ./bootloader
   ];
 }
