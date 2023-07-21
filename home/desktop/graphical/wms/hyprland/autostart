@@ -18,7 +18,7 @@ swww init
 dunst &
 
 # Cursor
-#hyprctl setcursor "Catppuccin-Mocha-Mauve-Cursors" 24
+# hyprctl setcursor "Catppuccin-Mocha-Mauve-Cursors" 24
 # hyprctl setcursor "macOS-BigSur" 24
 
 # Others

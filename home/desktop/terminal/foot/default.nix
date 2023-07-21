@@ -26,6 +26,7 @@ _: {
           # color = "11121d a0a8cd"; # Tokyodark
           # color = "161616 ffffff"; # Oxocarbon
           color = "292a37 d9e0ee"; # Jabuti
+
           blink = false;
           style = "block";
           beam-thickness = "2";
@@ -54,7 +55,7 @@ _: {
           # bright7 = "A6ADC8"; # Subtext 0
 
           # Jabuti
-          alpha = "1.0";
+          alpha = "0.6";
           foreground = "d9e0ee";
           background = "292a37";
           ## Normal/regular colors (color palette 0-7)

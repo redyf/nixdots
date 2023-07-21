@@ -112,7 +112,7 @@
 
     shellAliases = {
       bad = "appimage-run ~/Downloads/BadlionClient";
-      c = "nvim";
+      v = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
       f = "nitch";
@@ -125,7 +125,6 @@
       mv = "mv -i";
       nv = "lvimn";
       rm = "rm -i";
-      v = "lvim";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
     };
 
