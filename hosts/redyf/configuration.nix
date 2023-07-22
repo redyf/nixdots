@@ -15,8 +15,9 @@
     ./hardware-configuration.nix
   ];
 
-  # Kernel Modules
+  # Bootloader.
   boot = {
+    # Kernel Modules
     kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
     loader = {
@@ -32,6 +33,13 @@
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 3;
+        theme = pkgs.fetchFromGitHub {
+          owner = "shvchk";
+          repo = "fallout-grub-theme";
+          rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
+          sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
+        };
+
         #   theme =
         #     pkgs.fetchFromGitHub
         #     {
@@ -42,13 +50,6 @@
         #     }
         #     + "/Sekiro";
         # };
-
-        theme = pkgs.fetchFromGitHub {
-          owner = "shvchk";
-          repo = "fallout-grub-theme";
-          rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
-          sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
-        };
 
         # theme = pkgs.fetchFromGitHub
         #   {
@@ -123,7 +124,7 @@
   # services.xserver.desktopManager.gnome.enable = true;
 
   # Enables services
-  # services.logmein-hamachi.enable = true;
+  services.logmein-hamachi.enable = false;
   # services.flatpak.enable = true;
 
   # Enable programs
@@ -131,7 +132,6 @@
     zsh.enable = true;
     steam.enable = true;
     dconf.enable = true;
-    haguichi.enable = true;
     hyprland = {
       enable = true;
       xwayland = {
@@ -192,14 +192,18 @@
   # Enables virtualization for virt-manager and virtual box
   virtualisation = {
     libvirtd.enable = true;
-    virtualbox = {
-      host = {
-        enable = true;
-        enableExtensionPack = true;
-      };
-    };
+    # virtualbox = {
+    #   host = {
+    #     enable = true;
+    #     enableExtensionPack = true;
+    #   };
+    #   guest = {
+    #     enable = true;
+    #     x11 = true;
+    #   };
+    # };
   };
-  users.extraGroups.vboxusers.members = ["redyf"];
+  # users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
