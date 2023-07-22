@@ -6,11 +6,12 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
-          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=11";
-          # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=11";
-          # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=11";
-          # font = "Maple Mono NF:Bold:style=Extra Bold:size=11";
+          # font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
+          font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=14";
+          # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=14";
+          # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=14";
+          # font = "Maple Mono NF:Bold:style=Extra Bold:size=14";
+          # font = "Iosevka Nerd Font:Bold:style=Extra Bold:size=16";
           dpi-aware = "auto";
           pad = "4x4 center";
         };
@@ -55,50 +56,50 @@ _: {
           # bright7 = "A6ADC8"; # Subtext 0
 
           # Jabuti
-          alpha = "0.6";
-          foreground = "d9e0ee";
-          background = "292a37";
-          ## Normal/regular colors (color palette 0-7)
-          regular0 = "303241"; # black
-          regular1 = "ec6a88";
-          regular2 = "3fdaa4";
-          regular3 = "efb993";
-          regular4 = "3fc6de";
-          regular5 = "b771dc";
-          regular6 = "6be6e6";
-          regular7 = "d9e0ee";
-          bright0 = "393a4d"; # bright black
-          bright1 = "e95678"; # bright red
-          bright2 = "29d398"; # bright green
-          bright3 = "efb993"; # bright yellow
-          bright4 = "26bbd9";
-          bright5 = "b072d1"; # bright magenta
-          bright6 = "59e3e3"; # bright cyan
-          bright7 = "d9e0ee"; # bright white
+          # alpha = "0.6";
+          # foreground = "d9e0ee";
+          # background = "292a37";
+          # ## Normal/regular colors (color palette 0-7)
+          # regular0 = "303241"; # black
+          # regular1 = "ec6a88";
+          # regular2 = "3fdaa4";
+          # regular3 = "efb993";
+          # regular4 = "3fc6de";
+          # regular5 = "b771dc";
+          # regular6 = "6be6e6";
+          # regular7 = "d9e0ee";
+          # bright0 = "393a4d"; # bright black
+          # bright1 = "e95678"; # bright red
+          # bright2 = "29d398"; # bright green
+          # bright3 = "efb993"; # bright yellow
+          # bright4 = "26bbd9";
+          # bright5 = "b072d1"; # bright magenta
+          # bright6 = "59e3e3"; # bright cyan
+          # bright7 = "d9e0ee"; # bright white
 
           # Cattpuccin mocha
-          # alpha = "0.8";
-          # foreground = "cdd6f4"; # Text
-          # background = "1E1D2F"; # Base
-          # regular0 = "45475a"; # Surface 1
-          # regular1 = "f38ba8"; # red
-          # regular2 = "a6e3a1"; # green
-          # regular3 = "f9e2af"; # yellow
-          # regular4 = "89b4fa"; # blue
-          # regular5 = "f5c2e7"; # pink
-          # regular6 = "94e2d5"; # teal
-          # regular7 = "bac2de"; # Subtext 1
-          # bright0 = "585b70"; # Surface 2
-          # bright1 = "f38ba8"; # red
-          # bright2 = "a6e3a1"; # green
-          # bright3 = "f9e2af"; # yellow
-          # bright4 = "89b4fa"; # blue
-          # bright5 = "f5c2e7"; # pink
-          # bright6 = "94e2d5"; # teal
-          # bright7 = "a6adc8"; # Subtext 0
+          alpha = "1.0";
+          foreground = "cdd6f4"; # Text
+          background = "1E1D2F"; # Base
+          regular0 = "45475a"; # Surface 1
+          regular1 = "f38ba8"; # red
+          regular2 = "a6e3a1"; # green
+          regular3 = "f9e2af"; # yellow
+          regular4 = "89b4fa"; # blue
+          regular5 = "f5c2e7"; # pink
+          regular6 = "94e2d5"; # teal
+          regular7 = "bac2de"; # Subtext 1
+          bright0 = "585b70"; # Surface 2
+          bright1 = "f38ba8"; # red
+          bright2 = "a6e3a1"; # green
+          bright3 = "f9e2af"; # yellow
+          bright4 = "89b4fa"; # blue
+          bright5 = "f5c2e7"; # pink
+          bright6 = "94e2d5"; # teal
+          bright7 = "a6adc8"; # Subtext 0
 
           # Cattpuccin macchiato
-          # alpha = "0.8";
+          # alpha = "1.0";
           # foreground = "cad3f5"; # Text
           # background = "24273a"; # Base
           # regular0 = "494d64"; # Surface 1
