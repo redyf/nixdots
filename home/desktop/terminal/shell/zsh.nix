@@ -22,6 +22,7 @@
       export PATH="$PATH:/home/redyf/.config/nvim/bin"
       export PATH="$PATH:/home/redyf/.config/nyoom/bin"
       NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
+
       # Autosuggest
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
@@ -112,7 +113,7 @@
 
     shellAliases = {
       bad = "appimage-run ~/Downloads/BadlionClient";
-      v = "nvim";
+      c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
       f = "nitch";
