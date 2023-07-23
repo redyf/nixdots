@@ -161,6 +161,8 @@
     windowrule = opacity 1.0 override 1.0 override,^(kitty)$ # Active/inactive opacity
     windowrule = tile,^(Spotify)$
     windowrule = tile,^(neovide)$
+    windowrule = tile,^(wps)$
+
     windowrule = opacity 1.0 override 1.0 override,^(neovide)$ # Active/inactive opacity
     windowrulev2 = opacity 1.0 1.0,class:^(wofi)$
 

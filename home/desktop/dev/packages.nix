@@ -50,9 +50,9 @@
     neovide # Gui neovim editor with cool animations
 
     # Browser, vc, pdf
-    google-chrome
     discord
-    zathura
+    wpsoffice # MS office alternative for linux
+    google-chrome
 
     # Rice
     swww # Cool wallpapers/gifs transitions
@@ -76,6 +76,7 @@
     slurp # Works with grim to screenshot on wayland
     ffmpeg_5 # A complete, cross-platform solution to record, convert and stream audio and video
     obs-studio # Livestreams
+    hyprpicker # Color picker for hyprland
     wl-clipboard # Enables copy/paste on wayland
 
     # Gaming

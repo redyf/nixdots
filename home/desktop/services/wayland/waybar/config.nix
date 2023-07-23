@@ -31,6 +31,7 @@ in {
       "custom/notification"
       "custom/cava"
       "memory"
+      "disk"
       "pulseaudio"
       "network"
       "clock"
@@ -85,6 +86,12 @@ in {
       format = " {used:0.1f}G / {total:0.1f}G";
       on-click = "foot -e btop";
       tooltip = false;
+    };
+    disk = {
+      format = "󰋊 {percentage_used}%";
+      format-alt = "󰋊 {used}/{total} GiB";
+      interval = 5;
+      path = "/";
     };
     network = {
       # interface = "wlp2*"; # Optional

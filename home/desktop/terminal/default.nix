@@ -7,6 +7,6 @@ _: {
     ./shell
     ./nitch
     # ./pfetch
-    # ./neofetch
+    ./neofetch
   ];
 }

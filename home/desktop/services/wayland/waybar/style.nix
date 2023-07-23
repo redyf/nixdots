@@ -20,6 +20,7 @@ in ''
     /*#custom-colorpicker,*/
     #custom-window,
     #memory,
+    #disk,
     #network,
     #custom-spotify,
     #pulseaudio,
@@ -132,7 +133,7 @@ in ''
     }
 
     #custom-spotify {
-      margin-left: 2px;
+      margin-left: 5px;
       padding-left: 15px;
       padding-right: 15px;
       padding-top: 3px;

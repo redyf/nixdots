@@ -16,8 +16,8 @@
           success_symbol = "[](#cbced3)";
           error_symbol = "[](#dd6777)";
           vicmd_symbol = "[](#ecd3a0)";
-          format = "$symbol[λ ](bold #3fdaa4) ";
-          # format = "$symbol[✗ ](bold #3fdaa4) ";
+          # format = "$symbol[λ ](bold #3fdaa4) ";
+          format = "$symbol[✘ ](bold #3fdaa4) ";
           # format = "$symbol[ℵ ](bold #3fdaa4) ";
           # format = "$symbol[󰊠 ](bold #7EAE90) ";
         };
