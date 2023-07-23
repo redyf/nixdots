@@ -95,9 +95,8 @@
   			# image_backend="iterm2"
         image_backend="ueberzug"
   			#image_source="auto"
-  			# image_source="$HOME/.config/neofetch/images/nix.png"
-  			# image_source="$HOME/.config/neofetch/images/nixos.png"
-  			image_source="$HOME/.config/neofetch/sakurafetch.png"
+  			image_source="$HOME/.config/neofetch/images/nixos.png"
+  			# image_source="$HOME/flake/home/desktop/terminal/neofetch/ascii/lambda.txt"
   			ascii_distro="auto"
   			ascii_colors=(distro)
   			ascii_bold="on"
