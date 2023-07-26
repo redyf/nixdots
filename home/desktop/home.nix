@@ -62,6 +62,7 @@
     #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     # }))
     (import ../../overlays/firefox-overlay.nix)
+    (import ../../overlays/ryan-mono-bin.nix)
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
@@ -70,7 +71,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "0kp3phi5yx5qj8lp24zqjf0av7s3330pirl4y8wqq14zgi0y1866";
+        sha256 = "sha256:1gcs7jmq33gixpk3h9n2ycrxsygdys8l3b8dif4mpvdkqib03s07";
       })
       {inherit pkgs;};
   };

@@ -16,6 +16,9 @@
     fzf
     mpd
     mpv
+    w3m
+    libsixel # Dependency for neofetch so it displays images
+    imagemagick # Dependency for neofetch so it displays images
     # glib # C library of programming buildings blocks
     # glibc
     file
@@ -51,8 +54,15 @@
 
     # Browser, vc, pdf
     discord
+    zathura
     wpsoffice # MS office alternative for linux
     google-chrome
+    joplin-desktop # Note taking
+    betterdiscordctl
+
+    # Anime/Manga
+    ani-cli # A cli tool to browse and play anime
+    mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
     # Rice
     swww # Cool wallpapers/gifs transitions
@@ -76,7 +86,7 @@
     slurp # Works with grim to screenshot on wayland
     ffmpeg_5 # A complete, cross-platform solution to record, convert and stream audio and video
     obs-studio # Livestreams
-    hyprpicker # Color picker for hyprland
+    # hyprpicker # Color picker for hyprland
     wl-clipboard # Enables copy/paste on wayland
 
     # Gaming
@@ -89,7 +99,7 @@
 
     # Others
     spotify
-    obsidian
+    # obsidian
     pavucontrol
   ];
 }
