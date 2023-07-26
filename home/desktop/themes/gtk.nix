@@ -24,12 +24,12 @@
 
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.papirus-folders;
     };
 
     # iconTheme = {
     #   name = "Papirus-Dark";
-    #   package = pkgs.papirus-folders;
+    #   package = pkgs.papirus-icon-theme;
     # };
 
     # theme = {

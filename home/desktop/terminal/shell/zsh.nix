@@ -116,7 +116,8 @@
       c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
-      f = "nitch";
+      f = "neofetch w3m";
+      fetch = "neofetch --sixel $HOME/.config/neofetch/images/nixos.png";
       g = "git";
       gs = "git status";
       grep = "grep --color=auto";

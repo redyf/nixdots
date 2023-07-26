@@ -6,13 +6,13 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
+          # font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
+          font = "RyanMono Nerd Font:Bold:style=Extra Bold:size=16";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=14";
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=14";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=14";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=14";
-          # font = "Iosevka Nerd Font:Bold:style=Extra Bold:size=16";
-          dpi-aware = "auto";
+          # dpi-aware = "auto";
           pad = "4x4 center";
         };
         cursor = {

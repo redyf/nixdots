@@ -5,10 +5,15 @@
   #: individual font faces and even specify special fonts for particular
   #: characters.
 
-  font_family        Liga SFMono Nerd Font
-  bold_font          Liga SFMono Nerd Font
-  italic_font        Liga SFMono Nerd Font
-  bold_italic_font   Liga SFMono Nerd Font
+  font_family        RyanMono Nerd Font Bold
+  bold_font          RyanMono Nerd Font Bold
+  italic_font        RyanMono Nerd Font Bold
+  bold_italic_font   RyanMono Nerd Font Bold
+
+  # font_family      Liga SFMono Nerd Font Bold
+  # bold_font        Liga SFMono Nerd Font Bold
+  # italic_font      Liga SFMono Nerd Font Bold
+  # bold_italic_font Liga SFMono Nerd Font Bold
 
   # font_family      Maple Mono NF Bold
   # bold_font        Maple Mono NF Bold
@@ -45,137 +50,24 @@
   # italic_font      Meslo LG S DZ Bold Nerd Font Complete Mono
   # bold_italic_font Meslo LG S DZ Bold Nerd Font Complete Mono
 
-  #: You can specify different fonts for the bold/italic/bold-italic
-  #: variants. To get a full list of supported fonts use the `kitty
-  #: list-fonts` command. By default they are derived automatically, by
-  #: the OSes font system. Setting them manually is useful for font
-  #: families that have many weight variants like Book, Medium, Thick,
-  #: etc. For example::
-
-  font_size 14.00
+  font_size 16.00
 
   #: Font size (in pts)
 
   # force_ltr no
 
-  #: kitty does not support BIDI (bidirectional text), however, for RTL
-  #: scripts, words are automatically displayed in RTL. That is to say,
-  #: in an RTL script, the words "HELLO WORLD" display in kitty as
-  #: "WORLD HELLO", and if you try to select a substring of an RTL-
-  #: shaped string, you will get the character that would be there had
-  #: the the string been LTR. For example, assuming the Hebrew word
-  #: ירושלים, selecting the character that on the screen appears to be ם
-  #: actually writes into the selection buffer the character י.  kitty's
-  #: default behavior is useful in conjunction with a filter to reverse
-  #: the word order, however, if you wish to manipulate RTL glyphs, it
-  #: can be very challenging to work with, so this option is provided to
-  #: turn it off. Furthermore, this option can be used with the command
-  #: line program GNU FriBidi
-  #: <https://github.com/fribidi/fribidi#executable> to get BIDI
-  #: support, because it will force kitty to always treat the text as
-  #: LTR, which FriBidi expects for terminals.
-
   # adjust_line_height  0
   # adjust_column_width 0
 
-  #: Change the size of each character cell kitty renders. You can use
-  #: either numbers, which are interpreted as pixels or percentages
-  #: (number followed by %), which are interpreted as percentages of the
-  #: unmodified values. You can use negative pixels or percentages less
-  #: than 100% to reduce sizes (but this might cause rendering
-  #: artifacts).
-
-  # symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
-
-  #: Map the specified unicode codepoints to a particular font. Useful
-  #: if you need special rendering for some symbols, such as for
-  #: Powerline. Avoids the need for patched fonts. Each unicode code
-  #: point is specified in the form U+<code point in hexadecimal>. You
-  #: can specify multiple code points, separated by commas and ranges
-  #: separated by hyphens. symbol_map itself can be specified multiple
-  #: times. Syntax is::
-
-  #:     symbol_map codepoints Font Family Name
-
   # disable_ligatures never
-
-  #: Choose how you want to handle multi-character ligatures. The
-  #: default is to always render them.  You can tell kitty to not render
-  #: them when the cursor is over them by using cursor to make editing
-  #: easier, or have kitty never render them at all by using always, if
-  #: you don't like them. The ligature strategy can be set per-window
-  #: either using the kitty remote control facility or by defining
-  #: shortcuts for it in kitty.conf, for example::
 
   #:     map alt+1 disable_ligatures_in active always
   #:     map alt+2 disable_ligatures_in all never
   #:     map alt+3 disable_ligatures_in tab cursor
 
-  #: Note that this refers to programming ligatures, typically
-  #: implemented using the calt OpenType feature. For disabling general
-  #: ligatures, use the font_features setting.
-
   # font_features none
 
-  #: Choose exactly which OpenType features to enable or disable. This
-  #: is useful as some fonts might have features worthwhile in a
-  #: terminal. For example, Fira Code Retina includes a discretionary
-  #: feature, zero, which in that font changes the appearance of the
-  #: zero (0), to make it more easily distinguishable from Ø. Fira Code
-  #: Retina also includesother discretionary features known as
-  #: Stylistic Sets which have the tags ss01 through ss20.
-
-  #: Note that this code is indexed by PostScript name, and not the font
-  #: family. This allows you to define very precise feature settings;
-  #: e.g. you can disable a feature in the italic font but not in the
-  #: regular font.
-
-  #: On Linux, these are read from the FontConfig database first and
-  #: then this, setting is applied, so they can be configured in a
-  #: single, central place.
-
-  #: To get the PostScript name for a font, use kitty + list-fonts
-  #: --psnames:
-
-  #: .. code-block:: sh
-
   #:     $ kitty + list-fonts --psnames | grep Fira
-  #:     Fira Code
-  #:     Fira Code Bold (FiraCode-Bold)
-  #:     Fira Code Light (FiraCode-Light)
-  #:     Fira Code Medium (FiraCode-Medium)
-  #:     Fira Code Regular (FiraCode-Regular)
-  #:     Fira Code Retina (FiraCode-Retina)
-
-  #: The part in brackets is the PostScript name.
-
-  #: Enable alternate zero and oldstyle numerals::
-
-  #:     font_features FiraCode-Retina +zero +onum
-
-  #: Enable only alternate zero::
-
-  #:     font_features FiraCode-Retina +zero
-
-  #: Disable the normal ligatures, but keep the calt feature which (in
-  #: this font) breaks up monotony::
-
-  #:     font_features TT2020StyleB-Regular -liga +calt
-
-  #: In conjunction with force_ltr, you may want to disable Arabic
-  #: shaping entirely, and only look at their isolated forms if they
-  #: show up in a document. You can do this with e.g.::
-
-  #:     font_features UnifontMedium +isol -medi -fina -init
-
-  # box_drawing_scale 0.001, 1, 1.5, 2
-
-  #: Change the sizes of the lines used for the box drawing unicode
-  #: characters These values are in pts. They will be scaled by the
-  #: monitor DPI to arrive at a pixel value. There must be four values
-  #: corresponding to thin, normal, thick, and very thick lines.
-
-  #: }}}
 
   #: Cursor customization {{{
 
@@ -185,104 +77,26 @@
 
   # cursor_text_color #111111
 
-  #: Choose the color of text under the cursor. If you want it rendered
-  #: with the background color of the cell underneath instead, use the
-  #: special keyword: background
-
   cursor_shape block
-
-  #: The cursor shape can be one of (block, beam, underline). Note that
-  #: when reloading the config this will be changed only if the cursor
-  #: shape has not been set by the program running in the terminal.
 
   # cursor_beam_thickness 1.5
 
-  #: Defines the thickness of the beam cursor (in pts)
-
   # cursor_underline_thickness 2.0
-
-  #: Defines the thickness of the underline cursor (in pts)
 
   # cursor_blink_interval -1
 
-  #: The interval (in seconds) at which to blink the cursor. Set to zero
-  #: to disable blinking. Negative values mean use system default. Note
-  #: that numbers smaller than repaint_delay will be limited to
-  #: repaint_delay.
-
   # cursor_stop_blinking_after 15.0
-
-  #: Stop blinking cursor after the specified number of seconds of
-  #: keyboard inactivity.  Set to zero to never stop blinking.
-
-  #: }}}
-
-  #: Scrollback {{{
 
   # scrollback_lines 2000
 
-  #: Number of lines of history to keep in memory for scrolling back.
-  #: Memory is allocated on demand. Negative numbers are (effectively)
-  #: infinite scrollback. Note that using very large scrollback is not
-  #: recommended as it can slow down performance of the terminal and
-  #: also use large amounts of RAM. Instead, consider using
-  #: scrollback_pager_history_size. Note that on config reload if this
-  #: is changed it will only affect newly created windows, not existing
-  #: ones.
-
-  # scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
-
-  #: Program with which to view scrollback in a new window. The
-  #: scrollback buffer is passed as STDIN to this program. If you change
-  #: it, make sure the program you use can handle ANSI escape sequences
-  #: for colors and text formatting. INPUT_LINE_NUMBER in the command
-  #: line above will be replaced by an integer representing which line
-  #: should be at the top of the screen. Similarly CURSOR_LINE and
-  #: CURSOR_COLUMN will be replaced by the current cursor position.
 
   # scrollback_pager_history_size 0
 
-  #: Separate scrollback history size, used only for browsing the
-  #: scrollback buffer (in MB). This separate buffer is not available
-  #: for interactive scrolling but will be piped to the pager program
-  #: when viewing scrollback buffer in a separate window. The current
-  #: implementation stores the data in UTF-8, so approximatively 10000
-  #: lines per megabyte at 100 chars per line, for pure ASCII text,
-  #: unformatted text. A value of zero or less disables this feature.
-  #: The maximum allowed size is 4GB. Note that on config reload if this
-  #: is changed it will only affect newly created windows, not existing
-  #: ones.
-
-  # scrollback_fill_enlarged_window no
-
-  #: Fill new space with lines from the scrollback buffer after
-  #: enlarging a window.
-
   # wheel_scroll_multiplier 5.0
-
-  #: Modify the amount scrolled by the mouse wheel. Note this is only
-  #: used for low precision scrolling devices, not for high precision
-  #: scrolling on platforms such as macOS and Wayland. Use negative
-  #: numbers to change scroll direction.
 
   # touch_scroll_multiplier 1.0
 
-  #: Modify the amount scrolled by a touchpad. Note this is only used
-  #: for high precision scrolling devices on platforms such as macOS and
-  #: Wayland. Use negative numbers to change scroll direction.
-
-  #: }}}
-
-  #: Mouse {{{
-
   # mouse_hide_wait 3.0
-
-  #: Hide mouse cursor after the specified number of seconds of the
-  #: mouse not being used. Set to zero to disable mouse cursor hiding.
-  #: Set to a negative value to hide the mouse cursor immediately when
-  #: typing text. Disabled by default on macOS as getting it to work
-  #: robustly with the ever-changing sea of bugs that is Cocoa is too
-  #: much effort.
 
   # url_color #0087bd
   # url_style curly
@@ -1322,16 +1136,6 @@
   # map kitty_mod+minus     change_font_size all -2.0
   # map kitty_mod+backspace change_font_size all 0
 
-  #: To setup shortcuts for specific font sizes::
-
-  #:     map kitty_mod+f6 change_font_size all 10.0
-
-  #: To setup shortcuts to change only the current OS window's font
-  #: size::
-
-  #:     map kitty_mod+f6 change_font_size current 10.0
-  #: }}}
-
   #: Select and act on visible text {{{
 
   #: Use the hints kitten to select text and either pass it to an
@@ -1469,11 +1273,6 @@
   #:     map ctrl+alt+a send_text normal Word\x1b[H
   #:     map ctrl+alt+a send_text application Word\x1bOH
 
-  #: }}}
-
-  #: }}}
-
-
   # BEGIN_KITTY_THEME
   # include current-theme.conf
   include themes/lunar.conf
@@ -1488,49 +1287,4 @@
   # include nightfox_kitty.conf
   # include challenger-deep.conf
   # END_KITTY_THEME
-
-  # ###########################################################
-  # # Symbols Nerd Font complete symbol_map
-  # # easily troubleshoot missing/incorrect characters with:
-  # #   kitty --debug-font-fallback
-  # ###########################################################
-  #
-  # # "Nerd Fonts - Pomicons"
-  # symbol_map  U+E000-U+E00D Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Powerline"
-  # symbol_map U+e0a0-U+e0a2,U+e0b0-U+e0b3 Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Powerline Extra"
-  # symbol_map U+e0a3-U+e0a3,U+e0b4-U+e0c8,U+e0cc-U+e0d2,U+e0d4-U+e0d4 Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Symbols original"
-  # symbol_map U+e5fa-U+e62b Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Devicons"
-  # symbol_map U+e700-U+e7c5 Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Font awesome"
-  # symbol_map U+f000-U+f2e0 Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Font awesome extension"
-  # symbol_map U+e200-U+e2a9 Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Octicons"
-  # symbol_map U+f400-U+f4a8,U+2665-U+2665,U+26A1-U+26A1,U+f27c-U+f27c Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Font Linux"
-  # symbol_map U+F300-U+F313 Symbols Nerd Font
-  #
-  # #  Nerd Fonts - Font Power Symbols"
-  # symbol_map U+23fb-U+23fe,U+2b58-U+2b58 Symbols Nerd Font
-  #
-  # #  "Nerd Fonts - Material Design Icons"
-  # symbol_map U+f500-U+fd46 Symbols Nerd Font
-  #
-  # # "Nerd Fonts - Weather Icons"
-  # symbol_map U+e300-U+e3eb Symbols Nerd Font
-  #
-  # # Misc Code Point Fixes
-  # symbol_map U+21B5,U+25B8,U+2605,U+2630,U+2632,U+2714,U+E0A3,U+E615,U+E62B Symbols Nerd Font
 ''

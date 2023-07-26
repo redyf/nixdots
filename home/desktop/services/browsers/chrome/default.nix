@@ -13,7 +13,7 @@
       "text/html" = ["google-chrome.desktop"];
     };
     defaultApplications = {
-      "application/pdf" = ["org.gnome.Evince.desktop"];
+      "application/pdf" = ["org.pwmt.zathura-pdf-mupdf.desktop"];
       "application/x-extension-htm" = ["google-chrome.desktop"];
       "application/x-extension-html" = ["google-chrome.desktop"];
       "application/x-extension-shtml" = ["google-chrome.desktop"];
