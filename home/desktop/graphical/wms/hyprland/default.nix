@@ -59,16 +59,19 @@
         shadow_ignore_window = true
         col.shadow=0x22000000 # 0xbbf5c2e7
         col.shadow_inactive=0x22000000
-        rounding = 0
+        rounding = 5
         dim_inactive = false
         dim_strength = 0.5
         dim_special = 0.0
         dim_around = 0.0
         blur = true
-        blur_size = 2
+        blur_size = 6
         blur_passes = 3
         blur_ignore_opacity = true
         blur_new_optimizations = true
+        # blurls = gtk-layer-shell
+        # blurls = waybar
+        # blurls = lockscreen
     }
 
     animations {
@@ -86,16 +89,17 @@
        # animation=border,0,10,md3_decel
 
        # Selmer443 config
-       # bezier=pace,0.46, 1, 0.29, 0.99
-       # bezier=overshot,0.13,0.99,0.29,1.1
-       # bezier = md3_decel, 0.05, 0.7, 0.1, 1
-       # animation=windowsIn,1,6,md3_decel,slide
-       # animation=windowsOut,1,6,md3_decel,slide
-       # animation=windowsMove,1,6,md3_decel,slide
-       # animation=fade,1,10,md3_decel
+       bezier=pace,0.46, 1, 0.29, 0.99
+       bezier=overshot,0.13,0.99,0.29,1.1
+       bezier = md3_decel, 0.05, 0.7, 0.1, 1
+       animation=windowsIn,1,6,md3_decel,slide
+       animation=windowsOut,1,6,md3_decel,slide
+       animation=windowsMove,1,6,md3_decel,slide
+       animation=fade,1,10,md3_decel
        # animation=workspaces,1,9,md3_decel,slide
-       # animation=specialWorkspace,1,8,md3_decel,slide
-       # animation=border,1,10,md3_decel
+       animation = workspaces, 1, 6, default
+       animation=specialWorkspace,1,8,md3_decel,slide
+       animation=border,1,10,md3_decel
 
        #  Caue's config
        # bezier = in, 0.5, 1.2, 0.4, 1
@@ -108,16 +112,16 @@
        # animation = workspaces, 1, 5, wss, slide
 
        #  Chris Titus config
-        bezier = overshot, 0.05, 0.9, 0.1, 1.05
-        bezier = smoothOut, 0.36, 0, 0.66, -0.56
-        bezier = smoothIn, 0.25, 1, 0.5, 1
-        animation = windows, 1, 5, overshot, slide
-        animation = windowsOut, 1, 4, smoothOut, slide
-        animation = windowsMove, 1, 4, default
-        animation = border, 1, 10, default
-        animation = fade, 1, 10, smoothIn
-        animation = fadeDim, 1, 10, smoothIn
-        animation = workspaces, 1, 6, default
+        # bezier = overshot, 0.05, 0.9, 0.1, 1.05
+        # bezier = smoothOut, 0.36, 0, 0.66, -0.56
+        # bezier = smoothIn, 0.25, 1, 0.5, 1
+        # animation = windows, 1, 5, overshot, slide
+        # animation = windowsOut, 1, 4, smoothOut, slide
+        # animation = windowsMove, 1, 4, default
+        # animation = border, 1, 10, default
+        # animation = fade, 1, 10, smoothIn
+        # animation = fadeDim, 1, 10, smoothIn
+        # animation = workspaces, 1, 6, default
     }
 
     misc {
@@ -173,7 +177,6 @@
 
     # Animation override
     windowrule = animation move 60%, Rofi
-    # blurls=waybar
 
     # Mouse binds
     bind=SUPER,mouse_down,workspace,e+1
@@ -183,8 +186,8 @@
 
 
     # Binds
-    bind=SUPER,RETURN,exec,foot
-    bind=ALT,RETURN,exec,kitty --single-instance
+    bind=SUPER,RETURN,exec, kitty
+    bind=ALT,RETURN,exec, foot
     bind=,Print,exec,~/.config/hypr/scripts/screenshot.sh
     bind=SUPER,Q,killactive,
     bind=SUPER,M,exit,

@@ -1,4 +1,5 @@
 ''
+  # Credits goes to Linuxmobile for sharing his config :)
   print_info() {
   				# info title
   				# info underline
@@ -93,7 +94,8 @@
   			disk_display="off"
   			# Flag:     --backend
   			# image_backend="iterm2"
-        image_backend="ueberzug"
+        # image_backend="ueberzug"
+        image_backend="kitty"
   			#image_source="auto"
   			image_source="$HOME/.config/neofetch/images/nixos.png"
   			# image_source="$HOME/flake/home/desktop/terminal/neofetch/ascii/lambda.txt"
