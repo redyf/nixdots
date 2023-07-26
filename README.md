@@ -3,16 +3,16 @@
   <br>
   <br>
   <div>
-    <a href="https://github.com/Redyf/nixdots/issues">
-        <img src="https://img.shields.io/github/issues/Redyf/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
+    <a href="https://github.com/redyf/nixdots/issues">
+        <img src="https://img.shields.io/github/issues/redyf/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/Redyf/nixdots/stargazers">
-        <img src="https://img.shields.io/github/stars/Redyf/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
+    <a href="https://github.com/redyf/nixdots/stargazers">
+        <img src="https://img.shields.io/github/stars/redyf/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/PROxZIMA/.dotfiles/">
-        <img src="https://img.shields.io/github/repo-size/Redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
+    <a href="https://github.com/redyf/nixdots/">
+        <img src="https://img.shields.io/github/repo-size/redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/Redyf/nixdots/blob/master/LICENSE">
+    <a href="https://github.com/redyf/nixdots/blob/master/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
     </a>
     <br>
@@ -25,7 +25,7 @@
 ❄️ NixOS dotfiles ❄️
 </h1>
 </div>
-<h2 align="center">Minha configuração para o NixOS. sinta-se livre para explorar!</h2>
+<h2 align="center">Minha configuração para o NixOS. Sinta-se livre para explorar!</h2>
 
 ## Agradecimentos especiais a:
 
@@ -33,8 +33,9 @@
 - [ZerotoNix](https://zero-to-nix.com)
 - [notusknot](https://github.com/notusknot)
 - [Catppuccin](https://github.com/catppuccin)
-- [Siduck76's NvChad](https://github.com/siduck76/nvchad/)
+- [linuxmobile](https://github.com/linuxmobile)
 - [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
+- [Siduck76's NvChad](https://github.com/siduck76/nvchad/)
 - [NotAShelf's dotfiles](https://github.com/NotAShelf/nyx)
 - [AlphaTechnolog's dotfiles](https://github.com/AlphaTechnolog/nixdots)
 
