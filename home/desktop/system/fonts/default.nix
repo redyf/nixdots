@@ -12,9 +12,11 @@
     noto-fonts
     dejavu_fonts
     font-awesome
+    ryan-mono-bin
+    # ryan-term-bin
     # maple-mono-NF
     # courier-prime
-    # liberation_ttf
+    liberation_ttf
     # powerline-fonts
     # cantarell-fonts
     # source-code-pro
