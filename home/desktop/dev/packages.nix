@@ -34,7 +34,7 @@
     lolcat
     speechd
     libnotify
-    img2pdf # Convert images to pdf
+    # img2pdf # Convert images to pdf
     # lazygit # Amazing CLI git tool
     ripgrep
     findutils
@@ -90,12 +90,12 @@
     wl-clipboard # Enables copy/paste on wayland
 
     # Gaming
-    # grapejuice
-    # gnutls
-    # libpulseaudio
-    minecraft
-    # logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
     steam
+    # gnutls
+    minecraft
+    # grapejuice
+    # libpulseaudio
+    # logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
 
     # Others
     spotify
