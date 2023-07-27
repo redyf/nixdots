@@ -16,7 +16,7 @@
     # ryan-term-bin
     # maple-mono-NF
     # courier-prime
-    liberation_ttf
+    liberation_ttf # Needed to make vanilla st terminal work
     # powerline-fonts
     # cantarell-fonts
     # source-code-pro
