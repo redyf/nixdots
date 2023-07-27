@@ -27,15 +27,6 @@
     home-manager.enable = true;
   };
 
-  # home.pointerCursor = {
-  #   x11 = {
-  #     enable = true;
-  #   };
-  #   name = "macOS-BigSur";
-  #   package = pkgs.apple-cursor;
-  #   size = 40;
-  # };
-
   # Imports
   imports = [
     ./dev
@@ -71,7 +62,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "sha256:1gcs7jmq33gixpk3h9n2ycrxsygdys8l3b8dif4mpvdkqib03s07";
+        sha256 = "0qp0qw6dx0s6d8cs050fvp7x0ya10zvqxags2495y9a0ms1qiclk";
       })
       {inherit pkgs;};
   };
