@@ -125,7 +125,7 @@
 
   # Enables services
   services.logmein-hamachi.enable = false;
-  # services.flatpak.enable = true;
+  services.flatpak.enable = false;
 
   # Enable programs
   programs = {

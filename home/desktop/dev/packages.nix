@@ -14,6 +14,7 @@
     exa
     zig
     fzf
+    rm-improved # Replacement for rm with focus on safety, ergonomics and performance
     mpd
     mpv
     w3m
@@ -39,6 +40,7 @@
     ripgrep
     findutils
     # flameshot
+    traceroute
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
@@ -54,7 +56,7 @@
 
     # Browser, vc, pdf
     discord
-    zathura
+    zathura # PDF viewer
     wpsoffice # MS office alternative for linux
     google-chrome
     joplin-desktop # Note taking
@@ -65,6 +67,7 @@
     mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
     # Rice
+    lf # CLI file manager written in GO
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
     # sxhkd # BSPWM keybindings
@@ -74,11 +77,8 @@
     nitrogen # Wallpaper utility for X11
     # picom-next # Compositor for X11
     # eww-wayland # Cool widgets for wayland
-    # lf # CLI file manager written in GO
     lxappearance # Gui software to change icons/themes
     # brightnessctl
-    # xfce.thunar # File manager
-    # xfce.thunar-archive-plugin # Plugin que habilita compressão e extração de arquivos no Thunar
     cinnamon.nemo # Cinnamon File manager
 
     # Streaming/screenshot
@@ -90,12 +90,9 @@
     wl-clipboard # Enables copy/paste on wayland
 
     # Gaming
-    steam
     # gnutls
     minecraft
-    # grapejuice
     # libpulseaudio
-    # logmein-hamachi # A hosted VPN service that lets you securely extend LAN-like networks to distributed teams
 
     # Others
     spotify

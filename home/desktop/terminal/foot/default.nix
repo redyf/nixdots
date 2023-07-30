@@ -6,14 +6,14 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          # font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
-          font = "RyanMono Nerd Font:Bold:style=Extra Bold:size=16";
+          font = "Liga SFMono Nerd Font:Bold:style=Bold:size=14";
+          # font = "RyanMono Nerd Font:Bold:style=Extra Bold:size=16";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=14";
-          # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=14";
+          # font = "BlexMono Nerd Font:Bold:style=Extra Bold:size=16";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold:size=14";
           # font = "Maple Mono NF:Bold:style=Extra Bold:size=14";
           # dpi-aware = "auto";
-          pad = "4x4 center";
+          pad = "1x1 center";
         };
         cursor = {
           # color = "1A1826 D9E0EE"; # Cattpuccin
@@ -56,7 +56,7 @@ _: {
           # bright7 = "A6ADC8"; # Subtext 0
 
           # Jabuti
-          alpha = "0.6";
+          alpha = "1.0";
           foreground = "d9e0ee";
           background = "292a37";
           ## Normal/regular colors (color palette 0-7)
