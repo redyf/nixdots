@@ -294,5 +294,7 @@
     # source=~/.config/hypr/themes/garden/theme.conf
     # source=~/.config/hypr/themes/catppuccin-macchiato.conf
     source=~/.config/hypr/themes/jabuti.conf
+    # source=~/flake/home/desktop/graphical/wms/hyprland/themes/gruvbox.conf
+    # source=~/flake/home/desktop/graphical/wms/hyprland/themes/monochrome.conf
   '';
 }
