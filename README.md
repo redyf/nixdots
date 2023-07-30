@@ -25,9 +25,9 @@
 ❄️ NixOS dotfiles ❄️
 </h1>
 </div>
-<h2 align="center">Minha configuração para o NixOS. Sinta-se livre para explorar!</h2>
+<h2 align="center">My NixOS system configuration. Feel free to explore!</h2>
 
-## Agradecimentos especiais a:
+## Special thanks to:
 
 - [NixOS Manual](https://nixos.org/manual/nixos/stable/)
 - [ZerotoNix](https://zero-to-nix.com)
@@ -70,9 +70,9 @@
                         
 ```
 
-## Comandos que você deve saber
+## Commands you should know:
 
-- Faça um Rebuild e switch para mudar usar a nova configuração do sistema (no diretório de configuração):
+- Rebuild and switch to change the system configuration (in the configuration directory):
 
 ```
 rebuild
@@ -81,64 +81,62 @@ rebuild
 OR
 
 ```
-sudo nixos-rebuild switch --flake .#yourComputer --fast
+sudo nixos-rebuild switch --flake '.#redyf'
 ```
 
-- Conecte o wifi (Substitua o que estiver dentro dos colchetes com suas informações)
+- Connect to internet (Change what's inside the brackets with your info).
 
 ```
 iwctl --passphrase [passphrase] station [device] connect [SSID]
 ```
 
-## Instalação
+## Installation
 
-> IMPORTANTE: Não use meu configuration.nix e/ou hardware-configuration.nix! Esses arquivos possuem as configurações específicas para meus drives e provavelmente não terão uma reação positiva no seu dispositivo!
+> IMPORTANT: Do not use my configuration.nix and/or hardware-configuration.nix! These files include specific settings to my drives and are unlikely to have a positive reaction on your device!
 
-Talvez não funcione perfeitamente logo após instalação, você foi avisado!
+It might not work perfectly right after installation, you have been warned!
 
-Para melhor segurança, verifique se os arquivos não causarão conflito com os seus atuais.
+For best security, make sure the files will not conflict with your current ones.
 
 Pré-requisitos:
 
-- [NixOS instalado e rodando](https://nixos.org/manual/nixos/stable/index.html#ch-installation)
-- [Flakes habilitado](https://nixos.wiki/wiki/flakes)
+- [NixOS installed and running](https://nixos.org/manual/nixos/stable/index.html#ch-installation)
+- [Flakes enabled](https://nixos.wiki/wiki/flakes)
 - Root access
 
-Clone o repo e cd nele:
+Clono the repo and cd into it:
 
 ```bash
 git clone https://github.com/Redyf/nixdots ~/flake && cd ~/flake
 ```
 
-Primeiro, crie uma configuração de hardware para seu sistema:
+Create a hardware configuration for your system:
 
 ```bash
 sudo nixos-generate-config
 ```
 
-Depois você pode copiar isso para o diretório `nixos/` (nota: mude `yourComputer` com o que você quiser):
-
-Você pode tanto adicionar como criar seu próprio output em `flake.nix` através do seguinte template:
+You can add or create your own output in flake.nix through the following template:
 
 ```nix
 nixosConfigurations = {
-    # Agora, definir um novo sistema pode ser feito com uma linha.
+    # Now, creating a new system config can be done with a single line.
     #                                Architecture   Hostname
-    laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
-    desktop = mkSystem inputs.nixpkgs "x86_64-linux" "desktop";
+    redyf = nixpkgs.lib.nixosSystem "x86_64-linux" "desktop";
+    laptop = nixpkgs.lib.nixosSystem "x86_64-linux" "laptop";
     # ADD YOUR COMPUTER HERE! (feel free to remove mine)
-    yourComputer = mkSystem inputs.nixpkgs "x86_64-linux" "yourComputer";
+    yourComputer = nixpkgs.lib.nixosSystem "x86_64-linux" "yourComputer";
 };
 ```
 
-Por último, construa sua configuração com:
+Finally, rebuild your configuration with:
 
 ```bash
 sudo nixos-rebuild switch --flake .#yourComputer
 ```
 
-E isso deve ser tudo! Se tiver algum problema, pode criar uma issue (https://github.com/Redyf/nixdots/issues).
+And that's all! If you have any problem, feel free to make an issue in the github repo. (https://github.com/Redyf/nixdots/issues).
 
-## Conclusão
+## Conclusion
 
-E então essa foi minha configuração para o NixOS. O código está registrado sobre a licença MIT, então você pode usar ou distribuir o código como bem quiser. Se você quiser tirar alguma dúvida, pode me chamar no Discord: `Redyf#1337`.
+And so that was my setup for NixOS. The code is licensed under the MIT license, so you can use or distribute the code however you like. If you have any questions, contact me on Discord: `Redyf#1337`.

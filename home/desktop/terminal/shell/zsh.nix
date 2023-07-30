@@ -126,7 +126,8 @@
       la = "exa -a";
       mv = "mv -i";
       nv = "lvimn";
-      rm = "rm -i";
+      rm = "rip -i";
+      rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
     };
 
