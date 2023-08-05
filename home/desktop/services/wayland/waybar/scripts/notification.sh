@@ -34,24 +34,24 @@ while true; do
 
     if [ $timediff -gt $(($timeout - 1)) ]; then
         if [ $dunststatus = "false" ]; then
-            echo '{"text": "", "alt": "notification", "class": "collapsed"}' | jq --unbuffered --compact-output
+            echo '{"text": "", "alt": "notification", "class": "collapsed"}' | jq --unbuffered --compact-output
         else
-            echo '{"text": "", "alt": "notification", "class": "collapsed_muted"}' | jq --unbuffered --compact-output
+            echo '{"text": "󰚌", "alt": "notification", "class": "collapsed_muted"}' | jq --unbuffered --compact-output
         fi
         sleep 0.3
     else
         if [ $dunststatus = "false" ]; then
             if [ "$summary" = "swww" ] && [ "$body" = 1 ]; then
                 timeout=2
-                echo '{"text": "", "alt": "notification", "class": "wallpaper"}' | jq --unbuffered --compact-output
+                echo '{"text": "", "alt": "notification", "class": "wallpaper"}' | jq --unbuffered --compact-output
                 sleep 0.3
             else
                 timeout=3
-                echo '{"text": "", "alt": "notification", "class": "waiting_start"}' | jq --unbuffered --compact-output
+                echo '{"text": "", "alt": "notification", "class": "waiting_start"}' | jq --unbuffered --compact-output
                 sleep 0.3
                 echo '{"text": "'$summary': '$body'", "alt": "notification", "class": "expanded"}' | jq --unbuffered --compact-output
                 sleep $timeout
-                echo '{"text": "", "alt": "notification", "class": "waiting_done"}' | jq --unbuffered --compact-output
+                echo '{"text": "", "alt": "notification", "class": "waiting_done"}' | jq --unbuffered --compact-output
                 sleep 0.4
             fi
         fi

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 GREEN='\e[1;32m'
 NC='\033[0m' # No Color
