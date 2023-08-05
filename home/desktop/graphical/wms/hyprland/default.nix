@@ -186,8 +186,8 @@
 
 
     # Binds
-    bind=SUPER,RETURN,exec, kitty
-    bind=ALT,RETURN,exec, foot
+    bind=SUPER,RETURN,exec, foot
+    bind=ALT,RETURN,exec, kitty
     bind=,Print,exec,~/.config/hypr/scripts/screenshot.sh
     bind=SUPER,Q,killactive,
     bind=SUPER,M,exit,
