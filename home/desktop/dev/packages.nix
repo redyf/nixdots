@@ -8,13 +8,15 @@
     # Design
     figma-linux
 
-    # System Utils
-    fd
-    jq
-    exa
-    zig
-    fzf
+    # Useful utils
+    fd # A simple, fast and user-friendly alternative to find
+    jq # A lightweight and flexible command-line JSON processor
+    exa # Replacement for ls in rust
+    fzf # Fuzzy finder
+    zoxide # Improved cd command
     rm-improved # Replacement for rm with focus on safety, ergonomics and performance
+
+    # System Utils
     mpd
     mpv
     w3m
@@ -35,6 +37,7 @@
     lolcat
     speechd
     libnotify
+    zig
     # img2pdf # Convert images to pdf
     # lazygit # Amazing CLI git tool
     ripgrep
@@ -57,10 +60,13 @@
     # Browser, vc, pdf
     discord
     zathura # PDF viewer
+    firefox
     wpsoffice # MS office alternative for linux
     google-chrome
     joplin-desktop # Note taking
+    # davinci-resolve # Video editor
     betterdiscordctl
+    # notion-app-enhanced
 
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime
