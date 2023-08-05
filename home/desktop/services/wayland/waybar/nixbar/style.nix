@@ -72,7 +72,7 @@ in ''
       margin: 5px 0px;
   }
   #tray, #pulseaudio, #network, #battery{
-      color: #${tertiary_accent};
+      color: #${primary_accent};
       border-radius: 10px 24px 10px 24px;
       padding: 0 20px;
       margin-left: 7px;
