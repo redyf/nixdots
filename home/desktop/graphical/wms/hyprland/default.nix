@@ -67,7 +67,7 @@ in {
         shadow_render_power = 2;
         "col.shadow" = "rgb(${primary_accent})";
         # "col.shadow" = "rgb(${background})";
-        "col.shadow_inactive" = "rgba(${background}00)";
+        "col.shadow_inactive" = "rgb(${background})";
         blur = true;
         blur_size = 6;
         blur_passes = 3;

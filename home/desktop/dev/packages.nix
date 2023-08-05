@@ -65,7 +65,6 @@
     google-chrome
     joplin-desktop # Note taking
     # davinci-resolve # Video editor
-    betterdiscordctl
     # notion-app-enhanced
 
     # Anime/Manga

@@ -29,6 +29,7 @@ in {
       "cava#right"
     ];
     modules-right = [
+      "custom/notification"
       "tray"
       "battery"
       "pulseaudio"
@@ -195,6 +196,14 @@ in {
       # on-click= "bash $HOME/.config/rofi/launcher.sh";
       # on-click-right= "bash $HOME/.config/rofi/run.sh";
       tooltip = "false";
+    };
+    "custom/notification" = {
+      exec = "~/.config/waybar/scripts/notification.sh";
+      on-click = "dunstctl set-paused toggle";
+      on-click-right = "notify-send -t 1 'swww' '1' & ~/flake/home/desktop/graphical/wms/hyprland/scripts/wall";
+      return-type = "json";
+      max-length = 50;
+      format = "{}";
     };
   };
 }
