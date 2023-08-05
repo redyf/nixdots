@@ -4,10 +4,11 @@ _: {
     ./btop
     ./cava
     ./foot
-    ./kitty
+    # ./kitty
     ./shell
     # ./nitch
     # ./pfetch
+    # ./ranger
     ./neofetch
   ];
 }

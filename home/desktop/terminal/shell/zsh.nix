@@ -116,8 +116,8 @@
       c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
-      f = "neofetch w3m";
-      fetch = "neofetch --sixel $HOME/.config/neofetch/images/nixos.png";
+      f = "neofetch --sixel $HOME/.config/neofetch/images/nixos.png";
+      fetch = "neofetch w3m";
       g = "git";
       gs = "git status";
       grep = "grep --color=auto";
@@ -136,7 +136,7 @@
       theme = "bira";
       plugins = [
         "git"
-        "git z"
+        # "git z"
         "colorize"
         "colored-man-pages"
         "command-not-found"
