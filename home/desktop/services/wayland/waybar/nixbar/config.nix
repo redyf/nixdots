@@ -18,10 +18,10 @@ in {
     margin-right = 0;
     modules-left = [
       "custom/launcher"
+      "custom/playerlabel"
       "custom/playerctl#backward"
       "custom/playerctl#play"
       "custom/playerctl#foward"
-      "custom/playerlabel"
     ];
     modules-center = [
       "cava#left"
