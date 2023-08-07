@@ -24,8 +24,8 @@ in {
     settings = {
       # "$mainMod" = "SUPER";
       monitor = [
-        ",preferred,auto,auto"
         "DP-3, 1920x1080@165,0x0,1"
+        ",preferred,auto,auto"
       ];
 
       input = {
@@ -63,7 +63,7 @@ in {
         multisample_edges = true;
         shadow_ignore_window = true;
         drop_shadow = true;
-        shadow_range = 35;
+        shadow_range = 20;
         shadow_render_power = 2;
         "col.shadow" = "rgb(${primary_accent})";
         # "col.shadow" = "rgb(${background})";
@@ -88,27 +88,22 @@ in {
 
       animations = {
         enabled = true;
-        bezier = "overshot,0.13,0.99,0.29,1.1";
-        animation = [
-          "windows,1,6,overshot,slide"
-          "border,1,10,default"
-          "fade,1,10,default"
-          "workspaces,1,6,overshot,slide"
+        # Selmer443 config
+        bezier = [
+          "pace,0.46, 1, 0.29, 0.99"
+          "overshot,0.13,0.99,0.29,1.1"
+          "md3_decel, 0.05, 0.7, 0.1, 1"
         ];
-        # animation = [
-        #   # Selmer443 config
-        #   "bezier=pace,0.46, 1, 0.29, 0.99"
-        #   "bezier=overshot,0.13,0.99,0.29,1.1"
-        #   "bezier = md3_decel, 0.05, 0.7, 0.1, 1"
-        #   "animation=windowsIn,1,6,md3_decel,slide"
-        #   "animation=windowsOut,1,6,md3_decel,slide"
-        #   "animation=windowsMove,1,6,md3_decel,slide"
-        #   "animation=fade,1,10,md3_decel"
-        #   # "animation=workspaces,1,9,md3_decel,slide"
-        #   "animation = workspaces, 1, 6, default"
-        #   "animation=specialWorkspace,1,8,md3_decel,slide"
-        #   "animation=border,1,10,md3_decel"
-        # ];
+        animation = [
+          "windowsIn,1,6,md3_decel,slide"
+          "windowsOut,1,6,md3_decel,slide"
+          "windowsMove,1,6,md3_decel,slide"
+          "fade,1,10,md3_decel"
+          "workspaces,1,9,md3_decel,slide"
+          "workspaces, 1, 6, default"
+          "specialWorkspace,1,8,md3_decel,slide"
+          "border,1,10,md3_decel"
+        ];
       };
 
       misc = {
