@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Variables
-config=$HOME/.config/hypr
+config=$HOME/flake/home/desktop/graphical/wms/hyprland
 scripts=$config/scripts
 
 # Waybar

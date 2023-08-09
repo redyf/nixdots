@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./nvim
-    # ./emacs
+    ./vscode
     # ./helix
   ];
 }

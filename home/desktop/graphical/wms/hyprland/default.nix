@@ -29,7 +29,7 @@ in {
       ];
 
       input = {
-        kb_layout = "br";
+        kb_layout = "gb";
         kb_variant = "";
         kb_model = "";
         kb_options = "";
@@ -139,7 +139,7 @@ in {
       };
 
       exec-once = [
-        "$HOME/.config/hypr/autostart"
+        "$HOME/flake/home/desktop/graphical/wms/hyperland/autostart"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
