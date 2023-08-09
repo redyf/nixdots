@@ -24,7 +24,7 @@ in {
     settings = {
       # "$mainMod" = "SUPER";
       monitor = [
-        "DP-3, 1920x1080@165,0x0,1"
+        "DP-5, 3840x1600@120,0x0,1"
         ",preferred,auto,auto"
       ];
 

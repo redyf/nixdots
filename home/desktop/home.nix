@@ -8,8 +8,8 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    username = "redyf";
-    homeDirectory = "/home/redyf";
+    username = "luna";
+    homeDirectory = "/home/luna";
     stateVersion = "22.11";
   };
 
@@ -62,7 +62,7 @@
       import
       (builtins.fetchTarball {
         url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-        sha256 = "sha256:1lzpq5vy85lzfg1xc1dzn5x9ch7n9nixwcrd4q0w4afv73aa9bjz";
+        sha256 = "sha256:15zwhfbndbqvscy1sqs62awd83l6n3ppnsrwgyk92i8mg0li8w33";
       })
       {inherit pkgs;};
   };

@@ -10,7 +10,7 @@
 ## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-dir="/home/redyf/.config/waybar/scripts/power-menu/"
+dir="/home/luna/.config/waybar/scripts/power-menu/"
 theme='style-1.rasi'
 
 # CMDs

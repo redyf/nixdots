@@ -12,7 +12,7 @@
 
     #* Name of a btop++/bpytop/bashtop formatted ".theme" file, "Default" and "TTY" for builtin themes.
     #* Themes should be placed in "../share/btop/themes" relative to binary or "$HOME/.config/btop/themes"
-    color_theme = "/home/redyf/.config/btop/themes/catppuccin-macchiato.theme"
+    color_theme = "/home/luna/.config/btop/themes/catppuccin-macchiato.theme"
 
     #* If the theme set background should be shown, set to False if you want terminal background transparency.
     theme_background = True

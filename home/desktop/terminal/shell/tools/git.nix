@@ -5,8 +5,8 @@
 }: {
   programs.git = {
     enable = true;
-    userName = "Redyf";
-    userEmail = "mateusalvespereira7@gmail.com";
+    userName = "Will Byrne";
+    userEmail = "will.alex.byrne@gmail.com";
     extraConfig = {
       init = { defaultBranch = "main"; };
     };

@@ -32,6 +32,29 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+	      specialArgs = {
+            inherit
+              inputs
+              hyprland
+              ;
+          };
+          modules = [
+            ./hosts/desktop/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = false;
+                extraSpecialArgs = {inherit inputs;};
+                users.luna = ./home/desktop/home.nix;
+              };
+            }
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
+          ];
+      };
       redyf =
         nixpkgs.lib.nixosSystem
         {

@@ -15,13 +15,13 @@
       export PATH=$PATH:~/.local/bin/
       export PATH=/tmp/lazy-lvim/bin:$PATH
       export PATH="$HOME/.emacs.d/bin:$PATH"
-      export PATH="$PATH:/home/redyf/.nix-profile/bin/elixir"
-      export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
-      export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
+      export PATH="$PATH:/home/luna/.nix-profile/bin/elixir"
+      export PATH="$PATH:/home/luna/.nix-profile/bin/swww"
+      export PATH="$PATH:/home/luna/.nix-profile/bin/swww-daemon"
       export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
-      export PATH="$PATH:/home/redyf/.config/nvim/bin"
-      export PATH="$PATH:/home/redyf/.config/nyoom/bin"
-      NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
+      export PATH="$PATH:/home/luna/.config/nvim/bin"
+      export PATH="$PATH:/home/luna/.config/nyoom/bin"
+      NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/luna/flake/overlays/"
 
       # Autosuggest
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
@@ -126,9 +126,8 @@
       la = "exa -a";
       mv = "mv -i";
       nv = "lvimn";
-      rm = "rip -i";
       rip = "rip -i";
-      rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
+      rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#desktop --impure";
     };
 
     oh-my-zsh = {
