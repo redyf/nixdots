@@ -19,6 +19,7 @@
   boot = {
     # Kernel Modules
     kernelModules = ["v4l2loopback" "usb.autosuspend=1"]; # Autostart kernel modules on boot
+    kernelParams = [ "i8042.dumbkbd=1" ];
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
     loader = {
       systemd-boot.enable = false;
@@ -109,12 +110,13 @@
     displayManager = {
       gdm = {
         enable = true;
-        #wayland = true;
+        wayland = true;
       };
-      #defaultSession = "hyprland";
+      defaultSession = "hyprland";
     };
     desktopManager.mate.enable = true;
   };
+  systemd.services."display-manager".after = [ "network-online.target" "systemd-resolved.service" ];
   # services.xserver.enable = true;
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.wayland = true;
@@ -225,7 +227,7 @@
 
   hardware = {
     nvidia = {
-      open = true;
+      #open = true;
       modesetting.enable = true;
       nvidiaSettings = true;
     };
