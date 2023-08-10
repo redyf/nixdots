@@ -14,6 +14,19 @@
   opacity = ".85";
   cursor = "Numix-Cursor";
 in {
+  home.file.".config/hypr/autostart" = {
+    source = ./autostart;
+    executable = true;
+  };
+  home.file.".config/hypr/scripts" = {
+    source = ./scripts;
+    executable = true;
+    recursive = true;
+  };
+  home.file.".config/hypr/themes" = {
+    source = ./themes;
+    recursive = true;
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -139,7 +152,7 @@ in {
       };
 
       exec-once = [
-        "$HOME/flake/home/desktop/graphical/wms/hyperland/autostart"
+        "$HOME/.config/hypr/autostart"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
@@ -218,8 +231,8 @@ in {
         # "SUPER $mainMod SHIFT, 9, movetoworkspacesilent, 9"
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-        "SUPER,n,exec,~/.local/bin/lvimn"
-        "SUPER,e,exec,emacsclient -c -a 'emacs'"
+        "SUPER,n,exec,~/.local/bin/lvim"
+        #"SUPER,e,exec,emacsclient -c -a 'emacs'"
 
         "SUPER,RETURN,exec, foot"
         ",Print,exec,~/.config/hypr/scripts/screenshot.sh"

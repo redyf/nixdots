@@ -17,9 +17,11 @@ with lib; let
   waybar_config = import ./nixbar/config.nix {inherit osConfig config lib pkgs;};
   waybar_style = import ./nixbar/style.nix {inherit (config) colorscheme;};
 in {
-  home.packages = with pkgs; [
-    python39Packages.requests
-  ];
+  home.file.".config/waybar/scripts" = {
+    source = ./scripts;
+    executable = true;
+    recursive = true;
+  };
   programs.waybar = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
