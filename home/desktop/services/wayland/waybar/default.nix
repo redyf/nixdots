@@ -22,6 +22,10 @@ in {
     executable = true;
     recursive = true;
   };
+  home.file.".config/waybar/store" = {
+    source = ./store;
+    recursive = true;
+  };
   programs.waybar = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.waybar-hyprland;
