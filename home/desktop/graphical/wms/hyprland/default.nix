@@ -67,7 +67,7 @@ in {
         "col.active_border" = "rgb(${primary_accent})";
         # "col.active_border" = "rgb(${background})";
         "col.inactive_border" = "rgba(${background}00)";
-        layout = "master";
+        layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
 
@@ -115,7 +115,8 @@ in {
           "workspaces,1,9,md3_decel,slide"
           "workspaces, 1, 6, default"
           "specialWorkspace,1,8,md3_decel,slide"
-          "border,1,10,md3_decel"
+          "border,1,1,md3_decel"
+          "borderangle,1,30,md3_decel,loop"
         ];
       };
 
@@ -137,7 +138,7 @@ in {
 
       master = {
         mfact = 0.5;
-        orientation = "right";
+        orientation = "left";
         special_scale_factor = 0.8;
         new_is_master = true;
         no_gaps_when_only = false;
