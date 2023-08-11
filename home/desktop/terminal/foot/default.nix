@@ -21,12 +21,12 @@ _: {
           # color = "a9b1d6 f5f5f5"; # Dark-decay
           # color = "a5b6cf cbced3"; # Decayce
           # color = "c5c8cd 101419"; # Light-decay
-          # color = "1a1b26 c0caf5"; # Lunar
+          color = "1a1b26 c0caf5"; # Lunar
           # color = "192330 cdcecf"; # Nightfox
           # color = "161616 f2f4f8"; # Carbonfox
           # color = "11121d a0a8cd"; # Tokyodark
           # color = "161616 ffffff"; # Oxocarbon
-          color = "292a37 d9e0ee"; # Jabuti
+          # color = "292a37 d9e0ee"; # Jabuti
 
           blink = false;
           style = "block";
@@ -56,26 +56,26 @@ _: {
           # bright7 = "A6ADC8"; # Subtext 0
 
           # Jabuti
-          alpha = "1.0";
-          foreground = "d9e0ee";
-          background = "292a37";
+          # alpha = "1.0";
+          # foreground = "d9e0ee";
+          # background = "292a37";
           ## Normal/regular colors (color palette 0-7)
-          regular0 = "303241"; # black
-          regular1 = "ec6a88";
-          regular2 = "3fdaa4";
-          regular3 = "efb993";
-          regular4 = "3fc6de";
-          regular5 = "b771dc";
-          regular6 = "6be6e6";
-          regular7 = "d9e0ee";
-          bright0 = "393a4d"; # bright black
-          bright1 = "e95678"; # bright red
-          bright2 = "29d398"; # bright green
-          bright3 = "efb993"; # bright yellow
-          bright4 = "26bbd9";
-          bright5 = "b072d1"; # bright magenta
-          bright6 = "59e3e3"; # bright cyan
-          bright7 = "d9e0ee"; # bright white
+          # regular0 = "303241"; # black
+          # regular1 = "ec6a88";
+          # regular2 = "3fdaa4";
+          # regular3 = "efb993";
+          # regular4 = "3fc6de";
+          # regular5 = "b771dc";
+          # regular6 = "6be6e6";
+          # regular7 = "d9e0ee";
+          # bright0 = "393a4d"; # bright black
+          # bright1 = "e95678"; # bright red
+          # bright2 = "29d398"; # bright green
+          # bright3 = "efb993"; # bright yellow
+          # bright4 = "26bbd9";
+          # bright5 = "b072d1"; # bright magenta
+          # bright6 = "59e3e3"; # bright cyan
+          # bright7 = "d9e0ee"; # bright white
 
           # Cattpuccin mocha
           # alpha = "1.0";
@@ -204,25 +204,25 @@ _: {
           # bright7 = "1f2328";
 
           # Lunar
-          # alpha = "1.0";
-          # foreground = "a9b1d6";
-          # background = "1a1b26";
-          # regular0 = "414868";
-          # regular1 = "f7768e";
-          # regular2 = "73daca";
-          # regular3 = "e0af68";
-          # regular4 = "7aa2f7";
-          # regular5 = "bb9af7";
-          # regular6 = "7dcfff";
-          # regular7 = "c0caf5";
-          # bright0 = "414868";
-          # bright1 = "f7768e";
-          # bright2 = "73daca";
-          # bright3 = "e0af68";
-          # bright4 = "7aa2f7";
-          # bright5 = "bb9af7";
-          # bright6 = "7dcfff";
-          # bright7 = "c0caf5";
+          alpha = "1.0";
+          foreground = "a9b1d6";
+          background = "1a1b26";
+          regular0 = "414868";
+          regular1 = "f7768e";
+          regular2 = "73daca";
+          regular3 = "e0af68";
+          regular4 = "7aa2f7";
+          regular5 = "bb9af7";
+          regular6 = "7dcfff";
+          regular7 = "c0caf5";
+          bright0 = "414868";
+          bright1 = "f7768e";
+          bright2 = "73daca";
+          bright3 = "e0af68";
+          bright4 = "7aa2f7";
+          bright5 = "bb9af7";
+          bright6 = "7dcfff";
+          bright7 = "c0caf5";
 
           # Carbonfox
           # alpha = "1.0";

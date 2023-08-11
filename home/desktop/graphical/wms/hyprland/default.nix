@@ -36,7 +36,7 @@ in {
         kb_rules = "";
 
         follow_mouse = 1;
-        repeat_delay = 150;
+        repeat_delay = 160;
         repeat_rate = 25;
         numlock_by_default = 1;
         accel_profile = "flat";
@@ -63,7 +63,7 @@ in {
         multisample_edges = true;
         shadow_ignore_window = true;
         drop_shadow = true;
-        shadow_range = 20;
+        shadow_range = 15;
         shadow_render_power = 2;
         "col.shadow" = "rgb(${primary_accent})";
         # "col.shadow" = "rgb(${background})";
