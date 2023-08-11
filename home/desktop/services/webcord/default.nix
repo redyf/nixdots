@@ -20,14 +20,14 @@ in {
     webcord-vencord # webcord with vencord extension installed
   ];
 
-  xdg.configFile = {
-    "WebCord/Themes/DarkMatter" = {
-      source = "${catppuccin-mocha}/themes/mocha.theme.css";
-      # source = "${dark-matter}/DarkMatter.theme.css";
-    };
+  # xdg.configFile = {
+  #   "WebCord/Themes/DarkMatter" = {
+  #     source = "${catppuccin-mocha}/themes/mocha.theme.css";
+  #     # source = "${dark-matter}/DarkMatter.theme.css";
+  #   };
 
     # # share my webcord configuration across devices
     # This shit doesnt work lulz
     # "WebCord/config.json".source = ./vencord.json;
-  };
+  # };
 }

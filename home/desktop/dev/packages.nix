@@ -14,6 +14,7 @@
     exa # Replacement for ls in rust
     fzf # Fuzzy finder
     zoxide # Improved cd command
+    ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
     rm-improved # Replacement for rm with focus on safety, ergonomics and performance
 
     # System Utils
@@ -39,8 +40,7 @@
     libnotify
     zig
     # img2pdf # Convert images to pdf
-    # lazygit # Amazing CLI git tool
-    ripgrep
+    lazygit # Amazing CLI git tool
     findutils
     # flameshot
     traceroute
@@ -62,7 +62,7 @@
     zathura # PDF viewer
     firefox
     wpsoffice # MS office alternative for linux
-    google-chrome
+    # google-chrome
     joplin-desktop # Note taking
     # davinci-resolve # Video editor
     # notion-app-enhanced
@@ -101,7 +101,7 @@
 
     # Others
     spotify
-    # obsidian
+    obsidian
     pavucontrol
   ];
 }
