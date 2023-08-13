@@ -10,5 +10,6 @@ _: {
     # ./pfetch
     ./ranger
     ./neofetch
+    ./extras
   ];
 }

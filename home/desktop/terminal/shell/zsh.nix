@@ -115,19 +115,51 @@
       bad = "appimage-run ~/Downloads/BadlionClient";
       c = "nvim";
       cp = "cp -i";
-      e = "emacsclient -c -a 'emacs'";
       f = "neofetch --sixel $HOME/.config/neofetch/images/nixos.png";
       fetch = "neofetch w3m";
       g = "git";
       gs = "git status";
+      guc="git clean -xdf";
       grep = "grep --color=auto";
       ll = "ls -l";
       ls = "exa";
       la = "exa -a";
       mv = "mv -i";
-      nv = "lvimn";
       rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#desktop --impure";
+      vi = "lvim";
+      wget = "wget -q --show-progress --progress=bar:force:noscroll";
+      open = "xdg-open";
+      dps = "docker ps";
+      dsp = "docker system prune -a";
+      dspf = "docker system prune -af";
+      dkill = "docker kill $(docker ps -q)";
+      drm = "docker rm $(docker ps -a -q)";
+      drmi = "docker rmi $(docker images -q)";
+      dcu = "docker compose up";
+      dcud = "docker compose up -d";
+      dcd = "docker compose down";
+      docker-compose = "docker compose";
+      poke70 = "clear && fortune ~/.config/fortunes/70maxims | pokemonsay";
+      pokelord = "clear && fortune ~/.config/fortunes/overlord | pokemonsay";
+      pokeloveless = "clear && fortune ~/.config/fortunes/loveless | pokemonsay";
+      luna70 = "clear && fortune ~/.config/fortunes/70maxims | ponysay -f luna";
+      lunalord = "clear && fortune ~/.config/fortunes/overlord | ponysay -f luna";
+      lunaloveless = "clear && fortune ~/.config/fortunes/loveless | ponysay -f luna";
+      lunasith = "clear && fortune ~/.config/fortunes/sith | ponysay -f luna";
+      lunasithwatch = "while true ; do lunasith;  sleep 30 ; done";
+      poke70watch = "while true ; do poke70;  sleep 30 ; done";
+      pokelordwatch = "while true ; do pokelord;  sleep 30 ; done";
+      pokelovelesswatch = "while true ; do pokeloveless;  sleep 30 ; done";
+      luna70watch="while true ; do luna70;  sleep 30 ; done";
+      lunalordwatch="while true ; do lunalord;  sleep 30 ; done";
+      lunalovelesswatch="while true ; do lunaloveless;  sleep 30 ; done";
+      cowlordwatch="while true ; do cowlord;  sleep 30 ; done";
+      starwars="telnet towel.blinkenlights.nl";
+      eppc="cd ~/git/enhanced-preprints-client";
+      epps="cd ~/git/enhanced-preprints-server";
+      eppi="cd ~/git/enhanced-preprints-import";
+      oops="fuck";
     };
 
     oh-my-zsh = {
@@ -140,6 +172,7 @@
         "colored-man-pages"
         "command-not-found"
         "history-substring-search"
+        "thefuck"
       ];
     };
 
