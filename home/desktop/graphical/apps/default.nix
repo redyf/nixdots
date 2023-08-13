@@ -7,5 +7,8 @@
   imports = [
     #./eww
   ];
-  home.packages = with pkgs; [ slack ];
+  home.packages = with pkgs; [ 
+    slack
+    musescore
+  ];
 }

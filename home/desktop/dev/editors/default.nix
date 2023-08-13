@@ -2,6 +2,7 @@ _: {
   imports = [
     ./nvim
     ./vscode
-    # ./helix
+    ./webstorm
+    ./helix
   ];
 }
