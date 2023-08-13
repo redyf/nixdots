@@ -161,7 +161,7 @@ in {
       bind = [
         # Binds
         "SUPER,Q,killactive,"
-        "SUPER,M,exit,"
+        #"SUPER,M,exit,"
         "SUPER,S,togglefloating,"
         "SUPER,g,togglegroup"
 	"SUPER,l,exec, hyprctl keyword general:layout 'master'"
@@ -240,8 +240,8 @@ in {
 
         "SUPER,RETURN,exec, kitty"
         ",Print,exec,~/.config/hypr/scripts/screenshot.sh"
-        "SUPER,space,exec,bemenu-run"
-        # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
+        "SUPER $mainnMod SHIFT,space,exec,bemenu-run"
+        "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-5"
         # "SUPER SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip"
         # "SUPER SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker"
         # "SUPER $mainMod SHIFT,B,exec, killall -3 eww & sleep 1 && ~/.config/hypr/themes/winter/eww/launch_bar"
@@ -283,6 +283,7 @@ in {
       windowrulev2 = [
         "opacity ${opacity} ${opacity},class:^(thunar)$"
         "opacity ${opacity} ${opacity},class:^(firefox)$"
+        "opacity ${opacity} ${opacity},class:^(google-chrome)$"
         "opacity ${opacity} ${opacity},class:^(foot)$"
         "opacity ${opacity} ${opacity},class:^(kitty)$"
         "opacity ${opacity} ${opacity},class:^(code)$"

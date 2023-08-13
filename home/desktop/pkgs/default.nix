@@ -4,5 +4,8 @@
   lib,
   ...
 }: {
-  imports = [./config.nix];
+  #imports = [./config.nix];
+  home.packages = with pkgs; [
+    droidcam
+  ];
 }

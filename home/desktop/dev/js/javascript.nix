@@ -3,6 +3,7 @@
     # NPM packages
     nodejs
     node2nix
+    yarn
     typescript
     tailwindcss
     nodePackages.npm # Package manager
