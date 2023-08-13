@@ -67,7 +67,7 @@ in {
         "col.active_border" = "rgb(${primary_accent})";
         # "col.active_border" = "rgb(${background})";
         "col.inactive_border" = "rgba(${background}00)";
-        layout = "dwindle";
+        layout = "master";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
 
@@ -138,7 +138,7 @@ in {
 
       master = {
         mfact = 0.5;
-        orientation = "left";
+        orientation = "center";
         special_scale_factor = 0.8;
         new_is_master = true;
         no_gaps_when_only = false;
@@ -164,9 +164,12 @@ in {
         "SUPER,M,exit,"
         "SUPER,S,togglefloating,"
         "SUPER,g,togglegroup"
+	"SUPER,l,exec, hyprctl keyword general:layout 'master'"
+	"SUPER SHIFT,l,exec, hyprctl keyword general:layout 'dwindle'"
         # "SUPER,tab,changegroupactive"
         # "SUPER,P,pseudo,"
-
+        "SUPER,o,layoutmsg, orientationnext"
+        "SUPER,n,layoutmsg, cyclenext"
         # "SUPER,h,movefocus,l"
         # "SUPER,l,movefocus,r"
         # "SUPER,k,movefocus,u"
@@ -232,10 +235,10 @@ in {
         # "SUPER $mainMod SHIFT, 9, movetoworkspacesilent, 9"
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-        "SUPER,n,exec,~/.local/bin/lvim"
+        #"SUPER,n,exec,~/.local/bin/lvim"
         #"SUPER,e,exec,emacsclient -c -a 'emacs'"
 
-        "SUPER,RETURN,exec, foot"
+        "SUPER,RETURN,exec, kitty"
         ",Print,exec,~/.config/hypr/scripts/screenshot.sh"
         "SUPER,space,exec,bemenu-run"
         # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
@@ -279,6 +282,10 @@ in {
 
       windowrulev2 = [
         "opacity ${opacity} ${opacity},class:^(thunar)$"
+        "opacity ${opacity} ${opacity},class:^(firefox)$"
+        "opacity ${opacity} ${opacity},class:^(foot)$"
+        "opacity ${opacity} ${opacity},class:^(kitty)$"
+        "opacity ${opacity} ${opacity},class:^(code)$"
         # "opacity ${custom.opacity} ${custom.opacity},class:^(WebCord)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(file_progress)$"
