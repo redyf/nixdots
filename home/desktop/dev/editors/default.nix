@@ -3,6 +3,5 @@ _: {
     ./nvim
     ./vscode
     # ./helix
-    ./lunarvim
   ];
 }
