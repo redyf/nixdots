@@ -1,5 +1,11 @@
-_: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
-    ./eww
+    #./eww
   ];
+  home.packages = with pkgs; [ slack ];
 }

@@ -1,6 +1,6 @@
 _: {
   imports = [
-    # ./apps
+     ./apps
     # ./themes
     ./launchers
     ./wms
