@@ -161,7 +161,7 @@ in {
       bind = [
         # Binds
         "SUPER,Q,killactive,"
-        #"SUPER,M,exit,"
+        "SUPER,M,fullscreen,"
         "SUPER,S,togglefloating,"
         "SUPER,g,togglegroup"
 	"SUPER,l,exec, hyprctl keyword general:layout 'master'"
