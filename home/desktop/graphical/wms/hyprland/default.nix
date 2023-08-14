@@ -81,21 +81,21 @@ in {
         "col.shadow" = "rgb(${primary_accent})";
         # "col.shadow" = "rgb(${background})";
         "col.shadow_inactive" = "rgb(${background})";
-        blur = true;
-        blur_size = 6;
-        blur_passes = 3;
-        blur_new_optimizations = true;
-        blur_ignore_opacity = true;
-        # blur = {
-        #   enabled = true;
-        #   size = 6;
-        #   passes = 3;
-        #   new_optimizations = true;
-        #   ignore_opacity = true;
-        #   noise = 0.0117;
-        #   contrast = 1.5;
-        #   brightness = 1;
-        # };
+        #blur = true;
+        #blur_size = 6;
+        #blur_passes = 3;
+        #blur_new_optimizations = true;
+        #blur_ignore_opacity = true;
+        blur = {
+          enabled = true;
+          size = 6;
+          passes = 3;
+          new_optimizations = true;
+          ignore_opacity = true;
+          #noise = 0.0117;
+          #contrast = 1.5;
+          #brightness = 1;
+        };
       };
       # };
 
