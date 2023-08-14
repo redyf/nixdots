@@ -176,9 +176,9 @@ in {
         # "SUPER,j,movefocus,d"
 
         "SUPER,left,movefocus,l"
-        "SUPER,down,movefocus,r"
+        "SUPER,down,movefocus,d"
         "SUPER,up,movefocus,u"
-        "SUPER,right,movefocus,d"
+        "SUPER,right,movefocus,r"
 
         #CTRL,1,workspace,1
         #CTRL,2,workspace,2
