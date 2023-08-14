@@ -284,7 +284,7 @@ in {
         "opacity ${opacity} ${opacity},class:^(thunar)$"
         "opacity ${opacity} ${opacity},class:^(firefox)$"
         "opacity ${opacity} ${opacity},class:^(google-chrome)$"
-        "opacity ${opacity} ${opacity},class:^(foot)$"
+        "opacity ${opacity} ${opacity},class:^(jetbrains-webstorm)$"        "opacity ${opacity} ${opacity},class:^(foot)$"
         "opacity ${opacity} ${opacity},class:^(kitty)$"
         "opacity ${opacity} ${opacity},class:^(code)$"
         # "opacity ${custom.opacity} ${custom.opacity},class:^(WebCord)$"

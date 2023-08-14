@@ -3,5 +3,6 @@ _: {
     ./wayland
     ./webcord
     ./browsers
+    ./1pass
   ];
 }
