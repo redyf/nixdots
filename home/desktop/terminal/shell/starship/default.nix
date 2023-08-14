@@ -34,8 +34,8 @@
         # nodejs.symbol = "[󰎙](#3fdaa4) ";
         # nodejs.symbol = "[󰎙](#7aa2f7) ";
         nodejs.version_format = "v$raw(blue)";
-        package.symbol = "📦  ";
-
+        package.symbol = "📦 ";
+        docker_context.format = "via [$symbol]($style)";
         username = {
           show_always = true;
           style_user = "bold bg:none fg:#7aa2f7";
