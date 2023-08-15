@@ -40,7 +40,6 @@
     libnotify
     zig
     # img2pdf # Convert images to pdf
-    lazygit # Amazing CLI git tool
     findutils
     # flameshot
     traceroute
@@ -52,19 +51,26 @@
 
     # Terminal && prompt
     nerdfix # Helps you find/fix obsolete Nerd font icons
+    lazygit # Amazing CLI git tool
 
-    # Text Editors
+    # Text Editors/IDEs
     # emacs
     neovide # Gui neovim editor with cool animations
 
-    # Browser, vc, pdf
-    discord
-    zathura # PDF viewer
-    firefox
+    # Office + PDF readers
     wpsoffice # MS office alternative for linux
+    zathura # PDF viewer
+
+    # Browsers
+    firefox
     # google-chrome
-    joplin-desktop # Note taking
-    # davinci-resolve # Video editor
+
+    # Socials
+    discord
+
+    # Note taking
+    obsidian
+    joplin-desktop
     # notion-app-enhanced
 
     # Anime/Manga
@@ -86,22 +92,25 @@
     # brightnessctl
     cinnamon.nemo # Cinnamon File manager
 
-    # Streaming/screenshot
+    # Video editing/Streaming
+    obs-studio
+    # davinci-resolve
+
+    # Screenshot + extra utils
     grim # Screenshot tool for hyprland
     slurp # Works with grim to screenshot on wayland
     ffmpeg_5 # A complete, cross-platform solution to record, convert and stream audio and video
-    obs-studio # Livestreams
-    # hyprpicker # Color picker for hyprland
     wl-clipboard # Enables copy/paste on wayland
+    # hyprpicker # Color picker for hyprland
 
     # Gaming
     # gnutls
     minecraft
     # libpulseaudio
 
-    # Others
+    # Audio/Music
     spotify
-    obsidian
+    easyeffects
     pavucontrol
   ];
 }
