@@ -73,6 +73,10 @@
     joplin-desktop
     # notion-app-enhanced
 
+    # Sync
+    dropbox
+    syncthing
+
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime
     mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
