@@ -10,6 +10,7 @@
   primary_accent = "cba6f7";
   secondary_accent = "89b4fa";
   tertiary_accent = "f5f5f5";
+  tokyonight_blue = "8aadf4";
   background = "11111B";
   opacity = ".85";
   cursor = "Numix-Cursor";
@@ -51,7 +52,7 @@ in {
         gaps_in = 6;
         gaps_out = 10;
         border_size = 1;
-        "col.active_border" = "rgb(${primary_accent})";
+        "col.active_border" = "rgb(${tokyonight_blue})";
         # "col.active_border" = "rgb(${background})";
         "col.inactive_border" = "rgba(${background}00)";
         layout = "master";
@@ -65,7 +66,7 @@ in {
         drop_shadow = true;
         shadow_range = 15;
         shadow_render_power = 2;
-        "col.shadow" = "rgb(${primary_accent})";
+        "col.shadow" = "rgb(${tokyonight_blue})";
         # "col.shadow" = "rgb(${background})";
         "col.shadow_inactive" = "rgb(${background})";
         blur = true;
