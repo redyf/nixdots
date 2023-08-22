@@ -8,6 +8,9 @@
     # Design
     figma-linux
 
+    # Modeling
+    dia
+
     # Useful utils
     fd # A simple, fast and user-friendly alternative to find
     jq # A lightweight and flexible command-line JSON processor
