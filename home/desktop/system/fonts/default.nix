@@ -12,7 +12,7 @@
     noto-fonts
     dejavu_fonts
     font-awesome
-    ryan-mono-bin
+    # ryan-mono-bin
     # ryan-term-bin
     # maple-mono-NF
     # courier-prime
