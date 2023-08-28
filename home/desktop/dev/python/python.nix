@@ -3,6 +3,7 @@
     (python311.withPackages (ps:
       with ps; [
         pip
+        xlib
         glib
         tqdm
         black # Python formatter

@@ -137,7 +137,7 @@
       xwayland = {
         enable = true;
       };
-      nvidiaPatches = true;
+      enableNvidiaPatches = true;
     };
   };
 
@@ -167,12 +167,12 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = ["SF Pro"];
-        sansSerif = ["SF Pro"];
-        monospace = ["SF Pro"];
-        # serif = ["Times, Noto Serif"];
-        # sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
-        # monospace = ["Courier Prime, Courier, Noto Sans Mono"];
+        # serif = ["SF Pro"];
+        # sansSerif = ["SF Pro"];
+        # monospace = ["SF Pro"];
+        serif = ["Times, Noto Serif"];
+        sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
+        monospace = ["Courier Prime, Courier, Noto Sans Mono"];
       };
     };
   };

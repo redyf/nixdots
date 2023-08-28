@@ -25,9 +25,13 @@ in {
     settings = {
       # "$mainMod" = "SUPER";
       monitor = [
-        "DP-3, 1920x1080@165,0x0,1"
+        "DP-3, 1920x1080@165,0x0,0.9"
         ",preferred,auto,auto"
       ];
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
 
       input = {
         kb_layout = "br";
@@ -49,8 +53,8 @@ in {
       };
 
       general = {
-        gaps_in = 6;
-        gaps_out = 10;
+        gaps_in = 4;
+        gaps_out = 8;
         border_size = 1;
         "col.active_border" = "rgb(${tokyonight_blue})";
         # "col.active_border" = "rgb(${background})";
@@ -69,21 +73,16 @@ in {
         "col.shadow" = "rgb(${tokyonight_blue})";
         # "col.shadow" = "rgb(${background})";
         "col.shadow_inactive" = "rgb(${background})";
-        blur = true;
-        blur_size = 6;
-        blur_passes = 3;
-        blur_new_optimizations = true;
-        blur_ignore_opacity = true;
-        # blur = {
-        #   enabled = true;
-        #   size = 6;
-        #   passes = 3;
-        #   new_optimizations = true;
-        #   ignore_opacity = true;
-        #   noise = 0.0117;
-        #   contrast = 1.5;
-        #   brightness = 1;
-        # };
+        blur = {
+          enabled = true;
+          size = 6;
+          passes = 3;
+          new_optimizations = true;
+          ignore_opacity = true;
+          noise = 0.0117;
+          contrast = 1.5;
+          brightness = 1;
+        };
       };
       # };
 
@@ -221,6 +220,7 @@ in {
 
         "SUPER,n,exec,~/.local/bin/lvimn"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
+        "SUPER,o,exec,obsidian"
 
         "SUPER,RETURN,exec, foot"
         ",Print,exec,~/.config/hypr/scripts/screenshot.sh"

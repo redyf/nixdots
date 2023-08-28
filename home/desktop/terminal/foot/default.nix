@@ -6,10 +6,10 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=14";
+          # font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=14";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=14";
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=16";
-          # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=14";
+          font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=14";
           # font = "RyanMono Nerd Font:Bold:style=Extra Bold:size=16";
           # font = "Maple Mono NF:Bold:style=Extra Bold Italic:size=14";
           pad = "1x1 center";

@@ -1,9 +1,9 @@
 {pkgs ? import <nixpkgs> {}}: let
   my-python-packages = ps:
     with ps; [
-      glib
-      pygobject3
-      gst-python
+      pip
+      pypresence
+      xlib
     ];
   my-python = pkgs.python3.withPackages my-python-packages;
 in

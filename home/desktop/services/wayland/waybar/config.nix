@@ -15,7 +15,7 @@ in {
     # width = "1280";
     spacing = 8;
     margin-top = 6;
-    margin-bottom = 6;
+    margin-bottom = 2;
     margin-right = 8;
     margin-left = 8;
     fixed-center = false;
