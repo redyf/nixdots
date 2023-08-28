@@ -5,6 +5,9 @@
   ...
 }: {
   home.packages = with pkgs; [
+    # Dev
+    poetry
+
     # Design
     figma-linux
 
