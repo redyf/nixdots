@@ -100,7 +100,8 @@
     # eww-wayland # Cool widgets for wayland
     lxappearance # Gui software to change icons/themes
     # brightnessctl
-    cinnamon.nemo # Cinnamon File manager
+    # cinnamon.nemo # Cinnamon File manager
+    pcmanfm
 
     # Video editing/Streaming
     obs-studio

@@ -25,7 +25,7 @@
       timeout = 10;
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        efiSysMountPoint = "/boot";
       };
       grub = {
         enable = true;
