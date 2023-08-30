@@ -107,7 +107,7 @@ Pré-requisitos:
 Clono the repo and cd into it:
 
 ```bash
-git clone https://github.com/Redyf/nixdots ~/flake && cd ~/flake
+git clone https://github.com/Redyf/nixdots ~/nixdots && cd ~/nixdots
 ```
 
 Create a hardware configuration for your system:
