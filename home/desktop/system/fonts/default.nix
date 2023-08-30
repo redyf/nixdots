@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     # Fonts
     # go-font
+    apl386
     nerdfonts
     noto-fonts
     dejavu_fonts
@@ -24,7 +25,6 @@
     powerline-symbols
     material-design-icons
     # helvetica-neue-lt-std
-    nur.repos.sagikazarmark.sf-pro
     (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono"];})
   ];
 }
