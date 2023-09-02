@@ -7,6 +7,9 @@
   home.packages = with pkgs; [
     # Dev
     poetry
+    postman
+    openssl
+    beekeeper-studio
 
     # Design
     figma-linux
@@ -35,7 +38,7 @@
     fuse
     tree
     peek
-    jp2a
+    jp2a # Convert JPG images to ASCII
     timer # CLI sleep progress app
     light # GNU/Linux application to control backlights
     xclip
