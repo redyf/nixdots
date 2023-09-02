@@ -21,6 +21,7 @@
       export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
       export PATH="$PATH:/home/redyf/.config/nvim/bin"
       export PATH="$PATH:/home/redyf/.config/nyoom/bin"
+      export WINIT_UNIX_BACKEND=x11 neovide
       NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
 
       # Autosuggest
