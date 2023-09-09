@@ -91,7 +91,6 @@
     mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
     # Rice
-    lf # CLI file manager written in GO
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
     # sxhkd # BSPWM keybindings
@@ -103,7 +102,6 @@
     # eww-wayland # Cool widgets for wayland
     lxappearance # Gui software to change icons/themes
     # brightnessctl
-    # cinnamon.nemo # Cinnamon File manager
     pcmanfm
 
     # Video editing/Streaming
