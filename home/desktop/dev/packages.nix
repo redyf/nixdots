@@ -79,8 +79,8 @@
 
     # Note taking
     obsidian
-    joplin-desktop
-    # notion-app-enhanced
+    # joplin-desktop
+    notion-app-enhanced
 
     # Sync
     dropbox
