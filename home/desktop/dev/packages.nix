@@ -94,15 +94,15 @@
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
     # sxhkd # BSPWM keybindings
-    bemenu # Dmenu for wayland
+    # bemenu # Dmenu for wayland
     cmatrix
     # polybar # Bar i use on X11
     nitrogen # Wallpaper utility for X11
     # picom-next # Compositor for X11
-    # eww-wayland # Cool widgets for wayland
+    eww-wayland # Cool widgets for wayland
     lxappearance # Gui software to change icons/themes
     # brightnessctl
-    pcmanfm
+    pcmanfm # Best GUI file manager
 
     # Video editing/Streaming
     obs-studio

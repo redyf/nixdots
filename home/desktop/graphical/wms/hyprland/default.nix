@@ -224,7 +224,8 @@ in {
 
         "SUPER,RETURN,exec, foot"
         ",Print,exec, ~/.config/hypr/scripts/screenshot.sh"
-        "SUPER,space,exec, bemenu-run"
+        # "SUPER,space,exec, bemenu-run"
+        "SUPER,space,exec, tofi-drun --drun-launch=true"
         # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
         # "SUPER SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip"
         # "SUPER SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker"
