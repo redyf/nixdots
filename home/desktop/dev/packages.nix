@@ -64,6 +64,7 @@
 
     # Text Editors/IDEs
     # emacs
+    vscode
     neovide # Gui neovim editor with cool animations
 
     # Office + PDF readers
@@ -94,7 +95,7 @@
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
     # sxhkd # BSPWM keybindings
-    # bemenu # Dmenu for wayland
+    bemenu # Dmenu for wayland
     cmatrix
     # polybar # Bar i use on X11
     nitrogen # Wallpaper utility for X11
