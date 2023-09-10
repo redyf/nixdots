@@ -13,8 +13,6 @@
     noto-fonts
     dejavu_fonts
     font-awesome
-    # ryan-mono-bin
-    # ryan-term-bin
     # maple-mono-NF
     # courier-prime
     liberation_ttf # Needed to make vanilla st terminal work
@@ -25,6 +23,6 @@
     powerline-symbols
     material-design-icons
     # helvetica-neue-lt-std
-    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "LiberationMono" "SourceCodePro"];})
   ];
 }

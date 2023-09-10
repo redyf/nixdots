@@ -9,7 +9,6 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
-    ryan-mono.url = "github:ryanccn/ryan-mono";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
