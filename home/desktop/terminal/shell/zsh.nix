@@ -123,11 +123,9 @@
       gs = "git status";
       grep = "grep --color=auto";
       ll = "ls -l";
-      ls = "exa";
-      la = "exa -a";
+      # ls = "exa";
+      # la = "exa -a";
       mv = "mv -i";
-      nv = "lvimn";
-      rm = "rip -i";
       rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
     };
