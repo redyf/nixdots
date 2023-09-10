@@ -20,7 +20,7 @@
     # Useful utils
     fd # A simple, fast and user-friendly alternative to find
     jq # A lightweight and flexible command-line JSON processor
-    exa # Replacement for ls in rust
+    # exa # Replacement for ls in rust (removed due to unmaintained upstream).
     fzf # Fuzzy finder
     zoxide # Improved cd command
     ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
