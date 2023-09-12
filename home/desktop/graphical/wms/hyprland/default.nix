@@ -67,7 +67,7 @@ in {
         rounding = 10;
         multisample_edges = true;
         shadow_ignore_window = true;
-        drop_shadow = true;
+        drop_shadow = false;
         shadow_range = 15;
         shadow_render_power = 2;
         "col.shadow" = "rgb(${tokyonight_blue})";
