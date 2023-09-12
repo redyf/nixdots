@@ -6,8 +6,8 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "SauceCodePro Nerd Font:Bold:style=Bold:size=15";
-          # font = "LiterationMono Nerd Font:Bold:style=Bold:size=15";
+          # font = "SauceCodePro Nerd Font:Bold:style=Bold:size=15";
+          font = "LiterationMono Nerd Font:Bold:style=Bold:size=15";
           # font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=14";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=14";
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=16";
