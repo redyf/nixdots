@@ -117,11 +117,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   # services.xserver.windowManager.awesome.enable = true;
-  services.xserver.desktopManager.mate.enable = true;
+  # services.xserver.desktopManager.mate.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
   # services.xserver.windowManager.i3.enable = true;
   # services.xserver.windowManager.bspwm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
 
   # Enables services
   services.logmein-hamachi.enable = false;
@@ -272,7 +273,7 @@
       redyf = {
         isNormalUser = true;
         description = "redyf";
-        initialPassword = "red123";
+        initialPassword = "123456";
         shell = pkgs.zsh;
         extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
       };
@@ -301,8 +302,6 @@
     playerctl
     xdg-desktop-portal-gtk
   ];
-
-  environment.sessionVariables.DEFAULT_BROWSER = "${pkgs.google-chrome}/bin/google-chrome-stable";
 
   # Enables flakes + garbage collector
   nix = {
