@@ -11,6 +11,8 @@
   secondary_accent = "89b4fa";
   tertiary_accent = "f5f5f5";
   tokyonight_blue = "8aadf4";
+  oxocarbon_border = "393939";
+  oxocarbon_background = "161616";
   background = "11111B";
   opacity = ".85";
   cursor = "Numix-Cursor";
@@ -56,8 +58,9 @@ in {
         gaps_in = 4;
         gaps_out = 8;
         border_size = 1;
-        "col.active_border" = "rgb(${tokyonight_blue})";
         # "col.active_border" = "rgb(${background})";
+        # "col.active_border" = "rgb(${tokyonight_blue})";
+        "col.active_border" = "rgb(${oxocarbon_border})";
         "col.inactive_border" = "rgba(${background}00)";
         layout = "master";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -67,11 +70,12 @@ in {
         rounding = 10;
         multisample_edges = true;
         shadow_ignore_window = true;
-        drop_shadow = false;
+        drop_shadow = true;
         shadow_range = 15;
         shadow_render_power = 2;
-        "col.shadow" = "rgb(${tokyonight_blue})";
         # "col.shadow" = "rgb(${background})";
+        # "col.shadow" = "rgb(${tokyonight_blue})";
+        "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "rgb(${background})";
         blur = {
           enabled = true;
@@ -84,7 +88,6 @@ in {
           brightness = 1;
         };
       };
-      # };
 
       animations = {
         enabled = true;
@@ -169,6 +172,7 @@ in {
         #CTRL,4,workspace,4
         #CTRL,5,workspace,5
         #CTRL,6,workspace,6
+
         "SUPER,1,workspace,1"
         "SUPER,2,workspace,2"
         "SUPER,3,workspace,3"
@@ -179,7 +183,6 @@ in {
         "SUPER,8,workspace,8"
         # "SUPER,9,workspace,9"
         # "SUPER,0,workspace,10"
-        # "SUPER,z,exec,waybar"
 
         ################################## Move ###########################################
         # "SUPER SHIFT, H, movewindow, l"
@@ -224,8 +227,9 @@ in {
         "SUPER,RETURN,exec, foot"
         ",Print,exec, ~/.config/hypr/scripts/screenshot.sh"
         "SUPER,space,exec, bemenu-run"
-        # "SUPER,space,exec, tofi-drun --drun-launch=true"
+        # "SUPER,z,exec,waybar"
         # "SUPER,n,exec,~/.local/bin/lvimn"
+        # "SUPER,space,exec, tofi-drun --drun-launch=true"
         # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
         # "SUPER SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip"
         # "SUPER SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker"
