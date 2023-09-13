@@ -7,13 +7,13 @@ _: {
         main = {
           term = "xterm-256color";
           # font = "SauceCodePro Nerd Font:Bold:style=Bold:size=15";
-          font = "LiterationMono Nerd Font:Bold:style=Bold:size=15";
+          # font = "LiterationMono Nerd Font:Bold:style=Bold:size=15";
           # font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=14";
-          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=14";
+          font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=15";
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=16";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=14";
           # font = "Maple Mono NF:Bold:style=Extra Bold Italic:size=14";
-          pad = "1x1 center";
+          pad = "8x8 center";
         };
         cursor = {
           # color = "1A1826 D9E0EE"; # Cattpuccin
@@ -21,12 +21,12 @@ _: {
           # color = "a9b1d6 f5f5f5"; # Dark-decay
           # color = "a5b6cf cbced3"; # Decayce
           # color = "c5c8cd 101419"; # Light-decay
-          color = "1a1b26 c0caf5"; # Lunar
+          # color = "1a1b26 c0caf5"; # Lunar
           # color = "192330 cdcecf"; # Nightfox
           # color = "161616 f2f4f8"; # Carbonfox
           # color = "3760bf b6bfe2"; # Tokyonight
           # color = "11121d a0a8cd"; # Tokyodark
-          # color = "161616 ffffff"; # Oxocarbon
+          color = "161616 ffffff"; # Oxocarbon
           # color = "292a37 d9e0ee"; # Jabuti
 
           blink = false;
@@ -205,25 +205,25 @@ _: {
           # bright7 = "1f2328";
 
           # Lunar
-          alpha = "1.0";
-          foreground = "a9b1d6";
-          background = "1a1b26";
-          regular0 = "414868";
-          regular1 = "f7768e";
-          regular2 = "73daca";
-          regular3 = "e0af68";
-          regular4 = "7aa2f7";
-          regular5 = "bb9af7";
-          regular6 = "7dcfff";
-          regular7 = "c0caf5";
-          bright0 = "414868";
-          bright1 = "f7768e";
-          bright2 = "73daca";
-          bright3 = "e0af68";
-          bright4 = "7aa2f7";
-          bright5 = "bb9af7";
-          bright6 = "7dcfff";
-          bright7 = "c0caf5";
+          # alpha = "1.0";
+          # foreground = "a9b1d6";
+          # background = "1a1b26";
+          # regular0 = "414868";
+          # regular1 = "f7768e";
+          # regular2 = "73daca";
+          # regular3 = "e0af68";
+          # regular4 = "7aa2f7";
+          # regular5 = "bb9af7";
+          # regular6 = "7dcfff";
+          # regular7 = "c0caf5";
+          # bright0 = "414868";
+          # bright1 = "f7768e";
+          # bright2 = "73daca";
+          # bright3 = "e0af68";
+          # bright4 = "7aa2f7";
+          # bright5 = "bb9af7";
+          # bright6 = "7dcfff";
+          # bright7 = "c0caf5";
 
           # Carbonfox
           # alpha = "1.0";
@@ -313,25 +313,25 @@ _: {
           # bright7 = "a0a8cd";
 
           # Oxocarbon
-          # alpha = "1.0";
-          # foreground = "f2f4f8";
-          # background = "161616";
-          # regular0 = "262626";
-          # regular1 = "ee5396";
-          # regular2 = "00C15A";
-          # regular3 = "ffe97b";
-          # regular4 = "33b1ff";
-          # regular5 = "ff7eb6";
-          # regular6 = "00C1BB";
-          # regular7 = "dde1e6";
-          # bright0 = "393939";
-          # bright1 = "ee5396";
-          # bright2 = "00C15A";
-          # bright3 = "ffe97b";
-          # bright4 = "33b1ff";
-          # bright5 = "ff7eb6";
-          # bright6 = "3ddbd9";
-          # bright7 = "ffffff";
+          alpha = "1.0";
+          foreground = "f2f4f8";
+          background = "161616";
+          regular0 = "262626";
+          regular1 = "ee5396";
+          regular2 = "00C15A";
+          regular3 = "ffe97b";
+          regular4 = "33b1ff";
+          regular5 = "ff7eb6";
+          regular6 = "00C1BB";
+          regular7 = "dde1e6";
+          bright0 = "393939";
+          bright1 = "ee5396";
+          bright2 = "00C15A";
+          bright3 = "ffe97b";
+          bright4 = "33b1ff";
+          bright5 = "ff7eb6";
+          bright6 = "3ddbd9";
+          bright7 = "ffffff";
         };
         tweak = {
           font-monospace-warn = "no"; # reduces startup time

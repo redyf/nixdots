@@ -8,23 +8,26 @@
     flavour = "macchiato"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
   in {
     enable = true;
+    enableZshIntegration = true;
     settings =
       {
+        scan_timeout = 10;
         add_newline = false;
-        scan_timeout = 5;
+        line_break.disabled = false;
+        format = "$symbol[󰉊 ](bold #ee5396) $directory$character$time";
         character = {
-          success_symbol = "[](#cbced3)";
-          error_symbol = "[](#dd6777)";
-          vicmd_symbol = "[](#ecd3a0)";
+          success_symbol = "[󰅂 ](bold #393939)";
+          error_symbol = "[󰅂 ](bold #393939)";
+          vicmd_symbol = "[󰅂 ](bold #393939)";
           # format = "$symbol[λ ](bold #3fdaa4) ";
-          format = "$symbol[✘ ](bold #3fdaa4) ";
+          # format = "$symbol[✘ ](bold #3fdaa4) ";
+          # format = "$symbol[󰉊 ](bold #ee5396)$directory";
           # format = "$symbol[ℵ ](bold #3fdaa4) ";
           # format = "$symbol[󰊠 ](bold #7EAE90) ";
         };
 
         palette = "catppuccin_${flavour}";
         git_commit = {commit_hash_length = 5;};
-        line_break.disabled = false;
 
         lua.symbol = "[](blue) ";
         python.symbol = "[](blue) ";
@@ -37,27 +40,38 @@
         package.symbol = "📦  ";
 
         username = {
-          show_always = true;
+          show_always = false;
           style_user = "bold bg:none fg:#7aa2f7";
           format = "[$user]($style)";
         };
 
         hostname = {
+          disabled = true;
           ssh_only = false;
           style = "bold bg:none fg:#CDD6F4";
           format = "@[$hostname]($style) ";
-          disabled = false;
         };
 
         directory = {
           read_only = " ";
           truncation_length = 3;
           truncation_symbol = "./";
-          style = "bold bg:none fg:#7aa2f7";
+          style = "bold bg:none fg:#393939";
+          # style = "bold bg:none fg:#7aa2f7";
           # style = "bold bg:none fg:#7dcfff";
           # style = "bold bg:none fg:#26bbd9";
           # style = "bold bg:none fg:#7EAE90";
           # style = "bold bg:none fg:#ec6a88";
+        };
+
+        time = {
+          disabled = false;
+          use_12hr = true;
+          time_range = "-";
+          time_format = "%R";
+          utc_time_offset = "local";
+          format = "[ $time 󰥔]($style) ";
+          style = "bold #393939";
         };
       }
       // builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub
