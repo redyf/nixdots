@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./wayland
-    ./webcord
+    # ./webcord
     ./browsers
   ];
 }
