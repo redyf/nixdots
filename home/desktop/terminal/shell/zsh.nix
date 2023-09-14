@@ -22,6 +22,7 @@
       export PATH="$PATH:/home/redyf/.config/nvim/bin"
       export PATH="$PATH:/home/redyf/.config/nyoom/bin"
       export WINIT_UNIX_BACKEND=x11 neovide
+      # export PROMPT="%B%F{1} 󰉊  %f%b%B%F{8}%~%f%b%B%F{8}   %f%b"
       NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
 
       # Autosuggest

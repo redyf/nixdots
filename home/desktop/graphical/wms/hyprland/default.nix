@@ -71,8 +71,8 @@ in {
         multisample_edges = true;
         shadow_ignore_window = true;
         drop_shadow = true;
-        shadow_range = 15;
-        shadow_render_power = 2;
+        shadow_range = 20;
+        shadow_render_power = 3;
         # "col.shadow" = "rgb(${background})";
         # "col.shadow" = "rgb(${tokyonight_blue})";
         "col.shadow" = "rgb(${oxocarbon_background})";
@@ -156,10 +156,10 @@ in {
         # "SUPER,tab,changegroupactive"
         # "SUPER,P,pseudo,"
 
-        # "SUPER,h,movefocus,l"
-        # "SUPER,l,movefocus,r"
-        # "SUPER,k,movefocus,u"
-        # "SUPER,j,movefocus,d"
+        "SUPER,h,movefocus,l"
+        "SUPER,l,movefocus,r"
+        "SUPER,k,movefocus,u"
+        "SUPER,j,movefocus,d"
 
         "SUPER,left,movefocus,l"
         "SUPER,down,movefocus,r"
@@ -185,10 +185,10 @@ in {
         # "SUPER,0,workspace,10"
 
         ################################## Move ###########################################
-        # "SUPER SHIFT, H, movewindow, l"
-        # "SUPER SHIFT, L, movewindow, r"
-        # "SUPER SHIFT, K, movewindow, u"
-        # "SUPER SHIFT, J, movewindow, d"
+        "SUPER SHIFT, H, movewindow, l"
+        "SUPER SHIFT, L, movewindow, r"
+        "SUPER SHIFT, K, movewindow, u"
+        "SUPER SHIFT, J, movewindow, d"
         "SUPER SHIFT, left, movewindow, l"
         "SUPER SHIFT, right, movewindow, r"
         "SUPER SHIFT, up, movewindow, u"
