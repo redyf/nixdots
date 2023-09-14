@@ -22,7 +22,6 @@
     jq # A lightweight and flexible command-line JSON processor
     # exa # Replacement for ls in rust (removed due to unmaintained upstream).
     fzf # Fuzzy finder
-    zoxide # Improved cd command
     ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
     rm-improved # Replacement for rm with focus on safety, ergonomics and performance
 
@@ -38,7 +37,6 @@
     fuse
     tree
     peek
-    jp2a # Convert JPG images to ASCII
     timer # CLI sleep progress app
     light # GNU/Linux application to control backlights
     xclip
@@ -47,7 +45,6 @@
     lolcat
     speechd
     libnotify
-    zig
     # img2pdf # Convert images to pdf
     findutils
     # flameshot
@@ -80,11 +77,8 @@
 
     # Note taking
     obsidian
-    # joplin-desktop
-    notion-app-enhanced
 
     # Sync
-    dropbox
     syncthing
 
     # Anime/Manga
@@ -106,8 +100,7 @@
     pcmanfm # Best GUI file manager
 
     # Video editing/Streaming
-    obs-studio
-    obs-studio-plugins.wlrobs
+    # obs-studio
     # davinci-resolve
 
     # Screenshot + extra utils
