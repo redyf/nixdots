@@ -9,19 +9,20 @@
         })
         (fetchpatch {
           url = "https://st.suckless.org/patches/newterm/st-newterm-0.9.diff";
-          sha256 = "09w2db0yvxw9byw4dr10wm73vk5y4bcii0nlxzh7f7w3jhy8pbbg";
+          sha256 = "sha256-U4UhvROueU3S45lN3F8BdQ/mABhxJYM923mVaQCol+Y=";
         })
         (fetchpatch {
           url = "https://st.suckless.org/patches/newterm/st-newterm-0.9-tmux.diff";
-          sha256 = "1kr7raralb71449x9jsmkdibvak3nfwavkmwnl7x0kfzv10mqp3j";
+          sha256 = "sha256-YFX8lpgZa659xSgnFmHmn9wKJtIwIk8cLKsH7DH4Vwc=";
         })
         (fetchpatch {
           url = "https://st.suckless.org/patches/dynamic-cursor-color/st-dynamic-cursor-color-0.9.diff";
-          sha256 = "1hpyk30a5mkj3lplmxhp8j61y3yxmsg8sx5wjfbvcriv43fcdb5a";
+          sha256 = "sha256-JugrLvbnacZ6SfVl+V6tLM30LEKWBnRi6WM9oJR9OAA=";
         })
       ];
       # Using a local file
-      configFile = writeText "config.def.h" (builtins.readFile ./config.h);
+      configFile = writeText "config.def.h" (builtins.readFile /home/redyf/flake/home/desktop/terminal/st/config.h);
+      # postPatch = oldAttrs.postPatch + "cp ${configFile} config.def.h";
     }))
   ];
 }

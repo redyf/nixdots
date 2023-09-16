@@ -5,7 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char font[] = "JetBrainsMono Nerd Font:pixelsize=15";
+static char *font = "JetBrainsMono Nerd Font:pixelsize=22:antialias=true";
+static char *font2[] = {
+    "CaskaydiaCove Nerd Font :pixelsize=22:antialias=true:autohint=true"
+};
 static int borderpx = 2;
 static int histsize = 2000;
 

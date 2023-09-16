@@ -27,8 +27,8 @@ in {
     settings = {
       # "$mainMod" = "SUPER";
       monitor = [
-        "DP-3, 1920x1080@165,0x0,1"
         ",preferred,auto,auto"
+        # "DP-3, 1920x1080@165,0x0,1"
       ];
 
       xwayland = {
@@ -62,7 +62,7 @@ in {
         # "col.active_border" = "rgb(${tokyonight_blue})";
         "col.active_border" = "rgb(${oxocarbon_border})";
         "col.inactive_border" = "rgba(${background}00)";
-        layout = "master";
+        layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
 
