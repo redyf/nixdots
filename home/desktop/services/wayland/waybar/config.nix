@@ -20,7 +20,7 @@ in {
     margin-left = 8;
     fixed-center = false;
     modules-left = [
-      "wlr/workspaces"
+      "hyprland/workspaces"
       "custom/spotify"
     ];
     modules-center = [
