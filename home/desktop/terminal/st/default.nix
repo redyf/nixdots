@@ -21,8 +21,8 @@
         })
       ];
       # Using a local file
-      configFile = writeText "config.def.h" (builtins.readFile /home/redyf/flake/home/desktop/terminal/st/config.h);
-      # postPatch = oldAttrs.postPatch + "cp ${configFile} config.def.h";
+      configFile = writeText "config.def.h" (builtins.readFile ./config.h);
+      postPatch = oldAttrs.postPatch + "cp ${configFile} config.def.h";
     }))
   ];
 }

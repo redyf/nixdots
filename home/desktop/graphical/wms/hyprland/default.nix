@@ -27,8 +27,8 @@ in {
     settings = {
       # "$mainMod" = "SUPER";
       monitor = [
-        ",preferred,auto,auto"
-        # "DP-3, 1920x1080@165,0x0,1"
+        "DP-3,1920x1080@165,0x0,1"
+        # ",preferred,auto,auto"
       ];
 
       xwayland = {
