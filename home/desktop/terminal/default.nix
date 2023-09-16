@@ -1,6 +1,6 @@
 _: {
   imports = [
-    # ./st
+    ./st
     ./btop
     ./cava
     ./foot
