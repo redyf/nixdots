@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
-      buildInputs = oldAttrs.buildInputs ++ [harfbuzz];
+      buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
       patches = [
         (fetchpatch {
           url = "https://st.suckless.org/patches/ligatures/0.9/st-ligatures-20230105-0.9.diff";
@@ -21,8 +21,8 @@
         })
       ];
       # Using a local file
-      configFile = writeText "config.def.h" (builtins.readFile /home/redyf/flake/home/desktop/terminal/st/config.h);
-      # postPatch = oldAttrs.postPatch + "cp ${configFile} config.def.h";
+      configFile = writeText "config.def.h" (builtins.readFile ./config.h);
+      postPatch = oldAttrs.postPatch + "cp ${configFile} config.def.h";
     }))
   ];
 }
