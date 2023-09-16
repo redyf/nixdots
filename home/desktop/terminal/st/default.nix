@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
-      buildInputs = oldAttrs.buildInputs ++ [harfbuzz];
+      buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
       patches = [
         (fetchpatch {
           url = "https://st.suckless.org/patches/ligatures/0.9/st-ligatures-20230105-0.9.diff";
