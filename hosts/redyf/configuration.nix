@@ -114,16 +114,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-  # services.xserver.windowManager.awesome.enable = true;
-  # services.xserver.desktopManager.mate.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-  # services.xserver.windowManager.i3.enable = true;
-  # services.xserver.windowManager.bspwm.enable = true;
-
   # Enables services
   services.logmein-hamachi.enable = false;
   services.flatpak.enable = false;
@@ -208,8 +198,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
-
   environment.variables = {
     GBM_BACKEND = "nvidia-drm";
     LIBVA_DRIVER_NAME = "nvidia";
@@ -229,31 +217,50 @@
       powerManagement.enable = true;
       modesetting.enable = true;
     };
-    opengl.enable = true;
-    opengl.driSupport32Bit = true;
-    opengl.extraPackages = with pkgs; [nvidia-vaapi-driver];
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [nvidia-vaapi-driver];
+    };
   };
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "br";
-    xkbVariant = "";
-    libinput = {
+  services = {
+    # Enable CUPS to print documents.
+    printing.enable = true;
+    xserver = {
+      # Enable the X11 windowing system.
       enable = true;
-      mouse = {
-        accelProfile = "flat";
+      displayManager = {
+        gdm.enable = true;
       };
-      touchpad = {
-        accelProfile = "flat";
+      desktopManager = {
+        xfce.enable = true;
+        # gnome.enable = true;
+        # mate.enable = true;
+      };
+      windowManager = {
+        # awesome.enable = true;
+        # i3.enable = true;
+        # bspwm.enable = true;
+      };
+      videoDrivers = ["nvidia"];
+      layout = "br";
+      xkbVariant = "";
+      libinput = {
+        enable = true;
+        mouse = {
+          accelProfile = "flat";
+        };
+        touchpad = {
+          accelProfile = "flat";
+        };
       };
     };
   };
 
   # Configure console keymap
   console.keyMap = "br-abnt2";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -265,7 +272,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-    #jack.enable = true;
+    # jack.enable = true;
   };
 
   users = {

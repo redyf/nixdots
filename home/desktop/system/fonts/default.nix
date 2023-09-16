@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     # Fonts
     # go-font
-    apl386
+    # apl386
     nerdfonts
     noto-fonts
     dejavu_fonts
