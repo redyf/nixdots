@@ -114,10 +114,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enables services
-  services.logmein-hamachi.enable = false;
-  services.flatpak.enable = false;
-
   # Enable programs
   programs = {
     zsh.enable = true;
@@ -158,9 +154,6 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        # serif = ["SF Pro"];
-        # sansSerif = ["SF Pro"];
-        # monospace = ["SF Pro"];
         serif = ["Times, Noto Serif"];
         sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
         monospace = ["Courier Prime, Courier, Noto Sans Mono"];
@@ -174,41 +167,39 @@
   };
 
   # Enables docker in rootless mode
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-  # Enables virtualization for virt-manager and virtual box
   virtualisation = {
+    docker.rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    # Enables virtualization for virt-manager and virtual box
     libvirtd.enable = true;
     # virtualbox = {
     #   host = {
     #     enable = true;
     #     enableExtensionPack = true;
     #   };
-    #   guest = {
-    #     enable = true;
-    #     x11 = true;
-    #   };
+    #    guest = {
+    #    enable = true;
+    #    x11 = true;
+    #  };
     # };
   };
+
   # users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  environment.variables = {
-    GBM_BACKEND = "nvidia-drm";
-    LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    __GL_GSYNC_ALLOWED = "1";
-    __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
-  };
-
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
+  environment = {
+    variables = {
+      GBM_BACKEND = "nvidia-drm";
+      LIBVA_DRIVER_NAME = "nvidia";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __GL_GSYNC_ALLOWED = "1";
+      __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
+    };
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
+    };
   };
 
   hardware = {
@@ -227,7 +218,7 @@
   # Configure keymap in X11
   services = {
     # Enable CUPS to print documents.
-    printing.enable = true;
+    # printing.enable = true;
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -257,6 +248,8 @@
         };
       };
     };
+    logmein-hamachi.enable = false;
+    flatpak.enable = false;
   };
 
   # Configure console keymap
@@ -340,10 +333,14 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # networking = {
+  #   firewall = {
+  #   Or disable the firewall altogether.
+  #     enable = false;
+  #     allowedTCPPorts = [ ... ];
+  #     allowedUDPPorts = [ ... ];
+  #   };
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
