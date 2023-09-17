@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
-      buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
+      buildInputs = oldAttrs.buildInputs ++ [harfbuzz];
       patches = [
         (fetchpatch {
           url = "https://st.suckless.org/patches/ligatures/0.9/st-ligatures-20230105-0.9.diff";
@@ -18,6 +18,10 @@
         (fetchpatch {
           url = "https://st.suckless.org/patches/dynamic-cursor-color/st-dynamic-cursor-color-0.9.diff";
           sha256 = "sha256-JugrLvbnacZ6SfVl+V6tLM30LEKWBnRi6WM9oJR9OAA=";
+        })
+        (fetchpatch {
+          url = "https://st.suckless.org/patches/font2/st-font2-0.8.5.diff";
+          sha256 = "sha256-tSMk5c5Hz6/dv3tcyh+0R91Vy1jgU52Y1sjqy2o08x4=";
         })
       ];
       # Using a local file
