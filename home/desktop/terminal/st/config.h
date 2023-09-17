@@ -5,7 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrainsMono Nerd Font:pixelsize=22:antialias=true";
+static char *font = "JetBrainsMono Nerd Font:pixelsize=22:style=Bold Italic:antialias=true";
+
+static char *font2[] = {
+    "Symbols Nerd Font:size=12",
+    "Noto Color Emoji:style=Regular:size=10"
+};
 static int borderpx = 2;
 
 /*
@@ -96,43 +101,40 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
     /* 8 normal colors */
-    "black",
-    "red3",
-    "green3",
-    "yellow3",
-    "blue2",
-    "magenta3",
-    "cyan3",
-    "gray90",
+    "#262626",
+    "#ee5396",
+    "#00C15A",
+    "#ffe97b",
+    "#33b1ff",
+    "#ff7eb6",
+    "#00C1BB",
+    "#dde1e6",
 
     /* 8 bright colors */
-    "gray50",
-    "red",
-    "green",
-    "yellow",
-    "#5c5cff",
-    "magenta",
-    "cyan",
-    "white",
+    "#393939",
+    "#ee5396",
+    "#00C15A",
+    "#ffe97b",
+    "#33b1ff",
+    "#ff7eb6",
+    "#3ddbd9",
+    "#ffffff",
 
     [255] = 0,
 
-    /* more colors can be added after 255 to use with DefaultXX */
-    "#cccccc",
-    "#555555",
-    "gray90", /* default foreground colour */
-    "black", /* default background colour */
+    [256] = "#f2f4f8", /* default foreground colour */
+    [257] = "#161616", /* default background colour */
+    [258] = "#ffffff", /*575268*/
 };
-
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
+unsigned int defaultcs = 258;
+static unsigned int defaultrcs = 258;
 
 /*
  * Default shape of cursor
@@ -472,4 +474,3 @@ static char ascii_printable[] =
     " !\"#$%&'()*+,-./0123456789:;<=>?"
     "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
     "`abcdefghijklmnopqrstuvwxyz{|}~";
-
