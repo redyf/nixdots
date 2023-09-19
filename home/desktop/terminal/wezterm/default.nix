@@ -27,8 +27,8 @@ _: {
         xcursor_size = xcursor_size,
         window_decorations = "RESIZE",
         hide_tab_bar_if_only_one_tab = true,
-        window_background_opacity = 1.0,
-        scrollback_lines = 10000,
+        window_background_opacity = 0.9,
+        scrollback_lines = 8000,
         window_padding = {
           left = 10,
           right = 10,
@@ -36,6 +36,20 @@ _: {
           bottom = 10,
         },
         check_for_updates = false,
+        keys = {
+          {
+            key = 'w',
+            mods = 'CMD',
+            action = wezterm.action.CloseCurrentTab { confirm = true },
+            },
+          },
+        mouse_bindings = {
+            {
+              event = { Up = { streak = 1, button = 'Left' } },
+              mods = 'NONE',
+              action = wezterm.action.CompleteSelection 'Clipboard',
+            },
+        },
       }
     '';
   };
