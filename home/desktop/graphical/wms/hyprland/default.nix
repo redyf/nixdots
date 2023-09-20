@@ -57,9 +57,7 @@ in {
       general = {
         gaps_in = 4;
         gaps_out = 8;
-        border_size = 1;
-        # "col.active_border" = "rgb(${background})";
-        # "col.active_border" = "rgb(${tokyonight_blue})";
+        border_size = 3;
         "col.active_border" = "rgb(${oxocarbon_border})";
         "col.inactive_border" = "rgba(${background}00)";
         layout = "dwindle";
@@ -73,8 +71,6 @@ in {
         drop_shadow = true;
         shadow_range = 20;
         shadow_render_power = 3;
-        # "col.shadow" = "rgb(${background})";
-        # "col.shadow" = "rgb(${tokyonight_blue})";
         "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "rgb(${background})";
         blur = {
