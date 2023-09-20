@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrainsMono Nerd Font:pixelsize=22:style=Bold Italic:antialias=true";
+static char *font = "JetBrainsMono Nerd Font:pixelsize=20:style=Bold Italic:antialias=true";
 
 static char *font2[] = {
     "Symbols Nerd Font:size=12",
