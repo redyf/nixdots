@@ -38,67 +38,19 @@ _: {
                             top = 10,
                             bottom = 10,
                           },
-                          -- act.SpawnCommandInNewWindow {
-                          --   position = {
-                          --     x = 200,
-                          --     y = 200,
-                          --   },
-                          --   },
                           leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
                           keys = {
-                            {
-                              key = 'w',
-                              mods = 'LEADER',
-                              action = act.CloseCurrentPane { confirm = true },
-                            },
-                            {
-                              key = 'h',
-                              mods = 'LEADER',
-                              action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
-                            },
-                            {
-                              key = 'v',
-                              mods = 'LEADER',
-                              action = act.SplitVertical { domain = 'CurrentPaneDomain' },
-                            },
-                            {
-                              key = '=',
-                              mods = 'CTRL',
-                              action = act.IncreaseFontSize
-                            },
-                            {
-                              key = '-',
-                              mods = 'CTRL',
-                              action = act.DecreaseFontSize
-                            },
-                            {
-                              key = '0',
-                              mods = 'CTRL',
-                              action = wezterm.action.ResetFontSize
-                            },
-                            {
-                              key = 'C',
-                              mods = 'CTRL',
-                              action = act.CopyTo 'ClipboardAndPrimarySelection',
-                            },
-                            {
-                              key = 'V',
-                              mods = 'CTRL',
-                              action = act.PasteFrom 'Clipboard'
-                            },
-                             {
-                               key = 'Space',
-                               mods = 'CTRL',
-                               action = wezterm.action.ShowTabNavigator
-                             },
-
-                          },
+                            { key = 'w', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true }, },
+                            { key = 'h', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }, },
+                            { key = 'v', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' }, },
+                            { key = '=', mods = 'CTRL', action = act.IncreaseFontSize },
+                            { key = '-', mods = 'CTRL', action = act.DecreaseFontSize },
+                            { key = '0', mods = 'CTRL', action = wezterm.action.ResetFontSize },
+                            { key = 'C', mods = 'CTRL', action = act.CopyTo 'ClipboardAndPrimarySelection', },
+                            { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+                             { key = 'Space', mods = 'CTRL', action = wezterm.action.ShowTabNavigator },},
                           mouse_bindings = {
-                            {
-                              event = { Up = { streak = 1, button = 'Left' } },
-                              mods = 'NONE',
-                              action = act.CompleteSelection 'Clipboard',
-                            },
+                            { event = { Up = { streak = 1, button = 'Left' } }, mods = 'NONE', action = act.CompleteSelection 'Clipboard', },
                           },
       }
     '';
