@@ -36,20 +36,31 @@ _: {
           bottom = 10,
         },
         check_for_updates = false,
+        leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
         keys = {
           {
             key = 'w',
-            mods = 'CMD',
-            action = wezterm.action.CloseCurrentTab { confirm = true },
+            mods = 'LEADER',
+            action = wezterm.action.CloseCurrentPane { confirm = true },
+          },
+          {
+            key = 'h',
+            mods = 'LEADER',
+            action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+          },
+            {
+              key = 'v',
+              mods = 'LEADER',
+              action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
             },
           },
-        mouse_bindings = {
+          mouse_bindings = {
             {
               event = { Up = { streak = 1, button = 'Left' } },
               mods = 'NONE',
               action = wezterm.action.CompleteSelection 'Clipboard',
             },
-        },
+          },
       }
     '';
   };
