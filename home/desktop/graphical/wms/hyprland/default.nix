@@ -19,7 +19,7 @@
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland-nvidia.packages.${pkgs.system}.hyprland-nvidia;
     xwayland = {
       enable = true;
     };
