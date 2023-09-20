@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-nvidia.url = "github:hyprwm/hyprland";
     waybar-hyprland.url = "github:hyprwm/hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
@@ -25,7 +25,7 @@
   outputs = {
     self,
     nixpkgs,
-    hyprland,
+    hyprland-nvidia,
     home-manager,
     utils,
     ...
@@ -38,7 +38,7 @@
           specialArgs = {
             inherit
               inputs
-              hyprland
+              hyprland-nvidia
               ;
           };
           modules = [
@@ -52,14 +52,14 @@
                 users.redyf = ./home/desktop/home.nix;
               };
             }
-            hyprland.nixosModules.default
+            hyprland-nvidia.nixosModules.default
             {programs.hyprland.enable = true;}
           ];
         };
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs hyprland;
+          inherit inputs hyprland-nvidia;
         };
         modules = [
           ./hosts/laptop/configuration.nix
@@ -72,7 +72,7 @@
           #     users.redyf = ./home/laptop/laptop.nix;
           #   };
           # }
-          hyprland.nixosModules.default
+          hyprland-nvidia.nixosModules.default
           {programs.hyprland.enable = true;}
         ];
       };

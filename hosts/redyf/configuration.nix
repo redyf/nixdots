@@ -199,8 +199,8 @@
       XCURSOR_SIZE = "32";
     };
     sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+      WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
     };
   };
 
@@ -304,6 +304,7 @@
     wget
     playerctl
     xdg-desktop-portal-gtk
+    inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
 
   # Enables flakes + garbage collector

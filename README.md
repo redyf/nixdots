@@ -32,6 +32,7 @@
 - [NixOS Manual](https://nixos.org/manual/nixos/stable/)
 - [ZerotoNix](https://zero-to-nix.com)
 - [notusknot](https://github.com/notusknot)
+- [IogaMaster](https://github.com/IogaMaster)
 - [Catppuccin](https://github.com/catppuccin)
 - [linuxmobile](https://github.com/linuxmobile)
 - [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
@@ -98,13 +99,13 @@ It might not work perfectly right after installation, you have been warned!
 
 For best security, make sure the files will not conflict with your current ones.
 
-Pré-requisitos:
+Prerequisites:
 
 - [NixOS installed and running](https://nixos.org/manual/nixos/stable/index.html#ch-installation)
 - [Flakes enabled](https://nixos.wiki/wiki/flakes)
 - Root access
 
-Clono the repo and cd into it:
+Clone the repo and cd into it:
 
 ```bash
 git clone https://github.com/Redyf/nixdots ~/nixdots && cd ~/nixdots
