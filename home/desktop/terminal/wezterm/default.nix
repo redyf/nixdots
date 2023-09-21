@@ -8,7 +8,7 @@ _: {
       local xcursor_theme = "macOS-BigSur"
       return {
         check_for_updates = false,
-                          font_size = 14,
+                          font_size = 13,
                           font = wezterm.font('JetBrains Mono Nerd Font', { weight = 'Bold', italic = true }),
                           font = wezterm.font_with_fallback {
                             { family = 'JetBrains Mono Nerd Font', weight = 'Bold' },
@@ -16,10 +16,10 @@ _: {
                             'Noto Color Emoji',
                           },
                           adjust_window_size_when_changing_font_size = false,
-                          default_cursor_style = "SteadyBlock",
                           animation_fps = 1,
-                          cursor_blink_ease_in = 'Constant',
-                          cursor_blink_ease_out = 'Constant',
+                          default_cursor_style = "SteadyBlock",
+                          cursor_blink_ease_in = 'EaseIn',
+                          cursor_blink_ease_out = 'EaseOut',
                           color_scheme = "Oxocarbon Dark",
                           enable_scroll_bar = false,
                           enable_tab_bar = false,
@@ -33,10 +33,10 @@ _: {
                           window_background_opacity = 0.9,
                           scrollback_lines = 8000,
                           window_padding = {
-                            left = 10,
-                            right = 10,
-                            top = 10,
-                            bottom = 10,
+                            left = 4,
+                            right = 4,
+                            top = 4,
+                            bottom = 4,
                           },
                           leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
                           keys = {

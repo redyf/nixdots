@@ -93,13 +93,13 @@ in ''
       transition: all 0.3s ease;
       background: linear-gradient(
         58deg,
-        #cba6f7,
-        #cba6f7,
-        #cba6f7,
-        #89B4FA,
-        #89B4FA,
-        #CBA6F7,
-        #F38BA8
+        #ff7eb6,
+        #ff7eb6,
+        #ff7eb6,
+        #ee5396,
+        #ee5396,
+        #ee5396,
+        #ff7eb6
       );
       /*#936FDC,
         #e95678,

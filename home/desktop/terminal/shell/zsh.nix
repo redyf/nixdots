@@ -118,7 +118,7 @@
       c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
-      f = "neofetch --sixel $HOME/.config/neofetch/images/nixos.png";
+      f = "neofetch --sixel $HOME/.config/neofetch/images/sakurafetch.png";
       fetch = "neofetch w3m";
       g = "git";
       gs = "git status";
@@ -130,7 +130,7 @@
       rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
       postman = "postman --use-gl=desktop";
-      beekeeper-studio = "beekeeper-studio --use-gl=desktop";
+      # beekeeper-studio = "beekeeper-studio --use-gl=desktop";
     };
 
     oh-my-zsh = {
