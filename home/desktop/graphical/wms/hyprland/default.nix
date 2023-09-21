@@ -74,7 +74,7 @@ in {
         "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "rgb(${background})";
         blur = {
-          enabled = true;
+          enabled = false;
           size = 6;
           passes = 3;
           new_optimizations = true;
@@ -138,7 +138,6 @@ in {
       };
 
       exec-once = [
-        "syncthing"
         "$HOME/.config/hypr/autostart"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"

@@ -9,7 +9,8 @@
     poetry
     postman
     openssl
-    beekeeper-studio
+    insomnia
+    # beekeeper-studio
 
     # Design
     figma-linux
