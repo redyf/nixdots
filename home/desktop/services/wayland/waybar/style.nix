@@ -28,7 +28,8 @@ in ''
     #tray {
       padding: 5 15px;
       border-radius: 12px;
-      background: rgba(30, 30, 46, 0.6);
+      /* background: rgba(30, 30, 46, 0.6); */
+      background: rgba(22, 22, 22, 0.6);
       color: rgb(180, 190, 254);
       box-shadow: rgba(17, 17, 27, 0.2) 0 0 3 2px;
       margin-top: 8px;
@@ -59,7 +60,8 @@ in ''
     }
 
     #workspaces button.active label {
-      color: rgba(30, 30, 46, 0.6);
+      /*color: rgba(30, 30, 46, 0.6);*/
+      color: rgba(16, 16, 16, 0.6);
       font-weight: bolder;
     }
 
@@ -78,10 +80,10 @@ in ''
 
     #workspaces button {
       box-shadow: rgba(17, 17, 27, 0.2) 0 0 3 2px;
-      background-color: rgba(30, 30, 46, 0.6);
+      /*background-color: rgba(30, 30, 46, 0.6);*/
+      background-color: rgba(16, 16, 16, 0.6);
       border-radius: 12px;
       margin-left: 10px;
-
       transition: all 0.3s ease;
     }
 
@@ -138,7 +140,8 @@ in ''
       padding-right: 15px;
       padding-top: 3px;
       color: rgba(180, 190, 254, 0.329);
-      background-color: rgba(30, 30, 46, 0.6);
+      background-color: rgba(16, 16, 16, 0.6);
+      /*background-color: rgba(30, 30, 46, 0.6);*/
       box-shadow: rgba(17, 17, 27, 0.2) 0 0 3 2px;
       transition: all 0.3s ease;
     }
@@ -220,6 +223,15 @@ in ''
       color: transparent;
       background: linear-gradient(
         58deg,
+        #ff7eb6,
+        #ff7eb6,
+        #ff7eb6,
+        #ee5396,
+        #ee5396,
+        #ee5396,
+        #ff7eb6
+      );
+        /*
         #cba6f7,
         #f38ba8,
         #eba0ac,
@@ -227,7 +239,7 @@ in ''
         #f9e2af,
         #a6e3a1,
         #94e2d5
-      );
+        */
       background-size: 300% 300%;
       animation: colored-gradient 3s ease infinite;
     }
@@ -267,13 +279,13 @@ in ''
       transition: all 0.3s ease;
       background: linear-gradient(
         58deg,
-        #69ABFF,
-        #69ABFF,
-        #69ABFF,
-        #2EB8B3,
-        #2EB8B3,
-        #2EB8B3,
-        #F38BA8
+        #ff7eb6,
+        #ff7eb6,
+        #ff7eb6,
+        #ee5396,
+        #ee5396,
+        #ee5396,
+        #ff7eb6
       );
       background-size: 300% 300%;
       animation: colored-gradient 20s ease infinite;
