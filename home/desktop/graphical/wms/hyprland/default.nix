@@ -6,11 +6,13 @@
   lib,
   ...
 }: let
+  hyprland = inputs.hyprland-nvidia.packages.${pkgs.system}.hyprland-nvidia;
   fontsize = "12";
   primary_accent = "cba6f7";
   secondary_accent = "89b4fa";
   tertiary_accent = "f5f5f5";
   tokyonight_blue = "8aadf4";
+  oxocarbon_pink = "ff7eb6";
   oxocarbon_border = "393939";
   oxocarbon_background = "161616";
   background = "11111B";
@@ -19,7 +21,7 @@
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland-nvidia.packages.${pkgs.system}.hyprland-nvidia;
+    package = hyprland;
     xwayland = {
       enable = true;
     };
@@ -58,8 +60,8 @@ in {
         gaps_in = 4;
         gaps_out = 8;
         border_size = 3;
-        "col.active_border" = "rgb(${oxocarbon_border})";
-        "col.inactive_border" = "rgba(${background}00)";
+        # "col.active_border" = "rgb(${oxocarbon_border})";
+        # "col.inactive_border" = "rgba(${background}00)";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
@@ -292,25 +294,28 @@ in {
     };
 
     # Submaps
-    # extraConfig = ''
-    #     # will switch to a submap called resize
-    #     bind=$mainMod,R,submap,resize
-    #
-    #     # will start a submap called "resize"
-    #     submap=resize
-    #
-    #     # sets repeatable binds for resizing the active window
-    #     binde=,L,resizeactive,15 0
-    #     binde=,H,resizeactive,-15 0
-    #     binde=,K,resizeactive,0 -15
-    #     binde=,J,resizeactive,0 15
-    #
-    #     # use reset to go back to the global submap
-    #     bind=,escape,submap,reset
-    #     bind=$mainMod,R,submap,reset
-    #
-    #     # will reset the submap, meaning end the current one and return to the global one
-    #     submap=reset
-    # '';
+    extraConfig = ''
+           # source = ~/.config/hypr/themes/catppuccin-macchiato.conf
+           source = ~/.config/hypr/themes/oxocarbon.conf
+
+      #     # will switch to a submap called resize
+      #     bind=$mainMod,R,submap,resize
+      #
+      #     # will start a submap called "resize"
+      #     submap=resize
+      #
+      #     # sets repeatable binds for resizing the active window
+      #     binde=,L,resizeactive,15 0
+      #     binde=,H,resizeactive,-15 0
+      #     binde=,K,resizeactive,0 -15
+      #     binde=,J,resizeactive,0 15
+      #
+      #     # use reset to go back to the global submap
+      #     bind=,escape,submap,reset
+      #     bind=$mainMod,R,submap,reset
+      #
+      #     # will reset the submap, meaning end the current one and return to the global one
+      #     submap=reset
+    '';
   };
 }
