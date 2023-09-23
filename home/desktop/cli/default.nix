@@ -10,7 +10,8 @@ _: {
     # ./nitch
     # ./pfetch
     # ./ranger
-    ./wezterm
+    ./zellij
+    # ./wezterm
     ./neofetch
   ];
 }
