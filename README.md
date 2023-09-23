@@ -41,8 +41,8 @@
 - [AlphaTechnolog's dotfiles](https://github.com/AlphaTechnolog/nixdots)
 
 <div align="center">
-<img align="right" src="./assets/rice.png" alt="Rice Preview" width="400px" height="253"/>
-<img align="right" src="./assets/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
+<img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026486780005/rice.png" alt="Rice Preview" width="400px" height="253"/>
+<img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026058952724/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
   <a href="https://github.com/Redyf/RedVim">Neovim</a>
 </div>
 
