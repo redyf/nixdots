@@ -98,7 +98,7 @@
         image_backend="kitty"
   			#image_source="auto"
   			image_source="$HOME/.config/neofetch/images/sakurafetch.png"
-  			# image_source="$HOME/flake/home/desktop/terminal/neofetch/ascii/logoo.txt"
+  			# image_source="$HOME/flake/home/desktop/cli/neofetch/ascii/logoo.txt"
   			ascii_distro="auto"
   			ascii_colors=(distro)
   			ascii_bold="on"
