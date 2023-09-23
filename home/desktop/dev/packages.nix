@@ -32,8 +32,6 @@
     w3m
     libsixel # Dependency for neofetch so it displays images
     imagemagick # Dependency for neofetch so it displays images
-    # glib # C library of programming buildings blocks
-    # glibc
     file
     fuse
     tree
@@ -57,8 +55,9 @@
     # gobject-introspection # A middleware layer between C libraries and language bindings
 
     # Terminal && prompt
+    # zellij
     nerdfix # Helps you find/fix obsolete Nerd font icons
-    lazygit # Amazing CLI git tool
+    # lazygit # Amazing CLI git tool
 
     # Text Editors/IDEs
     # emacs
@@ -96,8 +95,8 @@
     # polybar # Bar i use on X11
     nitrogen # Wallpaper utility for X11
     # picom-next # Compositor for X11
-    eww-wayland # Cool widgets for wayland
-    lxappearance # Gui software to change icons/themes
+    # eww-wayland # Cool widgets for wayland
+    # lxappearance # Gui software to change icons/themes
     # brightnessctl
     pcmanfm # Best GUI file manager
 
