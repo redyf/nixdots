@@ -172,21 +172,9 @@
       enable = true;
       setSocketVariable = true;
     };
-    # Enables virtualization for virt-manager and virtual box
+    # Enables virtualization for virt-manager
     libvirtd.enable = true;
-    # virtualbox = {
-    #   host = {
-    #     enable = true;
-    #     enableExtensionPack = true;
-    #   };
-    #    guest = {
-    #    enable = true;
-    #    x11 = true;
-    #  };
-    # };
   };
-
-  # users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
 
   environment = {
     variables = {

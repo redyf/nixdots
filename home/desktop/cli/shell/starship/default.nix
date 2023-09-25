@@ -10,20 +10,30 @@
     enable = true;
     enableZshIntegration = true;
     settings =
+      # Catppuccin
+      # {
+      #   scan_timeout = 10;
+      #   add_newline = false;
+      #   line_break.disabled = false;
+      #   right_format = "$time";
+      #   character = {
+      #     success_symbol = "[](#cbced3)";
+      #     error_symbol = "[](#dd6777)";
+      #     vicmd_symbol = "[](#ecd3a0)";
+      #     format = "$symbol[λ ](bold #3fdaa4) ";
+      #     # format = "$symbol[✘ ](bold #3fdaa4) ";
+      #   };
+      # Oxocarbon
       {
         scan_timeout = 10;
-        add_newline = false;
+        add_newline = true;
         line_break.disabled = false;
-        format = "$symbol[󰉊 ](bold #ee5396) $directory$character$time";
+        format = "$symbol[󰉊 ](bold #ee5396) $directory$character";
+        right_format = "$time";
         character = {
           success_symbol = "[󰅂 ](bold #393939)";
           error_symbol = "[󰅂 ](bold #393939)";
           vicmd_symbol = "[󰅂 ](bold #393939)";
-          # format = "$symbol[λ ](bold #3fdaa4) ";
-          # format = "$symbol[✘ ](bold #3fdaa4) ";
-          # format = "$symbol[󰉊 ](bold #ee5396)$directory";
-          # format = "$symbol[ℵ ](bold #3fdaa4) ";
-          # format = "$symbol[󰊠 ](bold #7EAE90) ";
         };
 
         palette = "catppuccin_${flavour}";
@@ -40,13 +50,13 @@
         package.symbol = "📦  ";
 
         username = {
-          show_always = false;
+          show_always = true;
           style_user = "bold bg:none fg:#7aa2f7";
           format = "[$user]($style)";
         };
 
         hostname = {
-          disabled = true;
+          disabled = false;
           ssh_only = false;
           style = "bold bg:none fg:#CDD6F4";
           format = "@[$hostname]($style) ";

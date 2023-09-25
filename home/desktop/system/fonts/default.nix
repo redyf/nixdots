@@ -9,7 +9,7 @@
     # Fonts
     # go-font
     apl386
-    nerdfonts
+    # nerdfonts
     noto-fonts
     dejavu_fonts
     font-awesome
@@ -23,6 +23,6 @@
     powerline-symbols
     material-design-icons
     # helvetica-neue-lt-std
-    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "LiberationMono" "SourceCodePro"];})
+    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "LiberationMono" "SourceCodePro" "Iosevka"];})
   ];
 }
