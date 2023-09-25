@@ -140,8 +140,8 @@ in {
       };
 
       exec-once = [
+        "easyeffects --gapplication-service" # Starts easyeffects in the background
         "$HOME/.config/hypr/autostart"
-        "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
 

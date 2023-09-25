@@ -54,7 +54,6 @@
       #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
       # }))
       (import ../../overlays/firefox-overlay.nix)
-      (import ../../overlays/ryan-mono-bin.nix)
     ];
     config = {
       allowUnfreePredicate = pkg: true;

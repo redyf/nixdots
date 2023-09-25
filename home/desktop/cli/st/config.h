@@ -11,7 +11,7 @@ static char *font2[] = {
     "Symbols Nerd Font:size=12",
     "Noto Color Emoji:style=Regular:size=10"
 };
-static int borderpx = 2;
+static int borderpx = 8;
 
 /*
  * What program is execed by st depends of these precedence rules:

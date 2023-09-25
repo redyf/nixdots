@@ -91,6 +91,7 @@
     dunst # Notifications for your system
     # sxhkd # BSPWM keybindings
     bemenu # Dmenu for wayland
+    pcmanfm # Best GUI file manager
     cmatrix
     # polybar # Bar i use on X11
     nitrogen # Wallpaper utility for X11
@@ -98,7 +99,6 @@
     # eww-wayland # Cool widgets for wayland
     # lxappearance # Gui software to change icons/themes
     # brightnessctl
-    pcmanfm # Best GUI file manager
 
     # Video editing/Streaming
     # obs-studio
