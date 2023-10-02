@@ -88,7 +88,7 @@ in {
       };
 
       animations = {
-        enabled = false;
+        enabled = true;
         # Selmer443 config
         bezier = [
           "pace,0.46, 1, 0.29, 0.99"
@@ -140,6 +140,7 @@ in {
       };
 
       exec-once = [
+        "discord"
         "easyeffects --gapplication-service" # Starts easyeffects in the background
         "$HOME/.config/hypr/autostart"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -219,8 +220,8 @@ in {
         # "SUPER $mainMod SHIFT, 9, movetoworkspacesilent, 9"
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-        "SUPER,RETURN,exec,st"
-        # "SUPER,RETURN,exec,foot"
+        # "SUPER,RETURN,exec,st"
+        "SUPER,RETURN,exec,foot"
         # "SUPER,RETURN,exec,wezterm"
         "SUPER,n,exec, neovide"
         "SUPER,e,exec, emacsclient -c -a 'emacs'"
@@ -295,8 +296,8 @@ in {
 
     # Submaps
     extraConfig = ''
-           # source = ~/.config/hypr/themes/catppuccin-macchiato.conf
-           source = ~/.config/hypr/themes/oxocarbon.conf
+           source = ~/.config/hypr/themes/catppuccin-macchiato.conf
+           # source = ~/.config/hypr/themes/oxocarbon.conf
 
       #     # will switch to a submap called resize
       #     bind=$mainMod,R,submap,resize

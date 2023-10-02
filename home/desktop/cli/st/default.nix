@@ -23,6 +23,10 @@
           url = "https://st.suckless.org/patches/font2/st-font2-0.8.5.diff";
           sha256 = "sha256-tSMk5c5Hz6/dv3tcyh+0R91Vy1jgU52Y1sjqy2o08x4=";
         })
+        (fetchpatch {
+          url = "https://st.suckless.org/patches/w3m/st-w3m-0.8.3.diff";
+          sha256 = "sha256-nVSG8zuRt3oKQCndzm+3ykuRB1NMYyas0Ne3qCG59ok=";
+        })
       ];
       # Using a local file
       configFile = writeText "config.def.h" (builtins.readFile ./config.h);
