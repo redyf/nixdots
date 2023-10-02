@@ -9,6 +9,7 @@
     nodePackages.npm # Package manager
     nodePackages_latest.pnpm
     nodePackages_latest.ts-node
+    nodePackages_latest.prisma
     # nodePackages_latest.eslint_d # JS linter
     # nodePackages_latest.prettier # Formatter
     # nodePackages_latest.typescript-language-server # lsp

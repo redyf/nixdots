@@ -6,8 +6,8 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=15";
-          # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=16";
+          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=15";
+          font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=16";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=14";
           # font = "SauceCodePro Nerd Font:Bold:style=Bold:size=15";
           # font = "LiterationMono Nerd Font:Bold:style=Bold:size=15";
@@ -16,7 +16,7 @@ _: {
           pad = "8x8 center";
         };
         cursor = {
-          # color = "1A1826 D9E0EE"; # Cattpuccin
+          color = "1A1826 D9E0EE"; # Cattpuccin
           # color = "a9b1d6 f5f5f5"; # Decay
           # color = "a9b1d6 f5f5f5"; # Dark-decay
           # color = "a5b6cf cbced3"; # Decayce
@@ -26,7 +26,7 @@ _: {
           # color = "161616 f2f4f8"; # Carbonfox
           # color = "3760bf b6bfe2"; # Tokyonight
           # color = "11121d a0a8cd"; # Tokyodark
-          color = "161616 ffffff"; # Oxocarbon
+          # color = "161616 ffffff"; # Oxocarbon
           # color = "292a37 d9e0ee"; # Jabuti
 
           blink = false;
@@ -100,25 +100,25 @@ _: {
           # bright7 = "a6adc8"; # Subtext 0
 
           # Cattpuccin macchiato
-          # alpha = "1.0";
-          # foreground = "cad3f5"; # Text
-          # background = "24273a"; # Base
-          # regular0 = "494d64"; # Surface 1
-          # regular1 = "ed8796"; # red
-          # regular2 = "a6da95"; # green
-          # regular3 = "eed49f"; # yellow
-          # regular4 = "8aadf4"; # blue
-          # regular5 = "f5bde6"; # pink
-          # regular6 = "8bd5ca"; # teal
-          # regular7 = "b8c0e0"; # Subtext 1
-          # bright0 = "5b6078"; # Surface 2
-          # bright1 = "ed8796"; # red
-          # bright2 = "a6da95"; # green
-          # bright3 = "eed49f"; # yellow
-          # bright4 = "8aadf4"; # blue
-          # bright5 = "f5bde6"; # pink
-          # bright6 = "8bd5ca"; # teal
-          # bright7 = "a5adcb"; # Subtext 0
+          alpha = "1.0";
+          foreground = "cad3f5"; # Text
+          background = "24273a"; # Base
+          regular0 = "494d64"; # Surface 1
+          regular1 = "ed8796"; # red
+          regular2 = "a6da95"; # green
+          regular3 = "eed49f"; # yellow
+          regular4 = "8aadf4"; # blue
+          regular5 = "f5bde6"; # pink
+          regular6 = "8bd5ca"; # teal
+          regular7 = "b8c0e0"; # Subtext 1
+          bright0 = "5b6078"; # Surface 2
+          bright1 = "ed8796"; # red
+          bright2 = "a6da95"; # green
+          bright3 = "eed49f"; # yellow
+          bright4 = "8aadf4"; # blue
+          bright5 = "f5bde6"; # pink
+          bright6 = "8bd5ca"; # teal
+          bright7 = "a5adcb"; # Subtext 0
 
           # Decay
           # alpha = "1.0";
@@ -313,25 +313,25 @@ _: {
           # bright7 = "a0a8cd";
 
           # Oxocarbon
-          alpha = "1.0";
-          foreground = "f2f4f8";
-          background = "161616";
-          regular0 = "262626";
-          regular1 = "ee5396";
-          regular2 = "00C15A";
-          regular3 = "ffe97b";
-          regular4 = "33b1ff";
-          regular5 = "ff7eb6";
-          regular6 = "00C1BB";
-          regular7 = "dde1e6";
-          bright0 = "393939";
-          bright1 = "ee5396";
-          bright2 = "00C15A";
-          bright3 = "ffe97b";
-          bright4 = "33b1ff";
-          bright5 = "ff7eb6";
-          bright6 = "3ddbd9";
-          bright7 = "ffffff";
+          # alpha = "1.0";
+          # foreground = "f2f4f8";
+          # background = "161616";
+          # regular0 = "262626";
+          # regular1 = "ee5396";
+          # regular2 = "00C15A";
+          # regular3 = "ffe97b";
+          # regular4 = "33b1ff";
+          # regular5 = "ff7eb6";
+          # regular6 = "00C1BB";
+          # regular7 = "dde1e6";
+          # bright0 = "393939";
+          # bright1 = "ee5396";
+          # bright2 = "00C15A";
+          # bright3 = "ffe97b";
+          # bright4 = "33b1ff";
+          # bright5 = "ff7eb6";
+          # bright6 = "3ddbd9";
+          # bright7 = "ffffff";
         };
         tweak = {
           font-monospace-warn = "no"; # reduces startup time
