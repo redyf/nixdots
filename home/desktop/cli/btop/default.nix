@@ -4,7 +4,7 @@
   ...
 }: {
   xdg.configFile."btop/themes/catppuccin_macchiato.theme".text = ''
-        #Bashtop grayscale theme
+    #Bashtop grayscale theme
     #by aristocratos
 
     # Colors should be in 6 or 2 character hexadecimal or single spaced rgb decimal: "#RRGGBB", "#BW" or "0-255 0-255 0-255"

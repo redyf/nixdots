@@ -57,10 +57,9 @@
     # Terminal && prompt
     # zellij
     nerdfix # Helps you find/fix obsolete Nerd font icons
-    # lazygit # Amazing CLI git tool
+    lazygit # Amazing CLI git tool
 
     # Text Editors/IDEs
-    # emacs
     vscode
     neovide # Gui neovim editor with cool animations
 
@@ -76,6 +75,7 @@
     discord
 
     # Note taking
+    notion-app-enhanced
     obsidian
 
     # Sync

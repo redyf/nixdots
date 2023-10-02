@@ -1,7 +1,8 @@
 _: {
   imports = [
-    ./starship
-    ./tools
     ./zsh.nix
+    ./tools
+    # ./nushell
+    ./starship
   ];
 }
