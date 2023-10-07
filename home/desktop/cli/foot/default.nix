@@ -7,10 +7,11 @@ _: {
         main = {
           term = "xterm-256color";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=15";
-          font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=16";
+          # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=16";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=14";
+          # font = "LiterationMono Nerd Font:Bold:style=Bold:size=16";
+          font = "Iosevka Nerd Font:Bold:style=Bold:size=16";
           # font = "SauceCodePro Nerd Font:Bold:style=Bold:size=15";
-          # font = "LiterationMono Nerd Font:Bold:style=Bold:size=15";
           # font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=14";
           # font = "Maple Mono NF:Bold:style=Extra Bold Italic:size=14";
           pad = "8x8 center";
