@@ -8,11 +8,10 @@ _: {
       local xcursor_theme = "macOS-BigSur"
       return {
         check_for_updates = false,
-                          font_size = 13,
-                          font = wezterm.font('JetBrains Mono Nerd Font', { weight = 'Bold', italic = true }),
+                          font_size = 16,
+                          font = wezterm.font('CaskaydiaCove Nerd Font', { weight = 'Bold', italic = true }),
                           font = wezterm.font_with_fallback {
-                            { family = 'JetBrains Mono Nerd Font', weight = 'Bold' },
-                            { family = 'Terminus', weight = 'Bold' },
+                            { family = 'CaskaydiaCove Nerd Font', weight = 'Bold' },
                             'Noto Color Emoji',
                           },
                           adjust_window_size_when_changing_font_size = false,
@@ -20,7 +19,7 @@ _: {
                           default_cursor_style = "SteadyBlock",
                           cursor_blink_ease_in = 'EaseIn',
                           cursor_blink_ease_out = 'EaseOut',
-                          color_scheme = "Oxocarbon Dark",
+                          color_scheme = "Catppuccin Macchiato",
                           enable_scroll_bar = false,
                           enable_tab_bar = false,
                           enable_wayland = false,
@@ -30,15 +29,15 @@ _: {
                           xcursor_size = xcursor_size,
                           window_decorations = "RESIZE",
                           hide_tab_bar_if_only_one_tab = true,
-                          window_background_opacity = 0.9,
+                          window_background_opacity = 0.5,
                           scrollback_lines = 8000,
                           window_padding = {
                             left = 4,
                             right = 4,
-                            top = 4,
+                            top = 5,
                             bottom = 4,
                           },
-                          leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
+                          leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 },
                           keys = {
                             { key = 'w', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true }, },
                             { key = 'h', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' }, },

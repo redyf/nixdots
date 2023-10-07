@@ -8,14 +8,13 @@
   home.packages = with pkgs; [
     # Fonts
     # go-font
-    apl386
+    # apl386
     # nerdfonts
     noto-fonts
     dejavu_fonts
     font-awesome
     # maple-mono-NF
     # courier-prime
-    # liberation_ttf # Needed to make vanilla st terminal work
     # powerline-fonts
     # cantarell-fonts
     # source-code-pro
