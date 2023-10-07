@@ -7,10 +7,11 @@
   home.packages = with pkgs; [
     # Dev
     poetry
-    postman
+    # postman
     openssl
     insomnia
     # beekeeper-studio
+    # mysql-workbench
 
     # Design
     figma-linux
@@ -21,7 +22,7 @@
     # Useful utils
     fd # A simple, fast and user-friendly alternative to find
     jq # A lightweight and flexible command-line JSON processor
-    # exa # Replacement for ls in rust (removed due to unmaintained upstream).
+    eza # Replacement for ls in rust (removed due to unmaintained upstream).
     fzf # Fuzzy finder
     ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
     rm-improved # Replacement for rm with focus on safety, ergonomics and performance
@@ -79,7 +80,7 @@
     obsidian
 
     # Sync
-    syncthing
+    # syncthing
 
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime
