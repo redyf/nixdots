@@ -68,7 +68,6 @@ in {
 
       decoration = {
         rounding = 10;
-        multisample_edges = true;
         shadow_ignore_window = true;
         drop_shadow = true;
         shadow_range = 20;
@@ -76,7 +75,7 @@ in {
         "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "rgb(${background})";
         blur = {
-          enabled = false;
+          enabled = true;
           size = 6;
           passes = 3;
           new_optimizations = true;
@@ -221,8 +220,8 @@ in {
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
         # "SUPER,RETURN,exec,st"
-        "SUPER,RETURN,exec,foot"
-        # "SUPER,RETURN,exec,wezterm"
+        # "SUPER,RETURN,exec,foot"
+        "SUPER,RETURN,exec,wezterm"
         "SUPER,n,exec, neovide"
         "SUPER,e,exec, emacsclient -c -a 'emacs'"
         "SUPER,o,exec, obsidian"

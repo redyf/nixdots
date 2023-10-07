@@ -3,7 +3,7 @@ _: {
     # ./st
     ./btop
     ./cava
-    ./foot
+    # ./foot
     ./tmux
     # ./kitty
     ./shell
@@ -11,7 +11,7 @@ _: {
     # ./pfetch
     # ./ranger
     # ./zellij
-    # ./wezterm
+    ./wezterm
     ./neofetch
   ];
 }
