@@ -8,10 +8,10 @@ _: {
       local xcursor_theme = "macOS-BigSur"
       return {
         check_for_updates = false,
-                          font_size = 16,
+                          font_size = 18,
                           font = wezterm.font('CaskaydiaCove Nerd Font', { weight = 'Bold', italic = true }),
                           font = wezterm.font_with_fallback {
-                            { family = 'CaskaydiaCove Nerd Font', weight = 'Bold' },
+                            { family = 'CaskaydiaCove Nerd Font', weight = 'Bold', italic = true },
                             'Noto Color Emoji',
                           },
                           adjust_window_size_when_changing_font_size = false,
