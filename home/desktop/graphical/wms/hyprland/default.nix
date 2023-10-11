@@ -30,7 +30,6 @@ in {
       # "$mainMod" = "SUPER";
       monitor = [
         "DP-3,1920x1080@165,0x0,auto"
-        # ",preferred,auto,auto"
       ];
 
       xwayland = {
@@ -45,8 +44,8 @@ in {
         kb_rules = "";
 
         follow_mouse = 1;
-        repeat_delay = 160;
-        repeat_rate = 25;
+        repeat_delay = 140;
+        repeat_rate = 30;
         numlock_by_default = 1;
         accel_profile = "flat";
         sensitivity = 0;
@@ -57,8 +56,8 @@ in {
       };
 
       general = {
-        gaps_in = 4;
-        gaps_out = 8;
+        gaps_in = 1;
+        gaps_out = 2;
         border_size = 3;
         # "col.active_border" = "rgb(${oxocarbon_border})";
         # "col.inactive_border" = "rgba(${background}00)";
@@ -220,11 +219,11 @@ in {
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
         # "SUPER,RETURN,exec,st"
-        # "SUPER,RETURN,exec,foot"
+        "SHIFT,RETURN,exec,foot"
         "SUPER,RETURN,exec,wezterm"
-        "SUPER,n,exec, neovide"
-        "SUPER,e,exec, emacsclient -c -a 'emacs'"
-        "SUPER,o,exec, obsidian"
+        "SUPER,n,exec,neovide"
+        "SUPER,e,exec,emacsclient -c -a 'emacs'"
+        "SUPER,o,exec,obsidian"
         ",Print,exec,~/.config/hypr/scripts/screenshot.sh"
         "SUPER,space,exec,bemenu-run"
         # "SUPER,z,exec,waybar"
@@ -262,7 +261,6 @@ in {
         "tile,title:^(kitty)$"
         "float,title:^(fly_is_kitty)$"
         "opacity 1.0 override 1.0 override,^(foot)$" # Active/inactive opacity
-        "opacity 1.0 override 1.0 override,^(kitty)$" # Active/inactive opacity
         "tile,^(Spotify)$"
         "tile,^(neovide)$"
         "tile,^(wps)$"

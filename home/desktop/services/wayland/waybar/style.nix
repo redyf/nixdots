@@ -26,16 +26,16 @@ in ''
     #pulseaudio,
     #window,
     #tray {
-      padding: 5 15px;
+      padding: 5px 15px;
       border-radius: 12px;
       /* background: rgba(30, 30, 46, 0.6); */
       background: rgba(22, 22, 22, 0.6);
       color: rgb(180, 190, 254);
-      box-shadow: rgba(17, 17, 27, 0.2) 0 0 3 2px;
-      margin-top: 8px;
-      margin-bottom: 8px;
-      margin-right: 2px;
-      margin-left: 2px;
+      box-shadow: rgba(17, 17, 27, 0.2) 0px 0px 3px 2px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      margin-right: 4px;
+      margin-left: 4px;
       transition: all 0.3s ease;
     }
 
@@ -66,20 +66,20 @@ in ''
     }
 
     #workspaces button:hover {
-      box-shadow: rgb(180, 190, 254) 0 0 0 1.5px;
+      box-shadow: rgb(180, 190, 254) 0px 0px 0px 1.5px;
       min-width: 50px;
     }
 
     #workspaces {
       background-color: transparent;
       border-radius: 17px;
-      padding: 5 0px;
+      padding: 5px 0px;
       margin-top: 3px;
       margin-bottom: 3px;
     }
 
     #workspaces button {
-      box-shadow: rgba(17, 17, 27, 0.2) 0 0 3 2px;
+      box-shadow: rgba(17, 17, 27, 0.2) 0px 0px 3px 2px;
       /*background-color: rgba(30, 30, 46, 0.6);*/
       background-color: rgba(16, 16, 16, 0.6);
       border-radius: 12px;
@@ -89,7 +89,7 @@ in ''
 
       #workspaces button.active {
       min-width: 50px;
-      box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+      box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
       background-color: rgb(245, 194, 231);
       background-size: 400% 400%;
       transition: all 0.3s ease;
@@ -142,7 +142,7 @@ in ''
       color: rgba(180, 190, 254, 0.329);
       background-color: rgba(16, 16, 16, 0.6);
       /*background-color: rgba(30, 30, 46, 0.6);*/
-      box-shadow: rgba(17, 17, 27, 0.2) 0 0 3 2px;
+      box-shadow: rgba(17, 17, 27, 0.2) 0px 0px 3px 2px;
       transition: all 0.3s ease;
     }
 
@@ -252,7 +252,7 @@ in ''
   catppuccin
       #workspaces button.active {
       min-width: 50px;
-      box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+      box-shadow: rgba(0, 0, 0, 0.288) 2px px2 5px 2px;
       background-color: rgb(245, 194, 231);
       background-size: 400% 400%;
       transition: all 0.3s ease;
@@ -271,9 +271,9 @@ in ''
     }
 
   oxocarbon
-        #workspaces button.active {
+      #workspaces button.active {
       min-width: 50px;
-      box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+      box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
       background-color: rgb(245, 194, 231);
       background-size: 400% 400%;
       transition: all 0.3s ease;
@@ -294,7 +294,7 @@ in ''
       jabuti
       #workspaces button.active {
       min-width: 50px;
-      box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+      box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
       background-color: rgb(245, 194, 231);
       background-size: 400% 400%;
       transition: all 0.3s ease;

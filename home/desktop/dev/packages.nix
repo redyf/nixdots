@@ -14,7 +14,7 @@
     # mysql-workbench
 
     # Design
-    figma-linux
+    # figma-linux
 
     # Modeling
     dia
@@ -76,11 +76,7 @@
     discord
 
     # Note taking
-    notion-app-enhanced
     obsidian
-
-    # Sync
-    # syncthing
 
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime
@@ -95,6 +91,7 @@
     pcmanfm # Best GUI file manager
     cmatrix
     # polybar # Bar i use on X11
+    onefetch
     nitrogen # Wallpaper utility for X11
     # picom-next # Compositor for X11
     # eww-wayland # Cool widgets for wayland

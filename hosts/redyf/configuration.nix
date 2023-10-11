@@ -293,7 +293,6 @@
     git
     wget
     playerctl
-    xdg-desktop-portal-gtk
     inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
 

@@ -31,7 +31,7 @@ in {
       "custom/notification"
       "custom/cava"
       "memory"
-      "disk"
+      # "disk"
       "pulseaudio"
       "network"
       "clock"

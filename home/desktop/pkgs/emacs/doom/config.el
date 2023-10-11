@@ -6,15 +6,13 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Mateus Alves"
+      user-mail-address "mattealves@proton.me")
 
 (setq echo-keystrokes 0.01)
 (setq which-key-idle-delay 0.1)
 
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
 ;; - `doom-font' -- the primary font to use
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
@@ -23,9 +21,17 @@
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font"
+                           :size 20
+                           :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "Cantarell"
+                                          :size 16
+                                          :weight 'Regular)
+      doom-big-font (font-spec :family "CaskaydiaCove Nerd Font"
+                               :size 36
+                               :weight 'medium))
 ;; accept. For example:
 ;;
-;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 24 :weight 'Bold)
 ;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
