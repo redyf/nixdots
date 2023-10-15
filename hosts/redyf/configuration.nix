@@ -40,17 +40,6 @@
           sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
         };
 
-        #   theme =
-        #     pkgs.fetchFromGitHub
-        #     {
-        #       owner = "semimqmo";
-        #       repo = "sekiro_grub_theme";
-        #       rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
-        #       sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
-        #     }
-        #     + "/Sekiro";
-        # };
-
         # theme = pkgs.fetchFromGitHub
         #   {
         #     owner = "Lxtharia";
@@ -58,17 +47,6 @@
         #     rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
         #     sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
         #   };
-
-        #   theme =
-        #     pkgs.fetchFromGitHub
-        #     {
-        #       owner = "Patato777";
-        #       repo = "dotfiles";
-        #       rev = "d6f96fa59327a936d335f01a7295815250f96ff7";
-        #       sha256 = "18mra67kd20bld5zxlvb89ik8psr2pj0v9iaizqpd485sywgqwiq";
-        #     }
-        #     + "/grub/themes/virtuaverse";
-        # };
       };
     };
   };
@@ -191,6 +169,7 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
+      DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
     };
   };
 
@@ -224,9 +203,22 @@
         # mate.enable = true;
       };
       windowManager = {
-        # awesome.enable = true;
         # i3.enable = true;
-        # bspwm.enable = true;
+        dwm = {
+          enable = true;
+          package = pkgs.dwm.override {
+            patches = [
+              (pkgs.fetchpatch {
+                url = "https://dwm.suckless.org/patches/alpha/dwm-alpha-6.4.diff";
+                # replace hash with the value from `nix-prefetch-url "https://dwm.suckless.org/patches/path/to/patch.diff" | xargs nix hash to-sri --type sha256`
+                # or just leave it blank, rebuild, and use the hash value from the error
+                hash = "sha256-vHfjGJ5fXpdB8ZQV7jSNg6B5ommiq+t3rjnoq3kqfoE=";
+              })
+            ];
+          };
+          # awesome.enable = true;
+          # bspwm.enable = true;
+        };
       };
       videoDrivers = ["nvidia"];
       layout = "br";

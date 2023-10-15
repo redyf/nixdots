@@ -10,14 +10,15 @@
     # postman
     openssl
     insomnia
-    # beekeeper-studio
+    postgresql
+    beekeeper-studio
     # mysql-workbench
 
     # Design
     # figma-linux
 
     # Modeling
-    dia
+    # dia
 
     # Useful utils
     fd # A simple, fast and user-friendly alternative to find
@@ -56,7 +57,6 @@
     # gobject-introspection # A middleware layer between C libraries and language bindings
 
     # Terminal && prompt
-    # zellij
     nerdfix # Helps you find/fix obsolete Nerd font icons
     lazygit # Amazing CLI git tool
 
@@ -69,6 +69,7 @@
     zathura # PDF viewer
 
     # Browsers
+    brave
     firefox
     # google-chrome
 
@@ -76,7 +77,8 @@
     discord
 
     # Note taking
-    obsidian
+    # obsidian
+    notion-app-enhanced
 
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime

@@ -219,8 +219,8 @@ in {
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
         # "SUPER,RETURN,exec,st"
-        "SHIFT,RETURN,exec,foot"
-        "SUPER,RETURN,exec,wezterm"
+        "SUPER,RETURN,exec,foot"
+        # "SUPER,RETURN,exec,wezterm"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         "SUPER,o,exec,obsidian"
@@ -264,7 +264,7 @@ in {
         "tile,^(Spotify)$"
         "tile,^(neovide)$"
         "tile,^(wps)$"
-        "opacity 1.0 override 1.0 override,^(neovide)$" # Active/inactive opacity
+        "opacity 1.0 override 1.0 override,^(neovide)$" 
       ];
 
       windowrulev2 = [
@@ -293,8 +293,8 @@ in {
 
     # Submaps
     extraConfig = ''
-           source = ~/.config/hypr/themes/catppuccin-macchiato.conf
-           # source = ~/.config/hypr/themes/oxocarbon.conf
+           # source = ~/.config/hypr/themes/catppuccin-macchiato.conf
+           source = ~/.config/hypr/themes/oxocarbon.conf
 
       #     # will switch to a submap called resize
       #     bind=$mainMod,R,submap,resize
