@@ -11,7 +11,7 @@ _: {
     # ./pfetch
     # ./ranger
     # ./zellij
-    ./wezterm
+    # ./wezterm
     ./neofetch
   ];
 }
