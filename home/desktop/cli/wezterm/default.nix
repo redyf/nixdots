@@ -19,7 +19,7 @@ _: {
                           default_cursor_style = "SteadyBlock",
                           cursor_blink_ease_in = 'EaseIn',
                           cursor_blink_ease_out = 'EaseOut',
-                          color_scheme = "Catppuccin Macchiato",
+                          color_scheme = "Oxocarbon Dark",
                           enable_scroll_bar = false,
                           enable_tab_bar = false,
                           enable_wayland = false,
