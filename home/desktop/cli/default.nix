@@ -4,7 +4,7 @@ _: {
     ./btop
     ./cava
     ./foot
-    ./tmux
+    # ./tmux
     # ./kitty
     ./shell
     # ./nitch
