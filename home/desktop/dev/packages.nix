@@ -77,7 +77,7 @@
     discord
 
     # Note taking
-    # obsidian
+    obsidian
     notion-app-enhanced
 
     # Anime/Manga

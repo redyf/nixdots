@@ -59,8 +59,8 @@ in {
         gaps_in = 1;
         gaps_out = 2;
         border_size = 3;
-        # "col.active_border" = "rgb(${oxocarbon_border})";
-        # "col.inactive_border" = "rgba(${background}00)";
+        "col.active_border" = "rgb(${oxocarbon_border})";
+        "col.inactive_border" = "rgba(${background}00)";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
@@ -138,7 +138,6 @@ in {
       };
 
       exec-once = [
-        "discord"
         "easyeffects --gapplication-service" # Starts easyeffects in the background
         "$HOME/.config/hypr/autostart"
         "exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -264,7 +263,7 @@ in {
         "tile,^(Spotify)$"
         "tile,^(neovide)$"
         "tile,^(wps)$"
-        "opacity 1.0 override 1.0 override,^(neovide)$" 
+        "opacity 1.0 override 1.0 override,^(neovide)$"
       ];
 
       windowrulev2 = [
@@ -294,7 +293,7 @@ in {
     # Submaps
     extraConfig = ''
            # source = ~/.config/hypr/themes/catppuccin-macchiato.conf
-           source = ~/.config/hypr/themes/oxocarbon.conf
+           # source = ~/.config/hypr/themes/oxocarbon.conf
 
       #     # will switch to a submap called resize
       #     bind=$mainMod,R,submap,resize
