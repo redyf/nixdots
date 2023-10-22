@@ -33,20 +33,21 @@
         efiSupport = true;
         useOSProber = true;
         configurationLimit = 3;
-        theme = pkgs.fetchFromGitHub {
-          owner = "shvchk";
-          repo = "fallout-grub-theme";
-          rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
-          sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
-        };
+        theme =
+          pkgs.fetchFromGitHub
+          {
+            owner = "Lxtharia";
+            repo = "minegrub-theme";
+            rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
+            sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
+          };
 
-        # theme = pkgs.fetchFromGitHub
-        #   {
-        #     owner = "Lxtharia";
-        #     repo = "minegrub-theme";
-        #     rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
-        #     sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
-        #   };
+        # theme = pkgs.fetchFromGitHub {
+        #   owner = "shvchk";
+        #   repo = "fallout-grub-theme";
+        #   rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
+        #   sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
+        # };
       };
     };
   };
@@ -204,21 +205,8 @@
       };
       windowManager = {
         # i3.enable = true;
-        dwm = {
-          enable = true;
-          package = pkgs.dwm.override {
-            patches = [
-              (pkgs.fetchpatch {
-                url = "https://dwm.suckless.org/patches/alpha/dwm-alpha-6.4.diff";
-                # replace hash with the value from `nix-prefetch-url "https://dwm.suckless.org/patches/path/to/patch.diff" | xargs nix hash to-sri --type sha256`
-                # or just leave it blank, rebuild, and use the hash value from the error
-                hash = "sha256-vHfjGJ5fXpdB8ZQV7jSNg6B5ommiq+t3rjnoq3kqfoE=";
-              })
-            ];
-          };
-          # awesome.enable = true;
-          # bspwm.enable = true;
-        };
+        awesome.enable = true;
+        # bspwm.enable = true;
       };
       videoDrivers = ["nvidia"];
       layout = "br";
