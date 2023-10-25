@@ -18,7 +18,7 @@
     # figma-linux
 
     # Modeling
-    # dia
+    dia
 
     # Useful utils
     fd # A simple, fast and user-friendly alternative to find
