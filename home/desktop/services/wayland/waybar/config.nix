@@ -84,7 +84,7 @@ in {
     memory = {
       interval = 30;
       format = " {used:0.1f}G / {total:0.1f}G";
-      on-click = "wezterm -e btop";
+      on-click = "foot -e btop";
       tooltip = false;
     };
     disk = {
@@ -100,7 +100,7 @@ in {
       tooltip-format = "{ifname} via {gwaddr}";
       format-linked = "{ifname} (No IP)";
       format-disconnect = "󰖪";
-      on-click = "wezterm -e nmtui";
+      on-click = "foot -e nmtui";
     };
     pulseaudio = {
       # scroll-step = 1; # %, can be a float

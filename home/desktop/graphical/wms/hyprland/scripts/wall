@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 images_path=~/wallpapers/
-variations=(1.jpg 2.jpg jabuti.png jabuti2.png catppuccin.png lofi.gif wall.png purple.png anime.png programmer.gif gwen.png nix.png nixos.png kanagawa.png flowers.png wallpaper.png)
+variations=(1.jpg 2.jpg jabuti.png cherryblossom.png oxocarbon.png jabuti2.png catppuccin.png lofi.gif wall.png purple.png anime.png programmer.gif gwen.png nix.png nixos.png kanagawa.png flowers.png wallpaper.png)
 number=$(($RANDOM % 20))
 image=${variations[$number]}
 wallpaper=$images_path$image

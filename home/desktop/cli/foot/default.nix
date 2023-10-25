@@ -336,6 +336,7 @@ _: {
         tweak = {
           font-monospace-warn = "no"; # reduces startup time
           sixel = "yes";
+          # grapheme-shaping = "yes";
         };
       };
     };
