@@ -6,13 +6,13 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=18";
-          # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=18";
-          font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=18";
-          # font = "LiterationMono Nerd Font:Bold:style=Bold Italic:size=18";
-          # font = "Iosevka Nerd Font:Bold:style=Bold Italic:size=18";
-          # font = "SauceCodePro Nerd Font:Bold:style=BoldItalic :size=18";
-          # font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=18";
+          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold Italic:size=12";
+          # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=12";
+          font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=12";
+          # font = "LiterationMono Nerd Font:Bold:style=Bold Italic:size=12";
+          # font = "Iosevka Nerd Font:Bold:style=Bold Italic:size=12";
+          # font = "SauceCodePro Nerd Font:Bold:style=BoldItalic :size=12";
+          # font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=12";
           pad = "4x4 center";
         };
         cursor = {
