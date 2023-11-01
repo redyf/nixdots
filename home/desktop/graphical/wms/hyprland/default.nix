@@ -66,7 +66,7 @@ in {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 0;
         shadow_ignore_window = true;
         drop_shadow = true;
         shadow_range = 20;
@@ -222,7 +222,7 @@ in {
         # "SUPER,RETURN,exec,wezterm"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
-        "SUPER,o,exec,obsidian"
+        "SUPER,o,exec,anytype --use-gl=desktop"
         ",Print,exec,~/.config/hypr/scripts/screenshot.sh"
         "SUPER,space,exec,bemenu-run"
         # "SUPER,z,exec,waybar"
