@@ -15,15 +15,13 @@
       export PATH=$PATH:~/.local/bin/
       export PATH=/tmp/lazy-lvim/bin:$PATH
       export PATH="$HOME/.emacs.d/bin:$PATH"
+      export PATH="$HOME/doom/bin:$PATH"
       export PATH="$PATH:/home/redyf/.nix-profile/bin/elixir"
       export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
       export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
       export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
       export PATH="$PATH:/home/redyf/.config/nvim/bin"
-      export PATH="$PATH:/home/redyf/.config/nyoom/bin"
       export WINIT_UNIX_BACKEND=x11 neovide
-      # export PROMPT="%B%F{1} 󰉊  %f%b%B%F{8}%~%f%b%B%F{8}   %f%b"
-      NIX_PATH="$NIX_PATH:nixpkgs-overlays=/home/redyf/flake/overlays/"
 
       # Autosuggest
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
