@@ -77,8 +77,8 @@
     discord
 
     # Note taking
+    anytype
     obsidian
-    notion-app-enhanced
 
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime
@@ -103,6 +103,7 @@
     # Video editing/Streaming
     # obs-studio
     # davinci-resolve
+    # xwaylandvideobridge
 
     # Screenshot + extra utils
     grim # Screenshot tool for hyprland

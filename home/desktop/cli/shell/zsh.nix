@@ -130,6 +130,7 @@
       rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
       postman = "postman --use-gl=desktop";
+      anytype = "anytype --use-gl=desktop";
       # beekeeper-studio = "beekeeper-studio --use-gl=desktop";
     };
 
