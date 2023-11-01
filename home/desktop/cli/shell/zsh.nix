@@ -111,7 +111,6 @@
     '';
 
     shellAliases = {
-      bad = "appimage-run ~/Downloads/BadlionClient";
       c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
@@ -127,8 +126,8 @@
       rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
       postman = "postman --use-gl=desktop";
-      anytype = "anytype --use-gl=desktop";
       # beekeeper-studio = "beekeeper-studio --use-gl=desktop";
+      bad = "appimage-run ~/Downloads/BadlionClient";
     };
 
     oh-my-zsh = {

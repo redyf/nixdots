@@ -7,9 +7,9 @@
   home.packages = with pkgs; [
     # Dev
     poetry
+    httpie
     # postman
     openssl
-    insomnia
     postgresql
     beekeeper-studio
     # mysql-workbench
