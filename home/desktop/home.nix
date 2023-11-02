@@ -1,8 +1,7 @@
 {
-  inputs,
-  config,
-  nix-colors,
   pkgs,
+  config,
+  lib,
   ...
 }: {
   # Home Manager needs a bit of information about you and the
@@ -69,6 +68,15 @@
       };
     };
   };
+
+  # xdg.configFile."nvim".source = "${(pkgs.callPackage ./pkgs/nvchad.nix {})}";
+  # home.file = {
+  #   # Add nvchad
+  #   ".config/nvim" = {
+  #     source = "${(pkgs.callPackage ./pkgs/nvchad.nix {})}";
+  #     recursive = true;
+  #   };
+  # };
 
   fonts.fontconfig.enable = true;
 
