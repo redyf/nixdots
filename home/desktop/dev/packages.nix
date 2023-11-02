@@ -1,9 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # Dev
     poetry
@@ -101,7 +96,6 @@
     # brightnessctl
 
     # Video editing/Streaming
-    # obs-studio
     # davinci-resolve
     # xwaylandvideobridge
 
