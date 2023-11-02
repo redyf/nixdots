@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-    ./httpie.nix
+    ./httpie
   ];
 }
