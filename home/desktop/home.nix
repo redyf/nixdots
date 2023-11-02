@@ -31,7 +31,7 @@
   imports = [
     ./cli
     ./dev
-    ./pkgs
+    # ./pkgs
     ./system
     ./themes
     ./services
