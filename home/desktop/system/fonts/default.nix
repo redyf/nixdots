@@ -16,11 +16,11 @@
     # courier-prime
     # powerline-fonts
     # cantarell-fonts
-    maple-mono-NF
+    # maple-mono-NF
     fira-code-symbols
     powerline-symbols
     material-design-icons
     # helvetica-neue-lt-std
-    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "SourceCodePro" ];})
+    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "SourceCodePro"];})
   ];
 }
