@@ -8,6 +8,7 @@
     postgresql
     beekeeper-studio
     # mysql-workbench
+    logisim
 
     # Design
     # figma-linux

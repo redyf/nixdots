@@ -12,11 +12,9 @@
     noto-fonts
     dejavu_fonts
     font-awesome
-    # maple-mono-NF
     # courier-prime
     # powerline-fonts
     # cantarell-fonts
-    # maple-mono-NF
     fira-code-symbols
     powerline-symbols
     material-design-icons

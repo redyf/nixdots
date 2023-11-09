@@ -82,6 +82,7 @@ in {
           noise = 0.0117;
           contrast = 1.5;
           brightness = 1;
+          xray = true;
         };
       };
 
