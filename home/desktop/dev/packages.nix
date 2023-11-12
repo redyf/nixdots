@@ -70,6 +70,7 @@
     # google-chrome
 
     # Socials
+    vesktop
     discord
 
     # Note taking
