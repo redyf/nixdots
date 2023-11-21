@@ -50,14 +50,13 @@
     appimage-run # Run appimage files in the terminal
     polkit_gnome
     networkmanager
-    # gobject-introspection # A middleware layer between C libraries and language bindings
 
     # Terminal && prompt
     nerdfix # Helps you find/fix obsolete Nerd font icons
     lazygit # Amazing CLI git tool
 
     # Text Editors/IDEs
-    vscode
+    # vscode
     neovide # Gui neovim editor with cool animations
 
     # Office + PDF readers
@@ -70,7 +69,6 @@
     # google-chrome
 
     # Socials
-    vesktop
     discord
 
     # Note taking
@@ -82,7 +80,6 @@
     mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
     # Rice
-    # st # Suckless terminal
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
     # sxhkd # BSPWM keybindings
@@ -111,6 +108,7 @@
     # Gaming
     # gnutls
     minecraft
+    # grapejuice
     # libpulseaudio
 
     # Audio/Music
