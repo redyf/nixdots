@@ -201,12 +201,12 @@
       desktopManager = {
         xfce.enable = true;
         # gnome.enable = true;
-        # mate.enable = true;
       };
       windowManager = {
-        # i3.enable = true;
-        awesome.enable = true;
-        # bspwm.enable = true;
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+        };
       };
       videoDrivers = ["nvidia"];
       layout = "br";
