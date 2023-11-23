@@ -1,17 +1,17 @@
 _: {
   imports = [
     # ./st
-    ./btop
-    ./cava
-    ./foot
+    # ./btop
+    # ./cava
+    # ./foot
     # ./tmux
-    # ./kitty
+    ./kitty
     ./shell
     # ./nitch
     # ./pfetch
     # ./ranger
     # ./zellij
     # ./wezterm
-    ./neofetch
+    # ./neofetch
   ];
 }

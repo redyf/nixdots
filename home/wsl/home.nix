@@ -12,7 +12,6 @@
     stateVersion = "23.11";
   };
 
-  # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
   # incompatible changes.
@@ -28,11 +27,11 @@
 
   # Imports
   imports = [
-    #./cli
+    ./cli
     ./dev
     # ./pkgs
     ./system
-    #./themes
+    # ./themes
     # ./services
     # ./graphical
   ];
