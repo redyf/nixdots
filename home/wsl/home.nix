@@ -7,9 +7,9 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    username = "redyf";
-    homeDirectory = "/home/redyf";
-    stateVersion = "22.11";
+    username = "red";
+    homeDirectory = "/home/red";
+    stateVersion = "23.11";
   };
 
   # This value determines the Home Manager release that your
@@ -33,27 +33,12 @@
     # ./pkgs
     ./system
     ./themes
-    ./services
-    ./graphical
+    # ./services
+    # ./graphical
   ];
 
   # Overlays
   nixpkgs = {
-    overlays = [
-      (self: super: {
-        discord = super.discord.overrideAttrs (
-          _: {
-            src = builtins.fetchTarball {
-              url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-            };
-          }
-        );
-      })
-      # (import (builtins.fetchTarball {
-      #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-      # }))
-      (import ../../overlays/firefox-overlay.nix)
-    ];
     config = {
       allowUnfreePredicate = pkg: true;
       packageOverrides = pkgs: {

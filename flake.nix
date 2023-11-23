@@ -1,5 +1,5 @@
 {
-  description = "Redyf's NixOS config for desktop and laptop";
+  description = "Redyf's NixOS config for desktop, laptop and WSL";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -86,6 +86,14 @@
       	modules = [
         	{ nix.registry.nixpkgs.flake = nixpkgs; }
         	./hosts/wsl/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = false;
+                users.red = ./home/wsl/home.nix;
+              };
+            }
         	NixOS-WSL.nixosModules.wsl
       	];
       };
@@ -98,27 +106,4 @@
     #   };
     # };
   };
-
-#{
-#  inputs = {
-#    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-#    NixOS-WSL = {
-#      url = "github:nix-community/NixOS-WSL";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
-#  };
-#
-#  outputs = { self, nixpkgs, NixOS-WSL }: {
-#    nixosConfigurations = {
-#	DESKTOP-B42A2G4 = nixpkgs.lib.nixosSystem {
-#      	system = "x86_64-linux";
-#      	modules = [
-#        	{ nix.registry.nixpkgs.flake = nixpkgs; }
-#        	./configuration.nix
-#        	NixOS-WSL.nixosModules.wsl
-#      	];
-#      };
-#    };
-#  };
-#}
 }
