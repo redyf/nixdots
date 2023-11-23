@@ -12,6 +12,7 @@
         pypresence # Discord Rich Presence
         pygobject3 # Python bindings for Glib
         gst-python # Python bindings for GStreamer
+        youtube-dl
       ]))
   ];
 }

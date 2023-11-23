@@ -5,8 +5,8 @@ _: {
     ./compilers
     # ./dart
     ./editors
-    # ./elixir
-    # ./go
+    ./elixir
+    ./go
     ./js
     ./lua
     ./nix
