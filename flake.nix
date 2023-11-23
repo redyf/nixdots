@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    NixOS-WSL = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     hyprland-nvidia.url = "github:hyprwm/hyprland";
     waybar-hyprland.url = "github:hyprwm/hyprland";
@@ -28,6 +32,7 @@
     hyprland-nvidia,
     home-manager,
     utils,
+    NixOS-WSL,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -76,6 +81,14 @@
           {programs.hyprland.enable = true;}
         ];
       };
+	    wsl = nixpkgs.lib.nixosSystem {
+      	system = "x86_64-linux";
+      	modules = [
+        	{ nix.registry.nixpkgs.flake = nixpkgs; }
+        	./hosts/wsl/configuration.nix
+        	NixOS-WSL.nixosModules.wsl
+      	];
+      };
     };
     # homeConfigurations = {
     #   "redyf@laptop" = home-manager.lib.homeManagerConfiguration {
@@ -85,4 +98,27 @@
     #   };
     # };
   };
+
+#{
+#  inputs = {
+#    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+#    NixOS-WSL = {
+#      url = "github:nix-community/NixOS-WSL";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#    };
+#  };
+#
+#  outputs = { self, nixpkgs, NixOS-WSL }: {
+#    nixosConfigurations = {
+#	DESKTOP-B42A2G4 = nixpkgs.lib.nixosSystem {
+#      	system = "x86_64-linux";
+#      	modules = [
+#        	{ nix.registry.nixpkgs.flake = nixpkgs; }
+#        	./configuration.nix
+#        	NixOS-WSL.nixosModules.wsl
+#      	];
+#      };
+#    };
+#  };
+#}
 }
