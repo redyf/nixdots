@@ -81,21 +81,21 @@
           {programs.hyprland.enable = true;}
         ];
       };
-	    wsl = nixpkgs.lib.nixosSystem {
-      	system = "x86_64-linux";
-      	modules = [
-        	{ nix.registry.nixpkgs.flake = nixpkgs; }
-        	./hosts/wsl/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useUserPackages = true;
-                useGlobalPkgs = false;
-                users.red = ./home/wsl/home.nix;
-              };
-            }
-        	NixOS-WSL.nixosModules.wsl
-      	];
+      wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {nix.registry.nixpkgs.flake = nixpkgs;}
+          ./hosts/wsl/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = false;
+              users.red = ./home/wsl/home.nix;
+            };
+          }
+          NixOS-WSL.nixosModules.wsl
+        ];
       };
     };
     # homeConfigurations = {

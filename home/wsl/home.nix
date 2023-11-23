@@ -28,11 +28,11 @@
 
   # Imports
   imports = [
-    ./cli
+    #./cli
     ./dev
     # ./pkgs
     ./system
-    ./themes
+    #./themes
     # ./services
     # ./graphical
   ];
