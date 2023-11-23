@@ -4,7 +4,7 @@
     poetry
     # httpie
     # postman
-    openssl
+    # openssl
     # postgresql
     # beekeeper-studio
     # mysql-workbench
@@ -42,14 +42,16 @@
     lolcat
     speechd
     libnotify
+    ffmpeg
     # img2pdf # Convert images to pdf
     findutils
     # flameshot
     traceroute
     tree-sitter # A parser generator tool and an incremental parsing library
-    appimage-run # Run appimage files in the terminal
+    # appimage-run # Run appimage files in the terminal
     polkit_gnome
     networkmanager
+    cinnamon.nemo
 
     # Terminal && prompt
     nerdfix # Helps you find/fix obsolete Nerd font icons
@@ -62,6 +64,5 @@
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime
     mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
-
   ];
 }
