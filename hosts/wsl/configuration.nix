@@ -23,11 +23,12 @@
   };
 
   users = {
+  mutableUsers = true;
     users = {
       red = {
         isNormalUser = true;
         description = "red";
-        # initialPassword = "123456";
+        password = "123456";
         shell = pkgs.zsh;
         extraGroups = ["wheel" "input" "docker"];
       };
@@ -37,31 +38,6 @@
   wsl.nativeSystemd = true;
   networking = {
     hostName = "wsl";
-    enableIPv6 = false;
-    # no need to wait interfaces to have an IP to continue booting
-    dhcpcd.wait = "background";
-    # avoid checking if IP is already taken to boot a few seconds faster
-    dhcpcd.extraConfig = "noarp";
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  };
-
-  # Use doas instead-of sudo
-  security = {
-    sudo.enable = true;
-    doas = {
-      enable = false;
-      wheelNeedsPassword = false;
-      extraRules = [
-        {
-          users = ["red"];
-          keepEnv = true;
-          persist = true;
-        }
-      ];
-    };
   };
 
   # Configure console keymap
