@@ -53,7 +53,7 @@
     sudo.enable = true;
     doas = {
       enable = false;
-      wheelNeedsPassword = true;
+      wheelNeedsPassword = false;
       extraRules = [
         {
           users = ["red"];
