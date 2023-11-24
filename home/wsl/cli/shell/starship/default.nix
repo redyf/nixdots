@@ -11,30 +11,30 @@
     enableZshIntegration = true;
     settings =
       # Catppuccin
-      # {
-      #   scan_timeout = 10;
-      #   add_newline = false;
-      #   line_break.disabled = false;
-      #   right_format = "$time";
-      #   character = {
-      #     success_symbol = "[](#cbced3)";
-      #     error_symbol = "[](#dd6777)";
-      #     vicmd_symbol = "[](#ecd3a0)";
-      #     format = "$symbol[λ ](bold #3fdaa4) ";
-      #     # format = "$symbol[✘ ](bold #3fdaa4) ";
-      #   };
+      {
+        scan_timeout = 10;
+        add_newline = false;
+        line_break.disabled = false;
+        right_format = "$time";
+        character = {
+          success_symbol = "[](#cbced3)";
+          error_symbol = "[](#dd6777)";
+          vicmd_symbol = "[](#ecd3a0)";
+          format = "$symbol[λ ](bold #3fdaa4) ";
+          # format = "$symbol[✘ ](bold #3fdaa4) ";
+        };
         # Oxocarbon
-        {
-          scan_timeout = 10;
-          add_newline = true;
-          line_break.disabled = false;
-          format = "$symbol[󰉊 ](bold #ee5396) $directory$character";
-          right_format = "$time";
-          character = {
-            success_symbol = "[󰅂 ](bold #393939)";
-            error_symbol = "[󰅂 ](bold #393939)";
-            vicmd_symbol = "[󰅂 ](bold #393939)";
-          };
+        # {
+        #   scan_timeout = 10;
+        #   add_newline = true;
+        #   line_break.disabled = false;
+        #   format = "$symbol[󰉊 ](bold #ee5396) $directory$character";
+        #   right_format = "$time";
+        #   character = {
+        #     success_symbol = "[󰅂 ](bold #393939)";
+        #     error_symbol = "[󰅂 ](bold #393939)";
+        #     vicmd_symbol = "[󰅂 ](bold #393939)";
+        #   };
 
         palette = "catppuccin_${flavour}";
         git_commit = {commit_hash_length = 5;};
