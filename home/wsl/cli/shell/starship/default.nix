@@ -50,13 +50,13 @@
         package.symbol = "📦  ";
 
         username = {
-          show_always = false;
+          show_always = true;
           style_user = "bold bg:none fg:#7aa2f7";
           format = "[$user]($style)";
         };
 
         hostname = {
-          disabled = true;
+          disabled = false;
           ssh_only = false;
           style = "bold bg:none fg:#CDD6F4";
           format = "@[$hostname]($style) ";
@@ -66,8 +66,8 @@
           read_only = " ";
           truncation_length = 3;
           truncation_symbol = "./";
-          style = "bold bg:none fg:#393939";
-          # style = "bold bg:none fg:#7aa2f7";
+          # style = "bold bg:none fg:#393939";
+          style = "bold bg:none fg:#7aa2f7";
           # style = "bold bg:none fg:#7dcfff";
           # style = "bold bg:none fg:#26bbd9";
           # style = "bold bg:none fg:#7EAE90";
@@ -75,7 +75,7 @@
         };
 
         time = {
-          disabled = false;
+          disabled = true;
           use_12hr = true;
           time_range = "-";
           time_format = "%R";
