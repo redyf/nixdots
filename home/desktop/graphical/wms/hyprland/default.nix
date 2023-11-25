@@ -66,7 +66,7 @@ in {
       };
 
       decoration = {
-        rounding = 0;
+        rounding = 12;
         shadow_ignore_window = true;
         drop_shadow = true;
         shadow_range = 20;
