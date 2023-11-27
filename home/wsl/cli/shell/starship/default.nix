@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   # Catppuccin
   programs.starship = let
     flavour = "macchiato"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
