@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # apl386
+    monaspace
     noto-fonts
     dejavu_fonts
     font-awesome
