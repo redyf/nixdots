@@ -68,7 +68,7 @@ in {
       decoration = {
         rounding = 12;
         shadow_ignore_window = true;
-        drop_shadow = true;
+        drop_shadow = false;
         shadow_range = 20;
         shadow_render_power = 3;
         "col.shadow" = "rgb(${oxocarbon_background})";
@@ -88,7 +88,6 @@ in {
 
       animations = {
         enabled = true;
-        # Selmer443 config
         bezier = [
           "pace,0.46, 1, 0.29, 0.99"
           "overshot,0.13,0.99,0.29,1.1"

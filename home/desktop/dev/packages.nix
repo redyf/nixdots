@@ -72,8 +72,8 @@
     discord
 
     # Note taking
-    anytype
-    obsidian
+    # anytype
+    # obsidian
 
     # Anime/Manga
     ani-cli # A cli tool to browse and play anime
