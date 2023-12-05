@@ -11,11 +11,12 @@
   primary_accent = "cba6f7";
   secondary_accent = "89b4fa";
   tertiary_accent = "f5f5f5";
-  tokyonight_blue = "8aadf4";
+  tokyonight_blue = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
   oxocarbon_pink = "ff7eb6";
   oxocarbon_border = "393939";
   oxocarbon_background = "161616";
-  background = "11111B";
+  background = "rgba(11111B00)";
+  tokyonight_background = "rgba(32344aaa)";
   opacity = ".85";
   cursor = "Numix-Cursor";
 in {
@@ -59,8 +60,8 @@ in {
         gaps_in = 1;
         gaps_out = 2;
         border_size = 3;
-        "col.active_border" = "rgb(${oxocarbon_border})";
-        "col.inactive_border" = "rgba(${background}00)";
+        "col.active_border" = "${tokyonight_blue}";
+        "col.inactive_border" = "${tokyonight_background}";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
@@ -72,7 +73,7 @@ in {
         shadow_range = 20;
         shadow_render_power = 3;
         "col.shadow" = "rgb(${oxocarbon_background})";
-        "col.shadow_inactive" = "rgb(${background})";
+        "col.shadow_inactive" = "${background}";
         blur = {
           enabled = true;
           size = 6;
