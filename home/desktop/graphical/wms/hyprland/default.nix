@@ -6,27 +6,23 @@
   lib,
   ...
 }: let
-  hyprland = inputs.hyprland-nvidia.packages.${pkgs.system}.hyprland-nvidia;
+  hyprland_flake = inputs.hyprland.packages.${pkgs.system}.hyprland;
   fontsize = "12";
-  primary_accent = "cba6f7";
-  secondary_accent = "89b4fa";
-  tertiary_accent = "f5f5f5";
-  tokyonight_blue = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
   oxocarbon_pink = "ff7eb6";
   oxocarbon_border = "393939";
   oxocarbon_background = "161616";
   background = "rgba(11111B00)";
+  tokyonight_blue = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
   tokyonight_background = "rgba(32344aaa)";
   opacity = ".85";
   cursor = "Numix-Cursor";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland;
+    package = pkgs.hyprland;
     xwayland = {
       enable = true;
     };
-    enableNvidiaPatches = true;
     settings = {
       # "$mainMod" = "SUPER";
       monitor = [
