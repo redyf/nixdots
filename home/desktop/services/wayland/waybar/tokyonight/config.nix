@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+_: {
   mainBar = {
     margin-top = 6;
     margin-bottom = 2;
@@ -25,6 +21,12 @@
     ];
 
     "hyprland/workspaces" = {
+      "persistent-workspaces" = {
+        "1" = ["DP-3"];
+        "2" = ["DP-3"];
+        "3" = ["DP-3"];
+        "4" = ["DP-3"];
+      };
       active-only = "false";
       on-scroll-up = "hyprctl dispatch workspace e+1";
       on-scroll-down = "hyprctl dispatch workspace e-1";
@@ -119,9 +121,7 @@
         default = [" " " " " "];
       };
       tooltip-format = "{desc} {volume}%";
-      on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-      on-click-right = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-      on-click-middle = "pavucontrol";
+      on-click = "pavucontrol";
     };
 
     "custom/wmname" = {
