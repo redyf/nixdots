@@ -13,7 +13,7 @@ _: {
           # font = "Iosevka Nerd Font:Bold:style=Bold Italic:size=12";
           # font = "SauceCodePro Nerd Font:Bold:style=BoldItalic :size=12";
           # font = "Liga SFMono Nerd Font:Bold:style=Bold Italic:size=12";
-          pad = "4x4 center";
+          pad = "4x2 center";
         };
         cursor = {
           # color = "1A1826 D9E0EE"; # Cattpuccin
