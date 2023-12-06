@@ -69,7 +69,7 @@
     # google-chrome
 
     # Socials
-    # discord
+    discord
     vesktop
 
     # Note taking
