@@ -291,7 +291,11 @@ in {
     extraConfig = ''
            # source = ~/.config/hypr/themes/catppuccin-macchiato.conf
            # source = ~/.config/hypr/themes/oxocarbon.conf
-
+           env = LIBVA_DRIVER_NAME,nvidia
+           env = XDG_SESSION_TYPE,wayland
+           env = GBM_BACKEND,nvidia-drm
+           env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+           env = WLR_NO_HARDWARE_CURSORS,1
       #     # will switch to a submap called resize
       #     bind=$mainMod,R,submap,resize
       #
