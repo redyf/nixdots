@@ -70,7 +70,7 @@
 
     # Socials
     discord
-    vesktop
+    # vesktop
 
     # Note taking
     # anytype
