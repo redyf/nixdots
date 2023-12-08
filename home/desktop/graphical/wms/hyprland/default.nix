@@ -215,7 +215,8 @@ in {
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
         # "SUPER,RETURN,exec,st"
-        "SUPER,RETURN,exec,foot"
+        # "SUPER,RETURN,exec,foot"
+        "SUPER,RETURN,exec,kitty"
         # "SUPER,RETURN,exec,wezterm"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
@@ -256,7 +257,6 @@ in {
         # Window rules
         "tile,title:^(kitty)$"
         "float,title:^(fly_is_kitty)$"
-        "opacity 1.0 override 1.0 override,^(foot)$" # Active/inactive opacity
         "tile,^(Spotify)$"
         "tile,^(neovide)$"
         "tile,^(wps)$"
