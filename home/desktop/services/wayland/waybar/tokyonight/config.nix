@@ -75,7 +75,7 @@ _: {
     "clock" = {
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       format = " {:%H:%M}";
-      format-alt = " {:%A, %B %d, %Y}";
+      format-alt = "󰃰 {:%A, %B %d, %Y}";
     };
 
     "cpu" = {
@@ -101,7 +101,7 @@ _: {
       };
       format = "{icon}{capacity}%";
       tooltip-format = "{timeTo} {capacity}%";
-      format-charging = " {capacity}%";
+      format-charging = "󰂄 {capacity}%";
       format-plugged = " ";
       format-alt = "{time} {icon}";
       format-icons = ["  " "  " "  " "  " "  "];
@@ -109,9 +109,9 @@ _: {
 
     "network" = {
       format-wifi = "󰖩 {essid}";
-      # format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
+      # format-ethernet = "{ifname}: {ipaddr}/{cidr} 󰈀 ";
       format-ethernet = "󰈀 {cidr}";
-      format-linked = "{ifname} (No IP)  ";
+      format-linked = "{ifname} (No IP) 󰈀 ";
       format-disconnected = "󰖪  Disconnected";
       # on-click = "$HOME/.config/hypr/Scripts/wifi-menu";
       on-click = "foot -e nmtui";
@@ -125,8 +125,8 @@ _: {
       format-muted = "  {format_source}";
       format-icons = {
         headphone = " ";
-        hands-free = " ";
-        headset = " ";
+        hands-free = "󰂑 ";
+        headset = "󰂑 ";
         phone = " ";
         portable = " ";
         car = " ";
