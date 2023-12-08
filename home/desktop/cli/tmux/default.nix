@@ -1,19 +1,34 @@
-{pkgs, ...}: let
-  t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "t-smart-tmux-session-manager";
-    version = "2023-08-04";
-    src = pkgs.fetchFromGitHub {
-      owner = "x0ba";
-      repo = "t-smart-tmux-session-manager";
-      rev = "8c887534d0f59cdde2aef873052d59efacdb7b2a";
-      sha256 = "sha256-PGemYYjyWbHmNvEflK51PdY8oKI/1DZMU5OBjKH9DLw=";
-    };
-  };
-in {
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
     extraConfig = ''
+      # pane binds
+      bind -n M-n select-pane -D
+      bind -n M-e select-pane -U
+      bind -n M-y select-pane -L
+      bind -n M-o  select-pane -R
+      bind -n M-Up resize-pane -U 5
+      bind -n M-Down resize-pane -D 5
+      bind -n M-Left resize-pane -L 5
+      bind -n M-Right resize-pane -R 5
+
+      # window binds
+      bind -n C-M-y previous-window
+      bind -n C-M-o next-window
+      bind-key \" split-window -v -c "#{pane_current_path}"
+      bind-key c split-window -h -c "#{pane_current_path}"
+      bind-key v new-window -c "#{pane_current_path}"
+      bind-key s choose-session
+      bind-key ) swap-window -t +2
+      bind-key ( swap-window -t -1
+
+      unbind -T copy-mode MouseDragEnd1Pane
+      bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy"
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy"
+      bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+      bind P paste-buffer
       set -g history-file "~/.cache/tmux/.tmuxhistory"
       set -g repeat-time 700
       set -g mouse on
@@ -75,14 +90,8 @@ in {
         '';
       }
       {
-        plugin = t-smart-tmux-session-manager;
-      }
-      {
         plugin = tmuxPlugins.vim-tmux-navigator;
       }
     ];
   };
-  home.packages = [
-    t-smart-tmux-session-manager.src
-  ];
 }

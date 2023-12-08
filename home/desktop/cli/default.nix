@@ -3,9 +3,9 @@ _: {
     # ./st
     ./btop
     ./cava
-    ./foot
+    # ./foot
     # ./tmux
-    # ./kitty
+    ./kitty
     ./shell
     # ./nitch
     # ./pfetch

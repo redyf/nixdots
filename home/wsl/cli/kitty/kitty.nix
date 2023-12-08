@@ -50,7 +50,7 @@
   # italic_font      Meslo LG S DZ Bold Nerd Font Complete Mono
   # bold_italic_font Meslo LG S DZ Bold Nerd Font Complete Mono
 
-  font_size 16.00
+  font_size 12.00
 
   #: Font size (in pts)
 

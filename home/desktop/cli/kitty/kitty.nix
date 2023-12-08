@@ -50,7 +50,7 @@
   # italic_font      Meslo LG S DZ Bold Nerd Font Complete Mono
   # bold_italic_font Meslo LG S DZ Bold Nerd Font Complete Mono
 
-  font_size 16.00
+  font_size 12.00
 
   #: Font size (in pts)
 
@@ -1274,7 +1274,6 @@
   #:     map ctrl+alt+a send_text application Word\x1bOH
 
   # BEGIN_KITTY_THEME
-  # include current-theme.conf
   include themes/lunar.conf
   # include dark-decay.conf
   # include oxocarbon.conf
