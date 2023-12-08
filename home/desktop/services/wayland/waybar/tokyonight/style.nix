@@ -157,9 +157,9 @@ in ''
          }
 
          #custom-media {
-           background-color: #c678dd;
+           background-color: @background;
            padding: 0 10px;
-           color: @background;
+           color: @blue;
          }
 
          #custom-fans {

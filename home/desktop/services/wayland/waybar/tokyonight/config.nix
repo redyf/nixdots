@@ -4,7 +4,7 @@ _: {
     margin-bottom = 2;
     margin-right = 8;
     margin-left = 8;
-    modules-left = ["custom/wmname" "hyprland/workspaces" "hyprland/window"];
+    modules-left = ["custom/wmname" "custom/media" "hyprland/workspaces" "hyprland/window"];
     modules-center = [];
     modules-right = [
       "battery"
@@ -46,6 +46,18 @@ _: {
         "9" = " ";
         "10" = "󰊴 ";
       };
+    };
+
+    "custom/media" = {
+      "format" = " {}";
+      "max-lenght" = "40";
+      "interval" = "1";
+      "exec" = "playerctl metadata --format '{{ artist }} - {{ title }}'";
+      "on-click" = "playerctl play-pause";
+      "on-click-right" = "playerctl stop";
+      "smooth-scrolling-threshold" = "4";
+      "on-scroll-up" = "playerctl next";
+      "on-scroll-down" = "playerctl previous";
     };
 
     "idle_inhibitor" = {
