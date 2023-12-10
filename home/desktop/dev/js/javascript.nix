@@ -3,6 +3,7 @@
     # NPM packages
     bun
     yarn
+    deno
     nodejs
     # node2nix
     typescript
