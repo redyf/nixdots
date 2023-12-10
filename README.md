@@ -9,9 +9,6 @@
     <a href="https://github.com/redyf/nixdots/stargazers">
         <img src="https://img.shields.io/github/stars/redyf/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/redyf/nixdots/">
-        <img src="https://img.shields.io/github/repo-size/redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
-    </a>
     <a href="https://github.com/redyf/nixdots/blob/master/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
     </a>
@@ -25,7 +22,7 @@
 ❄️ NixOS dotfiles ❄️
 </h1>
 </div>
-<h2 align="center">My NixOS system configuration. Feel free to explore!</h2>
+<h2 align="center">NixOS system configuration. Feel free to explore!</h2>
 
 ## Special thanks to:
 
@@ -39,6 +36,7 @@
 - [Siduck76's NvChad](https://github.com/siduck76/nvchad/)
 - [NotAShelf's dotfiles](https://github.com/NotAShelf/nyx)
 - [AlphaTechnolog's dotfiles](https://github.com/AlphaTechnolog/nixdots)
+- [Stephenstechtalks](https://github.com/stephenstechtalks/nixos-configs/blob/main/NixOS-22.05/InstallSteps.txt)
 
 <div align="center">
 <img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026486780005/rice.png" alt="Rice Preview" width="400px" height="253"/>
@@ -93,51 +91,76 @@ iwctl --passphrase [passphrase] station [device] connect [SSID]
 
 ## Installation
 
-> IMPORTANT: Do not use my configuration.nix and/or hardware-configuration.nix! These files include specific settings to my drives and are unlikely to have a positive reaction on your device!
+I'll guide you through the Installation, but first make sure to download the Minimal ISO image available at [NixOS](https://nixos.org/download#nixos-iso) and make a bootable drive with it. I suggest using [Rufus](https://rufus.ie/en/) for the task as it's a great software.
+Also I'm going to use an ethernet cable for the tutorial to make things easier. We shall begin!
 
-It might not work perfectly right after installation, you have been warned!
+### Installation Steps
 
-For best security, make sure the files will not conflict with your current ones.
+**Only follow these steps after using the bootable drive, changing BIOS boot priority and getting into the installation!**
 
-Prerequisites:
+```
+First part:
 
-- [NixOS installed and running](https://nixos.org/manual/nixos/stable/index.html#ch-installation)
-- [Flakes enabled](https://nixos.wiki/wiki/flakes)
-- Root access
+video=1920x1080
 
-Clone the repo and cd into it:
+setfont ter-128n
 
-```bash
-git clone https://github.com/Redyf/nixdots ~/nixdots && cd ~/nixdots
+configure networking as needed (skip this if you're using ethernet)
+
+sudo -i
+
+lsblk (check info about partitions and the device you want to use for the installation)
+
+gdisk /dev/vda (change according to your system, for me it's /dev/nvme0n1)
+
+then configure 600M type ef00, rest ext4 type 8300 as described below
+
+Type "n" to make a new partition, choose the partition number, first sector can be default but last sector should be 600M. Hex code for EFI is ef00.
+
+Now type n again to make another partition, this time we'll leave everything as default. After finishing these steps, make sure to write it to the disk by typing "w".
+
+lsblk
+
+mkfs.fat -F 32 -n boot /dev/vda1 (Format the partitions)
+
+mkfs.ext4 -L nixos /dev/vda2
+
+mount /dev/disk/by-label/nixos /mnt (Mount partitions)
+mkdir /mnt/boot (Create a directory for boot)
+mount /dev/disk/by-label/boot /mnt/boot
 ```
 
-Create a hardware configuration for your system:
+After mounting the partitions, you can move to the second part...
 
-```bash
-sudo nixos-generate-config
+```
+# go inside a nix shell with the specified programs
+nix-shell -p git nixUnstable neovim
+
+# create this folder if necessary
+mkdir -p /mnt/etc/
+
+# clone the repo
+git clone https://github.com/redyf/nixdots.git /mnt/etc/nixos --recurse-submodules
+
+# remove this file
+rm /mnt/etc/nixos/hosts/redyf/hardware-configuration.nix
+
+# generate the config and take some files
+nixos-generate-config --root /mnt
+rm /mnt/etc/nixos/configuration.nix
+mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/redyf
+
+# make sure you're in this path
+cd /mnt/etc/nixos
+
+# Install my config:
+nixos-install --flake '.#redyf' --impure
 ```
 
-You can add or create your own output in flake.nix through the following template:
+Credits for the installation section goes to [Stephenstechtalks](https://github.com/stephenstechtalks) and [AlphaTechnolog](https://github.com/AlphaTechnolog) as they helped a lot with their installation guides.
 
-```nix
-nixosConfigurations = {
-    # Now, creating a new system config can be done with a single line.
-    #                                Architecture   Hostname
-    redyf = nixpkgs.lib.nixosSystem "x86_64-linux" "desktop";
-    laptop = nixpkgs.lib.nixosSystem "x86_64-linux" "laptop";
-    # ADD YOUR COMPUTER HERE! (feel free to remove mine)
-    yourComputer = nixpkgs.lib.nixosSystem "x86_64-linux" "yourComputer";
-};
-```
-
-Finally, rebuild your configuration with:
-
-```bash
-sudo nixos-rebuild switch --flake .#yourComputer
-```
-
-And that's all! If you have any problem, feel free to make an issue in the github repo. (https://github.com/Redyf/nixdots/issues).
+That should be all! If you have any problem, feel free to make an issue in the github repo. (https://github.com/Redyf/nixdots/issues).
 
 ## Conclusion
 
-And so that was my setup for NixOS. The code is licensed under the MIT license, so you can use or distribute the code however you like. If you have any questions, contact me on Discord: `Redyf#1337`.
+And so that was my setup for NixOS. The code is licensed under the MIT license, so you can use or distribute the code however you like. If you have any questions, contact me on Discord: `redyf`.
