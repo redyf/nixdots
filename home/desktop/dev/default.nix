@@ -12,6 +12,7 @@ _: {
     ./nix
     ./python
     ./rust
+    ./markdown
     # ./docker.nix
     ./virt-manager
     ./packages.nix

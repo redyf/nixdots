@@ -8,6 +8,7 @@
         black # Python formatter
         pynvim
         flake8 # Linter for Python
+        django
       ]))
   ];
 }
