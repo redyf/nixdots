@@ -5,20 +5,10 @@
   #: individual font faces and even specify special fonts for particular
   #: characters.
 
-  font_family        RyanMono Nerd Font Bold
-  bold_font          RyanMono Nerd Font Bold
-  italic_font        RyanMono Nerd Font Bold
-  bold_italic_font   RyanMono Nerd Font Bold
-
   # font_family      Liga SFMono Nerd Font Bold
   # bold_font        Liga SFMono Nerd Font Bold
   # italic_font      Liga SFMono Nerd Font Bold
   # bold_italic_font Liga SFMono Nerd Font Bold
-
-  # font_family      Maple Mono NF Bold
-  # bold_font        Maple Mono NF Bold
-  # italic_font      Maple Mono NF Bold
-  # bold_italic_font Maple Mono NF Bold
 
   # font_family      Blex Mono Bold Nerd Font Complete Mono
   # bold_font        Blex Mono Bold Nerd Font Complete Mono
@@ -30,15 +20,10 @@
   # italic_font      Caskaydia Cove Nerd Font Complete Mono Bold
   # bold_italic_font Caskaydia Cove Nerd Font Complete Mono Bold
 
-  # font_family      JetBrains Mono
-  # bold_font        JetBrains Mono
-  # italic_font      JetBrains Mono
-  # bold_italic_font JetBrains Mono
-
-  # font_family      JetBrains Mono Bold Nerd Font Complete
-  # bold_font        JetBrains Mono Bold Nerd Font Complete
-  # italic_font      JetBrains Mono Bold Nerd Font Complete
-  # bold_italic_font JetBrains Mono Bold Nerd Font Complete
+  font_family      JetBrains Mono Bold Nerd Font Complete
+  bold_font        JetBrains Mono Bold Nerd Font Complete
+  italic_font      JetBrains Mono Bold Nerd Font Complete
+  bold_italic_font JetBrains Mono Bold Nerd Font Complete
 
   # font_family      Fira Code Bold Nerd Font Complete Mono
   # bold_font        Fira Code Bold Nerd Font Complete Mono
