@@ -1,5 +1,5 @@
-_: {
-  imports = [
-    ./virt-manager.nix
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    virt-manager
   ];
 }
