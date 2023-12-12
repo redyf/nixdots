@@ -25,6 +25,11 @@
   italic_font      JetBrains Mono Bold Nerd Font Complete
   bold_italic_font JetBrains Mono Bold Nerd Font Complete
 
+  # font_family      Intel One Mono Bold Nerd Font Complete
+  # bold_font        Intel One Mono Bold Nerd Font Complete
+  # italic_font      Intel One Mono Bold Nerd Font Complete
+  # bold_italic_font Intel One Mono Bold Nerd Font Complete
+
   # font_family      Fira Code Bold Nerd Font Complete Mono
   # bold_font        Fira Code Bold Nerd Font Complete Mono
   # italic_font      Fira Code Bold Nerd Font Complete Mono

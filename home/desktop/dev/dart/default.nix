@@ -1,5 +1,5 @@
-_: {
-  imports = [
-    ./dart.nix
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    dart
   ];
 }

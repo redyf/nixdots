@@ -1,5 +1,6 @@
-_: {
-  imports = [
-    ./go.nix
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    go # Go programming language
+    gopls
   ];
 }
