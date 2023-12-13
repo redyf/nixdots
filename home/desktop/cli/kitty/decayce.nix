@@ -1,3 +1,4 @@
+''
 # Eye Friendly Colors
 # Created by https://github.com/decaycs
 
@@ -44,3 +45,4 @@ cursor_text_color #a5b6cf
 # Selection highlight
 selection_foreground #a5b6cf
 selection_background #1c1e27
+''

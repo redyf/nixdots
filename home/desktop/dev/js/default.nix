@@ -11,7 +11,7 @@
     nodePackages.npm # Package manager
     nodePackages_latest.pnpm
     nodePackages_latest.ts-node
-    nodePackages_latest.prisma
+    # nodePackages_latest.prisma
     nodePackages_latest.dotenv-cli
     # nodePackages_latest.eslint_d # JS linter
     # nodePackages_latest.prettier # Formatter

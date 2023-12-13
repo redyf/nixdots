@@ -20,25 +20,20 @@
   # italic_font      Caskaydia Cove Nerd Font Complete Mono Bold
   # bold_italic_font Caskaydia Cove Nerd Font Complete Mono Bold
 
-  font_family      JetBrains Mono Bold Nerd Font Complete
-  bold_font        JetBrains Mono Bold Nerd Font Complete
-  italic_font      JetBrains Mono Bold Nerd Font Complete
-  bold_italic_font JetBrains Mono Bold Nerd Font Complete
+  # font_family      JetBrains Mono Bold Nerd Font Complete
+  # bold_font        JetBrains Mono Bold Nerd Font Complete
+  # italic_font      JetBrains Mono Bold Nerd Font Complete
+  # bold_italic_font JetBrains Mono Bold Nerd Font Complete
 
-  # font_family      Intel One Mono Bold Nerd Font Complete
-  # bold_font        Intel One Mono Bold Nerd Font Complete
-  # italic_font      Intel One Mono Bold Nerd Font Complete
-  # bold_italic_font Intel One Mono Bold Nerd Font Complete
+  font_family      IntoneMono Nerd Font
+  bold_font        IntoneMono Nerd Font
+  italic_font      IntoneMono Nerd Font
+  bold_italic_font IntoneMono Nerd Font
 
   # font_family      Fira Code Bold Nerd Font Complete Mono
   # bold_font        Fira Code Bold Nerd Font Complete Mono
   # italic_font      Fira Code Bold Nerd Font Complete Mono
   # bold_italic_font Fira Code Bold Nerd Font Complete Mono
-
-  # font_family      Meslo LG S DZ Bold Nerd Font Complete Mono
-  # bold_font        Meslo LG S DZ Bold Nerd Font Complete Mono
-  # italic_font      Meslo LG S DZ Bold Nerd Font Complete Mono
-  # bold_italic_font Meslo LG S DZ Bold Nerd Font Complete Mono
 
   font_size 12.00
 
@@ -1264,16 +1259,13 @@
   #:     map ctrl+alt+a send_text application Word\x1bOH
 
   # BEGIN_KITTY_THEME
-  include themes/lunar.conf
-  # include dark-decay.conf
-  # include oxocarbon.conf
-  # include mocha.conf
-  # include decayce.conf
-  # include tokyodark.conf
-  # include tokyonight_night.conf
-  # include tokyonight_storm.conf
-  # include ohlucy.conf
-  # include nightfox_kitty.conf
-  # include challenger-deep.conf
+  # include themes/challenger-deep.conf
+  # include themes/dark-decay.conf
+  # include themes/decayce.conf
+  # include themes/lunar.conf
+  # include themes/mocha.conf
+  # include themes/macchiato.conf
+  # include themes/oxocarbon.conf
+  include themes/tokyonight_night.conf
   # END_KITTY_THEME
 ''

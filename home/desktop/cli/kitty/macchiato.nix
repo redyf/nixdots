@@ -1,3 +1,4 @@
+''
 # vim:ft=kitty
 
 ## name:     Catppuccin Kitty Macchiato
@@ -78,3 +79,4 @@ color14 #8BD5CA
 # white
 color7  #B8C0E0
 color15 #A5ADCB
+''

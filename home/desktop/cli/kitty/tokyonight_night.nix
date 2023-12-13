@@ -1,3 +1,4 @@
+''
 # vim:ft=kitty
 
 ## name: Tokyo Night
@@ -48,3 +49,4 @@ color15 #c0caf5
 # extended colors
 color16 #ff9e64
 color17 #db4b4b
+''
