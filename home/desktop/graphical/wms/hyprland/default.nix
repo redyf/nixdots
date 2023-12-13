@@ -71,7 +71,7 @@ in {
         "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "${background}";
         blur = {
-          enabled = true;
+          enabled = false;
           size = 6;
           passes = 3;
           new_optimizations = true;
