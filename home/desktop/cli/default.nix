@@ -5,12 +5,13 @@ _: {
     ./cava
     # ./foot
     ./tmux
-    ./kitty
+    # ./kitty
     ./shell
     # ./nitch
     # ./pfetch
     # ./ranger
-    # ./wezterm
+    ./zoxide
+    ./wezterm
     ./neofetch
   ];
 }
