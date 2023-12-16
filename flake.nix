@@ -68,15 +68,15 @@
         };
         modules = [
           ./hosts/laptop/configuration.nix
-          # home-manager.nixosModules.home-manager
-          # {
-          #   home-manager = {
-          #     useUserPackages = true;
-          #     useGlobalPkgs = false;
-          #     extraSpecialArgs = {inherit inputs;};
-          #     users.redyf = ./home/laptop/laptop.nix;
-          #   };
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = false;
+              extraSpecialArgs = {inherit inputs;};
+              users.redyf = ./home/laptop/laptop.nix;
+            };
+          }
           hyprland.nixosModules.default
           {programs.hyprland.enable = true;}
         ];
