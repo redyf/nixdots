@@ -3,8 +3,6 @@
     noto-fonts
     dejavu_fonts
     font-awesome
-    # powerline-fonts
-    # cantarell-fonts
     fira-code-symbols
     powerline-symbols
     material-design-icons

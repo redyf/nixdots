@@ -126,10 +126,8 @@
       rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
       postman = "postman --use-gl=desktop";
-      # beekeeper-studio = "beekeeper-studio --use-gl=desktop";
+      beekeeper-studio = "beekeeper-studio --use-gl=desktop";
       bad = "appimage-run ~/Downloads/BadlionClient";
-      roblox = "flatpak run io.github.vinegarhq.Vinegar player";
-      httpie-desktop = "appimage-run ~/Downloads/HTTPie-2023.3.6.AppImage";
     };
 
     oh-my-zsh = {
