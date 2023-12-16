@@ -24,7 +24,7 @@ in {
       enable = true;
     };
     settings = {
-      # "$mainMod" = "SUPER";
+      "$mainMod" = "SUPER";
       monitor = [
         "DP-3,1920x1080@165,0x0,auto"
       ];
@@ -214,10 +214,7 @@ in {
         # "SUPER $mainMod SHIFT, 9, movetoworkspacesilent, 9"
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-        # "SUPER,RETURN,exec,st"
-        # "SUPER,RETURN,exec,foot"
-        "SUPER,RETURN,exec,kitty"
-        # "SUPER,RETURN,exec,wezterm"
+        "SUPER,RETURN,exec,wezterm"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         "SUPER,o,exec,anytype --use-gl=desktop"

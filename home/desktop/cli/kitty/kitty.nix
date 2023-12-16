@@ -74,7 +74,6 @@
 
   # scrollback_lines 2000
 
-
   # scrollback_pager_history_size 0
 
   # wheel_scroll_multiplier 5.0
