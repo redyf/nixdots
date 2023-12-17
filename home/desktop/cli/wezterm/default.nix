@@ -47,10 +47,10 @@ _: {
         { key = '0', mods = 'CTRL', action = wezterm.action.ResetFontSize },
         { key = 'C', mods = 'CTRL', action = act.CopyTo 'ClipboardAndPrimarySelection', },
         { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
-        { key = 'Space', mods = 'CTRL', action = wezterm.action.ShowTabNavigator },},
-        mouse_bindings = {
-        { event = { Up = { streak = 1, button = 'Left' } }, mods = 'NONE', action = act.CompleteSelection 'Clipboard', },
+        -- { key = 'Space', mods = 'CTRL', action = wezterm.action.ShowTabNavigator },
         },
+        mouse_bindings = {
+        { event = { Up = { streak = 1, button = 'Left' } }, mods = 'NONE', action = act.CompleteSelection 'Clipboard', },},
       }
     '';
   };
