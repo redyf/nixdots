@@ -114,20 +114,29 @@
       c = "nvim";
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
-      f = "neofetch --sixel $HOME/.config/neofetch/images/sakurafetch.png";
+      f = "neofetch --sixel";
       fetch = "neofetch w3m";
-      g = "git";
-      gs = "git status";
       grep = "grep --color=auto";
       ll = "ls -l";
       ls = "eza";
       la = "eza -a";
       mv = "mv -i";
       rip = "rip -i";
-      rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf --impure";
+      rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf";
       postman = "postman --use-gl=desktop";
       beekeeper-studio = "beekeeper-studio --use-gl=desktop";
       bad = "appimage-run ~/Downloads/BadlionClient";
+      g = "git";
+      ga = "git add";
+      gaa = "git add .";
+      gb = "git branch";
+      gc = "git commit";
+      gcm = "git commit --message";
+      gco = "git checkout";
+      gd = "git diff";
+      gi = "git init";
+      gp = "git pull";
+      gs = "git status";
     };
 
     oh-my-zsh = {
@@ -135,7 +144,6 @@
       theme = "bira";
       plugins = [
         "git"
-        # "git z"
         "colorize"
         "colored-man-pages"
         "command-not-found"

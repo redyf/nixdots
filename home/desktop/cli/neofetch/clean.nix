@@ -96,9 +96,9 @@
   			# image_backend="iterm2"
         # image_backend="ueberzug"
         image_backend="kitty"
-  			#image_source="auto"
-  			image_source="$HOME/.config/neofetch/images/sakurafetch.png"
-  			# image_source="$HOME/flake/home/desktop/cli/neofetch/ascii/logoo.txt"
+  			image_source="auto"
+  			# image_source="./images/sakurafetch.png"
+  			# image_source="${./ascii/lambda.txt}"
   			ascii_distro="auto"
   			ascii_colors=(distro)
   			ascii_bold="on"
