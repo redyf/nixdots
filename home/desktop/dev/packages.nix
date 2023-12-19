@@ -8,13 +8,13 @@
     postgresql
     beekeeper-studio
     # mysql-workbench
-    logisim
+    # logisim
 
     # Design
     # figma-linux
 
     # Modeling
-    dia
+    # dia
 
     # Useful utils
     fd # A simple, fast and user-friendly alternative to find
@@ -69,10 +69,13 @@
     # google-chrome
 
     # Socials
-    discord
-    # vesktop
+    (pkgs.discord.override {
+      # remove any overrides that you don't want
+      withOpenASAR = false;
+      withVencord = true;
+    })
 
-    # Note taking
+    # Notes
     # anytype
     # obsidian
 
