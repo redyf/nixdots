@@ -9,9 +9,9 @@ _: {
       return {
         check_for_updates = false,
         font_size = 12,
-        font = wezterm.font('IntoneMono Nerd Font', { weight = 'Medium', italic = false }),
+        font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Medium', italic = false }),
         font = wezterm.font_with_fallback {
-        { family = 'IntoneMono Nerd Font', weight = 'Medium', italic = false },
+        { family = 'JetBrainsMono Nerd Font', weight = 'Medium', italic = false },
         'Noto Color Emoji',
         },
         adjust_window_size_when_changing_font_size = false,
