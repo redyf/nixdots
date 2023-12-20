@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    poetry
     (python311.withPackages (ps:
       with ps; [
         pip
