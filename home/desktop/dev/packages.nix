@@ -1,13 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # Dev
-    poetry
-    httpie
-    # postman
-    openssl
-    postgresql
-    beekeeper-studio
-    # mysql-workbench
+    # TODO: Convert all packages to nix modules
 
     # Design
     # figma-linux

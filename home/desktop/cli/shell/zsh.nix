@@ -123,6 +123,7 @@
       rip = "rip -i";
       rebuild = "cd ~/flake && doas nixos-rebuild switch --flake .#redyf";
       postman = "postman --use-gl=desktop";
+      insomnia = "insomnia --use-gl=desktop";
       beekeeper-studio = "beekeeper-studio --use-gl=desktop";
       bad = "appimage-run ~/Downloads/BadlionClient";
       g = "git";

@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./api
     ./c
     # ./clojure
     ./compilers
@@ -10,8 +11,9 @@ _: {
     ./js
     ./lua
     ./nix
-    ./python
     ./rust
+    ./sql
+    ./python
     ./markdown
     # ./docker.nix
     ./virt-manager
