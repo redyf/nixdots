@@ -8,21 +8,12 @@
     postgresql
     beekeeper-studio
     # mysql-workbench
-    # logisim
 
     # Design
     # figma-linux
 
     # Modeling
     # dia
-
-    # Useful utils
-    fd # A simple, fast and user-friendly alternative to find
-    jq # A lightweight and flexible command-line JSON processor
-    eza # Replacement for ls in rust (removed due to unmaintained upstream).
-    fzf # Fuzzy finder
-    ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
-    rm-improved # Replacement for rm with focus on safety, ergonomics and performance
 
     # System Utils
     mpd

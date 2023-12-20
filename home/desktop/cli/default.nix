@@ -3,6 +3,7 @@ _: {
     # ./st
     ./btop
     ./cava
+    ./extra
     # ./foot
     ./tmux
     # ./kitty
