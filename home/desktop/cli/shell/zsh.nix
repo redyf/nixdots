@@ -117,7 +117,6 @@
       f = "neofetch --sixel";
       fetch = "neofetch w3m";
       grep = "grep --color=auto";
-      ll = "ls -l";
       ls = "eza";
       la = "eza -a";
       mv = "mv -i";

@@ -35,21 +35,12 @@
   ];
 
   # Overlays
-  nixpkgs.overlays = [
-    (self: super: {
-      discord = super.discord.overrideAttrs (
-        _: {
-          src = builtins.fetchTarball {
-            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-          };
-        }
-      );
-    })
-    # (import (builtins.fetchTarball {
-    #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    # }))
-    # (import ~/flake/overlays/firefox-overlay.nix)
-  ];
+  # nixpkgs.overlays = [
+  # (import (builtins.fetchTarball {
+  #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+  # }))
+  # (import ~/flake/overlays/firefox-overlay.nix)
+  # ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     # integrates nur within Home-Manager
