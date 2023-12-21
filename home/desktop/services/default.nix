@@ -3,7 +3,7 @@ _: {
     ./obs
     ./git
     ./wayland
-    # ./webcord
+    ./socials
     ./browsers
   ];
 }

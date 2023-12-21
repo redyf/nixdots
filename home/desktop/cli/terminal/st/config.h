@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrainsMono Nerd Font:pixelsize=20:style=Bold:antialias=true";
-/* static char *font = "JetBrainsMono Nerd Font:pixelsize=20:style=Bold Italic:antialias=true"; */
+static char *font = "JetBrainsMono Nerd Font:pixelsize=16:style=Bold:antialias=true";
+/* static char *font = "Liga SFMono Nerd Font:pixelsize=16:style=Bold:antialias=true"; */
 
 static char *font2[] = {
     "Symbols Nerd Font:size=12",
@@ -99,43 +99,82 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* Terminal colors (16 first used in escape sequence) */
+// Tokyonight
 static const char *colorname[] = {
     /* 8 normal colors */
-    "#262626",
-    "#ee5396",
-    "#00C15A",
-    "#ffe97b",
-    "#33b1ff",
-    "#ff7eb6",
-    "#00C1BB",
-    "#dde1e6",
+    "#15161e",
+    "#f7768e",
+    "#9ece6a",
+    "#e0af68",
+    "#7aa2f7",
+    "#bb9af7",
+    "#7dcfff",
+    "#a9b1d6",
 
     /* 8 bright colors */
-    "#393939",
-    "#ee5396",
-    "#00C15A",
-    "#ffe97b",
-    "#33b1ff",
-    "#ff7eb6",
-    "#3ddbd9",
-    "#ffffff",
+    "#414868",
+    "#f7768e",
+    "#9ece6a",
+    "#e0af68",
+    "#7aa2f7",
+    "#bb9af7",
+    "#7dcfff",
+    "#c0caf5",
 
     [255] = 0,
 
-    [256] = "#f2f4f8", /* default foreground colour */
-    [257] = "#161616", /* default background colour */
-    [258] = "#ffffff", /*575268*/
+    /* more colors can be added after 255 to use with DefaultXX */
+    [256] = "#c0caf5",     
+    [257] = "#33467c",
+    [258] = "#c0caf5", /* default foreground colour */
+    [259] = "#1a1b26", /* default background colour */
 };
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
+unsigned int defaultfg = 258;
+unsigned int defaultbg = 259;
+unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
+
+// Oxocarbon
+/* static const char *colorname[] = { 
+    8 normal colors
+    "#262626", 
+    "#ee5396", 
+    "#00C15A", 
+    "#ffe97b", 
+    "#33b1ff", 
+    "#ff7eb6", 
+    "#00C1BB", 
+    "#dde1e6", 
+
+  8 bright colors 
+    "#393939", 
+    "#ee5396", 
+    "#00C15A", 
+    "#ffe97b", 
+    "#33b1ff", 
+    "#ff7eb6", 
+    "#3ddbd9", 
+    "#ffffff", 
+
+    [255] = 0, 
+
+    [256] = "#f2f4f8",  default foreground colour 
+    [257] = "#161616",  default background colour 
+    [258] = "#ffffff", 575268 
+}; 
+
+ * Default colors (colorname index)
+ * foreground, background, cursor, reverse cursor
 unsigned int defaultfg = 256;
 unsigned int defaultbg = 257;
 unsigned int defaultcs = 258;
-static unsigned int defaultrcs = 258;
+static unsigned int defaultrcs = 258;*/
+
 
 /*
  * Default shape of cursor
