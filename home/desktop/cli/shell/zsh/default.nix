@@ -115,6 +115,7 @@
       cp = "cp -i";
       e = "emacsclient -c -a 'emacs'";
       f = "neofetch --sixel";
+      p = "pfetch";
       fetch = "neofetch w3m";
       grep = "grep --color=auto";
       ls = "eza";

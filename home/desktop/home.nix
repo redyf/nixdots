@@ -1,11 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: {
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
+{...}: {
   home = {
     username = "redyf";
     homeDirectory = "/home/redyf";
@@ -40,15 +33,6 @@
   # Overlays
   nixpkgs = {
     overlays = [
-      # (self: super: {
-      #   discord = super.discord.overrideAttrs (
-      #     _: {
-      #       src = builtins.fetchTarball {
-      #         url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-      #       };
-      #     }
-      #   );
-      # })
       # (import (builtins.fetchTarball {
       #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
       # }))
