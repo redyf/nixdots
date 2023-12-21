@@ -5,10 +5,10 @@
   #: individual font faces and even specify special fonts for particular
   #: characters.
 
-  # font_family      Liga SFMono Nerd Font Bold
-  # bold_font        Liga SFMono Nerd Font Bold
-  # italic_font      Liga SFMono Nerd Font Bold
-  # bold_italic_font Liga SFMono Nerd Font Bold
+  font_family      Liga SFMono Nerd Font Medium
+  bold_font        Liga SFMono Nerd Font Medium
+  italic_font      Liga SFMono Nerd Font Medium
+  bold_italic_font Liga SFMono Nerd Font Medium
 
   # font_family      Blex Mono Bold Nerd Font Complete Mono
   # bold_font        Blex Mono Bold Nerd Font Complete Mono
@@ -25,10 +25,10 @@
   # italic_font      JetBrains Mono Bold Nerd Font Complete
   # bold_italic_font JetBrains Mono Bold Nerd Font Complete
 
-  font_family      IntoneMono Nerd Font
-  bold_font        IntoneMono Nerd Font
-  italic_font      IntoneMono Nerd Font
-  bold_italic_font IntoneMono Nerd Font
+  # font_family      IntoneMono Nerd Font
+  # bold_font        IntoneMono Nerd Font
+  # italic_font      IntoneMono Nerd Font
+  # bold_italic_font IntoneMono Nerd Font
 
   # font_family      Fira Code Bold Nerd Font Complete Mono
   # bold_font        Fira Code Bold Nerd Font Complete Mono

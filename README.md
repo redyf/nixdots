@@ -35,7 +35,6 @@
 - [Siduck76's NvChad](https://github.com/siduck76/nvchad/)
 - [NotAShelf's dotfiles](https://github.com/NotAShelf/nyx)
 - [AlphaTechnolog's dotfiles](https://github.com/AlphaTechnolog/nixdots)
-- [Stephenstechtalks](https://github.com/stephenstechtalks/nixos-configs/blob/main/NixOS-22.05/InstallSteps.txt)
 
 <div align="center">
 <img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026486780005/rice.png" alt="Rice Preview" width="400px" height="253"/>

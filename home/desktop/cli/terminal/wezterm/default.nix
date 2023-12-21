@@ -9,9 +9,9 @@ _: {
       return {
         check_for_updates = false,
         font_size = 12,
-        font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Medium', italic = false }),
+        font = wezterm.font('Liga SFMono Nerd Font', { weight = 'Medium', italic = false }),
         font = wezterm.font_with_fallback {
-        { family = 'JetBrainsMono Nerd Font', weight = 'Medium', italic = false },
+        { family = 'Liga SFMono Nerd Font', weight = 'Medium', italic = false },
         'Noto Color Emoji',
         },
         adjust_window_size_when_changing_font_size = false,
@@ -32,10 +32,10 @@ _: {
         window_background_opacity = 0.8,
         scrollback_lines = 8000,
         window_padding = {
-          left = 4,
-          right = 4,
-          top = 5,
-          bottom = 4,
+          left = 0,
+          right = 0,
+          top = 0,
+          bottom = 0,
         },
         leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 },
         keys = {
