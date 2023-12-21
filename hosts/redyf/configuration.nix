@@ -1,13 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
-  final,
-  prev,
   inputs,
-  packages,
   ...
 }: {
   imports = [
@@ -17,7 +11,6 @@
 
   # Bootloader.
   boot = {
-    # Kernel Modules
     kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
     kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
