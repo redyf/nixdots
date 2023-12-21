@@ -35,9 +35,6 @@
     polkit_gnome
     networkmanager
 
-    # Terminal && prompt
-    lazygit # Amazing CLI git tool
-
     # Office + PDF readers
     wpsoffice # MS office alternative for linux
     zathura # PDF viewer
@@ -45,13 +42,6 @@
     # Browsers
     brave
     firefox
-
-    # Socials
-    (pkgs.discord.override {
-      # remove any overrides that you don't want
-      withOpenASAR = false;
-      withVencord = true;
-    })
 
     # Notes
     # anytype

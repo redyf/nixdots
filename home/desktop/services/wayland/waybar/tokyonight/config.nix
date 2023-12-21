@@ -85,6 +85,7 @@ _: {
 
     "memory" = {
       format = " {}%";
+      on-click = "wezterm -e btop";
     };
 
     "backlight" = {
