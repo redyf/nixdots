@@ -1,9 +1,8 @@
 _: {
   imports = [
-    ./btop
-    ./cava
-    ./extra
+    ./rice
     ./tmux
+    ./extra
     ./shell
     ./fetch
     ./terminal
