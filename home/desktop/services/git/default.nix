@@ -1,9 +1,4 @@
-{
-  lib,
-  osConfig,
-  pkgs,
-  ...
-}: {
+_: {
   programs.git = {
     enable = true;
     userName = "Redyf";
