@@ -152,7 +152,10 @@ mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/redyf
 cd /mnt/etc/nixos
 
 # Install my config:
-nixos-install --flake '.#redyf' --impure
+nixos-install --flake '.#redyf'
+
+# Obs:
+If you'd like to use my config as a template, all you need to do is replace "redyf" with your username.
 ```
 
 Credits for the installation section goes to [Stephenstechtalks](https://github.com/stephenstechtalks) and [AlphaTechnolog](https://github.com/AlphaTechnolog) as they helped a lot with their installation guides.
