@@ -1,9 +1,6 @@
 {
   inputs,
-  config,
   pkgs,
-  osConfig,
-  lib,
   ...
 }: let
   hyprland_flake = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -71,8 +68,8 @@ in {
         "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "${background}";
         blur = {
-          enabled = false;
-          size = 6;
+          enabled = true;
+          size = 5;
           passes = 3;
           new_optimizations = true;
           ignore_opacity = true;

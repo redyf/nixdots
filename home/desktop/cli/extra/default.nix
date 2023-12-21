@@ -4,6 +4,7 @@ _: {
     ./jq.nix
     ./eza.nix
     ./fzf.nix
+    ./zoxide.nix
     ./ripgrep.nix
     ./rm-improved.nix
   ];

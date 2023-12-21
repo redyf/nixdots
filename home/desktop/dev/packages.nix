@@ -36,12 +36,7 @@
     networkmanager
 
     # Terminal && prompt
-    nerdfix # Helps you find/fix obsolete Nerd font icons
     lazygit # Amazing CLI git tool
-
-    # Text Editors/IDEs
-    # vscode
-    neovide # Gui neovim editor with cool animations
 
     # Office + PDF readers
     wpsoffice # MS office alternative for linux
@@ -50,7 +45,6 @@
     # Browsers
     brave
     firefox
-    # google-chrome
 
     # Socials
     (pkgs.discord.override {
@@ -81,10 +75,6 @@
     # eww-wayland # Cool widgets for wayland
     # lxappearance # Gui software to change icons/themes
     # brightnessctl
-
-    # Video editing/Streaming
-    # davinci-resolve
-    # xwaylandvideobridge
 
     # Screenshot + extra utils
     grim # Screenshot tool for hyprland
