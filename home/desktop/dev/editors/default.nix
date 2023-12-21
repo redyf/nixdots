@@ -3,5 +3,7 @@ _: {
     ./nvim
     # ./helix
     # ./emacs
+    # ./vscode
+    ./neovide
   ];
 }
