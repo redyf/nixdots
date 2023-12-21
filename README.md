@@ -30,7 +30,6 @@
 - [ZerotoNix](https://zero-to-nix.com)
 - [notusknot](https://github.com/notusknot)
 - [IogaMaster](https://github.com/IogaMaster)
-- [Catppuccin](https://github.com/catppuccin)
 - [linuxmobile](https://github.com/linuxmobile)
 - [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
 - [Siduck76's NvChad](https://github.com/siduck76/nvchad/)
@@ -159,8 +158,8 @@ nixos-install --flake '.#redyf' --impure
 
 Credits for the installation section goes to [Stephenstechtalks](https://github.com/stephenstechtalks) and [AlphaTechnolog](https://github.com/AlphaTechnolog) as they helped a lot with their installation guides.
 
-That should be all! If you have any problem, feel free to make an issue in the github repo. (https://github.com/Redyf/nixdots/issues).
-
 ## Conclusion
 
-And so that was my setup for NixOS. The code is licensed under the MIT license, so you can use or distribute the code however you like. If you have any questions, contact me on Discord: `redyf`.
+That should be all! If you have any problem, feel free to make an issue in the github repo. (https://github.com/Redyf/nixdots/issues).
+
+The code is licensed under the MIT license, so you can use or distribute the code however you like. If you have any questions, contact me on Discord: `redyf`.
