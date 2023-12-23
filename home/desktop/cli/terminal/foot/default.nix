@@ -6,7 +6,8 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "Liga SFMono Nerd Font:Medium:size=13";
+          font = "FiraMono Nerd Font:Medium:size=13";
+          # font = "Liga SFMono Nerd Font:Medium:size=13";
           # font = "IntoneMono Nerd Font:Medium:size=12";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=12";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=12";
@@ -15,12 +16,12 @@ _: {
           pad = "0x0 center";
         };
         cursor = {
-          # color = "1A1826 D9E0EE"; # Cattpuccin
+          color = "1A1826 D9E0EE"; # Catppuccin
           # color = "a9b1d6 f5f5f5"; # Decay
           # color = "a9b1d6 f5f5f5"; # Dark-decay
           # color = "a5b6cf cbced3"; # Decayce
           # color = "c5c8cd 101419"; # Light-decay
-          color = "1a1b26 c0caf5"; # Lunar
+          # color = "1a1b26 c0caf5"; # Lunar
           # color = "192330 cdcecf"; # Nightfox
           # color = "161616 f2f4f8"; # Carbonfox
           # color = "3760bf b6bfe2"; # Tokyonight
@@ -78,25 +79,25 @@ _: {
           # bright7 = "d9e0ee"; # bright white
 
           # Cattpuccin mocha
-          # alpha = "1.0";
-          # foreground = "cdd6f4"; # Text
-          # background = "1E1D2F"; # Base
-          # regular0 = "45475a"; # Surface 1
-          # regular1 = "f38ba8"; # red
-          # regular2 = "a6e3a1"; # green
-          # regular3 = "f9e2af"; # yellow
-          # regular4 = "89b4fa"; # blue
-          # regular5 = "f5c2e7"; # pink
-          # regular6 = "94e2d5"; # teal
-          # regular7 = "bac2de"; # Subtext 1
-          # bright0 = "585b70"; # Surface 2
-          # bright1 = "f38ba8"; # red
-          # bright2 = "a6e3a1"; # green
-          # bright3 = "f9e2af"; # yellow
-          # bright4 = "89b4fa"; # blue
-          # bright5 = "f5c2e7"; # pink
-          # bright6 = "94e2d5"; # teal
-          # bright7 = "a6adc8"; # Subtext 0
+          alpha = "0.8";
+          foreground = "cdd6f4"; # Text
+          background = "1E1D2F"; # Base
+          regular0 = "45475a"; # Surface 1
+          regular1 = "f38ba8"; # red
+          regular2 = "a6e3a1"; # green
+          regular3 = "f9e2af"; # yellow
+          regular4 = "89b4fa"; # blue
+          regular5 = "f5c2e7"; # pink
+          regular6 = "94e2d5"; # teal
+          regular7 = "bac2de"; # Subtext 1
+          bright0 = "585b70"; # Surface 2
+          bright1 = "f38ba8"; # red
+          bright2 = "a6e3a1"; # green
+          bright3 = "f9e2af"; # yellow
+          bright4 = "89b4fa"; # blue
+          bright5 = "f5c2e7"; # pink
+          bright6 = "94e2d5"; # teal
+          bright7 = "a6adc8"; # Subtext 0
 
           # Cattpuccin macchiato
           # alpha = "1.0";
@@ -204,25 +205,25 @@ _: {
           # bright7 = "1f2328";
 
           # Lunar
-          alpha = "0.8";
-          foreground = "a9b1d6";
-          background = "1a1b26";
-          regular0 = "414868";
-          regular1 = "f7768e";
-          regular2 = "73daca";
-          regular3 = "e0af68";
-          regular4 = "7aa2f7";
-          regular5 = "bb9af7";
-          regular6 = "7dcfff";
-          regular7 = "c0caf5";
-          bright0 = "414868";
-          bright1 = "f7768e";
-          bright2 = "73daca";
-          bright3 = "e0af68";
-          bright4 = "7aa2f7";
-          bright5 = "bb9af7";
-          bright6 = "7dcfff";
-          bright7 = "c0caf5";
+          # alpha = "0.8";
+          # foreground = "a9b1d6";
+          # background = "1a1b26";
+          # regular0 = "414868";
+          # regular1 = "f7768e";
+          # regular2 = "73daca";
+          # regular3 = "e0af68";
+          # regular4 = "7aa2f7";
+          # regular5 = "bb9af7";
+          # regular6 = "7dcfff";
+          # regular7 = "c0caf5";
+          # bright0 = "414868";
+          # bright1 = "f7768e";
+          # bright2 = "73daca";
+          # bright3 = "e0af68";
+          # bright4 = "7aa2f7";
+          # bright5 = "bb9af7";
+          # bright6 = "7dcfff";
+          # bright7 = "c0caf5";
 
           # Carbonfox
           # alpha = "1.0";
