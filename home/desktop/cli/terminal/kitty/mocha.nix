@@ -7,8 +7,6 @@
 ## upstream: https://github.com/catppuccin/kitty/blob/main/mocha.conf
 ## blurb:    Soothing pastel theme for the high-spirited!
 
-
-
 # The basic colors
 foreground              #CDD6F4
 background              #1E1E2E
