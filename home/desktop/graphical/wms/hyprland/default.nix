@@ -23,7 +23,8 @@ in {
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
-        "DP-3,1920x1080@165,0x0,auto"
+        ",highrr,auto,1"
+        # "DP-3,1920x1080@165,0x0,auto"
       ];
 
       xwayland = {
@@ -211,8 +212,8 @@ in {
         # "SUPER $mainMod SHIFT, 9, movetoworkspacesilent, 9"
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-        "SUPER,RETURN,exec,foot"
-        "ALT,RETURN,exec,kitty"
+        "SUPER,RETURN,exec,kitty"
+        "ALT,RETURN,exec,foot"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         "SUPER,o,exec,anytype --use-gl=desktop"
