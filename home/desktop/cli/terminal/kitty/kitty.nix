@@ -5,10 +5,15 @@
   #: individual font faces and even specify special fonts for particular
   #: characters.
 
-  font_family      Liga SFMono Nerd Font Medium
-  bold_font        Liga SFMono Nerd Font Medium
-  italic_font      Liga SFMono Nerd Font Medium
-  bold_italic_font Liga SFMono Nerd Font Medium
+  # font_family      Liga SFMono Nerd Font Medium
+  # bold_font        Liga SFMono Nerd Font Medium
+  # italic_font      Liga SFMono Nerd Font Medium
+  # bold_italic_font Liga SFMono Nerd Font Medium
+
+  font_family      Fira Mono Nerd Font Medium
+  bold_font        Fira Mono Nerd Font Medium
+  italic_font      Fira Mono Nerd Font Medium
+  bold_italic_font Fira Mono Nerd Font Medium
 
   # font_family      Blex Mono Bold Nerd Font Complete Mono
   # bold_font        Blex Mono Bold Nerd Font Complete Mono
@@ -1262,9 +1267,9 @@
   # include themes/dark-decay.conf
   # include themes/decayce.conf
   # include themes/lunar.conf
-  # include themes/mocha.conf
+  include themes/mocha.conf
   # include themes/macchiato.conf
   # include themes/oxocarbon.conf
-  include themes/tokyonight_night.conf
+  # include themes/tokyonight_night.conf
   # END_KITTY_THEME
 ''
