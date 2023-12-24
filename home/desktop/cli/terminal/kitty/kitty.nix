@@ -10,10 +10,10 @@
   # italic_font      Liga SFMono Nerd Font Medium
   # bold_italic_font Liga SFMono Nerd Font Medium
 
-  font_family      Fira Mono Nerd Font Medium
-  bold_font        Fira Mono Nerd Font Medium
-  italic_font      Fira Mono Nerd Font Medium
-  bold_italic_font Fira Mono Nerd Font Medium
+  font_family      FiraMono Nerd Font Bold
+  bold_font        FiraMono Nerd Font Bold
+  italic_font      FiraMono Nerd Font Bold
+  bold_italic_font FiraMono Nerd Font Bold
 
   # font_family      Blex Mono Bold Nerd Font Complete Mono
   # bold_font        Blex Mono Bold Nerd Font Complete Mono
@@ -40,7 +40,7 @@
   # italic_font      Fira Code Bold Nerd Font Complete Mono
   # bold_italic_font Fira Code Bold Nerd Font Complete Mono
 
-  font_size 12.00
+  font_size 14.00
 
   #: Font size (in pts)
 
