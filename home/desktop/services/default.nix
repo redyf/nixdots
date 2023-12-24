@@ -5,5 +5,6 @@ _: {
     ./wayland
     ./socials
     ./browsers
+    ./spicetify
   ];
 }

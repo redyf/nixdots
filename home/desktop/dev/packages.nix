@@ -80,7 +80,7 @@
     # libpulseaudio
 
     # Audio/Music
-    spotify
+    # spotify
     easyeffects
     pavucontrol
   ];
