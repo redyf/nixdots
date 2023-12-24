@@ -13,6 +13,7 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
@@ -33,17 +34,19 @@
     home-manager,
     utils,
     NixOS-WSL,
+    spicetify-nix,
     ...
   } @ inputs: {
     nixosConfigurations = {
       redyf =
         nixpkgs.lib.nixosSystem
         {
-          system = "x86_64-linux";
+          system = "x86_64-lispicetify-nix.nixosModule nux";
           specialArgs = {
             inherit
               inputs
               hyprland
+              spicetify-nix
               ;
           };
           modules = [
@@ -53,7 +56,7 @@
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
-                extraSpecialArgs = {inherit inputs;};
+                extraSpecialArgs = {inherit inputs spicetify-nix;};
                 users.redyf = ./home/desktop/home.nix;
               };
             }
