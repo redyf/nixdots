@@ -10,10 +10,10 @@
   # italic_font      Liga SFMono Nerd Font Medium
   # bold_italic_font Liga SFMono Nerd Font Medium
 
-  font_family      FiraMono Nerd Font Bold
-  bold_font        FiraMono Nerd Font Bold
-  italic_font      FiraMono Nerd Font Bold
-  bold_italic_font FiraMono Nerd Font Bold
+  font_family      FiraMono Nerd Font Medium
+  bold_font        FiraMono Nerd Font Medium
+  italic_font      FiraMono Nerd Font Medium
+  bold_italic_font FiraMono Nerd Font Medium
 
   # font_family      Blex Mono Bold Nerd Font Complete Mono
   # bold_font        Blex Mono Bold Nerd Font Complete Mono
