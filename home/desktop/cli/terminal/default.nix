@@ -1,7 +1,7 @@
 _: {
   imports = [
     # ./st
-    # ./foot
+    ./foot
     ./kitty
     # ./wezterm
   ];
