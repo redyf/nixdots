@@ -15,6 +15,11 @@
     nix-colors.url = "github:misterio77/nix-colors";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
@@ -41,7 +46,7 @@
       redyf =
         nixpkgs.lib.nixosSystem
         {
-          system = "x86_64-lispicetify-nix.nixosModule nux";
+          system = "x86_64-linux";
           specialArgs = {
             inherit
               inputs

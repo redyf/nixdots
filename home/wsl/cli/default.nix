@@ -3,15 +3,15 @@ _: {
     # ./st
     # ./btop
     # ./cava
-    ./foot
+    # ./foot
     # ./tmux
     # ./kitty
     ./shell
     # ./nitch
-    # ./pfetch
+    ./pfetch
     # ./ranger
     # ./zellij
     # ./wezterm
-    ./neofetch
+    # ./neofetch
   ];
 }

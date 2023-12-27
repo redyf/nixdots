@@ -9,10 +9,11 @@
   oxocarbon_border = "393939";
   oxocarbon_background = "161616";
   background = "rgba(11111B00)";
-  tokyonight_blue = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
+  tokyonight_border = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
   tokyonight_background = "rgba(32344aaa)";
+  catppuccin_border = "rgba(b4befeee)";
   opacity = ".85";
-  cursor = "Numix-Cursor";
+  cursor = "macOS-BigSur";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -54,7 +55,7 @@ in {
         gaps_in = 1;
         gaps_out = 2;
         border_size = 3;
-        "col.active_border" = "${tokyonight_blue}";
+        "col.active_border" = "${catppuccin_border}";
         "col.inactive_border" = "${tokyonight_background}";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
