@@ -7,6 +7,6 @@
     fira-code-symbols
     powerline-symbols
     material-design-icons
-    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "FiraMono" "JetBrainsMono" "IntelOneMono"];})
+    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "FiraMono" "JetBrainsMono" "IntelOneMono" "Ubuntu"];})
   ];
 }
