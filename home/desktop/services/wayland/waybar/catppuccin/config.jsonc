@@ -1,0 +1,69 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "font-weight": "normal",
+  "gtk-layer-shell": "true",
+  "exclusive": true,
+  "passtrough": false,
+  "height": 10,
+  "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["tray", "custom/network", "battery", "pulseaudio", "clock"],
+  "custom/arch": {
+    "format": "  ",
+    "tooltip": false,
+    "on-click": "rofi -show drun"
+  },
+  "custom/network": {
+    "format": "{}",
+    "interval": 30,
+    "exec": "perl ~/.config/hypr/net.perl"
+  },
+  "battery": {
+    "bat": "BAT0",
+    "format-charging": "󰚥",
+    "adapter": "ADP0",
+    "interval": 1,
+    "states": { "warning": 30, "critical": 15 },
+    "max-length": 20,
+    "format": "{icon}",
+    "format-warning": "{icon}",
+    "format-critical": "{icon}",
+    "format-alt": "{icon} {time}",
+    "format-full": "   ",
+    "format-icons": ["   ", "   ", "   ", "   ", "   "]
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": { "active": "", "default": "" },
+    "hyprland/window": { "format": "{}  " }
+  },
+  "tray": { "icon-size": 13, "tooltip": false, "spacing": 10 },
+  "custom/spotify": {
+    "exec": "/usr/bin/python3 ~/.config/waybar/modules/spotify.py --player spotify",
+    "format": " {}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": " 󰖁 ",
+    "format-icons": { "default": ["  ", "  ", "  "] },
+    "on-click": "pavucontrol &"
+  },
+  "network": {
+    /* "format-wifi": "󰖩", */ "format-wifi": " {icon}",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰖪",
+    "tooltip-format": "{essid}",
+    "on-click": "~/.config/rofi/nm-applet/rofi-network-manager.sh",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤢 ", "󰤨 "]
+  },
+  "clock": {
+    "format": "{:󰥔 %R} ",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  }
+}
