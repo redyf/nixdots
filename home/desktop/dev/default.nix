@@ -10,6 +10,6 @@ _: {
     ./gamedev
     ./tools
     ./editors
-    ./packages.nix
+    ./misc.nix
   ];
 }
