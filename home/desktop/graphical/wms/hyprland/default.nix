@@ -24,7 +24,7 @@ in {
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
-        ",highrr,auto,1"
+        ",highrr,auto,auto"
         # "DP-3,1920x1080@165,0x0,auto"
       ];
 
@@ -70,7 +70,7 @@ in {
         "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "${background}";
         blur = {
-          enabled = true;
+          enabled = false;
           size = 5;
           passes = 3;
           new_optimizations = true;
