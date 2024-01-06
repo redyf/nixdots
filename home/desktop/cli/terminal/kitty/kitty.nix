@@ -40,7 +40,7 @@
   # italic_font      Fira Code Bold Nerd Font Complete Mono
   # bold_italic_font Fira Code Bold Nerd Font Complete Mono
 
-  font_size 14.00
+  font_size 16.00
 
   #: Font size (in pts)
 
