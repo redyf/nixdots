@@ -6,7 +6,7 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "FiraMono Nerd Font:Medium:size=15";
+          font = "FiraMono Nerd Font:Medium:size=16";
           # font = "Liga SFMono Nerd Font:Medium:size=13";
           # font = "IntoneMono Nerd Font:Medium:size=12";
           # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=12";

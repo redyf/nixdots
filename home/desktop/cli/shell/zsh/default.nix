@@ -3,7 +3,14 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  themepkg = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "zsh-syntax-highlighting";
+    rev = "06d519c20798f0ebe275fc3a8101841faaeee8ea";
+    sha256 = "sha256-Q7KmwUd9fblprL55W0Sf4g7lRcemnhjh4/v+TacJSfo=";
+  };
+in {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -192,6 +199,11 @@
           rev = "5a81e13792a1eed4a03d2083771ee6e5b616b9ab";
           sha256 = "0lfl4r44ci0wflfzlzzxncrb3frnwzghll8p365ypfl0n04bkxvl";
         };
+      }
+      {
+        name = "ctp-zsh-syntax-highlighting";
+        src = themepkg;
+        file = themepkg + "/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh";
       }
     ];
   };
