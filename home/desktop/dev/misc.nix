@@ -30,7 +30,7 @@
     swww # Cool wallpapers/gifs transitions
     dunst # Notifications for your system
     bemenu # Dmenu for wayland
-    pcmanfm # Best GUI file manager
+    xfce.thunar # Best GUI file manager
     cmatrix
     onefetch
     nitrogen # Wallpaper utility for X11

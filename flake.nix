@@ -7,6 +7,10 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/hyprland";
     waybar-hyprland.url = "github:hyprwm/hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
@@ -14,15 +18,15 @@
     nix-colors.url = "github:misterio77/nix-colors";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

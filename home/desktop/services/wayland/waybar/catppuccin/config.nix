@@ -3,7 +3,6 @@ _: {
     layer = "top";
     position = "top";
     mod = "dock";
-    # height = 10;
     modules-left = ["custom/arch" "hyprland/workspaces"];
     modules-center = ["hyprland/window"];
     modules-right = [

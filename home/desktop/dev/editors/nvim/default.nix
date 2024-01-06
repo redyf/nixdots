@@ -1,11 +1,11 @@
 {
+  inputs,
   config,
   pkgs,
   ...
 }:
 # let
 #  cfg = config.modules.nvim;
-#  # Source my theme
 #  jabuti-nvim = pkgs.vimUtils.buildVimPlugin {
 #    name = "jabuti-nvim";
 #    src = pkgs.fetchFromGitHub {
@@ -53,76 +53,76 @@
     #       nodePackages.bash-language-server
     #       nodePackages.node2nix # node and tix, we game
     #     ];
-    # plugins = with pkgs.vimPlugins; [
-    #  {
-    #    plugin = jabuti-nvim;
-    #    config = "colorscheme jabuti";
-    #  }
-    #       copilot-lua
-    #       lsp_lines-nvim
-    #       vim-nix
-    #       nvim-ts-autotag
-    #       cmp-nvim-lsp-signature-help
-    #       cmp-buffer
-    #       comment-nvim
-    #       lsp_lines-nvim
-    #       null-ls-nvim
-    #       vim-fugitive
-    #       friendly-snippets
-    #       luasnip
-    #       rust-tools-nvim
-    #       crates-nvim
-    #       vim-illuminate
-    #       cmp_luasnip
-    #       nvim-cmp
-    #       impatient-nvim
-    #       indent-blankline-nvim
-    #       nvim-tree-lua
-    #       telescope-nvim
-    #       nvim-web-devicons
-    #       cmp-nvim-lsp
-    #       cmp-path
-    #       catppuccin-nvim
-    #       lspkind-nvim
-    #       nvim-lspconfig
-    #       hop-nvim
-    #       alpha-nvim
-    #       nvim-autopairs
-    #       nvim-colorizer-lua
-    #       nvim-ts-rainbow
-    #       gitsigns-nvim
-    #       toggleterm-nvim
-    #       todo-comments-nvim
-    #       (nvim-treesitter.withPlugins (plugins:
-    #         with plugins; [
-    #           tree-sitter-python
-    #           tree-sitter-c
-    #           tree-sitter-nix
-    #           tree-sitter-cpp
-    #           tree-sitter-rust
-    #           tree-sitter-toml
-    #           tree-sitter-json
-    #           tree-sitter-lua
-    #           tree-sitter-go
-    #           tree-sitter-java
-    #           tree-sitter-typescript
-    #           tree-sitter-javascript
-    #           tree-sitter-cmake
-    #           tree-sitter-comment
-    #           tree-sitter-http
-    #           tree-sitter-regex
-    #           tree-sitter-dart
-    #           tree-sitter-make
-    #           tree-sitter-html
-    #           tree-sitter-css
-    #           tree-sitter-latex
-    #           tree-sitter-bibtex
-    #           tree-sitter-php
-    #           tree-sitter-sql
-    #           tree-sitter-zig
-    #           tree-sitter-dockerfile
-    #           tree-sitter-markdown
-    #         ]))
-    #];
+    plugins = with pkgs.vimPlugins; [
+      #  {
+      #    plugin = jabuti-nvim;
+      #    config = "colorscheme jabuti";
+      #  }
+      #       copilot-lua
+      #       lsp_lines-nvim
+      #       vim-nix
+      #       nvim-ts-autotag
+      #       cmp-nvim-lsp-signature-help
+      #       cmp-buffer
+      #       comment-nvim
+      #       lsp_lines-nvim
+      #       null-ls-nvim
+      #       vim-fugitive
+      #       friendly-snippets
+      #       luasnip
+      #       rust-tools-nvim
+      #       crates-nvim
+      #       vim-illuminate
+      #       cmp_luasnip
+      #       nvim-cmp
+      #       impatient-nvim
+      #       indent-blankline-nvim
+      #       nvim-tree-lua
+      #       telescope-nvim
+      #       nvim-web-devicons
+      #       cmp-nvim-lsp
+      #       cmp-path
+      #       catppuccin-nvim
+      #       lspkind-nvim
+      #       nvim-lspconfig
+      #       hop-nvim
+      #       alpha-nvim
+      #       nvim-autopairs
+      #       nvim-colorizer-lua
+      #       nvim-ts-rainbow
+      #       gitsigns-nvim
+      #       toggleterm-nvim
+      #       todo-comments-nvim
+      #       (nvim-treesitter.withPlugins (plugins:
+      #         with plugins; [
+      #           tree-sitter-python
+      #           tree-sitter-c
+      #           tree-sitter-nix
+      #           tree-sitter-cpp
+      #           tree-sitter-rust
+      #           tree-sitter-toml
+      #           tree-sitter-json
+      #           tree-sitter-lua
+      #           tree-sitter-go
+      #           tree-sitter-java
+      #           tree-sitter-typescript
+      #           tree-sitter-javascript
+      #           tree-sitter-cmake
+      #           tree-sitter-comment
+      #           tree-sitter-http
+      #           tree-sitter-regex
+      #           tree-sitter-dart
+      #           tree-sitter-make
+      #           tree-sitter-html
+      #           tree-sitter-css
+      #           tree-sitter-latex
+      #           tree-sitter-bibtex
+      #           tree-sitter-php
+      #           tree-sitter-sql
+      #           tree-sitter-zig
+      #           tree-sitter-dockerfile
+      #           tree-sitter-markdown
+      #         ]))
+    ];
   };
 }
