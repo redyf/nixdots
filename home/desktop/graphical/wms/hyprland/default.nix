@@ -220,7 +220,7 @@ in {
         "SUPER,o,exec,anytype --use-gl=desktop"
         ",Print,exec,~/.config/hypr/scripts/screenshot.sh"
         "SUPER,space,exec,bemenu-run"
-        # "SUPER,z,exec,waybar"
+        "SUPER,z,exec,waybar"
         # "SUPER,space,exec, tofi-drun --drun-launch=true"
         # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
         # "SUPER SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip"
@@ -256,7 +256,6 @@ in {
         "tile,^(Spotify)$"
         "tile,^(neovide)$"
         "tile,^(wps)$"
-        "opacity 1.0 override 1.0 override,^(neovide)$"
       ];
 
       windowrulev2 = [
