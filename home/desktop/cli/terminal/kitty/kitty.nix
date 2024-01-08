@@ -1268,6 +1268,7 @@
   # include themes/decayce.conf
   # include themes/lunar.conf
   include themes/mocha.conf
+  # include themes/rose-pine.conf
   # include themes/macchiato.conf
   # include themes/oxocarbon.conf
   # include themes/tokyonight_night.conf
