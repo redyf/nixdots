@@ -1,3 +1,3 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.nitch];
+{ pkgs, ... }: {
+  home.packages = [ pkgs.nitch ];
 }

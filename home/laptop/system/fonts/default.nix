@@ -1,9 +1,8 @@
-{
-  inputs,
-  config,
-  pkgs,
-  lib,
-  ...
+{ inputs
+, config
+, pkgs
+, lib
+, ...
 }: {
   home.packages = with pkgs; [
     # Fonts
@@ -20,6 +19,6 @@
     fira-code-symbols
     powerline-symbols
     material-design-icons
-    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "Iosevka"];})
+    (nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "FiraCode" "JetBrainsMono" "Iosevka" ]; })
   ];
 }
