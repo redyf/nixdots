@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  libs,
-  lib,
-  ...
+{ config
+, pkgs
+, libs
+, lib
+, ...
 }: {
   # xdg.configFile."ranger/rc.conf".text = ''
   #   set preview_images true
@@ -43,7 +42,7 @@
         "inode/directory"
       ];
       terminal = false;
-      categories = ["ConsoleOnly"];
+      categories = [ "ConsoleOnly" ];
     };
   };
   # home.file = {

@@ -1,10 +1,9 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }: {
-  home.packages = with pkgs; [btop];
+  home.packages = with pkgs; [ btop ];
   home.file.".config/btop/themes/macchiato.conf".text = import ./machiatto.nix;
 
   xdg.configFile."btop/btop.conf".text = ''

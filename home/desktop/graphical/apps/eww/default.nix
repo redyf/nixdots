@@ -1,9 +1,8 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # with lib; let
   #   cfg = config.modules.eww;
@@ -19,7 +18,7 @@
     eww-wayland
     pamixer
     brightnessctl
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   # configuration
