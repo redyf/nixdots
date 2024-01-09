@@ -74,18 +74,19 @@
   time.timeZone = "America/Bahia";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "pt_BR.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_BR.UTF-8";
-    LC_IDENTIFICATION = "pt_BR.UTF-8";
-    LC_MEASUREMENT = "pt_BR.UTF-8";
-    LC_MONETARY = "pt_BR.UTF-8";
-    LC_NAME = "pt_BR.UTF-8";
-    LC_NUMERIC = "pt_BR.UTF-8";
-    LC_PAPER = "pt_BR.UTF-8";
-    LC_TELEPHONE = "pt_BR.UTF-8";
-    LC_TIME = "pt_BR.UTF-8";
+  i18n = {
+    defaultLocale = "pt_BR.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "pt_BR.UTF-8";
+      LC_IDENTIFICATION = "pt_BR.UTF-8";
+      LC_MEASUREMENT = "pt_BR.UTF-8";
+      LC_MONETARY = "pt_BR.UTF-8";
+      LC_NAME = "pt_BR.UTF-8";
+      LC_NUMERIC = "pt_BR.UTF-8";
+      LC_PAPER = "pt_BR.UTF-8";
+      LC_TELEPHONE = "pt_BR.UTF-8";
+      LC_TIME = "pt_BR.UTF-8";
+    };
   };
 
   # Enable programs
@@ -101,23 +102,28 @@
     };
   };
 
-  # Use overlays
-  nixpkgs.overlays = [
-    (
-      final: prev: {
-        sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
-          pname = "sf-mono-liga-bin";
-          version = "dev";
-          src = inputs.sf-mono-liga-src;
-          dontConfigure = true;
-          installPhase = ''
-            mkdir -p $out/share/fonts/opentype
-            cp -R $src/*.otf $out/share/fonts/opentype/
-          '';
-        };
-      }
-    )
-  ];
+  # Allow unfree packages + use overlays
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      (
+        final: prev: {
+          sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
+            pname = "sf-mono-liga-bin";
+            version = "dev";
+            src = inputs.sf-mono-liga-src;
+            dontConfigure = true;
+            installPhase = ''
+              mkdir -p $out/share/fonts/opentype
+              cp -R $src/*.otf $out/share/fonts/opentype/
+            '';
+          };
+        }
+      )
+    ];
+  };
 
   fonts = {
     enableDefaultPackages = true;
@@ -132,11 +138,6 @@
         monospace = ["Courier Prime, Courier, Noto Sans Mono"];
       };
     };
-  };
-
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
   };
 
   # Enables docker in rootless mode
@@ -310,11 +311,5 @@
   #   };
   # };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 }
