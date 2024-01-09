@@ -26,20 +26,20 @@
 
 ## Special thanks to:
 
-- [NixOS Manual](https://nixos.org/manual/nixos/stable/)
-- [ZerotoNix](https://zero-to-nix.com)
-- [notusknot](https://github.com/notusknot)
+- [AlphaTechnolog](https://github.com/AlphaTechnolog/nixdots)
+- [Eriim's](https://github.com/erictossell/nixflakes)
 - [IogaMaster](https://github.com/IogaMaster)
 - [linuxmobile](https://github.com/linuxmobile)
-- [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
-- [Siduck76's NvChad](https://github.com/siduck76/nvchad/)
-- [NotAShelf's dotfiles](https://github.com/NotAShelf/nyx)
-- [AlphaTechnolog's dotfiles](https://github.com/AlphaTechnolog/nixdots)
+- [NixOS Manual](https://nixos.org/manual/nixos/stable/)
+- [NotAShelf](https://github.com/NotAShelf/nyx)
+- [notusknot](https://github.com/notusknot)
+- [Siduck76](https://github.com/siduck76/nvchad/)
+- [Sioodmy](https://github.com/sioodmy/dotfiles)
+- [ZerotoNix](https://zero-to-nix.com)
 
 <div align="center">
 <img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026486780005/rice.png" alt="Rice Preview" width="400px" height="253"/>
 <img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026058952724/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
-  <a href="https://github.com/Redyf/RedVim">Neovim</a>
 </div>
 
 ```mint
