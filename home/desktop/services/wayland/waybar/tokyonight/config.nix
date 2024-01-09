@@ -4,8 +4,8 @@ _: {
     margin-bottom = 2;
     margin-right = 8;
     margin-left = 8;
-    modules-left = ["custom/wmname" "custom/media" "hyprland/workspaces" "hyprland/window"];
-    modules-center = [];
+    modules-left = [ "custom/wmname" "custom/media" "hyprland/workspaces" "hyprland/window" ];
+    modules-center = [ ];
     modules-right = [
       "battery"
       "cpu"
@@ -22,10 +22,10 @@ _: {
 
     "hyprland/workspaces" = {
       "persistent-workspaces" = {
-        "1" = ["DP-3"];
-        "2" = ["DP-3"];
-        "3" = ["DP-3"];
-        "4" = ["DP-3"];
+        "1" = [ "DP-3" ];
+        "2" = [ "DP-3" ];
+        "3" = [ "DP-3" ];
+        "4" = [ "DP-3" ];
       };
       active-only = "false";
       on-scroll-up = "hyprctl dispatch workspace e+1";
@@ -90,7 +90,7 @@ _: {
 
     "backlight" = {
       format = "{icon}{percent}%";
-      format-icons = ["󰃞 " "󰃟 " "󰃠 "];
+      format-icons = [ "󰃞 " "󰃟 " "󰃠 " ];
       on-scroll-up = "light -A 1";
       on-scroll-down = "light -U 1";
     };
@@ -105,7 +105,7 @@ _: {
       format-charging = "󰂄 {capacity}%";
       format-plugged = " ";
       format-alt = "{time} {icon}";
-      format-icons = ["  " "  " "  " "  " "  "];
+      format-icons = [ "  " "  " "  " "  " "  " ];
     };
 
     "network" = {
@@ -131,7 +131,7 @@ _: {
         phone = " ";
         portable = " ";
         car = " ";
-        default = [" " " " " "];
+        default = [ " " " " " " ];
       };
       tooltip-format = "{desc} {volume}%";
       on-click = "pavucontrol";
