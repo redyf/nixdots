@@ -1,9 +1,11 @@
-{inputs, ...}: let
+{ inputs, ... }:
+let
   # inherit (inputs.nix-colors) colorSchemes;
   catppuccin-mocha = (import ./palettes/catppuccin-mocha.nix).colorscheme;
   # catppuccin-macchiato = (import ./palettes/catppuccin-mocha.nix).colorscheme;
   # oxocarbon-dark = (import ./palettes/oxocarbon-dark.nix).colorscheme;
-in {
+in
+{
   imports = [
     inputs.nix-colors.homeManagerModule
     ./gtk.nix

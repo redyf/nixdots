@@ -1,4 +1,5 @@
-_: let
+_:
+let
   font = "RobotoMono Nerd Font";
   fontsize = "12";
   primary_accent = "cba6f7";
@@ -7,7 +8,8 @@ _: let
   background = "11111B";
   opacity = ".85";
   cursor = "Numix-Cursor";
-in ''
+in
+''
   /*
            *
            * TokyoNight Night palette

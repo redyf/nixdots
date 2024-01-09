@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     gcc # GNU Compiler Collection
     jdk8 # Java dev kit

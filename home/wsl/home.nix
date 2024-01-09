@@ -1,8 +1,7 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
+{ pkgs
+, config
+, lib
+, ...
 }: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -44,11 +43,11 @@
         # integrates nur within Home-Manager
         nur =
           import
-          (builtins.fetchTarball {
-            url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-            sha256 = "sha256:1gr3l5fcjsd7j9g6k9jamby684k356a36h82cwck2vcxf8yw8xa0";
-          })
-          {inherit pkgs;};
+            (builtins.fetchTarball {
+              url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+              sha256 = "sha256:1gr3l5fcjsd7j9g6k9jamby684k356a36h82cwck2vcxf8yw8xa0";
+            })
+            { inherit pkgs; };
       };
     };
   };
