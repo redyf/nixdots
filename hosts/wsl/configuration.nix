@@ -1,9 +1,8 @@
-{
-  lib,
-  pkgs,
-  config,
-  modulesPath,
-  ...
+{ lib
+, pkgs
+, config
+, modulesPath
+, ...
 }: {
   imports = [
     "${modulesPath}/profiles/minimal.nix"
@@ -23,14 +22,14 @@
   };
 
   users = {
-  mutableUsers = true;
+    mutableUsers = true;
     users = {
       red = {
         isNormalUser = true;
         description = "red";
         password = "123456";
         shell = pkgs.zsh;
-        extraGroups = ["wheel" "input" "docker"];
+        extraGroups = [ "wheel" "input" "docker" ];
       };
     };
   };
@@ -88,8 +87,8 @@
     extraOptions = "experimental-features = nix-command flakes";
     settings = {
       auto-optimise-store = true;
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     gc = {
       automatic = true;
