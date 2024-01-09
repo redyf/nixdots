@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   gtk = {
     enable = true;
     cursorTheme = {
@@ -11,7 +11,7 @@
       name = "Catppuccin-Macchiato-Compact-Blue-dark";
       package = pkgs.catppuccin-gtk.override {
         size = "compact";
-        accents = ["blue"];
+        accents = [ "blue" ];
         # tweaks = ["rimless" "black"]; # You can also specify multiple tweaks here
         variant = "macchiato";
       };
