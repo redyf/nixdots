@@ -9,6 +9,7 @@
     peek # Animated GIF screen recorder
     xclip
     unzip # Unzip files using the terminal
+    nerdfix # Fix obsolete nerd font icons
     traceroute # Tool to access the X clipboard from a console application
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal

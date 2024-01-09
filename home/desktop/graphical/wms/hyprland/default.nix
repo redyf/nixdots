@@ -254,7 +254,7 @@ in {
         "tile,title:^(kitty)$"
         "float,title:^(fly_is_kitty)$"
         "tile,^(Spotify)$"
-        "tile,^(neovide)$"
+        # "tile,^(neovide)$"
         "tile,^(wps)$"
       ];
 
