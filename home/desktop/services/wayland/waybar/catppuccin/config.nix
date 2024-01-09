@@ -3,8 +3,8 @@ _: {
     layer = "top";
     position = "top";
     mod = "dock";
-    modules-left = ["custom/arch" "hyprland/workspaces"];
-    modules-center = ["hyprland/window"];
+    modules-left = [ "custom/arch" "hyprland/workspaces" ];
+    modules-center = [ "hyprland/window" ];
     modules-right = [
       "tray"
       "network"
@@ -69,7 +69,7 @@ _: {
 
     "backlight" = {
       format = "{icon}{percent}%";
-      format-icons = ["󰃞 " "󰃟 " "󰃠 "];
+      format-icons = [ "󰃞 " "󰃟 " "󰃠 " ];
       on-scroll-up = "light -A 1";
       on-scroll-down = "light -U 1";
     };
@@ -84,7 +84,7 @@ _: {
       format-charging = "󰂄 {capacity}%";
       format-plugged = " ";
       format-alt = "{time} {icon}";
-      format-icons = ["  " "  " "  " "  " "  "];
+      format-icons = [ "  " "  " "  " "  " "  " ];
     };
 
     "network" = {
@@ -100,7 +100,7 @@ _: {
       format = "{icon}";
       format-muted = " 󰖁 ";
       format-icons = {
-        default = ["  " "  " "  "];
+        default = [ "  " "  " "  " ];
       };
       on-click = "pavucontrol &";
     };
