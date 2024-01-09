@@ -1,14 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  final,
-  prev,
-  inputs,
-  packages,
-  ...
+{ config
+, pkgs
+, final
+, prev
+, inputs
+, packages
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -16,8 +15,8 @@
   ];
 
   # Kernel Modules
-  boot.kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
-  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
+  boot.kernelModules = [ "v4l2loopback" ]; # Autostart kernel modules on boot
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; # loopback module to make OBS virtual camera work
 
   # Bootloader.
   boot.loader = {
@@ -54,12 +53,12 @@
 
       theme =
         pkgs.fetchFromGitHub
-        {
-          owner = "semimqmo";
-          repo = "sekiro_grub_theme";
-          rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
-          sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
-        }
+          {
+            owner = "semimqmo";
+            repo = "sekiro_grub_theme";
+            rev = "1affe05f7257b72b69404cfc0a60e88aa19f54a6";
+            sha256 = "02gdihkd2w33qy86vs8g0pfljp919ah9c13cj4bh9fvvzm5zjfn1";
+          }
         + "/Sekiro";
     };
 
@@ -146,7 +145,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.xserver.videoDrivers = ["intel"];
+  services.xserver.videoDrivers = [ "intel" ];
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -197,7 +196,7 @@
     description = "redyf";
     initialPassword = "red123";
     shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
+    extraGroups = [ "networkmanager" "wheel" "input" "docker" "libvirtd" ];
   };
 
   # Allow unfree packages
@@ -222,8 +221,8 @@
   };
 
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

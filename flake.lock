@@ -587,7 +587,6 @@
         "sf-mono-liga-src": "sf-mono-liga-src",
         "spicetify-nix": "spicetify-nix",
         "waybar-hyprland": "waybar-hyprland",
-        "white-rabbit": "white-rabbit",
         "xdg-portal-hyprland": "xdg-portal-hyprland"
       }
     },
@@ -750,22 +749,6 @@
       "original": {
         "owner": "hyprwm",
         "repo": "hyprland",
-        "type": "github"
-      }
-    },
-    "white-rabbit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1704755968,
-        "narHash": "sha256-xHg0ZUug+7Yka+opZzPo8yLSt4/nzvKFsuQ6V7ZwcnI=",
-        "owner": "redyf",
-        "repo": "white-rabbit",
-        "rev": "02dbb4a7f3eb27be15bc1c5ae46f80f0768a5638",
-        "type": "github"
-      },
-      "original": {
-        "owner": "redyf",
-        "repo": "white-rabbit",
         "type": "github"
       }
     },
