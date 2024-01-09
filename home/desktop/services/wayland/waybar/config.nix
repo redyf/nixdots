@@ -1,13 +1,13 @@
-{
-  config,
-  pkgs,
-  lib,
-  osConfig,
-  ...
+{ config
+, pkgs
+, lib
+, osConfig
+, ...
 }:
 with lib; let
   sys = osConfig.modules.system;
-in {
+in
+{
   mainBar = {
     layer = "top"; # Original
     # position = "bottom"; # Original
@@ -117,7 +117,7 @@ in {
         phone = "";
         portable = "";
         car = "";
-        default = ["" "" ""];
+        default = [ "" "" "" ];
       };
       on-click = "pavucontrol";
     };
