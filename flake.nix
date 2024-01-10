@@ -30,99 +30,103 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    hyprland,
-    home-manager,
-    NixOS-WSL,
-    spicetify-nix,
-    ...
-  } @ inputs: let
-    supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
+  outputs =
+    { self
+    , nixpkgs
+    , hyprland
+    , home-manager
+    , NixOS-WSL
+    , spicetify-nix
+    , ...
+    } @ inputs:
+    let
+      supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
 
-    # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    # Nixpkgs instantiated for supported system types.
-    nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
-  in {
-    nixosConfigurations = {
-      redyf =
-        nixpkgs.lib.nixosSystem
-        {
+      # Nixpkgs instantiated for supported system types.
+      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
+    in
+    {
+      nixosConfigurations = {
+        redyf =
+          nixpkgs.lib.nixosSystem
+            {
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit
+                  inputs
+                  hyprland
+                  spicetify-nix
+                  ;
+              };
+              modules = [
+                ./hosts/redyf/configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useUserPackages = true;
+                    useGlobalPkgs = false;
+                    extraSpecialArgs = { inherit inputs spicetify-nix; };
+                    users.redyf = ./home/desktop/home.nix;
+                  };
+                }
+                hyprland.nixosModules.default
+                { programs.hyprland.enable = true; }
+              ];
+            };
+        laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit
-              inputs
-              hyprland
-              spicetify-nix
-              ;
+            inherit inputs hyprland;
           };
           modules = [
-            ./hosts/redyf/configuration.nix
+            ./hosts/laptop/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
-                extraSpecialArgs = {inherit inputs spicetify-nix;};
-                users.redyf = ./home/desktop/home.nix;
+                extraSpecialArgs = { inherit inputs; };
+                users.redyf = ./home/laptop/laptop.nix;
               };
             }
             hyprland.nixosModules.default
-            {programs.hyprland.enable = true;}
+            { programs.hyprland.enable = true; }
           ];
         };
-      laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs hyprland;
+        wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            { nix.registry.nixpkgs.flake = nixpkgs; }
+            ./hosts/wsl/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = false;
+                users.red = ./home/wsl/home.nix;
+              };
+            }
+            NixOS-WSL.nixosModules.wsl
+          ];
         };
-        modules = [
-          ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = false;
-              extraSpecialArgs = {inherit inputs;};
-              users.redyf = ./home/laptop/laptop.nix;
-            };
-          }
-          hyprland.nixosModules.default
-          {programs.hyprland.enable = true;}
-        ];
       };
-      wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          {nix.registry.nixpkgs.flake = nixpkgs;}
-          ./hosts/wsl/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = false;
-              users.red = ./home/wsl/home.nix;
-            };
-          }
-          NixOS-WSL.nixosModules.wsl
-        ];
-      };
-    };
-    devShells = forAllSystems (system: let
-      pkgs = nixpkgsFor.${system};
-    in {
-      default = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          git
-          nixpkgs-fmt
-          statix
-        ];
-      };
-    });
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              git
+              nixpkgs-fmt
+              statix
+            ];
+          };
+        });
 
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-  };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+    };
 }
