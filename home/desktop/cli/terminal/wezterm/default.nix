@@ -8,10 +8,13 @@ _: {
       local xcursor_theme = "macOS-BigSur"
       return {
         check_for_updates = false,
-        font_size = 12,
-        font = wezterm.font('Liga SFMono Nerd Font', { weight = 'Medium', italic = false }),
+        font_size = 16,
+        freetype_load_flags = 'NO_HINTING',
+        freetype_load_target = 'Normal',
+        line_height = 1.0,
+        font = wezterm.font('Berkeley Mono Trial', { weight = 'Medium', italic = false }),
         font = wezterm.font_with_fallback {
-        { family = 'Liga SFMono Nerd Font', weight = 'Medium', italic = false },
+        { family = 'Berkeley Mono Trial', weight = 'Medium', italic = false },
         'Noto Color Emoji',
         },
         adjust_window_size_when_changing_font_size = false,
@@ -19,7 +22,7 @@ _: {
         default_cursor_style = "SteadyBlock",
         cursor_blink_ease_in = 'EaseIn',
         cursor_blink_ease_out = 'EaseOut',
-        color_scheme = "Tokyo Night",
+        color_scheme = "Catppuccin Mocha",
         enable_scroll_bar = false,
         enable_tab_bar = false,
         enable_wayland = false,
