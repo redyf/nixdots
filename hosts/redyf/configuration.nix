@@ -119,6 +119,26 @@
               cp -R $src/*.otf $out/share/fonts/opentype/
             '';
           };
+          monolisa = prev.stdenvNoCC.mkDerivation rec {
+            pname = "monolisa";
+            version = "dev";
+            src = inputs.monolisa;
+            dontConfigure = true;
+            installPhase = ''
+              mkdir -p $out/share/fonts/opentype
+              cp -R $src/*.ttf $out/share/fonts/opentype/
+            '';
+          };
+          berkeley = prev.stdenvNoCC.mkDerivation rec {
+            pname = "berkeley";
+            version = "dev";
+            src = inputs.berkeley;
+            dontConfigure = true;
+            installPhase = ''
+              mkdir -p $out/share/fonts/opentype
+              cp -R $src/*.otf $out/share/fonts/opentype/
+            '';
+          };
         }
       )
     ];
@@ -128,6 +148,8 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       sf-mono-liga-bin
+      monolisa
+      berkeley
     ];
     fontconfig = {
       enable = true;
