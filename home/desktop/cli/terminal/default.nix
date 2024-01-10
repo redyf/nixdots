@@ -3,6 +3,6 @@ _: {
     # ./st
     ./foot
     ./kitty
-    # ./wezterm
+    ./wezterm
   ];
 }
