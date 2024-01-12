@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     noto-fonts
     dejavu_fonts
@@ -7,6 +7,6 @@
     powerline-symbols
     material-design-icons
     commit-mono
-    (nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "FiraCode" "FiraMono" "JetBrainsMono" "IntelOneMono" "Ubuntu" ]; })
+    (nerdfonts.override {fonts = ["IBMPlexMono" "CascadiaCode" "FiraCode" "FiraMono" "JetBrainsMono" "Ubuntu"];})
   ];
 }
