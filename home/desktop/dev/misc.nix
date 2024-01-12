@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # TODO: Convert all packages to nix modules
 
@@ -37,8 +37,6 @@
     nitrogen # Wallpaper utility for X11
 
     # Screenshot + extra utils
-    grim # Screenshot tool for hyprland
-    slurp # Works with grim to screenshot on wayland
     ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
     wl-clipboard # Enables copy/paste on wayland
 
