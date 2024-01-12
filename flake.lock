@@ -38,6 +38,22 @@
         "type": "github"
       }
     },
+    "berkeley": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704810583,
+        "narHash": "sha256-7NBt4QMR0eu0/YaNhGbtXztYekGr2+uVotm319Q802U=",
+        "owner": "redyf",
+        "repo": "berkeley",
+        "rev": "5adb513560b9d80dbcf5a0abcdff326596d8b9e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "redyf",
+        "repo": "berkeley",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -362,6 +378,22 @@
         "type": "github"
       }
     },
+    "monolisa": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704808993,
+        "narHash": "sha256-q/AoSwEpvB4L1Swmw8UUpjIb2JKeO9u7tdve5qghEH8=",
+        "owner": "redyf",
+        "repo": "monolisa",
+        "rev": "5a181740444159f08cdaba8d900e083d99f17785",
+        "type": "github"
+      },
+      "original": {
+        "owner": "redyf",
+        "repo": "monolisa",
+        "type": "github"
+      }
+    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -599,8 +631,10 @@
     "root": {
       "inputs": {
         "NixOS-WSL": "NixOS-WSL",
+        "berkeley": "berkeley",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "monolisa": "monolisa",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
