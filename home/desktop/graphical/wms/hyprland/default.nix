@@ -15,7 +15,7 @@
   opacity = ".85";
   cursor = "macOS-BigSur";
 in {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     grim
     slurp
     swappy
@@ -327,7 +327,7 @@ in {
     '';
   };
   # Hyprland configuration files
-  home.configFile = {
+  xdg.configFile = {
     "hypr/autostart".source = ./autostart;
     "hypr/store/dynamic_out.txt".source = ./store/dynamic_out.txt;
     "hypr/store/prev.txt".source = ./store/prev.txt;
