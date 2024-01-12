@@ -1,8 +1,9 @@
-{ pkgs
-, lib
-, config
-, osConfig
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  osConfig,
+  ...
 }:
 with lib; let
   # Bar v1
@@ -14,13 +15,9 @@ with lib; let
   # Tokyonight
   # waybar_config = import ./tokyonight/config.nix {inherit osConfig config lib pkgs;};
   # waybar_style = import ./tokyonight/style.nix {inherit (config) colorscheme;};
-  waybar_config = import ./catppuccin/config.nix { inherit osConfig config lib pkgs; };
-  waybar_style = import ./catppuccin/style.nix { inherit (config) colorscheme; };
-in
-{
-  home.packages = with pkgs; [
-    python39Packages.requests
-  ];
+  waybar_config = import ./catppuccin/config.nix {inherit osConfig config lib pkgs;};
+  waybar_style = import ./catppuccin/style.nix {inherit (config) colorscheme;};
+in {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
