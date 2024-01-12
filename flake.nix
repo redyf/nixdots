@@ -28,6 +28,16 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
+
+    monolisa = {
+      url = "github:redyf/monolisa";
+      flake = false;
+    };
+
+    berkeley = {
+      url = "github:redyf/berkeley";
+      flake = false;
+    };
   };
 
   outputs = {

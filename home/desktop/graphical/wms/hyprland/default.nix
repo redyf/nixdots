@@ -1,8 +1,8 @@
-{ inputs
-, pkgs
-, ...
-}:
-let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   hyprland_flake = inputs.hyprland.packages.${pkgs.system}.hyprland;
   fontsize = "12";
   oxocarbon_pink = "ff7eb6";
@@ -14,8 +14,19 @@ let
   catppuccin_border = "rgba(b4befeee)";
   opacity = ".85";
   cursor = "macOS-BigSur";
-in
-{
+in {
+  environment.systemPackages = with pkgs; [
+    grim
+    slurp
+    swappy
+
+    (writeShellScriptBin "screenshot" ''
+      grim -g "$(slurp)" - | wl-copy
+    '')
+    (writeShellScriptBin "screenshot-edit" ''
+      wl-paste | swappy -f -
+    '')
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -214,14 +225,19 @@ in
         # "SUPER $mainMod SHIFT, 9, movetoworkspacesilent, 9"
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-        "SUPER,RETURN,exec,kitty"
-        "ALT,RETURN,exec,foot"
+        "SUPER,RETURN,exec,wezterm"
+        "ALT,RETURN,exec,kitty"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
-        "SUPER,o,exec,anytype --use-gl=desktop"
-        ",Print,exec,~/.config/hypr/scripts/screenshot.sh"
+        ",Print,exec,screenshot"
+        "SUPER,Print,exec,screenshot-edit"
+        "SUPER SHIFT,C,exec,wallpaper"
         "SUPER,space,exec,bemenu-run"
         "SUPER,z,exec,waybar"
+        # "SUPER,space,exec, tofi-drun --drun-launch=true"
+        # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
+        # "SUPER SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip"
+        # "SUPER SHIFT,C,exec,~/.config/hypr/scripts/wallpaper_picker"
         # "SUPER,space,exec, tofi-drun --drun-launch=true"
         # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
         # "SUPER SHIFT,V,exec,~/.config/eww/fool_moon/bar/scripts/widgets toggle-clip"
@@ -231,8 +247,6 @@ in
 
       bindm = [
         # Mouse binds
-        # "SUPER,mouse_down,workspace,e+1"
-        # "SUPER,mouse_up,workspace,e-1"
         "SUPER,mouse:272,movewindow"
         "SUPER,mouse:273,resizewindow"
       ];
@@ -311,5 +325,19 @@ in
       #     # will reset the submap, meaning end the current one and return to the global one
       #     submap=reset
     '';
+  };
+  # Hyprland configuration files
+  home.configFile = {
+    "hypr/autostart".source = ./autostart;
+    "hypr/store/dynamic_out.txt".source = ./store/dynamic_out.txt;
+    "hypr/store/prev.txt".source = ./store/prev.txt;
+    "hypr/store/latest_notif".source = ./store/latest_notif;
+    "hypr/scripts/wall".source = ./scripts/wall;
+    "hypr/scripts/launch_waybar".source = ./scripts/launch_waybar;
+    "hypr/script/tools/dynamic".source = ./scripts/tools/dynamic;
+    "hypr/script/tools/expand".source = ./scripts/tools/expand;
+    "hypr/script/tools/notif".source = ./scripts/tools/notif;
+    "hypr/script/tools/start_dyn".source = ./scripts/tools/start_dyn;
+    "hypr/script/tools/swww".source = ./scripts/tools/swww;
   };
 }
