@@ -1,7 +1,6 @@
 { config
 , pkgs
 , inputs
-, Neve
 , ...
 }: {
   imports = [
