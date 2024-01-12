@@ -182,12 +182,19 @@
       XCURSOR_SIZE = "32";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      EDITOR = "nvim";
     };
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       # WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
       DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
     };
+    systemPackages = with pkgs; [
+      git
+      wget
+      playerctl
+      inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
+    ];
   };
 
   hardware = {
@@ -285,13 +292,6 @@
       ];
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    git
-    wget
-    playerctl
-    inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
-  ];
 
   # Enables flakes + garbage collector
   nix = {
