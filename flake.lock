@@ -381,11 +381,11 @@
     "monolisa": {
       "flake": false,
       "locked": {
-        "lastModified": 1704770908,
-        "narHash": "sha256-Fpr7JwWc69otIGvGKo0UPdNYCvWzd+VILtgKQH6GJ40=",
+        "lastModified": 1704808993,
+        "narHash": "sha256-q/AoSwEpvB4L1Swmw8UUpjIb2JKeO9u7tdve5qghEH8=",
         "owner": "redyf",
         "repo": "monolisa",
-        "rev": "145df83a69feb09eebd2710ec5b92ec4b50b2672",
+        "rev": "5a181740444159f08cdaba8d900e083d99f17785",
         "type": "github"
       },
       "original": {

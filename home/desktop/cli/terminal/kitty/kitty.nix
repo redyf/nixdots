@@ -10,10 +10,20 @@
   # italic_font      Liga SFMono Nerd Font Medium
   # bold_italic_font Liga SFMono Nerd Font Medium
 
-  font_family      FiraMono Nerd Font Medium
-  bold_font        FiraMono Nerd Font Medium
-  italic_font      FiraMono Nerd Font Medium
-  bold_italic_font FiraMono Nerd Font Medium
+  # font_family      Berkeley Mono Trial Medium
+  # bold_font        Berkeley Mono Trial Medium
+  # italic_font      Berkeley Mono Trial Medium
+  # bold_italic_font Berkeley Mono Trial Medium
+
+  font_family      MonoLisa Trial Medium
+  bold_font        MonoLisa Trial Medium
+  italic_font      MonoLisa Trial Medium
+  bold_italic_font MonoLisa Trial Medium
+
+  # font_family      FiraMono Nerd Font Medium
+  # bold_font        FiraMono Nerd Font Medium
+  # italic_font      FiraMono Nerd Font Medium
+  # bold_italic_font FiraMono Nerd Font Medium
 
   # font_family      Blex Mono Bold Nerd Font Complete Mono
   # bold_font        Blex Mono Bold Nerd Font Complete Mono
@@ -29,11 +39,6 @@
   # bold_font        JetBrains Mono Bold Nerd Font Complete
   # italic_font      JetBrains Mono Bold Nerd Font Complete
   # bold_italic_font JetBrains Mono Bold Nerd Font Complete
-
-  # font_family      IntoneMono Nerd Font
-  # bold_font        IntoneMono Nerd Font
-  # italic_font      IntoneMono Nerd Font
-  # bold_italic_font IntoneMono Nerd Font
 
   # font_family      Fira Code Bold Nerd Font Complete Mono
   # bold_font        Fira Code Bold Nerd Font Complete Mono
