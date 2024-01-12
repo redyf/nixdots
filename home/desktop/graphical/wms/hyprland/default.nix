@@ -1,8 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs
+, pkgs
+, ...
+}:
+let
   hyprland_flake = inputs.hyprland.packages.${pkgs.system}.hyprland;
   fontsize = "12";
   oxocarbon_pink = "ff7eb6";
@@ -14,7 +14,8 @@
   catppuccin_border = "rgba(b4befeee)";
   opacity = ".85";
   cursor = "macOS-BigSur";
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     grim
     slurp
