@@ -1,6 +1,7 @@
 _: {
   imports = [
-    ./nvim
+    ./neve
+    # ./nvim
     # ./helix
     # ./emacs
     # ./vscode
