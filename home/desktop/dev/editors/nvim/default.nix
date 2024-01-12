@@ -1,9 +1,8 @@
-{
-  inputs,
-  config,
-  pkgs,
-  system,
-  ...
+{ inputs
+, config
+, pkgs
+, system
+, ...
 }: {
   programs.neovim = {
     enable = true;
