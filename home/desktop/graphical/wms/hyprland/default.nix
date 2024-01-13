@@ -227,7 +227,6 @@ in
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
         "SUPER,RETURN,exec,wezterm"
-        "ALT,RETURN,exec,kitty"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         ",Print,exec,screenshot"
