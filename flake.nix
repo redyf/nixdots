@@ -68,14 +68,14 @@
                   ;
               };
               modules = [
-                ./hosts/redyf/configuration.nix
+                ./systems/x86_64-linux/redyf/configuration.nix
                 home-manager.nixosModules.home-manager
                 {
                   home-manager = {
                     useUserPackages = true;
                     useGlobalPkgs = false;
                     extraSpecialArgs = { inherit inputs spicetify-nix; };
-                    users.redyf = ./home/desktop/home.nix;
+                    users.redyf = ./homes/desktop/home.nix;
                   };
                 }
                 hyprland.nixosModules.default
@@ -86,13 +86,13 @@
           system = "x86_64-linux";
           modules = [
             { nix.registry.nixpkgs.flake = nixpkgs; }
-            ./hosts/wsl/configuration.nix
+            ./systems/x86_64-linux/wsl/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
-                users.red = ./home/wsl/home.nix;
+                users.red = ./homes/wsl/home.nix;
               };
             }
             NixOS-WSL.nixosModules.wsl
@@ -101,7 +101,7 @@
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/vm/configuration.nix
+            ./systems/x86_64-virt/vm/configuration.nix
             home-manager.nixosModules.home-manager
           ];
         };
