@@ -30,10 +30,6 @@
       flake = false;
     };
 
-    berkeley = {
-      url = "github:redyf/berkeley";
-      flake = false;
-    };
   };
 
   outputs =
@@ -68,14 +64,14 @@
                   ;
               };
               modules = [
-                ./systems/x86_64-linux/redyf/configuration.nix
+                ./hosts/redyf/configuration.nix
                 home-manager.nixosModules.home-manager
                 {
                   home-manager = {
                     useUserPackages = true;
                     useGlobalPkgs = false;
                     extraSpecialArgs = { inherit inputs spicetify-nix; };
-                    users.redyf = ./homes/desktop/home.nix;
+                    users.redyf = ./home/desktop/home.nix;
                   };
                 }
                 hyprland.nixosModules.default
@@ -86,13 +82,13 @@
           system = "x86_64-linux";
           modules = [
             { nix.registry.nixpkgs.flake = nixpkgs; }
-            ./systems/x86_64-linux/wsl/configuration.nix
+            ./hosts/wsl/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
-                users.red = ./homes/wsl/home.nix;
+                users.red = ./home/wsl/home.nix;
               };
             }
             NixOS-WSL.nixosModules.wsl
@@ -101,7 +97,7 @@
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./systems/x86_64-virt/vm/configuration.nix
+            ./hosts/vm/configuration.nix
             home-manager.nixosModules.home-manager
           ];
         };
