@@ -1,5 +1,5 @@
 _: {
   imports = [
-    ./eww
+    ./git
   ];
 }

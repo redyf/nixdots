@@ -1,6 +1,6 @@
 _: {
   imports = [
-    # ./xmonad
+    ./addons
     ./hyprland
   ];
 }
