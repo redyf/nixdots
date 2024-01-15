@@ -21,36 +21,27 @@
 
   # Imports
   imports = [
+    ./apps
     ./cli
+    ./cli-apps
+    ./desktop
     ./dev
-    # ./pkgs
     ./system
     ./themes
-    ./services
-    ./graphical
+    ./tools
   ];
 
-  # Overlays
+  # Allow unfree packages + use overlays
   nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
     overlays = [
       # (import (builtins.fetchTarball {
       #   url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
       # }))
       (import ../../overlays/firefox-overlay.nix)
     ];
-    config = {
-      allowUnfreePredicate = pkg: true;
-      packageOverrides = pkgs: {
-        # integrates nur within Home-Manager
-        nur =
-          import
-            (builtins.fetchTarball {
-              url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-              sha256 = "sha256:1gr3l5fcjsd7j9g6k9jamby684k356a36h82cwck2vcxf8yw8xa0";
-            })
-            { inherit pkgs; };
-      };
-    };
   };
 
   fonts.fontconfig.enable = true;

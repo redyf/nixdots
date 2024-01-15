@@ -30,10 +30,6 @@
       flake = false;
     };
 
-    berkeley = {
-      url = "github:redyf/berkeley";
-      flake = false;
-    };
   };
 
   outputs =
@@ -96,6 +92,13 @@
               };
             }
             NixOS-WSL.nixosModules.wsl
+          ];
+        };
+        vm = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/vm/configuration.nix
+            home-manager.nixosModules.home-manager
           ];
         };
       };

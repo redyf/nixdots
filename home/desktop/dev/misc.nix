@@ -17,7 +17,7 @@
     networkmanager
 
     # Office + PDF readers
-    wpsoffice # MS office alternative for linux
+    # wpsoffice # MS office alternative for linux
     zathura # PDF viewer
 
     # Browsers
@@ -42,7 +42,7 @@
 
     # Gaming
     # gnutls
-    minecraft
+    # minecraft
     # grapejuice
     # libpulseaudio
 

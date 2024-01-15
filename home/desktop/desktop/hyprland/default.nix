@@ -227,7 +227,6 @@ in
         # "SUPER $mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
         "SUPER,RETURN,exec,wezterm"
-        "ALT,RETURN,exec,kitty"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         ",Print,exec,screenshot"
@@ -335,10 +334,10 @@ in
     "hypr/store/latest_notif".source = ./store/latest_notif;
     "hypr/scripts/wall".source = ./scripts/wall;
     "hypr/scripts/launch_waybar".source = ./scripts/launch_waybar;
-    "hypr/script/tools/dynamic".source = ./scripts/tools/dynamic;
-    "hypr/script/tools/expand".source = ./scripts/tools/expand;
-    "hypr/script/tools/notif".source = ./scripts/tools/notif;
-    "hypr/script/tools/start_dyn".source = ./scripts/tools/start_dyn;
-    "hypr/script/tools/swww".source = ./scripts/tools/swww;
+    "hypr/scripts/tools/dynamic".source = ./scripts/tools/dynamic;
+    "hypr/scripts/tools/expand".source = ./scripts/tools/expand;
+    "hypr/scripts/tools/notif".source = ./scripts/tools/notif;
+    "hypr/scripts/tools/start_dyn".source = ./scripts/tools/start_dyn;
+    "hypr/scripts/tools/swww".source = ./scripts/tools/swww;
   };
 }

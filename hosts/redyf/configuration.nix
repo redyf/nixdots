@@ -35,13 +35,6 @@
               rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
               sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
             };
-
-        # theme = pkgs.fetchFromGitHub {
-        #   owner = "shvchk";
-        #   repo = "fallout-grub-theme";
-        #   rev = "80734103d0b48d724f0928e8082b6755bd3b2078";
-        #   sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";
-        # };
       };
     };
   };
@@ -129,16 +122,6 @@
               cp -R $src/*.ttf $out/share/fonts/opentype/
             '';
           };
-          berkeley = prev.stdenvNoCC.mkDerivation rec {
-            pname = "berkeley";
-            version = "dev";
-            src = inputs.berkeley;
-            dontConfigure = true;
-            installPhase = ''
-              mkdir -p $out/share/fonts/opentype
-              cp -R $src/*.otf $out/share/fonts/opentype/
-            '';
-          };
         }
       )
     ];
@@ -149,7 +132,6 @@
     packages = with pkgs; [
       sf-mono-liga-bin
       monolisa
-      berkeley
     ];
     fontconfig = {
       enable = true;
@@ -187,7 +169,7 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       # WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
-      DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
+      DEFAULT_BROWSER = "${pkgs.brave}/bin/firefox"; # Set default browser
     };
     systemPackages = with pkgs; [
       git
@@ -212,19 +194,14 @@
     };
   };
 
-  # Configure keymap in X11
   services = {
-    # Enable CUPS to print documents.
-    # printing.enable = true;
     xserver = {
-      # Enable the X11 windowing system.
       enable = true;
       displayManager = {
         gdm.enable = true;
       };
       desktopManager = {
         xfce.enable = true;
-        # gnome.enable = true;
       };
       windowManager = {
         xmonad = {
@@ -249,20 +226,19 @@
     flatpak.enable = false;
   };
 
-  # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
     wireplumber.enable = true;
-    # jack.enable = true;
   };
 
   users = {
@@ -277,7 +253,6 @@
     };
   };
 
-  # Use doas instead-of sudo
   security = {
     sudo.enable = false;
     doas = {
@@ -293,7 +268,6 @@
     };
   };
 
-  # Enables flakes + garbage collector
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
@@ -308,29 +282,5 @@
       options = "--delete-older-than 7d";
     };
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking = {
-  #   firewall = {
-  #   Or disable the firewall altogether.
-  #     enable = false;
-  #     allowedTCPPorts = [ ... ];
-  #     allowedUDPPorts = [ ... ];
-  #   };
-  # };
-
   system.stateVersion = "22.11"; # Did you read the comment?
 }
