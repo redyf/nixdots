@@ -4,7 +4,7 @@ _: {
     # ./matrix
     ./obs
     # ./chrome
-    ./firefox
+    # ./firefox
     ./spicetify
   ];
 }
