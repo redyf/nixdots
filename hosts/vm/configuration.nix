@@ -3,7 +3,7 @@
 # To be able to connect with ssh enable port forwarding with:
 # QEMU_NET_OPTS="hostfwd=tcp::2222-:22" ./result/bin/run-nixos-vm
 # Then connect with ssh -p 2222 guest@localhost
-{ lib, config, pkgs, ... }:
+{ nixpkgs, lib, config, pkgs, ... }:
 {
   # Internationalisation options
   i18n.defaultLocale = "pt_BR.UTF-8";
@@ -18,6 +18,16 @@
         x = 1280;
         y = 1024;
       };
+      qemu.options = [
+        # Better display option
+        "-vga virtio"
+        "-display gtk,zoom-to-fit=false"
+        # Enable copy/paste
+        # https://www.kraxel.org/blog/2021/05/qemu-cut-paste/
+        "-chardev qemu-vdagent,id=ch1,name=vdagent,clipboard=on"
+        "-device virtio-serial-pci"
+        "-device virtserialport,chardev=ch1,id=ch1,name=com.redhat.spice.0"
+      ];
     };
   };
 

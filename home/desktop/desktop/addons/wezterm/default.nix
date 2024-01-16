@@ -34,6 +34,7 @@ _: {
               hide_tab_bar_if_only_one_tab = true,
               window_background_opacity = 0.8,
               scrollback_lines = 8000,
+              warn_about_missing_glyphs = false,
               window_padding = {
                 left = 0,
                 right = 0,
