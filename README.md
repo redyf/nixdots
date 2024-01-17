@@ -37,10 +37,7 @@
 - [Sioodmy](https://github.com/sioodmy/dotfiles)
 - [ZerotoNix](https://zero-to-nix.com)
 
-<div align="center">
-<img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026486780005/rice.png" alt="Rice Preview" width="400px" height="253"/>
-<img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026058952724/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
-</div>
+<hr>
 
 ```mint
 ⠀⠀   🌸 Setup / Hyprland 🌸
@@ -48,7 +45,7 @@
 
  ╭─ Distro  -> NixOS
  ├─ Editor  -> Neovim
- ├─ Browser -> Firefox / Chrome
+ ├─ Browser -> Firefox 
  ├─ Shell   -> ZSH
  ╰─ Resource Monitor -> Btop
 
@@ -58,7 +55,7 @@
  ╰─ Resolution -> 1920x1080@165hz
 
  ╭─ WM       -> Hyprland
- ├─ Terminal -> Foot
+ ├─ Terminal -> Wezterm
  ├─ Theme    -> Catppuccin
  ├─ Icons    -> Papirus-Dark
  ├─ Font     -> JetBrains Mono Nerd Font
@@ -66,6 +63,14 @@
 
                         
 ```
+
+<hr>
+
+<div align="center">
+<img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026486780005/rice.png" alt="Rice Preview" width="400px" height="253"/>
+<img align="right" src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026058952724/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
+</div>
+<br>
 
 ## Commands you should know:
 
