@@ -24,7 +24,7 @@
 </div>
 <h2 align="center">NixOS system configuration. Feel free to explore!</h2>
 
-## Special thanks to:
+## Shoutout to:
 
 - [AlphaTechnolog](https://github.com/AlphaTechnolog/nixdots)
 - [Eriim's](https://github.com/erictossell/nixflakes)
