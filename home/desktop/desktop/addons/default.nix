@@ -4,7 +4,7 @@ _: {
     # ./tofi
     # ./wofi
     # ./st
-    # ./foot
+    ./foot
     # ./kitty
     ./wezterm
     ./waybar
