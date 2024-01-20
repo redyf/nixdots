@@ -6,11 +6,11 @@ _: {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "Monolisa Trial:Bold:size=16";
+          # font = "Monolisa Trial:Bold:size=16";
           # font = "FiraMono Nerd Font:Medium:size=16";
           # font = "Liga SFMono Nerd Font:Medium:size=13";
           # font = "IntoneMono Nerd Font:Medium:size=12";
-          # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=12";
+          font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=16";
           # font = "CaskaydiaCove Nerd Font:Bold:style=Extra Bold Italic:size=12";
           # font = "BlexMono Nerd Font:Bold:style=Extra Bold Italic:size=12";
           # font = "LiterationMono Nerd Font:Bold:style=Bold Italic:size=12";

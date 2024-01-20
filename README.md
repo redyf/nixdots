@@ -13,9 +13,9 @@
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
     </a>
     <br>
+            <img href="https://builtwithnix.org" src="https://builtwithnix.org/badge.svg"/>
     </div>
    </h1>
-   <br>
 
 <div align="center">
 <h1>
