@@ -12,9 +12,9 @@ _: {
               freetype_load_flags = 'NO_HINTING',
               freetype_load_target = 'Normal',
               line_height = 1.0,
-              font = wezterm.font('MonoLisa Trial', { weight = 'Medium', italic = false }),
+              font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Medium', italic = false }),
               font = wezterm.font_with_fallback {
-              { family = 'MonoLisa Trial', weight = 'Medium', italic = false },
+              { family = 'JetBrainsMono Nerd Font', weight = 'Medium', italic = false },
               'Noto Color Emoji',
               },
               adjust_window_size_when_changing_font_size = false,
