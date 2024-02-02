@@ -10,9 +10,9 @@
         <img src="https://img.shields.io/github/stars/redyf/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/redyf/nixdots">
-        <img src="https://img.shields.io/github/repo-size/redyf/snowfall?color=ea999c&labelColor=303446&style=for-the-badge">
+        <img src="https://img.shields.io/github/repo-size/redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/redyf/snowfall/LICENSE">
+    <a href="https://github.com/redyf/nixdots/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
     </a>
     <br>
