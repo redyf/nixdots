@@ -45,7 +45,7 @@ in
         la = "eza -a";
         mv = "mv -i";
         rip = "rip -i";
-        rebuild = "cd ~/nixdots && doas nixos-rebuild switch --flake .#redyf";
+        rebuild = "cd ~/snowfall && doas nixos-rebuild switch --flake .#redyf";
         g = "git";
         ga = "git add";
         gaa = "git add .";
@@ -303,7 +303,7 @@ in
               la = "eza -a";
               mv = "mv -i";
               rip = "rip -i";
-              rebuild = "cd ~/nixdots && doas nixos-rebuild switch --flake .#redyf";
+              rebuild = "cd ~/snowfall && doas nixos-rebuild switch --flake .#redyf";
               postman = "postman --use-gl=desktop";
               insomnia = "insomnia --use-gl=desktop";
               beekeeper-studio = "beekeeper-studio --use-gl=desktop";
