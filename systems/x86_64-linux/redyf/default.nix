@@ -8,10 +8,8 @@ with lib.custom;
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
-
-  # TODO: Fix fonts monolisa and sf-mono
 
   suites = {
     common = enabled;
