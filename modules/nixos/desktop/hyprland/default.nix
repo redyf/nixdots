@@ -17,7 +17,7 @@ with lib.custom; let
   tokyonight_border = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
   tokyonight_background = "rgba(32344aaa)";
   catppuccin_border = "rgba(b4befeee)";
-  opacity = ".85";
+  opacity = "0.95";
   cursor = "macOS-BigSur";
 in
 {
@@ -290,7 +290,7 @@ in
 
         windowrulev2 = [
           "opacity ${opacity} ${opacity},class:^(thunar)$"
-          # "opacity ${custom.opacity} ${custom.opacity},class:^(WebCord)$"
+          "opacity ${opacity} ${opacity},class:^(discord)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
