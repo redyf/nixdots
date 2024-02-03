@@ -1,4 +1,5 @@
-{ options
+{ inputs
+, options
 , config
 , pkgs
 , lib
@@ -7,6 +8,7 @@
 with lib;
 with lib.custom; let
   cfg = config.system.nix;
+  manixFlake = inputs.manix.packages.${pkgs.system}.manix;
 in
 {
   options.system.nix = with types; {
@@ -16,12 +18,13 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      nil
+      nixd
       statix
       nixfmt
       nix-index
       nix-init
       nix-prefetch-git
+      manixFlake
     ];
 
     nix =
