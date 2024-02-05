@@ -2,6 +2,8 @@
 
 # sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko-config.nix
 
+# sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disks/default.nix --arg device '/dev/vda'
+
 
 { lib
 , device ? throw "Set this to your disk device, e.g. /dev/sda"
