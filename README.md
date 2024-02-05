@@ -151,7 +151,7 @@ mkdir -p /mnt/etc/
 git clone https://github.com/redyf/nixdots.git /mnt/etc/nixos --recurse-submodules
 
 # remove this file
-rm /mnt/etc/nixos/systems/x86_64-linux/redyf/hardware.nix
+rm /mnt/etc/nixos/systems/x86_64-linux/redyf/hardware-configuration.nix
 
 # generate the config and take some files
 nixos-generate-config --root /mnt
