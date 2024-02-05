@@ -19,7 +19,7 @@ in
         EDITOR = "nvim";
       };
       systemPackages = with pkgs; [
-        neovim
+        neovim-nightly
         lazygit
         stylua
         sumneko-lua-language-server

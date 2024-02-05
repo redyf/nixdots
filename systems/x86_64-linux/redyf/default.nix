@@ -8,7 +8,7 @@ with lib.custom;
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware.nix
+    ./hardware-configuration.nix
   ];
 
   suites = {
