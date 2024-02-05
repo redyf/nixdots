@@ -116,7 +116,7 @@
       # Add modules to all NixOS systems.
       systems.modules.nixos = with inputs; [
         spicetify-nix.nixosModule
-        disko.nixosModules.default
+        disko.nixosModules.disko
       ];
 
       # Add a module to a specific host.
