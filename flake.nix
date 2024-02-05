@@ -48,6 +48,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     Neve.url = "github:redyf/Neve";
+    disko.url = "github:nix-community/disko";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
@@ -107,11 +109,14 @@
       #   };
       # };
 
-      # overlays = with inputs; [ ];
+      overlays = with inputs; [
+        inputs.neovim-nightly-overlay.overlay
+      ];
 
       # Add modules to all NixOS systems.
       systems.modules.nixos = with inputs; [
         spicetify-nix.nixosModule
+        disko.nixosModules.default
       ];
 
       # Add a module to a specific host.
