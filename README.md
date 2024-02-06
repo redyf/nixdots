@@ -1,7 +1,6 @@
 <h1 align="center">
 <a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
   <br>
-  <br>
   <div>
     <a href="https://github.com/redyf/nixdots/issues">
         <img src="https://img.shields.io/github/issues/redyf/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
@@ -19,7 +18,6 @@
     </div>
         <img href="https://builtwithnix.org" src="https://builtwithnix.org/badge.svg"/>
    </h1>
-   <br>
 
 <div align="center">
 <h1>
@@ -27,21 +25,6 @@
 </h1>
 </div>
 <h2 align="center">NixOS system configuration. Feel free to explore!</h2>
-
-## Shoutout to:
-
-- [AlphaTechnolog](https://github.com/AlphaTechnolog/nixdots)
-- [Eriim's](https://github.com/erictossell/nixflakes)
-- [IogaMaster](https://github.com/IogaMaster)
-- [linuxmobile](https://github.com/linuxmobile)
-- [NixOS Manual](https://nixos.org/manual/nixos/stable/)
-- [NotAShelf](https://github.com/NotAShelf/nyx)
-- [notusknot](https://github.com/notusknot)
-- [Siduck76](https://github.com/siduck76/nvchad/)
-- [Sioodmy](https://github.com/sioodmy/dotfiles)
-- [ZerotoNix](https://zero-to-nix.com)
-
-<hr>
 
 ```mint
 ⠀⠀   🌸 Setup / Hyprland 🌸
@@ -169,6 +152,21 @@ If you'd like to use my config as a template, all you need to do is replace "red
 ```
 
 Credits for the installation section goes to [Stephenstechtalks](https://github.com/stephenstechtalks) and [AlphaTechnolog](https://github.com/AlphaTechnolog) as they helped a lot with their installation guides.
+
+## Shoutout to:
+
+- [AlphaTechnolog](https://github.com/AlphaTechnolog/nixdots)
+- [Eriim's](https://github.com/erictossell/nixflakes)
+- [IogaMaster](https://github.com/IogaMaster)
+- [linuxmobile](https://github.com/linuxmobile)
+- [NixOS Manual](https://nixos.org/manual/nixos/stable/)
+- [NotAShelf](https://github.com/NotAShelf/nyx)
+- [notusknot](https://github.com/notusknot)
+- [Siduck76](https://github.com/siduck76/nvchad/)
+- [Sioodmy](https://github.com/sioodmy/dotfiles)
+- [ZerotoNix](https://zero-to-nix.com)
+
+<hr>
 
 ## Conclusion
 
