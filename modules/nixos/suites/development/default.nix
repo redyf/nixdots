@@ -14,6 +14,9 @@ in
   };
 
   config = mkIf cfg.enable {
+    apps = {
+      insomnia = enabled;
+    };
     cli-apps = {
       helix = disabled;
       neovim = disabled;
