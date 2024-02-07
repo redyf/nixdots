@@ -33,26 +33,27 @@ in
       extraConfig =
         ''
                     # Shift Alt vim keys to switch windows
-                    # bind -n M-H previous-window
-                    # bind -n M-L next-window
+                    bind -n M-H previous-window
+                    bind -n M-L next-window
 
                     # Alt arrow keys to switch windows
-                    bind -T root M-Left previous-window
-                    bind -T root M-Right next-window
+                    # bind -T root M-Left previous-window
+                    # bind -T root M-Right next-window
 
                     # Open panes in current directory
                     bind '"' split-window -v -c "#{pane_current_path}"
                     bind % split-window -h -c "#{pane_current_path}"
 
+          #--------------------------------------------------------------------------
+          # Status line
+          #--------------------------------------------------------------------------
                     # Enable catppuccin theme
                     # set -g @catppuccin_flavour 'mocha'
+
                     # Enable transparent tmux bar
                     # set -g status-bg default
                     # set -g status-style bg=default
 
-          #--------------------------------------------------------------------------
-          # Status line
-          #--------------------------------------------------------------------------
 
                     # Status line customisation
                     set-option -g status-left-length 100
@@ -81,7 +82,7 @@ in
                     # set -g window-status-current-format "#[bg=#171717, fg=#8e8aa9] #I·#W "
                     # set -g status-right "#[fg=#111111]█#[fg=#131313]█#[fg=#151515]█#[bg=#171717, fg=#a38c8c] %H:%M #[bg=#171717, fg=#8e8aa9]  "
                     # set -g window-status-activity-style none
-                    #
+                    
                     # Tokyonight
                     # # ----- Messages -----
                     # set-option -g mode-style 'bg=blue, fg=black'
