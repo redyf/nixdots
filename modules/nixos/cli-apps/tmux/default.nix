@@ -32,27 +32,36 @@ in
       ];
       extraConfig =
         ''
+          #--------------------------------------------------------------------------
+          # Keybinds
+          #--------------------------------------------------------------------------
                     # Shift Alt vim keys to switch windows
-                    # bind -n M-H previous-window
-                    # bind -n M-L next-window
+                    bind -n M-H previous-window
+                    bind -n M-L next-window
 
                     # Alt arrow keys to switch windows
-                    bind -T root M-Left previous-window
-                    bind -T root M-Right next-window
+                    # bind -T root M-Left previous-window
+                    # bind -T root M-Right next-window
 
                     # Open panes in current directory
                     bind '"' split-window -v -c "#{pane_current_path}"
                     bind % split-window -h -c "#{pane_current_path}"
 
-                    # Enable catppuccin theme
-                    # set -g @catppuccin_flavour 'mocha'
-                    # Enable transparent tmux bar
-                    # set -g status-bg default
-                    # set -g status-style bg=default
+                    # Copy mode
+                    bind-key -T copy-mode-vi v send-keys -X begin-selection
+                    bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+                    bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
           #--------------------------------------------------------------------------
           # Status line
           #--------------------------------------------------------------------------
+                    # Enable catppuccin theme
+                    # set -g @catppuccin_flavour 'mocha'
+
+                    # Enable transparent tmux bar
+                    # set -g status-bg default
+                    # set -g status-style bg=default
+
 
                     # Status line customisation
                     set-option -g status-left-length 100
@@ -68,7 +77,7 @@ in
 
                     set-option -g window-status-format "#{window_index}:#{window_name}#{window_flags} " # window_name -> pane_current_command
                     set-option -g window-status-current-format "#{window_index}:#{window_name}#{window_flags} "
-                    set-option -g window-status-current-style "fg=#dcc7a0"  #for gruvbox use: dcc7a0 or aeb6ff
+                    set-option -g window-status-current-style "fg=#B4BEFE"  #for gruvbox use: dcc7a0 or aeb6ff
                     set-option -g window-status-activity-style none
 
                     # Biscuit
@@ -81,7 +90,7 @@ in
                     # set -g window-status-current-format "#[bg=#171717, fg=#8e8aa9] #I·#W "
                     # set -g status-right "#[fg=#111111]█#[fg=#131313]█#[fg=#151515]█#[bg=#171717, fg=#a38c8c] %H:%M #[bg=#171717, fg=#8e8aa9]  "
                     # set -g window-status-activity-style none
-                    #
+                    
                     # Tokyonight
                     # # ----- Messages -----
                     # set-option -g mode-style 'bg=blue, fg=black'
