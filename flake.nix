@@ -100,6 +100,7 @@
               { inherit pkgs; };
         };
       };
+
       # You can also pass through external packages or dynamically create new ones
       # in addition to the ones that `lib` will create from your `packages/` directory.
       # outputs-builder = channels: {
@@ -139,7 +140,7 @@
             modules = with inputs; [
               (import ./disks/default.nix {
                 inherit lib;
-                device = "/dev/vda";
+                device = "/dev/nvme0n1";
               })
             ];
           };
@@ -148,8 +149,17 @@
               inputs.nixos-wsl.nixosModules.wsl
             ];
           };
+          vm = {
+            modules = with inputs; [
+              (import ./disks/default.nix {
+                inherit lib;
+                device = "/dev/vda";
+              })
+            ];
+          };
         };
       };
+
       # Add modules to all homes.
       # homes.modules = with inputs; [
       # ];
