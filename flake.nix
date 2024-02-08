@@ -100,7 +100,6 @@
               { inherit pkgs; };
         };
       };
-
       # You can also pass through external packages or dynamically create new ones
       # in addition to the ones that `lib` will create from your `packages/` directory.
       # outputs-builder = channels: {
@@ -111,6 +110,20 @@
 
       overlays = with inputs; [
         inputs.neovim-nightly-overlay.overlay
+        (
+          final: prev: {
+            sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
+              pname = "sf-mono-liga-bin";
+              version = "dev";
+              src = inputs.sf-mono-liga-src;
+              dontConfigure = true;
+              installPhase = ''
+                mkdir -p $out/share/fonts/opentype
+                cp -R $src/*.otf $out/share/fonts/opentype/
+              '';
+            };
+          }
+        )
       ];
 
       # Add modules to all NixOS systems.
@@ -120,10 +133,23 @@
       ];
 
       # Add a module to a specific host.
-      systems.hosts.wsl.modules = with inputs; [
-        inputs.nixos-wsl.nixosModules.wsl
-      ];
-
+      systems = {
+        hosts = {
+          redyf = {
+            modules = with inputs; [
+              (import ./disks/default.nix {
+                inherit lib;
+                device = "/dev/vda";
+              })
+            ];
+          };
+          wsl = {
+            modules = with inputs; [
+              inputs.nixos-wsl.nixosModules.wsl
+            ];
+          };
+        };
+      };
       # Add modules to all homes.
       # homes.modules = with inputs; [
       # ];
