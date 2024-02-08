@@ -9,7 +9,7 @@ with lib.custom;
   imports = [
     <nixos/nixos/modules/virtualisation/virtualbox-image.nix>
   ];
-  # suites = {
-  #   development = enabled;
-  # };
+  suites = {
+    development = enabled;
+  };
 }
