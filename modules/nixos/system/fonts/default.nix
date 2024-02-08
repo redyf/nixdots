@@ -35,16 +35,15 @@ in
       };
       packages = with pkgs;
         [
-          # sf-mono-liga-bin
+          sf-mono-liga-bin
           noto-fonts
           dejavu_fonts
           font-awesome
           fira-code-symbols
           powerline-symbols
           material-design-icons
-          commit-mono
           ubuntu_font_family
-          (nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "FiraCode" "FiraMono" "JetBrainsMono" "Ubuntu" ]; })
+          (nerdfonts.override { fonts = [ "IBMPlexMono" "CascadiaCode" "FiraMono" "JetBrainsMono" ]; })
         ]
         ++ cfg.fonts;
     };
