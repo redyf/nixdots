@@ -69,7 +69,7 @@ in
 
                     set-option -g window-status-format "#{window_index}:#{window_name}#{window_flags} " # window_name -> pane_current_command
                     set-option -g window-status-current-format "#{window_index}:#{window_name}#{window_flags} "
-                    set-option -g window-status-current-style "fg=#dcc7a0"  #for gruvbox use: dcc7a0 or aeb6ff
+                    set-option -g window-status-current-style "fg=#B4BEFE"  #for gruvbox use: dcc7a0 or aeb6ff
                     set-option -g window-status-activity-style none
 
                     # Biscuit

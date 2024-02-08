@@ -49,16 +49,6 @@ with lib.custom;
               cp -R $src/*.otf $out/share/fonts/opentype/
             '';
           };
-          monolisa = prev.stdenvNoCC.mkDerivation rec {
-            pname = "monolisa";
-            version = "dev";
-            src = inputs.monolisa;
-            dontConfigure = true;
-            installPhase = ''
-              mkdir -p $out/share/fonts/opentype
-              cp -R $src/*.ttf $out/share/fonts/opentype/
-            '';
-          };
         }
       )
     ];
