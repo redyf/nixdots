@@ -146,7 +146,7 @@
           };
           wsl = {
             modules = with inputs; [
-              inputs.nixos-wsl.nixosModules.wsl
+              nixos-wsl.nixosModules.wsl
             ];
           };
           vm = {
