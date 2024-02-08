@@ -82,12 +82,17 @@ iwctl --passphrase [passphrase] station [device] connect [SSID]
 
 ## Installation
 
-I'll guide you through the Installation, but first make sure to download the Minimal ISO image available at [NixOS](https://nixos.org/download#nixos-iso) and make a bootable drive with it. I suggest using [Rufus](https://rufus.ie/en/) for the task as it's a great software.
-Also I'm going to use an ethernet cable for the tutorial to make things easier. We shall begin!
+I'll guide you through the Installation, but first make sure to download the Minimal ISO image available at [NixOS](https://nixos.org/download#nixos-iso) and make a bootable drive with it. I suggest using [Rufus](https://rufus.ie/en/) for the task as it's a great software,
+and an ethernet cable to make things easier. We shall begin!
 
-### Installation Steps
+<details>
+    <summary>Installation Steps</summary>
 
-**Only follow these steps after using the bootable drive, changing BIOS boot priority and getting into the installation!**
+<strong>
+
+Only follow these steps after using the bootable drive, changing BIOS boot priority and getting into the installation!
+
+</strong>
 
 ```
 First part:
@@ -150,6 +155,24 @@ nixos-install --flake '.#redyf'
 # Obs:
 If you'd like to use my config as a template, all you need to do is replace "redyf" with your username.
 ```
+
+</details>
+<hr>
+
+Disko is also available for formatting partitions (Only for advanced users)
+
+<details>
+<summary>Disko</summary>
+
+```
+If you'd saved this configuration in ./disks/default.nix, and wanted to create a disk named /dev/nvme0n1, you would run the following command to partition, format and mount the disk.
+
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disks/default.nix --arg device '/dev/nvme0n1'
+```
+
+</details>
+
+<hr>
 
 Credits for the installation section goes to [Stephenstechtalks](https://github.com/stephenstechtalks) and [AlphaTechnolog](https://github.com/AlphaTechnolog) as they helped a lot with their installation guides.
 
