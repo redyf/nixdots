@@ -30,7 +30,7 @@ in
           device = "nodev";
           efiSupport = true;
           useOSProber = true;
-          configurationLimit = 5;
+          configurationLimit = 8;
           theme =
             pkgs.fetchFromGitHub
               {
