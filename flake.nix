@@ -136,14 +136,14 @@
       # Add a module to a specific host.
       systems = {
         hosts = {
-          # redyf = {
-          #   modules = with inputs; [
-          #     (import ./disks/default.nix {
-          #       inherit lib;
-          #       device = "/dev/nvme0n1";
-          #     })
-          #   ];
-          # };
+          redyf = {
+            modules = with inputs; [
+              (import ./disks/default.nix {
+                inherit lib;
+                device = "/dev/nvme0n1";
+              })
+            ];
+          };
           wsl = {
             modules = with inputs; [
               nixos-wsl.nixosModules.wsl
