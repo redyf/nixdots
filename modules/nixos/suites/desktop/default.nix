@@ -19,14 +19,15 @@ in
       xfce = enabled;
       xmonad = enabled;
       addons = {
-        foot = enabled;
+        foot = disabled;
         alacritty = enabled;
+        kitty = enabled;
         bemenu = disabled;
         rofi = disabled;
         wofi = enabled;
         swww = enabled;
-        wezterm = disabled;
         waybar = enabled;
+        wezterm = disabled;
         xdg-portal = enabled;
       };
     };
