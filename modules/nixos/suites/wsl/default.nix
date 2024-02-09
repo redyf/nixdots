@@ -41,7 +41,7 @@ in
         dart = disabled;
         elixir = disabled;
         go = disabled;
-        java = disabled;
+        java = enabled;
         javascript = enabled;
         lua = enabled;
         markdown = enabled;
