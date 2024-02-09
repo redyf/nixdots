@@ -23,11 +23,6 @@ in
       neve = enabled;
       tmux = enabled;
     };
-    desktop = {
-      addons = {
-        foot = enabled;
-      };
-    };
     tools = {
       git = enabled;
       http = enabled;
