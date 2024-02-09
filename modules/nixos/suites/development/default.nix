@@ -39,14 +39,14 @@ in
         java = enabled;
         rust = enabled;
         python = enabled;
-        sql = disabled;
+        sql = enabled;
         javascript = enabled;
         lua = enabled;
         markdown = enabled;
       };
     };
     virtualization = {
-      kvm = disabled;
+      kvm = enabled;
     };
   };
 }
