@@ -21,7 +21,9 @@ in
       addons = {
         foot = enabled;
         alacritty = enabled;
-        bemenu = enabled;
+        bemenu = disabled;
+        rofi = disabled;
+        wofi = enabled;
         swww = enabled;
         wezterm = disabled;
         waybar = enabled;
