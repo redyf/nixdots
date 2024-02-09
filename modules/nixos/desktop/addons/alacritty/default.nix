@@ -27,19 +27,19 @@ in
         font = {
           size = 15;
           normal = {
-            family = "JetBrainsMono Nerd Font";
+            family = "Liga SFMono Nerd Font";
             style = "Medium";
           };
           bold = {
-            family = "JetBrainsMono Nerd Font";
+            family = "Liga SFMono Nerd Font";
             style = "Bold";
           };
           italic = {
-            family = "JetBrainsMono Nerd Font";
+            family = "Liga SFMono Nerd Font";
             style = "Italic";
           };
           bold_italic = {
-            family = "JetBrainsMono Nerd Font";
+            family = "Liga SFMono Nerd Font";
             style = "Bold Italic";
           };
           offset = {
