@@ -254,10 +254,10 @@ in
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
           "SUPER SHIFT,C,exec,wallpaper"
-          "SUPER,space,exec,bemenu-run"
           "SUPER,z,exec,waybar"
+          # "SUPER,space,exec,bemenu-run"
           # "SUPER,space,exec, tofi-drun --drun-launch=true"
-          # SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3
+          "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
         ];
 
         bindm = [
@@ -344,7 +344,6 @@ in
 
     # Hyprland configuration files
     home.configFile = {
-      # "hypr/autostart".source = ./autostart;
       "hypr/store/dynamic_out.txt".source = ./store/dynamic_out.txt;
       "hypr/store/prev.txt".source = ./store/prev.txt;
       "hypr/store/latest_notif".source = ./store/latest_notif;
@@ -354,7 +353,6 @@ in
       "hypr/scripts/tools/expand".source = ./scripts/tools/expand;
       "hypr/scripts/tools/notif".source = ./scripts/tools/notif;
       "hypr/scripts/tools/start_dyn".source = ./scripts/tools/start_dyn;
-      "hypr/scripts/tools/swww".source = ./scripts/tools/swww;
     };
   };
 }
