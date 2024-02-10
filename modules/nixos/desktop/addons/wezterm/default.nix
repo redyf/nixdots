@@ -26,7 +26,7 @@ in
               local xcursor_theme = "macOS-BigSur"
               return {
                 adjust_window_size_when_changing_font_size = false,
-                animation_fps = 1,
+                animation_fps = 0,
                 check_for_updates = false,
                 cell_width = 0.88,
                 cursor_blink_ease_in = 'EaseIn',
@@ -37,15 +37,16 @@ in
                 enable_tab_bar = false,
                 enable_wayland = false,
                 font_size = 15,
-                font = wezterm.font('BerkeleyMono', { weight = 'Medium', italic = false }),
+                font = wezterm.font('MonoLisa', { weight = 'Medium', italic = false }),
                 font = wezterm.font_with_fallback {
-                { family = 'BerkeleyMono', weight = 'Medium', italic = false },
+                { family = 'MonoLisa', weight = 'Medium', italic = false },
                 'Noto Color Emoji',
                 },
                 freetype_load_flags = 'NO_HINTING',
                 freetype_load_target = 'Normal',
                 -- front_end = "WebGpu",
                 hide_tab_bar_if_only_one_tab = true,
+                hide_mouse_cursor_when_typing = false,
                 line_height = 1.0,
                 scrollback_lines = 8000,
                 term = "xterm-256color",

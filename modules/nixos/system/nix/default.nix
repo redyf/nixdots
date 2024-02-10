@@ -18,7 +18,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      nixd
+      nil
       statix
       nixfmt
       nix-index
