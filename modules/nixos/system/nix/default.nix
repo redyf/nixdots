@@ -20,7 +20,7 @@ in
     environment.systemPackages = with pkgs; [
       nil
       statix
-      nixfmt
+      alejandra
       nix-index
       nix-init
       nix-prefetch-git
