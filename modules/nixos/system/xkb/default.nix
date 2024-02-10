@@ -15,8 +15,10 @@ in
   config = mkIf cfg.enable {
     console.useXkbConfig = true;
     services.xserver = {
-      layout = "br";
-      xkbVariant = "";
+      xkb = {
+        variant = "";
+        layout = "br";
+      };
     };
   };
 }
