@@ -47,7 +47,7 @@ in
         markdown = enabled;
         python = enabled;
         rust = enabled;
-        sql = disabled;
+        sql = enabled;
       };
     };
   };
