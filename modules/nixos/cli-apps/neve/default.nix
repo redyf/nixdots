@@ -1,15 +1,17 @@
-{ inputs
-, options
-, config
-, pkgs
-, lib
-, ...
+{
+  inputs,
+  options,
+  config,
+  pkgs,
+  lib,
+  system,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.neve;
-in
-{
+  neve = inputs.Neve.packages.${system}.default;
+in {
   options.cli-apps.neve = with types; {
     enable = mkBoolOpt false "Enable or disable Neve";
   };
@@ -20,7 +22,7 @@ in
         EDITOR = "nvim";
       };
       systemPackages = with pkgs; [
-        inputs.Neve.packages.${system}.default
+        neve
         lazygit
         stylua
         sumneko-lua-language-server
