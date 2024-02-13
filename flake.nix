@@ -63,29 +63,30 @@
     };
   };
 
-  outputs = inputs: let
-    inherit (inputs) hyprland nixpkgs;
-    supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
+  outputs = inputs:
+    let
+      inherit (inputs) hyprland nixpkgs;
+      supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
 
-    # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    # Nixpkgs instantiated for supported system types.
-    nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
-    lib = inputs.snowfall-lib.mkLib {
-      inherit inputs;
-      src = ./.;
+      # Nixpkgs instantiated for supported system types.
+      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
+      lib = inputs.snowfall-lib.mkLib {
+        inherit inputs;
+        src = ./.;
 
-      snowfall = {
-        meta = {
-          name = "nixdots";
-          title = "nixdots";
+        snowfall = {
+          meta = {
+            name = "nixdots";
+            title = "nixdots";
+          };
+
+          namespace = "custom";
         };
-
-        namespace = "custom";
       };
-    };
-  in
+    in
     lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -97,11 +98,11 @@
           # integrates nur within Home-Manager
           nur =
             import
-            (builtins.fetchTarball {
-              url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-              sha256 = "sha256:1gr3l5fcjsd7j9g6k9jamby684k356a36h82cwck2vcxf8yw8xa0";
-            })
-            {inherit pkgs;};
+              (builtins.fetchTarball {
+                url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+                sha256 = "sha256:1gr3l5fcjsd7j9g6k9jamby684k356a36h82cwck2vcxf8yw8xa0";
+              })
+              { inherit pkgs; };
         };
       };
 
@@ -196,19 +197,21 @@
       #       deploy-lib.deployChecks inputs.self.deploy)
       #     inputs.deploy-rs.lib;
 
-      templates = import ./templates {};
+      templates = import ./templates { };
 
-      devShells = forAllSystems (system: let
-        pkgs = nixpkgsFor.${system};
-      in {
-        default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            git
-            nixpkgs-fmt
-            statix
-          ];
-        };
-      });
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              git
+              nixpkgs-fmt
+              statix
+            ];
+          };
+        });
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };
 }
