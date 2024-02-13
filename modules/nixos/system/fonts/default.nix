@@ -36,6 +36,7 @@ in
       packages = with pkgs;
         [
           sf-mono-liga-bin
+          Monolisa
           noto-fonts
           dejavu_fonts
           font-awesome
