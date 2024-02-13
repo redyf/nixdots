@@ -29,8 +29,6 @@ in {
         p = "pfetch";
         fetch = "neofetch w3m";
         grep = "grep --color=auto";
-        ls = "eza";
-        la = "eza -a";
         mv = "mv -i";
         rip = "rip -i";
         rebuild = "cd ~/nixdots && doas nixos-rebuild switch --flake .#redyf";
@@ -219,8 +217,6 @@ in {
             p = "pfetch";
             fetch = "neofetch w3m";
             grep = "grep --color=auto";
-            ls = "eza";
-            la = "eza -a";
             mv = "mv -i";
             rip = "rip -i";
             rebuild = "cd ~/nixdots && doas nixos-rebuild switch --flake .#redyf";
