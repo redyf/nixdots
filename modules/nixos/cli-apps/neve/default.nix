@@ -3,11 +3,13 @@
 , config
 , pkgs
 , lib
+, system
 , ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.neve;
+  neve = inputs.Neve.packages.${system}.default;
 in
 {
   options.cli-apps.neve = with types; {
@@ -20,7 +22,7 @@ in
         EDITOR = "nvim";
       };
       systemPackages = with pkgs; [
-        inputs.Neve.packages.${system}.default
+        neve
         lazygit
         stylua
         sumneko-lua-language-server
