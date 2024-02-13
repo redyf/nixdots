@@ -1,15 +1,15 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.tmux;
-in {
+in
+{
   options.cli-apps.tmux = with types; {
     enable = mkBoolOpt false "Enable or disable the tmux terminal.";
   };
