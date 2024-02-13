@@ -1,21 +1,21 @@
-{
-  inputs,
-  options,
-  config,
-  pkgs,
-  lib,
-  system,
-  ...
+{ inputs
+, options
+, config
+, pkgs
+, lib
+, system
+, ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.fd;
-in {
+in
+{
   options.cli-apps.fd = with types; {
     enable = mkBoolOpt false "Enable or disable fd";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [fd];
+    environment.systemPackages = with pkgs; [ fd ];
   };
 }
