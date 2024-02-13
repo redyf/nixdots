@@ -14,11 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-
     apps = {
-      firefox = disabled;
-      floorp = enabled;
-      spicetify = enabled;
       misc = enabled;
     };
 

@@ -18,9 +18,9 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      nixd
+      nil
       statix
-      nixfmt
+      alejandra
       nix-index
       nix-init
       nix-prefetch-git

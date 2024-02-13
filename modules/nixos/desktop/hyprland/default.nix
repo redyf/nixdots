@@ -248,7 +248,7 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,alacritty"
+          "SUPER,RETURN,exec,st"
           "SUPER,n,exec,neovide"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
@@ -291,6 +291,7 @@ in
         windowrulev2 = [
           "opacity ${opacity} ${opacity},class:^(thunar)$"
           "opacity ${opacity} ${opacity},class:^(discord)$"
+          "opacity ${opacity} ${opacity},class:^(st-256color)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
@@ -305,10 +306,6 @@ in
           "float,title:^(File Operation Progress)$"
           "float,title:^(mpv)$"
           "opacity 1.0 1.0,class:^(wofi)$"
-          "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-          "noanim,class:^(xwaylandvideobridge)$"
-          "nofocus,class:^(xwaylandvideobridge)$"
-          "noinitialfocus,class:^(xwaylandvideobridge)$"
         ];
       };
 

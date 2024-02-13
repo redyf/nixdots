@@ -1,11 +1,11 @@
 { pkgs ? import <nixpkgs> { } }:
-let
-  my-python-packages = ps:
-    with ps; [
-      pip
-      pypresence
-      xlib
-    ];
-  my-python = pkgs.python3.withPackages my-python-packages;
-in
-my-python.env
+pkgs.mkShell {
+  buildInputs = with pkgs.python311Packages; [
+    pip
+    pypresence
+  ];
+
+  shellHook = ''
+    echo "Environment is ready" | ${pkgs.lolcat}/bin/lolcat;
+  '';
+}
