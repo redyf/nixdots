@@ -1,17 +1,17 @@
-{
-  inputs,
-  options,
-  config,
-  pkgs,
-  lib,
-  system,
-  ...
+{ inputs
+, options
+, config
+, pkgs
+, lib
+, system
+, ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.neve;
   neve = inputs.Neve.packages.${system}.default;
-in {
+in
+{
   options.cli-apps.neve = with types; {
     enable = mkBoolOpt false "Enable or disable Neve";
   };
