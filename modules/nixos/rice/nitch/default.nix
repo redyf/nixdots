@@ -13,8 +13,7 @@ in
     enable = mkBoolOpt false "Enable Nitch";
   };
 
-  config =
-    mkIf cfg.enable {
-      environment.systemPackages = [ pkgs.nitch ];
-    };
+  config = mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.nitch ];
+  };
 }
