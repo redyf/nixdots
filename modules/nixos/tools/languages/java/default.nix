@@ -17,9 +17,9 @@ in
     mkIf cfg.enable {
       environment.systemPackages = with pkgs; [
         jdk # Java dev kit
-        jdt-language-server
-        google-java-format
-        checkstyle
+        jdt-language-server # Jdtls integration
+        checkstyle # Linter
+        google-java-format # Formatter
         vscode-extensions.vscjava.vscode-java-debug
         vscode-extensions.vscjava.vscode-java-test
         maven # Build automation tool for java

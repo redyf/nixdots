@@ -56,6 +56,11 @@
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
     };
+
+    Monolisa = {
+      url = "github:lauer3912/Monolisa";
+      flake = false;
+    };
   };
 
   outputs = inputs:
@@ -123,6 +128,16 @@
                 cp -R $src/*.otf $out/share/fonts/opentype/
               '';
             };
+            Monolisa = prev.stdenvNoCC.mkDerivation rec {
+              pname = "Monolisa";
+              version = "dev";
+              src = inputs.Monolisa;
+              dontConfigure = true;
+              installPhase = ''
+                mkdir -p $out/share/fonts/opentype
+                cp -R $src/*.ttf $out/share/fonts/opentype/
+              '';
+            };
           }
         )
       ];
@@ -183,7 +198,6 @@
       #     inputs.deploy-rs.lib;
 
       templates = import ./templates { };
-
 
       devShells = forAllSystems (system:
         let
