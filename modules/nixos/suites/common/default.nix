@@ -1,24 +1,20 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.common;
-in
-{
+in {
   options.suites.common = with types; {
     enable = mkBoolOpt false "Enable the common suite";
   };
 
   config = mkIf cfg.enable {
-
     apps = {
-      firefox = disabled;
-      floorp = enabled;
-      spicetify = enabled;
       misc = enabled;
     };
 
