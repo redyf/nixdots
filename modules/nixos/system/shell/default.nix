@@ -1,9 +1,8 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
 with lib.custom; let
@@ -14,9 +13,10 @@ with lib.custom; let
     rev = "06d519c20798f0ebe275fc3a8101841faaeee8ea";
     sha256 = "sha256-Q7KmwUd9fblprL55W0Sf4g7lRcemnhjh4/v+TacJSfo=";
   };
-in {
+in
+{
   options.system.shell = with types; {
-    shell = mkOpt (enum ["nushell" "fish" "zsh"]) "zsh" "What shell to use";
+    shell = mkOpt (enum [ "nushell" "fish" "zsh" ]) "zsh" "What shell to use";
   };
 
   config = {
@@ -79,28 +79,28 @@ in {
         # Enable all if nushell
         nushell =
           mkIf
-          (cfg.shell == "
+            (cfg.shell == "
             nushell ")
-          {
-            enable = true;
-            shellAliases =
-              config.environment.shellAliases
-              // {
-                ls = "
+            {
+              enable = true;
+              shellAliases =
+                config.environment.shellAliases
+                // {
+                  ls = "
             ls ";
-              };
-            envFile.text = " ";
-            extraConfig = ''
-                $env.config = {
-                	show_banner: false,
-                }
+                };
+              envFile.text = " ";
+              extraConfig = ''
+                  $env.config = {
+                  	show_banner: false,
+                  }
 
-                def , [...packages] {
-                    nix shell ($packages | each {|s| $"
-              nixpkgs#($s)"})
-              }
-            '';
-          };
+                  def , [...packages] {
+                      nix shell ($packages | each {|s| $"
+                nixpkgs#($s)"})
+                }
+              '';
+            };
 
         zsh = mkIf (cfg.shell == "zsh") {
           enable = true;
