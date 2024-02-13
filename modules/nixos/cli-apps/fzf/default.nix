@@ -1,16 +1,16 @@
-{
-  inputs,
-  options,
-  config,
-  pkgs,
-  lib,
-  system,
-  ...
+{ inputs
+, options
+, config
+, pkgs
+, lib
+, system
+, ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.fzf;
-in {
+in
+{
   options.cli-apps.fzf = with types; {
     enable = mkBoolOpt false "Enable or disable fzf";
   };

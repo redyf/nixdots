@@ -1,16 +1,16 @@
-{
-  inputs,
-  options,
-  config,
-  pkgs,
-  lib,
-  system,
-  ...
+{ inputs
+, options
+, config
+, pkgs
+, lib
+, system
+, ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.eza;
-in {
+in
+{
   options.cli-apps.eza = with types; {
     enable = mkBoolOpt false "Enable or disable eza";
   };
