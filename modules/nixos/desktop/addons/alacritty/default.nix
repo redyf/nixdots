@@ -27,19 +27,19 @@ in
         font = {
           size = 15;
           normal = {
-            family = "Liga SFMono Nerd Font";
+            family = "MonoLisa";
             style = "Medium";
           };
           bold = {
-            family = "Liga SFMono Nerd Font";
+            family = "MonoLisa";
             style = "Bold";
           };
           italic = {
-            family = "Liga SFMono Nerd Font";
+            family = "MonoLisa";
             style = "Italic";
           };
           bold_italic = {
-            family = "Liga SFMono Nerd Font";
+            family = "MonoLisa";
             style = "Bold Italic";
           };
           offset = {
