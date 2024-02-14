@@ -23,11 +23,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1707757702,
-        "narHash": "sha256-eLdchU0wVbqhIj4DBwju76VWyykfei3UjlBbWoSLT+Y=",
+        "lastModified": 1707842167,
+        "narHash": "sha256-aZHKkiCo0OKURhDrQz2vOQX7mONPHR5eEKfTnkWi10c=",
         "owner": "redyf",
         "repo": "Neve",
-        "rev": "5dbdccf17d85c8befcb92d64b8c2fa4ed6383ca7",
+        "rev": "da0cd49b95853129de345fe4dcc10b4d90b22f52",
         "type": "github"
       },
       "original": {
@@ -956,11 +956,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1707711327,
-        "narHash": "sha256-JaiR0Er0Bx80CT5POOYR1I1tLM7VvC2/ny6mOmkoRQw=",
+        "lastModified": 1707743206,
+        "narHash": "sha256-AehgH64b28yKobC/DAWYZWkJBxL/vP83vkY+ag2Hhy4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "01737456dfe4907fb5bdc8af39ac8c6d6b1fb551",
+        "rev": "2d627a2a704708673e56346fcb13d25344b8eaf3",
         "type": "github"
       },
       "original": {
@@ -1118,11 +1118,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1707739963,
-        "narHash": "sha256-DpECm6j0fjOaBqcpVhmU76fCHbhEfROd9SjHuE2JvMk=",
+        "lastModified": 1707759973,
+        "narHash": "sha256-pcrVeFhagWn5cj+bMFFRHWGluutS8BPxZ3l0P8kFuWg=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "3871b56b15857333d3c3f6d0e76fc1df51afe664",
+        "rev": "a70f58034010c503881fe7fd569c2ddcc607c5d7",
         "type": "github"
       },
       "original": {
