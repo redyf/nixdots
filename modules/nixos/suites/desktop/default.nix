@@ -1,21 +1,21 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.desktop;
-in
-{
+in {
   options.suites.desktop = with types; {
     enable = mkBoolOpt false "Enable the desktop suite";
   };
 
   config = mkIf cfg.enable {
     apps = {
-      firefox = enabled;
+      firefox = disabled;
       floorp = enabled;
       spicetify = enabled;
     };
