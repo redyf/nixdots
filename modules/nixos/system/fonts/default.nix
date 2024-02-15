@@ -1,22 +1,22 @@
-{
-  options,
-  config,
-  pkgs,
-  lib,
-  ...
+{ options
+, config
+, pkgs
+, lib
+, ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.system.fonts;
-in {
+in
+{
   options.system.fonts = with types; {
     enable = mkBoolOpt false "Whether or not to manage fonts.";
-    fonts = mkOpt (listOf package) [] "Custom font packages to install.";
+    fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
   };
 
   config = mkIf cfg.enable {
     environment = {
-      systemPackages = with pkgs; [font-manager];
+      systemPackages = with pkgs; [ font-manager ];
       variables = {
         # Enable icons in tooling since we have nerdfonts.
         LOG_ICONS = "true";
@@ -28,9 +28,9 @@ in {
       fontconfig = {
         enable = true;
         defaultFonts = {
-          serif = ["Iosevka Aile, Times, Noto Serif"];
-          sansSerif = ["Iosevka Aile, Helvetica Neue LT Std, Helvetica, Noto Sans"];
-          monospace = ["Courier Prime, Courier, Noto Sans Mono"];
+          serif = [ "Iosevka Aile, Times, Noto Serif" ];
+          sansSerif = [ "Iosevka Aile, Helvetica Neue LT Std, Helvetica, Noto Sans" ];
+          monospace = [ "Courier Prime, Courier, Noto Sans Mono" ];
         };
       };
       packages = with pkgs;
@@ -38,10 +38,10 @@ in {
           dejavu_fonts
           font-awesome
           fira-code-symbols
-          (iosevka-bin.override {variant = "aile";})
+          (iosevka-bin.override { variant = "aile"; })
           material-design-icons
           Monolisa
-          (nerdfonts.override {fonts = ["FiraMono" "JetBrainsMono"];})
+          (nerdfonts.override { fonts = [ "FiraMono" "JetBrainsMono" ]; })
           noto-fonts
           powerline-symbols
           # sf-mono-liga-bin
