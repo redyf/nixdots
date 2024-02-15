@@ -1,14 +1,14 @@
-{
-  options,
-  config,
-  lib,
-  pkgs,
-  ...
+{ options
+, config
+, lib
+, pkgs
+, ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.tools.languages.rust;
-in {
+in
+{
   options.tools.languages.rust = with types; {
     enable = mkBoolOpt false "Enable rust";
   };
