@@ -1,14 +1,14 @@
-{ options
-, config
-, pkgs
-, lib
-, ...
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.apps.misc;
-in
-{
+in {
   options.apps.misc = with types; {
     enable = mkBoolOpt false "Enable or disable misc apps";
   };
@@ -27,9 +27,6 @@ in
       tree-sitter # A parser generator tool and an incremental parsing library
       appimage-run # Run appimage files in the terminal
       polkit_gnome
-
-      # Auth
-      authy
 
       # Office + PDF readers
       wpsoffice # MS office alternative for linux
