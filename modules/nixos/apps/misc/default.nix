@@ -28,9 +28,6 @@ in
       appimage-run # Run appimage files in the terminal
       polkit_gnome
 
-      # Auth
-      authy
-
       # Office + PDF readers
       wpsoffice # MS office alternative for linux
       zathura # PDF viewer

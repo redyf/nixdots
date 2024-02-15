@@ -1,9 +1,5 @@
-{ inputs
-, options
-, config
-, pkgs
+{ config
 , lib
-, system
 , ...
 }:
 with lib;
@@ -19,7 +15,9 @@ in
     home.extraOptions.programs.zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = [ ];
+      options = [
+        "--cmd cd"
+      ];
     };
   };
 }
