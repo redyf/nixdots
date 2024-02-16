@@ -28,10 +28,16 @@ in {
           right_format = "$time";
           character = {
             success_symbol = "[](#cbced3)";
-            error_symbol = "[✘ ](#dd6777) ";
+            error_symbol = "[](#dd6777) ";
             vicmd_symbol = "[](#ecd3a0)";
-            format = "$symbol[ ](bold #b4befe)$nix_shell ";
+            format = "$symbol[ ](bold #b4befe) ";
           };
+
+          format = ''
+            $directory$git_branch$git_state$git_metrics$dart$lua$nodejs$package$python$rust$nix_shell$custom
+            $character
+          '';
+
           palette = "catppuccin_${flavour}";
           git_branch = {
             symbol = " ";
@@ -46,16 +52,6 @@ in {
           };
           nodejs = {
             version_format = "v$raw(blue)";
-          };
-          nix_shell = {
-            disabled = false;
-            format = "via [$symbol$state$name]($style)";
-            style = "blue";
-            heuristic = true;
-            impure_msg = "[impure-shell](red)";
-            pure_msg = "[pure-shell](green)";
-            unknown_msg = "[unknown-shell ](yellow)";
-            symbol = "[](blue) ";
           };
           package = {
             symbol = "📦";
@@ -103,6 +99,24 @@ in {
             utc_time_offset = "local";
             format = "[ $time 󰥔]($style) ";
             style = "bold #393939";
+          };
+
+          nix_shell = {
+            disabled = false;
+            heuristic = false;
+            impure_msg = "[impure-shell](red)";
+            pure_msg = "[pure-shell](green)";
+            unknown_msg = "[unknown-shell](yellow)";
+          };
+
+          custom = {
+            nix = {
+              disabled = false;
+              detect_files = ["flake.nix" "default.nix" "shell.nix"];
+              format = "via [$symbol nix-shell]($style) ";
+              style = "bold blue";
+              symbol = "[](blue) ";
+            };
           };
         }
         // builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub
