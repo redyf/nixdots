@@ -113,9 +113,15 @@ in {
             nix = {
               disabled = false;
               detect_files = ["flake.nix" "default.nix" "shell.nix"];
-              format = "via [$symbol nix-shell]($style) ";
+              # format = "via [$symbol nix-shell]($style) ";
+              command = ''
+                if [ -e flake.nix ] || [ -e default.nix ] || [ -e shell.nix ]; then
+                  echo " (nix-shell)"
+                fi
+              '';
+              format = "[$symbol$output]($style)";
               style = "bold blue";
-              symbol = "[](blue) ";
+              symbol = "[](bold blue) ";
             };
           };
         }
