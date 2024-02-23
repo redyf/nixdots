@@ -1,11 +1,10 @@
-{ lib
-, config
-, pkgs
-, inputs
-, ...
-}: with lib;
-with lib.custom;
 {
+  lib,
+  pkgs,
+  ...
+}:
+with lib;
+with lib.custom; {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -18,7 +17,7 @@ with lib.custom;
     music = enabled;
     video = enabled;
     social = enabled;
-    gaming = enabled;
+    gaming = disabled;
     rice = enabled;
   };
 

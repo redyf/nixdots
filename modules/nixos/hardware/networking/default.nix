@@ -1,13 +1,13 @@
-{ options
-, config
-, lib
-, ...
+{
+  options,
+  config,
+  lib,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.hardware.networking;
-in
-{
+in {
   options.hardware.networking = with types; {
     enable = mkBoolOpt false "Enable pipewire";
   };
