@@ -47,7 +47,7 @@ in {
         sql = enabled;
         javascript = enabled;
         lua = enabled;
-        markdown = enabled;
+        markdown = disabled;
       };
     };
     virtualization = {
