@@ -17,7 +17,7 @@
     ./desktop
     ./hardware
     ./rice
-    ./services
+    # ./services
     # ./suites
     ./system
     # ./themes
