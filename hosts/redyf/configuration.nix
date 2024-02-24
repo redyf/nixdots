@@ -211,6 +211,7 @@
 
   # Configure keymap in X11
   services = {
+    sshd.enable = true;
     # Enable CUPS to print documents.
     # printing.enable = true;
     xserver = {

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    openssh
-  ];
+  # home.packages = with pkgs; [
+  #   openssh
+  # ];
   # services.openssh = {
   #   enable = true;
   #   ports = [22];
@@ -10,7 +10,7 @@
   #   };
   # };
 
-  home.file.".ssh/config".text = ''
-    identityfile ~/.ssh/key
-  '';
+  # home.file.".ssh/config".text = ''
+  #   identityfile ~/.ssh/key
+  # '';
 }
