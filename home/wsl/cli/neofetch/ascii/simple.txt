@@ -1,0 +1,15 @@
+#!/bin/sh
+
+conf() {
+  printf "
+  $(c 1 32)$(Name)
+  $(c 1 37)Os: $(Os)
+  Kernel: $(Kernel)
+  Uptime: $(Uptime)
+  Shell: $(Shell)
+  DE/WM: $(Desktop)
+  Memory: $(Memory)
+
+  $(c 1 30)  $(c 1 31)  $(c 1 32)  $(c 1 33)  $(c 1 34)  $(c 1 35)  $(c 1 36)  $(c 1 37)  $(c 0 0)
+  \n"
+}

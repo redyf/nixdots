@@ -1,5 +1,5 @@
 {
-  description = "Redyf's Snowfall Lib config";
+  description = "Redyf's Flake";
 
   inputs = {
     # Core
@@ -8,23 +8,8 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-generators.url = "github:nix-community/nixos-generators";
-    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
-
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-
     nixos-wsl = {
       url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -63,8 +48,16 @@
     };
   };
 
-  outputs = inputs: let
-    inherit (inputs) hyprland nixpkgs;
+  outputs = {
+    self,
+    nixpkgs,
+    hyprland,
+    home-manager,
+    nixos-wsl,
+    spicetify-nix,
+    disko,
+    ...
+  } @ inputs: let
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
 
     # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
@@ -72,143 +65,78 @@
 
     # Nixpkgs instantiated for supported system types.
     nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
-    lib = inputs.snowfall-lib.mkLib {
-      inherit inputs;
-      src = ./.;
-
-      snowfall = {
-        meta = {
-          name = "nixdots";
-          title = "nixdots";
-        };
-
-        namespace = "custom";
-      };
-    };
-  in
-    lib.mkFlake {
-      inherit inputs;
-      src = ./.;
-
-      channels-config = {
-        allowUnfree = true;
-        allowUnfreePredicate = pkg: true;
-        packageOverrides = pkgs: {
-          # integrates nur within Home-Manager
-          nur =
-            import
-            (builtins.fetchTarball {
-              url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-              sha256 = "sha256:0ia5fbhrq2r1f6z5yxf4nxg8qx37360r8awfgjylckavhj76cizc";
-            })
-            {inherit pkgs;};
-        };
-      };
-
-      # You can also pass through external packages or dynamically create new ones
-      # in addition to the ones that `lib` will create from your `packages/` directory.
-      # outputs-builder = channels: {
-      #   packages = {
-      #     spicetify-nix = spicetify-nix.packages.${channels.nixpkgs.system}.default;
-      #   };
-      # };
-
-      overlays = with inputs; [
-        inputs.neovim-nightly-overlay.overlay
-        (
-          final: prev: {
-            sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
-              pname = "sf-mono-liga-bin";
-              version = "dev";
-              src = inputs.sf-mono-liga-src;
-              dontConfigure = true;
-              installPhase = ''
-                mkdir -p $out/share/fonts/opentype
-                cp -R $src/*.otf $out/share/fonts/opentype/
-              '';
-            };
-            Monolisa = prev.stdenvNoCC.mkDerivation rec {
-              pname = "Monolisa";
-              version = "dev";
-              src = inputs.Monolisa;
-              dontConfigure = true;
-              installPhase = ''
-                mkdir -p $out/share/fonts/opentype
-                cp -R $src/*.ttf $out/share/fonts/opentype/
-              '';
-            };
-          }
-        )
-      ];
-
-      # Add modules to all NixOS systems.
-      systems.modules.nixos = with inputs; [
-        spicetify-nix.nixosModule
-        disko.nixosModules.disko
-      ];
-
-      # Add a module to a specific host.
-      systems = {
-        hosts = {
-          redyf = {
-            modules = with inputs; [
-              (import ./disks/default.nix {
-                inherit lib;
-                device = "/dev/nvme0n1";
-              })
-            ];
+  in {
+    nixosConfigurations = {
+      redyf =
+        nixpkgs.lib.nixosSystem
+        {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit
+              inputs
+              hyprland
+              spicetify-nix
+              disko
+              ;
           };
-          wsl = {
-            modules = with inputs; [
-              nixos-wsl.nixosModules.wsl
-            ];
-          };
-          testing = {
-            modules = with inputs; [
-              (import ./disks/default.nix {
-                inherit lib;
-                device = "/dev/vda";
-              })
-            ];
-          };
-          vm = {
-            modules = with inputs; [
-              (import ./disks/default.nix {
-                inherit lib;
-                device = "/dev/vda";
-              })
-            ];
-          };
-        };
-      };
-
-      # Add modules to all homes.
-      # homes.modules = with inputs; [
-      # ];
-
-      # deploy = lib.mkDeploy {
-      #   inherit (inputs) self;
-      # };
-      #
-      # checks =
-      #   builtins.mapAttrs
-      #     (_system: deploy-lib:
-      #       deploy-lib.deployChecks inputs.self.deploy)
-      #     inputs.deploy-rs.lib;
-
-      templates = import ./templates {};
-
-      devShells = forAllSystems (system: let
-        pkgs = nixpkgsFor.${system};
-      in {
-        default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            git
-            nixpkgs-fmt
-            statix
+          modules = [
+            ./hosts/redyf/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = false;
+                extraSpecialArgs = {inherit inputs spicetify-nix disko;};
+                users.redyf = ./home/desktop/home.nix;
+              };
+            }
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
+            disko.nixosModules.disko
           ];
         };
-      });
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {nix.registry.nixpkgs.flake = nixpkgs;}
+          ./hosts/wsl/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = false;
+              users.red = ./home/wsl/home.nix;
+            };
+          }
+          nixos-wsl.nixosModules.wsl
+        ];
+      };
+      # testing = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     ./hosts/testing/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #   ];
+      # };
+      # vm = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     ./hosts/vm/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #   ];
+      # };
     };
+    devShells = forAllSystems (system: let
+      pkgs = nixpkgsFor.${system};
+    in {
+      default = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          git
+          alejandra
+          statix
+        ];
+      };
+    });
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  };
 }
