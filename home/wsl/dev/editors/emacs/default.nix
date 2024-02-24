@@ -1,6 +1,7 @@
-{ inputs
-, pkgs
-, ...
+{
+  inputs,
+  pkgs,
+  ...
 }: {
   services.emacs = {
     enable = true;
@@ -9,6 +10,6 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs29;
-    extraPackages = epkgs: [ epkgs.vterm ];
+    extraPackages = epkgs: [epkgs.vterm];
   };
 }

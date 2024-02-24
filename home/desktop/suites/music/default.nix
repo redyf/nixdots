@@ -1,22 +1,21 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.music;
-in
-{
+in {
   options.suites.music = with types; {
     enable = mkBoolOpt false "Enable music suite";
   };
 
-  config =
-    mkIf cfg.enable {
-      hardware = {
-        audio = enabled;
-      };
+  config = mkIf cfg.enable {
+    hardware = {
+      audio = enabled;
     };
+  };
 }
