@@ -1,11 +1,9 @@
 # If you'd saved this configuration in ./disks/default.nix, and wanted to create a disk named /dev/nvme0n1, you would run the following command to partition, format and mount the disk.
-
 # sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disks/default.nix --arg device '"/dev/nvme0n1"'
-
-
-{ lib
-, device ? throw "Set this to your disk device, e.g. /dev/sda"
-, ...
+{
+  lib,
+  device ? throw "Set this to your disk device, e.g. /dev/sda",
+  ...
 }: {
   disko = {
     # Do not let Disko manage fileSystems.* config for NixOS.
