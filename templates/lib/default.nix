@@ -1,2 +1,0 @@
-{ lib, ... }:
-with lib; rec { }
