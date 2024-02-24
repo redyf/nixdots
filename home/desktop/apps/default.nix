@@ -4,7 +4,7 @@ _: {
     ./discord
     ./firefox
     # ./floorp
-    # ./insomnia
+    ./insomnia
     ./misc
     ./obs
     ./spicetify
