@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
-let
+{pkgs ? import <nixpkgs> {}}: let
   my-python-packages = ps:
     with ps; [
       pip
@@ -8,4 +7,4 @@ let
     ];
   my-python = pkgs.python3.withPackages my-python-packages;
 in
-my-python.env
+  my-python.env

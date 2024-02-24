@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.gaming;
-in
-{
+in {
   options.suites.gaming = with types; {
     enable = mkBoolOpt false "Enable the gaming suite";
   };

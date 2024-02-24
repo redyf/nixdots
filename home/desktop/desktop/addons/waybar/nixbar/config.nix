@@ -1,5 +1,4 @@
-_:
-let
+_: let
   font = "RobotoMono Nerd Font";
   fontsize = "12";
   primary_accent = "cba6f7";
@@ -8,8 +7,7 @@ let
   background = "11111B";
   opacity = ".85";
   cursor = "Numix-Cursor";
-in
-{
+in {
   mainBar = {
     position = "top";
     layer = "top";
@@ -153,7 +151,7 @@ in
       format-charging = "  {capacity}%";
       format-plugged = " {capacity}% ";
       format-alt = "{icon} {time}";
-      format-icons = [ "" "" "" "" "" ];
+      format-icons = ["" "" "" "" ""];
     };
 
     memory = {
@@ -181,7 +179,7 @@ in
       format = "{icon} {volume}%";
       format-muted = "󰝟";
       format-icons = {
-        default = [ "󰕿" "󰖀" "󰕾" ];
+        default = ["󰕿" "󰖀" "󰕾"];
       };
       # on-scroll-up= "bash ~/.scripts/volume up";
       # on-scroll-down= "bash ~/.scripts/volume down";
