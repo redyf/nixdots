@@ -1,14 +1,14 @@
-{ options
-, config
-, pkgs
-, lib
-, ...
+{
+  options,
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.cli-apps.neovim;
-in
-{
+in {
   options.cli-apps.neovim = with types; {
     enable = mkBoolOpt false "Enable or disable neovim";
   };
@@ -19,7 +19,7 @@ in
         EDITOR = "nvim";
       };
       systemPackages = with pkgs; [
-        neovim-nightly
+        neovim # neovim-nightly
         lazygit
         stylua
         sumneko-lua-language-server
