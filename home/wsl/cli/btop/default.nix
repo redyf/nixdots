@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   xdg.configFile."btop/themes/catppuccin_macchiato.theme".text = ''
     #Bashtop grayscale theme

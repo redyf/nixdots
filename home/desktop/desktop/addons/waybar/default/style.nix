@@ -1,5 +1,4 @@
-_:
-''
+_: ''
   /* =============================================================================
    *
    * Waybar configuration
@@ -325,7 +324,7 @@ _:
   #window {
   border-style: hidden;
   margin-left: 10px;
-  /* margin-top:1px;  
+  /* margin-top:1px;
        padding: 8px 1rem; */
   margin-right: 10px;
   color: #eceff4;
@@ -343,77 +342,77 @@ _:
   /* window#waybar {
      background: #2d2a2e;
      }
- 
+
    * {
      color: #c8b9a9;
      font-family: Ubuntu Mono, sans-serif;
      font-size: 12px;
      }
- 
+
      #workspaces button.focused {
      color: #f2e5bc;
      }
- 
+
      #workspaces button {
      color: #c8b9a9;
      }
- 
+
      .separator {
      background-color: #c8b9a9;
      }
- 
+
      #mode {
      color: #ebcb8b;
      }
- 
+
      #clock {
      color: #a3be8c;
      }
- 
+
      #battery {
      color: #d8dee9;
      }
- 
+
      #battery.charging {
      color: #b48ead;
      }
- 
+
      #battery.critical:not(.charging) {
      color: #bf616a;
      }
- 
+
      #cpu {
      color: #a3be8c;
      }
- 
+
      #memory {
      color: #d3869b;
      }
- 
+
      #network {
      color: #8fbcbb;
      }
- 
+
      #network.disabled {
      color: #bf616a;
      }
- 
+
      #network.disconnected {
      color: #bf616a;
      }
- 
+
      #pulseaudio {
      color: #b48ead;
      }
- 
+
      #pulseaudio.muted {
      color: #bf616a;
      }
- 
+
      #temperature {
      color: #8fbcbb;
      }
- 
+
      #temperature.critical {
      color: #bf616a;
    } */

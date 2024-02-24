@@ -1,22 +1,21 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.video;
-in
-{
+in {
   options.suites.video = with types; {
     enable = mkBoolOpt false "Enable video suite";
   };
 
-  config =
-    mkIf cfg.enable {
-      apps = {
-        obs = enabled;
-      };
+  config = mkIf cfg.enable {
+    apps = {
+      obs = enabled;
     };
+  };
 }

@@ -16,7 +16,7 @@ _: {
       "mpd#4"
       "mpd"
     ];
-    modules-center = [ "clock" ];
+    modules-center = ["clock"];
     modules-right = [
       "pulseaudio"
       "temperature"
@@ -186,7 +186,7 @@ _: {
     };
     "backlight" = {
       format = "{icon} {percent: >3}%";
-      format-icons = [ "" "" ];
+      format-icons = ["" ""];
       on-scroll-down = "light -A 5 && light -G | cut -d'.' -f1 > $hyprlandSOCK.wob";
       on-scroll-up = "light -U 5 && light -G | cut -d'.' -f1 > $hyprlandSOCK.wob";
     };
@@ -196,7 +196,7 @@ _: {
         critical = 15;
       };
       format = "{icon} {capacity: >3}%";
-      format-icons = [ "" "" "" "" "" ];
+      format-icons = ["" "" "" "" ""];
     };
     "network" = {
       format = "⚠ Disabled";
@@ -217,7 +217,7 @@ _: {
         phone = "";
         portable = "";
         car = "";
-        default = [ "" "" ];
+        default = ["" ""];
       };
       on-click = "pavucontrol";
       on-scroll-up = "pamixer -ui 2 && pamixer --get-volume > $hyprlandSOCK.wob";
