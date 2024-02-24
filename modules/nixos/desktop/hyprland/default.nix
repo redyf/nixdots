@@ -1,9 +1,10 @@
-{ options
-, config
-, lib
-, pkgs
-, inputs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
 }:
 with lib;
 with lib.custom; let
@@ -19,8 +20,7 @@ with lib.custom; let
   catppuccin_border = "rgba(b4befeee)";
   opacity = "0.95";
   cursor = "macOS-BigSur";
-in
-{
+in {
   options.desktop.hyprland = with types; {
     enable = mkBoolOpt false "Enable or disable the hyprland";
   };
@@ -248,7 +248,7 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,st"
+          "SUPER,RETURN,exec,alacritty"
           "SUPER,n,exec,neovide"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
@@ -353,6 +353,3 @@ in
     };
   };
 }
-
-
-
