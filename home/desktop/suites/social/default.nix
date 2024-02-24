@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.social;
-in
-{
+in {
   options.suites.social = with types; {
     enable = mkBoolOpt false "Enable the social suite";
   };

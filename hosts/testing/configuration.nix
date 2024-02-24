@@ -1,11 +1,12 @@
-{ lib
-, config
-, pkgs
-, inputs
-, ...
-}: with lib;
-with lib.custom;
 {
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib;
+with lib.custom; {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
