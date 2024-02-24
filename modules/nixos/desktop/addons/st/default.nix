@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.desktop.addons.st;
-in
-{
+in {
   options.desktop.addons.st = with types; {
     enable = mkBoolOpt false "Enable ST terminal";
   };
@@ -16,7 +16,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       (st.overrideAttrs (oldAttrs: rec {
-        buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
+        buildInputs = oldAttrs.buildInputs ++ [harfbuzz];
         patches = [
           (fetchpatch {
             url = "https://st.suckless.org/patches/ligatures/0.9/st-ligatures-20230105-0.9.diff";
@@ -47,20 +47,16 @@ in
             sha256 = "sha256-JUFRFEHeUKwtvj8OV02CqHFYTsx+pvR3s+feP9P+ezo=";
           })
           # (fetchpatch {
+          #   url = "https://st.suckless.org/patches/glyph_wide_support/st-glyph-wide-support-20230701-5770f2f.diff";
+          #   sha256 = "sha256-6IjAGX9YvCHKViz1kQGAvuDFJ41mgLeOAXisDQey9Gc=";
+          # })
+          # (fetchpatch {
           #   url = "https://st.suckless.org/patches/themed_cursor/st-themed_cursor-0.8.1.diff";
           #   sha256 = "sha256-Q/6VN9oCrdJiZPPjKMpw3UB09tIs4eJ1Hi5c8k7O7uo=";
           # })
           # (fetchpatch {
           #   url = "https://st.suckless.org/patches/boxdraw/st-boxdraw_v2-0.8.5.diff";
           #   sha256 = "sha256-WN/R6dPuw1eviHOvVVBw2VBSMDtfi1LCkXyX36EJKi4=";
-          # })
-          # (fetchpatch {
-          #   url = "https://st.suckless.org/patches/glyph_wide_support/st-glyph-wide-support-20230701-5770f2f.diff";
-          #   sha256 = "sha256-6IjAGX9YvCHKViz1kQGAvuDFJ41mgLeOAXisDQey9Gc=";
-          # })
-          # (fetchpatch {
-          #   url = "https://st.suckless.org/patches/alpha/st-alpha-20220206-0.8.5.diff";
-          #   sha256 = "sha256-01/KBNbBKcFcfbcpMnev/LCzHpON3selAYNo8NUPbF4=";
           # })
         ];
         # Using a local file
