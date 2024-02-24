@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # lldb # A next-generation high-performance debugger
     rustc # Compiler for rust
