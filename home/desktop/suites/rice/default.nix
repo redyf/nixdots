@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.rice;
-in
-{
+in {
   options.suites.rice = with types; {
     enable = mkBoolOpt false "Enable the rice suite";
   };

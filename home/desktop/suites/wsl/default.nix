@@ -1,20 +1,19 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.wsl;
-in
-{
+in {
   options.suites.wsl = with types; {
     enable = mkBoolOpt false "Enable the wsl suite";
   };
 
   config = mkIf cfg.enable {
-
     apps = {
       misc = enabled;
     };
