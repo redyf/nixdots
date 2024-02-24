@@ -1,14 +1,14 @@
-{ options
-, config
-, lib
-, pkgs
-, ...
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 with lib.custom; let
   cfg = config.suites.development;
-in
-{
+in {
   options.suites.development = with types; {
     enable = mkBoolOpt false "Enable the development suite";
   };
@@ -24,8 +24,8 @@ in
       fzf = enabled;
       helix = disabled;
       jq = enabled;
-      neovim = disabled;
-      neve = enabled;
+      neovim = enabled;
+      neve = disabled;
       ripgrep = enabled;
       rm-improved = enabled;
       starship = enabled;
@@ -40,13 +40,14 @@ in
       nix-ld = disabled;
       languages = {
         c = enabled;
+        go = enabled;
         java = enabled;
         rust = enabled;
         python = enabled;
         sql = enabled;
         javascript = enabled;
         lua = enabled;
-        markdown = enabled;
+        markdown = disabled;
       };
     };
     virtualization = {
