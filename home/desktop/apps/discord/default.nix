@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = [
     (pkgs.discord.override {
       withOpenASAR = false;
