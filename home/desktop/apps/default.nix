@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./artix-game-launcher
     # ./brave
     ./discord
     ./firefox
