@@ -1,14 +1,14 @@
 _: {
   imports = [
     ./c
-    ./clojure
+    # ./clojure
     ./dart
-    ./elixir
+    # ./elixir
     ./go
     ./java
     ./javascript
     ./lua
-    ./markdown
+    # ./markdown
     ./python
     ./rust
     ./sql
