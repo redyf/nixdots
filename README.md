@@ -157,7 +157,6 @@ Credits for the installation section goes to [Stephenstechtalks](https://github.
 - [Eriim's](https://github.com/erictossell/nixflakes)
 - [IogaMaster](https://github.com/IogaMaster)
 - [linuxmobile](https://github.com/linuxmobile)
-- [NixOS Manual](https://nixos.org/manual/nixos/stable/)
 - [NotAShelf](https://github.com/NotAShelf/nyx)
 - [notusknot](https://github.com/notusknot)
 - [Siduck76](https://github.com/siduck76/nvchad/)

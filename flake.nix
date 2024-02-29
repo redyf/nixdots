@@ -8,10 +8,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl = {
-      url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixos-wsl = {
+    #   url = "github:nix-community/nixos-wsl";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -36,6 +36,8 @@
     disko.url = "github:nix-community/disko";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    nix-ld-rs.url = "github:nix-community/nix-ld-rs";
+
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
@@ -53,7 +55,7 @@
     nixpkgs,
     hyprland,
     home-manager,
-    nixos-wsl,
+    # nixos-wsl,
     spicetify-nix,
     disko,
     ...
@@ -95,22 +97,22 @@
             disko.nixosModules.disko
           ];
         };
-      wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          {nix.registry.nixpkgs.flake = nixpkgs;}
-          ./hosts/wsl/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = false;
-              users.red = ./home/wsl/home.nix;
-            };
-          }
-          nixos-wsl.nixosModules.wsl
-        ];
-      };
+      # wsl = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     {nix.registry.nixpkgs.flake = nixpkgs;}
+      #     ./hosts/wsl/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager = {
+      #         useUserPackages = true;
+      #         useGlobalPkgs = false;
+      #         users.red = ./home/wsl/home.nix;
+      #       };
+      #     }
+      #     nixos-wsl.nixosModules.wsl
+      #   ];
+      # };
       # testing = nixpkgs.lib.nixosSystem {
       #   system = "x86_64-linux";
       #   modules = [
