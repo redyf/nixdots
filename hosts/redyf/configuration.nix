@@ -131,6 +131,26 @@
     };
   };
 
+  programs.nix-ld = {
+    enable = true;
+    package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+  };
+
+  # Sets up all the libraries to load
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    fuse3
+    icu
+    zlib
+    nss
+    openssl
+    curl
+    expat
+    clang
+    cmake
+  ];
+
   # Enables docker in rootless mode
   virtualisation = {
     docker.rootless = {
