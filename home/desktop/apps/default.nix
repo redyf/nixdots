@@ -3,8 +3,8 @@ _: {
     ./artix-game-launcher
     # ./brave
     ./discord
-    ./firefox
-    # ./floorp
+    # ./firefox
+    ./floorp
     ./insomnia
     ./misc
     ./obs
