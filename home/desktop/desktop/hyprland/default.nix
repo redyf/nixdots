@@ -54,7 +54,7 @@ in {
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprlandFlake; # hyprlandFlake or pkgs.hyprland
+    package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
     xwayland = {
       enable = true;
     };
