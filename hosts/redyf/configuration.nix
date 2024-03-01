@@ -109,7 +109,7 @@
         description = "redyf";
         initialPassword = "123456";
         shell = pkgs.zsh;
-        extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
+        extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
       };
     };
   };
@@ -149,6 +149,28 @@
     expat
     clang
     cmake
+    libGL
+    nspr
+    libuuid
+    libxkbcommon
+    libxml2
+    mesa
+    vulkan-loader
+    libpulseaudio
+    alsa-lib
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXcomposite
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXtst
+    xorg.libxcb
+    xorg.libxkbfile
+    xorg.libxshmfence
   ];
 
   # Enables docker in rootless mode
