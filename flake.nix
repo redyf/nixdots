@@ -35,6 +35,7 @@
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    tmux-sessionx.url = "github:omerxx/tmux-sessionx";
 
     nix-ld-rs.url = "github:nix-community/nix-ld-rs";
 
