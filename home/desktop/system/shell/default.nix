@@ -58,7 +58,7 @@ in {
         export PATH="$PATH:/home/redyf/Android/Sdk"
         export PATH="$PATH:/home/redyf/Android/Sdk/platform-tools/"
         export PATH="$PATH:/home/redyf/Android/Sdk/cmdline-tools/latest/bin"
-                export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
+        export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
         export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
         export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
         export PATH="$PATH:/home/redyf/.config/nvim/bin"
