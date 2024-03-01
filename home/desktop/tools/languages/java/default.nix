@@ -8,6 +8,7 @@
     # vscode-extensions.vscjava.vscode-java-debug
     # vscode-extensions.vscjava.vscode-java-test
     maven # Build automation tool for java
+    gradle
     # spring-boot-cli
   ];
 }
