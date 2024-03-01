@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -8,11 +12,13 @@
     keyMode = "vi";
     prefix = "C-Space";
     mouse = true;
-    plugins = with pkgs; [
+    plugins = with pkgs.tmuxPlugins; [
       # tmuxPlugins.catppuccin
-      tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.yank
+      sensible
+      vim-tmux-navigator
+      yank
+      tmux-fzf
+      inputs.tmux-sessionx.packages.${pkgs.system}.default
     ];
     extraConfig = ''
       #--------------------------------------------------------------------------
@@ -39,6 +45,15 @@
 
       # Place status bar on top
       set -g status-position top
+
+      # Sessionx plugin
+      set -g @sessionx-bind '<prefix>+O'
+      set -g @sessionx-x-path '~/nixdots'
+      set -g @sessionx-filter-current 'false'
+      set -g @sessionx-preview-enabled 'true'
+      set -g @sessionx-window-height '95%'
+      set -g @sessionx-window-width '75%'
+      set -g @sessionx-zoxide-mode 'on'
 
       #--------------------------------------------------------------------------
       # Status line
