@@ -32,7 +32,7 @@
       allowUnfree = true;
     };
     overlays = with inputs; [
-      neovim-nightly-overlay.overlay
+      # neovim-nightly-overlay.overlay
       (
         final: prev: {
           sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
