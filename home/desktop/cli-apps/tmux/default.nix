@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    # https://github.com/edr3x/tmux-sessionizer?tab=readme-ov-file#tmux-sessionizer
     tmux-sessionizer
     # Script to find files with tmux in vim
     (writeShellScriptBin "tmux-sessionizer-script" ''
