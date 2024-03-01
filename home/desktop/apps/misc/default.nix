@@ -33,7 +33,6 @@
     slurp # Works with grim to screenshot on wayland
     ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
     wl-clipboard # Enables copy/paste on wayland
-    davinci-resolve
 
     # Gaming
     # gnutls

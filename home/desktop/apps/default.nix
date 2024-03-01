@@ -3,7 +3,8 @@ _: {
     ./artix-game-launcher
     # ./brave
     ./discord
-    # ./firefox
+    ./davinci-resolve
+    ./firefox
     ./floorp
     ./insomnia
     ./misc
