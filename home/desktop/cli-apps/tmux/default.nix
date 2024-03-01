@@ -3,6 +3,40 @@
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [
+    # https://github.com/edr3x/tmux-sessionizer?tab=readme-ov-file#tmux-sessionizer
+    tmux-sessionizer
+    # Script to find files with tmux in vim
+    (writeShellScriptBin "tmux-sessionizer-script" ''
+          if [[ $# -eq 1 ]]; then
+          selected=$1
+      else
+          selected=$(find ~/projects ~/tests -mindepth 1 -maxdepth 1 -type d | fzf)
+      fi
+
+      if [[ -z $selected ]]; then
+          exit 0
+      fi
+
+      selected_name=$(basename "$selected" | tr . _)
+      tmux_running=$(pgrep tmux)
+
+      if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+          tmux new-session -s $selected_name -c $selected
+          exit 0
+      fi
+
+      if ! tmux has-session -t=$selected_name 2> /dev/null; then
+          tmux new-session -ds $selected_name -c $selected
+      fi
+
+      if [[ -z $TMUX ]]; then
+          tmux attach -t $selected_name
+      else
+          tmux switch-client -t $selected_name
+      fi
+    '')
+  ];
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -13,11 +47,11 @@
     prefix = "C-Space";
     mouse = true;
     plugins = with pkgs.tmuxPlugins; [
-      # tmuxPlugins.catppuccin
-      sensible
-      vim-tmux-navigator
+      # catppuccin
       yank
+      sensible
       tmux-fzf
+      vim-tmux-navigator
       inputs.tmux-sessionx.packages.${pkgs.system}.default
     ];
     extraConfig = ''
@@ -54,6 +88,10 @@
       set -g @sessionx-window-height '95%'
       set -g @sessionx-window-width '75%'
       set -g @sessionx-zoxide-mode 'on'
+
+      # Tmux sessionizer
+      # forget the find window.  That is for chumps
+      bind-key -r f run-shell "tmux neww tmux-sessionizer-script"
 
       #--------------------------------------------------------------------------
       # Status line
