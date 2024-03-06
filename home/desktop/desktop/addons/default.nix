@@ -3,7 +3,7 @@ _: {
     ./alacritty
     # ./bemenu
     # ./foot
-    # ./kitty
+    ./kitty
     # ./rofi
     # ./st
     ./swww
