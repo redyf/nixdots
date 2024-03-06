@@ -131,6 +131,18 @@
     };
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = ["Iosevka Aile, Times, Noto Serif"];
+        sansSerif = ["Iosevka Aile, Helvetica Neue LT Std, Helvetica, Noto Sans"];
+        monospace = ["Courier Prime, Courier, Noto Sans Mono"];
+      };
+    };
+  };
+
   programs.nix-ld = {
     enable = true;
     package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
