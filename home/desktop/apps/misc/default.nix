@@ -21,6 +21,9 @@
     # ani-cli # A cli tool to browse and play anime
     # mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
+    # Charm-cli tools
+    # pop
+
     # Rice
     dunst # Notifications for your system
     cmatrix
@@ -33,6 +36,7 @@
     slurp # Works with grim to screenshot on wayland
     ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
     wl-clipboard # Enables copy/paste on wayland
+    vlc
 
     # Gaming
     # gnutls
