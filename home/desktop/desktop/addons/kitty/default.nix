@@ -13,18 +13,14 @@
     };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
-      font_features MonoLisa +zero +ss02 +ss04 +ss07 +ss08 +ss09
-      font_features MonoLisa-Medium +zero +ss04 +ss07 +ss08 +ss09
-      font_features MonoLisa-MediumItalic +zero +ss02 +ss04 +ss07 +ss08 +ss09
-      font_features MonoLisa-Bold +zero +ss04 +ss07 +ss08 +ss09
-      font_features MonoLisa-BoldItalic +zero +ss02 +ss04 +ss07 +ss08 +ss09
+      font_features MonoLisa -calt +liga +zero +ss01 +ss02 +ss07 +ss08 +ss10 +ss11 +ss18
       modify_font cell_width 100%
       modify_font cell_height 100%
     '';
     settings = {
-      bold_font = "MonoLisa Medium";
-      italic_font = "MonoLisa Medium Italic";
-      bold_italic_font = "MonoLisa Medium Italic";
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
 
       # modify_font underline_position 4
       # modify_font underline_thickness 150%
