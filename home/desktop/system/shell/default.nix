@@ -8,7 +8,6 @@
 in {
   home = {
     shellAliases = {
-      # Add an alias to the shell for backward-compat and convenience.
       sudo = "doas";
       c = "nvim";
       cp = "cp -i";
@@ -48,6 +47,7 @@ in {
       enableAutosuggestions = true;
       syntaxHighlighting.enable = true;
       initExtra = ''
+        bindkey -s ^f "tmux-sessionizer-script\n"
         # Export PATHs for applications
         export PATH=$PATH:~/.local/bin/
         export PATH=/tmp/lazy-lvim/bin:$PATH
@@ -60,7 +60,6 @@ in {
         export PATH="$PATH:/home/redyf/Android/Sdk/cmdline-tools/latest/bin"
         export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
         export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
-        bindkey -s ^f "tmux-sessionizer\n"
         export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
         export PATH="$PATH:/home/redyf/.config/nvim/bin"
         export WINIT_UNIX_BACKEND=x11 neovide
