@@ -7,8 +7,8 @@
     google-java-format # Formatter
     # vscode-extensions.vscjava.vscode-java-debug
     # vscode-extensions.vscjava.vscode-java-test
-    maven # Build automation tool for java
-    gradle
+    # maven # Build automation tool for java
+    gradle # Enterprise-grade build system
     # spring-boot-cli
   ];
 }
