@@ -22,8 +22,12 @@ in {
     plugins = with pkgs.tmuxPlugins; [
       # {
       #   plugin = catppuccin-tmux;
-      #   extraConfig = builtins.readFile ./catppuccin.conf;
+      #   extraConfig = builtins.readFile ./catppuccin-custom.conf;
       # }
+      {
+        plugin = catppuccin;
+        extraConfig = builtins.readFile ./catppuccin.conf;
+      }
       yank
       sensible
       tmux-fzf
@@ -62,49 +66,45 @@ in {
       # Status line
       #--------------------------------------------------------------------------
 
-      # Catppuccin
-      # Set to better match the catppuccin theme
-      # set -g pane-active-border-style fg="#c6a0f6"
-
-      # Enable transparent tmux bar
-      # set -g status-bg default
-      # set -g status-style bg=default
-
       # TokyoNight colors for Tmux
-      set -g mode-style "fg=#7aa2f7,bg=#3b4261"
-
-      set -g message-style "fg=#7aa2f7,bg=#3b4261"
-      set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
-
-      set -g pane-border-style "fg=#3b4261"
-      set -g pane-active-border-style "fg=#7aa2f7"
-
-      set -g status "on"
-      set -g status-justify "left"
-
-      set -g status-style "fg=#7aa2f7,bg=#1f2335"
-
-      set -g status-left-length "100"
-      set -g status-right-length "100"
-
-      set -g status-left-style NONE
-      set -g status-right-style NONE
-
-      set -g status-left "#[fg=#1d202f,bg=#7aa2f7,bold] #S #[fg=#7aa2f7,bg=#1f2335,nobold,nounderscore,noitalics]"
-      set -g status-right "#[fg=#1f2335,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1f2335] #{prefix_highlight} #[fg=#3b4261,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %I:%M %p #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
-      if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
-        set -g status-right "#[fg=#1f2335,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1f2335] #{prefix_highlight} #[fg=#3b4261,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %H:%M #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
-      }
-
-      setw -g window-status-activity-style "underscore,fg=#a9b1d6,bg=#1f2335"
-      setw -g window-status-separator ""
-      setw -g window-status-style "NONE,fg=#a9b1d6,bg=#1f2335"
-      setw -g window-status-format "#[fg=#1f2335,bg=#1f2335,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#1f2335,bg=#1f2335,nobold,nounderscore,noitalics]"
-      setw -g window-status-current-format "#[fg=#1f2335,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261,bold] #I  #W #F #[fg=#3b4261,bg=#1f2335,nobold,nounderscore,noitalics]"
+      # set -g mode-style "fg=#7aa2f7,bg=#3b4261"
+      #
+      # set -g message-style "fg=#7aa2f7,bg=#3b4261"
+      # set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
+      #
+      # set -g pane-border-style "fg=#3b4261"
+      # set -g pane-active-border-style "fg=#7aa2f7"
+      #
+      # set -g status "on"
+      # set -g status-justify "left"
+      #
+      # set -g status-style "fg=#7aa2f7,bg=#1e1e2e"
+      #
+      # set -g status-left-length "100"
+      # set -g status-right-length "100"
+      #
+      # set -g status-left-style NONE
+      # set -g status-right-style NONE
+      #
+      # set -g status-left "#[fg=#1d202f,bg=#1e1e2e,bold] #S #[fg=#7aa2f7,bg=#1e1e2e,nobold,nounderscore,noitalics]"
+      # set -g status-right "#[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1e1e2e] #{prefix_highlight} #[fg=#3b4261,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %I:%M %p #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
+      # if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
+      #   set -g status-right "#[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1e1e2e] #{prefix_highlight} #[fg=#3b4261,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %H:%M #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
+      # }
+      #
+      # setw -g window-status-activity-style "underscore,fg=#a9b1d6,bg=#1e1e2e"
+      # setw -g window-status-separator ""
+      # setw -g window-status-style "NONE,fg=#a9b1d6,bg=#1e1e2e"
+      # setw -g window-status-format "#[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]"
+      # setw -g window-status-current-format "#[fg=#1f2335,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261,bold] #I  #W #F #[fg=#3b4261,bg=#1e1e2e,nobold,nounderscore,noitalics]"
 
       # tmux-plugins/tmux-prefix-highlight support
-      set -g @prefix_highlight_output_prefix "#[fg=#e0af68]#[bg=#1f2335]#[fg=#1f2335]#[bg=#e0af68]"
-      set -g @prefix_highlight_output_suffix ""
+      # set -g @prefix_highlight_output_prefix "#[fg=#e0af68]#[bg=#1e1e2e]#[fg=#1f2335]#[bg=#e0af68]"
+      # set -g @prefix_highlight_output_suffix ""
+
+      # Enable transparent tmux bar
+      set -g status-bg default
+      set -g status-style bg=default
 
       # Status line customisation
       # set-option -g status-left-length 100
@@ -147,33 +147,6 @@ in {
       #
       # # messages
       # set -g message-style "fg=colour2 bg=colour0 bold"
-
-      # Nord
-      #+--- tmux-prefix-highlight ---+
-      # set -g @prefix_highlight_output_prefix "#[fg=brightcyan]#[bg=black]#[nobold]#[noitalics]#[nounderscore]#[bg=brightcyan]#[fg=black]"
-      # set -g @prefix_highlight_output_suffix ""
-      # set -g @prefix_highlight_copy_mode_attr "fg=brightcyan,bg=black,bold"
-
-      #+--------+
-      #+ Status +
-      #+--------+
-      #+--- Bars ---+
-      # set -g status-left "#[fg=brightblack,bg=black]#[fg=white,bg=brightblack,bold] #S #[fg=brightblack,bg=black,nobold,noitalics,nounderscore]"
-      # set -g status-right "#{prefix_highlight}#[fg=brightblack,bg=black,nobold,noitalics,nounderscore]#[fg=white,bg=brightblack,nobold] #H #[fg=brightblack,bg=black,nobold]"
-
-      #+--- Windows ---+
-      # set -g window-status-format "#[fg=brightblack,bg=black,nobold,noitalics,nounderscore]#[fg=white,bg=brightblack] #I#[fg=white,bg=brightblack,nobold,noitalics,nounderscore]: #W #[fg=brightblack,bg=black,nobold,noitalics,nounderscore]"
-      # set -g window-status-current-format "#[fg=#5e81ac,bg=black]#[fg=white,bg=#5e81ac,bold,noitalics,nounderscore] #I#[fg=white,bg=#5e81ac,bold,noitalics,nounderscore]: #W #[fg=#5e81ac,bg=black,nobold,noitalics,nounderscore]"
-      # set -g window-status-separator " "
-
-      # Center the window list (yes, this value has to be written as "centre").
-      # set -g status-justify centre
-
-      #+----------------+
-      #+    Windows     +
-      #+----------------+
-      #+--- Bars ---+
-      # set -g pane-active-border-style "bg=default fg=blue"
     '';
   };
   home.packages = with pkgs; [
