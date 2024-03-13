@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # nixos-wsl = {
     #   url = "github:nix-community/nixos-wsl";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +36,6 @@
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    tmux-sessionx.url = "github:omerxx/tmux-sessionx";
 
     nix-ld-rs.url = "github:nix-community/nix-ld-rs";
 
@@ -45,8 +45,8 @@
       flake = false;
     };
 
-    Monolisa = {
-      url = "github:lauer3912/Monolisa";
+    monolisa-script = {
+      url = "github:redyf/test2";
       flake = false;
     };
   };
