@@ -5,7 +5,8 @@ _: {
     settings = {
       main = {
         term = "xterm-256color";
-        font = "FiraMono Nerd Font:Medium:size=16";
+        font = "MonoLisa:size=12";
+        # font = "FiraMono Nerd Font:Medium:size=16";
         # font = "Liga SFMono Nerd Font:Medium:size=16";
         # font = "IntoneMono Nerd Font:Medium:size=16";
         # font = "JetBrainsMono Nerd Font:Bold:style=Extra Bold:size=16";
@@ -100,7 +101,7 @@ _: {
         # bright7 = "d9e0ee"; # bright white
 
         # Catppuccin mocha
-        alpha = "0.9";
+        alpha = "1";
         foreground = "cdd6f4"; # Text
         background = "1E1D2F"; # Base
         regular0 = "45475a"; # Surface 1
