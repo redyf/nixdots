@@ -237,7 +237,7 @@ in {
         "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
         "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-        "SUPER,RETURN,exec,alacritty"
+        "SUPER,RETURN,exec,kitty"
         "SUPER,n,exec,neovide"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         ",Print,exec,screenshot"

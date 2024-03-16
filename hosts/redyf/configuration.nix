@@ -15,6 +15,11 @@
     kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
     supportedFilesystems = ["ntfs"];
     loader = {
+      systemd-boot = {
+        enable = false;
+        # https://github.com/NixOS/nixpkgs/blob/c32c39d6f3b1fe6514598fa40ad2cf9ce22c3fb7/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix#L66
+        editor = false;
+      };
       timeout = 10;
       efi = {
         canTouchEfiVariables = true;
@@ -131,47 +136,22 @@
     };
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = ["Iosevka Aile, Times, Noto Serif"];
+        sansSerif = ["Iosevka Aile, Helvetica Neue LT Std, Helvetica, Noto Sans"];
+        monospace = ["Courier Prime, Courier, Noto Sans Mono"];
+      };
+    };
+  };
+
   programs.nix-ld = {
     enable = true;
     package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
   };
-
-  # Sets up all the libraries to load
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    zlib
-    fuse3
-    icu
-    zlib
-    nss
-    openssl
-    curl
-    expat
-    clang
-    cmake
-    libGL
-    nspr
-    libuuid
-    libxkbcommon
-    libxml2
-    mesa
-    vulkan-loader
-    libpulseaudio
-    alsa-lib
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXcomposite
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libxcb
-    xorg.libxkbfile
-    xorg.libxshmfence
-  ];
 
   # Enables docker in rootless mode
   virtualisation = {

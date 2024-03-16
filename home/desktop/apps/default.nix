@@ -3,7 +3,7 @@ _: {
     ./artix-game-launcher
     # ./brave
     ./discord
-    ./davinci-resolve
+    # ./davinci-resolve
     ./firefox
     ./floorp
     ./insomnia
@@ -11,5 +11,6 @@ _: {
     ./obs
     ./spicetify
     # ./steam
+    # ./vscode
   ];
 }

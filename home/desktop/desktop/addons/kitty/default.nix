@@ -1,27 +1,32 @@
 {pkgs, ...}: {
-  # home.packages = with pkgs; [kitty];
   programs.kitty = {
     enable = true;
     shellIntegration = {
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    theme = "Catppuccin-Mocha";
+    theme = "Rosé Pine";
     font = {
       name = "MonoLisa";
-      size = 14;
+      size = 13;
+      package = pkgs.monolisa-script;
     };
+    # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
+    extraConfig = ''
+      font_features MonoLisa -calt +liga +zero +ss01 +ss02 +ss07 +ss08 +ss10 +ss11 +ss18
+      modify_font cell_width 100%
+      modify_font cell_height 100%
+    '';
     settings = {
-      bold_font = "MonoLisa Bold";
-      italic_font = "MonoLisa Bold";
-      bold_italic_font = "MonoLisa Bold";
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
 
       # modify_font underline_position 4
       # modify_font underline_thickness 150%
-      # text_composition_strategy = "legacy";
-      text_composition_strategy = "platform";
+      text_composition_strategy = "platform"; # platform or legacy
       sync_to_monitor = "yes";
-      #
+
       # Background
       background_opacity = "0.98";
 
@@ -50,6 +55,7 @@
       bell_on_tab = false;
       command_on_bell = "none";
 
+      # Better colors
       term = "xterm-256color";
 
       # Themes
@@ -77,13 +83,25 @@
 
       # repaint_delay = 8;
     };
-    extraConfig = ''
-      # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
-      font_features MonoLisa-Medium +zero +ss04 +ss07 +ss08 +ss09
-      font_features MonoLisa-MediumItalic +zero +ss04 +ss07 +ss08 +ss09
-      modify_font cell_width 100%
-      modify_font cell_height 100%
-    '';
+    keybindings = {
+      "ctrl+shift+c" = "copy_to_clipboard";
+      "ctrl+shift+v" = "paste_from_clipboard";
+      "ctrl+shift+s" = "paste_from_selection";
+      "ctrl+shift+up" = "scroll_line_up";
+      "ctrl+shift+k" = "scroll_line_up";
+      "ctrl+shift+down" = "scroll_line_down";
+      "ctrl+shift+j" = "scroll_line_down";
+      "ctrl+shift+home" = "scroll_home";
+      "ctrl+shift+n" = "new_os_window";
+      "ctrl+shift+]" = "next_window";
+      "ctrl+shift+[" = "previous_window";
+      "ctrl+shift+right" = "next_tab";
+      "ctrl+tab" = "next_tab";
+      "ctrl+shift+left" = "previous_tab";
+      "ctrl+shift+tab" = "previous_tab";
+      "ctrl+shift+t" = "new_tab";
+      "ctrl+shift+q" = "close_tab";
+    };
   };
   # home.extraOptions.xdg = {
   #   configFile = {
