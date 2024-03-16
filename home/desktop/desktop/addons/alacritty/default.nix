@@ -6,7 +6,7 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      colors = catppuccin.colors;
+      inherit (catppuccin) colors;
       cursor = {
         style = {
           blinking = "Never";
