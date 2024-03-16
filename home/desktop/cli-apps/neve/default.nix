@@ -1,11 +1,10 @@
-{pkgs, ...}: {
-  environment = {
-    variables = {
-      EDITOR = "nvim";
-    };
-  };
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
-    neve
+    inputs.Neve.packages.${system}.default
     lazygit
     stylua
     sumneko-lua-language-server
