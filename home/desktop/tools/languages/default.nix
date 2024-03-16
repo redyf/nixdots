@@ -2,7 +2,7 @@ _: {
   imports = [
     ./c
     # ./clojure
-    ./dart
+    # ./dart
     # ./elixir
     ./go
     ./java
