@@ -5,7 +5,7 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    theme = "Catppuccin-Mocha";
+    theme = "Rosé Pine";
     font = {
       name = "MonoLisa";
       size = 13;
@@ -28,7 +28,7 @@
       sync_to_monitor = "yes";
 
       # Background
-      background_opacity = "1";
+      background_opacity = "0.98";
 
       # Cursor
       cursor_shape = "block";
