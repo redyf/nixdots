@@ -153,43 +153,6 @@
     package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
   };
 
-  # Sets up all the libraries to load
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    zlib
-    fuse3
-    icu
-    zlib
-    nss
-    openssl
-    curl
-    expat
-    clang
-    cmake
-    libGL
-    nspr
-    libuuid
-    libxkbcommon
-    libxml2
-    mesa
-    vulkan-loader
-    libpulseaudio
-    alsa-lib
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXcomposite
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libxcb
-    xorg.libxkbfile
-    xorg.libxshmfence
-  ];
-
   # Enables docker in rootless mode
   virtualisation = {
     docker.rootless = {
