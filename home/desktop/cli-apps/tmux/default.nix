@@ -21,12 +21,16 @@ in {
     mouse = true;
     plugins = with pkgs.tmuxPlugins; [
       # {
+      #   plugin = catppuccin;
+      #   extraConfig = builtins.readFile ./catppuccin.conf;
+      # }
+      # {
       #   plugin = catppuccin-tmux;
       #   extraConfig = builtins.readFile ./catppuccin-custom.conf;
       # }
       {
-        plugin = catppuccin;
-        extraConfig = builtins.readFile ./catppuccin.conf;
+        plugin = rose-pine;
+        extraConfig = builtins.readFile ./rose-pine.conf;
       }
       yank
       sensible
