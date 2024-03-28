@@ -50,7 +50,8 @@
 <hr>
 
 <div align="center">
-<img src="https://cdn.discordapp.com/attachments/933711967217123411/1155200026058952724/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
+<img src="https://cdn.discordapp.com/attachments/933711967217123411/1222981854194565161/image.png?ex=6618319b&is=6605bc9b&hm=c88e3cf4653a56ff2d5f66342e577d760bbd85b17c86d2fd6d43ddd4a079a0b4&" alt"Rice Preview" width="400px" height="253"/>
+<img src="https://cdn.discordapp.com/attachments/933711967217123411/1222981958301257828/image.png?ex=661831b4&is=6605bcb4&hm=96d9813abd465ee765cdc34637aee40e599fb88c43b6b89de7829101edc965c0&" alt"Rice Preview" width="400px" height="253"/>
 </div>
 
 <hr>
@@ -118,11 +119,11 @@ mkdir -p /mnt/etc/
 # clone the repo
 git clone https://github.com/redyf/nixdots.git /mnt/etc/nixos --recurse-submodules
 # remove this file
-rm /mnt/etc/nixos/systems/x86_64-linux/redyf/hardware-configuration.nix
+rm /mnt/etc/nixos/hosts/redyf/hardware-configuration.nix
 # generate the config and take some files
 nixos-generate-config --root /mnt
 rm /mnt/etc/nixos/configuration.nix
-mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/systems/x86_64-linux/redyf/
+mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/redyf/
 # make sure you're in this path
 cd /mnt/etc/nixos
 # Install my config:
