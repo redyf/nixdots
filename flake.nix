@@ -9,21 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixos-wsl = {
-    #   url = "github:nix-community/nixos-wsl";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    manix = {
-      url = "github:nix-community/manix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hyprland.url = "github:hyprwm/hyprland";
     waybar-hyprland.url = "github:hyprwm/hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
@@ -56,7 +41,6 @@
     nixpkgs,
     hyprland,
     home-manager,
-    # nixos-wsl,
     spicetify-nix,
     disko,
     ...
