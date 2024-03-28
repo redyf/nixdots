@@ -1,10 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  manixFlake = inputs.manix.packages.${pkgs.system}.manix;
-in {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     nil
     statix
@@ -12,6 +6,5 @@ in {
     nix-index
     nix-init
     nix-prefetch-git
-    manixFlake
   ];
 }
