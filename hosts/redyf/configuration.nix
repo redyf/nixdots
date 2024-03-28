@@ -245,12 +245,6 @@
       desktopManager = {
         xfce.enable = true;
       };
-      windowManager = {
-        xmonad = {
-          enable = false;
-          enableContribAndExtras = true;
-        };
-      };
       libinput = {
         enable = true;
         mouse = {
