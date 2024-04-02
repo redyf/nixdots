@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./alacritty
+    # ./alacritty
     # ./bemenu
     # ./foot
     ./kitty
