@@ -148,9 +148,18 @@
     };
   };
 
-  programs.nix-ld = {
-    enable = true;
-    package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+  programs = {
+    zsh.enable = true;
+    hyprland = {
+      enable = true;
+    };
+    nix-ld = {
+      enable = true;
+      package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
+    };
+    noisetorch = {
+      enable = true;
+    };
   };
 
   # Enables docker in rootless mode
@@ -196,24 +205,6 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
-    };
-  };
-
-  # suites = {
-  #   common = enabled;
-  #   desktop = enabled;
-  #   development = enabled;
-  #   music = enabled;
-  #   video = enabled;
-  #   social = enabled;
-  #   gaming = disabled;
-  #   rice = enabled;
-  # };
-
-  programs = {
-    zsh.enable = true;
-    hyprland = {
-      enable = true;
     };
   };
 
