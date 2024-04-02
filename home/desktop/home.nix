@@ -22,7 +22,6 @@
     ./system
     # ./themes
     ./tools
-    ./user
     ./virtualization
   ];
 
