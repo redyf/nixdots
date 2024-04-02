@@ -44,7 +44,7 @@ in {
       enable = true;
       dotDir = ".config/zsh";
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       initExtra = ''
         bindkey -s ^f "tmux-sessionizer-script\n"
