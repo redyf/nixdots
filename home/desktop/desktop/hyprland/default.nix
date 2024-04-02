@@ -13,6 +13,7 @@
   tokyonight_background = "rgba(32344aaa)";
   catppuccin_border = "rgba(b4befeee)";
   opacity = "0.95";
+  transparent_gray = "rgba(666666AA)";
   cursor = "macOS-BigSur";
 in {
   home.packages = with pkgs; [
@@ -45,7 +46,7 @@ in {
       dunst &
 
       # Cursor
-      hyprctl setcursor "macOS-BigSur" 32 # "Catppuccin-Mocha-Mauve-Cursors"
+      hyprctl setcursor "${cursor}" 32 # "Catppuccin-Mocha-Mauve-Cursors"
 
       # Others
       /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -92,7 +93,7 @@ in {
         gaps_out = 2;
         border_size = 3;
         "col.active_border" = "${catppuccin_border}";
-        "col.inactive_border" = "${tokyonight_background}";
+        "col.inactive_border" = "${transparent_gray}";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
@@ -100,15 +101,15 @@ in {
       decoration = {
         rounding = 12;
         shadow_ignore_window = true;
-        drop_shadow = false;
+        drop_shadow = true;
         shadow_range = 20;
         shadow_render_power = 3;
         "col.shadow" = "rgb(${oxocarbon_background})";
         "col.shadow_inactive" = "${background}";
         blur = {
-          enabled = false;
-          size = 5;
-          passes = 3;
+          enabled = true;
+          size = 8;
+          passes = 1;
           new_optimizations = true;
           ignore_opacity = true;
           noise = 0.0117;
@@ -172,6 +173,7 @@ in {
       exec-once = [
         "autostart"
         "easyeffects --gapplication-service" # Starts easyeffects in the background
+        "xwaylandvideobridge"
       ];
 
       bind = [
