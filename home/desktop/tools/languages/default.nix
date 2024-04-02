@@ -7,9 +7,9 @@ _: {
     ./go
     ./java
     ./javascript
-    ./lua
+    # ./lua
     # ./markdown
-    ./python
+    # ./python
     ./rust
     ./sql
   ];

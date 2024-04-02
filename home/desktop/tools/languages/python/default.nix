@@ -3,9 +3,9 @@
     poetry
     (python311.withPackages (ps:
       with ps; [
-        black # Python formatter
+        # black # Python formatter
         pynvim
-        flake8 # Linter for Python
+        # flake8 # Linter for Python
       ]))
   ];
 }
