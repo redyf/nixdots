@@ -5,6 +5,9 @@
     # ani-cli # A cli tool to browse and play anime
     # mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
+    # Cloud
+    awscli2
+
     # Charm-cli tools
     # pop
 
@@ -16,7 +19,7 @@
 
     # Office + PDF readers
     wpsoffice # MS office alternative for linux
-    zathura # PDF viewer
+    # zathura # PDF viewer
 
     # Rice
     dunst # Notifications for your system
@@ -35,15 +38,13 @@
     # System Utils
     mpd
     mpv
-    tree
-    peek # Animated GIF screen recorder
+    # peek # Animated GIF screen recorder
     xclip
     unzip # Unzip files using the terminal
     nerdfix # Fix obsolete nerd font icons
-    traceroute # Tool to access the X clipboard from a console application
+    # traceroute # Tool to access the X clipboard from a console application
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
-    timer
   ];
 }
