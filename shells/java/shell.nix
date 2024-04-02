@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
+{pkgs ? import <nixpkgs> {}}:
+pkgs.mkShell {
+  nativeBuildInputs = with pkgs; [
     # TODO: Disabled some of them to install with mason
     jdk # Java dev kit
     # jdt-language-server # Jdtls integration
@@ -11,4 +12,7 @@
     gradle # Enterprise-grade build system
     # spring-boot-cli
   ];
+  shellHook = ''
+    echo "Environment is ready" | ${pkgs.lolcat}/bin/lolcat;
+  '';
 }
