@@ -5,10 +5,8 @@
     # jdt-language-server # Jdtls integration
     # checkstyle # Linter
     # google-java-format # Formatter
-    # vscode-extensions.vscjava.vscode-java-debug
-    # vscode-extensions.vscjava.vscode-java-test
-    # maven # Build automation tool for java
-    gradle # Enterprise-grade build system
+    maven # Build automation tool for java
+    # gradle # Enterprise-grade build system
     # spring-boot-cli
   ];
 }
