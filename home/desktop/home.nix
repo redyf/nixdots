@@ -18,7 +18,6 @@
     ./hardware
     ./rice
     # ./services
-    # ./suites
     ./system
     # ./themes
     ./tools
