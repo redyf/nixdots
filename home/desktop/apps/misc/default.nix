@@ -21,12 +21,15 @@
     wpsoffice # MS office alternative for linux
     # zathura # PDF viewer
 
+    # Notetaking
+    obsidian
+
     # Rice
     dunst # Notifications for your system
     cmatrix
-    onefetch
+    # onefetch
     xfce.thunar # Best GUI file manager
-    # nitrogen # Wallpaper utility for X11
+    nitrogen # Wallpaper utility for X11
 
     # Screenshot + extra utils
     grim # Screenshot tool for hyprland
@@ -46,5 +49,6 @@
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
+    dmenu
   ];
 }
