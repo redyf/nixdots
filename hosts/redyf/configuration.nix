@@ -232,6 +232,11 @@
       enable = true;
       displayManager = {
         gdm.enable = true;
+        sessionCommands = ''
+          xset r rate 150 25
+          xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
+          nitrogen --restore
+        '';
       };
       desktopManager = {
         xfce.enable = false;
@@ -243,6 +248,15 @@
             luarocks
             # luadbi-mysql
           ];
+        };
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+          enableConfiguredRecompile = false;
+          extraPackages = hpkgs: [
+            hpkgs.xmobar
+          ];
+          config = builtins.readFile ../../home/desktop/desktop/xmonad/xmonad.hs;
         };
       };
       libinput = {
