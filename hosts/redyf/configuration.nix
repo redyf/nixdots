@@ -30,7 +30,7 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        configurationLimit = 8;
+        configurationLimit = 5;
         theme =
           pkgs.fetchFromGitHub
           {
@@ -98,15 +98,6 @@
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    wireplumber.enable = true;
-    jack.enable = false;
-    pulse.enable = true;
-  };
-
   users = {
     users = {
       redyf = {
@@ -121,6 +112,7 @@
 
   # Enable and configure `doas`.
   security = {
+    rtkit.enable = true;
     sudo = {
       enable = false;
     };
@@ -224,17 +216,34 @@
 
   # Configure keymap in X11
   services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      wireplumber.enable = true;
+      jack.enable = false;
+      pulse.enable = true;
+    };
+
     sshd.enable = true;
     # Enable CUPS to print documents.
     # printing.enable = true;
     xserver = {
-      # Enable the X11 windowing system.
       enable = true;
       displayManager = {
         gdm.enable = true;
       };
       desktopManager = {
-        xfce.enable = true;
+        xfce.enable = false;
+      };
+      windowManager = {
+        awesome = {
+          enable = true;
+          luaModules = with pkgs.luaPackages; [
+            luarocks
+            # luadbi-mysql
+          ];
+        };
       };
       libinput = {
         enable = true;
@@ -253,6 +262,22 @@
     };
     logmein-hamachi.enable = false;
     flatpak.enable = false;
+    autorandr = {
+      enable = true;
+      profiles = {
+        redyf = {
+          config = {
+            DP-0 = {
+              enable = true;
+              primary = true;
+              mode = "1920x1080";
+              rate = "165.00";
+              position = "0x0";
+            };
+          };
+        };
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
