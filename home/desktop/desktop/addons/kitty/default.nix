@@ -5,11 +5,12 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    # theme = "Catppuccin-Macchiato";
+    theme = "Catppuccin-Mocha";
     font = {
-      name = "MonoLisa";
+      # name = "MonoLisa";
+      name = "JetBrainsMono Nerd Font";
       size = 13;
-      package = pkgs.monolisa-script;
+      # package = pkgs.monolisa-script;
     };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
@@ -59,7 +60,7 @@
       term = "xterm-256color";
 
       # Themes
-      include = "themes/oxocarbon-dark.conf";
+      # include = "themes/oxocarbon-dark.conf";
       # terminal_select_modifiers = "alt";
 
       # Padding
