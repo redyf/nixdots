@@ -76,7 +76,7 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
-      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
+      DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
     };
     shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
   };
@@ -215,6 +215,7 @@
   };
 
   # Configure keymap in X11
+  sound.enable = true;
   services = {
     pipewire = {
       enable = true;
@@ -223,6 +224,7 @@
       wireplumber.enable = true;
       jack.enable = false;
       pulse.enable = true;
+      audio.enable = true;
     };
 
     sshd.enable = true;
@@ -243,7 +245,7 @@
       };
       windowManager = {
         awesome = {
-          enable = true;
+          enable = false;
           luaModules = with pkgs.luaPackages; [
             luarocks
             # luadbi-mysql
