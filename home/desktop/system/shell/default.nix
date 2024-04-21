@@ -202,16 +202,6 @@ in {
           };
         }
         {
-          name = "fast-syntax-highlighting";
-          file = "fast-syntax-highlighting.plugin.zsh";
-          src = fetchFromGitHub {
-            owner = "zdharma-continuum";
-            repo = "fast-syntax-highlighting";
-            rev = "13d7b4e63468307b6dcb2dadf6150818f242cbff";
-            sha256 = "0ghzqg1xfvqh9z23aga7aafrpxbp9bpy1r8vk4avi6b80p3iwsq2";
-          };
-        }
-        {
           name = "zsh-autopair";
           file = "zsh-autopair.plugin.zsh";
           src = fetchFromGitHub {
