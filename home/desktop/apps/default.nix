@@ -9,7 +9,6 @@ _: {
     ./insomnia
     ./misc
     ./obs
-    ./spicetify
     # ./steam
     # ./vscode
   ];
