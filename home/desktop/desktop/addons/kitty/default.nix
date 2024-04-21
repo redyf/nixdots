@@ -5,11 +5,14 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    theme = "Catppuccin-Macchiato";
+    # theme = "Catppuccin-Mocha";
+    theme = "Rosé Pine";
     font = {
-      name = "MonoLisa";
+      # name = "MonoLisa";
+      # name = "Liga SfMono Nerd Font";
+      name = "Berkeley Mono Regular Nerd Font Complete";
       size = 13;
-      package = pkgs.monolisa-script;
+      # package = pkgs.monolisa-script;
     };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
@@ -59,7 +62,7 @@
       term = "xterm-256color";
 
       # Themes
-      # include = themes/mocha.conf;
+      # include = "themes/oxocarbon-dark.conf";
       # terminal_select_modifiers = "alt";
 
       # Padding
@@ -103,17 +106,18 @@
       "ctrl+shift+q" = "close_tab";
     };
   };
-  # home.extraOptions.xdg = {
-  #   configFile = {
-  #     "kitty/kitty.conf".text = import ./kitty.nix;
-  #     "kitty/themes/challenger_deep.conf".text = import ./challenger-deep.nix;
-  #     "kitty/themes/dark-decay.conf".text = import ./dark-decay.nix;
-  #     "kitty/themes/decayce.conf".text = import ./decayce.nix;
-  #     "kitty/themes/lunar.conf".text = import ./lunar.nix;
-  #     "kitty/themes/mocha.conf".text = import ./mocha.nix;
-  #     "kitty/themes/macchiato.conf".text = import ./macchiato.nix;
-  #     "kitty/themes/tokyonight_night.conf".text = import ./tokyonight_night.nix;
-  #     "kitty/themes/rose-pine.conf".text = import ./rose-pine.nix;
-  #   };
-  # };
+  xdg = {
+    configFile = {
+      #     "kitty/kitty.conf".text = import ./kitty.nix;
+      #     "kitty/themes/challenger_deep.conf".text = import ./challenger-deep.nix;
+      #     "kitty/themes/dark-decay.conf".text = import ./dark-decay.nix;
+      #     "kitty/themes/decayce.conf".text = import ./decayce.nix;
+      #     "kitty/themes/lunar.conf".text = import ./lunar.nix;
+      #     "kitty/themes/mocha.conf".text = import ./mocha.nix;
+      #     "kitty/themes/macchiato.conf".text = import ./macchiato.nix;
+      #     "kitty/themes/tokyonight_night.conf".text = import ./tokyonight_night.nix;
+      #     "kitty/themes/rose-pine.conf".text = import ./rose-pine.nix;
+      "kitty/themes/oxocarbon-dark.conf".text = import ./oxocarbon.nix;
+    };
+  };
 }
