@@ -244,6 +244,7 @@ in {
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
         ",Print,exec,screenshot"
         "SUPER,Print,exec,screenshot-edit"
+        "SUPER,o,exec,obsidian"
         "SUPER SHIFT,C,exec,wallpaper"
         "SUPER,z,exec,waybar"
         # "SUPER,space,exec,bemenu-run"

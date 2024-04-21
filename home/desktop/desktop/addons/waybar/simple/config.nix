@@ -70,7 +70,7 @@
 
     "custom/launcher" = {
       format = "";
-      on-click = "pkill rofi || ${pkgs.rofi-wayland}/bin/rofi -show drun -show-icons";
+      on-click = "pkill wofi || ${pkgs.wofi}/bin/rofi --show drun -I -s ~/.config/wofi/style.css DP-3";
       tooltip = "false";
     };
   };
