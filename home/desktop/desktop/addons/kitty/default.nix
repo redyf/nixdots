@@ -5,10 +5,12 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    theme = "Catppuccin-Mocha";
+    # theme = "Catppuccin-Mocha";
+    theme = "Rosé Pine";
     font = {
       # name = "MonoLisa";
-      name = "JetBrainsMono Nerd Font";
+      # name = "Liga SfMono Nerd Font";
+      name = "Berkeley Mono Regular Nerd Font Complete";
       size = 13;
       # package = pkgs.monolisa-script;
     };
