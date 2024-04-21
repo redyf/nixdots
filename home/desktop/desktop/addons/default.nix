@@ -4,7 +4,7 @@ _: {
     # ./bemenu
     # ./foot
     ./kitty
-    # ./rofi
+    ./rofi
     # ./st
     ./swww
     ./waybar

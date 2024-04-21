@@ -18,7 +18,6 @@
     ./hardware
     ./rice
     # ./services
-    # ./suites
     ./system
     # ./themes
     ./tools
@@ -53,6 +52,17 @@
             installPhase = ''
               mkdir -p $out/share/fonts/opentype
               cp -R $src/*.ttf $out/share/fonts/opentype/
+            '';
+          };
+
+          berkeley = prev.stdenvNoCC.mkDerivation {
+            pname = "berkeley";
+            version = "dev";
+            src = berkeley-mono;
+            dontConfigure = true;
+            installPhase = ''
+              mkdir -p $out/share/fonts/opentype
+              cp -R $src/*.otf $out/share/fonts/opentype/
             '';
           };
         }

@@ -7,9 +7,9 @@
     margin-bottom = 0;
     margin-left = 0;
     margin-right = 0;
-    modules-left = ["custom/launcher" "hyprland/workspaces"];
-    modules-center = ["clock"];
-    modules-right = ["cpu" "memory" "pulseaudio" "tray"];
+    modules-left = ["custom/launcher"];
+    modules-center = ["hyprland/workspaces"];
+    modules-right = ["cpu" "memory" "pulseaudio" "tray" "clock"];
 
     clock = {
       calendar = {
@@ -70,7 +70,7 @@
 
     "custom/launcher" = {
       format = "";
-      on-click = "pkill rofi || ${pkgs.rofi-wayland}/bin/rofi -show drun -show-icons";
+      on-click = "pkill wofi || ${pkgs.wofi}/bin/rofi --show drun -I -s ~/.config/wofi/style.css DP-3";
       tooltip = "false";
     };
   };

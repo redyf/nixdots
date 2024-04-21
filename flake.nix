@@ -14,19 +14,21 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
-    spicetify-nix = {
-      url = "github:the-argus/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     nix-ld-rs.url = "github:nix-community/nix-ld-rs";
+    sops-nix.url = "github:Mic92/sops-nix";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
+    };
+
+    berkeley-mono = {
+      url = "github:redyf/test";
       flake = false;
     };
 
@@ -41,8 +43,8 @@
     nixpkgs,
     hyprland,
     home-manager,
-    spicetify-nix,
     disko,
+    sops-nix,
     ...
   } @ inputs: let
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
@@ -62,7 +64,6 @@
             inherit
               inputs
               hyprland
-              spicetify-nix
               disko
               ;
           };
@@ -73,13 +74,14 @@
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
-                extraSpecialArgs = {inherit inputs spicetify-nix disko;};
+                extraSpecialArgs = {inherit inputs disko;};
                 users.redyf = ./home/desktop/home.nix;
               };
             }
             hyprland.nixosModules.default
             {programs.hyprland.enable = true;}
             disko.nixosModules.disko
+            sops-nix.nixosModules.sops
           ];
         };
       # wsl = nixpkgs.lib.nixosSystem {
