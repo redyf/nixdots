@@ -4,7 +4,7 @@ _: {
     ./git
     # ./gnupg
     ./http
-    # ./intellij
+    ./intellij
     ./languages
     ./nix-ld
   ];
