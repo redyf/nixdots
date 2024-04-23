@@ -8,9 +8,6 @@
     # Cloud
     awscli2
 
-    # Charm-cli tools
-    # pop
-
     # Gaming
     # gnutls
     # minecraft
@@ -19,7 +16,6 @@
 
     # Office + PDF readers
     wpsoffice # MS office alternative for linux
-    # zathura # PDF viewer
 
     # Notetaking
     obsidian
@@ -27,8 +23,7 @@
     # Rice
     dunst # Notifications for your system
     cmatrix
-    # onefetch
-    xfce.thunar # Best GUI file manager
+    yazi # Best TUI file manager
     nitrogen # Wallpaper utility for X11
 
     # Screenshot + extra utils
@@ -45,10 +40,10 @@
     xclip
     unzip # Unzip files using the terminal
     nerdfix # Fix obsolete nerd font icons
-    # traceroute # Tool to access the X clipboard from a console application
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
     dmenu
+    spotify
   ];
 }

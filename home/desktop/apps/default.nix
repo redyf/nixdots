@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./artix-game-launcher
+    # ./artix-game-launcher
     ./brave
     ./discord
     # ./davinci-resolve
@@ -9,7 +9,6 @@ _: {
     ./insomnia
     ./misc
     ./obs
-    # ./steam
     # ./vscode
   ];
 }
