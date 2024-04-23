@@ -19,7 +19,6 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     nix-ld-rs.url = "github:nix-community/nix-ld-rs";
-    sops-nix.url = "github:Mic92/sops-nix";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
@@ -44,7 +43,6 @@
     hyprland,
     home-manager,
     disko,
-    sops-nix,
     ...
   } @ inputs: let
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
@@ -81,7 +79,6 @@
             hyprland.nixosModules.default
             {programs.hyprland.enable = true;}
             disko.nixosModules.disko
-            sops-nix.nixosModules.sops
           ];
         };
       # wsl = nixpkgs.lib.nixosSystem {
