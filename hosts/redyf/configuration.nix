@@ -112,7 +112,6 @@
 
   # Enable and configure `doas`.
   security = {
-    rtkit.enable = true;
     sudo = {
       enable = false;
     };
@@ -146,11 +145,11 @@
       enable = true;
     };
     nix-ld = {
-      enable = true;
+      enable = false;
       package = inputs.nix-ld-rs.packages.${pkgs.system}.nix-ld-rs;
     };
     noisetorch = {
-      enable = true;
+      enable = false;
     };
   };
 
@@ -298,7 +297,7 @@
 
   environment.systemPackages = with pkgs; [
     git
-    playerctl
+    # playerctl
     inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
 
