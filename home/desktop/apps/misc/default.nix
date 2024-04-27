@@ -14,9 +14,6 @@
     # grapejuice
     # libpulseaudio
 
-    # Office + PDF readers
-    wpsoffice # MS office alternative for linux
-
     # Notetaking
     obsidian
 
