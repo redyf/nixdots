@@ -3,13 +3,13 @@ _: {
     ./c
     # ./clojure
     # ./dart
-    ./elixir
+    # ./elixir
     ./go
-    ./java
+    # ./java
     ./javascript
     # ./lua
     # ./python
     ./rust
-    ./sql
+    # ./sql
   ];
 }
