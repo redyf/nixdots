@@ -3,12 +3,11 @@ _: {
     ./c
     # ./clojure
     # ./dart
-    # ./elixir
+    ./elixir
     ./go
     ./java
     ./javascript
     # ./lua
-    # ./markdown
     # ./python
     ./rust
     ./sql
