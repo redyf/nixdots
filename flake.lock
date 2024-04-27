@@ -983,11 +983,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1713887057,
-        "narHash": "sha256-pX6VU9zWJQlgNS61UmPEssY12zGkc3l6AexYDfI0AWk=",
+        "lastModified": 1713894351,
+        "narHash": "sha256-GpfPtLUNTQdW0JAnN/t+5oFYW1WTf0jBdAeqnBGdp6M=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b726b33500beb5c1be583d32bce126fbe50558c7",
+        "rev": "47948d07d138a4f746f8b42abb7db07f8b0f92a4",
         "type": "github"
       },
       "original": {
@@ -1200,7 +1200,8 @@
         "hyprcursor": "hyprcursor_2",
         "hyprland-protocols": "hyprland-protocols_2",
         "hyprlang": "hyprlang_2",
-        "nixpkgs": "nixpkgs_9",
+        "hyprwayland-scanner": "hyprwayland-scanner_2",
+        "nixpkgs": "nixpkgs_8",
         "systems": "systems_7",
         "wlroots": "wlroots_2",
         "xdph": "xdph_2"
@@ -1257,7 +1258,7 @@
       "inputs": {
         "hyprland-protocols": "hyprland-protocols_3",
         "hyprlang": "hyprlang_3",
-        "nixpkgs": "nixpkgs_10",
+        "nixpkgs": "nixpkgs_9",
         "systems": "systems_9"
       },
       "locked": {

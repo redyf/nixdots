@@ -76,7 +76,7 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
-      DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
+      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
     };
     shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
   };
@@ -152,14 +152,6 @@
     noisetorch = {
       enable = true;
     };
-    nh = {
-      enable = true;
-      clean = {
-        enable = true;
-        extraArgs = "--keep-since 4d --keep 3";
-      };
-      flake = "/home/redyf/nixdots";
-    };
   };
 
   # Enables docker in rootless mode
@@ -202,7 +194,7 @@
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
-      automatic = false;
+      automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
