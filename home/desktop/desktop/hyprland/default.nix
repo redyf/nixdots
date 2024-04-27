@@ -14,7 +14,8 @@
   catppuccin_border = "rgba(b4befeee)";
   opacity = "0.95";
   transparent_gray = "rgba(666666AA)";
-  cursor = "macOS-BigSur";
+  gsettings = "${pkgs.glib}/bin/gsettings";
+  gnomeSchema = "org.gnome.desktop.interface";
 in {
   home.packages = with pkgs; [
     grim
@@ -46,11 +47,25 @@ in {
       dunst &
 
       # Cursor
-      hyprctl setcursor "${cursor}" 32 # "Catppuccin-Mocha-Mauve-Cursors"
+      gsettings set org.gnome.desktop.interface cursor-theme macOS-BigSur
+      hyprctl setcursor macOS-BigSur 32 # "Catppuccin-Mocha-Mauve-Cursors"
 
       # Others
       /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
       dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+    '')
+
+    (writeShellScriptBin "importGsettings" ''
+      config="/home/redyf/.config/gtk-3.0/settings.ini"
+      if [ ! -f "$config" ]; then exit 1; fi
+      gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+      icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+      cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+      font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')"
+      ${gsettings} set ${gnomeSchema} gtk-theme "$gtk_theme"
+      ${gsettings} set ${gnomeSchema} icon-theme "$icon_theme"
+      ${gsettings} set ${gnomeSchema} cursor-theme "$cursor_theme"
+      ${gsettings} set ${gnomeSchema} font-name "$font_name"
     '')
   ];
   wayland.windowManager.hyprland = {
@@ -108,12 +123,12 @@ in {
         "col.shadow_inactive" = "${background}";
         blur = {
           enabled = true;
-          size = 8;
-          passes = 1;
+          size = 4;
+          passes = 2;
           new_optimizations = true;
           ignore_opacity = true;
           noise = 0.0117;
-          contrast = 1.5;
+          contrast = 1.3;
           brightness = 1;
           xray = true;
         };
@@ -141,6 +156,7 @@ in {
       misc = {
         vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
         vrr = false; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
+        enable_hyprcursor = false;
       };
 
       dwindle = {
@@ -173,7 +189,7 @@ in {
       exec-once = [
         "autostart"
         "easyeffects --gapplication-service" # Starts easyeffects in the background
-        "xwaylandvideobridge"
+        "importGsettings"
       ];
 
       bind = [
@@ -276,7 +292,6 @@ in {
         "tile,title:^(kitty)$"
         "float,title:^(fly_is_kitty)$"
         "tile,^(Spotify)$"
-        # "tile,^(neovide)$"
         "tile,^(wps)$"
       ];
 
@@ -302,33 +317,34 @@ in {
     };
 
     # Submaps
-    # extraConfig = ''
-    #        # source = ~/.config/hypr/themes/catppuccin-macchiato.conf
-    #        # source = ~/.config/hypr/themes/oxocarbon.conf
+    # extraConfig = [
+    # "gsettings set org.gnome.desktop.interface cursor-theme macOS-BigSur"
+    #        source = ~/.config/hypr/themes/catppuccin-macchiato.conf
+    #        source = ~/.config/hypr/themes/oxocarbon.conf
     #        env = GBM_BACKEND,nvidia-drm
     #        env = LIBVA_DRIVER_NAME,nvidia
     #        env = XDG_SESSION_TYPE,wayland
     #        env = __GLX_VENDOR_LIBRARY_NAME,nvidia
     #        env = WLR_NO_HARDWARE_CURSORS,1
-    #   #     # will switch to a submap called resize
-    #   #     bind=$mainMod,R,submap,resize
-    #   #
-    #   #     # will start a submap called "resize"
-    #   #     submap=resize
-    #   #
-    #   #     # sets repeatable binds for resizing the active window
-    #   #     binde=,L,resizeactive,15 0
-    #   #     binde=,H,resizeactive,-15 0
-    #   #     binde=,K,resizeactive,0 -15
-    #   #     binde=,J,resizeactive,0 15
-    #   #
-    #   #     # use reset to go back to the global submap
-    #   #     bind=,escape,submap,reset
-    #   #     bind=$mainMod,R,submap,reset
-    #   #
-    #   #     # will reset the submap, meaning end the current one and return to the global one
-    #   #     submap=reset
-    # '';
+    #        # will switch to a submap called resize
+    #        bind=$mainMod,R,submap,resize
+    #
+    #        # will start a submap called "resize"
+    #        submap=resize
+    #
+    #        # sets repeatable binds for resizing the active window
+    #        binde=,L,resizeactive,15 0
+    #        binde=,H,resizeactive,-15 0
+    #        binde=,K,resizeactive,0 -15
+    #        binde=,J,resizeactive,0 15
+    #
+    #        # use reset to go back to the global submap
+    #        bind=,escape,submap,reset
+    #        bind=$mainMod,R,submap,reset
+    #
+    #        # will reset the submap, meaning end the current one and return to the global one
+    #        submap=reset
+    # ];
   };
 
   # Hyprland configuration files
