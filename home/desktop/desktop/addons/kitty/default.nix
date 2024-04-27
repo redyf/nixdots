@@ -5,14 +5,13 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    # theme = "Catppuccin-Mocha";
-    theme = "Rosé Pine";
+    theme = "Catppuccin-Mocha";
     font = {
-      # name = "MonoLisa";
+      name = "MonoLisa";
       # name = "Liga SfMono Nerd Font";
-      name = "Berkeley Mono Regular Nerd Font Complete";
-      size = 13;
-      # package = pkgs.monolisa-script;
+      # name = "Berkeley Mono Regular Nerd Font Complete";
+      size = 12;
+      package = pkgs.monolisa-script;
     };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
@@ -31,7 +30,7 @@
       sync_to_monitor = "yes";
 
       # Background
-      background_opacity = "1";
+      background_opacity = "0.98";
 
       # Cursor
       cursor_shape = "block";
