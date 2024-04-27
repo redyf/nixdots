@@ -13,7 +13,6 @@
     waybar-hyprland.url = "github:hyprwm/hyprland";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
-    nix-colors.url = "github:misterio77/nix-colors";
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
