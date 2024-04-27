@@ -1,11 +1,9 @@
 _: {
   imports = [
     # ./artix-game-launcher
-    ./brave
     ./discord
     # ./davinci-resolve
-    # ./firefox
-    # ./floorp
+    ./firefox
     ./insomnia
     ./misc
     ./obs

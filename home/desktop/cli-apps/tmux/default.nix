@@ -6,7 +6,7 @@
       owner = "dmmulroy";
       repo = "catppuccin-tmux";
       rev = "ec8df6268a6e5271c693ea34fc545000cec1fced";
-      sha256 = "sha256-I8rAg3ecLxW4emtY1VpKpUMIaXfSks416LLkHtLZSsI=";
+      sha256 = "1hjav791xr5jx0swx4njfxlhhhx599ddan3bgaw1abwwfy1w1ji3";
     };
   };
 in {
@@ -20,14 +20,14 @@ in {
     prefix = "C-Space";
     mouse = true;
     plugins = with pkgs.tmuxPlugins; [
-      {
-        plugin = catppuccin;
-        extraConfig = builtins.readFile ./catppuccin.conf;
-      }
       # {
-      #   plugin = catppuccin-tmux;
-      #   extraConfig = builtins.readFile ./catppuccin-custom.conf;
+      #   plugin = catppuccin;
+      #   extraConfig = builtins.readFile ./catppuccin.conf;
       # }
+      {
+        plugin = catppuccin-tmux;
+        extraConfig = builtins.readFile ./catppuccin-custom.conf;
+      }
       # {
       #   plugin = rose-pine;
       #   extraConfig = builtins.readFile ./rose-pine.conf;
