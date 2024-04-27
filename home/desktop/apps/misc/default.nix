@@ -21,8 +21,9 @@
     obsidian
 
     # Rice
-    dunst # Notifications for your system
-    cmatrix
+    # mako
+    # dunst # Notifications for your system
+    # cmatrix
     yazi # Best TUI file manager
     nitrogen # Wallpaper utility for X11
     nwg-look # Change GTK theme
@@ -35,13 +36,13 @@
     vlc
 
     # System Utils
-    mpd
+    # mpd
     mpv
     # peek # Animated GIF screen recorder
     glib
     xclip
     unzip # Unzip files using the terminal
-    nerdfix # Fix obsolete nerd font icons
+    # nerdfix # Fix obsolete nerd font icons
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
