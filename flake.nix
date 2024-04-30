@@ -15,9 +15,6 @@
     nur.url = "github:nix-community/NUR";
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    nix-ld-rs.url = "github:nix-community/nix-ld-rs";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
