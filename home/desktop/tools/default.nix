@@ -6,6 +6,5 @@ _: {
     ./http
     ./intellij
     ./languages
-    # ./nix-ld
   ];
 }
