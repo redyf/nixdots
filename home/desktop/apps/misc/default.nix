@@ -17,6 +17,9 @@
     # Notetaking
     obsidian
 
+    # Other stuff
+    ollama
+
     # Rice
     # mako
     # dunst # Notifications for your system
