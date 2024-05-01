@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # NPM packages
     bun
+    deno
     nodejs
     typescript
-    nodePackages.npm # Package manager
+    nodePackages.npm
   ];
 }
