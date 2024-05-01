@@ -158,10 +158,10 @@ in {
     tmux-sessionizer
     # Script to find files with tmux in vim
     (writeShellScriptBin "tmux-sessionizer-script" ''
-          if [[ $# -eq 1 ]]; then
+      if [[ $# -eq 1 ]]; then
           selected=$1
       else
-          selected=$(find ~/ ~/projects ~/tests -mindepth 1 -maxdepth 1 -type d | fzf)
+          selected=$(find ~/projects ~/tests -mindepth 1 -maxdepth 1 -type d | fzf)
       fi
 
       if [[ -z $selected ]]; then
@@ -181,9 +181,11 @@ in {
       fi
 
       if [[ -z $TMUX ]]; then
-          tmux attach -t $selected_name
+          nvim "$selected"
+          tmux kill-session -t $selected_name
       else
-          tmux switch-client -t $selected_name
+          nvim "$selected"
+          tmux kill-session -t $selected_name
       fi
     '')
   ];
