@@ -17,11 +17,9 @@
     ./desktop
     ./hardware
     ./rice
-    # ./services
     ./system
-    # ./themes
     ./tools
-    ./virtualization
+    # ./virtualization
   ];
 
   # Allow unfree packages + use overlays
