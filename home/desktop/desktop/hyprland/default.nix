@@ -4,7 +4,6 @@
   ...
 }: let
   hyprlandFlake = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  fontsize = "12";
   oxocarbon_pink = "ff7eb6";
   oxocarbon_border = "393939";
   oxocarbon_background = "161616";
@@ -79,6 +78,12 @@ in {
       monitor = [
         ",highrr,auto,auto"
       ];
+      env = [
+        "XCURSOR_SIZE,32"
+        "XCURSOR_THEME,macOS-BigSur"
+        "HYPRCURSOR_THEME,macOS-BigSur"
+        "HYPRCURSOR_SIZE,32"
+      ];
 
       xwayland = {
         force_zero_scaling = true;
@@ -108,7 +113,7 @@ in {
         gaps_out = 2;
         border_size = 3;
         "col.active_border" = "${catppuccin_border}";
-        "col.inactive_border" = "${transparent_gray}";
+        "col.inactive_border" = "${tokyonight_border}";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
@@ -156,7 +161,7 @@ in {
       misc = {
         vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
         vrr = false; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
-        enable_hyprcursor = false;
+        enable_hyprcursor = true;
       };
 
       dwindle = {
@@ -318,7 +323,6 @@ in {
 
     # Submaps
     # extraConfig = [
-    # "gsettings set org.gnome.desktop.interface cursor-theme macOS-BigSur"
     #        source = ~/.config/hypr/themes/catppuccin-macchiato.conf
     #        source = ~/.config/hypr/themes/oxocarbon.conf
     #        env = GBM_BACKEND,nvidia-drm
