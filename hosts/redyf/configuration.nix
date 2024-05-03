@@ -66,8 +66,6 @@
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       __GL_GSYNC_ALLOWED = "1";
       __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
-      XCURSOR_THEME = "macOS-BigSur";
-      XCURSOR_SIZE = "32";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
@@ -141,12 +139,15 @@
 
   programs = {
     zsh.enable = true;
-    hyprland = {
-      enable = true;
-    };
     noisetorch = {
       enable = false;
     };
+    # nh = {
+    #   enable = false;
+    #   clean.enable = false;
+    #   clean.extraArgs = "--keep-since 4d --keep 3";
+    #   flake = "/home/redyf/nixdots";
+    # };
   };
 
   # Enables docker in rootless mode
@@ -253,7 +254,7 @@
           extraPackages = hpkgs: [
             hpkgs.xmobar
           ];
-          config = builtins.readFile ../../home/desktop/desktop/xmonad/xmonad.hs;
+          config = builtins.readFile ../../home/redyf/desktop/xmonad/xmonad.hs;
         };
       };
       libinput = {
@@ -293,7 +294,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    # playerctl
     inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
 
