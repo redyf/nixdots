@@ -11,7 +11,6 @@ in {
       sudo = "doas";
       c = "nvim";
       cp = "cp -i";
-      e = "emacsclient -c -a 'emacs'";
       f = "neofetch --sixel";
       p = "pfetch";
       fetch = "neofetch w3m";
@@ -51,17 +50,15 @@ in {
         # Export PATHs for applications
         export PATH=$PATH:~/.local/bin/
         export PATH=/tmp/lazy-lvim/bin:$PATH
-        export PATH="$HOME/.emacs.d/bin:$PATH"
+        export PATH="$PATH:/home/redyf/.emacs.d/bin"
+        export PATH="$PATH:/home/redyf/.config/emacs/bin"
         export PATH="$PATH:/run/current-system/sw/bin/jdtls"
         export PATH="$PATH:/run/current-system/sw/bin/jdt-language-server"
         export PATH="$PATH:/etc/profiles/per-user/redyf/bin/flutter"
         export PATH="$PATH:/home/redyf/Android/Sdk"
         export PATH="$PATH:/home/redyf/Android/Sdk/platform-tools/"
         export PATH="$PATH:/home/redyf/Android/Sdk/cmdline-tools/latest/bin"
-        export PATH="$PATH:/home/redyf/.nix-profile/bin/swww"
-        export PATH="$PATH:/home/redyf/.nix-profile/bin/swww-daemon"
         export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
-        export PATH="$PATH:/home/redyf/.config/nvim/bin"
         export WINIT_UNIX_BACKEND=x11 neovide
 
         # Autosuggest
@@ -154,7 +151,6 @@ in {
       shellAliases = {
         c = "nvim";
         cp = "cp -i";
-        e = "emacsclient -c -a 'emacs'";
         f = "neofetch --sixel";
         p = "pfetch";
         fetch = "neofetch w3m";

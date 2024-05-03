@@ -11,7 +11,9 @@
         scan_timeout = 10;
         add_newline = false;
         line_break.disabled = false;
-        right_format = "$time";
+        right_format = ''
+          $all
+        '';
         character = {
           success_symbol = "[](#cbced3)";
           error_symbol = "[](#dd6777) ";
@@ -20,8 +22,13 @@
           format = "$symbol[λ ](bold #b4befe) ";
         };
 
+        # format = ''
+        #   $directory$git_branch$git_state$git_metrics$dart$lua$nodejs$package$python$rust$nix_shell$custom
+        #   $character
+        # '';
+
         format = ''
-          $directory$git_branch$git_state$git_metrics$dart$lua$nodejs$package$python$rust$nix_shell$custom
+          $directory
           $character
         '';
 
@@ -31,27 +38,83 @@
         };
         git_commit = {commit_hash_length = 5;};
 
+        golang = {
+          format = "[ ]($style)";
+          style = "bold blue";
+        };
+
         dart = {
-          symbol = "[](blue) ";
+          symbol = "[]($style) ";
+          style = "bold blue";
         };
+
         lua = {
-          symbol = "[](blue) ";
+          symbol = "[]($style) ";
+          style = "bold blue";
         };
+
         nodejs = {
           version_format = "v$raw(blue)";
         };
+
         package = {
           symbol = "📦";
         };
+
         python = {
-          symbol = "[](blue) ";
+          symbol = "[]($style) ";
+          style = "bold blue";
         };
+
         rust = {
-          symbol = "[](red) ";
+          symbol = "[]($style) ";
+          style = "bold blue";
         };
+
         shell = {
           disabled = true;
           zsh_indicator = "zsh";
+        };
+
+        aws = {
+          format = "on [$symbol($profile )(\($region) )]($style)";
+          style = "bold blue";
+          symbol = "  ";
+        };
+
+        kubernetes = {
+          symbol = "☸ ";
+          disabled = false;
+          detect_files = ["Dockerfile"];
+          format = "[$context(\[$namespace\])]($style) ";
+        };
+
+        docker_context = {
+          disabled = true;
+        };
+
+        # nix_shell = {
+        #   disabled = false;
+        #   heuristic = false;
+        #   impure_msg = "[impure-shell](red)";
+        #   pure_msg = "[pure-shell](green)";
+        #   unknown_msg = "[unknown-shell](yellow)";
+        # };
+
+        custom = {
+          nix = {
+            disabled = true;
+            detect_files = ["flake.nix" "default.nix" "shell.nix"];
+            # format = "via [$symbol nix-shell]($style) ";
+            # command = ''
+            #   if [ -e flake.nix ] || [ -e default.nix ] || [ -e shell.nix ]; then
+            #     echo " (nix-shell)"
+            #   fi
+            # '';
+            format = "[$symbol$output]($style)";
+            style = "bold blue";
+            symbol = "[](bold blue) ";
+          };
         };
 
         username = {
@@ -84,30 +147,6 @@
           utc_time_offset = "local";
           format = "[ $time 󰥔]($style) ";
           style = "bold #393939";
-        };
-
-        nix_shell = {
-          disabled = false;
-          heuristic = false;
-          impure_msg = "[impure-shell](red)";
-          pure_msg = "[pure-shell](green)";
-          unknown_msg = "[unknown-shell](yellow)";
-        };
-
-        custom = {
-          nix = {
-            disabled = false;
-            detect_files = ["flake.nix" "default.nix" "shell.nix"];
-            # format = "via [$symbol nix-shell]($style) ";
-            # command = ''
-            #   if [ -e flake.nix ] || [ -e default.nix ] || [ -e shell.nix ]; then
-            #     echo " (nix-shell)"
-            #   fi
-            # '';
-            format = "[$symbol$output]($style)";
-            style = "bold blue";
-            symbol = "[](bold blue) ";
-          };
         };
       }
       // builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub
