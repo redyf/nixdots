@@ -7,11 +7,12 @@
     };
     theme = "Catppuccin-Mocha";
     font = {
-      name = "MonoLisa";
+      # name = "MonoLisa";
       # name = "Liga SfMono Nerd Font";
       # name = "Berkeley Mono Regular Nerd Font Complete";
-      size = 12;
-      package = pkgs.monolisa-script;
+      name = "LiterationMono Nerd Font";
+      size = 11;
+      # package = pkgs.monolisa-script;
     };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
