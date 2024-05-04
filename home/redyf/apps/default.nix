@@ -8,7 +8,6 @@ _: {
     ./insomnia
     ./misc
     ./obs
-    ./pom
     # ./vscode
   ];
 }
