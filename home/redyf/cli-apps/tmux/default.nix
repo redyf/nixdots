@@ -42,8 +42,8 @@ in {
       # Keybinds
       #--------------------------------------------------------------------------
       # Shift Alt vim keys to switch windows
-      bind -n M-H previous-window
-      bind -n M-L next-window
+      bind -n M-J previous-window
+      bind -n M-K next-window
 
       # Open panes in current directory
       bind '"' split-window -v -c "#{pane_current_path}"
