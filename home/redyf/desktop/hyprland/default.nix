@@ -109,9 +109,9 @@ in {
       };
 
       general = {
-        gaps_in = 1;
-        gaps_out = 2;
-        border_size = 3;
+        gaps_in = 0;
+        gaps_out = 0;
+        border_size = 0;
         "col.active_border" = "${catppuccin_border}";
         "col.inactive_border" = "${tokyonight_border}";
         layout = "dwindle";
@@ -119,9 +119,9 @@ in {
       };
 
       decoration = {
-        rounding = 12;
+        rounding = 0;
         shadow_ignore_window = true;
-        drop_shadow = true;
+        drop_shadow = false;
         shadow_range = 20;
         shadow_render_power = 3;
         "col.shadow" = "rgb(${oxocarbon_background})";
