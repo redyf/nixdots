@@ -33,53 +33,45 @@
         '';
 
         palette = "catppuccin_${flavour}";
-        git_branch = {
-          symbol = " ";
-        };
-        git_commit = {commit_hash_length = 5;};
-
-        golang = {
-          format = "[ ]($style)";
-          style = "bold blue";
-        };
-
-        dart = {
-          symbol = "[]($style) ";
-          style = "bold blue";
-        };
-
-        lua = {
-          symbol = "[]($style) ";
-          style = "bold blue";
-        };
-
-        nodejs = {
-          version_format = "v$raw(blue)";
-        };
-
-        package = {
-          symbol = "📦";
-        };
-
-        python = {
-          symbol = "[]($style) ";
-          style = "bold blue";
-        };
-
-        rust = {
-          symbol = "[]($style) ";
-          style = "bold blue";
-        };
-
-        shell = {
-          disabled = true;
-          zsh_indicator = "zsh";
-        };
 
         aws = {
           format = "on [$symbol($profile )(\($region) )]($style)";
           style = "bold blue";
-          symbol = "  ";
+          symbol = " ";
+        };
+
+        dart = {
+          format = "via [$symbol($version )]($style)";
+          symbol = "[]($style) ";
+          style = "bold blue";
+        };
+
+        docker_context = {
+          disabled = true;
+        };
+
+        elixir = {
+          format = "via [$symbol($version \(OTP $otp_version\) )]($style)";
+          symbol = " ";
+          style = "bold purple";
+        };
+
+        git_branch = {
+          format = "on [$symbol$branch(:$remote_branch)]($style) ";
+          symbol = " ";
+          style = "bold purple";
+        };
+
+        git_commit = {
+          format = "[\($hash$tag\)]($style) ";
+          commit_hash_length = 7;
+          style = "bold green";
+        };
+
+        golang = {
+          format = "via [$symbol($version )]($style)";
+          style = "bold blue";
+          symbol = "[ ]($style)";
         };
 
         kubernetes = {
@@ -89,17 +81,48 @@
           format = "[$context(\[$namespace\])]($style) ";
         };
 
-        docker_context = {
-          disabled = true;
+        lua = {
+          format = "via [$symbol($version )]($style)";
+          symbol = "[]($style) ";
+          style = "bold blue";
         };
 
-        # nix_shell = {
-        #   disabled = false;
-        #   heuristic = false;
-        #   impure_msg = "[impure-shell](red)";
-        #   pure_msg = "[pure-shell](green)";
-        #   unknown_msg = "[unknown-shell](yellow)";
-        # };
+        nix_shell = {
+          format = "via [$symbol$state( \($name\))]($style) ";
+          symbol = "󱄅 ";
+          style = "bold blue";
+          disabled = false;
+        };
+
+        nodejs = {
+          format = "via [$symbol($version )]($style)";
+          style = "bold green";
+          symbol = " ";
+          version_format = "v$raw(blue)";
+        };
+
+        package = {
+          format = "is [$symbol$version]($style) ";
+          symbol = " ";
+          style = "bold 208";
+        };
+
+        python = {
+          format = "via [$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)";
+          symbol = "[]($style) ";
+          style = "bold blue";
+        };
+
+        rust = {
+          format = "via [$symbol($version )]($style)";
+          symbol = "[]($style) ";
+          style = "bold #f74b00";
+        };
+
+        shell = {
+          disabled = true;
+          zsh_indicator = "zsh";
+        };
 
         custom = {
           nix = {

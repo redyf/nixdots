@@ -3,9 +3,9 @@ _: {
     # ./artix-game-launcher
     ./discord
     # ./davinci-resolve
-    ./emacs
+    # ./emacs
     ./firefox
-    ./insomnia
+    # ./insomnia
     ./misc
     ./obs
     # ./vscode
