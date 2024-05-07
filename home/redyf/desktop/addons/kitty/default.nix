@@ -5,14 +5,14 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    theme = "Catppuccin-Mocha";
+    # theme = "Catppuccin-Mocha";
     font = {
-      # name = "MonoLisa";
-      # name = "Liga SfMono Nerd Font";
       # name = "Berkeley Mono Regular Nerd Font Complete";
-      name = "LiterationMono Nerd Font";
-      size = 11;
+      name = "FiraMono Nerd Font";
+      # name = "LiterationMono Nerd Font";
+      # name = "MonoLisa";
       # package = pkgs.monolisa-script;
+      size = 11;
     };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
@@ -62,6 +62,7 @@
       term = "xterm-256color";
 
       # Themes
+      include = "themes/custom-mocha.conf";
       # include = "themes/oxocarbon-dark.conf";
       # terminal_select_modifiers = "alt";
 
@@ -115,9 +116,10 @@
       #     "kitty/themes/lunar.conf".text = import ./lunar.nix;
       #     "kitty/themes/mocha.conf".text = import ./mocha.nix;
       #     "kitty/themes/macchiato.conf".text = import ./macchiato.nix;
+      "kitty/themes/custom-mocha.conf".text = import ./custom-mocha.nix;
       #     "kitty/themes/tokyonight_night.conf".text = import ./tokyonight_night.nix;
       #     "kitty/themes/rose-pine.conf".text = import ./rose-pine.nix;
-      "kitty/themes/oxocarbon-dark.conf".text = import ./oxocarbon.nix;
+      #     "kitty/themes/oxocarbon-dark.conf".text = import ./oxocarbon.nix;
     };
   };
 }
