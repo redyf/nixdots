@@ -13,21 +13,21 @@ in {
         };
       };
       font = {
-        size = 13;
+        size = 16;
         normal = {
-          family = "MonoLisa";
+          family = "Fira Mono Nerd Font";
           style = "Medium Italic";
         };
         bold = {
-          family = "MonoLisa";
+          family = "Fira Mono Nerd Font";
           style = "Bold";
         };
         italic = {
-          family = "MonoLisa";
+          family = "Fira Mono Nerd Font";
           style = "Italic";
         };
         bold_italic = {
-          family = "MonoLisa";
+          family = "Fira Mono Nerd Font";
           style = "Bold Italic";
         };
         offset = {
@@ -40,7 +40,7 @@ in {
         };
       };
       window = {
-        opacity = 1;
+        opacity = 0.95;
         decorations = "none";
         padding = {
           x = 10;
