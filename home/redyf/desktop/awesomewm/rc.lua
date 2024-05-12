@@ -97,3 +97,4 @@ require("main.signals")
 awful.spawn.with_shell("xset r rate 150 25") -- set keyboard repeat rate
 awful.spawn.with_shell("xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary") -- set monitor resolution and refresh rate
 awful.spawn.with_shell("nitrogen --restore") -- set wallpaper
+awful.spawn.with_shell("flameshot") -- set wallpaper
