@@ -69,14 +69,16 @@ in {
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
+    package = hyprlandFlake; # hyprlandFlake or pkgs.hyprland
     xwayland = {
       enable = true;
     };
     settings = {
       "$mainMod" = "SUPER";
       monitor = [
-        ",highrr,auto,auto"
+        "DP-3,1920x1080@165,0x0,1"
+        "Unknown-1,disable"
+        # ",highrr,auto,auto"
       ];
       env = [
         "XCURSOR_SIZE,32"
@@ -108,8 +110,12 @@ in {
         };
       };
 
+      cursor = {
+        enable_hyprcursor = true;
+      };
+
       general = {
-        gaps_in = 0;
+        gaps_in = 2;
         gaps_out = 0;
         border_size = 0;
         "col.active_border" = "${catppuccin_border}";
@@ -161,7 +167,6 @@ in {
       misc = {
         vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
         vrr = false; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
-        enable_hyprcursor = true;
       };
 
       dwindle = {
@@ -250,7 +255,9 @@ in {
         # "SUPER $mainMod CTRL, 0, movetoworkspace, 10"
         # "SUPER $mainMod CTRL, left, movetoworkspace, -1"
         # "SUPER $mainMod CTRL, right, movetoworkspace, +1"
+
         # same as above, but doesnt switch to the workspace
+
         "SUPER $mainMod SHIFT, 1, movetoworkspacesilent, 1"
         "SUPER $mainMod SHIFT, 2, movetoworkspacesilent, 2"
         "SUPER $mainMod SHIFT, 3, movetoworkspacesilent, 3"

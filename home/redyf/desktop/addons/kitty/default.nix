@@ -5,14 +5,13 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    # theme = "Catppuccin-Mocha";
+    theme = "Catppuccin-Mocha";
     font = {
-      # name = "Berkeley Mono Regular Nerd Font Complete";
-      name = "FiraMono Nerd Font";
-      # name = "LiterationMono Nerd Font";
+      name = "FiraCode Nerd Font";
+      # name = "JetBrainsMono Nerd Font";
       # name = "MonoLisa";
       # package = pkgs.monolisa-script;
-      size = 11;
+      size = 16;
     };
     # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
     extraConfig = ''
@@ -31,7 +30,7 @@
       sync_to_monitor = "yes";
 
       # Background
-      background_opacity = "0.98";
+      background_opacity = "0.95";
 
       # Cursor
       cursor_shape = "block";
@@ -62,7 +61,7 @@
       term = "xterm-256color";
 
       # Themes
-      include = "themes/custom-mocha.conf";
+      # include = "themes/custom-mocha.conf";
       # include = "themes/oxocarbon-dark.conf";
       # terminal_select_modifiers = "alt";
 
@@ -91,6 +90,8 @@
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+shift+s" = "paste_from_selection";
+      "ctrl+shift+=" = "increase_font_size";
+      "ctrl+shift+-" = "decrease_font_size";
       "ctrl+shift+up" = "scroll_line_up";
       "ctrl+shift+k" = "scroll_line_up";
       "ctrl+shift+down" = "scroll_line_down";
