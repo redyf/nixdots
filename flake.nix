@@ -9,9 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     waybar-hyprland.url = "github:hyprwm/hyprland";
-    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     nur.url = "github:nix-community/NUR";
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
@@ -19,11 +18,6 @@
     # SFMono w/ patches
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
-
-    berkeley-mono = {
-      url = "github:redyf/test";
       flake = false;
     };
 
@@ -69,14 +63,38 @@
                 useUserPackages = true;
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs disko;};
-                users.redyf = ./home/desktop/home.nix;
+                users.redyf = ./home/redyf/home.nix;
               };
             }
             hyprland.nixosModules.default
-            {programs.hyprland.enable = true;}
             disko.nixosModules.disko
           ];
         };
+      # selene = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   specialArgs = {
+      #     inherit
+      #       inputs
+      #       hyprland
+      #       disko
+      #       ;
+      #   };
+      #   modules = [
+      #     ./hosts/selene/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #     {
+      #       home-manager = {
+      #         useUserPackages = true;
+      #         useGlobalPkgs = false;
+      #         extraSpecialArgs = {inherit inputs disko;};
+      #         users.selene = ./home/selene/home.nix;
+      #       };
+      #     }
+      #     hyprland.nixosModules.default
+      #     {programs.hyprland.enable = false;}
+      #     disko.nixosModules.disko
+      #   ];
+      # };
     };
     devShells = forAllSystems (system: let
       pkgs = nixpkgsFor.${system};
