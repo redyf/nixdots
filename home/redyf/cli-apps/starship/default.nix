@@ -8,7 +8,8 @@
     settings =
       # Catppuccin
       {
-        scan_timeout = 10;
+        scan_timeout = 30;
+        command_timeout = 2000;
         add_newline = false;
         line_break.disabled = false;
         right_format = ''
@@ -46,6 +47,13 @@
           style = "bold blue";
         };
 
+        direnv = {
+          format = "[$symbol$loaded/$allowed]($style) ";
+          symbol = "direnv ";
+          style = "bold orange";
+          disabled = true;
+        };
+
         docker_context = {
           disabled = true;
         };
@@ -74,6 +82,12 @@
           symbol = "[ ]($style)";
         };
 
+        haskell = {
+          format = "via [$symbol($version )]($style)";
+          symbol = "λ ";
+          style = "bold purple";
+        };
+
         kubernetes = {
           symbol = "☸ ";
           disabled = false;
@@ -99,6 +113,13 @@
           style = "bold green";
           symbol = " ";
           version_format = "v$raw(blue)";
+        };
+
+        ocaml = {
+          format = "via [$symbol($version )(\($switch_indicator$switch_name\) )]($style)";
+          symbol = "🐫 ";
+          style = "bold yellow";
+          version_format = "v$raw";
         };
 
         package = {
