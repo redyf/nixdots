@@ -30,7 +30,7 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        configurationLimit = 5;
+        configurationLimit = 8;
         theme =
           pkgs.fetchFromGitHub
           {
@@ -45,7 +45,7 @@
 
   hardware = {
     nvidia = {
-      open = false;
+      open = true;
       nvidiaSettings = true;
       powerManagement.enable = true;
       modesetting.enable = true;
@@ -61,8 +61,9 @@
   environment = {
     variables = {
       EDITOR = "nvim";
-      GBM_BACKEND = "nvidia-drm";
       LIBVA_DRIVER_NAME = "nvidia";
+      XDG_SESSION_TYPE = "wayland";
+      GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       __GL_GSYNC_ALLOWED = "1";
       __GL_VRR_ALLOWED = "0"; # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
@@ -130,8 +131,8 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = ["Iosevka Aile, Times, Noto Serif"];
-        sansSerif = ["Iosevka Aile, Helvetica Neue LT Std, Helvetica, Noto Sans"];
+        serif = ["Times, Noto Serif"];
+        sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
         monospace = ["Courier Prime, Courier, Noto Sans Mono"];
       };
     };
@@ -139,15 +140,17 @@
 
   programs = {
     zsh.enable = true;
-    noisetorch = {
-      enable = false;
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
-    # nh = {
-    #   enable = false;
-    #   clean.enable = false;
-    #   clean.extraArgs = "--keep-since 4d --keep 3";
-    #   flake = "/home/redyf/nixdots";
-    # };
+    noisetorch.enable = true;
+    nh = {
+      enable = false;
+      clean.enable = false;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/redyf/nixdots";
+    };
   };
 
   # Enables docker in rootless mode
@@ -161,7 +164,7 @@
   };
 
   time.timeZone = "America/Bahia";
-
+  #
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
     extraLocaleSettings = {
@@ -207,10 +210,10 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      allowBroken = true;
     };
   };
 
-  # Configure keymap in X11
   sound.enable = true;
   services = {
     pipewire = {
@@ -224,8 +227,15 @@
     };
 
     sshd.enable = true;
-    # Enable CUPS to print documents.
-    # printing.enable = true;
+    libinput = {
+      enable = true;
+      mouse = {
+        accelProfile = "flat";
+      };
+      touchpad = {
+        accelProfile = "flat";
+      };
+    };
     xserver = {
       enable = true;
       displayManager = {
@@ -241,29 +251,11 @@
       };
       windowManager = {
         awesome = {
-          enable = false;
+          enable = true;
           luaModules = with pkgs.luaPackages; [
             luarocks
             # luadbi-mysql
           ];
-        };
-        xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-          enableConfiguredRecompile = false;
-          extraPackages = hpkgs: [
-            hpkgs.xmobar
-          ];
-          config = builtins.readFile ../../home/redyf/desktop/xmonad/xmonad.hs;
-        };
-      };
-      libinput = {
-        enable = true;
-        mouse = {
-          accelProfile = "flat";
-        };
-        touchpad = {
-          accelProfile = "flat";
         };
       };
       xkb = {
@@ -274,27 +266,27 @@
     };
     logmein-hamachi.enable = false;
     flatpak.enable = false;
-    autorandr = {
-      enable = true;
-      profiles = {
-        redyf = {
-          config = {
-            DP-0 = {
-              enable = true;
-              primary = true;
-              mode = "1920x1080";
-              rate = "165.00";
-              position = "0x0";
-            };
-          };
-        };
-      };
-    };
+    # autorandr = {
+    #   enable = true;
+    #   profiles = {
+    #     redyf = {
+    #       config = {
+    #         DP-0 = {
+    #           enable = true;
+    #           primary = true;
+    #           mode = "1920x1080";
+    #           rate = "165.00";
+    #           position = "0x0";
+    #         };
+    #       };
+    #     };
+    #   };
+    # };
   };
 
   environment.systemPackages = with pkgs; [
     git
-    inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
+    xdg-desktop-portal-hyprland
   ];
 
   system.stateVersion = "22.11"; # Did you read the comment?
