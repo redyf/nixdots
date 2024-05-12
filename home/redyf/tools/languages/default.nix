@@ -1,15 +1,16 @@
 _: {
   imports = [
     ./c
+    ./go
+    ./rust
+    ./ocaml
+    ./python
+    ./javascript
+    # ./sql
+    # ./java
+    # ./lua
+    # ./elixir
     # ./clojure
     # ./dart
-    # ./elixir
-    ./go
-    # ./java
-    ./javascript
-    # ./lua
-    # ./python
-    ./rust
-    # ./sql
   ];
 }
