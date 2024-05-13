@@ -9,6 +9,28 @@
       sha256 = "1hjav791xr5jx0swx4njfxlhhhx599ddan3bgaw1abwwfy1w1ji3";
     };
   };
+  power-theme = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "power";
+    rtpFilePath = "tmux-power.tmux";
+    version = "unstable-2024-05-12";
+    src = pkgs.fetchFromGitHub {
+      owner = "wfxr";
+      repo = "tmux-power";
+      rev = "16bbde801378a70512059541d104c5ae35be32b9";
+      hash = "sha256-IyYQyIONMnVBwhhcI3anOPxKpv2TfI2KZgJ5o5JtZ8I=";
+    };
+  };
+  tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tokyo-night-tmux";
+    rtpFilePath = "tokyo-night.tmux";
+    version = "1.5.3";
+    src = pkgs.fetchFromGitHub {
+      owner = "janoamaral";
+      repo = "tokyo-night-tmux";
+      rev = "d34f1487b4a644b13d8b2e9a2ee854ae62cc8d0e";
+      hash = "sha256-3rMYYzzSS2jaAMLjcQoKreE0oo4VWF9dZgDtABCUOtY=";
+    };
+  };
 in {
   programs.tmux = {
     enable = true;
@@ -18,24 +40,34 @@ in {
     escapeTime = 0;
     keyMode = "vi";
     prefix = "C-Space";
+    shell = "${pkgs.zsh}/bin/zsh";
     mouse = true;
     plugins = with pkgs.tmuxPlugins; [
-      # {
-      #   plugin = catppuccin;
-      #   extraConfig = builtins.readFile ./catppuccin.conf;
-      # }
-      {
-        plugin = catppuccin-tmux;
-        extraConfig = builtins.readFile ./catppuccin-custom.conf;
-      }
-      # {
-      #   plugin = rose-pine;
-      #   extraConfig = builtins.readFile ./rose-pine.conf;
-      # }
       yank
       sensible
       tmux-fzf
       vim-tmux-navigator
+      net-speed
+      {
+        plugin = tokyo-night;
+        extraConfig = builtins.readFile ./tokyo-night-tmux.conf;
+      }
+      # {
+      #   plugin = power-theme;
+      #   extraConfig = builtins.readFile ./power-theme.conf;
+      # }
+      # {
+      #   plugin = catppuccin;
+      #   extraConfig = builtins.readFile ./catppuccin.conf;
+      # }
+      # {
+      #   plugin = catppuccin-tmux;
+      #   extraConfig = builtins.readFile ./catppuccin-custom.conf;
+      # }
+      # {
+      #   plugin = rose-pine;
+      #   extraConfig = builtins.readFile ./rose-pine.conf;
+      # }
     ];
     extraConfig = ''
       #--------------------------------------------------------------------------
