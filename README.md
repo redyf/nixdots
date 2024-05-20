@@ -63,7 +63,7 @@
 - Rebuild and switch to change the system configuration (in the configuration directory):
 
 ```
-rebuild
+nh os switch
 ```
 
 OR
