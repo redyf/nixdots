@@ -8,7 +8,6 @@
 in {
   home = {
     shellAliases = {
-      sudo = "doas";
       c = "nvim";
       cp = "cp -i";
       f = "neofetch --sixel";
@@ -17,7 +16,6 @@ in {
       grep = "grep --color=auto";
       mv = "mv -i";
       rip = "rip -i";
-      rebuild = "cd ~/nixdots && doas nixos-rebuild switch --flake .#redyf";
       g = "git";
       ga = "git add";
       gaa = "git add .";
@@ -30,12 +28,11 @@ in {
       gp = "git pull";
       gs = "git status";
     };
-  };
-
-  home.sessionVariables = {
-    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-    MANROFFOPT = "-c";
-    DIRENV_LOG_FORMAT = ""; # Blank so direnv will shut up
+    sessionVariables = {
+      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      MANROFFOPT = "-c";
+      DIRENV_LOG_FORMAT = ""; # Blank so direnv will shut up
+    };
   };
 
   programs = {
@@ -149,6 +146,7 @@ in {
       '';
 
       shellAliases = {
+        sudo = "doas";
         c = "nvim";
         cp = "cp -i";
         f = "neofetch --sixel";
@@ -157,7 +155,6 @@ in {
         grep = "grep --color=auto";
         mv = "mv -i";
         rip = "rip -i";
-        rebuild = "cd ~/nixdots && doas nixos-rebuild switch --flake .#redyf";
         postman = "postman --use-gl=desktop";
         insomnia = "insomnia --use-gl=desktop";
         beekeeper-studio = "beekeeper-studio --use-gl=desktop";
