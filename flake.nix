@@ -14,6 +14,7 @@
     nur.url = "github:nix-community/NUR";
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
+    stylix.url = "github:danth/stylix";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
@@ -33,6 +34,7 @@
     hyprland,
     home-manager,
     disko,
+    stylix,
     ...
   } @ inputs: let
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
@@ -64,8 +66,10 @@
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs disko;};
                 users.redyf = ./home/redyf/home.nix;
+                backupFileExtension = "backup";
               };
             }
+            stylix.nixosModules.stylix
             hyprland.nixosModules.default
             disko.nixosModules.disko
           ];
