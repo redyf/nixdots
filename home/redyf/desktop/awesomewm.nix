@@ -7,6 +7,9 @@
       };
     };
     packages = with pkgs; [
+      xclip
+      dunst
+      dmenu
       flameshot
     ];
   };
