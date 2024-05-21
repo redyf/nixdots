@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  theme = "oxocarbon-dark";
+  theme = "rose-pine-moon";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -157,7 +157,7 @@ in {
 
   stylix = {
     autoEnable = true;
-    image = ./steamuserimages-a.akamaihd.png;
+    image = "./lain05.jpg";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
     fonts = {
       monospace = {
