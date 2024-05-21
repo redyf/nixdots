@@ -3,7 +3,7 @@
     nil
     statix
     alejandra
-    nix-index
+    nurl
     nix-init
     nix-prefetch-git
   ];
