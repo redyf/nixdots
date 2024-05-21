@@ -34,7 +34,6 @@ in {
     tmux = {
       enableShellIntegration = true;
     };
-    colors = catppuccin;
     defaultOptions = [
       "--preview='bat --color=always {}'"
       "--multi"
