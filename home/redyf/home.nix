@@ -55,8 +55,6 @@
     ];
   };
 
-  fonts.fontconfig.enable = true;
-
   # Add support for .local/bin
   home.sessionPath = [
     "$HOME/.local/bin"
