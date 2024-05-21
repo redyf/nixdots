@@ -3,9 +3,9 @@ _: {
     ./c
     ./go
     ./rust
-    ./ocaml
     ./python
     ./javascript
+    # ./ocaml
     # ./sql
     # ./java
     # ./lua
