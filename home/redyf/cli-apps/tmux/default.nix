@@ -48,10 +48,10 @@ in {
       tmux-fzf
       vim-tmux-navigator
       net-speed
-      {
-        plugin = tokyo-night;
-        extraConfig = builtins.readFile ./tokyo-night-tmux.conf;
-      }
+      # {
+      #   plugin = tokyo-night;
+      #   extraConfig = builtins.readFile ./tokyo-night-tmux.conf;
+      # }
       # {
       #   plugin = power-theme;
       #   extraConfig = builtins.readFile ./power-theme.conf;
@@ -64,10 +64,10 @@ in {
       #   plugin = catppuccin-tmux;
       #   extraConfig = builtins.readFile ./catppuccin-custom.conf;
       # }
-      # {
-      #   plugin = rose-pine;
-      #   extraConfig = builtins.readFile ./rose-pine.conf;
-      # }
+      {
+        plugin = rose-pine;
+        extraConfig = builtins.readFile ./rose-pine.conf;
+      }
     ];
     extraConfig = ''
       #--------------------------------------------------------------------------

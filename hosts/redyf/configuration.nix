@@ -3,7 +3,9 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  theme = "rose-pine-moon";
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -112,7 +114,7 @@
   # Enable and configure `doas`.
   security = {
     sudo = {
-      enable = false;
+      enable = true;
     };
     doas = {
       enable = true;
@@ -126,17 +128,17 @@
     };
   };
 
-  fonts = {
-    enableDefaultPackages = true;
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        serif = ["Times, Noto Serif"];
-        sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
-        monospace = ["Courier Prime, Courier, Noto Sans Mono"];
-      };
-    };
-  };
+  # fonts = {
+  #   enableDefaultPackages = true;
+  #   fontconfig = {
+  #     enable = true;
+  #     defaultFonts = {
+  #       serif = ["Times, Noto Serif"];
+  #       sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
+  #       monospace = ["Courier Prime, Courier, Noto Sans Mono"];
+  #     };
+  #   };
+  # };
 
   programs = {
     zsh.enable = true;
@@ -146,10 +148,49 @@
     };
     noisetorch.enable = true;
     nh = {
-      enable = false;
-      clean.enable = false;
+      enable = true;
+      clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/redyf/nixdots";
+    };
+  };
+
+  stylix = {
+    autoEnable = true;
+    image = "./lain05.jpg";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    fonts = {
+      monospace = {
+        package = with pkgs; nerdfonts.override {fonts = ["JetBrainsMono"];};
+        name = "JetBrainsMono Nerd Font";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      sizes = {
+        applications = 10;
+        terminal = 11;
+        desktop = 10;
+        popups = 11;
+      };
+    };
+    opacity = {
+      applications = 1.0;
+      terminal = 1.0;
+      desktop = 1.0;
+      popups = 1.0;
+    };
+    polarity = "dark";
+    targets = {
+      grub.enable = false;
+      gnome.enable = false;
+      gtk.enable = true;
+      nixos-icons.enable = true;
     };
   };
 
@@ -164,7 +205,7 @@
   };
 
   time.timeZone = "America/Bahia";
-  #
+
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
     extraLocaleSettings = {
@@ -193,7 +234,7 @@
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
-      automatic = true;
+      automatic = false;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
@@ -226,7 +267,12 @@
       audio.enable = true;
     };
 
+    fstrim.enable = true;
     sshd.enable = true;
+    mysql = {
+      enable = false;
+      package = pkgs.mysql80;
+    };
     libinput = {
       enable = true;
       mouse = {
@@ -254,7 +300,6 @@
           enable = true;
           luaModules = with pkgs.luaPackages; [
             luarocks
-            # luadbi-mysql
           ];
         };
       };
@@ -266,26 +311,27 @@
     };
     logmein-hamachi.enable = false;
     flatpak.enable = false;
-    # autorandr = {
-    #   enable = true;
-    #   profiles = {
-    #     redyf = {
-    #       config = {
-    #         DP-0 = {
-    #           enable = true;
-    #           primary = true;
-    #           mode = "1920x1080";
-    #           rate = "165.00";
-    #           position = "0x0";
-    #         };
-    #       };
-    #     };
-    #   };
-    # };
+    autorandr = {
+      enable = true;
+      profiles = {
+        redyf = {
+          config = {
+            DP-0 = {
+              enable = true;
+              primary = true;
+              mode = "1920x1080";
+              rate = "165.00";
+              position = "0x0";
+            };
+          };
+        };
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
     git
+    docker-compose
     xdg-desktop-portal-hyprland
   ];
 

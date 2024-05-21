@@ -4,7 +4,6 @@ _: {
     ./eza
     ./fd
     ./fzf
-    # ./helix
     ./jq
     ./neovim
     # ./neve

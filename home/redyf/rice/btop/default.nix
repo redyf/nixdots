@@ -2,7 +2,6 @@ _: {
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "catppuccin_macchiato";
       vim_keys = true;
       rounded_corners = true;
     };
