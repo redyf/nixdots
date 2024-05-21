@@ -41,9 +41,9 @@ in {
       swww kill
       swww init
 
-      # Dunst (Notifications)
-      pkill dunst
-      dunst &
+      # Mako (Notifications)
+      pkill mako
+      mako &
 
       # Cursor
       gsettings set org.gnome.desktop.interface cursor-theme macOS-BigSur
@@ -118,8 +118,8 @@ in {
         gaps_in = 2;
         gaps_out = 0;
         border_size = 0;
-        "col.active_border" = "${catppuccin_border}";
-        "col.inactive_border" = "${tokyonight_border}";
+        # "col.active_border" = "${catppuccin_border}";
+        # "col.inactive_border" = "${tokyonight_border}";
         layout = "dwindle";
         apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
       };
@@ -130,8 +130,8 @@ in {
         drop_shadow = false;
         shadow_range = 20;
         shadow_render_power = 3;
-        "col.shadow" = "rgb(${oxocarbon_background})";
-        "col.shadow_inactive" = "${background}";
+        # "col.shadow" = "rgb(${oxocarbon_background})";
+        # "col.shadow_inactive" = "${background}";
         blur = {
           enabled = true;
           size = 4;
@@ -275,9 +275,9 @@ in {
         "SUPER,o,exec,obsidian"
         "SUPER SHIFT,C,exec,wallpaper"
         "SUPER,z,exec,waybar"
-        # "SUPER,space,exec,bemenu-run"
+        "SUPER,space,exec,bemenu-run"
         # "SUPER,space,exec, tofi-drun --drun-launch=true"
-        "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
+        # "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
       ];
 
       bindm = [
