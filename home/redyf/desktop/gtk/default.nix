@@ -7,16 +7,16 @@
       size = 32; # Affects gtk applications as the name suggests
     };
 
-    theme = {
-      # name = "Catppuccin-Macchiato-Compact-Blue-dark";
-      # package = pkgs.catppuccin-gtk.override {
-      #   size = "compact";
-      #   accents = ["blue"];
-      #   variant = "macchiato";
-      # };
-      name = "WhiteSur";
-      package = pkgs.whitesur-gtk-theme;
-    };
+    # theme = {
+    # name = "Catppuccin-Macchiato-Compact-Blue-dark";
+    # package = pkgs.catppuccin-gtk.override {
+    #   size = "compact";
+    #   accents = ["blue"];
+    #   variant = "macchiato";
+    # };
+    #   name = "WhiteSur";
+    #   package = pkgs.whitesur-gtk-theme;
+    # };
 
     iconTheme = {
       name = "Papirus-Dark";
