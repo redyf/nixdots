@@ -20,31 +20,29 @@
     # Other stuff
     gh
     ollama
+    playerctl
 
     # Rice
-    # mako
-    # dunst # Notifications for your system
+    mako
+    bemenu
     # cmatrix
-    yazi # Best TUI file manager
     nitrogen # Wallpaper utility for X11
     nwg-look # Change GTK theme
 
     # Screenshot + extra utils
     grim # Screenshot tool for hyprland
     slurp # Works with grim to screenshot on wayland
-    ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
     wl-clipboard # Enables copy/paste on wayland
     vlc
 
     # System Utils
     mpv
     glib
-    xclip
     unzip # Unzip files using the terminal
+    ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
-    dmenu
-    spotify
+    cinnamon.nemo
   ];
 }
