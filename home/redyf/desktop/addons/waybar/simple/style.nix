@@ -5,13 +5,13 @@ _: ''
       padding: 0;
       margin: 0;
       min-height: 0px;
-      font-family: MonoLisa;
+      font-family: FiraCode Nerd Font;
       font-weight: bold;
       opacity: 0.98;
   }
 
   window#waybar {
-      background: none;
+      background: transparent;
   }
 
   #workspaces {
