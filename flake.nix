@@ -15,6 +15,8 @@
     Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
+    ags.url = "github:Aylur/ags";
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
 
     # SFMono w/ patches
     sf-mono-liga-src = {
@@ -22,10 +24,16 @@
       flake = false;
     };
 
-    monolisa-script = {
-      url = "github:redyf/test2";
-      flake = false;
-    };
+    # git+ssh://git@git.example.com/User/repo.git
+    # berkeley = {
+    #   url = "git+ssh://git@github.com/redyf/berkeley.git";
+    #   flake = false;
+    # };
+
+    # monolisa-script = {
+    #   url = "git+ssh://git@github.com/redyf/test2.git";
+    #   flake = false;
+    # };
   };
 
   outputs = {
