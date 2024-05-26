@@ -128,18 +128,6 @@ in {
     };
   };
 
-  # fonts = {
-  #   enableDefaultPackages = true;
-  #   fontconfig = {
-  #     enable = true;
-  #     defaultFonts = {
-  #       serif = ["Times, Noto Serif"];
-  #       sansSerif = ["Helvetica Neue LT Std, Helvetica, Noto Sans"];
-  #       monospace = ["Courier Prime, Courier, Noto Sans Mono"];
-  #     };
-  #   };
-  # };
-
   programs = {
     zsh.enable = true;
     hyprland = {
@@ -157,12 +145,12 @@ in {
 
   stylix = {
     autoEnable = true;
-    image = "./lain05.jpg";
+    image = ./lain05.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
     fonts = {
       monospace = {
-        package = with pkgs; nerdfonts.override {fonts = ["JetBrainsMono"];};
-        name = "JetBrainsMono Nerd Font";
+        package = with pkgs; nerdfonts.override {fonts = ["FiraCode"];};
+        name = "FiraCode Nerd Font";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
@@ -174,7 +162,7 @@ in {
       };
       sizes = {
         applications = 10;
-        terminal = 11;
+        terminal = 14;
         desktop = 10;
         popups = 11;
       };

@@ -21,9 +21,10 @@
     gh
     ollama
     playerctl
+    # spotify
 
     # Rice
-    mako
+    # mako
     bemenu
     # cmatrix
     nitrogen # Wallpaper utility for X11
