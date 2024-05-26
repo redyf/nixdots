@@ -1,11 +1,12 @@
 _: {
   imports = [
-    # ./alacritty
-    # ./foot
+    ./ags
     ./kitty
-    # ./rofi
     ./swww
     # ./waybar
+    # ./alacritty
+    # ./foot
+    # ./rofi
     # ./wofi
   ];
 }
