@@ -37,6 +37,9 @@ in {
       $scripts/launch_waybar &
       $scripts/tools/dynamic &
 
+      # ags (bar and some extra stuff)
+      ags
+
       # Wallpaper
       swww kill
       swww init
