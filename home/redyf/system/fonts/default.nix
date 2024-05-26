@@ -8,9 +8,10 @@
       (nerdfonts.override {fonts = ["JetBrainsMono"];})
       noto-fonts
       powerline-symbols
-      monolisa-script
+      # monolisa-script
+      # berkeley
       # sf-mono-liga-bin
-      # geist-font
+      # geist-mono
     ];
   };
 }
