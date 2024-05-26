@@ -90,8 +90,10 @@
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+shift+s" = "paste_from_selection";
+      "ctrl+shift+e" = "open_url";
       "ctrl+shift+=" = "increase_font_size";
       "ctrl+shift+-" = "decrease_font_size";
+      "ctrl+shift+backspace" = "restore_font_size";
       "ctrl+shift+up" = "scroll_line_up";
       "ctrl+shift+k" = "scroll_line_up";
       "ctrl+shift+down" = "scroll_line_down";
@@ -102,8 +104,8 @@
       "ctrl+shift+[" = "previous_window";
       "ctrl+shift+right" = "next_tab";
       "ctrl+tab" = "next_tab";
-      "ctrl+shift+left" = "previous_tab";
       "ctrl+shift+tab" = "previous_tab";
+      "ctrl+shift+left" = "previous_tab";
       "ctrl+shift+t" = "new_tab";
       "ctrl+shift+q" = "close_tab";
     };
