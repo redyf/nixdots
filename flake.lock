@@ -152,22 +152,6 @@
         "type": "github"
       }
     },
-    "berkeley": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716424219,
-        "narHash": "sha256-JIAi5aJQFOu6RL0SxYAX5NyIpzRll+Ydxx3CMxI8SRo=",
-        "ref": "refs/heads/main",
-        "rev": "1d0980d9d1474911b33562642dd8d1e1a3f45c1d",
-        "revCount": 12,
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/berkeley.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/berkeley.git"
-      }
-    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -707,22 +691,6 @@
         "type": "github"
       }
     },
-    "monolisa-script": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709742524,
-        "narHash": "sha256-mkw+WhtLw7498iNI4jTdeTq2eteJsfgxN0o8hs0q2l8=",
-        "ref": "refs/heads/main",
-        "rev": "c234fad704153e0244f160e1e293f35c4b2ff26e",
-        "revCount": 3,
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/test2.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/test2.git"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -960,12 +928,10 @@
       "inputs": {
         "Neve": "Neve",
         "ags": "ags",
-        "berkeley": "berkeley",
         "disko": "disko",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "matugen": "matugen",
-        "monolisa-script": "monolisa-script",
         "nixpkgs": "nixpkgs_7",
         "nur": "nur",
         "sf-mono-liga-src": "sf-mono-liga-src",
