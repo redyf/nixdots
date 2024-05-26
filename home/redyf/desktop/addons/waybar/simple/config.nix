@@ -15,7 +15,7 @@
       calendar = {
         format = {today = "<span color='#b4befe'><b>{}</b></span>";};
       };
-      format = " {:%H:%M}";
+      format = "  {:%H:%M}";
       tooltip = "true";
       tooltip-format = ''
         <big>{:%Y %B}</big>
@@ -44,13 +44,13 @@
     };
 
     memory = {
-      format = " {}%";
+      format = "  {}%";
       format-alt = " {used} GB";
       interval = 2;
     };
 
     cpu = {
-      format = " {usage}%";
+      format = "  {usage}%";
       format-alt = "  {avg_frequency} GHz";
       interval = 2;
     };
@@ -61,7 +61,7 @@
     };
 
     pulseaudio = {
-      format = "{icon} {volume}%";
+      format = "{icon}  {volume}%";
       format-muted = "󰖁 ";
       format-icons = {default = [" "];};
       scroll-step = 5;
