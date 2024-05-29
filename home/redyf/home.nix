@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   home = {
     username = "redyf";
     homeDirectory = "/home/redyf";
@@ -48,6 +52,17 @@
             installPhase = ''
               mkdir -p $out/share/fonts/opentype
               cp -R $src/*.ttf $out/share/fonts/opentype/
+            '';
+          };
+
+          berkeley = prev.stdenvNoCC.mkDerivation {
+            pname = "berkeley-mono";
+            version = "dev";
+            src = berkeley;
+            dontConfigure = true;
+            installPhase = ''
+              mkdir -p $out/share/fonts/opentype
+              cp -R $src/*.otf $out/share/fonts/opentype/
             '';
           };
         }
