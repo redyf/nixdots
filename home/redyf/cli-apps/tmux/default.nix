@@ -47,7 +47,7 @@ in {
       sensible
       tmux-fzf
       vim-tmux-navigator
-      net-speed
+      # net-speed
       # {
       #   plugin = tokyo-night;
       #   extraConfig = builtins.readFile ./tokyo-night-tmux.conf;
