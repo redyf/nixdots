@@ -17,14 +17,22 @@
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
-
-    # SFMono w/ patches
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
+    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
     # git+ssh://git@git.example.com/User/repo.git
+    # fontflake.url = "git+ssh://git@github.com/redyf/font-flake.git";
+
+    # liga-martian-mono = {
+    #   url = "github:redyf/LigaMartianMono";
+    #   flake = false;
+    # };
+
+    # SFMono w/ patches
+    # sf-mono-liga-src = {
+    #   url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+    #   flake = false;
+    # };
+
     # berkeley = {
     #   url = "git+ssh://git@github.com/redyf/berkeley.git";
     #   flake = false;

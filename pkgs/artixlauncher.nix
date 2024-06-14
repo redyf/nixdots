@@ -24,7 +24,7 @@ in
       source "${makeWrapper}/nix-support/setup-hook"
 
       wrapProgram $out/bin/${pname} \
-        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --use-gl=desktop}}"
 
       install -m 444 -D ${appimageContents}/${pname}.desktop $out/share/applications/${pname}.desktop
 
