@@ -52,10 +52,10 @@ in {
       #   plugin = tokyo-night;
       #   extraConfig = builtins.readFile ./tokyo-night-tmux.conf;
       # }
-      # {
-      #   plugin = power-theme;
-      #   extraConfig = builtins.readFile ./power-theme.conf;
-      # }
+      {
+        plugin = power-theme;
+        extraConfig = builtins.readFile ./power-theme.conf;
+      }
       # {
       #   plugin = catppuccin;
       #   extraConfig = builtins.readFile ./catppuccin.conf;
@@ -64,10 +64,10 @@ in {
       #   plugin = catppuccin-tmux;
       #   extraConfig = builtins.readFile ./catppuccin-custom.conf;
       # }
-      {
-        plugin = rose-pine;
-        extraConfig = builtins.readFile ./rose-pine.conf;
-      }
+      # {
+      #   plugin = rose-pine;
+      #   extraConfig = builtins.readFile ./rose-pine.conf;
+      # }
     ];
     extraConfig = ''
       #--------------------------------------------------------------------------
