@@ -6,6 +6,7 @@
   boot = {
     kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
+    kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
     supportedFilesystems = ["ntfs"];
     loader = {
       timeout = 10;
@@ -18,7 +19,7 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        configurationLimit = 8;
+        configurationLimit = 5;
         theme =
           pkgs.fetchFromGitHub
           {

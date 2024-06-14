@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  theme = "rose-pine-moon";
+  theme = "oxocarbon-dark";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -77,7 +77,7 @@ in {
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
-      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
+      DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
     };
     shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
   };
@@ -144,13 +144,14 @@ in {
   };
 
   stylix = {
+    enable = true;
     autoEnable = true;
-    image = ./lain05.jpg;
+    image = ./9ovcXG0Wo4P7FQPe.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
     fonts = {
       monospace = {
-        package = with pkgs; nerdfonts.override {fonts = ["FiraCode"];};
-        name = "FiraCode Nerd Font";
+        package = with pkgs; nerdfonts.override {fonts = ["MartianMono"];};
+        name = "MartianMono Nerd Font";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
@@ -162,7 +163,7 @@ in {
       };
       sizes = {
         applications = 10;
-        terminal = 14;
+        terminal = 12;
         desktop = 10;
         popups = 11;
       };
@@ -239,7 +240,6 @@ in {
   nixpkgs = {
     config = {
       allowUnfree = true;
-      allowBroken = true;
     };
   };
 
@@ -247,8 +247,10 @@ in {
   services = {
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
       wireplumber.enable = true;
       jack.enable = false;
       pulse.enable = true;
@@ -320,7 +322,7 @@ in {
   environment.systemPackages = with pkgs; [
     git
     docker-compose
-    xdg-desktop-portal-hyprland
+    inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
 
   system.stateVersion = "22.11"; # Did you read the comment?
