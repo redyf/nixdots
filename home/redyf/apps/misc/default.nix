@@ -5,9 +5,6 @@
     # ani-cli # A cli tool to browse and play anime
     # mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
-    # Cloud
-    awscli2
-
     # Gaming
     # gnutls
     # minecraft
@@ -22,9 +19,9 @@
     ollama
     playerctl
     # spotify
+    # brave
 
     # Rice
-    # mako
     bemenu
     # cmatrix
     nitrogen # Wallpaper utility for X11
