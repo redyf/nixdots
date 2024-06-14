@@ -51,8 +51,8 @@
 
 <div align="center">
 
-![rice showcase](./assets/showcase1.png)
-![rice showcase2](./assets/showcase2.png)
+![rice showcase](./assets/showcase.png)
+![rice showcase2](./assets/showcaseoxocarbon.png)
 
 </div>
 

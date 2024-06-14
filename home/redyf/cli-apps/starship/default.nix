@@ -198,7 +198,7 @@
           owner = "catppuccin";
           repo = "starship";
           rev = "HEAD";
-          sha256 = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
+          sha256 = "sha256-KzXO4dqpufxTew064ZLp3zKIXBwbF8Bi+I0Xa63j/lI=";
         }
         + /palettes/${flavour}.toml));
   };
