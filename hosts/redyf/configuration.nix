@@ -143,6 +143,13 @@ in {
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+    ];
+  };
+
   stylix = {
     enable = true;
     autoEnable = true;
@@ -322,7 +329,6 @@ in {
   environment.systemPackages = with pkgs; [
     git
     docker-compose
-    inputs.xdg-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland
   ];
 
   system.stateVersion = "22.11"; # Did you read the comment?
