@@ -17,9 +17,10 @@
   gnomeSchema = "org.gnome.desktop.interface";
 in {
   home.packages = with pkgs; [
-    grim
-    slurp
-    swappy
+    grim # Screenshot tool for hyprland
+    slurp # Works with grim to screenshot on wayland
+    swappy # Wayland native snapshot editing tool, inspired by Snappy on macOS
+    wl-clipboard # Enables copy/paste on wayland
 
     (writeShellScriptBin "screenshot" ''
       grim -g "$(slurp)" - | wl-copy

@@ -28,9 +28,6 @@
     nwg-look # Change GTK theme
 
     # Screenshot + extra utils
-    grim # Screenshot tool for hyprland
-    slurp # Works with grim to screenshot on wayland
-    wl-clipboard # Enables copy/paste on wayland
     vlc
 
     # System Utils
@@ -41,6 +38,6 @@
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
-    cinnamon.nemo
+    pcmanfm
   ];
 }
