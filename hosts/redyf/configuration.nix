@@ -77,7 +77,7 @@ in {
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
       WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
-      DEFAULT_BROWSER = "${pkgs.brave}/bin/brave"; # Set default browser
+      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
     };
     shellAliases = {nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";};
   };
@@ -133,6 +133,7 @@ in {
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      portalPackage = with pkgs; xdg-desktop-portal-hyprland;
     };
     noisetorch.enable = true;
     nh = {
@@ -157,8 +158,8 @@ in {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
     fonts = {
       monospace = {
-        package = with pkgs; nerdfonts.override {fonts = ["MartianMono"];};
-        name = "MartianMono Nerd Font";
+        package = with pkgs; nerdfonts.override {fonts = ["IBMPlexMono"];};
+        name = "BlexMono Nerd Font Bold";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
