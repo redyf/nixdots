@@ -3,8 +3,6 @@
     nil
     statix
     alejandra
-    nurl
     nix-init
-    nix-prefetch-git
   ];
 }
