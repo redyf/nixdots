@@ -14,7 +14,6 @@
     obsidian
 
     # Other stuff
-    gh
     ollama
     playerctl
     # spotify
@@ -23,10 +22,8 @@
     # Rice
     # cmatrix
 
-    # Screenshot + extra utils
+    # Extra utils
     vlc
-
-    # System Utils
     mpv
     glib
     unzip # Unzip files using the terminal
