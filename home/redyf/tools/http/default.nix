@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [curl httpie openssl];
+  home.packages = with pkgs; [curl openssl];
 }
