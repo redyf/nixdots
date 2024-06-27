@@ -2,7 +2,6 @@
   description = "Redyf's Flake";
 
   inputs = {
-    # Core
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -17,15 +16,7 @@
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
-    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-
-    # git+ssh://git@git.example.com/User/repo.git
-    # fontflake.url = "git+ssh://git@github.com/redyf/font-flake.git";
-
-    # liga-martian-mono = {
-    #   url = "github:redyf/LigaMartianMono";
-    #   flake = false;
-    # };
+    font-flake.url = "github:redyf/font-flake";
 
     # SFMono w/ patches
     # sf-mono-liga-src = {
@@ -33,6 +24,7 @@
     #   flake = false;
     # };
 
+    # git+ssh://git@git.example.com/User/repo.git if you're using private repos
     # berkeley = {
     #   url = "git+ssh://git@github.com/redyf/berkeley.git";
     #   flake = false;
@@ -51,6 +43,7 @@
     home-manager,
     disko,
     stylix,
+    font-flake,
     ...
   } @ inputs: let
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
