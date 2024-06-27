@@ -11,6 +11,7 @@
       dunst
       dmenu
       flameshot
+      nitrogen # Wallpaper utility for X11
     ];
   };
   services = {
