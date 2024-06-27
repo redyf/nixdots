@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # Requires https://github.com/caarlos0/timer to be installed. spd-say should ship with your distro (Thanks Bashbunni!)
   home.packages = with pkgs; [
     # Anime/Manga
     # ani-cli # A cli tool to browse and play anime
@@ -15,25 +14,16 @@
     obsidian
 
     # Other stuff
-    gh
     ollama
     playerctl
     # spotify
     # brave
 
     # Rice
-    bemenu
     # cmatrix
-    nitrogen # Wallpaper utility for X11
-    nwg-look # Change GTK theme
 
-    # Screenshot + extra utils
-    grim # Screenshot tool for hyprland
-    slurp # Works with grim to screenshot on wayland
-    wl-clipboard # Enables copy/paste on wayland
+    # Extra utils
     vlc
-
-    # System Utils
     mpv
     glib
     unzip # Unzip files using the terminal
@@ -41,6 +31,6 @@
     tree-sitter # A parser generator tool and an incremental parsing library
     appimage-run # Run appimage files in the terminal
     polkit_gnome
-    cinnamon.nemo
+    pcmanfm
   ];
 }
