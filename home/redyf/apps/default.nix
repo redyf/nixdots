@@ -1,11 +1,12 @@
 _: {
   imports = [
-    # ./artix-game-launcher
+    ./artix-game-launcher
     ./discord
     # ./davinci-resolve
     # ./emacs
+    # ./figma
     ./firefox
-    # ./insomnia
+    ./insomnia
     ./misc
     ./obs
     # ./vscode
