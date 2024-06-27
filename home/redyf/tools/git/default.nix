@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   programs.git = {
     enable = true;
     userName = "Redyf";
@@ -9,4 +9,8 @@ _: {
       pull.rebase = false;
     };
   };
+  home.packages = with pkgs; [
+    gh
+    lazygit
+  ];
 }
