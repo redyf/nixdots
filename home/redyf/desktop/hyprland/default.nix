@@ -21,6 +21,8 @@ in {
     slurp # Works with grim to screenshot on wayland
     swappy # Wayland native snapshot editing tool, inspired by Snappy on macOS
     wl-clipboard # Enables copy/paste on wayland
+    bemenu
+    nwg-look # Change GTK theme
 
     (writeShellScriptBin "screenshot" ''
       grim -g "$(slurp)" - | wl-copy
@@ -44,10 +46,6 @@ in {
       # Wallpaper
       swww kill
       swww init
-
-      # Mako (Notifications)
-      pkill mako
-      mako &
 
       # Cursor
       gsettings set org.gnome.desktop.interface cursor-theme macOS-BigSur
@@ -188,7 +186,7 @@ in {
         mfact = 0.5;
         orientation = "right";
         special_scale_factor = 0.8;
-        new_is_master = true;
+        new_status = "master";
         no_gaps_when_only = false;
       };
 
