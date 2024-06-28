@@ -7,27 +7,6 @@
   };
 in {
   home = {
-    shellAliases = {
-      c = "nvim";
-      cp = "cp -i";
-      f = "neofetch --sixel";
-      p = "pfetch";
-      fetch = "neofetch w3m";
-      grep = "grep --color=auto";
-      mv = "mv -i";
-      rip = "rip -i";
-      g = "git";
-      ga = "git add";
-      gaa = "git add .";
-      gb = "git branch";
-      gc = "git commit";
-      gcm = "git commit --message";
-      gco = "git checkout";
-      gd = "git diff";
-      gi = "git init";
-      gp = "git pull";
-      gs = "git status";
-    };
     sessionVariables = {
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
       MANROFFOPT = "-c";
@@ -149,15 +128,9 @@ in {
         sudo = "doas";
         c = "nvim";
         cp = "cp -i";
-        f = "neofetch --sixel";
-        p = "pfetch";
-        fetch = "neofetch w3m";
         grep = "grep --color=auto";
         mv = "mv -i";
         rip = "rip -i";
-        postman = "postman --use-gl=desktop";
-        insomnia = "insomnia --use-gl=desktop";
-        beekeeper-studio = "beekeeper-studio --use-gl=desktop";
         g = "git";
         ga = "git add";
         gaa = "git add .";
@@ -169,6 +142,8 @@ in {
         gi = "git init";
         gp = "git pull";
         gs = "git status";
+        nb = "nix-build";
+        ns = "nix-shell";
       };
 
       oh-my-zsh = {
