@@ -53,9 +53,9 @@ in {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [nvidia-vaapi-driver];
     };
   };
@@ -158,8 +158,10 @@ in {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
     fonts = {
       monospace = {
-        package = with pkgs; nerdfonts.override {fonts = ["IBMPlexMono"];};
-        name = "BlexMono Nerd Font Bold";
+        # package = with pkgs; nerdfonts.override {fonts = ["FiraCode"];};
+        # name = "FiraCode Nerd Font Mono Med";
+        package = with pkgs; inputs.font-flake.packages.${system}.sf-mono;
+        name = "Liga SFMono Nerd Font";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
@@ -178,7 +180,7 @@ in {
     };
     opacity = {
       applications = 1.0;
-      terminal = 1.0;
+      terminal = 0.95;
       desktop = 1.0;
       popups = 1.0;
     };
