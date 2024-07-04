@@ -9,20 +9,14 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    waybar-hyprland.url = "github:hyprwm/hyprland";
-    nur.url = "github:nix-community/NUR";
-    Neve.url = "github:redyf/Neve";
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     ags.url = "github:Aylur/ags";
-    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    matugen.url = "github:InioX/matugen";
     font-flake.url = "github:redyf/font-flake";
-
-    # SFMono w/ patches
-    # sf-mono-liga-src = {
-    #   url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-    #   flake = false;
-    # };
+    # waybar-hyprland.url = "github:hyprwm/hyprland";
+    # Neve.url = "github:redyf/Neve";
+    # nur.url = "github:nix-community/NUR";
 
     # git+ssh://git@git.example.com/User/repo.git if you're using private repos
     # berkeley = {
