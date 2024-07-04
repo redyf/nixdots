@@ -80,6 +80,12 @@ iwctl --passphrase [passphrase] station [device] connect [SSID]
 
 ## Installation
 
+> [!CAUTION]
+> This hosts system and home configurations are public for your own learning and
+> research. They are not meant to be used with any hardware other than mine.
+> Trying to build and deploy them to other systems without appropriate changes
+> can render your machines unbootable and damage data.
+
 I'll guide you through the Installation, but first make sure to download the Minimal ISO image available at [NixOS](https://nixos.org/download#nixos-iso) and make a bootable drive with it. I suggest using [Rufus](https://rufus.ie/en/) for the task as it's a great software,
 and an ethernet cable to make things easier. We shall begin!
 
@@ -164,6 +170,7 @@ Credits for the installation section goes to [Stephenstechtalks](https://github.
 - [Siduck76](https://github.com/siduck76/nvchad/)
 - [Sioodmy](https://github.com/sioodmy/dotfiles)
 - [ZerotoNix](https://zero-to-nix.com)
+- [NobbZ](https://github.com/NobbZ)
 
 <hr>
 
