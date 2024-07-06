@@ -126,9 +126,9 @@
       selene = nixosSystem {
         system = "aarch64-linux";
         modules = [
-	raspberry-pi-nix.nixosModules.raspberry-pi
-	basic-config
 	./hosts/selene/configuration.nix
+	raspberry-pi-nix.nixosModules.raspberry-pi
+	# basic-config
 	];
       };
     };
