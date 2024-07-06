@@ -143,6 +143,8 @@ in {
         gp = "git pull";
         gs = "git status";
         nb = "nix-build";
+        nd = "nix develop";
+        nr = "nix run";
         ns = "nix-shell";
       };
 

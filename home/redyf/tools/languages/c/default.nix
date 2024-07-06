@@ -4,8 +4,6 @@
     cmake
     gnumake
     gnupatch
-    # astyle
-    # cpplint
     clang-tools
   ];
 }
