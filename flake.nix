@@ -125,7 +125,11 @@
       # nix build '.#nixosConfigurations.selene.config.system.build.sdImage'
       selene = nixosSystem {
         system = "aarch64-linux";
-        modules = [raspberry-pi-nix.nixosModules.raspberry-pi basic-config];
+        modules = [
+	raspberry-pi-nix.nixosModules.raspberry-pi
+	basic-config
+	./hosts/selene/configuration.nix
+	];
       };
     };
     devShells = forAllSystems (system: let
