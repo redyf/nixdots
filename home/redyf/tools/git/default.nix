@@ -7,6 +7,7 @@
       init = {defaultBranch = "main";};
       core.editor = "nvim";
       pull.rebase = false;
+      maintenance.repo = "/home/redyf/opensource/nixpkgs";
     };
   };
   home.packages = with pkgs; [
