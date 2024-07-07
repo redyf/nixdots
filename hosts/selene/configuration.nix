@@ -9,7 +9,6 @@
   raspberry-pi-nix.uboot.enable = true;
 
   networking = {
-    enable = true;
     hostName = "raspberry"; # Define your hostname.
     firewall.enable = false;
     wireless = {
