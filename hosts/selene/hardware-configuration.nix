@@ -15,7 +15,7 @@
   boot.initrd.availableKernelModules = ["usb_storage"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
-  boot.kernelPackages = (import (builtins.fetchTarball https://gitlab.com/vriska/nix-rpi5/-/archive/main.tar.gz)).legacyPackages.aarch64-linux.linuxPackages_rpi5;
+  boot.kernelPackages = (import (builtins.fetchTarball "https://gitlab.com/vriska/nix-rpi5/-/archive/main.tar.gz")).legacyPackages.aarch64-linux.linuxPackages_rpi5;
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
