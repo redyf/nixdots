@@ -6,7 +6,10 @@
 }: {
   imports = [./hardware-configuration.nix];
 
+  raspberry-pi-nix.uboot.enable = true;
+
   networking = {
+    enable = true;
     hostName = "raspberry"; # Define your hostname.
     firewall.enable = false;
     wireless = {
@@ -14,8 +17,12 @@
     };
   };
 
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "yes";
+  services = {
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "yes";
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     neovim
@@ -49,16 +56,19 @@
     };
   };
 
-  users.users.selene = {
-    isNormalUser = true;
-    description = "My RaspberryPI Host";
-    initialPassword = "123456";
-    shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
+  users.users = {
+    root.initialPassword = "root";
+    selene = {
+      isNormalUser = true;
+      description = "My RaspberryPI Host";
+      initialPassword = "123456";
+      shell = pkgs.zsh;
+      extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
+    };
   };
 
   programs = {
-  zsh.enable = true;
+    zsh.enable = true;
   };
 
   time.timeZone = "America/Bahia";
