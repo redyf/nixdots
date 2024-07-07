@@ -44,47 +44,6 @@
     ...
   } @ inputs: let
     inherit (nixpkgs.lib) nixosSystem;
-    basic-config = {
-      pkgs,
-      lib,
-      ...
-    }: {
-      users.users.root.initialPassword = "root";
-      networking = {
-        hostName = "raspberry";
-        firewall.enable = false;
-        wireless = {
-          enable = true;
-        };
-      };
-      environment.systemPackages = with pkgs; [bluez bluez-tools neovim git];
-      nix = {
-        package = pkgs.nixFlakes;
-        extraOptions = "experimental-features = nix-command flakes";
-      };
-      time.timeZone = "America/Bahia";
-      console = {keyMap = "br-abnt2";};
-      i18n = {
-        defaultLocale = "pt_BR.UTF-8";
-      };
-      hardware = {
-        bluetooth.enable = true;
-        raspberry-pi = {
-          config = {
-            all = {
-              base-dt-params = {
-                # enable autoprobing of bluetooth driver
-                # https://github.com/raspberrypi/linux/blob/c8c99191e1419062ac8b668956d19e788865912a/arch/arm/boot/dts/overlays/README#L222-L224
-                krnbt = {
-                  enable = true;
-                  value = "on";
-                };
-              };
-            };
-          };
-        };
-      };
-    };
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
 
     # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
@@ -122,14 +81,13 @@
             disko.nixosModules.disko
           ];
         };
-      # nix build '.#nixosConfigurations.selene.config.system.build.sdImage'
+      # nix build '.#nixosConfigurations.selene.config.system.build.sdImage' to build the image for the raspberry-pi
       selene = nixosSystem {
         system = "aarch64-linux";
         modules = [
-	./hosts/selene/configuration.nix
-	raspberry-pi-nix.nixosModules.raspberry-pi
-	# basic-config
-	];
+          ./hosts/selene/configuration.nix
+          raspberry-pi-nix.nixosModules.raspberry-pi
+        ];
       };
     };
     devShells = forAllSystems (system: let
