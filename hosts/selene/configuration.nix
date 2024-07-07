@@ -7,19 +7,25 @@
   imports = [./hardware-configuration.nix];
 
   raspberry-pi-nix.uboot.enable = true;
+  raspberry-pi-nix.libcamera-overlay.enable = false;
 
   networking = {
     hostName = "raspberry"; # Define your hostname.
+    networkmanager.enable = true;
     firewall.enable = false;
-    wireless = {
-      enable = true;
-    };
+    #wireless = {
+    #  enable = true;
+    #};
   };
 
   services = {
     openssh = {
       enable = true;
       settings.PermitRootLogin = "yes";
+    };
+    xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
     };
   };
 
@@ -29,7 +35,6 @@
     git
     bluez
     bluez-tools
-    cowsay
   ];
 
   nix = {
@@ -76,6 +81,16 @@
 
   programs = {
     zsh.enable = true;
+    sway = {
+    enable = true;
+    };
+  };
+
+  xdg.portal = {
+  enable = true;
+  extraPortals = [
+  pkgs.xdg-desktop-portal-wlr
+  ];
   };
 
   time.timeZone = "America/Bahia";
