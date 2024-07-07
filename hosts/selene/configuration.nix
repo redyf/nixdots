@@ -42,6 +42,14 @@
     raspberry-pi = {
       config = {
         all = {
+          options = {
+            dt-overlays = {
+              vc4-kms-v3d-pi5 = {
+                enable = true;
+                params = {};
+              };
+            };
+          };
           base-dt-params = {
             # enable autoprobing of bluetooth driver
             # https://github.com/raspberrypi/linux/blob/c8c99191e1419062ac8b668956d19e788865912a/arch/arm/boot/dts/overlays/README#L222-L224
