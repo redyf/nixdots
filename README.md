@@ -155,9 +155,45 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 
 </details>
 
+<details>
+    <summary>Raspberry PI5 Installation</summary>
+        
+    Requirements: rpi-imager, sd-card, Raspberry Pi 5m, another device to connect remotely (PC, Laptop, etc).
+    
+    1- Open rpi-imager, select your device, then Raspberry PI OS and sd-card.
+    2- Make sure to customize the settings to your needs, like defining a user/hostname and enabling ssh (You will need it!).
+    3- Insert the sd-card in your Raspberry PI and boot.
+
+    4- Install Nix on it: bash <(curl -L https://nixos.org/nix/install)
+    5- Install Cachix client: nix-env -iA cachix -f https://cachix.org/api/v1/install
+    6- Start using the binary cache: cachix use raspberry-pi-nix
+
+    7- Go to https://github.com/tstat/raspberry-pi-nix-example and clone the repo.
+    8- Make sure to run nix flake update after cloning so it updates all flake inputs!
+    9- Customize the flake.nix to match your needs, like changing hostname, timezones, enabling nmcli, etc.
+
+    10- Now you'll need to build an image suitable for flashing to an sd-card. For this example made by https://github.com/tstat, he used the hostname rpi-example. So it will be nix build '.#nixosConfigurations.rpi-example.config.system.build.sdImage'
+    11- Connect to your main machine with ssh and copy the image to it. You won't be able to build the image if the system architecture isn't aarch64-linux! That's why we built it in the Raspberry PI.
+    12- You can use scp for that, copying from the raspberry pi to your pc would be as simple as scp /path/to/file username@a:/path/to/destination. scp username@b:/path/to/file /path/to/destination would also work if you're doing the opposite order.
+
+    13- We are almost done, hang on! Now after copying the image to your machine, use the rpi-imager again and select the image you just built to be installed on raspberry PI.
+    14- Enjoy! (My RaspberryPI5 host is in this repo, it's called selene. Just in case you want a working profile with Sway installed out of the box).
+
+    All references are written below, I wouldn't be able to install it without them! I really appreciate their hard work, make sure to give them a star.
+
+</details>
+
 <hr>
 
-Credits for the installation section goes to [Stephenstechtalks](https://github.com/stephenstechtalks) and [AlphaTechnolog](https://github.com/AlphaTechnolog) as they helped a lot with their installation guides.
+## All references/credits for the NixOS Raspberry PI 5 setup:
+
+- [Raspberry PI 5 support](https://github.com/NixOS/nixpkgs/issues/260754)
+- [NixOS on ARM/Raspberry Pi 5](https://wiki.nixos.org/wiki/NixOS_on_ARM/Raspberry_Pi_5)
+- [Pi 5 support](https://github.com/nix-community/raspberry-pi-nix/issues/13)
+- [raspberry-pi-nix](https://github.com/nix-community/raspberry-pi-nix?tab=readme-ov-file)
+- [raspberry-pi-nix binary cache](https://app.cachix.org/cache/raspberry-pi-nix)
+- [nix-rpi5](https://gitlab.com/vriska/nix-rpi5)
+- [raspberrypi/firmware](https://github.com/raspberrypi/firmware)
 
 ## Shoutout to:
 
@@ -169,6 +205,7 @@ Credits for the installation section goes to [Stephenstechtalks](https://github.
 - [notusknot](https://github.com/notusknot)
 - [Siduck76](https://github.com/siduck76/nvchad/)
 - [Sioodmy](https://github.com/sioodmy/dotfiles)
+- [Stephenstechtalks](https://github.com/stephenstechtalks)
 - [ZerotoNix](https://zero-to-nix.com)
 - [NobbZ](https://github.com/NobbZ)
 
