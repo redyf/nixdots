@@ -24,8 +24,8 @@
       settings.PermitRootLogin = "yes";
     };
     xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
+      enable = true;
+      displayManager.gdm.enable = true;
     };
   };
 
@@ -82,15 +82,15 @@
   programs = {
     zsh.enable = true;
     sway = {
-    enable = true;
+      enable = true;
     };
   };
 
   xdg.portal = {
-  enable = true;
-  extraPortals = [
-  pkgs.xdg-desktop-portal-wlr
-  ];
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+    ];
   };
 
   time.timeZone = "America/Bahia";
