@@ -155,33 +155,78 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 
 </details>
 
-<details>
-    <summary>Raspberry PI5 Installation</summary>
-        
-    Requirements: rpi-imager, sd-card, Raspberry Pi 5m, another device to connect remotely (PC, Laptop, etc).
-    
-    1- Open rpi-imager, select your device, then Raspberry PI OS and sd-card.
-    2- Make sure to customize the settings to your needs, like defining a user/hostname and enabling ssh (You will need it!).
-    3- Insert the sd-card in your Raspberry PI and boot.
+<hr>
 
-    4- Install Nix on it: bash <(curl -L https://nixos.org/nix/install)
-    5- Install Cachix client: nix-env -iA cachix -f https://cachix.org/api/v1/install
-    6- Start using the binary cache: cachix use raspberry-pi-nix
+## NixOS Raspberry PI5 Installation
 
-    7- Go to https://github.com/tstat/raspberry-pi-nix-example and clone the repo.
-    8- Make sure to run nix flake update after cloning so it updates all flake inputs!
-    9- Customize the flake.nix to match your needs, like changing hostname, timezones, enabling nmcli, etc.
+### Requirements
 
-    10- Now you'll need to build an image suitable for flashing to an sd-card. For this example made by https://github.com/tstat, he used the hostname rpi-example. So it will be nix build '.#nixosConfigurations.rpi-example.config.system.build.sdImage'
-    11- Connect to your main machine with ssh and copy the image to it. You won't be able to build the image if the system architecture isn't aarch64-linux! That's why we built it in the Raspberry PI.
-    12- You can use scp for that, copying from the raspberry pi to your pc would be as simple as scp /path/to/file username@a:/path/to/destination. scp username@b:/path/to/file /path/to/destination would also work if you're doing the opposite order.
+- rpi-imager
+- sd-card
+- Raspberry Pi 5
+- Another device to connect remotely (PC, Laptop, etc)
 
-    13- We are almost done, hang on! Now after copying the image to your machine, use the rpi-imager again and select the image you just built to be installed on raspberry PI.
-    14- Enjoy! (My RaspberryPI5 host is in this repo, it's called selene. Just in case you want a working profile with Sway installed out of the box).
+### Installation Steps
 
-    All references are written below, I wouldn't be able to install it without them! I really appreciate their hard work, make sure to give them a star.
+1. **Open rpi-imager** and select your device, then Raspberry PI OS and sd-card.
+2. **Customize settings** to your needs, like defining a user/hostname and enabling ssh.
+3. **Insert the sd-card** in your Raspberry PI and boot.
 
-</details>
+4. **Install Nix** on it by running the following command:
+
+```bash
+bash <(curl -L https://nixos.org/nix/install)
+```
+
+5. **Install Cachix client** by running:
+
+```bash
+nix-env -iA cachix -f https://cachix.org/api/v1/install
+```
+
+6. **Start using the binary cache** by running:
+
+```bash
+cachix use raspberry-pi-nix
+```
+
+7. **Clone the following repo**:
+
+```bash
+git clone https://github.com/tstat/raspberry-pi-nix-example
+```
+
+8. **Update flake inputs** by running:
+
+```bash
+nix flake update
+```
+
+9. **Customize `flake.nix`** to match your needs, like changing hostname, timezones, enabling nmcli, etc.
+
+10. **Build an image** suitable for flashing to an sd-card by running:
+
+```
+nix build '.#nixosConfigurations.rpi-example.config.system.build.sdImage'
+```
+
+11. **Connect to your main machine** with ssh and copy the image to it using scp. You can use the following commands:
+
+```
+scp /path/to/file username@a:/path/to/destination
+```
+
+or
+
+```
+scp username@b:/path/to/file /path/to/destination
+```
+
+12. **Use rpi-imager** again and select the image you just built to be installed on Raspberry PI.
+
+13. **Enjoy!** (My RaspberryPI5 host is in this repo, it's called selene. Just in case you want a working profile with Sway installed out of the box).
+
+All references are written below. I wouldn't be able to install it without them! I really appreciate their hard work, make sure to give them a star.
 
 <hr>
 
