@@ -29,6 +29,12 @@
     style = "bold bg:none fg:#393939";
   };
 
+  git_branch = {
+    format = "on [$symbol$branch(:$remote_branch)]($style) ";
+    symbol = " ";
+    style = "bold purple";
+  };
+
   time = {
     disabled = false;
     use_12hr = true;
