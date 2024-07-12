@@ -93,6 +93,9 @@ in {
     # avoid checking if IP is already taken to boot a few seconds faster
     dhcpcd.extraConfig = "noarp";
     hostName = "redyf"; # Define your hostname.
+    firewall = {
+      enable = true;
+    };
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
@@ -158,10 +161,8 @@ in {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
     fonts = {
       monospace = {
-        # package = with pkgs; nerdfonts.override {fonts = ["FiraCode"];};
-        # name = "FiraCode Nerd Font Mono Med";
         package = with pkgs; inputs.font-flake.packages.${system}.sf-mono;
-        name = "Liga SFMono Nerd Font";
+        name = "Liga SFMono Nerd Font Medium";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
@@ -293,11 +294,11 @@ in {
         '';
       };
       desktopManager = {
-        xfce.enable = false;
+        xfce.enable = true;
       };
       windowManager = {
         awesome = {
-          enable = true;
+          enable = false;
           luaModules = with pkgs.luaPackages; [
             luarocks
           ];

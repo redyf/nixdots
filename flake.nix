@@ -18,18 +18,6 @@
     font-flake.url = "github:redyf/font-flake";
     # waybar-hyprland.url = "github:hyprwm/hyprland";
     # Neve.url = "github:redyf/Neve";
-    # nur.url = "github:nix-community/NUR";
-
-    # git+ssh://git@git.example.com/User/repo.git if you're using private repos
-    # berkeley = {
-    #   url = "git+ssh://git@github.com/redyf/berkeley.git";
-    #   flake = false;
-    # };
-
-    # monolisa-script = {
-    #   url = "git+ssh://git@github.com/redyf/test2.git";
-    #   flake = false;
-    # };
   };
 
   outputs = {
