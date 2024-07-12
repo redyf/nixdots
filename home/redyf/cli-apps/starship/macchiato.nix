@@ -15,7 +15,7 @@ in
       vicmd_symbol = "[](#ecd3a0)";
       # format = "$symbol[ ](bold #b4befe) ";
       # format = "$symbol[λ ](bold #b4befe) ";
-      format = "$symbol[>](#b4befe) ";
+      format = "$symbol[󰅂](#b4befe) ";
     };
 
     format = ''

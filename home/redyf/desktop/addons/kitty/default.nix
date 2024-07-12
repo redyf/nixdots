@@ -8,7 +8,6 @@
     # theme = "Tokyo Night";
     # theme = "Catppuccin-Mocha";
     # font = {
-    #   # name = "JetBrainsMono Nerd Font";
     #   name = "MonoLisa";
     #   package = pkgs.monolisa-script;
     #   size = 11;
