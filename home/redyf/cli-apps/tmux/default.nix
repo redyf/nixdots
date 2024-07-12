@@ -9,28 +9,6 @@
       sha256 = "1hjav791xr5jx0swx4njfxlhhhx599ddan3bgaw1abwwfy1w1ji3";
     };
   };
-  power-theme = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "power";
-    rtpFilePath = "tmux-power.tmux";
-    version = "unstable-2024-05-12";
-    src = pkgs.fetchFromGitHub {
-      owner = "wfxr";
-      repo = "tmux-power";
-      rev = "16bbde801378a70512059541d104c5ae35be32b9";
-      hash = "sha256-IyYQyIONMnVBwhhcI3anOPxKpv2TfI2KZgJ5o5JtZ8I=";
-    };
-  };
-  tokyo-night = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tokyo-night-tmux";
-    rtpFilePath = "tokyo-night.tmux";
-    version = "1.5.3";
-    src = pkgs.fetchFromGitHub {
-      owner = "janoamaral";
-      repo = "tokyo-night-tmux";
-      rev = "d34f1487b4a644b13d8b2e9a2ee854ae62cc8d0e";
-      hash = "sha256-3rMYYzzSS2jaAMLjcQoKreE0oo4VWF9dZgDtABCUOtY=";
-    };
-  };
 in {
   programs.tmux = {
     enable = true;
@@ -52,10 +30,10 @@ in {
       #   plugin = tokyo-night;
       #   extraConfig = builtins.readFile ./tokyo-night-tmux.conf;
       # }
-      {
-        plugin = power-theme;
-        extraConfig = builtins.readFile ./power-theme.conf;
-      }
+      # {
+      #   plugin = power-theme;
+      #   extraConfig = builtins.readFile ./power-theme.conf;
+      # }
       # {
       #   plugin = catppuccin;
       #   extraConfig = builtins.readFile ./catppuccin.conf;
@@ -102,87 +80,13 @@ in {
       # Status line
       #--------------------------------------------------------------------------
 
-      # TokyoNight colors for Tmux
-      # set -g mode-style "fg=#7aa2f7,bg=#3b4261"
-      #
-      # set -g message-style "fg=#7aa2f7,bg=#3b4261"
-      # set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
-      #
-      # set -g pane-border-style "fg=#3b4261"
-      # set -g pane-active-border-style "fg=#7aa2f7"
-      #
-      # set -g status "on"
-      # set -g status-justify "left"
-      #
-      # set -g status-style "fg=#7aa2f7,bg=#1e1e2e"
-      #
-      # set -g status-left-length "100"
-      # set -g status-right-length "100"
-      #
-      # set -g status-left-style NONE
-      # set -g status-right-style NONE
-      #
-      # set -g status-left "#[fg=#1d202f,bg=#1e1e2e,bold] #S #[fg=#7aa2f7,bg=#1e1e2e,nobold,nounderscore,noitalics]"
-      # set -g status-right "#[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1e1e2e] #{prefix_highlight} #[fg=#3b4261,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %I:%M %p #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
-      # if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
-      #   set -g status-right "#[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#1e1e2e] #{prefix_highlight} #[fg=#3b4261,bg=#1e1e2e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %H:%M #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#1d202f,bg=#7aa2f7,bold] #h "
-      # }
-      #
-      # setw -g window-status-activity-style "underscore,fg=#a9b1d6,bg=#1e1e2e"
-      # setw -g window-status-separator ""
-      # setw -g window-status-style "NONE,fg=#a9b1d6,bg=#1e1e2e"
-      # setw -g window-status-format "#[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#1f2335,bg=#1e1e2e,nobold,nounderscore,noitalics]"
-      # setw -g window-status-current-format "#[fg=#1f2335,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261,bold] #I  #W #F #[fg=#3b4261,bg=#1e1e2e,nobold,nounderscore,noitalics]"
-
-      # tmux-plugins/tmux-prefix-highlight support
-      # set -g @prefix_highlight_output_prefix "#[fg=#e0af68]#[bg=#1e1e2e]#[fg=#1f2335]#[bg=#e0af68]"
-      # set -g @prefix_highlight_output_suffix ""
+      # Adding Git repo and branch to Tmux status line
+      set -g status-right '#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)'
+      set -g status-interval 1
 
       # Enable transparent tmux bar
       set -g status-bg default
       set -g status-style bg=default
-
-      # Status line customisation
-      # set-option -g status-left-length 100
-      # set-option -g status-right-length 100
-      # set-option -g status-left " #{session_name}  "
-      # set-option -g status-right " "
-      #
-      # set-option -g status-style "fg=#828bb1 bg=default" # default will set the background to transparent
-
-      # set-option -g window-status-format "#{window_index}:#{window_name}#{window_flags} " # window_name -> pane_current_command
-      # set-option -g window-status-current-format "#{window_index}:#{window_name}#{window_flags} "
-      # set-option -g window-status-current-style "fg=#B4BEFE"
-      # set-option -g window-status-activity-style none
-
-      # clock mode
-      # setw -g clock-mode-colour colour1
-
-      # copy mode
-      # setw -g mode-style "fg=colour1 bg=colour18 bold"
-
-      # pane borders
-      # set -g pane-border-style "fg=colour1"
-      # set -g pane-active-border-style "fg=colour3"
-
-      # statusbar
-      # set -g status-justify left
-      # set -g status-style "fg=colour1"
-      # set -g status-left ""
-      # set -g status-right "%Y-%m-%d %H:%M "
-      # set -g status-right-length 50
-      # set -g status-left-length 10
-      #
-      # setw -g window-status-current-style "fg=colour0 bg=colour1 bold"
-      # setw -g window-status-current-format " #I #W #F "
-      #
-      # setw -g window-status-style "fg=colour1 dim"
-      # setw -g window-status-format " #I #[fg=colour7]#W #[fg=colour1]#F "
-      #
-      # setw -g window-status-bell-style "fg=colour2 bg=colour1 bold"
-      #
-      # # messages
-      # set -g message-style "fg=colour2 bg=colour0 bold"
     '';
   };
   home.packages = with pkgs; [
