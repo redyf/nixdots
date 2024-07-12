@@ -10,20 +10,15 @@
     # grapejuice
     # libpulseaudio
 
-    # Notetaking
-    obsidian
-
     # Other stuff
     ollama
     playerctl
-    # spotify
     # brave
 
     # Rice
     # cmatrix
 
     # Extra utils
-    vlc
     mpv
     glib
     unzip # Unzip files using the terminal
