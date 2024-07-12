@@ -60,6 +60,11 @@ in {
     };
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
+
   environment = {
     variables = {
       EDITOR = "nvim";
