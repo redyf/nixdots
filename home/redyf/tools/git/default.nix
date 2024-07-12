@@ -4,9 +4,24 @@
     userName = "Redyf";
     userEmail = "mateusalvespereira7@gmail.com";
     extraConfig = {
-      init = {defaultBranch = "main";};
-      core.editor = "nvim";
-      pull.rebase = false;
+      core = {
+        editor = "nvim";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      branch = {
+        autoSetupRemote = true;
+      };
+      fetch = {
+        prune = true;
+      };
+      pull = {
+        ff = false;
+        commit = false;
+        rebase = true;
+        prune = true;
+      };
       maintenance.repo = "/home/redyf/opensource/nixpkgs";
     };
   };
