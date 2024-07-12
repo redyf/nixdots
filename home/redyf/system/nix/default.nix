@@ -4,5 +4,6 @@
     statix
     alejandra
     nix-init
+    nixpkgs-review
   ];
 }
