@@ -6,7 +6,7 @@ _: {
     ./python
     ./javascript
     # ./ocaml
-    # ./sql
+    ./sql
     # ./java
     # ./lua
     # ./elixir
