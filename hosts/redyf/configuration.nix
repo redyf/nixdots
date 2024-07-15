@@ -4,7 +4,10 @@
   config,
   ...
 }: let
-  theme = "oxocarbon-dark";
+  themes = {
+    oxocarbon-dark = "oxocarbon-dark";
+    paradiseTheme = builtins.fromJSON (builtins.readFile ./paradise.json);
+  };
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -163,7 +166,8 @@ in {
     enable = true;
     autoEnable = true;
     image = ./9ovcXG0Wo4P7FQPe.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    # base16Scheme = themes.paradiseTheme;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.oxocarbon-dark}.yaml";
     fonts = {
       monospace = {
         package = with pkgs; inputs.font-flake.packages.${system}.sf-mono;
