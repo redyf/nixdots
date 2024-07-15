@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     postgresql
-    beekeeper-studio
+    # beekeeper-studio
     # mysql-workbench
   ];
 }
