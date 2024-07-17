@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./artix-game-launcher
     ./chrome
@@ -15,17 +19,22 @@
     ./vscode
   ];
 
-  artix-game-launcher.enable = lib.mkDefault false;
-  chrome.enable = lib.mkDefault false;
-  discord.enable = lib.mkDefault true;
-  davinci-resolve.enable = lib.mkDefault false;
-  emacs.enable = lib.mkDefault false;
-  figma.enable = lib.mkDefault false;
-  firefox.enable = lib.mkDefault true;
-  insomnia.enable = lib.mkDefault false;
-  raspberry.enable = lib.mkDefault false;
-  spotify.enable = lib.mkDefault false;
-  misc.enable = lib.mkDefault true;
-  obs.enable = lib.mkDefault false;
-  vscode.enable = lib.mkDefault false;
+  options = {
+    apps.enable = lib.mkEnableOption "Enable apps module";
+  };
+  config = lib.mkIf config.apps.enable {
+    artix-game-launcher.enable = lib.mkDefault false;
+    chrome.enable = lib.mkDefault false;
+    discord.enable = lib.mkDefault true;
+    davinci-resolve.enable = lib.mkDefault false;
+    emacs.enable = lib.mkDefault false;
+    figma.enable = lib.mkDefault false;
+    firefox.enable = lib.mkDefault true;
+    insomnia.enable = lib.mkDefault false;
+    raspberry.enable = lib.mkDefault false;
+    spotify.enable = lib.mkDefault false;
+    misc.enable = lib.mkDefault true;
+    obs.enable = lib.mkDefault false;
+    vscode.enable = lib.mkDefault false;
+  };
 }
