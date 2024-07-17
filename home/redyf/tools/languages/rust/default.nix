@@ -15,7 +15,6 @@
       # rust-analyzer # Lsp for rust
       rustc # Compiler for rust
       # rustfmt # Formatter for rust language
-      # rustup # The Rust toolchain installer
     ];
   };
 }

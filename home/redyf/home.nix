@@ -14,7 +14,6 @@
     home-manager.enable = true;
   };
 
-  # Imports
   imports = [
     ./apps
     ./cli
@@ -33,7 +32,6 @@
   tools.enable = true;
   virt.enable = true;
 
-  # Allow unfree packages + use overlays
   nixpkgs = {
     config = {
       allowUnfree = true;
