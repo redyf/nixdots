@@ -25,22 +25,9 @@ in {
       sensible
       tmux-fzf
       vim-tmux-navigator
-      # net-speed
-      # {
-      #   plugin = tokyo-night;
-      #   extraConfig = builtins.readFile ./tokyo-night-tmux.conf;
-      # }
-      # {
-      #   plugin = power-theme;
-      #   extraConfig = builtins.readFile ./power-theme.conf;
-      # }
       # {
       #   plugin = catppuccin;
       #   extraConfig = builtins.readFile ./catppuccin.conf;
-      # }
-      # {
-      #   plugin = catppuccin-tmux;
-      #   extraConfig = builtins.readFile ./catppuccin-custom.conf;
       # }
       # {
       #   plugin = rose-pine;
