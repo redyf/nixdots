@@ -17,13 +17,21 @@
   # Imports
   imports = [
     ./apps
-    ./cli-apps
+    ./cli
     ./desktop
     ./rice
     ./system
     ./tools
-    # ./virtualization
+    ./virt
   ];
+
+  apps.enable = true;
+  cli.enable = true;
+  desktop.enable = true;
+  rice.enable = true;
+  system.enable = true;
+  tools.enable = true;
+  virt.enable = true;
 
   # Allow unfree packages + use overlays
   nixpkgs = {
