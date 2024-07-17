@@ -28,13 +28,13 @@
     discord.enable = lib.mkDefault true;
     davinci-resolve.enable = lib.mkDefault false;
     emacs.enable = lib.mkDefault false;
-    figma.enable = lib.mkDefault false;
+    figma.enable = lib.mkDefault true;
     firefox.enable = lib.mkDefault true;
     insomnia.enable = lib.mkDefault false;
-    raspberry.enable = lib.mkDefault false;
-    spotify.enable = lib.mkDefault false;
+    raspberry.enable = lib.mkDefault true;
+    spotify.enable = lib.mkDefault true;
     misc.enable = lib.mkDefault true;
-    obs.enable = lib.mkDefault false;
+    obs.enable = lib.mkDefault true;
     vscode.enable = lib.mkDefault false;
   };
 }
