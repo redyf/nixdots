@@ -7,7 +7,7 @@
   options = {
     chrome.enable = lib.mkEnableOption "Enable chrome module";
   };
-  config = lib.mkIf config.rust.enable {
+  config = lib.mkIf config.chrome.enable {
     home.packages = with pkgs; [
       google-chrome
     ];
