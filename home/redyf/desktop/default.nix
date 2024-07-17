@@ -16,7 +16,7 @@
   config = lib.mkIf config.desktop.enable {
     addons.enable = lib.mkDefault true;
     theme.enable = lib.mkDefault true;
-    hyprland.enable = lib.mkDefault false;
+    hyprland.enable = lib.mkDefault true;
     awesomewm.enable = lib.mkDefault false;
   };
 }
