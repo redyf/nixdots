@@ -6,6 +6,7 @@
   imports = [
     ./btop
     ./cava
+    ./fastfetch
   ];
 
   options = {
@@ -14,5 +15,6 @@
   config = lib.mkIf config.rice.enable {
     btop.enable = lib.mkDefault true;
     cava.enable = lib.mkDefault false;
+    fastfetch.enable = lib.mkDefault false;
   };
 }
