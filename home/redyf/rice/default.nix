@@ -1,9 +1,18 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./btop
     ./cava
   ];
 
-  btop.enable = lib.mkDefault true;
-  cava.enable = lib.mkDefault false;
+  options = {
+    rice.enable = lib.mkEnableOption "Enable rice module";
+  };
+  config = lib.mkIf config.rice.enable {
+    btop.enable = lib.mkDefault true;
+    cava.enable = lib.mkDefault false;
+  };
 }
