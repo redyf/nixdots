@@ -51,7 +51,7 @@
               hyprland
               disko
               ;
-            username = "redyf"; # Add the username here
+            username = "redyf";
             homeDirectory = "/home/redyf";
           };
           modules = [
@@ -85,7 +85,7 @@
             hyprland
             disko
             ;
-          username = "selene"; # Add the username here
+          username = "selene";
           homeDirectory = "/home/selene";
         };
         modules = [
