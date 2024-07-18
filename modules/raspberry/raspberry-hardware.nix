@@ -1,4 +1,8 @@
 _: {
+  # Overlays for raspberry-pi
+  raspberry-pi-nix.uboot.enable = true;
+  raspberry-pi-nix.libcamera-overlay.enable = false;
+
   hardware = {
     bluetooth.enable = true;
     raspberry-pi = {
