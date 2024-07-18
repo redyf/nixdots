@@ -6,20 +6,18 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system/raspberry-hardware.nix
+    ../../modules/raspberry/raspberry-hardware.nix
+    ../../modules/system/hardware.nix
     ../../modules/system/keymap.nix
     ../../modules/system/time.nix
     ../../modules/system/locale.nix
     ../../modules/system/xdg-portal.nix
     ../../modules/system/security.nix
+    ../../modules/system/zram.nix
     ../../modules/nix.nix
     ../../modules/stylix.nix
     ../../modules/programs
   ];
-
-  # Overlays for raspberry-pi
-  raspberry-pi-nix.uboot.enable = true;
-  raspberry-pi-nix.libcamera-overlay.enable = false;
 
   networking = {
     hostName = "raspberry";
