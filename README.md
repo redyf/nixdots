@@ -75,7 +75,7 @@ sudo nixos-rebuild switch --flake '.#redyf'
 - Connect to internet (Change what's inside the brackets with your info).
 
 ```
-iwctl --passphrase [passphrase] station [device] connect [SSID]
+nmcli device wifi connect [SSID] password [passphrase]
 ```
 
 ## Installation
