@@ -11,6 +11,8 @@
     ../../modules/system/time.nix
     ../../modules/system/locale.nix
     ../../modules/system/xdg-portal.nix
+    ../../modules/nix.nix
+    ../../modules/stylix.nix
     ../../modules/programs
   ];
 
