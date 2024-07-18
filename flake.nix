@@ -72,9 +72,29 @@
       # nix build '.#nixosConfigurations.selene.config.system.build.sdImage' to build the image for the raspberry-pi
       selene = nixosSystem {
         system = "aarch64-linux";
+        specialArgs = {
+          inherit
+            inputs
+            hyprland
+            disko
+            ;
+        };
         modules = [
           ./hosts/selene/configuration.nix
           raspberry-pi-nix.nixosModules.raspberry-pi
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = false;
+              extraSpecialArgs = {inherit inputs disko;};
+              users.selene = ./home/selene/home.nix;
+              backupFileExtension = "backup";
+            };
+          }
+          stylix.nixosModules.stylix
+          hyprland.nixosModules.default
+          disko.nixosModules.disko
         ];
       };
     };
