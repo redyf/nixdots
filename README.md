@@ -148,10 +148,13 @@ Disko is also available for formatting partitions (Only for advanced users)
 <details>
 <summary>Disko</summary>
 
-```
-If you'd saved this configuration in ./disks/default.nix, and wanted to create a disk named /dev/nvme0n1, you would run the following command to partition, format and mount the disk.
+If you save disko's config file in **./disks/default.nix**, and run the following command:
+
+```nix
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disks/default.nix --arg device '/dev/nvme0n1'
 ```
+
+you will partition, format and mount the disk for /dev/nvme0n1 (change as needed).
 
 </details>
 
