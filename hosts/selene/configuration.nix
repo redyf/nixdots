@@ -11,6 +11,7 @@
     ../../modules/system/time.nix
     ../../modules/system/locale.nix
     ../../modules/system/xdg-portal.nix
+    ../../modules/system/security.nix
     ../../modules/nix.nix
     ../../modules/stylix.nix
     ../../modules/programs
@@ -48,7 +49,7 @@
   users.users = {
     selene = {
       isNormalUser = true;
-      description = "My RaspberryPI Host";
+      description = "selene";
       initialPassword = "123456";
       shell = pkgs.zsh;
       extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
