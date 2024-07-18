@@ -42,7 +42,7 @@
   in {
     nixosConfigurations = {
       redyf =
-        nixpkgs.lib.nixosSystem
+        nixosSystem
         {
           system = "x86_64-linux";
           specialArgs = {
@@ -51,6 +51,8 @@
               hyprland
               disko
               ;
+            username = "redyf"; # Add the username here
+            homeDirectory = "/home/redyf";
           };
           modules = [
             ./hosts/redyf/configuration.nix
@@ -60,7 +62,12 @@
                 useUserPackages = true;
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs disko;};
-                users.redyf = ./home/redyf/home.nix;
+                users.redyf = import ./home/home.nix {
+                  inputs = inputs;
+                  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                  username = "redyf";
+                  homeDirectory = "/home/redyf";
+                }; # Use the username dynamically
                 backupFileExtension = "backup";
               };
             }
@@ -78,6 +85,8 @@
             hyprland
             disko
             ;
+          username = "selene"; # Add the username here
+          homeDirectory = "/home/selene";
         };
         modules = [
           ./hosts/selene/configuration.nix
@@ -88,7 +97,12 @@
               useUserPackages = true;
               useGlobalPkgs = false;
               extraSpecialArgs = {inherit inputs disko;};
-              users.selene = ./home/selene/home.nix;
+              users.selene = import ./home/home.nix {
+                inputs = inputs;
+                pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                username = "selene";
+                homeDirectory = "/home/selene";
+              }; # Use the username dynamically
               backupFileExtension = "backup";
             };
           }
