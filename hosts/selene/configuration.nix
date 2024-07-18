@@ -45,11 +45,6 @@
     bluez-tools
   ];
 
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
-  };
-
   users.users = {
     selene = {
       isNormalUser = true;
