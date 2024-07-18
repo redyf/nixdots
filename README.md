@@ -39,10 +39,10 @@
  ├─ GPU   -> NVIDIA GeForce GTX 1650 SUPER
  ╰─ Resolution -> 1920x1080@165hz
  ╭─ WM       -> Hyprland
- ├─ Terminal -> Wezterm
- ├─ Theme    -> Catppuccin
+ ├─ Terminal -> Kitty
+ ├─ Theme    -> Oxocarbon
  ├─ Icons    -> Papirus-Dark
- ├─ Font     -> JetBrains Mono Nerd Font
+ ├─ Font     -> SFMono Ligaturized
  ╰─ Hotel    -> Trivago
                         
 ```
