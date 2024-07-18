@@ -227,8 +227,6 @@ scp username@b:/path/to/file /path/to/destination
 
 12. **Use rpi-imager** again and select the image you just built to be installed on Raspberry PI.
 
-13. **Enjoy!** (My RaspberryPI5 host is in this repo, it's called selene. Just in case you want a working profile with Sway installed out of the box).
-
 All references are written below. I wouldn't be able to install it without them! I really appreciate their hard work, make sure to give them a star.
 
 <hr>
