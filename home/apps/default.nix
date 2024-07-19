@@ -13,6 +13,7 @@
     ./firefox
     ./insomnia
     ./raspberry
+    ./real-vnc-viewer
     ./spotify
     ./misc
     ./obs
@@ -25,16 +26,17 @@
   config = lib.mkIf config.apps.enable {
     artix-game-launcher.enable = lib.mkDefault false;
     chrome.enable = lib.mkDefault false;
-    discord.enable = lib.mkDefault true;
     davinci-resolve.enable = lib.mkDefault false;
+    discord.enable = lib.mkDefault true;
     emacs.enable = lib.mkDefault false;
     figma.enable = lib.mkDefault false;
     firefox.enable = lib.mkDefault true;
     insomnia.enable = lib.mkDefault false;
-    raspberry.enable = lib.mkDefault true;
-    spotify.enable = lib.mkDefault true;
     misc.enable = lib.mkDefault true;
     obs.enable = lib.mkDefault false;
+    raspberry.enable = lib.mkDefault true;
+    real-vnc-viewer.enable = lib.mkDefault true;
+    spotify.enable = lib.mkDefault false;
     vscode.enable = lib.mkDefault false;
   };
 }
