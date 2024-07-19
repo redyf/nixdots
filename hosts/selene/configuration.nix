@@ -1,12 +1,13 @@
 {
-  config,
   lib,
+  config,
   pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/raspberry/raspberry-hardware.nix
+    ../../modules/programs
+    ../../modules/raspberry
     ../../modules/system/hardware.nix
     ../../modules/system/keymap.nix
     ../../modules/system/time.nix
@@ -16,7 +17,6 @@
     ../../modules/system/zram.nix
     ../../modules/nix.nix
     ../../modules/stylix.nix
-    ../../modules/programs
   ];
 
   networking = {
@@ -37,8 +37,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
-    curl
     git
     bluez
     bluez-tools
