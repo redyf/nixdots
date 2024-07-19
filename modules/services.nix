@@ -13,7 +13,12 @@
     };
 
     fstrim.enable = true;
-    sshd.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "prohibit-password";
+      };
+    };
     mysql = {
       enable = false;
       package = with pkgs; mysql80;
