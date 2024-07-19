@@ -2,14 +2,14 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/programs
+    ../../modules/system
     ../../modules/nix.nix
     ../../modules/services.nix
     ../../modules/stylix.nix
+    ../../modules/systemd.nix
     ../../modules/users.nix
     ../../modules/virtualisation.nix
-    ../../modules/systemd.nix
-    ../../modules/programs
-    ../../modules/system
   ];
 
   environment.systemPackages = with pkgs; [
