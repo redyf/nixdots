@@ -31,8 +31,8 @@
     figma.enable = lib.mkDefault false;
     firefox.enable = lib.mkDefault true;
     insomnia.enable = lib.mkDefault false;
-    raspberry.enable = lib.mkDefault false;
-    spotify.enable = lib.mkDefault false;
+    raspberry.enable = lib.mkDefault true;
+    spotify.enable = lib.mkDefault true;
     misc.enable = lib.mkDefault true;
     obs.enable = lib.mkDefault false;
     vscode.enable = lib.mkDefault false;
