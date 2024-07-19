@@ -7,7 +7,7 @@
     ../../modules/nix.nix
     ../../modules/services.nix
     ../../modules/stylix.nix
-    ../../modules/systemd.nix
+    ../../modules/system/systemd.nix
     ../../modules/users.nix
     ../../modules/virtualisation.nix
   ];
