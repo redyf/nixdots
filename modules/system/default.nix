@@ -10,5 +10,6 @@ _: {
     ./security.nix
     ./time.nix
     ./xdg-portal.nix
+    ./zram.nix
   ];
 }
