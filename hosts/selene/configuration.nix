@@ -8,7 +8,6 @@
     ./hardware-configuration.nix
     ../../modules/programs
     ../../modules/raspberry
-    ../../modules/system/hardware.nix
     ../../modules/system/keymap.nix
     ../../modules/system/time.nix
     ../../modules/system/locale.nix
