@@ -64,7 +64,7 @@
                 extraSpecialArgs = {inherit inputs disko;};
                 users.redyf = import ./home/home.nix {
                   inputs = inputs;
-                  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                  pkgs = nixpkgsFor."x86_64-linux";
                   username = "redyf";
                   homeDirectory = "/home/redyf";
                 }; # Use the username dynamically
@@ -99,7 +99,7 @@
               extraSpecialArgs = {inherit inputs disko;};
               users.selene = import ./home/home.nix {
                 inputs = inputs;
-                pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                pkgs = nixpkgsFor."aarch64-linux";
                 username = "selene";
                 homeDirectory = "/home/selene";
               }; # Use the username dynamically
