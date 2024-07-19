@@ -8,6 +8,7 @@ _: {
     ./networking.nix
     ./nvidia.nix
     ./security.nix
+    ./systemd.nix
     ./time.nix
     ./xdg-portal.nix
     ./zram.nix
