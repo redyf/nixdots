@@ -19,7 +19,7 @@
   ];
 
   networking = {
-    hostName = "raspberry";
+    hostName = "rpi5";
     networkmanager.enable = true;
     firewall.enable = false;
   };

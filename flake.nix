@@ -76,8 +76,8 @@
             disko.nixosModules.disko
           ];
         };
-      # nix build '.#nixosConfigurations.selene.config.system.build.sdImage' to build the image for the raspberry-pi
-      selene = nixosSystem {
+      # nix build '.#nixosConfigurations.rpi5.config.system.build.sdImage' to build the image for the raspberry-pi
+      rpi5 = nixosSystem {
         system = "aarch64-linux";
         specialArgs = {
           inherit
@@ -86,6 +86,7 @@
             disko
             ;
           username = "selene";
+          hostname = "rpi5";
           homeDirectory = "/home/selene";
         };
         modules = [
