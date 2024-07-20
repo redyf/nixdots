@@ -3,12 +3,13 @@
   add_newline = true;
   line_break.disabled = false;
   format = "$symbol[󰉊 ](bold #ee5396) $directory$character";
-  right_format = "$time";
+  right_format = "$cmd_duration$time";
   character = {
     success_symbol = "[󰅂 ](bold #393939)";
     error_symbol = "[󰅂 ](bold #393939)";
     vicmd_symbol = "[󰅂 ](bold #393939)";
   };
+
   username = {
     show_always = false;
     style_user = "bold bg:none fg:#7aa2f7";
@@ -51,5 +52,13 @@
     impure_msg = "[impure-shell](red)";
     pure_msg = "[pure-shell](green)";
     unknown_msg = "[unknown-shell](yellow)";
+  };
+
+  cmd_duration = {
+    min_time = 2000;
+    show_milliseconds = false;
+    format = "took [$duration]($style)";
+    style = "bold yellow";
+    disabled = false;
   };
 }
