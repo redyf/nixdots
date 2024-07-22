@@ -16,8 +16,8 @@ in {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.oxocarbon-dark}.yaml";
     fonts = {
       monospace = {
-        package = with pkgs; inputs.font-flake.packages.${system}.sf-mono;
-        name = "Liga SFMono Nerd Font Medium";
+        package = with pkgs; inputs.font-flake.packages.${system}.berkeley;
+        name = "Liga Berkeley Mono";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
