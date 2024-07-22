@@ -83,9 +83,7 @@
           stylix.nixosModules.stylix
           hyprland.nixosModules.default
           disko.nixosModules.disko
-          {
-            networking.hostName = hostname;
-          }
+          {networking.hostName = hostname;}
         ];
       };
 
@@ -113,9 +111,9 @@
               stateVersion = stateVersion;
             };
           }
-  	ags.homeManagerModules.default
-        stylix.homeManagerModules.stylix
-        hyprland.homeManagerModules.default
+          ags.homeManagerModules.default
+          stylix.homeManagerModules.stylix
+          hyprland.homeManagerModules.default
         ];
       };
   in {
@@ -128,17 +126,17 @@
       };
       rpi5 = createNixosConfiguration {
         system = "aarch64-linux";
-        username = "selene";
-        homeDirectory = "/home/selene";
+        username = "sonja";
+        homeDirectory = "/home/sonja";
         hostname = "rpi5";
       };
     };
 
     homeConfigurations = {
-      "sonja" = createHomeManagerConfiguration {
+      "selene" = createHomeManagerConfiguration {
         system = "aarch64-linux";
-        username = "sonja";
-        homeDirectory = "/home/sonja";
+        username = "selene";
+        homeDirectory = "/home/selene";
         stateVersion = "22.11";
       };
     };
