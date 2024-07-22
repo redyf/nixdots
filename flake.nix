@@ -33,6 +33,7 @@
     home-manager,
     disko,
     stylix,
+    ags,
     font-flake,
     raspberry-pi-nix,
     ...
@@ -95,6 +96,13 @@
       stateVersion ? "22.11",
     }:
       home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = {
+          inherit
+            inputs
+            hyprland
+            ;
+          inherit username homeDirectory stateVersion;
+        };
         pkgs = nixpkgsFor."${system}";
         modules = [
           ./home/home.nix
@@ -105,6 +113,9 @@
               stateVersion = stateVersion;
             };
           }
+  	ags.homeManagerModules.default
+        stylix.homeManagerModules.stylix
+        hyprland.homeManagerModules.default
         ];
       };
   in {
@@ -124,10 +135,10 @@
     };
 
     homeConfigurations = {
-      "Sonja" = createHomeManagerConfiguration {
-        system = "x86_64-linux";
-        username = "Sonja";
-        homeDirectory = "/home/Sonja";
+      "sonja" = createHomeManagerConfiguration {
+        system = "aarch64-linux";
+        username = "sonja";
+        homeDirectory = "/home/sonja";
         stateVersion = "22.11";
       };
     };
