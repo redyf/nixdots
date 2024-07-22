@@ -8,21 +8,19 @@
     ./hardware-configuration.nix
     ../../modules/programs
     ../../modules/raspberry
+    ../../modules/system/environment.nix
     ../../modules/system/keymap.nix
-    ../../modules/system/time.nix
     ../../modules/system/locale.nix
     ../../modules/system/networking.nix
-    ../../modules/system/xdg-portal.nix
+    ../../modules/system/nix.nix
     ../../modules/system/security.nix
+    ../../modules/system/systemd.nix
+    ../../modules/system/time.nix
+    ../../modules/system/users.nix
+    ../../modules/system/xdg-portal.nix
     ../../modules/system/zram.nix
-    ../../modules/nix.nix
     ../../modules/stylix.nix
   ];
-
-  networking = {
-    networkmanager.enable = true;
-    firewall.enable = false;
-  };
 
   services = {
     openssh = {
@@ -40,16 +38,6 @@
     bluez
     bluez-tools
   ];
-
-  users.users = {
-    sonja = {
-      isNormalUser = true;
-      description = "sonja";
-      initialPassword = "123456";
-      shell = pkgs.zsh;
-      extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
-    };
-  };
 
   # just for access after install to continue provisioning
   system.stateVersion = "23.11";
