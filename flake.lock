@@ -132,6 +132,22 @@
         "type": "github"
       }
     },
+    "berkeley": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721576325,
+        "narHash": "sha256-MSWJ/FtbxvNp9bwfyuoL6uaOnfXeEvvZ0Ske4iOYPHQ=",
+        "ref": "refs/heads/main",
+        "rev": "5afe9e49aae3d9cd01d3c6641a8490fe54fed309",
+        "revCount": 17,
+        "type": "git",
+        "url": "ssh://git@github.com/redyf/berkeley.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/redyf/berkeley.git"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -186,15 +202,17 @@
     },
     "font-flake": {
       "inputs": {
+        "berkeley": "berkeley",
         "flake-utils": "flake-utils",
+        "monolisa": "monolisa",
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1719764655,
-        "narHash": "sha256-zF7YgsrZnlXRt26X6MVFlKCQwyJt/GUYCNk8fZS+YDM=",
+        "lastModified": 1721577675,
+        "narHash": "sha256-eInhkbUpqOnSdDjCw5mtcGpO1wCZMKbr3ht7YkifWqE=",
         "owner": "redyf",
         "repo": "font-flake",
-        "rev": "84767d8db241a07e5a44155dad04a6beadaf4072",
+        "rev": "bc0ac9300f1ae9a279aabbdb82208a02201eff98",
         "type": "github"
       },
       "original": {
@@ -492,6 +510,22 @@
         "type": "github"
       }
     },
+    "monolisa": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709742524,
+        "narHash": "sha256-mkw+WhtLw7498iNI4jTdeTq2eteJsfgxN0o8hs0q2l8=",
+        "ref": "refs/heads/main",
+        "rev": "c234fad704153e0244f160e1e293f35c4b2ff26e",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/redyf/monolisa.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/redyf/monolisa.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718714799,
@@ -526,11 +560,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1719109599,
-        "narHash": "sha256-SQDtUnsB0q36dRZBCQNbErEMz3xFtdOThVJoVbMkB7s=",
+        "lastModified": 1721577431,
+        "narHash": "sha256-9+jTq9fL7d0v37NoTko8sI61NgQ6GC8LYEloEuoNBBw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4f217ce8924da1e9acde46062c1b06a7bb8b5dc2",
+        "rev": "00233f1da20cc10683f778890b9b20229eed37f0",
         "type": "github"
       },
       "original": {
