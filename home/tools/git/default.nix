@@ -10,7 +10,7 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userName = "Redyf";
+      userName = "redyf";
       userEmail = "mateusalvespereira7@gmail.com";
       extraConfig = {
         core = {

@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   users = {
     users = {
-      redyf = {
+      username = {
         isNormalUser = true;
-        description = "redyf";
+        description = username;
         initialPassword = "123456";
         shell = pkgs.zsh;
         extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
