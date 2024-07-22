@@ -90,7 +90,7 @@
       system,
       username,
       homeDirectory,
-      stateVersion ? "22.11",
+      stateVersion ? "23.11",
     }:
       home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
@@ -135,7 +135,7 @@
         system = "aarch64-linux";
         username = "selene";
         homeDirectory = "/home/selene";
-        stateVersion = "22.11";
+        stateVersion = "23.11";
       };
     };
 
