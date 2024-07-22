@@ -1,5 +1,4 @@
-{pkgs, ...}: {
-  # Enable and configure `doas`.
+{username, ...}: {
   security = {
     sudo = {
       enable = true;
@@ -8,7 +7,7 @@
       enable = true;
       extraRules = [
         {
-          users = ["redyf" "sonja"];
+          users = [username];
           keepEnv = true;
           persist = true;
         }
