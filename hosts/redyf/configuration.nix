@@ -4,11 +4,8 @@
     ./hardware-configuration.nix
     ../../modules/programs
     ../../modules/system
-    ../../modules/nix.nix
     ../../modules/services.nix
     ../../modules/stylix.nix
-    ../../modules/system/systemd.nix
-    ../../modules/users.nix
     ../../modules/virtualisation.nix
   ];
 
