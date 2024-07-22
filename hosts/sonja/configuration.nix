@@ -42,9 +42,9 @@
   ];
 
   users.users = {
-    selene = {
+    sonja = {
       isNormalUser = true;
-      description = "selene";
+      description = "sonja";
       initialPassword = "123456";
       shell = pkgs.zsh;
       extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
