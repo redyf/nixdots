@@ -1,6 +1,12 @@
 {
   description = "Redyf's Flake";
 
+  nixConfig = {
+    extra-substituters = ["https://raspberry-pi-nix.cachix.org"];
+    extra-trusted-public-keys = [
+      "raspberry-pi-nix.cachix.org-1:WmV2rdSangxW0rZjY/tBvBDSaNFQ3DyEQsVw8EvHn9o="
+    ];
+  };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
@@ -39,70 +45,36 @@
 
     # Nixpkgs instantiated for supported system types.
     nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
-  in {
-    nixosConfigurations = {
-      redyf =
-        nixosSystem
-        {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit
-              inputs
-              hyprland
-              disko
-              ;
-            username = "redyf";
-            homeDirectory = "/home/redyf";
-          };
-          modules = [
-            ./hosts/redyf/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useUserPackages = true;
-                useGlobalPkgs = false;
-                extraSpecialArgs = {inherit inputs disko;};
-                users.redyf = import ./home/home.nix {
-                  inputs = inputs;
-                  pkgs = nixpkgsFor."x86_64-linux";
-                  username = "redyf";
-                  homeDirectory = "/home/redyf";
-                }; # Use the username dynamically
-                backupFileExtension = "backup";
-              };
-            }
-            stylix.nixosModules.stylix
-            hyprland.nixosModules.default
-            disko.nixosModules.disko
-          ];
-        };
-      # nix build '.#nixosConfigurations.rpi5.config.system.build.sdImage' to build the image for the raspberry-pi
-      rpi5 = nixosSystem {
-        system = "aarch64-linux";
+
+    # Function to create a nixosConfiguration with a dynamic username
+    createNixosConfiguration = {
+      system,
+      username,
+      homeDirectory,
+      hostname ? null,
+    }:
+      nixosSystem {
+        inherit system;
         specialArgs = {
           inherit
             inputs
             hyprland
             disko
             ;
-          username = "selene";
-          hostname = "rpi5";
-          homeDirectory = "/home/selene";
+          inherit username homeDirectory hostname;
         };
         modules = [
-          ./hosts/selene/configuration.nix
-          raspberry-pi-nix.nixosModules.raspberry-pi
+          ./hosts/${username}/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = false;
               extraSpecialArgs = {inherit inputs disko;};
-              users.selene = import ./home/home.nix {
+              users."${username}" = import ./home/home.nix {
                 inputs = inputs;
-                pkgs = nixpkgsFor."aarch64-linux";
-                username = "selene";
-                homeDirectory = "/home/selene";
+                pkgs = nixpkgsFor."${system}";
+                inherit username homeDirectory;
               }; # Use the username dynamically
               backupFileExtension = "backup";
             };
@@ -110,9 +82,56 @@
           stylix.nixosModules.stylix
           hyprland.nixosModules.default
           disko.nixosModules.disko
+          {
+            networking.hostName = hostname;
+          }
         ];
       };
+
+    createHomeManagerConfiguration = {
+      system,
+      username,
+      homeDirectory,
+      stateVersion ? "22.11",
+    }:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgsFor."${system}";
+        modules = [
+          ./home/home.nix
+          {
+            home = {
+              username = username;
+              homeDirectory = homeDirectory;
+              stateVersion = stateVersion;
+            };
+          }
+        ];
+      };
+  in {
+    nixosConfigurations = {
+      desktop = createNixosConfiguration {
+        system = "x86_64-linux";
+        username = "redyf";
+        homeDirectory = "/home/redyf";
+        hostname = "desktop";
+      };
+      rpi5 = createNixosConfiguration {
+        system = "aarch64-linux";
+        username = "selene";
+        homeDirectory = "/home/selene";
+        hostname = "rpi5";
+      };
     };
+
+    homeConfigurations = {
+      "Sonja" = createHomeManagerConfiguration {
+        system = "x86_64-linux";
+        username = "Sonja";
+        homeDirectory = "/home/Sonja";
+        stateVersion = "22.11";
+      };
+    };
+
     devShells = forAllSystems (system: let
       pkgs = nixpkgsFor.${system};
     in {
