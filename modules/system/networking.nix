@@ -1,7 +1,6 @@
 _: {
   networking = {
     networkmanager.enable = true;
-    hostName = "redyf"; # Define your hostname.
     firewall.enable = true;
     enableIPv6 = false;
     # no need to wait interfaces to have an IP to continue booting
