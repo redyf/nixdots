@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/programs
@@ -7,20 +11,19 @@
     ../../modules/system/keymap.nix
     ../../modules/system/locale.nix
     ../../modules/system/networking.nix
-    ../../modules/system/nix.nix
+    ../../modules/nix.nix
     ../../modules/system/security.nix
     ../../modules/system/systemd.nix
     ../../modules/system/time.nix
-    # ../../modules/users.nix
     ../../modules/system/xdg-portal.nix
     ../../modules/system/zram.nix
     ../../modules/stylix.nix
   ];
 
   users.users = {
-    sonja = {
+    ${username} = {
       isNormalUser = true;
-      description = "sonja";
+      description = username;
       initialPassword = "123456";
       shell = pkgs.zsh;
       extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
