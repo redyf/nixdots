@@ -8,7 +8,7 @@
       enable = true;
       extraRules = [
         {
-          users = ["redyf" "selene"];
+          users = ["redyf" "sonja"];
           keepEnv = true;
           persist = true;
         }
