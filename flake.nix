@@ -33,7 +33,6 @@
     home-manager,
     disko,
     stylix,
-    ags,
     font-flake,
     raspberry-pi-nix,
     ...
@@ -111,7 +110,6 @@
               stateVersion = stateVersion;
             };
           }
-          ags.homeManagerModules.default
           stylix.homeManagerModules.stylix
           hyprland.homeManagerModules.default
         ];
