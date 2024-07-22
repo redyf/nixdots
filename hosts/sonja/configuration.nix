@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/programs
@@ -16,11 +11,21 @@
     ../../modules/system/security.nix
     ../../modules/system/systemd.nix
     ../../modules/system/time.nix
-    ../../modules/system/users.nix
+    # ../../modules/users.nix
     ../../modules/system/xdg-portal.nix
     ../../modules/system/zram.nix
     ../../modules/stylix.nix
   ];
+
+  users.users = {
+    sonja = {
+      isNormalUser = true;
+      description = "sonja";
+      initialPassword = "123456";
+      shell = pkgs.zsh;
+      extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
+    };
+  };
 
   services = {
     openssh = {

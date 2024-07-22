@@ -6,8 +6,21 @@
     ../../modules/system
     ../../modules/services.nix
     ../../modules/stylix.nix
+    # ../../modules/users.nix
     ../../modules/virtualisation.nix
   ];
+
+  users.users = {
+    redyf = {
+      isNormalUser = true;
+      description = "redyf";
+      initialPassword = "123456";
+      shell = pkgs.zsh;
+      extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
+    };
+  };
+
+  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     git
