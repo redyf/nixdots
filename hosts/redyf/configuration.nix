@@ -1,19 +1,23 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/programs
     ../../modules/system
+    ../../modules/nix.nix
     ../../modules/services.nix
     ../../modules/stylix.nix
-    # ../../modules/users.nix
     ../../modules/virtualisation.nix
   ];
 
   users.users = {
-    redyf = {
+    ${username} = {
       isNormalUser = true;
-      description = "redyf";
+      description = username;
       initialPassword = "123456";
       shell = pkgs.zsh;
       extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
