@@ -11,6 +11,7 @@
     ../../modules/system/keymap.nix
     ../../modules/system/time.nix
     ../../modules/system/locale.nix
+    ../../modules/system/networking.nix
     ../../modules/system/xdg-portal.nix
     ../../modules/system/security.nix
     ../../modules/system/zram.nix
@@ -19,7 +20,6 @@
   ];
 
   networking = {
-    hostName = "rpi5";
     networkmanager.enable = true;
     firewall.enable = false;
   };
