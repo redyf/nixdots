@@ -49,6 +49,9 @@
         bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
+        # Unbind p from previous-window
+        unbind p
+
         # Don't exit from tmux when closing a session
         set -g detach-on-destroy off
 
