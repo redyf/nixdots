@@ -107,7 +107,6 @@
                 stateVersion = stateVersion;
               };
             }
-            stylix.homeManagerModules.stylix
           ]
           ++ modules;
       };
@@ -141,10 +140,7 @@
         username = "selene";
         homeDirectory = "/home/selene";
         stateVersion = "22.11";
-        modules = [
-          # stylix.homeManagerModules.stylix
-          # hyprland.homeManagerModules.default
-        ];
+        modules = [];
       };
     };
 
