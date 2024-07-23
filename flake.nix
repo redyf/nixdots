@@ -140,7 +140,9 @@
         username = "selene";
         homeDirectory = "/home/selene";
         stateVersion = "22.11";
-        modules = [];
+        modules = [
+          stylix.homeManagerModules.stylix
+        ];
       };
     };
 
