@@ -16,6 +16,7 @@
         nix-init
         nix-update
         nixpkgs-review
+        cachix
       ];
     };
   };
