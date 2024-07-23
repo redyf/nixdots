@@ -1,7 +1,13 @@
-_: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # Overlays for raspberry-pi
-  raspberry-pi-nix.uboot.enable = true;
-  raspberry-pi-nix.libcamera-overlay.enable = false;
+  raspberry-pi-nix = {
+    uboot.enable = true;
+    libcamera-overlay.enable = false;
+  };
 
   hardware = {
     bluetooth.enable = true;
