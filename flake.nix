@@ -1,12 +1,6 @@
 {
   description = "Redyf's Flake";
 
-  nixConfig = {
-    extra-substituters = ["https://raspberry-pi-nix.cachix.org"];
-    extra-trusted-public-keys = [
-      "raspberry-pi-nix.cachix.org-1:WmV2rdSangxW0rZjY/tBvBDSaNFQ3DyEQsVw8EvHn9o="
-    ];
-  };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
@@ -52,6 +46,7 @@
       username,
       homeDirectory,
       hostname ? null,
+      modules ? [],
     }:
       nixosSystem {
         inherit system;
@@ -63,27 +58,27 @@
             ;
           inherit username homeDirectory hostname;
         };
-        modules = [
-          ./hosts/${username}/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = false;
-              extraSpecialArgs = {inherit inputs disko;};
-              users."${username}" = import ./home/home.nix {
-                inputs = inputs;
-                pkgs = nixpkgsFor."${system}";
-                inherit username homeDirectory;
-              }; # Use the username dynamically
-              backupFileExtension = "backup";
-            };
-          }
-          stylix.nixosModules.stylix
-          hyprland.nixosModules.default
-          disko.nixosModules.disko
-          {networking.hostName = hostname;}
-        ];
+        modules =
+          [
+            ./hosts/${username}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = false;
+                extraSpecialArgs = {inherit inputs disko;};
+                users."${username}" = import ./home/home.nix {
+                  inputs = inputs;
+                  pkgs = nixpkgsFor."${system}";
+                  inherit username homeDirectory;
+                };
+                backupFileExtension = "backup";
+              };
+            }
+            stylix.nixosModules.stylix
+            {networking.hostName = hostname;}
+          ]
+          ++ modules;
       };
 
     createHomeManagerConfiguration = {
@@ -91,6 +86,7 @@
       username,
       homeDirectory,
       stateVersion ? "22.11",
+      modules ? [],
     }:
       home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = {
@@ -101,18 +97,19 @@
           inherit username homeDirectory stateVersion;
         };
         pkgs = nixpkgsFor."${system}";
-        modules = [
-          ./home/home.nix
-          {
-            home = {
-              username = username;
-              homeDirectory = homeDirectory;
-              stateVersion = stateVersion;
-            };
-          }
-          stylix.homeManagerModules.stylix
-          hyprland.homeManagerModules.default
-        ];
+        modules =
+          [
+            ./home/home.nix
+            {
+              home = {
+                username = username;
+                homeDirectory = homeDirectory;
+                stateVersion = stateVersion;
+              };
+            }
+            stylix.homeManagerModules.stylix
+          ]
+          ++ modules;
       };
   in {
     nixosConfigurations = {
@@ -121,12 +118,20 @@
         username = "redyf";
         homeDirectory = "/home/redyf";
         hostname = "desktop";
+        modules = [
+          disko.nixosModules.disko
+          hyprland.nixosModules.default
+        ];
       };
       rpi5 = createNixosConfiguration {
         system = "aarch64-linux";
         username = "sonja";
         homeDirectory = "/home/sonja";
         hostname = "rpi5";
+        modules = [
+          raspberry-pi-nix.nixosModules.raspberry-pi
+          hyprland.nixosModules.default
+        ];
       };
     };
 
@@ -136,6 +141,10 @@
         username = "selene";
         homeDirectory = "/home/selene";
         stateVersion = "22.11";
+        modules = [
+          # stylix.homeManagerModules.stylix
+          # hyprland.homeManagerModules.default
+        ];
       };
     };
 
