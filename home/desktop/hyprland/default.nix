@@ -223,7 +223,6 @@ in {
           "autostart"
           "easyeffects --gapplication-service" # Starts easyeffects in the background
           "importGsettings"
-          "spotify"
         ];
 
         bind = [
