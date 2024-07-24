@@ -51,6 +51,7 @@
       homeDirectory,
       hostname ? null,
       modules ? [],
+      includeHomeManager ? true,
     }:
       nixosSystem {
         inherit system;
@@ -65,22 +66,30 @@
         modules =
           [
             ./hosts/${username}/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useUserPackages = true;
-                useGlobalPkgs = false;
-                extraSpecialArgs = {inherit inputs disko;};
-                users."${username}" = import ./home/home.nix {
-                  inputs = inputs;
-                  pkgs = nixpkgsFor."${system}";
-                  inherit username homeDirectory;
-                };
-                backupFileExtension = "backup";
-              };
-            }
-            stylix.nixosModules.stylix
             {networking.hostName = hostname;}
+          ]
+          ++ (
+            if includeHomeManager
+            then [
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useUserPackages = true;
+                  useGlobalPkgs = false;
+                  extraSpecialArgs = {inherit inputs disko;};
+                  users."${username}" = import ./home/home.nix {
+                    inputs = inputs;
+                    pkgs = nixpkgsFor."${system}";
+                    inherit username homeDirectory;
+                  };
+                  backupFileExtension = "backup";
+                };
+              }
+            ]
+            else []
+          )
+          ++ [
+            stylix.nixosModules.stylix
           ]
           ++ modules;
       };
@@ -140,7 +149,11 @@
         system = "aarch64-linux";
         username = "minimal";
         homeDirectory = "/home/minimal";
-        hostname = "minimalrpi5";
+        hostname = "minimal";
+        includeHomeManager = false;
+        modules = [
+          raspberry-pi-nix.nixosModules.raspberry-pi
+        ];
       };
     };
 
