@@ -132,6 +132,12 @@
           hyprland.nixosModules.default
         ];
       };
+      minimal-rpi5 = createNixosConfiguration {
+        system = "aarch64-linux";
+        username = "minimal";
+        homeDirectory = "/home/minimal";
+        hostname = "minimalrpi5";
+      };
     };
 
     homeConfigurations = {
