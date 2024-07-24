@@ -2,6 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -15,6 +16,7 @@
   boot.initrd.availableKernelModules = ["usb_storage"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
+  boot.kernelPackages = lib.mkForce inputs.nix-rpi5.legacyPackages.aarch64-linux.linuxPackages_rpi5;
   # boot.kernelPackages = (import (builtins.fetchTarball https://gitlab.com/vriska/nix-rpi5/-/archive/main.tar.gz)).legacyPackages.aarch64-linux.linuxPackages_rpi5;
   boot.extraModulePackages = [];
 
