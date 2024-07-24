@@ -20,6 +20,8 @@
     ../../modules/stylix.nix
   ];
 
+  boot.loader.systemd-boot.enable = true;
+
   users.users = {
     ${username} = {
       isNormalUser = true;
