@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  username,
+  pkgs,
+  homeDirectory,
+  ...
+}: {
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
@@ -18,12 +23,26 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "raspberry-pi-nix.cachix.org-1:WmV2rdSangxW0rZjY/tBvBDSaNFQ3DyEQsVw8EvHn9o="
       ];
+      trusted-users = ["${username}"];
     };
     gc = {
       automatic = false;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "raspberry";
+        sshUser = "redyf";
+        sshKey = "${homeDirectory}/.ssh/id_ed25519_buildmachine";
+        systems = ["aarch64-linux"];
+        protocol = "ssh-ng";
+        maxJobs = 1;
+        speedFactor = 1;
+        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      }
+    ];
   };
   nixpkgs = {
     config = {
