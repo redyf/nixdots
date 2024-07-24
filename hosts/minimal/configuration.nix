@@ -6,6 +6,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/raspberry
+    ../../modules/programs/zsh.nix
+    ../../modules/programs/sway.nix
     ../../modules/system/environment.nix
     ../../modules/system/keymap.nix
     ../../modules/system/locale.nix
@@ -18,8 +20,6 @@
     ../../modules/system/zram.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-
   users.users = {
     ${username} = {
       isNormalUser = true;
@@ -28,10 +28,6 @@
       shell = pkgs.zsh;
       extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
     };
-  };
-
-  programs = {
-    sway.enable = true;
   };
 
   services = {
