@@ -138,7 +138,6 @@ in {
           cp = "cp -i";
           grep = "grep --color=auto";
           mv = "mv -i";
-          rm = "rip -i";
           g = "git";
           ga = "git add";
           gaa = "git add .";
