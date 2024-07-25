@@ -178,7 +178,7 @@ you will partition, format and mount the disk for /dev/nvme0n1 (change as needed
 4. **Install Nix** on it by running the following command:
 
 ```bash
-bash <(curl -L https://nixos.org/nix/install)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
 5. **Install Cachix client** by running:
