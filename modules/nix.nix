@@ -18,6 +18,7 @@
       warn-dirty = false;
       log-lines = 50;
       sandbox = "relaxed";
+      trusted-users = ["${username}"];
       substituters = [
         "https://nix-community.cachix.org"
         "https://hyprland.cachix.org"
