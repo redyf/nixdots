@@ -8,10 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-rpi5 = {
-      url = "gitlab:vriska/nix-rpi5";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Overlays
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
