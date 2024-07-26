@@ -291,7 +291,7 @@ in {
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
           "SUPER,RETURN,exec,kitty"
-          "SUPER,n,exec,neovide"
+          "SUPER,n,exec,ghostty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
