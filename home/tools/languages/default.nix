@@ -5,31 +5,33 @@
 }: {
   imports = [
     ./c
-    ./go
-    ./rust
-    ./python
-    ./javascript
-    ./ocaml
-    ./sql
-    ./java
-    ./lua
-    ./elixir
     ./clojure
+    ./elixir
+    ./go
+    ./java
+    ./javascript
+    ./lua
+    ./ocaml
+    ./python
+    ./rust
+    ./sql
+    ./zig
   ];
   options = {
     languages.enable = lib.mkEnableOption "Enable programming languages module";
   };
   config = lib.mkIf config.languages.enable {
     c.enable = lib.mkDefault true;
-    go.enable = lib.mkDefault true;
-    rust.enable = lib.mkDefault true;
-    python.enable = lib.mkDefault true;
-    javascript.enable = lib.mkDefault true;
-    ocaml.enable = lib.mkDefault false;
-    sql.enable = lib.mkDefault true;
-    java.enable = lib.mkDefault false;
-    lua.enable = lib.mkDefault true;
-    elixir.enable = lib.mkDefault false;
     clojure.enable = lib.mkDefault false;
+    elixir.enable = lib.mkDefault false;
+    go.enable = lib.mkDefault true;
+    java.enable = lib.mkDefault false;
+    javascript.enable = lib.mkDefault true;
+    lua.enable = lib.mkDefault true;
+    ocaml.enable = lib.mkDefault false;
+    python.enable = lib.mkDefault true;
+    rust.enable = lib.mkDefault true;
+    sql.enable = lib.mkDefault true;
+    zig.enable = lib.mkDefault false;
   };
 }
