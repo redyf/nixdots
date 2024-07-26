@@ -23,6 +23,9 @@
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen";
     font-flake.url = "github:redyf/font-flake";
+    ghostty = {
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    };
     # waybar-hyprland.url = "github:hyprwm/hyprland";
     # Neve.url = "github:redyf/Neve";
   };
@@ -36,6 +39,7 @@
     stylix,
     font-flake,
     raspberry-pi-nix,
+    ghostty,
     ...
   } @ inputs: let
     inherit (nixpkgs.lib) nixosSystem;
