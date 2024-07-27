@@ -10,7 +10,7 @@
   config = lib.mkIf config.nixy.enable {
     home = {
       packages = with pkgs; [
-        nil
+        nixd
         statix
         alejandra
         nix-init
