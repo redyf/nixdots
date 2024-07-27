@@ -14,7 +14,7 @@
     ];
     home = {
       file = {
-        "ghostty/config".text = ''
+        ".config/ghostty/config".text = ''
           # Fonts
           font-family = "Liga Berkeley Mono"
           font-size = 12
@@ -29,11 +29,10 @@
           # adjust-cell-height =
           # adjust-font-baseline =
           # adjust-underline-position =
-          adjust-underline-thickness = 1
-          adjust-strikethrough-position = 1
-          adjust-strikethrough-thickness = 1
+          # adjust-underline-thickness = 1
+          # adjust-strikethrough-position = 1
+          # adjust-strikethrough-thickness = 1
           adjust-cursor-thickness = 10
-
 
           # Cursor
           # cursor-color =
