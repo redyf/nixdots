@@ -23,24 +23,24 @@
           font-style-italic = default
           font-style-bold-italic = default
           font-feature =
-          bold-is-bright = true
+          bold-is-bright = false
 
-          /*
-            adjust-cell-width =
-            adjust-cell-height =
-            adjust-font-baseline =
-            adjust-underline-position =
-            adjust-underline-thickness =
-            adjust-strikethrough-position =
-            adjust-strikethrough-thickness =
-            adjust-cursor-thickness =
-          */
+          # adjust-cell-width =
+          # adjust-cell-height =
+          # adjust-font-baseline =
+          # adjust-underline-position =
+          adjust-underline-thickness = 1
+          adjust-strikethrough-position = 1
+          adjust-strikethrough-thickness = 1
+          adjust-cursor-thickness = 10
+
 
           # Cursor
           # cursor-color =
           # cursor-opacity =
           # cursor-text =
           cursor-style = block
+          cursor-style-blink = false
           cursor-click-to-move = false
 
           # Mouse
@@ -111,8 +111,8 @@
           keybind = alt+seven=unbind
 
           # Window
-          # window-padding-x = 2
-          # window-padding-y = 2
+          window-padding-x = 10
+          window-padding-y = 10
           # window-padding-balance = false
           # window-inherit-working-directory = true
           # window-inherit-font-size = true
@@ -133,7 +133,7 @@
 
           # Shell
           shell-integration = zsh
-          # shell-integration-features = no-cursor,no-sudo,title
+          shell-integration-features = cursor,no-sudo,title
 
           # Advanced
           # linux-cgroup = single-instance
@@ -144,37 +144,26 @@
           gtk-tabs-location = top
           gtk-wide-tabs = true
 
-
-          # Colorscheme
+          # Oxocarbon
           background = 161616
-          foreground= ffffff
-
-          # black
-          palette = 0=#262626
-          palette = 8=#393939
-          # red
-          palette = 1=#ee5396
-          palette = 9=#ee5396
-          # green
-          palette = 2=#42be65
-          palette = 10=#42be65
-          # yellow
-          palette = 3=#ffe97b
-          palette = 11=#ffe97b
-          # blue
-          palette = 4=#33b1ff
-          palette = 12=#33b1ff
-          # purple
-          palette = 5=#f2f4f8
-          palette = 13=#42be65
-          # aqua
-          palette = 6=#3ddbd9
-          palette = 14=#3ddbd9
-          # white
-          palette = 7=#dde1e6
-          palette = 15=#ffffff
-
-
+          foreground = ffffff
+          selection-background = dde1e6
+          palette = 0=#161616
+          palette = 1=#3ddbd9
+          palette = 2=#33b1ff
+          palette = 3=#ee5396
+          palette = 4=#42be65
+          palette = 5=#262626
+          palette = 6=#ff7eb6
+          palette = 7=#F2F4F8
+          palette = 8=#525252
+          palette = 9=#3ddbd9
+          palette = 10=#33b1ff
+          palette = 11=#ee5396
+          palette = 12=#42be65
+          palette = 13=#be95ff
+          palette = 14=#ff7eb6
+          palette = 15=#08bdba
         '';
       };
     };
