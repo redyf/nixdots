@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/raspberry
+    # ../../modules/raspberry
     ../../modules/programs/zsh.nix
     ../../modules/programs/sway.nix
     ../../modules/system/environment.nix
@@ -19,6 +19,10 @@
     ../../modules/system/xdg-portal.nix
     ../../modules/system/zram.nix
   ];
+
+  boot.loader = {
+    efi.canTouchEfiVariables = false;
+  };
 
   users.users = {
     ${username} = {
