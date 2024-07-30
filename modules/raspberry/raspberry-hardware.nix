@@ -5,7 +5,7 @@
 }: {
   # Overlays for raspberry-pi
   raspberry-pi-nix = {
-    uboot.enable = false;
+    uboot.enable = true;
     libcamera-overlay.enable = false;
   };
 
