@@ -21,7 +21,12 @@
   ];
 
   boot.loader = {
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = false;
+    grub = {
+      device = "nodev";
+      efiSupport = true;
+    };
   };
 
   users.users = {
