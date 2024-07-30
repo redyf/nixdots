@@ -21,15 +21,6 @@
     ../../modules/system/zram.nix
   ];
 
-  boot.loader = {
-    systemd-boot.enable = lib.mkForce true;
-    efi.canTouchEfiVariables = false;
-    grub = {
-      device = "nodev";
-      efiSupport = true;
-    };
-  };
-
   users.users = {
     ${username} = {
       isNormalUser = true;
