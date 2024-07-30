@@ -5,7 +5,8 @@
 }: {
   # Overlays for raspberry-pi
   raspberry-pi-nix = {
-    uboot.enable = true;
+    board = "bcm2712";
+    uboot.enable = false;
     libcamera-overlay.enable = false;
   };
 
