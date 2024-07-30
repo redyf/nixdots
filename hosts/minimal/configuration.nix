@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    # ../../modules/raspberry
+    ../../modules/raspberry
     ../../modules/programs/zsh.nix
     ../../modules/programs/sway.nix
     ../../modules/system/environment.nix
@@ -21,7 +21,7 @@
   ];
 
   boot.loader = {
-    systemd-boot.enable = true;
+    systemd-boot.enable = false;
     efi.canTouchEfiVariables = false;
     grub = {
       device = "nodev";
