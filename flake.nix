@@ -16,6 +16,7 @@
 
     # Overlays
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
+    nix-rpi5.url = "gitlab:vriska/nix-rpi5";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     disko.url = "github:nix-community/disko";
@@ -39,6 +40,7 @@
     stylix,
     font-flake,
     raspberry-pi-nix,
+    nix-rpi5,
     ghostty,
     ...
   } @ inputs: let
@@ -159,7 +161,7 @@
         hostname = "minimal";
         includeHomeManager = false;
         modules = [
-          raspberry-pi-nix.nixosModules.raspberry-pi
+          # raspberry-pi-nix.nixosModules.raspberry-pi
         ];
       };
     };
