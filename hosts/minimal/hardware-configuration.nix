@@ -2,7 +2,6 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-  inputs,
   config,
   lib,
   pkgs,
@@ -16,7 +15,6 @@
   boot.initrd.availableKernelModules = ["usb_storage"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
-  boot.kernelPackages = inputs.nix-rpi5.packages.${pkgs.system}.nix-rpi5;
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
