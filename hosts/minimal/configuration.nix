@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   username,
   ...
@@ -21,7 +22,7 @@
   ];
 
   boot.loader = {
-    systemd-boot.enable = false;
+    systemd-boot.enable = lib.mkForce true;
     efi.canTouchEfiVariables = false;
     grub = {
       device = "nodev";
