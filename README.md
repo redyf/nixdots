@@ -166,14 +166,15 @@ you will partition, format and mount the disk for /dev/nvme0n1 (change as needed
 
 - rpi-imager
 - sd-card
-- Raspberry Pi 5
+- Raspberry-PI5
 - Another device to connect remotely (PC, Laptop, etc)
+- Ethernet connection
 
 ### Installation Steps
 
-1. **Open rpi-imager** and select your device, then Raspberry PI OS and sd-card.
+1. **Open rpi-imager** and select your device, then Raspberry Pi OS and sd-card.
 2. **Customize settings** to your needs, like defining a user/hostname and enabling ssh.
-3. **Insert the sd-card** in your Raspberry PI and boot.
+3. **Insert the sd-card** in your Raspberry PI5 and boot.
 
 4. **Install Nix** on it by running the following command:
 
@@ -190,30 +191,24 @@ nix-env -iA cachix -f https://cachix.org/api/v1/install
 6. **Start using the binary cache** by running:
 
 ```bash
-cachix use raspberry-pi-nix
+cachix use nix-community
 ```
 
 7. **Clone the following repo**:
 
 ```bash
-git clone https://github.com/tstat/raspberry-pi-nix-example
+https://github.com/nix-community/raspberry-pi-nix.git
 ```
 
-8. **Update flake inputs** by running:
+8. **Customize `flake.nix`** to match your needs, like changing hostname, timezones, etc.
 
-```bash
-nix flake update
-```
-
-9. **Customize `flake.nix`** to match your needs, like changing hostname, timezones, enabling nmcli, etc.
-
-10. **Build an image** suitable for flashing to an sd-card by running:
+9. **Build an image** suitable for flashing to an sd-card by running:
 
 ```
 nix build '.#nixosConfigurations.rpi-example.config.system.build.sdImage'
 ```
 
-11. **Connect to your main machine** with ssh and copy the image to it using scp. You can use the following commands:
+10. **Connect to your main machine** with ssh and copy the image to it using scp. You can use the following commands:
 
 ```
 scp /path/to/file username@a:/path/to/destination
@@ -225,18 +220,30 @@ or
 scp username@b:/path/to/file /path/to/destination
 ```
 
-12. **Use rpi-imager** again and select the image you just built to be installed on Raspberry PI.
+11. **Decompress the image with zstd**, this is going to generate a .img file.
+
+```bash
+sudo zstd -d result/sd-image/nixos-sd-image-24.05.20240619.dd457de-aarch64-linux.img.zst
+```
+
+11. **Copy the image to your sd-card**:
+
+```bash
+sudo dd bs=4M if=result/sd-image/nixos-sd-image-24.05.20240619.dd457de-aarch64-linux.img of=/dev/mmcblk0 conv=fsync oflag=direct status=progress
+```
+
+12. **Boot the Raspberry-PI5 with the sd-card and you should be good to go**
 
 All references are written below. I wouldn't be able to install it without them! I really appreciate their hard work, make sure to give them a star.
 
 <hr>
 
-## All references/credits for the NixOS Raspberry PI 5 setup:
+## All references/credits for the NixOS Raspberry-PI 5 setup:
 
 - [Raspberry PI 5 support](https://github.com/NixOS/nixpkgs/issues/260754)
 - [NixOS on ARM/Raspberry Pi 5](https://wiki.nixos.org/wiki/NixOS_on_ARM/Raspberry_Pi_5)
 - [Pi 5 support](https://github.com/nix-community/raspberry-pi-nix/issues/13)
-- [raspberry-pi-nix](https://github.com/nix-community/raspberry-pi-nix?tab=readme-ov-file)
+- [raspberry-pi-nix](https://github.com/nix-community/raspberry-pi-nix)
 - [raspberry-pi-nix binary cache](https://app.cachix.org/cache/raspberry-pi-nix)
 - [nix-rpi5](https://gitlab.com/vriska/nix-rpi5)
 - [raspberrypi/firmware](https://github.com/raspberrypi/firmware)
