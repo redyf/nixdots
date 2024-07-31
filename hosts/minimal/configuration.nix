@@ -31,6 +31,13 @@
     };
   };
 
+  services = {
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "yes";
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     git
     neovim
