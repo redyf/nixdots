@@ -13,12 +13,6 @@
     };
 
     fstrim.enable = true;
-    openssh = {
-      enable = true;
-      settings = {
-        PermitRootLogin = "prohibit-password";
-      };
-    };
     mysql = {
       enable = false;
       package = with pkgs; mysql80;
@@ -57,7 +51,6 @@
         variant = "";
         layout = "br";
       };
-      videoDrivers = ["nvidia"];
     };
     logmein-hamachi.enable = false;
     flatpak.enable = false;
