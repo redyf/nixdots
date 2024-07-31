@@ -39,11 +39,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722283490,
-        "narHash": "sha256-xqaO+h2ams6bpfNdUAtvWN6SKuNIeyr3lXYsAKYS/+0=",
+        "lastModified": 1722347739,
+        "narHash": "sha256-rAoh+K6KG+b1DwSWtqRVocdojnH6nGk6q07mNltoUSM=",
         "owner": "hyprwm",
         "repo": "aquamarine",
-        "rev": "9ccb4411ee001715db0fbc74e7ff1cea02c6c24f",
+        "rev": "7c3565f9bedc7cb601cc0baa14792247e4dc1d5a",
         "type": "github"
       },
       "original": {
@@ -217,20 +217,6 @@
       }
     },
     "flake-compat_2": {
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "revCount": 57,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.0.1/018afb31-abd1-7bff-a5e4-cff7e18efb7a/source.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
-      }
-    },
-    "flake-compat_3": {
       "flake": false,
       "locked": {
         "lastModified": 1673956053,
@@ -422,11 +408,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722321190,
-        "narHash": "sha256-WeVWVRqkgrbLzmk6FfJoloJ7Xe7HWD27Pv950IUG2kI=",
+        "lastModified": 1722407237,
+        "narHash": "sha256-wcpVHUc2nBSSgOM7UJSpcRbyus4duREF31xlzHV5T+A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4fcd54df7cbb1d79cbe81209909ee8514d6b17a4",
+        "rev": "58cef3796271aaeabaed98884d4abaab5d9d162d",
         "type": "github"
       },
       "original": {
@@ -498,11 +484,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1722347414,
-        "narHash": "sha256-HTj5Ttd1BjWJX/gGqyYLlwXhGjMTVKIxmi3q8s6pOTQ=",
+        "lastModified": 1722375236,
+        "narHash": "sha256-8yrkwPN3TbCrtZSD/7GSV2kW9hruIZUQymnpyV15TI4=",
         "ref": "refs/heads/main",
-        "rev": "cc7c117fe76ff0a4da56b18026c725501de92c84",
-        "revCount": 5027,
+        "rev": "3b9b5346b830554aa7470ccf1202a7f3be72d1b4",
+        "revCount": 5029,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -700,25 +686,6 @@
         "url": "ssh://git@github.com/redyf/monolisa.git"
       }
     },
-    "nix-rpi5": {
-      "inputs": {
-        "flake-compat": "flake-compat_2",
-        "nixpkgs": "nixpkgs_6"
-      },
-      "locked": {
-        "lastModified": 1704485878,
-        "narHash": "sha256-i7UH31IZyil99EUB5qnQJAiszFkea1B1yZf5pQEDIYg=",
-        "owner": "vriska",
-        "repo": "nix-rpi5",
-        "rev": "ac9942532e1dc2f825ad2aa3a6d31bfbd3b42eed",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "vriska",
-        "repo": "nix-rpi5",
-        "type": "gitlab"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718714799,
@@ -832,21 +799,6 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1704322682,
-        "narHash": "sha256-0FK10TWEYkEP5sloguzmDfM+hXIyPzlmZCFx/5c+ilQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "054533f5c84884e3186a722c07cbb4a6c1a2af19",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_7": {
-      "locked": {
         "lastModified": 1722185531,
         "narHash": "sha256-veKR07psFoJjINLC8RK4DiLniGGMgF3QMlS4tb74S6k=",
         "owner": "nixos",
@@ -861,7 +813,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_8": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1718835956,
         "narHash": "sha256-wM9v2yIxClRYsGHut5vHICZTK7xdrUGfrLkXvSuv6s4=",
@@ -877,7 +829,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_9": {
+    "nixpkgs_8": {
       "locked": {
         "lastModified": 1714912032,
         "narHash": "sha256-clkcOIkg8G4xuJh+1onLG4HPMpbtzdLv4rHxFzgsH9c=",
@@ -897,7 +849,7 @@
       "inputs": {
         "libcamera-src": "libcamera-src",
         "libpisp-src": "libpisp-src",
-        "nixpkgs": "nixpkgs_8",
+        "nixpkgs": "nixpkgs_7",
         "rpi-bluez-firmware-src": "rpi-bluez-firmware-src",
         "rpi-firmware-nonfree-src": "rpi-firmware-nonfree-src",
         "rpi-firmware-src": "rpi-firmware-src",
@@ -929,8 +881,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "matugen": "matugen",
-        "nix-rpi5": "nix-rpi5",
-        "nixpkgs": "nixpkgs_7",
+        "nixpkgs": "nixpkgs_6",
         "raspberry-pi-nix": "raspberry-pi-nix",
         "stylix": "stylix"
       }
@@ -1046,10 +997,10 @@
         "base16-kitty": "base16-kitty",
         "base16-tmux": "base16-tmux",
         "base16-vim": "base16-vim",
-        "flake-compat": "flake-compat_3",
+        "flake-compat": "flake-compat_2",
         "gnome-shell": "gnome-shell",
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_9"
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
         "lastModified": 1722295291,
@@ -1200,11 +1151,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722181019,
-        "narHash": "sha256-Lj/g1UzrsTZUixtveQix6eB3pon2j23qv5/5pzTx0LQ=",
+        "lastModified": 1722365976,
+        "narHash": "sha256-Khdm+mDzYA//XaU0M+hftod+rKr5q9SSHSEuiQ0/9ow=",
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
-        "rev": "0e2f3b9c85f7bab3983098a01366876d34daf383",
+        "rev": "7f2a77ddf60390248e2a3de2261d7102a13e5341",
         "type": "github"
       },
       "original": {
