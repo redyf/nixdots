@@ -1,53 +1,47 @@
 {
-  lib,
   pkgs,
-  username,
+  lib,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules/raspberry
-    ../../modules/programs/zsh.nix
-    ../../modules/programs/sway.nix
-    ../../modules/system/environment.nix
-    ../../modules/system/keymap.nix
-    ../../modules/system/locale.nix
-    ../../modules/system/networking.nix
-    ../../modules/nix.nix
-    ../../modules/system/security.nix
-    ../../modules/system/systemd.nix
-    ../../modules/system/time.nix
-    ../../modules/system/xdg-portal.nix
-    ../../modules/system/zram.nix
-  ];
-
-  users.users = {
-    ${username} = {
-      isNormalUser = true;
-      description = username;
-      initialPassword = "123456";
-      shell = pkgs.zsh;
-      extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
+  time.timeZone = "America/Bahia";
+  users.users.root.initialPassword = "root";
+  networking = {
+    hostName = "minimal";
+    useDHCP = false;
+    interfaces = {
+      wlan0.useDHCP = true;
+      eth0.useDHCP = true;
     };
   };
-
-  services = {
-    openssh = {
-      enable = true;
-      settings.PermitRootLogin = "yes";
-    };
-    xserver = {
-      enable = true;
-      displayManager.gdm.enable = false;
+  # Overlays for raspberry-pi
+  raspberry-pi-nix = {
+    board = "bcm2712"; # bcm2711 if on rpi4 or below
+    uboot.enable = false;
+    libcamera-overlay.enable = false;
+  };
+  hardware = {
+    bluetooth.enable = true;
+    raspberry-pi = {
+      config = {
+        pi5 = {
+          dt-overlays = {
+            vc4-kms-v3d-pi5 = {
+              enable = true;
+              params = {};
+            };
+          };
+        };
+        all = {
+          base-dt-params = {
+            # enable autoprobing of bluetooth driver
+            # https://github.com/raspberrypi/linux/blob/c8c99191e1419062ac8b668956d19e788865912a/arch/arm/boot/dts/overlays/README#L222-L224
+            krnbt = {
+              enable = true;
+              value = "on";
+            };
+          };
+        };
+      };
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    git
-    bluez
-    bluez-tools
-  ];
-
-  # just for access after install to continue provisioning
-  system.stateVersion = "23.11";
 }
