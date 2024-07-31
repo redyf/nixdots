@@ -290,8 +290,8 @@ in {
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,kitty"
-          "SUPER,n,exec,ghostty"
+          "SUPER,RETURN,exec,ghostty"
+          "SUPER,n,exec,kitty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
@@ -334,6 +334,7 @@ in {
           "opacity ${opacity} ${opacity},class:^(thunar)$"
           "opacity ${opacity} ${opacity},class:^(discord)$"
           "opacity ${opacity} ${opacity},class:^(st-256color)$"
+          "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
