@@ -13,9 +13,11 @@
     ../../modules/system/networking.nix
     ../../modules/nix.nix
     ../../modules/system/security.nix
+    ../../modules/system/ssh.nix
     ../../modules/system/systemd.nix
     ../../modules/system/time.nix
     ../../modules/system/xdg-portal.nix
+    ../../modules/system/xserver.nix
     ../../modules/system/zram.nix
     ../../modules/stylix.nix
   ];
@@ -27,17 +29,6 @@
       initialPassword = "123456";
       shell = pkgs.zsh;
       extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
-    };
-  };
-
-  services = {
-    openssh = {
-      enable = true;
-      settings.PermitRootLogin = "yes";
-    };
-    xserver = {
-      enable = true;
-      displayManager.gdm.enable = true;
     };
   };
 
