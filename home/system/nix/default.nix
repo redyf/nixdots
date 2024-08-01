@@ -12,7 +12,7 @@
       packages = with pkgs; [
         nixd
         statix
-        alejandra
+        nixfmt
         nix-init
         nix-update
         nixpkgs-review
