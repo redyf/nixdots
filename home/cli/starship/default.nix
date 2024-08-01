@@ -13,6 +13,7 @@
       oxocarbonPreset = import ./oxocarbon.nix;
       bloatedPreset = import ./bloated.nix;
       macchiatoPreset = import ./macchiato.nix {inherit pkgs;};
+      pastelPreset = builtins.fromTOML (builtins.readFile ./pastel.toml);
     in {
       enable = true;
       enableZshIntegration = true;
