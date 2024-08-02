@@ -12,7 +12,7 @@
       packages = with pkgs; [
         nixd
         statix
-        nixfmt
+        nixfmt-rfc-style
         nix-init
         nix-update
         nixpkgs-review
