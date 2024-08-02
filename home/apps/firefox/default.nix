@@ -1,15 +1,17 @@
 {
   lib,
   config,
+  pkgs,
   ...
-}: {
+}:
+{
   options = {
     firefox.enable = lib.mkEnableOption "Enable firefox module";
   };
   config = lib.mkIf config.firefox.enable {
     programs.firefox = {
       enable = true;
-      # package = pkgs.floorp;
+      package = pkgs.firefox-devedition;
       # profiles.test = {
       #   search.default = "Google";
       #   search.force = true;
