@@ -1,23 +1,21 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs, pkgs, ... }:
+let
   themes = {
     oxocarbon-dark = "oxocarbon-dark";
-    paradiseTheme = builtins.fromJSON (builtins.readFile ./paradise.json);
   };
-in {
+in
+{
   stylix = {
     enable = true;
     autoEnable = true;
     image = ../hosts/redyf/9ovcXG0Wo4P7FQPe.jpg;
-    # base16Scheme = themes.paradiseTheme;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.oxocarbon-dark}.yaml";
     fonts = {
       monospace = {
-        package = with pkgs; inputs.font-flake.packages.${system}.berkeley;
-        name = "Liga Berkeley Mono";
+        # package = inputs.font-flake.packages.${pkgs.system}.monolisa;
+        # name = "Monolisa";
+        package = with pkgs; (nerdfonts.override { fonts = [ "UbuntuMono" ]; });
+        name = "UbuntuMono Nerd Font";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
@@ -29,7 +27,7 @@ in {
       };
       sizes = {
         applications = 10;
-        terminal = 11;
+        terminal = 14;
         desktop = 10;
         popups = 11;
       };
