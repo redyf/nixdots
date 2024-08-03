@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     tmux.enable = lib.mkEnableOption "Enable tmux module";
   };
@@ -52,6 +53,9 @@
         # Unbind p from previous-window
         unbind p
 
+        # make Prefix p paste the buffer.
+        bind p paste-buffer
+
         # Don't exit from tmux when closing a session
         set -g detach-on-destroy off
 
@@ -62,7 +66,7 @@
         set -g status-position top
 
         # Tmux sessionizer
-        bind-key -r f run-shell "tmux neww tmux-sessionizer-script"
+        bind -r f run-shell "tmux neww tmux-sessionizer-script"
 
         #--------------------------------------------------------------------------
         # Status line
