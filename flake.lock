@@ -312,11 +312,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1722195676,
-        "narHash": "sha256-xJ8cBNV1w3KioJJqcwOu82Hx6tmXSW1fN2QT9QhkTHo=",
+        "lastModified": 1722623883,
+        "narHash": "sha256-CFku1wj2xYravImVLLfdCMVR7WjTrcfO5xTThr1JC1M=",
         "owner": "redyf",
         "repo": "font-flake",
-        "rev": "9612406444fb1d6b06f25ee6137d8039d3d3007a",
+        "rev": "ec9932cf7ad513de748a61596676cdd8ccdb3db0",
         "type": "github"
       },
       "original": {
@@ -349,11 +349,11 @@
         "zls": "zls"
       },
       "locked": {
-        "lastModified": 1722550112,
-        "narHash": "sha256-Up5nbI1cK+a1BY8Y45skKqZUwAw7i4wE9LF+n6UlVaY=",
+        "lastModified": 1722568363,
+        "narHash": "sha256-R4FJW+ZNepReby2b8M/mJjxJfTzpFJdT6XBduFK31ho=",
         "ref": "refs/heads/main",
-        "rev": "f5f7eccfb1a21f5892ddc3745e6cc0bfa6dc230a",
-        "revCount": 6761,
+        "rev": "2f373bb44343c1bc5feadb8b3bd3a0bbe2da6e91",
+        "revCount": 6766,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -408,11 +408,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722462338,
-        "narHash": "sha256-ss0G8t8RJVDewA3MyqgAlV951cWRK6EtVhVKEZ7J5LU=",
+        "lastModified": 1722630065,
+        "narHash": "sha256-QfM/9BMRkCmgWzrPDK+KbgJOUlSJnfX4OvsUupEUZvA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6e090576c4824b16e8759ebca3958c5b09659ee8",
+        "rev": "afc892db74d65042031a093adb6010c4c3378422",
         "type": "github"
       },
       "original": {
@@ -484,11 +484,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1722551504,
-        "narHash": "sha256-/N8voFoU8ALTK8C1esM6MM+lj9zZGCG4lbvH0mNBQUE=",
+        "lastModified": 1722633380,
+        "narHash": "sha256-rVyikfYJjkSB7990fLwABjrhVM4UOmci7rxYpRT/6dI=",
         "ref": "refs/heads/main",
-        "rev": "09bb5658b7fa6c0dc4e2744797e51ad4dd25af42",
-        "revCount": 5041,
+        "rev": "4141e6755022edc19cd37cd7ad077a93b3bae5bd",
+        "revCount": 5045,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
