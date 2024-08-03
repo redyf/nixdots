@@ -15,8 +15,8 @@
       file = {
         ".config/ghostty/config".text = ''
           # Fonts
-          font-family = "Monolisa"
-          font-size = 11
+          font-family = "UbuntuMono Nerd Font"
+          font-size = 14
           font-style = default
           font-style-bold = default
           font-style-italic = default
