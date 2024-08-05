@@ -26,9 +26,9 @@ in
         name = "DejaVu Serif";
       };
       sizes = {
-        applications = 10;
-        terminal = 14;
-        desktop = 10;
+        applications = 11;
+        terminal = 16;
+        desktop = 11;
         popups = 11;
       };
     };
