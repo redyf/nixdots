@@ -1,8 +1,10 @@
 {
   lib,
   config,
+  pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./ags
     ./alacritty
@@ -21,8 +23,8 @@
     ags.enable = lib.mkDefault true;
     alacritty.enable = lib.mkDefault false;
     foot.enable = lib.mkDefault false;
-    ghostty.enable = lib.mkDefault true;
-    kitty.enable = lib.mkDefault true;
+    ghostty.enable = if pkgs.stdenv.isx86_64 then lib.mkDefault true else false;
+    kitty.enable = if pkgs.stdenv.isAarch64 then lib.mkDefault true else false;
     rofi.enable = lib.mkDefault false;
     swww.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault false;
