@@ -16,7 +16,7 @@
         ".config/ghostty/config".text = ''
           # Fonts
           font-family = "UbuntuMono Nerd Font"
-          font-size = 14
+          font-size = 16
           font-style = default
           font-style-bold = default
           font-style-italic = default
@@ -111,8 +111,8 @@
           keybind = alt+seven=unbind
 
           # Window
-          window-padding-x = 10
-          window-padding-y = 10
+          window-padding-x = 5
+          window-padding-y = 5
           # window-padding-balance = false
           # window-inherit-working-directory = true
           # window-inherit-font-size = true
