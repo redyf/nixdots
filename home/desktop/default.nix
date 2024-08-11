@@ -1,13 +1,11 @@
+{ lib, config, ... }:
 {
-  lib,
-  config,
-  ...
-}: {
   imports = [
     ./addons
     ./theme
     ./hyprland
     ./awesomewm.nix
+    ./swaywm
   ];
 
   options = {
@@ -18,5 +16,6 @@
     theme.enable = lib.mkDefault true;
     hyprland.enable = lib.mkDefault true;
     awesomewm.enable = lib.mkDefault false;
+    swaywm.enable = lib.mkDefault true;
   };
 }
