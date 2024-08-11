@@ -3,7 +3,8 @@
   pkgs,
   homeDirectory,
   ...
-}: {
+}:
+{
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -18,7 +19,11 @@
       warn-dirty = false;
       log-lines = 50;
       sandbox = "relaxed";
-      trusted-users = ["${username}" "selene" "sonja"];
+      trusted-users = [
+        "${username}"
+        "mateus"
+        "sonja"
+      ];
       substituters = [
         "https://nix-community.cachix.org"
         "https://hyprland.cachix.org"
