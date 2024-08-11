@@ -20,6 +20,10 @@
     ghostty = {
       url = "git+ssh://git@github.com/ghostty-org/ghostty";
     };
+    firefox = {
+      url = "github:nix-community/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # waybar-hyprland.url = "github:hyprwm/hyprland";
     # Neve.url = "github:redyf/Neve";
   };
@@ -32,9 +36,7 @@
       home-manager,
       disko,
       stylix,
-      font-flake,
       raspberry-pi-nix,
-      ghostty,
       ...
     }@inputs:
     let
@@ -159,12 +161,12 @@
       };
 
       homeConfigurations = {
-        "selene" = createHomeManagerConfiguration {
+        "mateus" = createHomeManagerConfiguration {
           system = "aarch64-linux";
-          username = "selene";
-          homeDirectory = "/home/selene";
+          username = "mateus";
+          homeDirectory = "/home/mateus";
           stateVersion = "22.11";
-          modules = [ stylix.homeManagerModules.stylix ];
+          modules = [ ];
         };
       };
 
