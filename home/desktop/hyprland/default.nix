@@ -4,7 +4,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   hyprlandFlake = inputs.hyprland.packages.${pkgs.system}.hyprland;
   oxocarbon_pink = "ff7eb6";
   oxocarbon_border = "393939";
@@ -17,7 +18,8 @@
   transparent_gray = "rgba(666666AA)";
   gsettings = "${pkgs.glib}/bin/gsettings";
   gnomeSchema = "org.gnome.desktop.interface";
-in {
+in
+{
   options = {
     hyprland.enable = lib.mkEnableOption "Enable hyprland module";
   };
@@ -146,7 +148,7 @@ in {
             passes = 2;
             new_optimizations = true;
             ignore_opacity = true;
-            noise = 0.0117;
+            noise = 1.17e-2;
             contrast = 1.3;
             brightness = 1;
             xray = true;
@@ -154,7 +156,7 @@ in {
         };
 
         animations = {
-          enabled = true;
+          enabled = false;
           # bezier = [
           #   "pace,0.46, 1, 0.29, 0.99"
           #   "overshot,0.13,0.99,0.29,1.1"
@@ -170,9 +172,7 @@ in {
           #   "specialWorkspace,1,8,md3_decel,slide"
           #   "border,1,10,md3_decel"
           # ];
-          bezier = [
-            "1, 0.23, 1, 0.32, 1"
-          ];
+          bezier = [ "1, 0.23, 1, 0.32, 1" ];
 
           animation = [
             "windows, 1, 5, 1"
@@ -333,8 +333,7 @@ in {
         windowrulev2 = [
           "opacity ${opacity} ${opacity},class:^(thunar)$"
           "opacity ${opacity} ${opacity},class:^(discord)$"
-          "opacity ${opacity} ${opacity},class:^(st-256color)$"
-          "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
+          # "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
