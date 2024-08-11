@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     misc.enable = lib.mkEnableOption "Enable misc module";
   };
@@ -21,12 +22,12 @@
 
       # Other stuff
       playerctl
-      # brave
-
-      # Rice
-      # cmatrix
+      zathura
 
       # Extra utils
+      bitwarden-desktop
+      wget
+      parted
       mpv
       glib
       unzip # Unzip files using the terminal
