@@ -1,8 +1,5 @@
+{ lib, config, ... }:
 {
-  lib,
-  config,
-  ...
-}: {
   imports = [
     ./c
     ./clojure
@@ -32,6 +29,6 @@
     python.enable = lib.mkDefault true;
     rust.enable = lib.mkDefault true;
     sql.enable = lib.mkDefault true;
-    zig.enable = lib.mkDefault false;
+    zig.enable = lib.mkDefault true;
   };
 }
