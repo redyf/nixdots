@@ -117,7 +117,7 @@
           };
           pkgs = nixpkgsFor."${system}";
           modules = [
-            ./home/home.nix
+            ./home/rpi.nix
             {
               home = {
                 username = username;
@@ -161,10 +161,10 @@
       };
 
       homeConfigurations = {
-        "mateus" = createHomeManagerConfiguration {
+        "redyf" = createHomeManagerConfiguration {
           system = "aarch64-linux";
-          username = "mateus";
-          homeDirectory = "/home/mateus";
+          username = "redyf";
+          homeDirectory = "/home/redyf";
           stateVersion = "22.11";
           modules = [ ];
         };
