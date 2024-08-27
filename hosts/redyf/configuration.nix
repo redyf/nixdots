@@ -1,13 +1,11 @@
+{ pkgs, username, ... }:
 {
-  pkgs,
-  username,
-  ...
-}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/programs
     ../../modules/system
+    # ../../modules/gaming
     ../../modules/nix.nix
     ../../modules/services.nix
     ../../modules/stylix.nix
@@ -20,7 +18,14 @@
       description = username;
       initialPassword = "123456";
       shell = pkgs.zsh;
-      extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "docker"
+        "kvm"
+        "libvirtd"
+      ];
     };
   };
 
