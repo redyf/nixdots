@@ -3,5 +3,6 @@ _: {
     ./programs
     ./system
     ./raspberry
+    ./gaming
   ];
 }

@@ -1,22 +1,20 @@
+{ lib, config, ... }:
 {
-  lib,
-  config,
-  ...
-}: {
   imports = [
     ./artix-game-launcher
     ./chrome
-    ./discord
     ./davinci-resolve
+    ./discord
     ./emacs
     ./figma
     ./firefox
     ./insomnia
+    ./misc
+    ./obs
+    ./proton
     ./raspberry
     ./real-vnc-viewer
     ./spotify
-    ./misc
-    ./obs
     ./vscode
   ];
 
@@ -34,6 +32,7 @@
     insomnia.enable = lib.mkDefault false;
     misc.enable = lib.mkDefault true;
     obs.enable = lib.mkDefault false;
+    proton.enable = lib.mkDefault false;
     raspberry.enable = lib.mkDefault true;
     real-vnc-viewer.enable = lib.mkDefault true;
     spotify.enable = lib.mkDefault false;
