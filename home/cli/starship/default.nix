@@ -20,7 +20,7 @@
       {
         enable = true;
         enableZshIntegration = true;
-        settings = oxocarbonPreset;
+        settings = mochaPreset;
       };
   };
 }
