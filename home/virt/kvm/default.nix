@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     kvm.enable = lib.mkEnableOption "Enable kvm module";
   };
