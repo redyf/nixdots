@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./kvm
   ];
@@ -11,6 +12,6 @@
     virt.enable = lib.mkEnableOption "Enable virtualization module";
   };
   config = lib.mkIf config.virt.enable {
-    virt.enable = lib.mkDefault false;
+    kvm.enable = lib.mkDefault false;
   };
 }
