@@ -31,12 +31,17 @@ in
     enable = true;
     autoEnable = true;
     image = ../hosts/redyf/9ovcXG0Wo4P7FQPe.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.mountain}.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.oxocarbon-dark}.yaml";
     # base16Scheme = themes.jabuti;
+    cursor = {
+      name = "Banana";
+      package = pkgs.banana-cursor;
+      size = 36;
+    };
     fonts = {
       monospace = {
-        package = inputs.font-flake.packages.${pkgs.system}.berkeley;
-        name = "Liga Berkeley Mono";
+        package = with pkgs; (nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
