@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     java.enable = lib.mkEnableOption "Enable java module";
   };
@@ -16,7 +17,7 @@
       # maven # Build automation tool for java
       # gradle # Enterprise-grade build system
       # spring-boot-cli
-      jetbrains.idea-community
+      # jetbrains.idea-community
     ];
   };
 }
