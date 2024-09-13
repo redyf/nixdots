@@ -24,6 +24,7 @@
       url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     # waybar-hyprland.url = "github:hyprwm/hyprland";
     # Neve.url = "github:redyf/Neve";
   };
