@@ -40,18 +40,23 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    # distributedBuilds = true;
-    # buildMachines = [
-    #   {
-    #     hostName = "raspberry";
-    #     sshUser = "redyf";
-    #     sshKey = "${homeDirectory}/.ssh/id_ed25519_buildmachine";
-    #     systems = ["aarch64-linux"];
-    #     protocol = "ssh-ng";
-    #     maxJobs = 1;
-    #     speedFactor = 1;
-    #     supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
-    #   }
-    # ];
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "raspberry";
+        sshUser = "redyf";
+        sshKey = "${homeDirectory}/.ssh/id_ed25519";
+        systems = [ "aarch64-linux" ];
+        protocol = "ssh-ng";
+        maxJobs = 1;
+        speedFactor = 1;
+        supportedFeatures = [
+          "nixos-test"
+          "benchmark"
+          "big-parallel"
+          "kvm"
+        ];
+      }
+    ];
   };
 }
