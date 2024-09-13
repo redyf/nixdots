@@ -131,7 +131,7 @@ in
           # "col.active_border" = "${catppuccin_border}";
           # "col.inactive_border" = "${tokyonight_border}";
           layout = "dwindle";
-          apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+          # apply_sens_to_raw = true; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         };
 
         decoration = {
@@ -333,7 +333,7 @@ in
         windowrulev2 = [
           "opacity ${opacity} ${opacity},class:^(thunar)$"
           "opacity ${opacity} ${opacity},class:^(discord)$"
-          # "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
+          "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
