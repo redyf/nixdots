@@ -1,1 +1,6 @@
-_: { imports = [ ./steam.nix ]; }
+_: {
+  imports = [
+    ./steam.nix
+    ./minecraft.nix
+  ];
+}
