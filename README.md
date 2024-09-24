@@ -69,7 +69,7 @@ nh os switch
 OR
 
 ```
-sudo nixos-rebuild switch --flake '.#redyf'
+sudo nixos-rebuild switch --flake '.#desktop'
 ```
 
 - Connect to internet (Change what's inside the brackets with your info).
@@ -135,9 +135,9 @@ mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/redyf/
 # make sure you're in this path
 cd /mnt/etc/nixos
 # Install my config:
-nixos-install --flake '.#redyf'
+nixos-install --flake '.#desktop'
 # Obs:
-If you'd like to use my config as a template, all you need to do is replace "redyf" with your username.
+If you'd like to use my config as a template, all you need to do is replace "desktop" with your username.
 ```
 
 </details>
