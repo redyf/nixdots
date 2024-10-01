@@ -19,13 +19,13 @@
       # minecraft
       # grapejuice
       # libpulseaudio
+      lunar-client
 
       # Other stuff
       playerctl
       zathura
 
       # Extra utils
-      bitwarden-desktop
       wget
       parted
       mpv
