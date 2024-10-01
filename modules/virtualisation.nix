@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Enables docker in rootless mode
   virtualisation = {
     docker.rootless = {
