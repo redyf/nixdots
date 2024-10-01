@@ -16,6 +16,7 @@
     ./real-vnc-viewer
     ./spotify
     ./vscode
+    ./zen-specific
   ];
 
   options = {
@@ -37,5 +38,6 @@
     real-vnc-viewer.enable = lib.mkDefault true;
     spotify.enable = lib.mkDefault false;
     vscode.enable = lib.mkDefault false;
+    zen-specific.enable = lib.mkDefault true;
   };
 }
