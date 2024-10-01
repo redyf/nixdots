@@ -17,14 +17,13 @@
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen";
     font-flake.url = "github:redyf/font-flake";
-    ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty";
-    };
+    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
     firefox = {
       url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     # waybar-hyprland.url = "github:hyprwm/hyprland";
     # Neve.url = "github:redyf/Neve";
   };
