@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     theme.enable = lib.mkEnableOption "Enable theme module";
   };
@@ -11,9 +12,11 @@
     gtk = {
       enable = true;
       cursorTheme = {
-        name = "macOS-BigSur";
-        package = pkgs.apple-cursor;
-        size = 32; # Affects gtk applications as the name suggests
+        # name = "macOS-BigSur";
+        # package = pkgs.apple-cursor;
+        name = "Banana";
+        package = pkgs.banana-cursor;
+        size = 36; # Affects gtk applications as the name suggests
       };
 
       iconTheme = {
