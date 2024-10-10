@@ -18,6 +18,9 @@
       enable = false;
       package = with pkgs; mysql80;
     };
+    postgresql = {
+      enable = true;
+    };
     libinput = {
       enable = true;
       mouse = {
@@ -38,11 +41,11 @@
         '';
       };
       desktopManager = {
-        xfce.enable = true;
+        xfce.enable = false;
       };
       windowManager = {
         awesome = {
-          enable = false;
+          enable = true;
           luaModules = with pkgs.luaPackages; [
             luarocks
           ];

@@ -15,7 +15,7 @@
     addons.enable = lib.mkDefault true;
     theme.enable = lib.mkDefault true;
     hyprland.enable = lib.mkDefault true;
-    awesomewm.enable = lib.mkDefault false;
-    swaywm.enable = lib.mkDefault true;
+    awesomewm.enable = lib.mkDefault true;
+    swaywm.enable = lib.mkDefault false;
   };
 }
