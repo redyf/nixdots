@@ -20,7 +20,7 @@
       {
         enable = true;
         enableZshIntegration = true;
-        settings = mochaPreset;
+        settings = macchiatoPreset;
       };
   };
 }

@@ -31,7 +31,7 @@ in
     enable = true;
     autoEnable = true;
     image = ../hosts/redyf/9ovcXG0Wo4P7FQPe.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     # base16Scheme = themes.jabuti;
     cursor = {
       name = "Banana";
