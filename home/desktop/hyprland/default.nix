@@ -79,7 +79,7 @@ in
     ];
     wayland.windowManager.hyprland = {
       enable = true;
-      package = hyprlandFlake; # hyprlandFlake or pkgs.hyprland
+      package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
       xwayland = {
         enable = true;
       };
@@ -92,8 +92,8 @@ in
         ];
         env = [
           "XCURSOR_SIZE,32"
-          "XCURSOR_THEME,macOS-BigSur"
-          "HYPRCURSOR_THEME,macOS-BigSur"
+          # "XCURSOR_THEME,macOS-BigSur"
+          # "HYPRCURSOR_THEME,macOS-BigSur"
           "HYPRCURSOR_SIZE,32"
         ];
 
@@ -135,7 +135,7 @@ in
         };
 
         decoration = {
-          rounding = 0;
+          rounding = 12;
           shadow_ignore_window = true;
           drop_shadow = false;
           shadow_range = 20;
@@ -187,7 +187,7 @@ in
 
         misc = {
           vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
-          vrr = false; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
+          vrr = 2; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
           disable_hyprland_logo = true;
           # disable_splash_rendering = true;
         };
