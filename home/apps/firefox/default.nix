@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   config,
   pkgs,
@@ -12,7 +11,7 @@
   config = lib.mkIf config.firefox.enable {
     programs.firefox = {
       enable = true;
-      package = inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin;
+      package = pkgs.firefox;
       # Privacy about:config settings
       # profiles.redyf = {
       #   settings = {

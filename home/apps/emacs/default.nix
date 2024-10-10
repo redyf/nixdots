@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     emacs.enable = lib.mkEnableOption "Enable emacs module";
   };
@@ -12,7 +13,6 @@
       enable = true;
       package = pkgs.emacs.override {
         withGTK3 = true;
-        withGTK2 = false;
         withPgtk = true; # true on wayland
         withNativeCompilation = true;
         withTreeSitter = true;
