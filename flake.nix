@@ -18,10 +18,6 @@
     matugen.url = "github:InioX/matugen";
     font-flake.url = "github:redyf/font-flake";
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
-    firefox = {
-      url = "github:nix-community/flake-firefox-nightly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     # waybar-hyprland.url = "github:hyprwm/hyprland";
@@ -179,12 +175,12 @@
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
               git
-              nixfmt-rfx-classic
+              nixfmt-rfc-classic
               statix
             ];
           };
         }
       );
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfx-classic;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-classic;
     };
 }
