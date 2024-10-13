@@ -3,19 +3,17 @@
   lib,
   config,
   ...
-}: let
-  themepkg = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "zsh-syntax-highlighting";
-    rev = "06d519c20798f0ebe275fc3a8101841faaeee8ea";
-    sha256 = "sha256-Q7KmwUd9fblprL55W0Sf4g7lRcemnhjh4/v+TacJSfo=";
-  };
-in {
+}:
+{
   options = {
     shell.enable = lib.mkEnableOption "Enable Shell module";
   };
   config = lib.mkIf config.shell.enable {
     home = {
+      packages = with pkgs; [
+        timer
+        lolcat
+      ];
       sessionVariables = {
         MANPAGER = "sh -c 'col -bx | bat -l man -p'";
         MANROFFOPT = "-c";
@@ -42,8 +40,21 @@ in {
           export PATH="$PATH:/home/redyf/Android/Sdk"
           export PATH="$PATH:/home/redyf/Android/Sdk/platform-tools/"
           export PATH="$PATH:/home/redyf/Android/Sdk/cmdline-tools/latest/bin"
-          export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
           export WINIT_UNIX_BACKEND=x11 neovide
+
+          # Pomodoro script
+          declare -A pomo_options
+          pomo_options["work"]="45"
+          pomo_options["break"]="10"
+
+          pomodoro () {
+            if [ -n "$1" -a -n "''${pomo_options["$1"]}" ]; then
+              val=$1
+              echo $val | lolcat
+              timer ''${pomo_options["$val"]}m
+              # spd-say "'$val' session done"
+            fi
+          }
 
           # Autosuggest
           ZSH_AUTOSUGGEST_USE_ASYNC="true"
@@ -99,37 +110,37 @@ in {
           zstyle ':completion:*' menu yes select # search
           zstyle ':completion:*' list-grouped false
           zstyle ':completion:*' list-separator '''
-           zstyle ':completion:*' group-name '''
-           zstyle ':completion:*' verbose yes
-           zstyle ':completion:*:matches' group 'yes'
-           zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-           zstyle ':completion:*:messages' format '%d'
-           zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-           zstyle ':completion:*:descriptions' format '[%d]'
+          zstyle ':completion:*' group-name '''
+          zstyle ':completion:*' verbose yes
+          zstyle ':completion:*:matches' group 'yes'
+          zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
+          zstyle ':completion:*:messages' format '%d'
+          zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+          zstyle ':completion:*:descriptions' format '[%d]'
 
-           # Fuzzy match mistyped completions.
-           zstyle ':completion:*' completer _complete _match _approximate
-           zstyle ':completion:*:match:*' original only
-           zstyle ':completion:*:approximate:*' max-errors 1 numeric
+          # Fuzzy match mistyped completions.
+          zstyle ':completion:*' completer _complete _match _approximate
+          zstyle ':completion:*:match:*' original only
+          zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-           # Don't complete unavailable commands.
-           zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+          # Don't complete unavailable commands.
+          zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
 
-           # Array completion element sorting.
-           zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+          # Array completion element sorting.
+          zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
-           # fzf-tab
-           zstyle ':fzf-tab:complete:_zlua:*' query-string input
-           zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
-           zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
-           zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
-           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-           zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
-           zstyle ':fzf-tab:*' switch-group ',' '.'
-           zstyle ":completion:*:git-checkout:*" sort false
-           zstyle ':completion:*' file-sort modification
-           zstyle ':completion:*:exa' sort false
-           zstyle ':completion:files' sort false
+          # fzf-tab
+          zstyle ':fzf-tab:complete:_zlua:*' query-string input
+          zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
+          zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
+          zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
+          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+          zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+          zstyle ':fzf-tab:*' switch-group ',' '.'
+          zstyle ":completion:*:git-checkout:*" sort false
+          zstyle ':completion:*' file-sort modification
+          zstyle ':completion:*:exa' sort false
+          zstyle ':completion:files' sort false
         '';
 
         shellAliases = {
@@ -153,6 +164,9 @@ in {
           nd = "nix develop";
           nr = "nix run";
           ns = "nix-shell";
+          nu = "nix-update";
+          wo = "pomodoro 'work'";
+          br = "pomodoro 'break'";
         };
 
         oh-my-zsh = {
@@ -167,43 +181,38 @@ in {
           ];
         };
 
-        plugins = with pkgs; [
-          {
-            name = "forgit";
-            file = "forgit.plugin.zsh";
-            src = fetchFromGitHub {
-              owner = "wfxr";
-              repo = "forgit";
-              rev = "99cda3248c205ba3c4638c4e461afce01a2f8acb";
-              sha256 = "0jd0nl0nf7a5l5p36xnvcsj7bqgk0al2h7rdzr0m1ldbd47mxdfa";
+        plugins =
+          let
+            themepkg = pkgs.fetchFromGitHub {
+              owner = "catppuccin";
+              repo = "zsh-syntax-highlighting";
+              rev = "7926c3d3e17d26b3779851a2255b95ee650bd928";
+              hash = "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=";
             };
-          }
-          {
-            name = "zsh-autopair";
-            file = "zsh-autopair.plugin.zsh";
-            src = fetchFromGitHub {
-              owner = "hlissner";
-              repo = "zsh-autopair";
-              rev = "396c38a7468458ba29011f2ad4112e4fd35f78e6";
-              sha256 = "0q9wg8jlhlz2xn08rdml6fljglqd1a2gbdp063c8b8ay24zz2w9x";
-            };
-          }
-          {
-            name = "fzf-tab";
-            file = "fzf-tab.plugin.zsh";
-            src = fetchFromGitHub {
-              owner = "Aloxaf";
-              repo = "fzf-tab";
-              rev = "5a81e13792a1eed4a03d2083771ee6e5b616b9ab";
-              sha256 = "0lfl4r44ci0wflfzlzzxncrb3frnwzghll8p365ypfl0n04bkxvl";
-            };
-          }
-          {
-            name = "ctp-zsh-syntax-highlighting";
-            src = themepkg;
-            file = themepkg + "/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh";
-          }
-        ];
+          in
+          with pkgs;
+          [
+            {
+              name = "forgit";
+              file = "forgit.plugin.zsh";
+              src = zsh-forgit;
+            }
+            {
+              name = "zsh-autopair";
+              file = "zsh-autopair.plugin.zsh";
+              src = zsh-autopair;
+            }
+            {
+              name = "fzf-tab";
+              file = "fzf-tab.plugin.zsh";
+              src = zsh-fzf-tab;
+            }
+            {
+              name = "ctp-zsh-syntax-highlighting";
+              src = themepkg;
+              file = themepkg + "/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh";
+            }
+          ];
       };
     };
   };
