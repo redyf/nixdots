@@ -3,6 +3,8 @@
   home = {
     inherit username homeDirectory;
     stateVersion = "22.11";
+    # Add support for .local/bin
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 
   # Let Home Manager install and manage itself.
@@ -17,7 +19,6 @@
     ./rice
     ./system
     ./tools
-    ./virt
   ];
 
   apps.enable = false;
@@ -26,14 +27,10 @@
   rice.enable = false;
   system.enable = false;
   tools.enable = true;
-  virt.enable = false;
 
   nixpkgs = {
     config = {
       allowUnfree = true;
     };
   };
-
-  # Add support for .local/bin
-  home.sessionPath = [ "$HOME/.local/bin" ];
 }

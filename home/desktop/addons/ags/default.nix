@@ -14,7 +14,7 @@
     home.packages = with pkgs; [
       dart-sass
       brightnessctl
-      inputs.matugen.packages.${system}.default
+      matugen
       wf-recorder
       wayshot
       hyprpicker
