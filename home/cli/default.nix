@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./bat
     ./eza
@@ -12,7 +13,6 @@
     ./neovim
     ./neve
     ./ripgrep
-    ./rm-improved
     ./starship
     ./tmux
     ./zoxide
@@ -30,7 +30,6 @@
     neovim.enable = lib.mkDefault true;
     neve.enable = lib.mkDefault false;
     ripgrep.enable = lib.mkDefault true;
-    rm-improved.enable = lib.mkDefault true;
     starship.enable = lib.mkDefault true;
     tmux.enable = lib.mkDefault true;
     zoxide.enable = lib.mkDefault true;
