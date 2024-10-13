@@ -20,6 +20,7 @@
       # grapejuice
       # libpulseaudio
       lunar-client
+      prismlauncher
 
       # Other stuff
       playerctl
@@ -29,10 +30,8 @@
       wget
       parted
       mpv
-      glib
       unzip # Unzip files using the terminal
       ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
-      tree-sitter # A parser generator tool and an incremental parsing library
       appimage-run # Run appimage files in the terminal
       polkit_gnome
       pcmanfm

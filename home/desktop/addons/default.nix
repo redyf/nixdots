@@ -7,7 +7,6 @@
 {
   imports = [
     ./ags
-    ./alacritty
     ./foot
     ./ghostty
     ./kitty
@@ -21,7 +20,6 @@
   };
   config = lib.mkIf config.addons.enable {
     ags.enable = lib.mkDefault true;
-    alacritty.enable = lib.mkDefault false;
     foot.enable = lib.mkDefault false;
     ghostty.enable = if pkgs.stdenv.isx86_64 then lib.mkDefault true else false;
     kitty.enable = if pkgs.stdenv.isAarch64 then lib.mkDefault true else false;

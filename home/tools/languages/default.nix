@@ -11,7 +11,6 @@
     ./ocaml
     ./python
     ./rust
-    ./sql
     ./zig
   ];
   options = {
@@ -28,7 +27,6 @@
     ocaml.enable = lib.mkDefault false;
     python.enable = lib.mkDefault true;
     rust.enable = lib.mkDefault true;
-    sql.enable = lib.mkDefault true;
     zig.enable = lib.mkDefault true;
   };
 }

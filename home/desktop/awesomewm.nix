@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     awesomewm.enable = lib.mkEnableOption "Enable awesomewm module";
   };
@@ -19,7 +20,6 @@
         xclip
         dunst
         dmenu
-        flameshot
         nitrogen # Wallpaper utility for X11
       ];
     };

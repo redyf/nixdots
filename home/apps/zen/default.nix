@@ -7,9 +7,9 @@
 }:
 {
   options = {
-    zen-specific.enable = lib.mkEnableOption "Enable zen module";
+    zen.enable = lib.mkEnableOption "Enable zen module";
   };
-  config = lib.mkIf config.zen-specific.enable {
+  config = lib.mkIf config.zen.enable {
     home.packages = with pkgs; [
       inputs.zen-browser.packages."${system}".specific
     ];
