@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     javascript.enable = lib.mkEnableOption "Enable javascript module";
   };
