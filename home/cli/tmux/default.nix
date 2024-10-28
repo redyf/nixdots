@@ -24,10 +24,10 @@
         sensible
         tmux-fzf
         vim-tmux-navigator
-        # {
-        #   plugin = catppuccin;
-        #   extraConfig = builtins.readFile ./catppuccin.conf;
-        # }
+        {
+          plugin = catppuccin;
+          extraConfig = builtins.readFile ./catppuccin.conf;
+        }
         # {
         #   plugin = rose-pine;
         #   extraConfig = builtins.readFile ./rose-pine.conf;
@@ -62,9 +62,6 @@
         # Renumber all windows when any window is closed
         set -g renumber-windows on
 
-        # Place status bar on top
-        set -g status-position top
-
         # Tmux sessionizer
         bind -r f run-shell "tmux neww tmux-sessionizer-script"
 
@@ -79,6 +76,7 @@
         # Enable transparent tmux bar
         set -g status-bg default
         set -g status-style bg=default
+        set -g status-position bottom
       '';
     };
     home.packages = with pkgs; [

@@ -52,7 +52,7 @@
               val=$1
               echo $val | lolcat
               timer ''${pomo_options["$val"]}m
-              # spd-say "'$val' session done"
+              spd-say "'$val' session done"
             fi
           }
 
