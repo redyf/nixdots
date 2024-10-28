@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,14 +20,21 @@
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     zen-browser.url = "github:omarcresp/zen-browser-flake";
+    Neve.url = "github:redyf/Neve";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+      # url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # waybar-hyprland.url = "github:hyprwm/hyprland";
-    # Neve.url = "github:redyf/Neve";
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      nixpkgs-stable,
       hyprland,
       home-manager,
       disko,
@@ -48,6 +56,9 @@
 
       # Nixpkgs instantiated for supported system types.
       nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
+
+      # Stable Nixpkgs instantiated for supported system types.
+      nixpkgsStableFor = forAllSystems (system: import nixpkgs-stable { inherit system; });
 
       # Function to create a nixosConfiguration with a dynamic username
       createNixosConfiguration =
@@ -79,7 +90,7 @@
                       useUserPackages = true;
                       useGlobalPkgs = false;
                       extraSpecialArgs = {
-                        inherit inputs disko;
+                        inherit inputs disko nixpkgs-stable;
                       };
                       users."${username}" = import ./home/home.nix {
                         inputs = inputs;

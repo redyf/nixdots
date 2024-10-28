@@ -2,9 +2,12 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   time.timeZone = "America/Bahia";
-  console = {keyMap = "br-abnt2";};
+  console = {
+    keyMap = "br-abnt2";
+  };
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
     extraLocaleSettings = {
@@ -58,7 +61,7 @@
           dt-overlays = {
             vc4-kms-v3d-pi5 = {
               enable = true;
-              params = {};
+              params = { };
             };
           };
         };
@@ -77,7 +80,7 @@
   };
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = "experimental-features = nix-command flakes";
     settings = {
       auto-optimise-store = true;

@@ -3,6 +3,7 @@
   inputs,
   lib,
   config,
+  nixpkgs-stable,
   ...
 }:
 let
@@ -31,13 +32,16 @@ in
       wl-clipboard # Enables copy/paste on wayland
       bemenu
       nwg-look # Change GTK theme
+      glib # Needed for gsettings
 
       (writeShellScriptBin "screenshot" ''
         grim -g "$(slurp)" - | wl-copy
       '')
+
       (writeShellScriptBin "screenshot-edit" ''
         wl-paste | swappy -f -
       '')
+
       (writeShellScriptBin "autostart" ''
         # Variables
         config=$HOME/.config/hypr
@@ -54,10 +58,6 @@ in
         # Wallpaper
         swww kill
         swww init
-
-        # Cursor
-        gsettings set org.gnome.desktop.interface cursor-theme macOS-BigSur
-        hyprctl setcursor macOS-BigSur 32 # "Catppuccin-Mocha-Mauve-Cursors"
 
         # Others
         /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -77,9 +77,10 @@ in
         ${gsettings} set ${gnomeSchema} font-name "$font_name"
       '')
     ];
+
     wayland.windowManager.hyprland = {
       enable = true;
-      package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
+      package = nixpkgs-stable.legacyPackages.x86_64-linux.hyprland; # hyprlandFlake or pkgs.hyprland
       xwayland = {
         enable = true;
       };
@@ -94,6 +95,7 @@ in
           "XCURSOR_SIZE,32"
           # "XCURSOR_THEME,macOS-BigSur"
           # "HYPRCURSOR_THEME,macOS-BigSur"
+          "HYPRCURSOR_THEME,banana"
           "HYPRCURSOR_SIZE,32"
         ];
 
@@ -126,8 +128,8 @@ in
 
         general = {
           gaps_in = 2;
-          gaps_out = 0;
-          border_size = 0;
+          gaps_out = 4;
+          border_size = 2;
           # "col.active_border" = "${catppuccin_border}";
           # "col.inactive_border" = "${tokyonight_border}";
           layout = "dwindle";
@@ -135,7 +137,7 @@ in
         };
 
         decoration = {
-          rounding = 12;
+          rounding = 10;
           shadow_ignore_window = true;
           drop_shadow = false;
           shadow_range = 20;
@@ -156,38 +158,38 @@ in
         };
 
         animations = {
-          enabled = false;
-          # bezier = [
-          #   "pace,0.46, 1, 0.29, 0.99"
-          #   "overshot,0.13,0.99,0.29,1.1"
-          #   "md3_decel, 0.05, 0.7, 0.1, 1"
-          # ];
-          # animation = [
-          #   "windowsIn,1,6,md3_decel,slide"
-          #   "windowsOut,1,6,md3_decel,slide"
-          #   "windowsMove,1,6,md3_decel,slide"
-          #   "fade,1,10,md3_decel"
-          #   "workspaces,1,9,md3_decel,slide"
-          #   "workspaces, 1, 6, default"
-          #   "specialWorkspace,1,8,md3_decel,slide"
-          #   "border,1,10,md3_decel"
-          # ];
-          bezier = [ "1, 0.23, 1, 0.32, 1" ];
-
-          animation = [
-            "windows, 1, 5, 1"
-            "windowsIn, 1, 5, 1, slide"
-            "windowsOut, 1, 5, 1, slide"
-            "border, 1, 5, default"
-            "borderangle, 1, 5, default"
-            "fade, 1, 5, default"
-            "workspaces, 1, 5, 1, slidefade 30%"
+          enabled = true;
+          bezier = [
+            "pace,0.46, 1, 0.29, 0.99"
+            "overshot,0.13,0.99,0.29,1.1"
+            "md3_decel, 0.05, 0.7, 0.1, 1"
           ];
+          animation = [
+            "windowsIn,1,6,md3_decel,slide"
+            "windowsOut,1,6,md3_decel,slide"
+            "windowsMove,1,6,md3_decel,slide"
+            "fade,1,10,md3_decel"
+            "workspaces,1,9,md3_decel,slide"
+            "workspaces, 1, 6, default"
+            "specialWorkspace,1,8,md3_decel,slide"
+            "border,1,10,md3_decel"
+          ];
+          # bezier = [ "1, 0.23, 1, 0.32, 1" ];
+
+          # animation = [
+          #   "windows, 1, 5, 1"
+          #   "windowsIn, 1, 5, 1, slide"
+          #   "windowsOut, 1, 5, 1, slide"
+          #   "border, 1, 5, default"
+          #   "borderangle, 1, 5, default"
+          #   "fade, 1, 5, default"
+          #   "workspaces, 1, 5, 1, slidefade 30%"
+          # ];
         };
 
         misc = {
           vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
-          vrr = 2; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
+          vrr = 0; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
           disable_hyprland_logo = true;
           # disable_splash_rendering = true;
         };
@@ -333,7 +335,7 @@ in
         windowrulev2 = [
           "opacity ${opacity} ${opacity},class:^(thunar)$"
           "opacity ${opacity} ${opacity},class:^(discord)$"
-          "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
+          # "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"

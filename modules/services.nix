@@ -45,10 +45,7 @@
       };
       windowManager = {
         awesome = {
-          enable = true;
-          luaModules = with pkgs.luaPackages; [
-            luarocks
-          ];
+          enable = false;
         };
       };
       xkb = {

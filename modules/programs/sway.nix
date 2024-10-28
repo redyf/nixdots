@@ -1,7 +1,7 @@
 _: {
   programs = {
     sway = {
-      enable = true;
+      enable = false;
     };
   };
 }
