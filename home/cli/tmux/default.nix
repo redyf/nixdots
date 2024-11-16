@@ -24,10 +24,10 @@
         sensible
         tmux-fzf
         vim-tmux-navigator
-        {
-          plugin = catppuccin;
-          extraConfig = builtins.readFile ./catppuccin.conf;
-        }
+        # {
+        #   plugin = catppuccin;
+        #   extraConfig = builtins.readFile ./catppuccin.conf;
+        # }
         # {
         #   plugin = rose-pine;
         #   extraConfig = builtins.readFile ./rose-pine.conf;
@@ -70,7 +70,11 @@
         #--------------------------------------------------------------------------
 
         # Adding Git repo and branch to Tmux status line
-        set -g status-right '#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)'
+        set -g status-left ""
+        set -g status-right '#[fg=#c6a0f6,bg=default]#{?client_prefix,,} #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)'
+        set -g window-status-format '#[fg=#393939]#W'
+        set -g window-status-current-format '#[fg=#dde1e6]#W'
+        # set -g status-right '#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)'
         set -g status-interval 1
 
         # Enable transparent tmux bar
