@@ -36,7 +36,8 @@
         };
         tmux.enable = false;
         mako.enable = true;
-        vesktop.enable = true;
+        vesktop.enable = false;
+        hyprland.enable = false;
       };
     };
   };

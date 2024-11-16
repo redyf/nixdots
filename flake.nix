@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Overlays
+    # Overlays for rpi5
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
