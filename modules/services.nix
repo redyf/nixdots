@@ -47,6 +47,9 @@
         awesome = {
           enable = false;
         };
+        i3 = {
+          enable = true;
+        };
       };
       xkb = {
         variant = "";

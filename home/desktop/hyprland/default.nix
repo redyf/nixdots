@@ -128,8 +128,8 @@ in
 
         general = {
           gaps_in = 2;
-          gaps_out = 4;
-          border_size = 2;
+          gaps_out = 0;
+          border_size = 0;
           # "col.active_border" = "${catppuccin_border}";
           # "col.inactive_border" = "${tokyonight_border}";
           layout = "dwindle";
@@ -333,9 +333,8 @@ in
         ];
 
         windowrulev2 = [
-          "opacity ${opacity} ${opacity},class:^(thunar)$"
-          "opacity ${opacity} ${opacity},class:^(discord)$"
-          # "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
+          "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
+          "opacity ${opacity} ${opacity},class:^(zen-alpha)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"

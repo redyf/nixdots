@@ -11,7 +11,7 @@
   config = lib.mkIf config.swaywm.enable {
     wayland.windowManager.sway = {
       enable = true;
-      config = rec {
+      config = {
         terminal = "ghostty";
         # startup = [
         #

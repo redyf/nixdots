@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     nixy.enable = lib.mkEnableOption "Enable nix module";
   };
