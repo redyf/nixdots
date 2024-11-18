@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     git.enable = lib.mkEnableOption "Enable git module";
   };
@@ -32,6 +33,9 @@
           prune = true;
         };
         maintenance.repo = "/home/redyf/opensource/nixpkgs";
+        safe = {
+          directory = "/home/redyf/opensource/nixdots";
+        };
       };
     };
     home.packages = with pkgs; [
