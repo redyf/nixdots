@@ -12,8 +12,12 @@
   };
   nix = {
     package = pkgs.nixVersions.stable;
-    extraOptions = "experimental-features = nix-command flakes";
     settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "pipe-operators"
+      ];
       auto-optimise-store = true;
       http-connections = 50;
       warn-dirty = false;
