@@ -30,10 +30,20 @@
         accelProfile = "flat";
       };
     };
+    displayManager =
+      if pkgs.stdenv.isx86_64 then
+        {
+          enable = true;
+          ly.enable = true;
+        }
+      else
+        {
+          enable = true;
+          gdm.enable = true;
+        };
     xserver = {
       enable = true;
       displayManager = {
-        gdm.enable = true;
         sessionCommands = ''
           xset r rate 150 25
           xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
