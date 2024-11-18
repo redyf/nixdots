@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Overlays for rpi5
-    raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
-
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
@@ -27,7 +23,8 @@
       # url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # waybar-hyprland.url = "github:hyprwm/hyprland";
+    # Overlays for rpi5
+    raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
   };
 
   outputs =

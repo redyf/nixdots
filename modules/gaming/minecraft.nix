@@ -8,10 +8,6 @@
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
-  environment.systemPackages = [
-    pkgs.prismlauncher
-  ];
-
   services.minecraft-servers = {
     enable = true;
     eula = true;
