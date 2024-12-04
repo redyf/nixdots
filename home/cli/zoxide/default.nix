@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     zoxide.enable = lib.mkEnableOption "Enable zoxide module";
   };

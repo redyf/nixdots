@@ -42,5 +42,5 @@
     docker-compose
   ];
 
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Don't change this
 }

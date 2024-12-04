@@ -12,6 +12,7 @@
     programs.starship =
       let
         mochaPreset = import ./mocha.nix;
+        mochav2 = import ./mochav2.nix { inherit pkgs; };
         oxocarbonPreset = import ./oxocarbon.nix;
         bloatedPreset = import ./bloated.nix;
         macchiatoPreset = import ./macchiato.nix { inherit pkgs; };
@@ -20,7 +21,7 @@
       {
         enable = true;
         enableZshIntegration = true;
-        settings = oxocarbonPreset;
+        settings = mochav2;
       };
   };
 }
