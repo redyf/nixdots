@@ -9,6 +9,11 @@
     emacs.enable = lib.mkEnableOption "Enable emacs module";
   };
   config = lib.mkIf config.emacs.enable {
+    home.packages = with pkgs; [
+      cmake
+      gnumake
+      libtool
+    ];
     programs.emacs = {
       enable = true;
       package = pkgs.emacs.override {

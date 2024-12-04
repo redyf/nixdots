@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 let
   themes = {
     catppuccin-mocha = "catppuccin-mocha";
@@ -25,26 +29,33 @@ let
       base0F = "8b8da9";
     };
   };
+
+  # Check if the font-flake input exists in the Flake context
+  hasFontRepoAccess = builtins.hasAttr "font-flake" inputs && inputs.font-flake ? packages;
 in
 {
   stylix = {
     enable = true;
     autoEnable = true;
     image = ../hosts/redyf/9ovcXG0Wo4P7FQPe.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    # base16Scheme = themes.jabuti;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
     cursor = {
       name = "Banana";
       package = pkgs.banana-cursor;
       size = 36;
     };
     fonts = {
-      monospace = {
-        # package = with pkgs; (nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
-        # name = "JetBrainsMono Nerd Font";
-        package = inputs.font-flake.packages.${pkgs.system}.berkeley;
-        name = "Liga Berkeley Mono";
-      };
+      monospace =
+        if hasFontRepoAccess then
+          {
+            package = inputs.font-flake.packages.${pkgs.system}.berkeley;
+            name = "Berkeley Mono";
+          }
+        else
+          {
+            package = with pkgs; (nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+            name = "JetBrainsMono Nerd Font";
+          };
       sansSerif = {
         package = pkgs.dejavu_fonts;
         name = "DejaVu Sans";

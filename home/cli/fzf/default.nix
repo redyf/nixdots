@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   catppuccin = {
     bg = "-1";
     "bg+" = "-1";
@@ -31,7 +32,8 @@
     spinner = "#b48dac";
     header = "#a3be8b";
   };
-in {
+in
+{
   options = {
     fzf.enable = lib.mkEnableOption "Enable fzf module";
   };

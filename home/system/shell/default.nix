@@ -22,6 +22,60 @@
     };
 
     programs = {
+      nushell = {
+        enable = false;
+        environmentVariables.TERMINAL = "ghostty";
+        extraConfig = ''
+          $env.config = {
+            show_banner: false,
+            completions: {
+              case_sensitive: false # case-sensitive completions
+              quick: true  # set to false to prevent auto-selecting completions
+              partial: true  # set to false to prevent partial filling of the prompt
+              algorithm: "fuzzy"  # prefix or fuzzy
+            },
+            keybindings: [{
+              name: unix-line-discard
+              modifier: control
+              keycode: char_u
+              mode: [emacs, vi_insert, vi_normal]
+              event: { until: [{edit: cutfromlinestart}] }
+            },
+            {
+              name: insert-file-using-fzf
+              modifier: control
+              keycode: char_t
+              mode: [emacs, vi_insert, vi_normal]
+              event: { send: ExecuteHostCommand, cmd: "commandline edit --insert (fzf)" }
+            },
+            ]
+          } 
+        '';
+        shellAliases = {
+          c = "nvim";
+          cp = "cp -i";
+          grep = "grep --color=auto";
+          mv = "mv -i";
+          g = "git";
+          ga = "git add";
+          gaa = "git add .";
+          gb = "git branch";
+          gc = "git commit";
+          gcm = "git commit --message";
+          gco = "git checkout";
+          gd = "git diff";
+          gi = "git init";
+          gp = "git pull";
+          gs = "git status";
+          nb = "nix-build";
+          nd = "nix develop";
+          nr = "nix run";
+          ns = "nix-shell";
+          nu = "nix-update";
+          wo = "pomodoro 'work'";
+          br = "pomodoro 'break'";
+        };
+      };
       zsh = {
         enable = true;
         dotDir = ".config/zsh";
@@ -144,7 +198,6 @@
         '';
 
         shellAliases = {
-          sudo = "doas";
           c = "nvim";
           cp = "cp -i";
           grep = "grep --color=auto";
@@ -192,11 +245,6 @@
           in
           with pkgs;
           [
-            {
-              name = "forgit";
-              file = "forgit.plugin.zsh";
-              src = zsh-forgit;
-            }
             {
               name = "zsh-autopair";
               file = "zsh-autopair.plugin.zsh";

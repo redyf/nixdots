@@ -15,16 +15,16 @@
       # mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
       # Gaming
-      # gnutls
-      # minecraft
-      # grapejuice
-      # libpulseaudio
-      lunar-client
       prismlauncher
 
       # Other stuff
       playerctl
-      zathura
+      pavucontrol
+      libreoffice
+      realvnc-vnc-viewer
+      postman
+      obsidian
+      tldr
 
       # Extra utils
       wget
@@ -32,9 +32,8 @@
       mpv
       unzip # Unzip files using the terminal
       ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
-      appimage-run # Run appimage files in the terminal
       polkit_gnome
-      pcmanfm
+      yazi
     ];
   };
 }
