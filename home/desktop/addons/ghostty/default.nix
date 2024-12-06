@@ -16,7 +16,7 @@
         ".config/ghostty/config".text = ''
           # Fonts
           font-family = "Berkeley Mono"
-          font-size = 10
+          font-size = 12
           font-style = Bold 
           font-style-italic = Regular Italic
           font-style-bold = Bold
