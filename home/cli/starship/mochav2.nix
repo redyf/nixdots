@@ -8,7 +8,7 @@ in
   add_newline = false;
   right_format = ''$all'';
   format = ''
-    ➜$directory$custom$git_branch$git_state$git_status$line_break$character
+    $directory$custom$git_branch$git_state$git_status$line_break$character
   '';
 
   palette = "catppuccin_${flavour}";
@@ -102,12 +102,12 @@ in
 
   c = {
     symbol = " ";
-    format = "[[ $symbol( $version) ]]($style)";
+    format = "[ $symbol( $version) ]($style)";
   };
 
   rust = {
     symbol = "";
-    format = "[[ $symbol( $version) ]]($style)";
+    format = "[ $symbol( $version) ]($style)";
   };
 
   golang = {
@@ -118,27 +118,27 @@ in
 
   php = {
     symbol = "";
-    format = "[[ $symbol( $version) ]]($style)";
+    format = "[ $symbol( $version) ]($style)";
   };
 
   java = {
     symbol = " ";
-    format = "[[ $symbol( $version) ]]($style)";
+    format = "[ $symbol( $version) ]($style)";
   };
 
   kotlin = {
     symbol = "";
-    format = "[[ $symbol( $version) ]]($style)";
+    format = "[ $symbol( $version) ]($style)";
   };
 
   haskell = {
     symbol = "";
-    format = "[[ $symbol( $version) ]]($style)";
+    format = "[ $symbol( $version) ]($style)";
   };
 
   python = {
     symbol = "";
-    format = "[[ $symbol( $version) ]]($style)";
+    format = "[ $symbol( $version) ]($style)";
   };
 
   docker_context = {
