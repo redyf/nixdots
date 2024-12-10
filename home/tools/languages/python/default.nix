@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     python.enable = lib.mkEnableOption "Enable python module";
   };
