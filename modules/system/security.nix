@@ -1,8 +1,8 @@
-{ username, ... }:
-{
+_: {
   security = {
     sudo = {
       enable = true;
     };
+    polkit.enable = true;
   };
 }

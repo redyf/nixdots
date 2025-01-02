@@ -31,11 +31,6 @@
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
     };
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-      WLR_NO_HARDWARE_CURSORS = "1"; # Fix cursor rendering issue on wlr nvidia.
-      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
-    };
     shellAliases = {
       nvidia-settings = "nvidia-settings --config='$XDG_CONFIG_HOME'/nvidia/settings";
     };
