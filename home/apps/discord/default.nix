@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     discord.enable = lib.mkEnableOption "Enable discord module";
   };

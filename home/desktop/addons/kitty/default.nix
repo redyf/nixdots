@@ -37,6 +37,7 @@
         # Cursor
         cursor_shape = "block";
         cursor_blink_interval = 0;
+        cursor_trail = 1;
 
         # Don't ask for confirmation when closing a tab.
         confirm_os_window_close = 0;
