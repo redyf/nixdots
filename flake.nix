@@ -9,9 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
-    ags.url = "github:Aylur/ags";
     font-flake.url = "github:redyf/font-flake";
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -70,7 +73,11 @@
         nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs hyprland disko;
+            inherit
+              inputs
+              hyprland
+              disko
+              ;
             inherit username homeDirectory hostname;
           };
           modules =
@@ -87,7 +94,11 @@
                       useUserPackages = true;
                       useGlobalPkgs = false;
                       extraSpecialArgs = {
-                        inherit inputs disko nixpkgs-stable;
+                        inherit
+                          inputs
+                          disko
+                          nixpkgs-stable
+                          ;
                       };
                       users."${username}" = import ./home/home.nix {
                         inputs = inputs;
