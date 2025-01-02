@@ -16,6 +16,7 @@
     ../../modules/services.nix
     ../../modules/stylix.nix
     ../../modules/virtualisation.nix
+    ../../modules/gaming/steam.nix
   ];
 
   users.users = {

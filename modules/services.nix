@@ -14,12 +14,10 @@
     };
 
     fstrim.enable = true;
+    gnome.gnome-keyring.enable = true;
     mysql = {
       enable = false;
       package = with pkgs; mysql80;
-    };
-    postgresql = {
-      enable = true;
     };
     libinput = {
       enable = true;
