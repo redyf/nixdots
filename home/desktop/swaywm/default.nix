@@ -13,9 +13,6 @@
       enable = true;
       config = {
         terminal = "ghostty";
-        # startup = [
-        #
-        # ];
       };
     };
   };
