@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     vscode.enable = lib.mkEnableOption "Enable vscode module";
   };

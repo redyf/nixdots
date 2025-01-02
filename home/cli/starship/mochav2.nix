@@ -13,6 +13,13 @@ in
 
   palette = "catppuccin_${flavour}";
 
+  aws = {
+    disabled = true;
+    format = "on [$symbol($profile )(\($region) )]($style)";
+    style = "bold blue";
+    symbol = " ";
+  };
+
   os = {
     disabled = true;
     #style = "bg:surface0 fg:text"
@@ -84,7 +91,6 @@ in
   };
 
   git_branch = {
-
     symbol = "[](black) ";
     # format =  " [$symbol$branch(:$remote_branch)]($style)[]";
     style = "fg:lavender bg:black";
@@ -98,6 +104,7 @@ in
   nodejs = {
     symbol = "";
     format = "[ $symbol( $version) ]($style)";
+    disabled = true;
   };
 
   c = {
@@ -153,14 +160,18 @@ in
     format = "[[  $time ](fg:mantle bg:foam)]($style)";
   };
 
-  line_break = {
+  package = {
     disabled = true;
+  };
+
+  line_break = {
+    disabled = false;
   };
 
   character = {
     disabled = false;
-    success_symbol = "[✘ ](bold fg:green)";
-    error_symbol = "[✘ ](bold fg:red)";
+    success_symbol = "[ ✘ ](bold fg:green)";
+    error_symbol = "[ ✘ ](bold fg:red)";
     vimcmd_symbol = "[](bold fg:creen)";
     vimcmd_replace_one_symbol = "[](bold fg:purple)";
     vimcmd_replace_symbol = "[](bold fg:purple)";

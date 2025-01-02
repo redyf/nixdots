@@ -61,7 +61,7 @@ in
 
         # Others
         /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-        dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+        # dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
       '')
 
       (writeShellScriptBin "importGsettings" ''
@@ -80,7 +80,9 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = nixpkgs-stable.legacyPackages.x86_64-linux.hyprland; # hyprlandFlake or pkgs.hyprland
+      # package = nixpkgs-stable.legacyPackages.x86_64-linux.hyprland; # hyprlandFlake or pkgs.hyprland
+      package = hyprlandFlake; # hyprlandFlake or pkgs.hyprland
+      systemd.variables = [ "--all" ];
       xwayland = {
         enable = true;
       };
@@ -97,6 +99,7 @@ in
           # "HYPRCURSOR_THEME,macOS-BigSur"
           "HYPRCURSOR_THEME,banana"
           "HYPRCURSOR_SIZE,32"
+          "ELECTRON_OZONE_PLATFORM_HINT,auto"
         ];
 
         xwayland = {
@@ -124,6 +127,7 @@ in
 
         cursor = {
           enable_hyprcursor = true;
+          no_hardware_cursors = true;
         };
 
         general = {
@@ -138,10 +142,12 @@ in
 
         decoration = {
           rounding = 10;
-          shadow_ignore_window = true;
-          drop_shadow = false;
-          shadow_range = 20;
-          shadow_render_power = 3;
+          shadow = {
+            enabled = true;
+            ignore_window = true;
+            range = 20;
+            render_power = 3;
+          };
           # "col.shadow" = "rgb(${oxocarbon_background})";
           # "col.shadow_inactive" = "${background}";
           blur = {
@@ -199,7 +205,6 @@ in
           force_split = 0;
           preserve_split = true;
           default_split_ratio = 1.0;
-          no_gaps_when_only = false;
           special_scale_factor = 0.8;
           split_width_multiplier = 1.0;
           use_active_for_splits = true;
@@ -210,7 +215,6 @@ in
           orientation = "right";
           special_scale_factor = 0.8;
           new_status = "slave";
-          no_gaps_when_only = false;
         };
 
         gestures = {
@@ -297,7 +301,7 @@ in
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
-          "SUPER,o,exec,obsidianOllama"
+          "SUPER,o,exec,obsidian --ozone-platform-hint=x11"
           "SUPER SHIFT,C,exec,wallpaper"
           "SUPER,z,exec,waybar"
           "SUPER,space,exec,bemenu-run"
@@ -360,7 +364,6 @@ in
       #        env = LIBVA_DRIVER_NAME,nvidia
       #        env = XDG_SESSION_TYPE,wayland
       #        env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-      #        env = WLR_NO_HARDWARE_CURSORS,1
       #        # will switch to a submap called resize
       #        bind=$mainMod,R,submap,resize
       #
