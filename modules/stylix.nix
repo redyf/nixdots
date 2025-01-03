@@ -38,7 +38,7 @@ in
     enable = true;
     autoEnable = true;
     image = ../hosts/redyf/9ovcXG0Wo4P7FQPe.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     cursor = {
       name = "Banana";
       package = pkgs.banana-cursor;
@@ -48,12 +48,14 @@ in
       monospace =
         if hasFontRepoAccess then
           {
-            package = inputs.font-flake.packages.${pkgs.system}.berkeley;
-            name = "Berkeley Mono";
+            package = inputs.font-flake.packages.${pkgs.system}.monolisa;
+            name = "MonoLisa";
+            # package = inputs.font-flake.packages.${pkgs.system}.berkeley;
+            # name = "Berkeley Mono";
           }
         else
           {
-            package = with pkgs; (nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+            package = pkgs.nerd-fonts.jetbrains-mono;
             name = "JetBrainsMono Nerd Font";
           };
       sansSerif = {
