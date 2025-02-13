@@ -15,10 +15,6 @@
 
     fstrim.enable = true;
     gnome.gnome-keyring.enable = true;
-    mysql = {
-      enable = false;
-      package = with pkgs; mysql80;
-    };
     libinput = {
       enable = true;
       mouse = {
@@ -27,6 +23,9 @@
       touchpad = {
         accelProfile = "flat";
       };
+    };
+    desktopManager = {
+      plasma6.enable = true;
     };
     displayManager =
       if pkgs.stdenv.isx86_64 then
@@ -48,24 +47,11 @@
           nitrogen --restore
         '';
       };
-      desktopManager = {
-        xfce.enable = false;
-      };
-      windowManager = {
-        awesome = {
-          enable = false;
-        };
-        i3 = {
-          enable = true;
-        };
-      };
       xkb = {
         variant = "";
         layout = "br";
       };
     };
-    logmein-hamachi.enable = false;
-    flatpak.enable = false;
     autorandr = {
       enable = true;
       profiles = {
