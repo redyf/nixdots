@@ -22,7 +22,6 @@
     ./apps
     ./cli
     ./desktop
-    ./rice
     ./system
     ./tools
   ];
@@ -30,13 +29,15 @@
   apps.enable = true;
   cli.enable = true;
   desktop.enable = true;
-  rice.enable = true;
   system.enable = true;
   tools.enable = true;
 
   nixpkgs = {
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "dotnet-sdk-6.0.428"
+      ];
     };
   };
 

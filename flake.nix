@@ -17,7 +17,6 @@
     stylix.url = "github:danth/stylix";
     font-flake.url = "github:redyf/font-flake";
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     Neve.url = "github:redyf/Neve";
     nixvim = {
