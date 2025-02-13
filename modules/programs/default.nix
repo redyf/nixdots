@@ -1,8 +1,8 @@
 _: {
   imports = [
-    ./nh.nix
-    ./zsh.nix
-    ./sway.nix
     ./hyprland.nix
+    ./nh.nix
+    ./sway.nix
+    ./zsh.nix
   ];
 }
