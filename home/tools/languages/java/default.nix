@@ -9,15 +9,16 @@
     java.enable = lib.mkEnableOption "Enable java module";
   };
   config = lib.mkIf config.java.enable {
+    # programs.java.enable = true;
     home.packages = with pkgs; [
-      jdk # Java dev kit
-      # jdt-language-server # Jdtls integration
-      # checkstyle # Linter
-      # google-java-format # Formatter
-      # maven # Build automation tool for java
+      jdk23_headless
+      jdt-language-server # Jdtls integration
+      maven # Build automation tool for java
+      jetbrains.idea-community
       # gradle # Enterprise-grade build system
       # spring-boot-cli
-      # jetbrains.idea-community
+      # checkstyle # Linter
+      # google-java-format # Formatter
     ];
   };
 }
