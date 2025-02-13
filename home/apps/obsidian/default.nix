@@ -72,7 +72,7 @@ in
       };
       timers.git-sync-obsidian = {
         Unit.Description = "Run Git Sync for Obsidian Vault";
-        Timer.OnCalendar = "*:0/15";
+        Timer.OnCalendar = "*:0/45";
         Install.WantedBy = [ "timers.target" ];
       };
     };
