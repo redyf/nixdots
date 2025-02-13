@@ -50,8 +50,6 @@ in
           {
             package = inputs.font-flake.packages.${pkgs.system}.monolisa;
             name = "MonoLisa";
-            # package = inputs.font-flake.packages.${pkgs.system}.berkeley;
-            # name = "Berkeley Mono";
           }
         else
           {
