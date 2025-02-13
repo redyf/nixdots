@@ -15,15 +15,19 @@
       # mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
 
       # Gaming
-      prismlauncher
+      # prismlauncher
+
+      # Gamedev
+      godot_4
+      # unityhub
+      # aseprite
 
       # Other stuff
       playerctl
       pavucontrol
-      libreoffice
+      zathura
       realvnc-vnc-viewer
-      postman
-      tldr
+      google-chrome
 
       # Extra utils
       wget

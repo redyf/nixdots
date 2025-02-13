@@ -12,7 +12,6 @@
   config = lib.mkIf config.hyprpanel.enable {
     programs.hyprpanel = {
       enable = true;
-      systemd.enable = true;
       hyprland.enable = true;
       theme = "catppuccin_mocha";
       overlay.enable = true;
@@ -21,6 +20,7 @@
           launcher.autoDetectIcon = true;
           # launcher.icon = " ";
           workspaces.show_icons = true;
+          battery.label = false;
         };
         menus = {
           clock = {
@@ -38,6 +38,7 @@
         theme = {
           bar = {
             transparent = false;
+            location = "bottom";
           };
           font = {
             name = "CaskaydiaCove NF";

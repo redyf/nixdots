@@ -16,7 +16,6 @@
     ./apps
     ./cli
     ./desktop
-    ./rice
     ./system
     ./tools
   ];
@@ -24,7 +23,6 @@
   apps.enable = false;
   cli.enable = true;
   desktop.enable = false;
-  rice.enable = false;
   system.enable = false;
   tools.enable = true;
 

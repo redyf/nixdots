@@ -29,11 +29,6 @@
 
     stylix = {
       targets = {
-        bemenu = {
-          enable = true;
-          alternate = true;
-          fontSize = 14;
-        };
         tmux.enable = false;
         mako.enable = true;
         vesktop.enable = false;

@@ -30,7 +30,6 @@ in
       slurp # Works with grim to screenshot on wayland
       swappy # Wayland native snapshot editing tool, inspired by Snappy on macOS
       wl-clipboard # Enables copy/paste on wayland
-      bemenu
       nwg-look # Change GTK theme
       glib # Needed for gsettings
 
@@ -58,6 +57,7 @@ in
         # Wallpaper
         swww kill
         swww init
+        swww restore
 
         # Others
         /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -296,17 +296,16 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,ghostty"
-          "SUPER,n,exec,kitty"
+          "SUPER,RETURN,exec,kitty"
+          "SUPER,n,exec,ghostty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
           "SUPER,o,exec,obsidian --ozone-platform-hint=x11"
           "SUPER SHIFT,C,exec,wallpaper"
           "SUPER,z,exec,waybar"
-          "SUPER,space,exec,bemenu-run"
           # "SUPER,space,exec, tofi-drun --drun-launch=true"
-          # "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
+          "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
         ];
 
         bindm = [
@@ -339,6 +338,7 @@ in
         windowrulev2 = [
           "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
           "opacity ${opacity} ${opacity},class:^(zen-alpha)$"
+          "opacity ${opacity} ${opacity},class:^(code)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
