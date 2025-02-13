@@ -2,13 +2,12 @@
 {
   imports = [
     ./c
-    ./clojure
+    ./csharp
     ./elixir
     ./go
     ./java
     ./javascript
     ./lua
-    ./ocaml
     ./python
     ./rust
     ./zig
@@ -18,13 +17,12 @@
   };
   config = lib.mkIf config.languages.enable {
     c.enable = lib.mkDefault true;
-    clojure.enable = lib.mkDefault false;
+    csharp.enable = lib.mkDefault true;
     elixir.enable = lib.mkDefault false;
     go.enable = lib.mkDefault true;
-    java.enable = lib.mkDefault false;
+    java.enable = lib.mkDefault true;
     javascript.enable = lib.mkDefault true;
     lua.enable = lib.mkDefault true;
-    ocaml.enable = lib.mkDefault false;
     python.enable = lib.mkDefault true;
     rust.enable = lib.mkDefault true;
     zig.enable = lib.mkDefault true;
