@@ -22,18 +22,13 @@
           font-style-bold = Bold
           font-style-bold-italic = Bold Italic
 
-          # font-feature = -ss01, -ss02, -ss04 # Cartograph
           font-feature = ss01
           font-feature = ss02
-          font-feature = ss04
           font-feature = ss07
-          font-feature = ss08
           font-feature = ss10
           font-feature = ss11
-          font-feature = ss13
           font-feature = ss18
           font-feature = zero
-          # font-feature = ss01, ss02, ss04, ss07, ss08, ss10, ss11, ss13, ss18, zero # Monolisa
           # font-variation = "wght=800"
           font-thicken = true
           bold-is-bright = true
