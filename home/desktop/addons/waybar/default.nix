@@ -7,10 +7,29 @@
 }:
 let
   # Bar v1
-  # waybar_config = import ./og/config.nix {inherit osConfig config lib pkgs;};
-  # waybar_style = import ./og/style.nix {inherit (config) colorscheme;};
+  # waybar_config = import ./og/config.nix {
+  #   inherit
+  #     osConfig
+  #     config
+  #     lib
+  #     pkgs
+  #     ;
+  # };
+  # waybar_style = import ./og/style.nix { inherit (config) colorscheme; };
   # NixBar
-  waybar_config = import ./nixbar/config.nix {
+  #   waybar_config = import ./nixbar/config.nix {
+  #     inherit
+  #       osConfig
+  #       config
+  #       lib
+  #       pkgs
+  #       ;
+  #   };
+  #   waybar_style = import ./nixbar/style.nix { inherit (config) colorscheme; };
+  # Catppuccin
+  # waybar_config = import ./catppuccin/config.nix {inherit osConfig config lib pkgs;};
+  # waybar_style = import ./catppuccin/style.nix {inherit (config) colorscheme;};
+  waybar_config = import ./macos/config.nix {
     inherit
       osConfig
       config
@@ -18,17 +37,8 @@ let
       pkgs
       ;
   };
-  waybar_style = import ./nixbar/style.nix { inherit (config) colorscheme; };
+  waybar_style = import ./macos/style.nix { inherit (config) colorscheme; };
 in
-# Tokyonight
-# waybar_config = import ./tokyonight/config.nix {inherit osConfig config lib pkgs;};
-# waybar_style = import ./tokyonight/style.nix {inherit (config) colorscheme;};
-# Catppuccin
-# waybar_config = import ./catppuccin/config.nix {inherit osConfig config lib pkgs;};
-# waybar_style = import ./catppuccin/style.nix {inherit (config) colorscheme;};
-# Simple bar
-# waybar_config = import ./simple/config.nix {inherit osConfig config lib pkgs;};
-# waybar_style = import ./simple/style.nix {inherit (config) colorscheme;};
 {
   options = {
     waybar.enable = lib.mkEnableOption "Enable waybar module";

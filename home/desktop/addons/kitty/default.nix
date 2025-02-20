@@ -17,7 +17,7 @@
       };
       # https://www.monolisa.dev/faq#how-to-enable-stylistic-sets-for-the-kitty-terminal
       extraConfig = ''
-        font_features MonoLisa -calt +liga +zero +ss01 +ss02 +ss07 +ss08 +ss10 +ss11 +ss18
+        font_features MonoLisa -calt +liga +zero +ss01 +ss02 +ss07 +ss10 +ss11 +ss18
         modify_font cell_width 100%
         modify_font cell_height 100%
       '';
