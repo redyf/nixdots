@@ -8,6 +8,7 @@
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       GTK_THEME = "Catppuccin-Mocha-Compact-Blue-dark";
       # Add java to path
+      # JAVA_HOME = "${pkgs.jdk17_headless.home}/lib/openjdk";
       JAVA_HOME = "${pkgs.jdk23_headless.home}/lib/openjdk";
     };
     sessionVariables = {

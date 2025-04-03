@@ -11,6 +11,7 @@
   config = lib.mkIf config.c.enable {
     home.packages = with pkgs; [
       gcc
+      gnumake
     ];
   };
 }

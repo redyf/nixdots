@@ -25,7 +25,7 @@ in
       "custom/textfive"
     ];
     modules-right = [
-      "tray" # macOS-like system tray
+      "tray"
       "image#ethernetart"
       "custom/date"
       "clock"
@@ -56,7 +56,7 @@ in
     };
 
     "custom/launcher" = {
-      "format" = "";
+      "format" = "";
     };
 
     "custom/texttwo" = {

@@ -10,12 +10,9 @@
   };
   config = lib.mkIf config.javascript.enable {
     home.packages = with pkgs; [
-      bun
-      deno
+      pnpm
       nodejs
       corepack
-      typescript
-      nodePackages.npm
     ];
   };
 }

@@ -296,8 +296,8 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,kitty"
-          "SUPER,n,exec,ghostty"
+          "SUPER,RETURN,exec,wezterm"
+          "SUPER,n,exec,kitty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
@@ -331,14 +331,10 @@ in
           # Window rules
           "tile,title:^(kitty)$"
           "float,title:^(fly_is_kitty)$"
-          "tile,^(Spotify)$"
-          "tile,^(wps)$"
         ];
 
         windowrulev2 = [
           "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
-          "opacity ${opacity} ${opacity},class:^(zen-alpha)$"
-          "opacity ${opacity} ${opacity},class:^(code)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"

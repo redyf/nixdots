@@ -24,9 +24,6 @@
         accelProfile = "flat";
       };
     };
-    desktopManager = {
-      plasma6.enable = true;
-    };
     displayManager =
       if pkgs.stdenv.isx86_64 then
         {
@@ -40,9 +37,15 @@
         };
     xserver = {
       enable = true;
+      desktopManager = {
+        xfce.enable = true;
+      };
+      windowManager = {
+        awesome.enable = true;
+      };
       displayManager = {
         sessionCommands = ''
-          xset r rate 150 25
+          xset r rate 140 30
           xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
           nitrogen --restore
         '';

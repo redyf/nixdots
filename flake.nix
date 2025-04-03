@@ -21,10 +21,9 @@
     Neve.url = "github:redyf/Neve";
     nixvim = {
       url = "github:nix-community/nixvim";
-      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
-      # url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri.url = "github:sodiboo/niri-flake";
     # Overlays for rpi5
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
   };
@@ -35,6 +34,7 @@
       nixpkgs,
       nixpkgs-stable,
       hyprland,
+      niri,
       home-manager,
       disko,
       stylix,
@@ -75,6 +75,7 @@
             inherit
               inputs
               hyprland
+              niri
               disko
               ;
             inherit username homeDirectory hostname;
@@ -151,6 +152,7 @@
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
+            # niri.nixosModules.niri
           ];
         };
         rpi5 = createNixosConfiguration {
