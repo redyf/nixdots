@@ -2,8 +2,8 @@
 {
   programs = {
     sway = {
-      enable = false;
-      wrapperFeatures.gtk = true;
+      enable = true;
+      wrapperFeatures.gtk = false;
     };
   };
 }

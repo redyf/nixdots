@@ -5,7 +5,6 @@
     ./discord
     ./figma
     ./firefox
-    ./insomnia
     ./misc
     ./obs
     ./obsidian
@@ -22,7 +21,6 @@
     discord.enable = lib.mkDefault true;
     figma.enable = lib.mkDefault false;
     firefox.enable = lib.mkDefault false;
-    insomnia.enable = lib.mkDefault false;
     misc.enable = lib.mkDefault true;
     obs.enable = lib.mkDefault true;
     obsidian.enable = lib.mkDefault true;

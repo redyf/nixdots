@@ -11,7 +11,7 @@ in
     $directory$custom$git_branch$git_state$git_status$line_break$character
   '';
 
-  palette = "catppuccin_${flavour}";
+  # palette = "catppuccin_${flavour}";
 
   aws = {
     disabled = true;

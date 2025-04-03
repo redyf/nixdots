@@ -33,6 +33,11 @@
         mako.enable = true;
         vesktop.enable = false;
         hyprland.enable = false;
+        waybar.enable = false;
+        qt = {
+          enable = true;
+          platform = "qtct";
+        };
       };
     };
   };

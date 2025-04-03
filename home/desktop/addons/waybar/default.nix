@@ -29,6 +29,16 @@ let
   # Catppuccin
   # waybar_config = import ./catppuccin/config.nix {inherit osConfig config lib pkgs;};
   # waybar_style = import ./catppuccin/style.nix {inherit (config) colorscheme;};
+  # Niri
+  # waybar_config = import ./niri/config.nix {
+  #   inherit
+  #     osConfig
+  #     config
+  #     lib
+  #     pkgs
+  #     ;
+  # };
+  # waybar_style = import ./niri/style.nix { inherit config; };
   waybar_config = import ./macos/config.nix {
     inherit
       osConfig

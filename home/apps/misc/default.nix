@@ -18,18 +18,21 @@
       # prismlauncher
 
       # Gamedev
-      godot_4
+      # godot_4
       # unityhub
       # aseprite
 
       # Other stuff
+      qbittorrent
+      insomnia
+      beekeeper-studio
       playerctl
       pavucontrol
       zathura
       realvnc-vnc-viewer
       google-chrome
-
-      # Extra utils
+      code-cursor
+      appimage-run
       wget
       parted
       mpv

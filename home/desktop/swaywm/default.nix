@@ -10,10 +10,11 @@
   };
   config = lib.mkIf config.swaywm.enable {
     wayland.windowManager.sway = {
-      enable = true;
+      enable = false;
       config = {
-        terminal = "ghostty";
+        terminal = "wezterm";
       };
     };
+    programs.swaylock.enable = false;
   };
 }

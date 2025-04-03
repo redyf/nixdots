@@ -10,7 +10,7 @@
     ./fd
     ./fzf
     ./jq
-    ./neovim
+    ./nvim
     ./neve
     ./ripgrep
     ./starship
@@ -27,7 +27,7 @@
     fd.enable = lib.mkDefault true;
     fzf.enable = lib.mkDefault true;
     jq.enable = lib.mkDefault true;
-    neovim.enable = lib.mkDefault true;
+    nvim.enable = lib.mkDefault true;
     neve.enable = lib.mkDefault false;
     ripgrep.enable = lib.mkDefault true;
     starship.enable = lib.mkDefault true;
