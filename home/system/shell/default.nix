@@ -24,7 +24,7 @@
     programs = {
       nushell = {
         enable = false;
-        environmentVariables.TERMINAL = "ghostty";
+        environmentVariables.TERMINAL = "wezterm";
         extraConfig = ''
           $env.config = {
             show_banner: false,
@@ -82,7 +82,7 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        initExtra = ''
+        initContent = ''
           bindkey -s ^f "tmux-sessionizer-script\n"
           export PATH=$PATH:~/.local/bin/
           export PATH=/tmp/lazy-lvim/bin:$PATH

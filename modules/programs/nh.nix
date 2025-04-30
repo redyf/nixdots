@@ -1,4 +1,5 @@
-{homeDirectory, ...}: {
+{ homeDirectory, ... }:
+{
   programs.nh = {
     enable = true;
     clean = {

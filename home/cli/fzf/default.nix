@@ -53,6 +53,7 @@ in
         "--info=inline"
         "--bind shift-up:preview-page-up,shift-down:preview-page-down"
         "--header='CTRL-c or ESC to quit'"
+        "--color=bg:-1,bg+:-1"
       ];
     };
   };
