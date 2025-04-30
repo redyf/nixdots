@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   environment = {
     variables = {
@@ -8,20 +8,11 @@
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       GTK_THEME = "Catppuccin-Mocha-Compact-Blue-dark";
       # Add java to path
-      # JAVA_HOME = "${pkgs.jdk17_headless.home}/lib/openjdk";
-      JAVA_HOME = "${pkgs.jdk23_headless.home}/lib/openjdk";
+      # JAVA_HOME = "${pkgs.jdk23_headless.home}/lib/openjdk";
     };
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox"; # Set default browser
+      DEFAULT_BROWSER = "${inputs.zen-browser.packages."${pkgs.system}".default}/bin/zen";
     };
-    plasma6.excludePackages = with pkgs.kdePackages; [
-      konsole
-      oxygen
-      plasma-browser-integration
-      kwallet
-      kwallet-pam
-      kwalletmanager
-    ];
   };
 }

@@ -9,21 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     font-flake.url = "github:redyf/font-flake";
-    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     Neve.url = "github:redyf/Neve";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri.url = "github:sodiboo/niri-flake";
     # Overlays for rpi5
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
   };
@@ -34,7 +28,6 @@
       nixpkgs,
       nixpkgs-stable,
       hyprland,
-      niri,
       home-manager,
       disko,
       stylix,
@@ -75,7 +68,6 @@
             inherit
               inputs
               hyprland
-              niri
               disko
               ;
             inherit username homeDirectory hostname;
@@ -152,7 +144,6 @@
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
-            # niri.nixosModules.niri
           ];
         };
         rpi5 = createNixosConfiguration {

@@ -13,24 +13,21 @@
       enable = true;
       config = {
         pager = "less -FR";
+        theme = "CatppuccinMocha";
       };
       themes =
         let
           src = pkgs.fetchFromGitHub {
             owner = "catppuccin";
             repo = "bat";
-            rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-            hash = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+            rev = "699f60fc8ec434574ca7451b444b880430319941";
+            hash = "sha256-6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=";
           };
         in
         {
-          Catppuccin-mocha = {
+          CatppuccinMocha = {
             inherit src;
-            file = "Catppuccin-mocha.tmTheme";
-          };
-          Catppuccin-latte = {
-            inherit src;
-            file = "Catppuccin-latte.tmTheme";
+            file = "Catppuccin Mocha.tmTheme";
           };
         };
     };

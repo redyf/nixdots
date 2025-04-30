@@ -34,6 +34,8 @@
         vesktop.enable = false;
         hyprland.enable = false;
         waybar.enable = false;
+        bat.enable = false;
+        starship.enable = false;
         qt = {
           enable = true;
           platform = "qtct";

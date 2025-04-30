@@ -14,10 +14,9 @@
       packages = with pkgs; [
         dejavu_fonts
         font-awesome
-        fira-code-symbols
         material-design-icons
-        noto-fonts
-        powerline-symbols
+        inputs.font-flake.packages.${pkgs.system}.berkeley
+        nerd-fonts.jetbrains-mono
       ];
     };
   };

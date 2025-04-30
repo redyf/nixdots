@@ -4,8 +4,6 @@
     ./addons
     ./theme
     ./hyprland
-    ./niriWM
-    ./swaywm
   ];
 
   options = {
@@ -15,7 +13,5 @@
     addons.enable = lib.mkDefault true;
     theme.enable = lib.mkDefault true;
     hyprland.enable = lib.mkDefault true;
-    niriWM.enable = lib.mkDefault false;
-    swaywm.enable = lib.mkDefault true;
   };
 }

@@ -301,7 +301,7 @@ in
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
-          "SUPER,o,exec,obsidian --ozone-platform-hint=x11"
+          "SUPER,o,exec,obsidian"
           "SUPER SHIFT,C,exec,wallpaper"
           "SUPER,z,exec,waybar"
           # "SUPER,space,exec, tofi-drun --drun-launch=true"
@@ -334,7 +334,6 @@ in
         ];
 
         windowrulev2 = [
-          "opacity ${opacity} ${opacity},class:^(com.mitchellh.ghostty)$"
           "float,class:^(pavucontrol)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
