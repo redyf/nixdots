@@ -10,13 +10,9 @@
   };
   config = lib.mkIf config.misc.enable {
     home.packages = with pkgs; [
-      # Anime/Manga
-      # mangal # A fancy CLI app written in Go which scrapes, downloads and packs manga into different formats
-
       # Gaming
       # prismlauncher
 
-      # Other stuff
       # nyaa
       qbittorrent
       insomnia
@@ -24,7 +20,6 @@
       playerctl
       pavucontrol
       zathura
-      realvnc-vnc-viewer
       appimage-run
       wget
       parted

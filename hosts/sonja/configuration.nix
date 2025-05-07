@@ -2,24 +2,30 @@
   pkgs,
   username,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../modules/programs
     ../../modules/raspberry
+    ../../modules/system/audio.nix
+    ../../modules/system/boot.nix
     ../../modules/system/environment.nix
+    ../../modules/system/hardware.nix
     ../../modules/system/keymap.nix
     ../../modules/system/locale.nix
     ../../modules/system/networking.nix
-    ../../modules/nix.nix
     ../../modules/system/security.nix
     ../../modules/system/ssh.nix
     ../../modules/system/systemd.nix
     ../../modules/system/time.nix
     ../../modules/system/xdg-portal.nix
-    ../../modules/system/xserver.nix
+    # ../../modules/default.nix
     ../../modules/system/zram.nix
-    ../../modules/stylix.nix
+    # ../../modules/nix.nix
+    # ../../modules/services.nix
+    # ../../modules/stylix.nix
+    # ../../modules/virtualisation.nix
   ];
 
   users.users = {
@@ -28,9 +34,18 @@
       description = username;
       initialPassword = "123456";
       shell = pkgs.zsh;
-      extraGroups = ["networkmanager" "wheel" "input" "docker" "kvm" "libvirtd"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "docker"
+        "kvm"
+        "libvirtd"
+      ];
     };
   };
+
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   environment.systemPackages = with pkgs; [
     git

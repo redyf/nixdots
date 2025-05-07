@@ -160,7 +160,7 @@ you will partition, format and mount the disk for /dev/nvme0n1 (change as needed
 
 <hr>
 
-## NixOS Raspberry PI5 Installation
+## NixOS Raspberry PI5 Installation (Not working anymore because raspberry-pi-nix was archived)
 
 ### Requirements
 
