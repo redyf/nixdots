@@ -19,7 +19,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Install Nix Linting and Formatting Tools
-        run: nix-env -i statix nixfmt -f '<nixpkgs>'
+        run: nix-env -i statix nixfmt-rfc-style -f '<nixpkgs>'
 
       - name: Run Statix Lint
         run: statix fix

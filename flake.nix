@@ -146,24 +146,24 @@
             hyprland.nixosModules.default
           ];
         };
-        rpi5 = createNixosConfiguration {
-          system = "aarch64-linux";
-          username = "sonja";
-          homeDirectory = "/home/sonja";
-          hostname = "rpi5";
-          modules = [
-            raspberry-pi-nix.nixosModules.raspberry-pi
-            hyprland.nixosModules.default
-          ];
-        };
-        minimal-rpi5 = createNixosConfiguration {
-          system = "aarch64-linux";
-          username = "minimal";
-          homeDirectory = "/home/minimal";
-          hostname = "minimal";
-          includeHomeManager = false;
-          modules = [ raspberry-pi-nix.nixosModules.raspberry-pi ];
-        };
+        # rpi5 = createNixosConfiguration {
+        #   system = "aarch64-linux";
+        #   username = "sonja";
+        #   homeDirectory = "/home/sonja";
+        #   hostname = "rpi5";
+        #   modules = [
+        #     raspberry-pi-nix.nixosModules.raspberry-pi
+        #     hyprland.nixosModules.default
+        #   ];
+        # };
+        # minimal-rpi5 = createNixosConfiguration {
+        #   system = "aarch64-linux";
+        #   username = "minimal";
+        #   homeDirectory = "/home/minimal";
+        #   hostname = "minimal";
+        #   includeHomeManager = false;
+        #   modules = [ raspberry-pi-nix.nixosModules.raspberry-pi ];
+        # };
       };
 
       homeConfigurations = {
@@ -185,12 +185,12 @@
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
               git
-              nixfmt-rfc-classic
+              nixfmt-rfc-style
               statix
             ];
           };
         }
       );
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-classic;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
 }
