@@ -11,7 +11,6 @@
   config = lib.mkIf config.python.enable {
     home.packages = with pkgs; [
       python3
-      python312Packages.pip
     ];
   };
 }
