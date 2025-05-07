@@ -16,7 +16,7 @@
         # package = pkgs.apple-cursor;
         name = "Banana";
         package = pkgs.banana-cursor;
-        size = 36; # Affects gtk applications as the name suggests
+        size = 36;
       };
 
       iconTheme = {
@@ -27,7 +27,7 @@
       };
     };
 
-    stylix = {
+    stylix = lib.mkIf (builtins.hasAttr "stylix" config) {
       targets = {
         tmux.enable = false;
         mako.enable = true;
