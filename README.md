@@ -31,7 +31,7 @@
  -----------------------------------
  ╭─ Distro  -> NixOS
  ├─ Editor  -> Neovim
- ├─ Browser -> Firefox
+ ├─ Browser -> Zen
  ├─ Shell   -> ZSH
  ╰─ Resource Monitor -> Btop
  ╭─ Model -> DELL XPS 8940
@@ -39,10 +39,10 @@
  ├─ GPU   -> NVIDIA GeForce GTX 1650 SUPER
  ╰─ Resolution -> 1920x1080@165hz
  ╭─ WM       -> Hyprland
- ├─ Terminal -> Kitty
- ├─ Theme    -> Oxocarbon
+ ├─ Terminal -> Wezterm
+ ├─ Theme    -> Catppuccin Mocha
  ├─ Icons    -> Papirus-Dark
- ├─ Font     -> SFMono Ligaturized
+ ├─ Font     -> Berkeley Mono
  ╰─ Hotel    -> Trivago
                         
 ```
