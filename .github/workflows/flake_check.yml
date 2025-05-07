@@ -15,18 +15,17 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@v24
-
         with:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Install Nix Linting and Formatting Tools
-        run: nix-env -i statix nixpkgs-fmt -f '<nixpkgs>'
+        run: nix-env -i statix nixfmt -f '<nixpkgs>'
 
       - name: Run Statix Lint
         run: statix fix
 
       - name: Run Nix Format
-        run: nix fmt
+        run: nixfmt **/*.nix
 
       - name: Nix Flake Checker
         uses: DeterminateSystems/flake-checker-action@v5
@@ -35,4 +34,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Auto lint/format
-          branch: dev
+          branch: main
