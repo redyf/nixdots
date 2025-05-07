@@ -1,18 +1,7 @@
 { pkgs, ... }:
 {
+  # TODO: Split into multiple modules
   services = {
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      wireplumber.enable = true;
-      jack.enable = false;
-      pulse.enable = true;
-      audio.enable = true;
-    };
-
     fstrim.enable = true;
     gnome.gnome-keyring.enable = true;
     libinput = {
@@ -31,30 +20,7 @@
           ly.enable = true;
         }
       else
-        {
-          enable = true;
-          gdm.enable = true;
-        };
-    xserver = {
-      enable = true;
-      desktopManager = {
-        xfce.enable = true;
-      };
-      windowManager = {
-        awesome.enable = true;
-      };
-      displayManager = {
-        sessionCommands = ''
-          xset r rate 140 30
-          xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
-          nitrogen --restore
-        '';
-      };
-      xkb = {
-        variant = "";
-        layout = "br";
-      };
-    };
+        { enable = false; };
     autorandr = {
       enable = true;
       profiles = {
