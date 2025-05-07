@@ -9,7 +9,8 @@
         "rev": "c91f0f30710b63e7ebb1bdbec881775aaf1b1e62",
         "revCount": 1,
         "type": "git",
-        "url": "ssh://git@github.com/redyf/BerkeleyMono.git"
+        "url": "ssh://git@github.com/redyf/BerkeleyMono.git",
+        "allRefs": true
       },
       "original": {
         "type": "git",
