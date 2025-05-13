@@ -16,7 +16,7 @@
   };
   config = lib.mkIf config.addons.enable {
     swww.enable = lib.mkDefault true;
-    waybar.enable = lib.mkDefault true;
+    waybar.enable = lib.mkDefault false;
     wezterm.enable = lib.mkDefault true;
     wofi.enable = lib.mkDefault true;
   };

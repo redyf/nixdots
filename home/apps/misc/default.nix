@@ -14,6 +14,7 @@
       # prismlauncher
 
       # nyaa
+      ngrok
       qbittorrent
       insomnia
       beekeeper-studio

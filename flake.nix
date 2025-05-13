@@ -25,119 +25,115 @@
       self,
       nixpkgs,
       nixpkgs-stable,
-      home-manager,
       hyprland,
+      home-manager,
       disko,
       stylix,
       ...
     }@inputs:
     let
+      inherit (nixpkgs.lib) nixosSystem;
       supportedSystems = [
         "x86_64-linux"
+        "x86_64-darwin"
         "aarch64-linux"
+        "aarch64-darwin"
       ];
 
-      # Helper function to generate packages for all supported systems
+      # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      # Nixpkgs instantiated for supported systems
+      # Nixpkgs instantiated for supported system types.
       nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
 
-      # Function to create a NixOS configuration
-      mkNixosConfig =
+      # Stable Nixpkgs instantiated for supported system types.
+      nixpkgsStableFor = forAllSystems (system: import nixpkgs-stable { inherit system; });
+
+      # Function to create a nixosConfiguration with a dynamic username
+      createNixosConfiguration =
         {
           system,
           username,
           homeDirectory,
-          hostname,
+          hostname ? null,
           modules ? [ ],
-          homeModule ? null,
+          includeHomeManager ? true,
         }:
-        let
-          # Base modules for all NixOS configurations
-          baseModules = [
-            ./hosts/${username}/configuration.nix
-            { networking.hostName = hostname; }
-            stylix.nixosModules.stylix
-          ];
-
-          # Home Manager module, included only if homeModule is provided
-          homeManagerModule = [
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useUserPackages = true;
-                useGlobalPkgs = false;
-                extraSpecialArgs = {
-                  inherit
-                    inputs
-                    nixpkgs-stable
-                    username
-                    homeDirectory
-                    ;
-                };
-                users.${username} = homeModule;
-                backupFileExtension = "backup";
-              };
-            }
-          ];
-
-          # Combine modules: base modules, user-provided modules, and Home Manager (if enabled)
-          allModules = baseModules ++ modules ++ (if homeModule != null then homeManagerModule else [ ]);
-        in
-        nixpkgs.lib.nixosSystem {
+        nixosSystem {
           inherit system;
           specialArgs = {
             inherit
               inputs
-              username
-              homeDirectory
-              hostname
+              hyprland
+              disko
               ;
+            inherit username homeDirectory hostname;
           };
-          modules = allModules;
+          modules =
+            [
+              ./hosts/${username}/configuration.nix
+              { networking.hostName = hostname; }
+            ]
+            ++ (
+              if includeHomeManager then
+                [
+                  home-manager.nixosModules.home-manager
+                  {
+                    home-manager = {
+                      useUserPackages = true;
+                      useGlobalPkgs = false;
+                      extraSpecialArgs = {
+                        inherit
+                          inputs
+                          disko
+                          nixpkgs-stable
+                          ;
+                      };
+                      users."${username}" = import ./home/home.nix {
+                        inputs = inputs;
+                        pkgs = nixpkgsFor."${system}";
+                        inherit username homeDirectory;
+                      };
+                      backupFileExtension = "backup";
+                    };
+                  }
+                ]
+              else
+                [ ]
+            )
+            ++ [ stylix.nixosModules.stylix ]
+            ++ modules;
         };
 
-      # Function to create a standalone Home Manager configuration
-      mkHomeConfig =
+      createHomeManagerConfiguration =
         {
           system,
           username,
           homeDirectory,
-          stateVersion,
-          homeModule,
+          stateVersion ? "22.11",
           modules ? [ ],
         }:
-        let
-          # Base modules for Home Manager configuration
-          baseHomeModules = [
-            homeModule
+        home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = {
+            inherit inputs hyprland;
+            inherit username homeDirectory stateVersion;
+          };
+          pkgs = nixpkgsFor."${system}";
+          modules = [
+            ./home/rpi.nix
             {
               home = {
-                inherit username homeDirectory stateVersion;
+                username = username;
+                homeDirectory = homeDirectory;
+                stateVersion = stateVersion;
               };
             }
-          ];
-
-          # Combine base modules with additional user-provided modules
-          allHomeModules = baseHomeModules ++ modules;
-        in
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgsFor.${system};
-          extraSpecialArgs = {
-            inherit
-              inputs
-              username
-              homeDirectory
-              stateVersion
-              ;
-          };
-          modules = allHomeModules;
+          ] ++ modules;
         };
     in
     {
       nixosConfigurations = {
-        desktop = mkNixosConfig {
+        desktop = createNixosConfiguration {
           system = "x86_64-linux";
           username = "redyf";
           homeDirectory = "/home/redyf";
@@ -146,18 +142,16 @@
             disko.nixosModules.disko
             hyprland.nixosModules.default
           ];
-          homeModule = ./home/home.nix;
         };
       };
 
       homeConfigurations = {
-        "redyf" = mkHomeConfig {
+        "redyf" = createHomeManagerConfiguration {
           system = "aarch64-linux";
           username = "redyf";
           homeDirectory = "/home/redyf";
           stateVersion = "22.11";
-          homeModule = ./home/home.nix;
-          modules = [ ]; # Add modules here, e.g., [ inputs.nixvim.homeManagerModules.nixvim ]
+          modules = [ ];
         };
       };
 
@@ -176,7 +170,6 @@
           };
         }
       );
-
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
 }

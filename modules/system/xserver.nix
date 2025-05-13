@@ -2,9 +2,6 @@ _: {
   services = {
     xserver = {
       enable = true;
-      desktopManager = {
-        xfce.enable = true;
-      };
       windowManager = {
         awesome.enable = true;
       };

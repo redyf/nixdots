@@ -14,9 +14,7 @@
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
     graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+      extraPackages = [ pkgs.nvidia-vaapi-driver ];
     };
   };
   environment = {

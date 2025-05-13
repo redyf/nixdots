@@ -15,7 +15,6 @@
         dejavu_fonts
         font-awesome
         material-design-icons
-        inputs.font-flake.packages.${pkgs.system}.berkeley
         nerd-fonts.jetbrains-mono
       ];
     };

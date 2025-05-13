@@ -6,7 +6,6 @@
 let
   themes = {
     catppuccin-mocha = "catppuccin-mocha";
-    mountain = "mountain";
     oxocarbon-dark = "oxocarbon-dark";
     jabuti = {
       scheme = "Jabuti";
@@ -48,8 +47,8 @@ in
       monospace =
         if hasFontRepoAccess then
           {
-            package = inputs.font-flake.packages.${pkgs.system}.berkeley;
-            name = "Berkeley Mono";
+            package = pkgs.maple-mono.NF;
+            name = "Maple Mono Nerd Font";
           }
         else
           {

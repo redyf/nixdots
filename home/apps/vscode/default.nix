@@ -11,7 +11,6 @@
   config = lib.mkIf config.vscode.enable {
     home.packages = with pkgs; [
       vscode
-      vscode-extensions.ms-dotnettools.csharp
     ];
   };
 }

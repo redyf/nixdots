@@ -2,7 +2,6 @@
 {
   imports = [
     ./c
-    ./csharp
     ./go
     ./java
     ./javascript
@@ -15,7 +14,6 @@
   };
   config = lib.mkIf config.languages.enable {
     c.enable = lib.mkDefault true;
-    csharp.enable = lib.mkDefault false;
     go.enable = lib.mkDefault true;
     java.enable = lib.mkDefault false;
     javascript.enable = lib.mkDefault true;
