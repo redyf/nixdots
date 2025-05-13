@@ -17,9 +17,9 @@
   ];
 
   options = {
-    cli.enable = lib.mkEnableOption "Enable cli module";
+    utils.enable = lib.mkEnableOption "Enable cli utils module";
   };
-  config = lib.mkIf config.cli.enable {
+  config = lib.mkIf config.utils.enable {
     bat.enable = lib.mkDefault true;
     eza.enable = lib.mkDefault true;
     fd.enable = lib.mkDefault true;
