@@ -4,7 +4,8 @@
   lib,
   device ? throw "Set this to your disk device, e.g. /dev/sda",
   ...
-}: {
+}:
+{
   disko = {
     # Do not let Disko manage fileSystems.* config for NixOS.
     # Reason is that Disko mounts partitions by GPT partition names, which are
@@ -29,7 +30,7 @@
             };
             esp = {
               name = "ESP";
-              size = "512M";
+              size = "1024M";
               type = "EF00";
               content = {
                 type = "filesystem";
