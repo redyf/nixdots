@@ -11,7 +11,7 @@
   };
   config = lib.mkIf config.zen.enable {
     home.packages = with pkgs; [
-      inputs.zen-browser.packages."${system}".default
+      inputs.zen-browser.packages."${system}".twilight
     ];
   };
 }
