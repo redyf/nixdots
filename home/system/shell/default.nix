@@ -10,15 +10,16 @@
   };
   config = lib.mkIf config.shell.enable {
     home = {
-      packages = with pkgs; [
-        timer
-        lolcat
-      ];
+      shell.enableZshIntegration = true;
       sessionVariables = {
         MANPAGER = "sh -c 'col -bx | bat -l man -p'";
         MANROFFOPT = "-c";
         DIRENV_LOG_FORMAT = ""; # Blank so direnv will shut up
       };
+      packages = with pkgs; [
+        timer
+        lolcat
+      ];
     };
 
     programs = {

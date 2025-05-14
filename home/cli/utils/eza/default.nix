@@ -17,7 +17,6 @@
         "--long"
         "--no-user"
       ];
-      enableZshIntegration = true;
     };
   };
 }

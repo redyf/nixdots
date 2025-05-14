@@ -40,7 +40,6 @@ in
   config = lib.mkIf config.fzf.enable {
     programs.fzf = {
       enable = true;
-      enableZshIntegration = true;
       tmux = {
         enableShellIntegration = true;
       };

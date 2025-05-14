@@ -10,7 +10,6 @@
   config = lib.mkIf config.wezterm.enable {
     programs.wezterm = {
       enable = true;
-      enableZshIntegration = true;
       extraConfig = ''
         return {
           font = wezterm.font("Maple Mono NF", { weight = "Medium", italic = false}),

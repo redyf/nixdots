@@ -23,7 +23,6 @@
       in
       {
         enable = true;
-        enableZshIntegration = true;
         settings = catppuccin_powerline;
       };
   };
