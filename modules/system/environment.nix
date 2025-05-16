@@ -6,7 +6,6 @@
       XDG_SESSION_TYPE = "wayland";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      GTK_THEME = "Catppuccin-Mocha-Compact-Blue-dark";
       # Add java to path
       # JAVA_HOME = "${pkgs.jdk23_headless.home}/lib/openjdk";
     };

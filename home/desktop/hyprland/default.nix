@@ -30,8 +30,6 @@ in
       slurp # Works with grim to screenshot on wayland
       swappy # Wayland native snapshot editing tool, inspired by Snappy on macOS
       wl-clipboard # Enables copy/paste on wayland
-      nwg-look # Change GTK theme
-      glib # Needed for gsettings
 
       (writeShellScriptBin "screenshot" ''
         grim -g "$(slurp)" - | wl-copy
@@ -62,19 +60,6 @@ in
         # Others
         /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
         # dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
-      '')
-
-      (writeShellScriptBin "importGsettings" ''
-        config="/home/redyf/.config/gtk-3.0/settings.ini"
-        if [ ! -f "$config" ]; then exit 1; fi
-        gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-        icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-        cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
-        font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')"
-        ${gsettings} set ${gnomeSchema} gtk-theme "$gtk_theme"
-        ${gsettings} set ${gnomeSchema} icon-theme "$icon_theme"
-        ${gsettings} set ${gnomeSchema} cursor-theme "$cursor_theme"
-        ${gsettings} set ${gnomeSchema} font-name "$font_name"
       '')
     ];
 
@@ -227,8 +212,6 @@ in
 
         exec-once = [
           "autostart"
-          "easyeffects --gapplication-service" # Starts easyeffects in the background
-          "importGsettings"
         ];
 
         bind = [
@@ -349,6 +332,10 @@ in
           "float,title:^(mpv)$"
           "opacity 1.0 1.0,class:^(wofi)$"
         ];
+
+        ecosystem = {
+          no_update_news = true;
+        };
       };
 
       # Submaps
