@@ -14,10 +14,11 @@
       # prismlauncher
 
       # nyaa
+      awscli2
+      xfce.thunar
+      httpie
       ngrok
       qbittorrent
-      insomnia
-      beekeeper-studio
       playerctl
       pavucontrol
       zathura

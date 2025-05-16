@@ -2,7 +2,6 @@
 {
   imports = [
     ./c
-    ./go
     ./java
     ./javascript
     ./lua
@@ -14,7 +13,6 @@
   };
   config = lib.mkIf config.languages.enable {
     c.enable = lib.mkDefault true;
-    go.enable = lib.mkDefault true;
     java.enable = lib.mkDefault false;
     javascript.enable = lib.mkDefault true;
     lua.enable = lib.mkDefault true;

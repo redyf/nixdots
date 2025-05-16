@@ -34,7 +34,7 @@
         vesktop.enable = false;
         hyprland.enable = false;
         waybar.enable = false;
-        bat.enable = false;
+        bat.enable = true;
         starship.enable = false;
         qt = {
           enable = true;
