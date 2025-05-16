@@ -1,10 +1,20 @@
-{ pkgs, ... }:
 {
-  programs = {
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
+  config,
+  lib,
+  ...
+}:
+
+let
+  cfg = config.myConfig.gaming.steam;
+in
+{
+  config = lib.mkIf (config.myConfig.gaming.enable && cfg.enable) {
+    programs = {
+      steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+      };
+      gamemode.enable = true;
     };
-    gamemode.enable = true;
   };
 }
