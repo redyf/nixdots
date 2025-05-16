@@ -8,17 +8,7 @@
 }:
 let
   hyprlandFlake = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  oxocarbon_pink = "ff7eb6";
-  oxocarbon_border = "393939";
-  oxocarbon_background = "161616";
-  background = "rgba(11111B00)";
-  tokyonight_border = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
-  tokyonight_background = "rgba(32344aaa)";
-  catppuccin_border = "rgba(b4befeee)";
   opacity = "0.95";
-  transparent_gray = "rgba(666666AA)";
-  gsettings = "${pkgs.glib}/bin/gsettings";
-  gnomeSchema = "org.gnome.desktop.interface";
 in
 {
   options = {
@@ -48,9 +38,6 @@ in
         pkill waybar
         $scripts/launch_waybar &
         $scripts/tools/dynamic &
-
-        # ags (bar and some extra stuff)
-        ags
 
         # Wallpaper
         swww kill
@@ -369,15 +356,8 @@ in
 
     # Hyprland configuration files
     xdg.configFile = {
-      "hypr/store/dynamic_out.txt".source = ./store/dynamic_out.txt;
-      "hypr/store/prev.txt".source = ./store/prev.txt;
-      "hypr/store/latest_notif".source = ./store/latest_notif;
-      "hypr/scripts/wall".source = ./scripts/wall;
       "hypr/scripts/launch_waybar".source = ./scripts/launch_waybar;
       "hypr/scripts/tools/dynamic".source = ./scripts/tools/dynamic;
-      "hypr/scripts/tools/expand".source = ./scripts/tools/expand;
-      "hypr/scripts/tools/notif".source = ./scripts/tools/notif;
-      "hypr/scripts/tools/start_dyn".source = ./scripts/tools/start_dyn;
     };
   };
 }
