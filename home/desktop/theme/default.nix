@@ -12,18 +12,20 @@
     gtk = {
       enable = true;
       cursorTheme = {
-        # name = "macOS-BigSur";
-        # package = pkgs.apple-cursor;
-        name = "Banana";
-        package = pkgs.banana-cursor;
+        name = "macOS-BigSur";
+        package = pkgs.apple-cursor;
         size = 36;
       };
 
       iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-folders;
-        # name = "WhiteSur";
-        # package = pkgs.whitesur-icon-theme;
+        name = "WhiteSur";
+        package = pkgs.whitesur-icon-theme;
+        # name = "Papirus-Dark";
+        # package = pkgs.papirus-folders;
+      };
+      theme = {
+        name = lib.mkDefault "WhiteSur";
+        package = lib.mkDefault pkgs.whitesur-gtk-theme;
       };
     };
 

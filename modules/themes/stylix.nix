@@ -22,8 +22,8 @@ in
       autoEnable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
       cursor = {
-        name = "Banana";
-        package = pkgs.banana-cursor;
+        name = "macOS";
+        package = pkgs.apple-cursor;
         size = 36;
       };
       fonts = {
