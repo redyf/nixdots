@@ -8,7 +8,6 @@
 }:
 let
   hyprlandFlake = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  opacity = "0.95";
 in
 {
   options = {
@@ -66,11 +65,6 @@ in
           # ",highrr,auto,auto"
         ];
         env = [
-          "XCURSOR_SIZE,32"
-          # "XCURSOR_THEME,macOS-BigSur"
-          # "HYPRCURSOR_THEME,macOS-BigSur"
-          "HYPRCURSOR_THEME,banana"
-          "HYPRCURSOR_SIZE,32"
           "ELECTRON_OZONE_PLATFORM_HINT,auto"
         ];
 
@@ -152,24 +146,12 @@ in
             "specialWorkspace,1,8,md3_decel,slide"
             "border,1,10,md3_decel"
           ];
-          # bezier = [ "1, 0.23, 1, 0.32, 1" ];
-
-          # animation = [
-          #   "windows, 1, 5, 1"
-          #   "windowsIn, 1, 5, 1, slide"
-          #   "windowsOut, 1, 5, 1, slide"
-          #   "border, 1, 5, default"
-          #   "borderangle, 1, 5, default"
-          #   "fade, 1, 5, default"
-          #   "workspaces, 1, 5, 1, slidefade 30%"
-          # ];
         };
 
         misc = {
           vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
           vrr = 0; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
           disable_hyprland_logo = true;
-          # disable_splash_rendering = true;
         };
 
         dwindle = {
@@ -239,24 +221,6 @@ in
           "SUPER SHIFT, up, movewindow, u"
           "SUPER SHIFT, down, movewindow, d"
 
-          #---------------------------------------------------------------#
-          # Move active window to a workspace with mainMod + ctrl + [0-9] #
-          #---------------------------------------------------------------#
-          # "SUPER $mainMod CTRL, 1, movetoworkspace, 1"
-          # "SUPER $mainMod CTRL, 2, movetoworkspace, 2"
-          # "SUPER $mainMod CTRL, 3, movetoworkspace, 3"
-          # "SUPER $mainMod CTRL, 4, movetoworkspace, 4"
-          # "SUPER $mainMod CTRL, 5, movetoworkspace, 5"
-          # "SUPER $mainMod CTRL, 6, movetoworkspace, 6"
-          # "SUPER $mainMod CTRL, 7, movetoworkspace, 7"
-          # "SUPER $mainMod CTRL, 8, movetoworkspace, 8"
-          # "SUPER $mainMod CTRL, 9, movetoworkspace, 9"
-          # "SUPER $mainMod CTRL, 0, movetoworkspace, 10"
-          # "SUPER $mainMod CTRL, left, movetoworkspace, -1"
-          # "SUPER $mainMod CTRL, right, movetoworkspace, +1"
-
-          # same as above, but doesnt switch to the workspace
-
           "SUPER $mainMod SHIFT, 1, movetoworkspacesilent, 1"
           "SUPER $mainMod SHIFT, 2, movetoworkspacesilent, 2"
           "SUPER $mainMod SHIFT, 3, movetoworkspacesilent, 3"
@@ -274,7 +238,6 @@ in
           "SUPER,o,exec,obsidian"
           "SUPER SHIFT,C,exec,wallpaper"
           "SUPER,z,exec,waybar"
-          # "SUPER,space,exec, tofi-drun --drun-launch=true"
           "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
         ];
 
@@ -282,25 +245,6 @@ in
           # Mouse binds
           "SUPER,mouse:272,movewindow"
           "SUPER,mouse:273,resizewindow"
-        ];
-
-        # bindle = [
-        #     # Backlight Keys
-        #     ",XF86MonBrightnessUp,exec,light -A 5"
-        #     ",XF86MonBrightnessDown,exec,light -U 5"
-        #     # Volume Keys
-        #     ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%  "
-        #     ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%  "
-        # ];
-        # bindl = [
-        #     ",switch:on:Lid Switch, exec, swaylock -f -i ~/photos/wallpapers/wallpaper.png"
-        #     ",switch:off:Lid Switch, exec, swaylock -f -i ~/photos/wallpapers/wallpaper.png"
-        # ];
-
-        windowrule = [
-          # Window rules
-          "tile,title:^(kitty)$"
-          "float,title:^(fly_is_kitty)$"
         ];
 
         windowrulev2 = [
@@ -324,34 +268,6 @@ in
           no_update_news = true;
         };
       };
-
-      # Submaps
-      # extraConfig = [
-      #        source = ~/.config/hypr/themes/catppuccin-macchiato.conf
-      #        source = ~/.config/hypr/themes/oxocarbon.conf
-      #        env = GBM_BACKEND,nvidia-drm
-      #        env = LIBVA_DRIVER_NAME,nvidia
-      #        env = XDG_SESSION_TYPE,wayland
-      #        env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-      #        # will switch to a submap called resize
-      #        bind=$mainMod,R,submap,resize
-      #
-      #        # will start a submap called "resize"
-      #        submap=resize
-      #
-      #        # sets repeatable binds for resizing the active window
-      #        binde=,L,resizeactive,15 0
-      #        binde=,H,resizeactive,-15 0
-      #        binde=,K,resizeactive,0 -15
-      #        binde=,J,resizeactive,0 15
-      #
-      #        # use reset to go back to the global submap
-      #        bind=,escape,submap,reset
-      #        bind=$mainMod,R,submap,reset
-      #
-      #        # will reset the submap, meaning end the current one and return to the global one
-      #        submap=reset
-      # ];
     };
 
     # Hyprland configuration files
