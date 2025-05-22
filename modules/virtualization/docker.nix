@@ -10,9 +10,13 @@ in
 {
   config = lib.mkIf (config.myConfig.virtualization.enable && cfg.enable) {
     virtualisation = {
-      docker.rootless = {
+      docker = {
         enable = true;
-        setSocketVariable = true;
+        autoPrune.enable = true;
+        # rootless = {
+        #   enable = true;
+        #   setSocketVariable = true;
+        # };
       };
     };
   };

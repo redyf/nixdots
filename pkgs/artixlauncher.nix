@@ -10,7 +10,7 @@ let
 
   src = pkgs.fetchurl {
     url = "https://launch.artix.com/latest/Artix_Games_Launcher-x86_64.AppImage";
-    sha256 = "0qa5rrrmvxgy90lbpxjxsyf22wj1l5im0p4idizkdwb1cwc3rnjk";
+    hash = "sha256-8eVXOm5g92wErWa6lbTXrCL04MWYlObjonHJk+oUI3E=";
   };
 
   appimageContents = pkgs.appimageTools.extractType2 {

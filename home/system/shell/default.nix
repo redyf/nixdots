@@ -99,8 +99,8 @@
 
           # Pomodoro script
           declare -A pomo_options
-          pomo_options["work"]="45"
-          pomo_options["break"]="10"
+          pomo_options["work"]="25"
+          pomo_options["break"]="5"
 
           pomodoro () {
             if [ -n "$1" -a -n "''${pomo_options["$1"]}" ]; then

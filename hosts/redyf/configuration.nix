@@ -31,7 +31,7 @@
     };
 
     gaming = {
-      enable = false;
+      enable = true;
       steam.enable = true;
     };
 

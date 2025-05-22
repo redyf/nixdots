@@ -15,6 +15,7 @@
 
       # nyaa
       awscli2
+      brave
       xfce.thunar
       httpie
       ngrok

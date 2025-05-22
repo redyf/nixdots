@@ -16,6 +16,7 @@
         font-awesome
         material-design-icons
         nerd-fonts.jetbrains-mono
+        inputs.font-flake.packages.${system}.berkeley
       ];
     };
   };

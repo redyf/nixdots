@@ -11,6 +11,9 @@ let
   themes = {
     catppuccin-mocha = "catppuccin-mocha";
     oxocarbon-dark = "oxocarbon-dark";
+    tokyo-night-moon = "tokyo-night-moon";
+    tokyo-night-dark = "tokyo-night-dark";
+    tokyo-night-storm = "tokyo-night-storm";
   };
   # Check if the font-flake input exists in the Flake context
   hasFontRepoAccess = builtins.hasAttr "font-flake" inputs && inputs.font-flake ? packages;
@@ -30,6 +33,8 @@ in
         monospace =
           if hasFontRepoAccess then
             {
+              # package = inputs.font-flake.packages.${pkgs.system}.berkeley;
+              # name = "TX-02";
               package = pkgs.maple-mono.NF;
               name = "Maple Mono Nerd Font";
             }
