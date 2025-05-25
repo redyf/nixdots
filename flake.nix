@@ -21,6 +21,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,6 +37,7 @@
       home-manager,
       disko,
       stylix,
+      lanzaboote,
       ...
     }@inputs:
     let
@@ -104,7 +110,9 @@
               else
                 [ ]
             )
-            ++ [ stylix.nixosModules.stylix ]
+            ++ [
+              stylix.nixosModules.stylix
+            ]
             ++ modules;
         };
 
@@ -144,6 +152,7 @@
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
+            lanzaboote.nixosModules.lanzaboote
           ];
         };
       };

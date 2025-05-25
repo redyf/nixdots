@@ -17,9 +17,16 @@ in
       supportedFilesystems = [ "ntfs" ];
       loader = {
         systemd-boot = {
-          enable = false;
+          enable = lib.mkForce false;
           # https://github.com/NixOS/nixpkgs/blob/c32c39d6f3b1fe6514598fa40ad2cf9ce22c3fb7/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix#L66
           editor = false;
+          configurationLimit = 10;
+          # extraEntries = {
+          #   "windows.conf" = ''
+          #     title Windows 10
+          #     efi /EFI/Microsoft/Boot/bootmgfw.efi
+          #   '';
+          # };
         };
         timeout = 10;
         efi = {
@@ -27,19 +34,26 @@ in
           efiSysMountPoint = "/boot";
         };
         grub = {
-          enable = true;
-          device = "nodev";
-          efiSupport = true;
-          useOSProber = true;
-          configurationLimit = 10;
-          theme = pkgs.fetchFromGitHub {
-            owner = "Lxtharia";
-            repo = "minegrub-theme";
-            rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
-            sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
-          };
+          enable = false;
+          # device = "nodev";
+          # efiSupport = true;
+          # useOSProber = true;
+          # configurationLimit = 10;
+          # theme = pkgs.fetchFromGitHub {
+          #   owner = "Lxtharia";
+          #   repo = "minegrub-theme";
+          #   rev = "193b3a7c3d432f8c6af10adfb465b781091f56b3";
+          #   sha256 = "1bvkfmjzbk7pfisvmyw5gjmcqj9dab7gwd5nmvi8gs4vk72bl2ap";
+          # };
         };
       };
+      lanzaboote = {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl";
+      };
     };
+    environment.systemPackages = [
+      pkgs.sbctl
+    ];
   };
 }
