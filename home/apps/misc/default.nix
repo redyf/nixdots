@@ -27,8 +27,8 @@
       wget
       parted
       mpv
-      unzip # Unzip files using the terminal
-      ffmpeg_6 # A complete, cross-platform solution to record, convert and stream audio and video
+      unzip
+      ffmpeg_6
       polkit_gnome
       yazi
     ];
