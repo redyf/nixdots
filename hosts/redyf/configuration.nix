@@ -12,6 +12,18 @@
     ../../modules
   ];
 
+  fileSystems."/mnt/windows" = {
+    device = "UUID=F0FEDBD0FEDB8D6A";
+    fsType = "ntfs";
+    options = [
+      "uid=1000"
+      "gid=100"
+      "umask=022"
+      "rw"
+      "nofail"
+    ];
+  };
+
   # Configure the user with specific groups
   myConfig = {
     users = {
@@ -109,6 +121,7 @@
   environment.systemPackages = with pkgs; [
     git
     docker-compose
+    ntfs3g
   ];
 
   system.stateVersion = "22.11"; # Don't change this
