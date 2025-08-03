@@ -10,7 +10,6 @@
   };
   config = lib.mkIf config.javascript.enable {
     home.packages = with pkgs; [
-      pnpm
       nodejs
       corepack
     ];

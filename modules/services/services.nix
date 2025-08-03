@@ -13,7 +13,7 @@ in
     # TODO: Split into multiple modules
     services = {
       fstrim.enable = true;
-      gnome.gnome-keyring.enable = true;
+      flatpak.enable = true;
       libinput = {
         enable = true;
         mouse = {

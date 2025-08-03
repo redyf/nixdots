@@ -25,6 +25,7 @@ in
         package = config.boot.kernelPackages.nvidiaPackages.beta;
       };
       graphics = {
+        enable = true;
         extraPackages = [ pkgs.nvidia-vaapi-driver ];
       };
     };

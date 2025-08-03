@@ -40,9 +40,6 @@ in
   config = lib.mkIf config.fzf.enable {
     programs.fzf = {
       enable = true;
-      tmux = {
-        enableShellIntegration = true;
-      };
       defaultOptions = [
         "--preview='bat --color=always {}'"
         "--multi"

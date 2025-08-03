@@ -26,6 +26,12 @@
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri.url = "github:sodiboo/niri-flake";
+    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
   };
 
   outputs =
@@ -78,42 +84,41 @@
               ;
             inherit username homeDirectory hostname;
           };
-          modules =
-            [
-              ./hosts/${username}/configuration.nix
-              { networking.hostName = hostname; }
-            ]
-            ++ (
-              if includeHomeManager then
-                [
-                  home-manager.nixosModules.home-manager
-                  {
-                    home-manager = {
-                      useUserPackages = true;
-                      useGlobalPkgs = false;
-                      extraSpecialArgs = {
-                        inherit
-                          inputs
-                          disko
-                          nixpkgs-stable
-                          ;
-                      };
-                      users."${username}" = import ./home/home.nix {
-                        inputs = inputs;
-                        pkgs = nixpkgsFor."${system}";
-                        inherit username homeDirectory;
-                      };
-                      backupFileExtension = "backup";
+          modules = [
+            ./hosts/${username}/configuration.nix
+            { networking.hostName = hostname; }
+          ]
+          ++ (
+            if includeHomeManager then
+              [
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useUserPackages = true;
+                    useGlobalPkgs = false;
+                    extraSpecialArgs = {
+                      inherit
+                        inputs
+                        disko
+                        nixpkgs-stable
+                        ;
                     };
-                  }
-                ]
-              else
-                [ ]
-            )
-            ++ [
-              stylix.nixosModules.stylix
-            ]
-            ++ modules;
+                    users."${username}" = import ./home/home.nix {
+                      inputs = inputs;
+                      pkgs = nixpkgsFor."${system}";
+                      inherit username homeDirectory;
+                    };
+                    backupFileExtension = "backup";
+                  };
+                }
+              ]
+            else
+              [ ]
+          )
+          ++ [
+            stylix.nixosModules.stylix
+          ]
+          ++ modules;
         };
 
       createHomeManagerConfiguration =
@@ -139,7 +144,8 @@
                 stateVersion = stateVersion;
               };
             }
-          ] ++ modules;
+          ]
+          ++ modules;
         };
     in
     {

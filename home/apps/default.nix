@@ -3,6 +3,7 @@
   imports = [
     ./artix-game-launcher
     ./discord
+    ./minecraft
     ./misc
     ./obs
     ./obsidian
@@ -16,6 +17,7 @@
   config = lib.mkIf config.apps.enable {
     artix-game-launcher.enable = lib.mkDefault true;
     discord.enable = lib.mkDefault true;
+    minecraft.enable = lib.mkDefault false;
     misc.enable = lib.mkDefault true;
     obs.enable = lib.mkDefault true;
     obsidian.enable = lib.mkDefault true;

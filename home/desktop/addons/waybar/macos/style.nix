@@ -7,7 +7,8 @@ _: ''
   }
 
   #waybar {
-      background-color: rgba(28, 28, 30, 0.50);
+      background-color: rgba(28, 28, 30, 0);
+      /* background-color: rgba(28, 28, 30, 0.50); */
       border-bottom: 1px solid #000000;
       padding: 4px 10px;
       margin: 5px;

@@ -20,8 +20,6 @@
       iconTheme = {
         name = "WhiteSur";
         package = pkgs.whitesur-icon-theme;
-        # name = "Papirus-Dark";
-        # package = pkgs.papirus-folders;
       };
       theme = {
         name = lib.mkDefault "WhiteSur";
@@ -31,17 +29,23 @@
 
     stylix = lib.mkIf (builtins.hasAttr "stylix" config) {
       targets = {
-        tmux.enable = false;
-        mako.enable = true;
-        vesktop.enable = false;
-        hyprland.enable = false;
-        waybar.enable = false;
         bat.enable = true;
-        starship.enable = false;
+        cava = {
+          enable = true;
+          rainbow.enable = true;
+        };
+        ghostty.enable = true;
+        hyprland.enable = true;
+        mako.enable = true;
         qt = {
           enable = true;
           platform = "qtct";
         };
+        starship.enable = true;
+        tmux.enable = false;
+        vesktop.enable = false;
+        waybar.enable = false;
+        wezterm.enable = true;
       };
     };
   };

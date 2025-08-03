@@ -9,11 +9,6 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
-    programs = {
-      ssh = {
-        startAgent = true;
-      };
-    };
     services = {
       openssh = {
         enable = true;

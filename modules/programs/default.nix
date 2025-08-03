@@ -16,6 +16,10 @@
       enable = lib.mkEnableOption "Enable NH";
     };
 
+    niri = {
+      enable = lib.mkEnableOption "Enable Niri";
+    };
+
     zsh = {
       enable = lib.mkEnableOption "Enable Zsh";
     };
@@ -23,8 +27,9 @@
 
   imports = [
     ./hyprland.nix
-    ./zsh.nix
     ./k3s.nix
     ./nh.nix
+    ./niri.nix
+    ./zsh.nix
   ];
 }

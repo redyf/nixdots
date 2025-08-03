@@ -13,12 +13,13 @@
       enable = true;
       clock24 = true;
       baseIndex = 1;
-      terminal = "xterm-256color";
+      terminal = "tmux-256color";
       escapeTime = 0;
       keyMode = "vi";
       prefix = "C-Space";
-      shell = "${pkgs.zsh}/bin/zsh";
       mouse = true;
+      newSession = true;
+      secureSocket = true;
       plugins =
         let
           tmuxPluginsList = with pkgs.tmuxPlugins; [
@@ -26,6 +27,10 @@
             sensible
             tmux-fzf
             vim-tmux-navigator
+            {
+              plugin = resurrect;
+              extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+            }
           ];
         in
         tmuxPluginsList;
@@ -108,7 +113,7 @@
         #--------------------------------------------------------------------------
         # Status Bar by conaN
         #--------------------------------------------------------------------------
-        set -g @terminal_background             "#232634"
+        set -g @terminal_background             "default" # Original: #232634
         set -g @terminal_foreground             "#c6d0f5"
 
         set -g @pane_active_border              "#838ba7"
@@ -211,7 +216,7 @@
         #[fg=#{@directory_icon_color},bg=#{@status_background}]#{@directory_icon}\
         #[fg=#{@status_foreground},bg=#{@status_background}]\
         \
-        #(echo #{pane_current_path} | sed 's|^$HOME|~|')\
+        #(if [ \"#{pane_current_path}\" = \"\$HOME\" ]; then echo \"~\"; else echo \"#{pane_current_path}\" | awk -F/ '{if(NF>2) print \$(NF-1)\"/\"\$NF; else print \$NF}'; fi)\
         \
         #[fg=#{@status_background},bg=#{@terminal_background}]#{@status_separator_right}"
 
@@ -254,6 +259,29 @@
             switch_to
         fi
       '')
+      (pkgs.writeShellScriptBin "tmux-init"
+        # bash
+        ''
+          if [ -z "$TMUX" ]; then
+            i=0
+            while true; do
+                session_name="base-$i"
+                if tmux has-session -t "$session_name" 2>/dev/null; then
+                    clients_count=$(tmux list-clients | grep $session_name | wc -l)
+                    if [ $clients_count -eq 0 ]; then
+                        tmux attach-session -t $session_name
+                        break
+                    fi
+                    ((i++))
+                else
+                    tmux new-session -d -s $session_name
+                    tmux attach-session -d -t $session_name
+                    break
+                fi
+            done
+          fi
+        ''
+      )
     ];
   };
 }

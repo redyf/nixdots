@@ -2,8 +2,9 @@
 {
   imports = [
     ./addons
-    ./theme
     ./hyprland
+    ./niri
+    ./theme
   ];
 
   options = {
@@ -11,7 +12,8 @@
   };
   config = lib.mkIf config.desktop.enable {
     addons.enable = lib.mkDefault true;
-    theme.enable = lib.mkDefault true;
     hyprland.enable = lib.mkDefault true;
+    niri.enable = lib.mkDefault true;
+    theme.enable = lib.mkDefault true;
   };
 }

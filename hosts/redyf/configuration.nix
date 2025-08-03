@@ -60,8 +60,9 @@
     programs = {
       enable = true;
       hyprland.enable = true;
-      k3s.enable = true;
+      k3s.enable = false;
       nh.enable = true;
+      niri.enable = true;
       zsh.enable = true;
     };
 
@@ -98,23 +99,6 @@
       docker.enable = true;
     };
   };
-
-  # users.users = {
-  #   ${username} = {
-  #     isNormalUser = true;
-  #     description = username;
-  #     initialPassword = "123456";
-  #     shell = pkgs.zsh;
-  #     extraGroups = [
-  #       "networkmanager"
-  #       "wheel"
-  #       "input"
-  #       "docker"
-  #       "kvm"
-  #       "libvirtd"
-  #     ];
-  #   };
-  # };
 
   nixpkgs.config.allowUnfree = true;
 

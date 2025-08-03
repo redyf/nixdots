@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -10,12 +11,14 @@
   };
   config = lib.mkIf config.misc.enable {
     home.packages = with pkgs; [
-      # Gaming
-      # prismlauncher
-
       # nyaa
+      ani-cli
+      anydesk
       awscli2
-      brave
+      cava
+      google-chrome
+      postman
+      beekeeper-studio
       xfce.thunar
       httpie
       ngrok

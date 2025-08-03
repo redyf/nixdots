@@ -32,8 +32,6 @@ in
         sandbox = "relaxed";
         trusted-users = [
           "${username}"
-          "mateus"
-          "sonja"
         ];
         substituters = [
           "https://hyprland.cachix.org"
@@ -60,7 +58,6 @@ in
           sshKey = "${homeDirectory}/.ssh/id_ed25519";
           systems = [ "aarch64-linux" ];
           protocol = "ssh-ng";
-          maxJobs = 1;
           speedFactor = 1;
           supportedFeatures = [
             "nixos-test"

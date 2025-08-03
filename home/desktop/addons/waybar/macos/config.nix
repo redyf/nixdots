@@ -86,12 +86,12 @@ in
       on-click = "yad --title='Help' --text-info --width=600 --height=400 --filename=<(man hyprland | col -bx)";
     };
 
-    "image#ethernetart" = {
-      path = "/home/redyf/.config/waybar/icons/wifi-white.png";
-      size = 13;
-      interval = 60;
-    };
+    # "image#ethernetart" = {
+    #   path = "/home/redyf/.config/waybar/icons/wifi-white.png";
+    #   size = 13;
+    #   interval = 60;
+    # };
   };
 
-  home.file.".config/waybar/icons/wifi-white.png".source = ./wifi-white.png;
+  # home.file.".config/waybar/icons/wifi-white.png".source = ./wifi-white.png;
 }

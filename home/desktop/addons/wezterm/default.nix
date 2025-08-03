@@ -13,12 +13,13 @@
       extraConfig = ''
         return {
           cursor_blink_rate = 0,
-          font = wezterm.font("TX-02", { weight = "Regular", italic = false}),
+          -- font = wezterm.font("TX-02", { weight = "Regular", italic = false}),
+          font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium", italic = false}),
           font_size = 16.0,
           hide_tab_bar_if_only_one_tab = true,
           max_fps = 120,
           webgpu_power_preference = "HighPerformance",
-          window_background_opacity = 0.8,
+          window_background_opacity = 1,
           warn_about_missing_glyphs = false,
         }
       '';

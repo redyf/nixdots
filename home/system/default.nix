@@ -2,11 +2,12 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./nix
     ./fonts
-    ./shell
+    ./shells
   ];
 
   options = {
@@ -15,6 +16,6 @@
   config = lib.mkIf config.system.enable {
     nixy.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
-    shell.enable = lib.mkDefault true;
+    shells.enable = lib.mkDefault true;
   };
 }

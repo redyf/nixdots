@@ -11,12 +11,12 @@ $python\
 $character"""
 
 [directory]
-style = "blue"
+style = "cyan"
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+vimcmd_symbol = "[➜](bold purple)"
 
 [git_branch]
 format = "[$branch]($style)"
