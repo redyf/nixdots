@@ -37,8 +37,6 @@ in
         $scripts/launch_waybar &
         $scripts/tools/dynamic &
 
-        quickshell
-
         # Wallpaper
         swww kill
         swww-daemon
@@ -52,7 +50,7 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = pkgs.hyprland; # hyprlandFlake or pkgs.hyprland
+      package = hyprlandFlake; # hyprlandFlake or pkgs.hyprland
       systemd.variables = [ "--all" ];
       xwayland = {
         enable = true;
@@ -80,12 +78,13 @@ in
           kb_rules = "";
 
           follow_mouse = 1;
+          mouse_refocus = false;
           repeat_delay = 140;
           repeat_rate = 30;
           numlock_by_default = 1;
           accel_profile = "flat";
-          sensitivity = 0;
-          force_no_accel = 1;
+          sensitivity = -0.6;
+          force_no_accel = false;
           touchpad = {
             natural_scroll = 1;
           };
@@ -99,7 +98,7 @@ in
         general = {
           gaps_in = 2;
           gaps_out = 0;
-          border_size = 1;
+          border_size = 0;
           layout = "dwindle";
         };
 
@@ -112,7 +111,7 @@ in
             render_power = 3;
           };
           blur = {
-            enabled = false;
+            enabled = true;
             size = 4;
             passes = 2;
             new_optimizations = true;
@@ -259,6 +258,7 @@ in
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
           "SUPER,o,exec,obsidian"
+          "SUPER,i,exec,idea-ultimate"
           "SUPER SHIFT,C,exec,wallpaper"
           "SUPER,z,exec,waybar"
           "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"

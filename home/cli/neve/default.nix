@@ -8,7 +8,7 @@
 {
   imports = [
     # For home-manager
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
   options = {
     neve.enable = lib.mkEnableOption "Enable neve module";

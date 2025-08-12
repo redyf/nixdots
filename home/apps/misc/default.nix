@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -12,6 +11,7 @@
   config = lib.mkIf config.misc.enable {
     home.packages = with pkgs; [
       # nyaa
+      jetbrains.idea-ultimate
       ani-cli
       anydesk
       awscli2

@@ -1,0 +1,28 @@
+{
+  "isDarkTheme": true,
+  "currentTheme": "oxocarbon_dark",
+  "useCustomAccent": false,
+  "avatarSource": "https://cdn.discordapp.com/avatars/158005126638993408/de403b05fd7f74bb17e01a9b066a30fa?size=64",
+  "weatherLocation": "Dinslaken",
+  "useFahrenheit": false,
+  "displayTime": 6000,
+  "videoPath": "~/Videos/",
+  "wallpaperDirectory": "/home/redyf/wallpapers/",
+  "lastWallpaperPath": "",
+  "customDarkAccent": "#be95ff",
+  "customLightAccent": "#8a3ffc",
+  "autoSwitchPlayer": true,
+  "alwaysShowPlayerDropdown": true,
+  "historyLimit": 25,
+  "nightLightEnabled": false,
+  "nightLightWarmth": 0.4,
+  "nightLightAuto": false,
+  "nightLightStartHour": 20,
+  "nightLightEndHour": 6,
+  "nightLightManualOverride": false,
+  "nightLightManuallyEnabled": false,
+  "ignoredApps": [],
+  "workspaceBurstEnabled": true,
+  "workspaceGlowEnabled": true
+}
+

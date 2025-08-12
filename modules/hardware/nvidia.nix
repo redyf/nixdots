@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   lib,
   pkgs,
@@ -18,7 +17,7 @@ in
     };
     hardware = {
       nvidia = {
-        open = true;
+        open = false;
         nvidiaSettings = true;
         powerManagement.enable = true;
         modesetting.enable = true;

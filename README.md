@@ -31,30 +31,21 @@
  -----------------------------------
  ╭─ Distro  -> NixOS
  ├─ Editor  -> Neovim
- ├─ Browser -> Firefox
- ├─ Shell   -> ZSH
+ ├─ Browser -> Zen
+ ├─ Shell   -> Zsh
  ╰─ Resource Monitor -> Btop
  ╭─ Model -> DELL XPS 8940
  ├─ CPU   -> Intel i5-10400f @ 4.3GHz
  ├─ GPU   -> NVIDIA GeForce GTX 1650 SUPER
  ╰─ Resolution -> 1920x1080@165hz
  ╭─ WM       -> Hyprland
- ├─ Terminal -> Kitty
- ├─ Theme    -> Oxocarbon
+ ├─ Terminal -> Ghostty
+ ├─ Theme    -> Tokyonight
  ├─ Icons    -> Papirus-Dark
- ├─ Font     -> SFMono Ligaturized
+ ├─ Font     -> TX-02
  ╰─ Hotel    -> Trivago
                         
 ```
-
-<hr>
-
-<div align="center">
-
-![rice showcase](./assets/showcase.png)
-![rice showcase2](./assets/showcaseoxocarbon.png)
-
-</div>
 
 <hr>
 

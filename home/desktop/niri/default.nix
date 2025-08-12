@@ -67,22 +67,6 @@
           {
             matches = [
               {
-                namespace = "^quickshell-wallpaper$";
-              }
-            ];
-            #place-within-backdrop = true;
-          }
-          {
-            matches = [
-              {
-                namespace = "^quickshell-overview$";
-              }
-            ];
-            place-within-backdrop = true;
-          }
-          {
-            matches = [
-              {
                 namespace = "^swww-daemon$";
               }
             ];

@@ -13,7 +13,7 @@
     home = {
       packages = with pkgs; [
         nerd-fonts.jetbrains-mono
-        inputs.font-flake.packages.${system}.berkeley
+        inputs.font-flake.packages.${system}.tx02
       ];
     };
   };
