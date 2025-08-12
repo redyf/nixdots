@@ -9,6 +9,7 @@
     misc.enable = lib.mkEnableOption "Enable misc module";
   };
   config = lib.mkIf config.misc.enable {
+    # TODO: Break this into multiple modules
     home.packages = with pkgs; [
       # nyaa
       jetbrains.idea-ultimate
@@ -23,15 +24,11 @@
       httpie
       ngrok
       qbittorrent
-      playerctl
-      pavucontrol
       zathura
       appimage-run
       wget
       parted
-      mpv
       unzip
-      ffmpeg_6
       polkit_gnome
       yazi
     ];

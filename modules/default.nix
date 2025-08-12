@@ -4,6 +4,12 @@
   options.myConfig.modules = {
     enable = lib.mkEnableOption "Enable modules configuration";
 
+    desktop = {
+      enable = lib.mkEnableOption "Enable desktop module";
+    };
+    development = {
+      enable = lib.mkEnableOption "Enable development module";
+    };
     gaming = {
       enable = lib.mkEnableOption "Enable Steam gaming platform";
     };
@@ -33,6 +39,8 @@
     };
   };
   imports = [
+    ./desktop
+    ./development
     ./gaming
     ./hardware
     ./nix

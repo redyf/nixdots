@@ -42,6 +42,18 @@
       };
     };
 
+    desktop = {
+      enable = true;
+      hyprland.enable = true;
+      niri.enable = true;
+      xserver.enable = true;
+    };
+
+    development = {
+      enable = false;
+      k3s.enable = true;
+    };
+
     gaming = {
       enable = true;
       steam.enable = true;
@@ -59,17 +71,13 @@
 
     programs = {
       enable = true;
-      hyprland.enable = true;
-      k3s.enable = false;
       nh.enable = true;
-      niri.enable = true;
       zsh.enable = true;
     };
 
     services = {
       enable = true;
       services.enable = true;
-      xserver.enable = true;
     };
 
     system = {

@@ -7,10 +7,10 @@
 }:
 
 let
-  cfg = config.myConfig.programs.niri;
+  cfg = config.myConfig.desktop.niri;
 in
 {
-  config = lib.mkIf (config.myConfig.programs.enable && cfg.enable) {
+  config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
     nixpkgs.overlays = [ inputs.niri.overlays.niri ];
     programs.niri = {
       enable = true;

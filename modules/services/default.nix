@@ -7,14 +7,9 @@
     services = {
       enable = lib.mkEnableOption "Enable services ";
     };
-
-    xserver = {
-      enable = lib.mkEnableOption "Enable services ";
-    };
   };
 
   imports = [
     ./services.nix
-    ./xserver.nix
   ];
 }

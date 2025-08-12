@@ -5,10 +5,10 @@
 }:
 
 let
-  cfg = config.myConfig.services.xserver;
+  cfg = config.myConfig.desktop.xserver;
 in
 {
-  config = lib.mkIf (config.myConfig.services.enable && cfg.enable) {
+  config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
     services = {
       xserver = {
         enable = true;

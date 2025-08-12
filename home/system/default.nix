@@ -7,7 +7,6 @@
   imports = [
     ./nix
     ./fonts
-    ./shells
   ];
 
   options = {
@@ -16,6 +15,5 @@
   config = lib.mkIf config.system.enable {
     nixy.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
-    shells.enable = lib.mkDefault true;
   };
 }

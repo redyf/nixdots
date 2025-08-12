@@ -6,7 +6,7 @@
 {
   imports = [
     ./nushell
-    ./shell
+    ./scripts
     ./zsh
   ];
   options = {
@@ -14,7 +14,7 @@
   };
   config = lib.mkIf config.shells.enable {
     nushell.enable = lib.mkDefault false;
-    shell.enable = lib.mkDefault true;
+    scripts.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
   };
 }

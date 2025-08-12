@@ -6,9 +6,9 @@
 }:
 {
   options = {
-    nvim.enable = lib.mkEnableOption "Enable neovim module";
+    neovim.enable = lib.mkEnableOption "Enable neovim module";
   };
-  config = lib.mkIf config.nvim.enable {
+  config = lib.mkIf config.neovim.enable {
     home = {
       packages = with pkgs; [
         neovim

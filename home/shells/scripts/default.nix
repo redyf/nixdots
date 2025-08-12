@@ -6,9 +6,9 @@
 }:
 {
   options = {
-    shell.enable = lib.mkEnableOption "Enable Shell module";
+    scripts.enable = lib.mkEnableOption "Enable scripts module";
   };
-  config = lib.mkIf config.shell.enable {
+  config = lib.mkIf config.scripts.enable {
     home = {
       sessionVariables = {
         MANPAGER = "sh -c 'col -bx | bat -l man -p'";
