@@ -42,6 +42,12 @@
       };
     };
 
+    cli = {
+      enable = true;
+      nh.enable = true;
+      zsh.enable = true;
+    };
+
     desktop = {
       enable = true;
       hyprland.enable = true;
@@ -67,12 +73,6 @@
     nix = {
       enable = true;
       nix.enable = true;
-    };
-
-    programs = {
-      enable = true;
-      nh.enable = true;
-      zsh.enable = true;
     };
 
     services = {

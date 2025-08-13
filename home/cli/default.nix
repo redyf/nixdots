@@ -7,7 +7,7 @@
   imports = [
     ./neovim
     ./neve
-    ./utils
+    ./tools
   ];
 
   options = {
@@ -16,6 +16,6 @@
   config = lib.mkIf config.cli.enable {
     neovim.enable = lib.mkDefault true;
     neve.enable = lib.mkDefault false;
-    utils.enable = lib.mkDefault true;
+    tools.enable = lib.mkDefault true;
   };
 }

@@ -4,6 +4,9 @@
   options.myConfig.modules = {
     enable = lib.mkEnableOption "Enable modules configuration";
 
+    cli = {
+      enable = lib.mkEnableOption "Enable cli module";
+    };
     desktop = {
       enable = lib.mkEnableOption "Enable desktop module";
     };
@@ -18,9 +21,6 @@
     };
     nix = {
       enable = lib.mkEnableOption "Enable nix module";
-    };
-    programs = {
-      enable = lib.mkEnableOption "Enable programs module";
     };
     services = {
       enable = lib.mkEnableOption "Enable services module";
@@ -39,12 +39,12 @@
     };
   };
   imports = [
+    ./cli
     ./desktop
     ./development
     ./gaming
     ./hardware
     ./nix
-    ./programs
     ./services
     ./themes
     ./system

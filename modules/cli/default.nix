@@ -1,8 +1,8 @@
 { lib, ... }:
 
 {
-  options.myConfig.programs = {
-    enable = lib.mkEnableOption "Enable programs configuration";
+  options.myConfig.cli = {
+    enable = lib.mkEnableOption "Enable cli configuration";
 
     nh = {
       enable = lib.mkEnableOption "Enable NH";

@@ -24,7 +24,6 @@
     ./desktop
     ./shells
     ./system
-    ./tools
   ];
 
   apps.enable = true;
@@ -32,7 +31,6 @@
   desktop.enable = true;
   shells.enable = true;
   system.enable = true;
-  tools.enable = true;
 
   nixpkgs = {
     config = {

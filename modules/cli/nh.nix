@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.myConfig.programs.nh;
+  cfg = config.myConfig.cli.nh;
 in
 {
-  config = lib.mkIf (config.myConfig.programs.enable && cfg.enable) {
+  config = lib.mkIf (config.myConfig.cli.enable && cfg.enable) {
     programs.nh = {
       enable = true;
       clean = {
