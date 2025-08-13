@@ -50,7 +50,7 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = hyprlandFlake; # hyprlandFlake or pkgs.hyprland
+      package = pkgs.hyprland;
       systemd.variables = [ "--all" ];
       xwayland = {
         enable = true;
