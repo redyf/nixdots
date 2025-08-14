@@ -5,15 +5,17 @@
 }:
 {
   imports = [
-    ./nix
     ./fonts
+    ./nix
+    ./utils
   ];
 
   options = {
     system.enable = lib.mkEnableOption "Enable system module";
   };
   config = lib.mkIf config.system.enable {
-    nixy.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
+    nixy.enable = lib.mkDefault true;
+    utils.enable = lib.mkDefault true;
   };
 }

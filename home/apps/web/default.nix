@@ -1,15 +1,19 @@
-{ lib, config, ... }:
 {
-  imports = [
-    ./discord
-    ./zen
-  ];
-
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   options = {
     web.enable = lib.mkEnableOption "Enable web module";
   };
   config = lib.mkIf config.web.enable {
-    discord.enable = lib.mkDefault true;
-    zen.enable = lib.mkDefault true;
+    home.packages = with pkgs; [
+      anydesk
+      ani-cli
+      discord
+      # nyaa
+    ];
   };
 }
