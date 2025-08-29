@@ -49,6 +49,14 @@
 
 <hr>
 
+<details>
+<summary>Minimal Desktop</summary>
+
+![wallpaper](screenshots/screenshot.png)
+![terminal](screenshots/screenshot2.png)
+
+</details>
+
 ## Commands you should know:
 
 - Rebuild and switch to change the system configuration (in the configuration directory):
