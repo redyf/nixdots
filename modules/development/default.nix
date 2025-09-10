@@ -7,9 +7,14 @@
     k3s = {
       enable = lib.mkEnableOption "Enable K3s";
     };
+
+    k8s = {
+      enable = lib.mkEnableOption "Enable K8s";
+    };
   };
 
   imports = [
     ./k3s.nix
+    ./k8s.nix
   ];
 }

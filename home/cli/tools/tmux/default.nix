@@ -35,6 +35,7 @@
         in
         tmuxPluginsList;
       extraConfig = ''
+        set -ag terminal-overrides ",xterm-256color:RGB"
         #--------------------------------------------------------------------------
         # Keybinds
         #--------------------------------------------------------------------------
@@ -47,20 +48,16 @@
         bind % split-window -h -c "#{pane_current_path}"
 
         # Copy mode
-        bind-key -T copy-mode-vi v send-keys -X begin-selection
-        bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-        bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+        bind -T copy-mode-vi v send-keys -X begin-selection
+        bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
+        bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-        # Navigate panes like in neovim
-        # bind -r h select-pane -L
-        # bind -r j select-pane -D
-        # bind -r k select-pane -U
-        # bind -r l select-pane -R
+        # Tmux popups
+        bind -n C-p display-popup -w 90 -h 30 -E "zsh"
 
-        # Unbind p from previous-window
         unbind p
+        unbind r
 
-        # make Prefix p paste the buffer.
         bind p paste-buffer
 
         # Don't exit from tmux when closing a session

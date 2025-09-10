@@ -11,7 +11,6 @@ $python\
 $character"""
 
 [directory]
-style = "cyan"
 
 [character]
 success_symbol = "[➜](bold green)"
@@ -20,11 +19,9 @@ vimcmd_symbol = "[➜](bold purple)"
 
 [git_branch]
 format = "[$branch]($style)"
-style = "bright-black"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -35,12 +32,9 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "yellow"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"

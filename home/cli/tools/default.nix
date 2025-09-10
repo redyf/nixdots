@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    ./agents
     ./bat
     ./direnv
     ./eza
@@ -24,6 +25,7 @@
     tools.enable = lib.mkEnableOption "Enable CLI tools module";
   };
   config = lib.mkIf config.tools.enable {
+    agents.enable = lib.mkDefault true;
     bat.enable = lib.mkDefault true;
     direnv.enable = lib.mkDefault true;
     eza.enable = lib.mkDefault true;

@@ -16,7 +16,7 @@
     programs = {
       nushell = {
         enable = true;
-        environmentVariables.TERMINAL = "wezterm";
+        environmentVariables.TERMINAL = "ghostty";
         extraConfig = ''
           let dark_theme = {
               separator: white

@@ -7,8 +7,13 @@
     docker = {
       enable = lib.mkEnableOption "Enable Docker";
     };
+
+    virtualbox = {
+      enable = lib.mkEnableOption "Enable VirtualBox";
+    };
   };
   imports = [
     ./docker.nix
+    ./virtualbox.nix
   ];
 }

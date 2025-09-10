@@ -72,28 +72,31 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    users.users.${cfg.username} = {
-      isNormalUser = cfg.isNormalUser;
-      description = if cfg.description != "" then cfg.description else cfg.username;
-      initialPassword = cfg.initialPassword;
-      shell = cfg.shell;
-      extraGroups =
-        cfg.groups.base
-        ++ (lib.optionals cfg.groups.development [
-          "dialout"
-          "plugdev"
-        ])
-        ++ (lib.optionals cfg.groups.virtualisation [
-          "docker"
-          "kvm"
-          "libvirtd"
-        ])
-        ++ (lib.optionals cfg.groups.media [
-          "audio"
-          "video"
-        ])
-        ++ (lib.optionals cfg.groups.input [ "input" ])
-        ++ cfg.groups.additional;
+    users = {
+      extraGroups.xboxusers.members = [ "redyf" ];
+      users.${cfg.username} = {
+        isNormalUser = cfg.isNormalUser;
+        description = if cfg.description != "" then cfg.description else cfg.username;
+        initialPassword = cfg.initialPassword;
+        shell = cfg.shell;
+        extraGroups =
+          cfg.groups.base
+          ++ (lib.optionals cfg.groups.development [
+            "dialout"
+            "plugdev"
+          ])
+          ++ (lib.optionals cfg.groups.virtualisation [
+            "docker"
+            # "kvm"
+            # "libvirtd"
+          ])
+          ++ (lib.optionals cfg.groups.media [
+            "audio"
+            "video"
+          ])
+          ++ (lib.optionals cfg.groups.input [ "input" ])
+          ++ cfg.groups.additional;
+      };
     };
   };
 }

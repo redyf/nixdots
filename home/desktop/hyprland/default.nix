@@ -39,12 +39,8 @@ in
 
         # Wallpaper
         swww kill
-        swww-daemon
+        swww-daemon &
         swww restore
-
-        # Others
-        # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-        # dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
       '')
     ];
 
@@ -58,12 +54,18 @@ in
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
-          "DP-3,1920x1080@165,0x0,1"
-          # "Unknown-1,disable"
-          # ",highrr,auto,auto"
+          "DP-3,1920x1080@180,0x0,1" # AOC horizontal on the left
+          "HDMI-A-3,1920x1080@144,1920x0,1,transform,1" # ASUS vertical on the right
         ];
+
+        workspace = [
+          "1, monitor:DP-3" # Workspace 1 on AOC (left)
+          "2, monitor:HDMI-A-3" # Workspace 2 on ASUS vertical (right)
+        ];
+
         env = [
           "ELECTRON_OZONE_PLATFORM_HINT,auto"
+          "HYPRLAND_INSTANCE_SIGNATURE,auto"
         ];
 
         xwayland = {
@@ -83,7 +85,7 @@ in
           repeat_rate = 30;
           numlock_by_default = 1;
           accel_profile = "flat";
-          sensitivity = -0.6;
+          sensitivity = -0.4;
           force_no_accel = false;
           touchpad = {
             natural_scroll = 1;
@@ -98,7 +100,7 @@ in
         general = {
           gaps_in = 2;
           gaps_out = 0;
-          border_size = 0;
+          border_size = 2;
           layout = "dwindle";
         };
 
@@ -108,7 +110,7 @@ in
             enabled = false;
             ignore_window = true;
             range = 20;
-            render_power = 3;
+            render_power = 1;
           };
           blur = {
             enabled = true;
@@ -125,23 +127,6 @@ in
 
         animations = {
           enabled = true;
-          # Original
-          # bezier = [
-          #   "pace,0.46, 1, 0.29, 0.99"
-          #   "overshot,0.13,0.99,0.29,1.1"
-          #   "md3_decel, 0.05, 0.7, 0.1, 1"
-          # ];
-          # animation = [
-          #   "windowsIn,1,6,md3_decel,slide"
-          #   "windowsOut,1,6,md3_decel,slide"
-          #   "windowsMove,1,6,md3_decel,slide"
-          #   "fade,1,10,md3_decel"
-          #   "workspaces,1,9,md3_decel,slide"
-          #   "workspaces, 1, 6, default"
-          #   "specialWorkspace,1,8,md3_decel,slide"
-          #   "border,1,10,md3_decel"
-          # ];
-          # Jonkero's
           animation = [
             "global, 1, 10, default"
             "border, 1, 5.39, easeOutQuint"
@@ -202,7 +187,9 @@ in
 
         exec-once = [
           "autostart"
-          "obsidian"
+          "[workspace 1 silent] zen-twilight"
+          "[workspace 2 silent] discord"
+          "[workspace 3 silent] obsidian"
         ];
 
         bind = [
@@ -257,6 +244,7 @@ in
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
+          "CTRL,Print,exec,grim -o DP-1 ~/Pictures/screenshot.png"
           "SUPER,o,exec,obsidian"
           "SUPER,i,exec,idea-ultimate"
           "SUPER SHIFT,C,exec,wallpaper"
@@ -284,6 +272,8 @@ in
           "float,title:^(Confirm to replace files)$"
           "float,title:^(File Operation Progress)$"
           "float,title:^(mpv)$"
+          "workspace 2, class:^(discord)$"
+          "workspace 2, class:^(Discord)$"
           "opacity 1.0 1.0,class:^(wofi)$"
         ];
 

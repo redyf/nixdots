@@ -6,6 +6,7 @@
     ./lua
     ./python
     ./rust
+    ./yaml
   ];
   options = {
     languages.enable = lib.mkEnableOption "Enable programming languages module";
@@ -16,5 +17,6 @@
     lua.enable = lib.mkDefault true;
     python.enable = lib.mkDefault true;
     rust.enable = lib.mkDefault true;
+    yaml.enable = lib.mkDefault true;
   };
 }

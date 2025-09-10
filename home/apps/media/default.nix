@@ -23,7 +23,6 @@
       pavucontrol
       mpv
       ffmpeg_6
-      cava
       blender
       zathura
       qbittorrent

@@ -33,10 +33,8 @@ in
         monospace =
           if hasFontRepoAccess then
             {
-              # package = inputs.font-flake.packages.${pkgs.system}.berkeley;
-              # name = "TX-02";
-              package = pkgs.maple-mono.NF;
-              name = "Maple Mono Nerd Font";
+              package = inputs.font-flake.packages.${pkgs.system}.cartograph;
+              name = "Cartograph CF Italic";
             }
           else
             {
@@ -70,6 +68,7 @@ in
         gnome.enable = false;
         gtk.enable = true;
         nixos-icons.enable = true;
+        qt.enable = true;
       };
     };
   };

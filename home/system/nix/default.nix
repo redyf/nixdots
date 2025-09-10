@@ -15,9 +15,7 @@
         statix
         nixfmt-rfc-style
         nix-init
-        nix-update
         nixpkgs-review
-        cachix
       ];
     };
   };

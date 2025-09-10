@@ -11,11 +11,9 @@
   config = lib.mkIf config.utils.enable {
     home = {
       packages = with pkgs; [
-        wget
         parted
         unzip
         polkit_gnome
-        appimage-run
       ];
     };
   };

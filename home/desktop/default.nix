@@ -2,6 +2,7 @@
 {
   imports = [
     ./ghostty
+    ./gnome
     ./hyprland
     ./niri
     ./swww
@@ -16,8 +17,9 @@
   };
   config = lib.mkIf config.desktop.enable {
     ghostty.enable = lib.mkDefault true;
+    gnome.enable = lib.mkDefault false;
     hyprland.enable = lib.mkDefault true;
-    niri.enable = lib.mkDefault true;
+    niri.enable = lib.mkDefault false;
     swww.enable = lib.mkDefault true;
     theme.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;

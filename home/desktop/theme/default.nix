@@ -34,18 +34,19 @@
           enable = true;
           rainbow.enable = true;
         };
-        ghostty.enable = true;
+        fzf.enable = true;
+        ghostty.enable = false;
         hyprland.enable = true;
         mako.enable = true;
+        gnome.enable = false;
         qt = {
           enable = true;
-          platform = "qtct";
         };
         starship.enable = true;
         tmux.enable = false;
         vesktop.enable = false;
         waybar.enable = false;
-        wezterm.enable = true;
+        wezterm.enable = false;
       };
     };
   };

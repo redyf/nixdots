@@ -13,7 +13,7 @@ in
       xserver = {
         enable = true;
         windowManager = {
-          awesome.enable = true;
+          awesome.enable = false;
         };
         displayManager = {
           sessionCommands = ''

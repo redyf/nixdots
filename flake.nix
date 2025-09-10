@@ -23,11 +23,12 @@
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
-      # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri.url = "github:sodiboo/niri-flake";
     xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
+    nix-topology.url = "github:oddlama/nix-topology";
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs =
@@ -40,6 +41,7 @@
       disko,
       stylix,
       lanzaboote,
+      nix-topology,
       ...
     }@inputs:
     let
@@ -55,7 +57,13 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
       # Nixpkgs instantiated for supported system types.
-      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
+      nixpkgsFor = forAllSystems (
+        system:
+        import nixpkgs {
+          inherit system;
+          overlays = [ nix-topology.overlays.default ];
+        }
+      );
 
       # Stable Nixpkgs instantiated for supported system types.
       nixpkgsStableFor = forAllSystems (system: import nixpkgs-stable { inherit system; });
@@ -77,6 +85,7 @@
               inputs
               hyprland
               disko
+              nix-topology
               ;
             inherit username homeDirectory hostname;
           };
@@ -155,6 +164,7 @@
             disko.nixosModules.disko
             hyprland.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
+            nix-topology.nixosModules.default
           ];
         };
       };
@@ -167,6 +177,19 @@
           stateVersion = "22.11";
           modules = [ ];
         };
+      };
+
+      topology.x86_64-linux = import nix-topology {
+        pkgs = nixpkgsFor.x86_64-linux;
+        modules = [
+          # Use o arquivo simples primeiro
+          ./topology-example.nix
+
+          # Informações das suas configurações NixOS existentes
+          {
+            inherit (self) nixosConfigurations;
+          }
+        ];
       };
 
       devShells = forAllSystems (

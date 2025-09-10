@@ -17,7 +17,7 @@
     nixpkgs.overlays = [ inputs.niri.overlays.niri ];
     home.packages = [ pkgs.xwayland-satellite-unstable ];
     programs.niri = {
-      enable = true;
+      enable = false;
       package = pkgs.niri-unstable;
       settings = {
         xwayland-satellite = {
@@ -28,13 +28,37 @@
             mode = {
               width = 1920;
               height = 1080;
-              refresh = 164.917;
+              refresh = 180.003;
             };
             scale = 1.0;
+            variable-refresh-rate = true;
             position = {
               x = 0;
               y = 0;
             };
+          };
+          "HDMI-A-3" = {
+            mode = {
+              width = 1920;
+              height = 1080;
+              refresh = 143.999;
+            };
+            scale = 1.0;
+            transform.rotation = 90;
+            variable-refresh-rate = true;
+            position = {
+              x = 1920;
+              y = 0;
+            };
+          };
+        };
+
+        workspaces = {
+          "1" = {
+            open-on-output = "DP-3";
+          };
+          "2" = {
+            open-on-output = "HDMI-A-3";
           };
         };
 
@@ -42,6 +66,7 @@
           DISPLAY = ":0";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
         };
+
         input = {
           keyboard = {
             repeat-delay = 140;
@@ -57,22 +82,15 @@
             natural-scroll = false;
           };
 
+          focus-follows-mouse.enable = true;
+
           mouse = {
             accel-profile = "flat";
             natural-scroll = false;
+            accel-speed = -0.4;
           };
         };
         hotkey-overlay.skip-at-startup = false;
-        layer-rules = [
-          {
-            matches = [
-              {
-                namespace = "^swww-daemon$";
-              }
-            ];
-            place-within-backdrop = true;
-          }
-        ];
         window-rules = [
           {
             geometry-corner-radius =
@@ -87,6 +105,16 @@
               };
             clip-to-geometry = true;
             draw-border-with-background = false;
+          }
+          {
+            matches = [ { app-id = "^discord$"; } ];
+            default-column-width = { };
+            open-on-workspace = "2";
+          }
+          {
+            matches = [ { app-id = "^obsidian$"; } ];
+            default-column-width = { };
+            open-on-workspace = "3";
           }
         ];
         prefer-no-csd = true;
@@ -192,33 +220,34 @@
           "Mod+K".action.focus-window-up = { };
           "Mod+L".action.focus-column-right = { };
 
-          "Mod+V".action.toggle-overview = { };
-
           "Mod+Shift+H".action.move-column-left = { };
           "Mod+Shift+J".action.move-window-down = { };
           "Mod+Shift+K".action.move-window-up = { };
           "Mod+Shift+L".action.move-column-right = { };
 
-          # "Mod+N".action.focus-monitor-left = { };
-          # "Mod+M".action.focus-monitor-right = { };
-
-          "Mod+M".action.quit = { };
-
+          "Mod+N".action.focus-monitor-left = { };
+          "Mod+M".action.focus-monitor-right = { };
           "Mod+Shift+N".action.move-column-to-monitor-left = { };
           "Mod+Shift+M".action.move-column-to-monitor-right = { };
 
-          "Mod+Q".action.close-window = { };
+          "Mod+Shift+E".action.quit = { };
+
+          "Mod+V".action.toggle-overview = { };
 
           "Mod+R".action.switch-preset-column-width = { };
           "Mod+Shift+R".action.switch-preset-column-width = { };
+
+          "Mod+Q".action.close-window = { };
 
           "Mod+F".action.maximize-column = { };
           "Mod+Shift+F".action.fullscreen-window = { };
 
           "Mod+C".action.center-column = { };
 
-          "Mod+Minus".action.set-column-width = "-10%";
-          "Mod+Equal".action.set-column-width = "+10%";
+          "Mod+Minus".action.set-column-width = "-10%"; # Diminui
+          "Mod+Equal".action.set-column-width = "+10%"; # Aumenta
+          "Mod+Shift+Minus".action.set-window-height = "-10%"; # Diminui altura
+          "Mod+Shift+Equal".action.set-window-height = "+10%"; # Aumenta altura
         };
       };
     };

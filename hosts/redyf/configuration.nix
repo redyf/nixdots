@@ -44,20 +44,23 @@
 
     cli = {
       enable = true;
+      appimage.enable = true;
       nh.enable = true;
       zsh.enable = true;
     };
 
     desktop = {
       enable = true;
+      gnome.enable = false;
       hyprland.enable = true;
-      niri.enable = true;
+      niri.enable = false;
       xserver.enable = true;
     };
 
     development = {
-      enable = false;
-      k3s.enable = true;
+      enable = true;
+      k3s.enable = false;
+      k8s.enable = true;
     };
 
     gaming = {
@@ -105,6 +108,7 @@
     virtualization = {
       enable = true;
       docker.enable = true;
+      virtualbox.enable = true;
     };
   };
 

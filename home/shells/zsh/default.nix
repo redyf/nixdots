@@ -26,14 +26,6 @@
           tmux-init
           export PATH=$PATH:~/.local/bin/
           export PATH=/tmp/lazy-lvim/bin:$PATH
-          export PATH="$PATH:/home/redyf/.emacs.d/bin"
-          export PATH="$PATH:/home/redyf/.config/emacs/bin"
-          export PATH="$PATH:/run/current-system/sw/bin/jdtls"
-          export PATH="$PATH:/run/current-system/sw/bin/jdt-language-server"
-          export PATH="$PATH:/etc/profiles/per-user/redyf/bin/flutter"
-          export PATH="$PATH:/home/redyf/Android/Sdk"
-          export PATH="$PATH:/home/redyf/Android/Sdk/platform-tools/"
-          export PATH="$PATH:/home/redyf/Android/Sdk/cmdline-tools/latest/bin"
 
           # Autosuggest
           ZSH_AUTOSUGGEST_USE_ASYNC="true"
@@ -159,6 +151,8 @@
           kc = "kubectx";
           kns = "kubens";
           ke = "kubectl exec -it";
+
+          cursor = "steam-run cursor-agent";
         };
 
         oh-my-zsh = {
@@ -173,33 +167,18 @@
           ];
         };
 
-        plugins =
-          let
-            themepkg = pkgs.fetchFromGitHub {
-              owner = "catppuccin";
-              repo = "zsh-syntax-highlighting";
-              rev = "7926c3d3e17d26b3779851a2255b95ee650bd928";
-              hash = "sha256-l6tztApzYpQ2/CiKuLBf8vI2imM6vPJuFdNDSEi7T/o=";
-            };
-          in
-          with pkgs;
-          [
-            {
-              name = "zsh-autopair";
-              file = "zsh-autopair.plugin.zsh";
-              src = zsh-autopair;
-            }
-            {
-              name = "fzf-tab";
-              file = "fzf-tab.plugin.zsh";
-              src = zsh-fzf-tab;
-            }
-            {
-              name = "ctp-zsh-syntax-highlighting";
-              src = themepkg;
-              file = themepkg + "/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh";
-            }
-          ];
+        plugins = with pkgs; [
+          {
+            name = "zsh-autopair";
+            file = "zsh-autopair.plugin.zsh";
+            src = zsh-autopair;
+          }
+          {
+            name = "fzf-tab";
+            file = "fzf-tab.plugin.zsh";
+            src = zsh-fzf-tab;
+          }
+        ];
       };
     };
   };

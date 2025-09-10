@@ -13,7 +13,7 @@ in
     # TODO: Split into multiple modules
     services = {
       fstrim.enable = true;
-      flatpak.enable = true;
+      flatpak.enable = false;
       libinput = {
         enable = true;
         mouse = {
