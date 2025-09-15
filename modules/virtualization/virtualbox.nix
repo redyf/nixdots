@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -10,7 +9,6 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.virtualization.enable && cfg.enable) {
-    programs.virt-manager.enable = true;
     virtualisation = {
       virtualbox = {
         host = {

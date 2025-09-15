@@ -15,10 +15,10 @@ in
         "v4l2loopback"
       ];
       extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ]; # loopback module to make OBS virtual camera work
-      kernelParams = [
-        "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-        "nvidia_drm.fbdev=1"
-      ];
+      # kernelParams = [
+      #   "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      #   "nvidia_drm.fbdev=1"
+      # ];
       supportedFilesystems = [ "ntfs" ];
       loader = {
         systemd-boot = {

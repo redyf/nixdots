@@ -80,7 +80,11 @@
 
     services = {
       enable = true;
-      services.enable = true;
+      autorandr.enable = true;
+      displayManager.enable = true;
+      flatpak.enable = false;
+      fstrim.enable = true;
+      input.enable = true;
     };
 
     system = {
@@ -108,7 +112,8 @@
     virtualization = {
       enable = true;
       docker.enable = true;
-      virtualbox.enable = true;
+      virtmanager.enable = false;
+      virtualbox.enable = false;
     };
   };
 
