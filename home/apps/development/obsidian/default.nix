@@ -7,45 +7,26 @@
 let
   gitSyncObsidian = pkgs.writeShellScriptBin "git-sync-obsidian" ''
     #!/usr/bin/env sh
-
     VAULT_DIR="$HOME/Documentos/GitHub_Vault"
-
     cd $VAULT_DIR || exit 1
 
     git add .
-
     git commit -m "$(date '+%Y-%m-%d %H:%M:%S')" || exit 0
-
     git pull --rebase origin main || exit 1
+    git lfs pull
     git push origin main
   '';
 
-  obsidianOllama = pkgs.writeShellScriptBin "obsidianOllama" ''
+  setupObsidianLFS = pkgs.writeShellScriptBin "setup-obsidian-lfs" ''
     #!/usr/bin/env sh
-    start_ollama_model() {
-        echo "Iniciando o modelo do Ollama..."
-        OLLAMA_ORIGINS=app://obsidian.md* ollama serve &
-        OLLAMA_PID=$!  # Salva o PID do processo do Ollama
-    }
+    VAULT_DIR="$HOME/Documentos/GitHub_Vault"
+    cd $VAULT_DIR || exit 1
 
-    # Função para parar o modelo do Ollama
-    stop_ollama_model() {
-        if [[ -n "$OLLAMA_PID" ]] && kill -0 "$OLLAMA_PID" 2>/dev/null; then
-            echo "Parando o modelo do Ollama..."
-            kill "$OLLAMA_PID"
-        fi
-    }
-
-    # Inicia o modelo do Ollama
-    start_ollama_model
-
-    # Inicia o Obsidian e aguarda ele fechar
-    obsidian &
-    OBSIDIAN_PID=$!
-    wait "$OBSIDIAN_PID"
-
-    # Para o modelo do Ollama após o fechamento do Obsidian
-    stop_ollama_model
+    git lfs track "*.png" "*.jpg" "*.jpeg" "*.gif" "*.webp" "*.bmp"
+    git add .gitattributes
+    git commit -m "Configure Git LFS for images"
+    git lfs migrate import --include="*.png,*.jpg,*.jpeg,*.gif,*.webp,*.bmp"
+    git push --force-with-lease origin main
   '';
 in
 {
@@ -56,8 +37,7 @@ in
     home.packages = with pkgs; [
       obsidian
       gitSyncObsidian
-      # ollama
-      # obsidianOllama
+      setupObsidianLFS
     ];
     systemd.user = {
       services.git-sync-obsidian = {
