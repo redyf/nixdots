@@ -120,9 +120,6 @@
             else
               [ ]
           )
-          ++ [
-            stylix.nixosModules.stylix
-          ]
           ++ modules;
         };
 
@@ -165,10 +162,21 @@
             hyprland.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             nix-topology.nixosModules.default
+            stylix.nixosModules.stylix
+          ];
+        };
+        selene = createNixosConfiguration {
+          system = "x86_64-linux";
+          username = "redyf";
+          homeDirectory = "/home/redyf";
+          hostname = "selene";
+          modules = [
+            disko.nixosModules.disko
+            hyprland.nixosModules.default
+            stylix.nixosModules.stylix
           ];
         };
       };
-
       homeConfigurations = {
         "redyf" = createHomeManagerConfiguration {
           system = "aarch64-linux";
