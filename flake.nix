@@ -77,6 +77,7 @@
           hostname ? null,
           modules ? [ ],
           includeHomeManager ? true,
+          homeManagerConfig ? ./home/home.nix,
         }:
         nixosSystem {
           inherit system;
@@ -108,7 +109,7 @@
                         nixpkgs-stable
                         ;
                     };
-                    users."${username}" = import ./home/home.nix {
+                    users."${username}" = import homeManagerConfig {
                       inputs = inputs;
                       pkgs = nixpkgsFor."${system}";
                       inherit username homeDirectory;
@@ -157,6 +158,7 @@
           username = "redyf";
           homeDirectory = "/home/redyf";
           hostname = "desktop";
+          homeManagerConfig = ./home/home.nix;
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
@@ -170,6 +172,7 @@
           username = "redyf";
           homeDirectory = "/home/redyf";
           hostname = "selene";
+          homeManagerConfig = ./home/selene.nix;
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
