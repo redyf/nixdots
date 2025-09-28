@@ -7,7 +7,6 @@
   home = {
     inherit username homeDirectory;
     stateVersion = "22.11";
-    # Add support for .local/bin
     sessionPath = [
       "$HOME/.local/bin"
     ];
@@ -26,9 +25,9 @@
     ./system
   ];
 
-  apps.enable = true;
+  apps.enable = false;
   cli.enable = true;
-  desktop.enable = true;
+  desktop.enable = false;
   shells.enable = true;
   system.enable = true;
 

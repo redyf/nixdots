@@ -177,10 +177,6 @@ in
           new_status = "slave";
         };
 
-        gestures = {
-          workspace_swipe = false;
-        };
-
         debug = {
           damage_tracking = 2; # leave it on 2 (full) unless you hate your GPU and want to make it suffer!
         };

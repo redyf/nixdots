@@ -30,6 +30,7 @@
     stylix = lib.mkIf (builtins.hasAttr "stylix" config) {
       targets = {
         bat.enable = true;
+        blender.enable = false;
         cava = {
           enable = true;
           rainbow.enable = true;

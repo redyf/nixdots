@@ -12,15 +12,18 @@
   config = lib.mkIf config.ghostty.enable {
     programs.ghostty = {
       enable = true;
-      package = inputs.ghostty.packages.${pkgs.system}.default;
+      package = pkgs.ghostty;
       settings = {
-        font-family = "Cartograph CF";
-        font-size = 14;
+        font-family = "Maple Mono NF";
+        font-size = 11;
         font-style = "Medium";
         font-style-bold = "Bold";
         font-style-italic = "Italic";
         font-style-bold-italic = "Bold Italic";
         font-thicken = true;
+        # font-feature = [
+        #   "ss14"
+        # ];
         bold-is-bright = false;
 
         adjust-cursor-thickness = 15;
@@ -49,7 +52,7 @@
         gtk-tabs-location = "top";
         gtk-wide-tabs = true;
 
-        theme = "tokyonight_moon";
+        theme = "Oxocarbon";
 
         # custom-shader = "shaders/aurora.glsl";
         # custom-shader = "shaders/cursor_smear.glsl";

@@ -2,6 +2,7 @@
 {
   imports = [
     ./chrome
+    ./vivaldi
     ./zen
   ];
 
@@ -10,6 +11,7 @@
   };
   config = lib.mkIf config.browsers.enable {
     chrome.enable = lib.mkDefault true;
+    vivaldi.enable = lib.mkDefault true;
     zen.enable = lib.mkDefault true;
   };
 }
