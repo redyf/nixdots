@@ -43,7 +43,9 @@
         qt = {
           enable = true;
         };
+        rofi.enable = true;
         starship.enable = true;
+        sway.enable = true;
         tmux.enable = false;
         vesktop.enable = false;
         waybar.enable = false;

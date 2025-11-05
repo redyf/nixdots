@@ -17,7 +17,7 @@ in
       gamemode.enable = true;
     };
     services.archisteamfarm = {
-      enable = true;
+      enable = false;
     };
   };
 }

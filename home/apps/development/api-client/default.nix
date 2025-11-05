@@ -10,7 +10,7 @@
   };
   config = lib.mkIf config.api-client.enable {
     home.packages = with pkgs; [
-      postman
+      insomnia
     ];
   };
 }

@@ -61,6 +61,8 @@ in
     };
     environment.systemPackages = [
       pkgs.sbctl
+      pkgs.os-prober
+      pkgs.efibootmgr
     ];
   };
 }

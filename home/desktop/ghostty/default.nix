@@ -14,21 +14,18 @@
       enable = true;
       package = pkgs.ghostty;
       settings = {
-        font-family = "Maple Mono NF";
+        font-family = "TX-02";
         font-size = 11;
         font-style = "Medium";
         font-style-bold = "Bold";
         font-style-italic = "Italic";
         font-style-bold-italic = "Bold Italic";
         font-thicken = true;
-        # font-feature = [
-        #   "ss14"
-        # ];
         bold-is-bright = false;
 
         adjust-cursor-thickness = 15;
 
-        cursor-style = "block";
+        cursor-style = "bar";
         cursor-style-blink = false;
         cursor-click-to-move = false;
 
@@ -45,14 +42,14 @@
         confirm-close-surface = false;
 
         shell-integration = "zsh";
-        shell-integration-features = "cursor,no-sudo,title";
+        shell-integration-features = "no-cursor,no-sudo,title";
 
         gtk-single-instance = "desktop";
         gtk-titlebar = false;
         gtk-tabs-location = "top";
         gtk-wide-tabs = true;
 
-        theme = "Oxocarbon";
+        theme = "TokyoNight Moon";
 
         # custom-shader = "shaders/aurora.glsl";
         # custom-shader = "shaders/cursor_smear.glsl";
@@ -70,6 +67,13 @@
         # custom-shader = "shaders/fireworks-rockets.glsl";
         # custom-shader = "shaders/sparks-from-fire.glsl";
         # custom-shader = "shaders/spotlight.glsl";
+        # custom-shader = "cursor_shaders/cursor_warp.glsl";
+        # custom-shader = "cursor_shaders/cursor_sweep.glsl";
+        # custom-shader = "cursor_shaders/cursor_tail.glsl";
+        # custom-shader = "cursor_shaders/ripple_cursor.glsl";
+        # custom-shader = "cursor_shaders/sonic_boom.glsl";
+        # custom-shader = "cursor_shaders/ripple_rectangle.glsl";
+        # custom-shader = "cursor_shaders/ripple_rectangle_boom.glsl";
       };
     };
   };

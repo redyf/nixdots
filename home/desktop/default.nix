@@ -4,7 +4,9 @@
     ./ghostty
     ./gnome
     ./hyprland
-    ./niri
+    # ./niri
+    ./rofi
+    ./sway
     ./swww
     ./theme
     ./waybar
@@ -19,11 +21,13 @@
     ghostty.enable = lib.mkDefault true;
     gnome.enable = lib.mkDefault false;
     hyprland.enable = lib.mkDefault true;
-    niri.enable = lib.mkDefault false;
+    # niri.enable = lib.mkDefault false;
+    rofi.enable = lib.mkDefault false;
+    sway.enable = lib.mkDefault false;
     swww.enable = lib.mkDefault true;
     theme.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
-    wezterm.enable = lib.mkDefault true;
+    wezterm.enable = lib.mkDefault false;
     wofi.enable = lib.mkDefault true;
   };
 }

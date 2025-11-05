@@ -12,7 +12,6 @@
     home.packages = with pkgs; [
       anydesk
       discord
-      protonvpn-gui
     ];
   };
 }

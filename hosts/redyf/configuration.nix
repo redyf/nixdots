@@ -54,6 +54,7 @@
       gnome.enable = false;
       hyprland.enable = true;
       niri.enable = false;
+      sway.enable = false;
       xserver.enable = true;
     };
 
@@ -93,9 +94,11 @@
       boot.enable = true;
       environment.enable = true;
       hardware.enable = true;
+      intel.enable = true;
       keymap.enable = true;
       locale.enable = true;
       networking.enable = true;
+      power-management.enable = true;
       security.enable = true;
       ssh.enable = true;
       systemd.enable = true;

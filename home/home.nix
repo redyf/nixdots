@@ -26,7 +26,7 @@
     ./system
   ];
 
-  apps.enable = true;
+  apps.enable = true; # A build está falhando por causa de algum app
   cli.enable = true;
   desktop.enable = true;
   shells.enable = true;

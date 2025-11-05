@@ -10,6 +10,6 @@
   };
   config = lib.mkIf config.gaming.enable {
     artix-game-launcher.enable = lib.mkDefault true;
-    minecraft.enable = lib.mkDefault true;
+    minecraft.enable = lib.mkDefault false;
   };
 }

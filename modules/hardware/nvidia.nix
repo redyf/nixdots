@@ -28,17 +28,10 @@ in
         powerManagement.enable = true;
         modesetting.enable = true;
         package = config.boot.kernelPackages.nvidiaPackages.beta;
-        prime = {
-          sync.enable = true;
-          intelBusId = "PCI:0:2:0"; # 00:02.0
-          nvidiaBusId = "PCI:1:0:0"; # 01:00.0
-        };
       };
       graphics = {
         enable = true;
         extraPackages = with pkgs; [
-          intel-media-driver # For Intel integrated graphics
-          vaapiIntel # Intel video acceleration
           nvidia-vaapi-driver
         ];
       };

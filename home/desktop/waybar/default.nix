@@ -11,6 +11,24 @@ let
   minimalStyle = import ./minimal/style.nix {
     inherit config lib;
   };
+  cleanConfig = import ./clean/config.nix {
+    inherit config;
+  };
+  cleanStyle = import ./clean/style.nix {
+    inherit config;
+  };
+  transparentConfig = import ./transparent/config.nix {
+    inherit config;
+  };
+  transparentStyle = import ./transparent/style.nix {
+    inherit config;
+  };
+  niriPuccinConfig = import ./nirippuccin/config.nix {
+    inherit config;
+  };
+  niriPuccinStyle = import ./nirippuccin/style.nix {
+    inherit config;
+  };
 in
 {
   options = {
@@ -20,8 +38,8 @@ in
     programs.waybar = {
       enable = true;
       package = pkgs.waybar;
-      settings = minimalConfig;
-      style = minimalStyle;
+      settings = transparentConfig;
+      style = transparentStyle;
     };
   };
 }

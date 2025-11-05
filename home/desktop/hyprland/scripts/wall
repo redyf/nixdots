@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-images_path=~/wallpapers/
-variations=(1.jpg 2.jpg jabuti.png cherryblossom.png oxocarbon.png invasion.jpg jabuti2.png catppuccin.png lofi.gif wall.png purple.png anime.png programmer.gif gwen.png nix.png nixos.png kanagawa.png flowers.png wallpaper.png)
-number=$(($RANDOM % 20))
-image=${variations[$number]}
-wallpaper=$images_path$image
-swww init
-swww img $wallpaper --transition-type grow --transition-pos 0.9,0.1 --transition-duration 1.5 --transition-fps 90

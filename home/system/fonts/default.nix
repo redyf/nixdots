@@ -14,8 +14,7 @@
       packages = with pkgs; [
         nerd-fonts.jetbrains-mono
         maple-mono.NF
-        inputs.font-flake.packages.${system}.tx02
-        inputs.font-flake.packages.${system}.cartograph
+        # inputs.font-flake.packages.${system}.tx02
       ];
     };
   };

@@ -20,6 +20,10 @@
       enable = lib.mkEnableOption "Enable hardware";
     };
 
+    intel = {
+      enable = lib.mkEnableOption "Enable intel kernel params";
+    };
+
     keymap = {
       enable = lib.mkEnableOption "Enable keymap";
     };
@@ -30,6 +34,10 @@
 
     networking = {
       enable = lib.mkEnableOption "Enable networking";
+    };
+
+    power-management = {
+      enable = lib.mkEnableOption "Enable power-management";
     };
 
     security = {
@@ -62,9 +70,11 @@
     ./boot.nix
     ./environment.nix
     ./hardware.nix
+    ./intel.nix
     ./keymap.nix
     ./locale.nix
     ./networking.nix
+    ./power-management.nix
     ./security.nix
     ./ssh.nix
     ./systemd.nix

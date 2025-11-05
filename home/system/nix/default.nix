@@ -14,8 +14,6 @@
         nixd
         statix
         nixfmt-rfc-style
-        nix-init
-        nixpkgs-review
       ];
     };
   };

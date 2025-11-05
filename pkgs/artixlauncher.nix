@@ -4,11 +4,12 @@
   imagemagick,
   makeWrapper,
   appimageTools,
-  ...
+  makeDesktopItem,
 }:
+
 let
   pname = "artix-games-launcher";
-  version = "2.1.2";
+  version = "2.20";
 
   src = fetchurl {
     url = "https://launch.artix.com/latest/Artix_Games_Launcher-x86_64.AppImage";
@@ -16,45 +17,42 @@ let
   };
 
   appimageContents = appimageTools.extractType2 {
-    inherit
-      pname
-      version
-      src
-      ;
+    inherit pname version src;
+  };
+
+  desktopFile = makeDesktopItem {
+    name = "artix-games-launcher";
+    exec = "artix-games-launcher %U";
+    icon = "artix-games-launcher";
+    desktopName = "Artix Games Launcher";
+    comment = "One app. All your favorite Artix games.";
+    categories = [ "Game" ];
+    startupNotify = true;
+    terminal = false;
   };
 in
 appimageTools.wrapType2 {
-  inherit
-    pname
-    version
-    src
-    ;
+  inherit pname version src;
+
+  nativeBuildInputs = [
+    makeWrapper
+    imagemagick
+  ];
+
   extraInstallCommands = ''
-    source "${makeWrapper}/nix-support/setup-hook"
+    install -Dm644 ${desktopFile}/share/applications/artix-games-launcher.desktop \
+      $out/share/applications/artix-games-launcher.desktop
 
     wrapProgram $out/bin/artix-games-launcher \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --use-gl=desktop}}"
 
-    # Check for required desktop file
-    if [ ! -f ${appimageContents}/ArtixGamesLauncher.desktop ]; then
-      echo "Error: Missing .desktop file in ${appimageContents}"
-      exit 1
-    else
-      # Install and modify the desktop file
-      install -m 444 -D ${appimageContents}/ArtixGamesLauncher.desktop $out/share/applications/ArtixGamesLauncher.desktop
-      substituteInPlace $out/share/applications/ArtixGamesLauncher.desktop \
-        --replace 'Exec=AppRun --no-sandbox %U' 'Exec=artix-games-launcher %U'
-    fi
+    ${lib.getExe imagemagick} ${appimageContents}/ArtixLogo.png -resize 512x512 ArtixLogo_512.png
+    install -m 444 -D ArtixLogo_512.png \
+      $out/share/icons/hicolor/512x512/apps/artix-games-launcher.png
 
-    # Check for required icon file
-    if [ ! -f ${appimageContents}/ArtixLogo.png ]; then
-      echo "Error: Missing icon file in ${appimageContents}"
-      exit 1
-    else
-      # Resize and install the icon
-      ${lib.getExe imagemagick} ${appimageContents}/ArtixLogo.png -resize 512x512 ArtixLogo_512.png
-      install -m 444 -D ArtixLogo_512.png $out/share/icons/hicolor/512x512/apps/ArtixLogo.png
-    fi
+    mkdir -p $out/share/pixmaps
+    ln -s $out/share/icons/hicolor/512x512/apps/artix-games-launcher.png \
+      $out/share/pixmaps/artix-games-launcher.png
   '';
 
   meta = {

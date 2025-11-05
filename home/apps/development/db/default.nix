@@ -10,7 +10,7 @@
   };
   config = lib.mkIf config.database.enable {
     home.packages = with pkgs; [
-      beekeeper-studio
+      dbeaver-bin
     ];
   };
 }

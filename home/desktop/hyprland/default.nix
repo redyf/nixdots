@@ -14,10 +14,10 @@ in
   };
   config = lib.mkIf config.hyprland.enable {
     home.packages = with pkgs; [
-      grim # Screenshot tool for hyprland
-      slurp # Works with grim to screenshot on wayland
-      swappy # Wayland native snapshot editing tool, inspired by Snappy on macOS
-      wl-clipboard # Enables copy/paste on wayland
+      grim
+      slurpj
+      swappy
+      wl-clipboard
 
       (writeShellScriptBin "screenshot" ''
         grim -g "$(slurp)" - | wl-copy
@@ -27,20 +27,15 @@ in
         wl-paste | swappy -f -
       '')
 
-      (writeShellScriptBin "autostart" ''
-        # Variables
-        config=$HOME/.config/hypr
-        scripts=$config/scripts
-
-        # Waybar (if enabled)
-        pkill waybar
-        $scripts/launch_waybar &
-        $scripts/tools/dynamic &
-
-        # Wallpaper
+      (writeShellScriptBin "autostart-swww" ''
         swww kill
         swww-daemon &
         swww restore
+      '')
+
+      (writeShellScriptBin "autostart-waybar" ''
+        pkill waybar
+        waybar -c $HOME/.config/waybar/config -s $HOME/.config/waybar/style.css &
       '')
     ];
 
@@ -54,18 +49,19 @@ in
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
-          "DP-3,1920x1080@180,0x0,1" # AOC horizontal on the left
-          "HDMI-A-3,1920x1080@144,1920x0,1,transform,1" # ASUS vertical on the right
+          "DP-3,1920x1080@180,0x0,1"
+          "HDMI-A-3,1920x1080@144,1920x0,1,transform,1"
         ];
 
         workspace = [
-          "1, monitor:DP-3" # Workspace 1 on AOC (left)
-          "2, monitor:HDMI-A-3" # Workspace 2 on ASUS vertical (right)
+          "1, monitor:DP-3"
+          "2, monitor:DP-3"
+          "3, monitor:HDMI-A-3"
+          "4, monitor:HDMI-A-3"
         ];
 
         env = [
           "ELECTRON_OZONE_PLATFORM_HINT,auto"
-          "HYPRLAND_INSTANCE_SIGNATURE,auto"
         ];
 
         xwayland = {
@@ -161,7 +157,7 @@ in
         };
 
         dwindle = {
-          pseudotile = true; # enable pseudotiling on dwindle
+          pseudotile = true;
           force_split = 0;
           preserve_split = true;
           default_split_ratio = 1.0;
@@ -182,10 +178,11 @@ in
         };
 
         exec-once = [
-          "autostart"
+          "autostart-waybar"
+          "autostart-swww"
           "[workspace 1 silent] zen-twilight"
-          "[workspace 2 silent] discord"
-          "[workspace 3 silent] obsidian"
+          "[workspace 3 silent] discord"
+          "[workspace 4 silent] obsidian"
         ];
 
         bind = [
@@ -243,19 +240,20 @@ in
           "CTRL,Print,exec,grim -o DP-1 ~/Pictures/screenshot.png"
           "SUPER,o,exec,obsidian"
           "SUPER,i,exec,idea-ultimate"
-          "SUPER SHIFT,C,exec,wallpaper"
+          "SUPER SHIFT,C,exec,/home/redyf/opensource/nixdots/home/desktop/swww/wallpaper_select.sh"
           "SUPER,z,exec,waybar"
           "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
+          "SUPER,r,exec,rofi -show drun"
         ];
 
         bindm = [
-          # Mouse binds
           "SUPER,mouse:272,movewindow"
           "SUPER,mouse:273,resizewindow"
         ];
 
         windowrulev2 = [
           "float,class:^(pavucontrol)$"
+          "fullscreen,class:^(artix-games-launcher)$"
           "float,class:^(file_progress)$"
           "float,class:^(confirm)$"
           "float,class:^(dialog)$"
@@ -268,8 +266,8 @@ in
           "float,title:^(Confirm to replace files)$"
           "float,title:^(File Operation Progress)$"
           "float,title:^(mpv)$"
-          "workspace 2, class:^(discord)$"
-          "workspace 2, class:^(Discord)$"
+          "workspace 3, class:^(discord)$"
+          "workspace 3, class:^(Discord)$"
           "opacity 1.0 1.0,class:^(wofi)$"
         ];
 
@@ -277,12 +275,6 @@ in
           no_update_news = true;
         };
       };
-    };
-
-    # Hyprland configuration files
-    xdg.configFile = {
-      "hypr/scripts/launch_waybar".source = ./scripts/launch_waybar;
-      "hypr/scripts/tools/dynamic".source = ./scripts/tools/dynamic;
     };
   };
 }

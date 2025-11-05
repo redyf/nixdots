@@ -16,6 +16,10 @@
       enable = lib.mkEnableOption "Enable niri";
     };
 
+    sway = {
+      enable = lib.mkEnableOption "Enable sway";
+    };
+
     xserver = {
       enable = lib.mkEnableOption "Enable xserver";
     };
@@ -24,7 +28,8 @@
   imports = [
     ./gnome.nix
     ./hyprland.nix
-    ./niri.nix
+    #./niri.nix
+    ./sway.nix
     ./xserver.nix
   ];
 }

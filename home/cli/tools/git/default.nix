@@ -14,9 +14,11 @@
       lfs = {
         enable = true;
       };
-      userName = "redyf";
-      userEmail = "mateusalvespereira7@gmail.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "redyf";
+          email = "mateusalvespereira7@gmail.com";
+        };
         core = {
           editor = "nvim";
         };

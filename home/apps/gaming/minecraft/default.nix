@@ -8,8 +8,8 @@ let
   catppuccin-prismlauncher = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "prismlauncher";
-    rev = "main"; # Or pin to a specific commit hash for reproducibility
-    sha256 = "0z4z4qq7b7q5f4vwsphyiszdm410kmy4zkzsylcnnzzdki4sn8gv"; # You'll need to update this with the actual hash
+    rev = "1ef0e745286ce32750abc3bc5d3ca8073a623b60";
+    hash = "sha256-RN1VM29OH75GHSHgpu3HW8YSonIEnX7MZzCObJ6BwtQ=";
   };
 in
 {
