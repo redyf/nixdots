@@ -15,7 +15,7 @@ in
   config = lib.mkIf config.hyprland.enable {
     home.packages = with pkgs; [
       grim
-      slurpj
+      slurp
       swappy
       wl-clipboard
 
