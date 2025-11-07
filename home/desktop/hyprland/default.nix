@@ -178,8 +178,9 @@ in
         };
 
         exec-once = [
-          "autostart-waybar"
+          # "autostart-waybar"
           "autostart-swww"
+          "noctalia-shell"
           "[workspace 1 silent] zen-twilight"
           "[workspace 3 silent] discord"
           "[workspace 4 silent] obsidian"
