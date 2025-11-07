@@ -28,6 +28,16 @@
     niri.url = "github:sodiboo/niri-flake";
     xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
     nix-topology.url = "github:oddlama/nix-topology";
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
+    };
   };
 
   outputs =
@@ -192,7 +202,6 @@
       topology.x86_64-linux = import nix-topology {
         pkgs = nixpkgsFor.x86_64-linux;
         modules = [
-          # Use o arquivo simples primeiro
           ./topology-example.nix
 
           # Informações das suas configurações NixOS existentes
