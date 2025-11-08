@@ -32,7 +32,7 @@
 
     cli = {
       enable = true;
-      appimage.enable = true;
+      appimage.enable = false;
       nh.enable = true;
       zsh.enable = true;
     };
@@ -40,25 +40,26 @@
     desktop = {
       enable = true;
       gnome.enable = false;
-      hyprland.enable = true;
+      hyprland.enable = false;
       niri.enable = false;
+      sway.enable = true;
       xserver.enable = true;
     };
 
     development = {
-      enable = true;
+      enable = false;
       k3s.enable = false;
-      k8s.enable = false;
+      k8s.enable = true;
     };
 
     gaming = {
       enable = true;
-      steam.enable = false;
+      steam.enable = true;
     };
 
     hardware = {
-      enable = true;
-      nvidia.enable = false;
+      enable = false;
+      nvidia.enable = true;
     };
 
     nix = {
@@ -78,12 +79,14 @@
     system = {
       enable = true;
       audio.enable = true;
-      boot.enable = true;
+      boot.enable = false;
       environment.enable = true;
       hardware.enable = true;
+      intel.enable = true;
       keymap.enable = true;
       locale.enable = true;
       networking.enable = true;
+      power-management.enable = true;
       security.enable = true;
       ssh.enable = true;
       systemd.enable = true;
@@ -94,12 +97,12 @@
 
     themes = {
       enable = true;
-      stylix.enable = false;
+      stylix.enable = true;
     };
 
     virtualization = {
       enable = true;
-      docker.enable = false;
+      docker.enable = true;
       virtmanager.enable = false;
       virtualbox.enable = false;
     };
