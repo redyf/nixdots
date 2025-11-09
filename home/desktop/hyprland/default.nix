@@ -178,8 +178,6 @@ in
         };
 
         exec-once = [
-          # "autostart-waybar"
-          "autostart-swww"
           "noctalia-shell"
           "[workspace 1 silent] zen-twilight"
           "[workspace 3 silent] discord"
@@ -241,10 +239,8 @@ in
           "CTRL,Print,exec,grim -o DP-1 ~/Pictures/screenshot.png"
           "SUPER,o,exec,obsidian"
           "SUPER,i,exec,idea-ultimate"
-          "SUPER SHIFT,C,exec,/home/redyf/opensource/nixdots/home/desktop/swww/wallpaper_select.sh"
           "SUPER,z,exec,waybar"
-          "SUPER,space,exec,wofi --show drun -I -s ~/.config/wofi/style.css DP-3"
-          "SUPER,r,exec,rofi -show drun"
+          "SUPER,space,exec,wofi --show drun -I"
         ];
 
         bindm = [

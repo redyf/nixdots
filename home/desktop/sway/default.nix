@@ -40,13 +40,11 @@
               natural_scroll enabled
           }
 
-          # Aparência
           gaps inner 2
           gaps outer 0
           default_border pixel 2
 
-          # Startup
-          exec autostart-swww
+          exec noctalia-shell
           exec zen-twilight
           exec discord
           exec obsidian
@@ -114,7 +112,6 @@
           bindsym Control+Print exec grim -o DP-1 ~/Pictures/screenshot.png
 
           # Outros
-          bindsym $mod+Shift+c exec /home/redyf/opensource/nixdots/home/desktop/swww/wallpaper_select.sh
           bindsym $mod+z exec waybar
 
           # Mouse
@@ -126,19 +123,19 @@
           for_window [title="^(Open File)$"] floating enable
           for_window [title="^(mpv)$"] floating enable
 
-          bar {
-            position top
-            status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
-            
-            colors {
-              background #${colors.base00}
-              statusline #${colors.base05}
-              focused_workspace #${colors.base0D} #${colors.base0D} #${colors.base00}
-              active_workspace #${colors.base03} #${colors.base03} #${colors.base05}
-              inactive_workspace #${colors.base00} #${colors.base00} #${colors.base05}
-              urgent_workspace #${colors.base09} #${colors.base09} #${colors.base00}
-            }
-        }
+        #   bar {
+        #     position top
+        #     status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
+        #
+        #     colors {
+        #       background #${colors.base00}
+        #       statusline #${colors.base05}
+        #       focused_workspace #${colors.base0D} #${colors.base0D} #${colors.base00}
+        #       active_workspace #${colors.base03} #${colors.base03} #${colors.base05}
+        #       inactive_workspace #${colors.base00} #${colors.base00} #${colors.base05}
+        #       urgent_workspace #${colors.base09} #${colors.base09} #${colors.base00}
+        #     }
+        # }
       '';
   };
 }

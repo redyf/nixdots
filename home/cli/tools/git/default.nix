@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  homeDirectory,
   ...
 }:
 {
@@ -37,9 +38,9 @@
           rebase = true;
           prune = true;
         };
-        maintenance.repo = "/home/redyf/opensource/nixpkgs";
+        maintenance.repo = "${homeDirectory}/opensource/nixpkgs";
         safe = {
-          directory = "/home/redyf/opensource/nixdots";
+          directory = "${homeDirectory}/opensource/nixdots";
         };
       };
     };

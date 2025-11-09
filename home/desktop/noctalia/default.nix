@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  homeDirectory,
   ...
 }:
 {
@@ -206,7 +207,7 @@
         general = {
           animationDisabled = false;
           animationSpeed = 1;
-          avatarImage = "/home/redyf/Downloads/drawings.jpg";
+          avatarImage = "${homeDirectory}/Downloads/awawa.jpg";
           compactLockScreen = false;
           forceBlackScreenCorners = false;
           language = "";
@@ -273,7 +274,7 @@
           audioCodec = "opus";
           audioSource = "default_output";
           colorRange = "limited";
-          directory = "/home/redyf/Videos";
+          directory = "${homeDirectory}/Videos";
           frameRate = 60;
           quality = "very_high";
           showCursor = true;
@@ -318,23 +319,18 @@
         };
 
         wallpaper = {
-          defaultWallpaper = "/home/redyf/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
-          directory = "/home/redyf/Wallpapers/";
+          defaultWallpaper = "${homeDirectory}/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
+          directory = "${homeDirectory}/Wallpapers/";
           enableMultiMonitorDirectories = false;
           enabled = true;
           fillColor = "#000000";
           fillMode = "crop";
           monitors = [
             {
-              directory = "/home/redyf/Wallpapers/";
+              directory = "${homeDirectory}/Wallpapers/";
               name = "DP-3";
-              wallpaper = "/home/redyf/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
+              wallpaper = "${homeDirectory}/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
             }
-            # {
-            #   directory = "/home/redyf/Wallpapers/";
-            #   name = "HDMI-A-3";
-            #   wallpaper = "/home/redyf/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
-            # }
           ];
           randomEnabled = true;
           randomIntervalSec = 300;

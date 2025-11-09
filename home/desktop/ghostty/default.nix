@@ -23,6 +23,7 @@
         font-thicken = true;
         bold-is-bright = false;
 
+        adjust-cell-height = "-2%";
         adjust-cursor-thickness = 15;
 
         cursor-style = "bar";
@@ -49,7 +50,7 @@
         gtk-tabs-location = "top";
         gtk-wide-tabs = true;
 
-        theme = "TokyoNight Moon";
+        theme = "Catppuccin Macchiato";
 
         # custom-shader = "shaders/aurora.glsl";
         # custom-shader = "shaders/cursor_smear.glsl";
