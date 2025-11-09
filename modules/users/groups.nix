@@ -87,8 +87,8 @@ in
           ])
           ++ (lib.optionals cfg.groups.virtualisation [
             "docker"
-            # "kvm"
-            # "libvirtd"
+            "kvm"
+            "libvirtd"
           ])
           ++ (lib.optionals cfg.groups.media [
             "audio"
