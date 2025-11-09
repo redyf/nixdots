@@ -82,11 +82,11 @@
         {
           system,
           username,
-          homeDirectory,
+          homeDirectory ? "/home/${username}",
           hostname ? null,
           modules ? [ ],
           includeHomeManager ? true,
-          homeManagerConfig ? ./home/home.nix,
+          homeManagerModule ? ./home/home.nix,
         }:
         nixosSystem {
           inherit system;
@@ -96,8 +96,10 @@
               hyprland
               disko
               nix-topology
+              username
+              homeDirectory
+              hostname
               ;
-            inherit username homeDirectory hostname;
           };
           modules = [
             ./hosts/${hostname}/configuration.nix
@@ -116,9 +118,12 @@
                         inputs
                         disko
                         nixpkgs-stable
+                        username
+                        homeDirectory
+                        hostname
                         ;
                     };
-                    users."${username}" = import homeManagerConfig {
+                    users."${username}" = import homeManagerModule {
                       inputs = inputs;
                       pkgs = nixpkgsFor."${system}";
                       inherit username homeDirectory;
@@ -143,12 +148,16 @@
         }:
         home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = {
-            inherit inputs hyprland;
-            inherit username homeDirectory stateVersion;
+            inherit
+              inputs
+              hyprland
+              username
+              homeDirectory
+              stateVersion
+              ;
           };
           pkgs = nixpkgsFor."${system}";
           modules = [
-            ./home/rpi.nix
             {
               home = {
                 username = username;
@@ -165,9 +174,8 @@
         desktop = createNixosConfiguration {
           system = "x86_64-linux";
           username = "redyf";
-          homeDirectory = "/home/redyf";
           hostname = "desktop";
-          homeManagerConfig = ./home/home.nix;
+          homeManagerModule = ./home/home.nix;
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
@@ -178,10 +186,9 @@
         };
         selene = createNixosConfiguration {
           system = "x86_64-linux";
-          username = "redyf";
-          homeDirectory = "/home/redyf";
+          username = "selene";
           hostname = "selene";
-          homeManagerConfig = ./home/selene.nix;
+          homeManagerModule = ./home/selene.nix;
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
