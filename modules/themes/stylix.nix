@@ -15,8 +15,8 @@ let
     tokyo-night-dark = "tokyo-night-dark";
     tokyo-night-storm = "tokyo-night-storm";
   };
-  # Check if the font-flake input exists in the Flake context
-  hasFontRepoAccess = builtins.hasAttr "font-flake" inputs && inputs.font-flake ? packages;
+  hasFontRepoAccess =
+    inputs ? font-flake && inputs.font-flake ? packages && inputs.font-flake.packages ? ${pkgs.system};
 in
 {
   config = lib.mkIf (config.myConfig.themes.enable && cfg.enable) {
