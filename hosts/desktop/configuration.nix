@@ -3,6 +3,7 @@
   lib,
   pkgs,
   username,
+  homeDirectory,
   ...
 }:
 {
@@ -127,80 +128,6 @@
     docker-compose
     ntfs3g
   ];
-
-  # microvm.vms.selene = {
-  #   config = {
-  #     microvm = {
-  #       vcpu = 4;
-  #       mem = 8192;
-  #       hypervisor = "qemu";
-  #       storeOnDisk = true;
-  #       volumes = [
-  #         {
-  #           mountPoint = "/";
-  #           image = "/var/lib/microvms/selene-store.img";
-  #           size = 50 * 1024; # 20GB
-  #         }
-  #       ];
-  #       interfaces = [
-  #         {
-  #           type = "user";
-  #           id = "eth0";
-  #           mac = "52:54:00:12:34:56"; # valor qualquer válido
-  #         }
-  #       ];
-  #     };
-  #
-  #     networking = {
-  #       hostName = "selene";
-  #       useDHCP = true;
-  #       # useNetworkd = false;
-  #       # interfaces.eth0 = {
-  #       #   useDHCP = false;
-  #       #   ipv4.addresses = [
-  #       #     {
-  #       #       address = "10.0.0.2";
-  #       #       prefixLength = 24;
-  #       #     }
-  #       #   ];
-  #       # };
-  #       # defaultGateway = "10.0.0.1";
-  #       # nameservers = [ "8.8.8.8" ];
-  #       firewall.enable = false;
-  #     };
-  #
-  #     boot.loader.grub.enable = false;
-  #
-  #     # Compartilhar o nix store do host (opcional)
-  #     # shares = [
-  #     #   {
-  #     #     source = "/nix/store";
-  #     #     mountPoint = "/nix/.ro-store";
-  #     #     tag = "ro-store";
-  #     #     proto = "virtiofs";
-  #     #   }
-  #     # ];
-  #
-  #     services.openssh = {
-  #       enable = true;
-  #       ports = [ 48316 ];
-  #       settings = {
-  #         PasswordAuthentication = false;
-  #         PermitRootLogin = "prohibit-password";
-  #         KbdInteractiveAuthentication = false;
-  #       };
-  #     };
-  #     users.users.root = {
-  #       openssh.authorizedKeys.keyFiles = [ /home/redyf/.ssh/id_ed25519.pub ];
-  #     };
-  #     environment.systemPackages = [ pkgs.git ];
-  #     # microvm.writableStoreOverlay = "/nix/store";
-  #     nix.settings.substituters = [
-  #       "file:///nix/.ro-store"
-  #       "https://cache.nixos.org/"
-  #     ];
-  #   };
-  # };
 
   system.stateVersion = "22.11"; # Don't change this
 }
