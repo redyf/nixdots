@@ -16,9 +16,9 @@
   myConfig = {
     users = {
       enable = true;
-      username = "redyf";
+      username = "selene";
       isNormalUser = true;
-      description = "redyf"; # Optional - defaults to username if not specified
+      description = "selene"; # Optional - defaults to username if not specified
       initialPassword = "123456";
       shell = pkgs.zsh;
 
@@ -79,7 +79,7 @@
     system = {
       enable = true;
       audio.enable = true;
-      boot.enable = false;
+      boot.enable = true;
       environment.enable = true;
       hardware.enable = true;
       intel.enable = true;
