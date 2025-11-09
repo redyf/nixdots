@@ -5,7 +5,7 @@
     ./gnome
     ./hyprland
     ./noctalia
-    # ./niri
+    ./niri
     ./rofi
     ./sway
     ./swww
@@ -23,10 +23,10 @@
     gnome.enable = lib.mkDefault false;
     hyprland.enable = lib.mkDefault true;
     noctalia.enable = lib.mkDefault true;
-    # niri.enable = lib.mkDefault false;
+    niri.enable = lib.mkDefault false;
     rofi.enable = lib.mkDefault false;
     sway.enable = lib.mkDefault false;
-    swww.enable = lib.mkDefault true;
+    swww.enable = lib.mkDefault false;
     theme.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault false;
     wezterm.enable = lib.mkDefault false;
