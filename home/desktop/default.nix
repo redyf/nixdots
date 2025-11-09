@@ -8,7 +8,6 @@ in
     ./gnome
     ./hyprland
     ./noctalia
-    ./niri
     ./rofi
     ./sway
     ./swww
@@ -24,7 +23,6 @@ in
     gnome.enable = lib.mkEnableOption "GNOME desktop environment";
     hyprland.enable = lib.mkEnableOption "Hyprland window manager";
     noctalia.enable = lib.mkEnableOption "Noctalia shell";
-    niri.enable = lib.mkEnableOption "Niri window manager";
     rofi.enable = lib.mkEnableOption "Rofi launcher";
     sway.enable = lib.mkEnableOption "Sway window manager";
     swww.enable = lib.mkEnableOption "swww wallpaper daemon";
@@ -39,7 +37,6 @@ in
     gnome.enable = lib.mkDefault cfg.gnome.enable;
     hyprland.enable = lib.mkDefault cfg.hyprland.enable;
     noctalia.enable = lib.mkDefault cfg.noctalia.enable;
-    niri.enable = lib.mkDefault cfg.niri.enable;
     rofi.enable = lib.mkDefault cfg.rofi.enable;
     sway.enable = lib.mkDefault cfg.sway.enable;
     swww.enable = lib.mkDefault cfg.swww.enable;

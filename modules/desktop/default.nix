@@ -12,10 +12,6 @@
       enable = lib.mkEnableOption "Enable hyprland";
     };
 
-    niri = {
-      enable = lib.mkEnableOption "Enable niri";
-    };
-
     sway = {
       enable = lib.mkEnableOption "Enable sway";
     };
@@ -28,7 +24,6 @@
   imports = [
     ./gnome.nix
     ./hyprland.nix
-    ./niri.nix
     ./sway.nix
     ./xserver.nix
   ];

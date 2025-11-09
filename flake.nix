@@ -28,7 +28,6 @@
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri.url = "github:sodiboo/niri-flake";
     xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
     nix-topology.url = "github:oddlama/nix-topology";
     affinity-nix.url = "github:mrshmllow/affinity-nix";

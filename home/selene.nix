@@ -49,7 +49,6 @@
       gnome.enable = false;
       hyprland.enable = false;
       noctalia.enable = true;
-      niri.enable = false;
       rofi.enable = false;
       sway.enable = true;
       swww.enable = false;

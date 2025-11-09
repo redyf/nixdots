@@ -41,7 +41,6 @@
       enable = true;
       gnome.enable = false;
       hyprland.enable = false;
-      niri.enable = false;
       sway.enable = true;
       xserver.enable = true;
     };
