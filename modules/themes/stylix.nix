@@ -15,8 +15,6 @@ let
     tokyo-night-dark = "tokyo-night-dark";
     tokyo-night-storm = "tokyo-night-storm";
   };
-  hasFontRepoAccess =
-    inputs ? font-flake && inputs.font-flake ? packages && inputs.font-flake.packages ? ${pkgs.system};
 in
 {
   config = lib.mkIf (config.myConfig.themes.enable && cfg.enable) {
@@ -30,17 +28,14 @@ in
         size = 36;
       };
       fonts = {
-        monospace =
-          if hasFontRepoAccess then
-            {
-              package = inputs.font-flake.packages.${pkgs.system}.cartograph;
-              name = "Cartograph CF Italic";
-            }
-          else
-            {
-              package = pkgs.nerd-fonts.jetbrains-mono;
-              name = "JetBrainsMono Nerd Font";
-            };
+        monospace = {
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
+        };
+        # {
+        #   package = inputs.font-flake.packages.${pkgs.system}.tx02;
+        #   name = "TX-02";
+        # }
         sansSerif = {
           package = pkgs.dejavu_fonts;
           name = "DejaVu Sans";
