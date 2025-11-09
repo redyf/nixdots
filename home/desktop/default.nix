@@ -1,4 +1,7 @@
 { lib, config, ... }:
+let
+  cfg = config.myHomeConfig.desktop;
+in
 {
   imports = [
     ./ghostty
@@ -15,21 +18,34 @@
     ./wofi
   ];
 
-  options = {
-    desktop.enable = lib.mkEnableOption "Enable desktop module";
+  options.myHomeConfig.desktop = {
+    enable = lib.mkEnableOption "desktop environment and window managers";
+    ghostty.enable = lib.mkEnableOption "ghostty terminal";
+    gnome.enable = lib.mkEnableOption "GNOME desktop environment";
+    hyprland.enable = lib.mkEnableOption "Hyprland window manager";
+    noctalia.enable = lib.mkEnableOption "Noctalia shell";
+    niri.enable = lib.mkEnableOption "Niri window manager";
+    rofi.enable = lib.mkEnableOption "Rofi launcher";
+    sway.enable = lib.mkEnableOption "Sway window manager";
+    swww.enable = lib.mkEnableOption "swww wallpaper daemon";
+    theme.enable = lib.mkEnableOption "desktop theming";
+    waybar.enable = lib.mkEnableOption "Waybar status bar";
+    wezterm.enable = lib.mkEnableOption "WezTerm terminal";
+    wofi.enable = lib.mkEnableOption "Wofi launcher";
   };
-  config = lib.mkIf config.desktop.enable {
-    ghostty.enable = lib.mkDefault true;
-    gnome.enable = lib.mkDefault false;
-    hyprland.enable = lib.mkDefault true;
-    noctalia.enable = lib.mkDefault true;
-    niri.enable = lib.mkDefault false;
-    rofi.enable = lib.mkDefault false;
-    sway.enable = lib.mkDefault false;
-    swww.enable = lib.mkDefault false;
-    theme.enable = lib.mkDefault true;
-    waybar.enable = lib.mkDefault false;
-    wezterm.enable = lib.mkDefault false;
-    wofi.enable = lib.mkDefault true;
+
+  config = lib.mkIf cfg.enable {
+    ghostty.enable = lib.mkDefault cfg.ghostty.enable;
+    gnome.enable = lib.mkDefault cfg.gnome.enable;
+    hyprland.enable = lib.mkDefault cfg.hyprland.enable;
+    noctalia.enable = lib.mkDefault cfg.noctalia.enable;
+    niri.enable = lib.mkDefault cfg.niri.enable;
+    rofi.enable = lib.mkDefault cfg.rofi.enable;
+    sway.enable = lib.mkDefault cfg.sway.enable;
+    swww.enable = lib.mkDefault cfg.swww.enable;
+    theme.enable = lib.mkDefault cfg.theme.enable;
+    waybar.enable = lib.mkDefault cfg.waybar.enable;
+    wezterm.enable = lib.mkDefault cfg.wezterm.enable;
+    wofi.enable = lib.mkDefault cfg.wofi.enable;
   };
 }

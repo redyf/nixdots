@@ -25,11 +25,54 @@
     ./system
   ];
 
-  apps.enable = false;
-  cli.enable = true;
-  desktop.enable = false;
-  shells.enable = true;
-  system.enable = true;
+  myHomeConfig = {
+    apps = {
+      enable = true;
+      browsers.enable = false;
+      development.enable = false;
+      file-explorer.enable = true;
+      gaming.enable = false;
+      media.enable = false;
+      web.enable = false;
+    };
+
+    cli = {
+      enable = true;
+      neovim.enable = true;
+      neve.enable = false;
+      tools.enable = true;
+    };
+
+    desktop = {
+      enable = true;
+      ghostty.enable = true;
+      gnome.enable = false;
+      hyprland.enable = false;
+      noctalia.enable = true;
+      niri.enable = false;
+      rofi.enable = false;
+      sway.enable = true;
+      swww.enable = false;
+      theme.enable = true;
+      waybar.enable = false;
+      wezterm.enable = false;
+      wofi.enable = true;
+    };
+
+    shells = {
+      enable = true;
+      nushell.enable = false;
+      scripts.enable = true;
+      zsh.enable = true;
+    };
+
+    system = {
+      enable = true;
+      fonts.enable = true;
+      nixy.enable = true;
+      utils.enable = true;
+    };
+  };
 
   nixpkgs = {
     config = {

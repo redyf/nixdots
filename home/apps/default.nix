@@ -1,4 +1,7 @@
 { lib, config, ... }:
+let
+  cfg = config.myHomeConfig.apps;
+in
 {
   imports = [
     ./browsers
@@ -9,15 +12,22 @@
     ./web
   ];
 
-  options = {
-    apps.enable = lib.mkEnableOption "Enable apps module";
+  options.myHomeConfig.apps = {
+    enable = lib.mkEnableOption "applications and GUI programs";
+    browsers.enable = lib.mkEnableOption "web browsers";
+    development.enable = lib.mkEnableOption "development applications";
+    file-explorer.enable = lib.mkEnableOption "file explorer applications";
+    gaming.enable = lib.mkEnableOption "gaming applications";
+    media.enable = lib.mkEnableOption "media applications";
+    web.enable = lib.mkEnableOption "web applications";
   };
-  config = lib.mkIf config.apps.enable {
-    browsers.enable = lib.mkDefault true;
-    file-explorer.enable = lib.mkDefault true;
-    development.enable = lib.mkDefault true;
-    gaming.enable = lib.mkDefault true;
-    media.enable = lib.mkDefault true;
-    web.enable = lib.mkDefault true;
+
+  config = lib.mkIf cfg.enable {
+    browsers.enable = lib.mkDefault cfg.browsers.enable;
+    development.enable = lib.mkDefault cfg.development.enable;
+    file-explorer.enable = lib.mkDefault cfg.file-explorer.enable;
+    gaming.enable = lib.mkDefault cfg.gaming.enable;
+    media.enable = lib.mkDefault cfg.media.enable;
+    web.enable = lib.mkDefault cfg.web.enable;
   };
 }
