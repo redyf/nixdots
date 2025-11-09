@@ -53,13 +53,13 @@
     };
 
     gaming = {
-      enable = true;
-      steam.enable = true;
+      enable = false;
+      steam.enable = false;
     };
 
     hardware = {
       enable = false;
-      nvidia.enable = true;
+      nvidia.enable = false;
     };
 
     nix = {
@@ -101,8 +101,8 @@
     };
 
     virtualization = {
-      enable = true;
-      docker.enable = true;
+      enable = false;
+      docker.enable = false;
       virtmanager.enable = false;
       virtualbox.enable = false;
     };
