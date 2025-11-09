@@ -28,7 +28,7 @@
   imports = [
     ./gnome.nix
     ./hyprland.nix
-    #./niri.nix
+    ./niri.nix
     ./sway.nix
     ./xserver.nix
   ];
