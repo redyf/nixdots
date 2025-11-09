@@ -100,7 +100,7 @@
             inherit username homeDirectory hostname;
           };
           modules = [
-            ./hosts/${username}/configuration.nix
+            ./hosts/${hostname}/configuration.nix
             { networking.hostName = hostname; }
           ]
           ++ (
@@ -204,7 +204,6 @@
         modules = [
           ./topology-example.nix
 
-          # Informações das suas configurações NixOS existentes
           {
             inherit (self) nixosConfigurations;
           }
