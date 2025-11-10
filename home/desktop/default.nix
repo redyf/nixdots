@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./foot
     ./ghostty
     ./gnome
     ./hyprland
@@ -19,6 +20,7 @@ in
 
   options.myHomeConfig.desktop = {
     enable = lib.mkEnableOption "desktop environment and window managers";
+    foot.enable = lib.mkEnableOption "foo terminal";
     ghostty.enable = lib.mkEnableOption "ghostty terminal";
     gnome.enable = lib.mkEnableOption "GNOME desktop environment";
     hyprland.enable = lib.mkEnableOption "Hyprland window manager";
@@ -33,6 +35,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    foot.enable = lib.mkDefault cfg.ghostty.enable;
     ghostty.enable = lib.mkDefault cfg.ghostty.enable;
     gnome.enable = lib.mkDefault cfg.gnome.enable;
     hyprland.enable = lib.mkDefault cfg.hyprland.enable;

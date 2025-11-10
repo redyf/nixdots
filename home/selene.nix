@@ -45,7 +45,8 @@
 
     desktop = {
       enable = true;
-      ghostty.enable = true;
+      foot.enable = true;
+      ghostty.enable = false;
       gnome.enable = false;
       hyprland.enable = false;
       noctalia.enable = true;
