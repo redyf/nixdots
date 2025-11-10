@@ -36,6 +36,7 @@
           rainbow.enable = true;
         };
         fzf.enable = true;
+        foot.enable = true;
         ghostty.enable = false;
         hyprland.enable = true;
         mako.enable = true;
