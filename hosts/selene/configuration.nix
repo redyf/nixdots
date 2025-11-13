@@ -49,6 +49,7 @@
       enable = false;
       k3s.enable = false;
       k8s.enable = true;
+      nginx.enable = true;
     };
 
     gaming = {
@@ -100,8 +101,8 @@
     };
 
     virtualization = {
-      enable = false;
-      docker.enable = false;
+      enable = true;
+      docker.enable = true;
       virtmanager.enable = false;
       virtualbox.enable = false;
     };
