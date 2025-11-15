@@ -46,8 +46,8 @@
     };
 
     development = {
-      enable = false;
-      ansible.enable = true;
+      enable = true;
+      ansible.enable = false;
       aws.enable = true;
       k3s.enable = false;
       k8s.enable = true;
