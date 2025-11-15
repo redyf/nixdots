@@ -47,9 +47,12 @@
 
     development = {
       enable = false;
+      ansible.enable = true;
+      aws.enable = true;
       k3s.enable = false;
       k8s.enable = true;
       nginx.enable = true;
+      terraform.enable = true;
     };
 
     gaming = {
