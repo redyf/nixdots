@@ -23,4 +23,4 @@ jobs:
 
       - name: Run nix formatter (non-blocking)
         continue-on-error: true
-        run: nix develop -c nix fmt
+        run: nix develop -c nix fmt .

@@ -26,7 +26,7 @@ jobs:
         run: nix develop -c statix check --config ./.statix.toml .
 
       - name: Run formatter
-        run: nix develop -c nix fmt
+        run: nix develop -c nix fmt .
 
       - name: Run flake checks
         run: nix flake check --accept-flake-config
