@@ -75,10 +75,8 @@ in
     users = {
       extraGroups.xboxusers.members = [ "redyf" ];
       users.${cfg.username} = {
-        isNormalUser = cfg.isNormalUser;
+        inherit (cfg) isNormalUser initialPassword shell;
         description = if cfg.description != "" then cfg.description else cfg.username;
-        initialPassword = cfg.initialPassword;
-        shell = cfg.shell;
         extraGroups =
           cfg.groups.base
           ++ (lib.optionals cfg.groups.development [

@@ -119,7 +119,7 @@
                         ;
                     };
                     users."${username}" = import homeManagerModule {
-                      inputs = inputs;
+                      inherit inputs;
                       pkgs = nixpkgsFor."${system}";
                       inherit username homeDirectory;
                     };
@@ -155,9 +155,7 @@
           modules = [
             {
               home = {
-                username = username;
-                homeDirectory = homeDirectory;
-                stateVersion = stateVersion;
+                inherit username homeDirectory stateVersion;
               };
             }
           ]
