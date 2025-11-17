@@ -1,0 +1,37 @@
+name: Nix Flake Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  flake-check:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v13
+        with:
+          extra_nix_config: |
+            accept-flake-config = true
+
+      - name: Run statix (lint)
+        run: nix develop -c statix check --config ./.statix.toml .
+
+      - name: Run formatter
+        run: nix develop -c nix fmt
+
+      - name: Run flake checks
+        run: nix flake check --accept-flake-config
+
+      - name: Commit lint/format fixes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto lint/format"
