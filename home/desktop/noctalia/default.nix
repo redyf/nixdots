@@ -39,13 +39,14 @@
 
         bar = {
           backgroundOpacity = 1;
-          density = "default";
+          density = "compact";
           floating = false;
           marginHorizontal = 0.25;
           marginVertical = 0.25;
           monitors = [ ];
-          position = "top";
+          position = "bottom";
           showCapsule = true;
+          outerCorners = false;
           widgets = {
             center = [
               {
@@ -333,7 +334,7 @@
             }
           ];
           randomEnabled = true;
-          randomIntervalSec = 300;
+          randomIntervalSec = 1800;
           recursiveSearch = true;
           setWallpaperOnAllMonitors = true;
           transitionDuration = 1500;

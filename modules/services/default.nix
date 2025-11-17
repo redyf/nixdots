@@ -18,6 +18,9 @@
     input = {
       enable = lib.mkEnableOption "Enable displayManager ";
     };
+    jackett = {
+      enable = lib.mkEnableOption "Enable jackett ";
+    };
   };
 
   imports = [
@@ -26,5 +29,6 @@
     ./flatpak.nix
     ./fstrim.nix
     ./input.nix
+    ./jackett.nix
   ];
 }

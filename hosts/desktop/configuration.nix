@@ -86,6 +86,7 @@
       flatpak.enable = false;
       fstrim.enable = true;
       input.enable = true;
+      jackett.enable = false;
     };
 
     system = {

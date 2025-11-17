@@ -101,7 +101,7 @@ in
         };
 
         decoration = {
-          rounding = 10;
+          rounding = 0;
           shadow = {
             enabled = false;
             ignore_window = true;

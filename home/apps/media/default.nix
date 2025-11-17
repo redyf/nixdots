@@ -29,6 +29,8 @@
         blender
         zathura
         qbittorrent
+        aseprite
+        silicon
       ];
       # file = {
       #   ".config/obs-studio/themes/" = {
