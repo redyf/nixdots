@@ -11,7 +11,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
-    # font-flake.url = "github:redyf/font-flake";
+    font-flake.url = "github:redyf/font-flake";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
-    nix-topology.url = "github:oddlama/nix-topology";
     affinity-nix.url = "github:mrshmllow/affinity-nix";
     quickshell = {
       url = "github:outfoxxed/quickshell";
@@ -45,7 +44,6 @@
       disko,
       stylix,
       lanzaboote,
-      nix-topology,
       ...
     }@inputs:
     let
@@ -57,22 +55,17 @@
         "aarch64-darwin"
       ];
 
-      # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      # Nixpkgs instantiated for supported system types.
       nixpkgsFor = forAllSystems (
         system:
         import nixpkgs {
           inherit system;
-          overlays = [ nix-topology.overlays.default ];
         }
       );
 
-      # Stable Nixpkgs instantiated for supported system types.
       nixpkgsStableFor = forAllSystems (system: import nixpkgs-stable { inherit system; });
 
-      # Function to create a nixosConfiguration with a dynamic username
       createNixosConfiguration =
         {
           system,
@@ -90,7 +83,6 @@
               inputs
               hyprland
               disko
-              nix-topology
               username
               homeDirectory
               hostname
@@ -173,7 +165,6 @@
             disko.nixosModules.disko
             hyprland.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
-            nix-topology.nixosModules.default
             stylix.nixosModules.stylix
           ];
         };
@@ -197,17 +188,6 @@
           stateVersion = "22.11";
           modules = [ ];
         };
-      };
-
-      topology.x86_64-linux = import nix-topology {
-        pkgs = nixpkgsFor.x86_64-linux;
-        modules = [
-          ./topology-example.nix
-
-          {
-            inherit (self) nixosConfigurations;
-          }
-        ];
       };
 
       devShells = forAllSystems (
