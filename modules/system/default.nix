@@ -32,6 +32,10 @@
       enable = lib.mkEnableOption "Enable locale";
     };
 
+    mime-types = {
+      enable = lib.mkEnableOption "Enable mime types";
+    };
+
     networking = {
       enable = lib.mkEnableOption "Enable networking";
     };
@@ -73,6 +77,7 @@
     ./intel.nix
     ./keymap.nix
     ./locale.nix
+    ./mime-types.nix
     ./networking.nix
     ./power-management.nix
     ./security.nix

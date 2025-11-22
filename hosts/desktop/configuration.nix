@@ -97,6 +97,7 @@
       intel.enable = true;
       keymap.enable = true;
       locale.enable = true;
+      mime-types.enable = true;
       networking.enable = true;
       power-management.enable = true;
       security.enable = true;
