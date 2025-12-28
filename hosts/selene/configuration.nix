@@ -38,7 +38,6 @@
 
     desktop = {
       enable = true;
-      gnome.enable = false;
       hyprland.enable = false;
       sway.enable = true;
       xserver.enable = true;

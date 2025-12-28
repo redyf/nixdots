@@ -51,7 +51,6 @@
 
     desktop = {
       enable = true;
-      gnome.enable = false;
       hyprland.enable = true;
       i3.enable = true;
       sway.enable = false;

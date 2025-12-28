@@ -47,7 +47,6 @@
       enable = true;
       foot.enable = true;
       ghostty.enable = false;
-      gnome.enable = false;
       hyprland.enable = false;
       noctalia.enable = false;
       rofi.enable = false;
