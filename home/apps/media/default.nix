@@ -26,11 +26,9 @@
         pavucontrol
         mpv
         ffmpeg_6
-        blender
         zathura
         qbittorrent
-        aseprite
-        silicon
+        imagemagick
       ];
       # file = {
       #   ".config/obs-studio/themes/" = {

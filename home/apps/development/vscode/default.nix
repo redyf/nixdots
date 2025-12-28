@@ -11,6 +11,7 @@
   config = lib.mkIf config.vscode.enable {
     home.packages = with pkgs; [
       vscode
+      code-cursor
     ];
   };
 }

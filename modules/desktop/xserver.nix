@@ -17,7 +17,7 @@ in
         };
         displayManager = {
           sessionCommands = ''
-            xset r rate 140 30
+            xset r rate 150 30
             xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
             nitrogen --restore
           '';

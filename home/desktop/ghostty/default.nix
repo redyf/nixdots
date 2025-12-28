@@ -14,8 +14,8 @@
       enable = true;
       package = pkgs.ghostty;
       settings = {
-        font-family = "TX-02";
-        font-size = 11;
+        font-family = "Maple Mono NF";
+        font-size = 12;
         font-style = "Medium";
         font-style-bold = "Bold";
         font-style-italic = "Italic";
@@ -33,8 +33,8 @@
         mouse-hide-while-typing = false;
         mouse-scroll-multiplier = 1;
 
-        background-blur = 255;
-        background-opacity = 1;
+        background-blur = 0;
+        background-opacity = 0.8;
         fullscreen = false;
 
         window-padding-x = 5;

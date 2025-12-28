@@ -14,6 +14,6 @@
     artix-game-launcher.enable = lib.mkDefault true;
     godot.enable = lib.mkDefault false;
     minecraft.enable = lib.mkDefault false;
-    unity.enable = lib.mkDefault true;
+    unity.enable = lib.mkDefault false;
   };
 }

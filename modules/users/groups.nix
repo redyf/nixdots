@@ -87,6 +87,7 @@ in
             "docker"
             "kvm"
             "libvirtd"
+            "gamemode"
           ])
           ++ (lib.optionals cfg.groups.media [
             "audio"

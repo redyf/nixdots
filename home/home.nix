@@ -47,7 +47,6 @@
       enable = true;
       foot.enable = false;
       ghostty.enable = true;
-      gnome.enable = false;
       hyprland.enable = true;
       noctalia.enable = true;
       rofi.enable = false;
@@ -55,7 +54,7 @@
       swww.enable = false;
       theme.enable = true;
       waybar.enable = false;
-      wezterm.enable = false;
+      wezterm.enable = true;
       wofi.enable = true;
     };
 

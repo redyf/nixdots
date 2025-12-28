@@ -6,7 +6,6 @@ in
   imports = [
     ./foot
     ./ghostty
-    ./gnome
     ./hyprland
     ./noctalia
     ./rofi
@@ -22,7 +21,6 @@ in
     enable = lib.mkEnableOption "desktop environment and window managers";
     foot.enable = lib.mkEnableOption "foo terminal";
     ghostty.enable = lib.mkEnableOption "ghostty terminal";
-    gnome.enable = lib.mkEnableOption "GNOME desktop environment";
     hyprland.enable = lib.mkEnableOption "Hyprland window manager";
     noctalia.enable = lib.mkEnableOption "Noctalia shell";
     rofi.enable = lib.mkEnableOption "Rofi launcher";
@@ -37,7 +35,6 @@ in
   config = lib.mkIf cfg.enable {
     foot.enable = lib.mkDefault cfg.ghostty.enable;
     ghostty.enable = lib.mkDefault cfg.ghostty.enable;
-    gnome.enable = lib.mkDefault cfg.gnome.enable;
     hyprland.enable = lib.mkDefault cfg.hyprland.enable;
     noctalia.enable = lib.mkDefault cfg.noctalia.enable;
     rofi.enable = lib.mkDefault cfg.rofi.enable;

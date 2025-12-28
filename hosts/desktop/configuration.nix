@@ -53,6 +53,7 @@
       enable = true;
       gnome.enable = false;
       hyprland.enable = true;
+      i3.enable = true;
       sway.enable = false;
       xserver.enable = true;
     };
@@ -116,7 +117,7 @@
     virtualization = {
       enable = true;
       docker.enable = true;
-      virtmanager.enable = true;
+      virtmanager.enable = false;
       virtualbox.enable = false;
     };
   };

@@ -81,7 +81,7 @@ in
           repeat_rate = 30;
           numlock_by_default = 1;
           accel_profile = "flat";
-          sensitivity = -0.4;
+          sensitivity = 0.4;
           force_no_accel = false;
           touchpad = {
             natural_scroll = 1;
@@ -152,7 +152,7 @@ in
 
         misc = {
           vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
-          vrr = 0; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
+          vrr = 1; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
           disable_hyprland_logo = true;
         };
 
@@ -182,6 +182,7 @@ in
           "[workspace 1 silent] zen-twilight"
           "[workspace 3 silent] discord"
           "[workspace 4 silent] obsidian"
+          "nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'"
         ];
 
         bind = [
@@ -231,7 +232,7 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,ghostty"
+          "SUPER,RETURN,exec,wezterm"
           "SUPER,n,exec,kitty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"

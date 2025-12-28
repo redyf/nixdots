@@ -22,7 +22,7 @@
         package = pkgs.whitesur-icon-theme;
       };
       theme = {
-        name = lib.mkDefault "WhiteSur";
+        name = lib.mkDefault "WhiteSur-dark";
         package = lib.mkDefault pkgs.whitesur-gtk-theme;
       };
     };
@@ -51,6 +51,7 @@
         vesktop.enable = false;
         waybar.enable = false;
         wezterm.enable = false;
+        noctalia-shell.enable = false;
       };
     };
   };

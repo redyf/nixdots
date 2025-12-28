@@ -1,0 +1,127 @@
+set $mod Mod4
+
+# Fontes (ajuste se quiser)
+# font pango:monospace 10
+
+# Bordas e gaps (equivalente a gaps_in=2, gaps_out=0, border_size=2)
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 2
+gaps outer 0
+smart_gaps on               # Não aplica gaps se só houver uma janela no workspace
+hide_edge_borders both      # Esconde bordas na margem da tela
+
+# Layout padrão: tabbed (mais próximo do dwindle/master do Hyprland em uso diário)
+# Se preferir stacking: workspace_layout stacking
+# Se preferir tiled puro: workspace_layout default
+workspace_layout tabbed
+
+# Follow mouse = yes (equivalente a follow_mouse=1)
+focus_follows_mouse yes
+
+# Não refocus ao passar mouse (equivalente a mouse_refocus=false) - padrão do i3 é não refocus
+
+# Configuração de monitores (principal 180Hz horizontal + secundário 144Hz vertical)
+exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 180 --pos 0x0 --rotate normal \
+                            --output HDMI-0 --mode 1920x1080 --rate 144 --pos 1920x0 --rotate left
+
+# Input: teclado BR, NumLock on por padrão, accel flat (ponteiro sem aceleração)
+exec --no-startup-id setxkbmap -layout br 
+exec --no-startup-id numlockx on
+exec --no-startup-id xset m 1 0  # sensitivity=1.0, accel_profile flat + force_no_accel
+
+# Touchpad natural scroll
+exec --no-startup-id xinput list | grep -i touchpad | grep -o 'id=[0-9]*' | cut -d= -f2 | xargs -I{} xinput set-prop {} "libinput Natural Scrolling Enabled" 1
+
+# Atribuição fixa de workspaces aos monitores
+workspace 1 output DP-0
+workspace 2 output DP-0
+workspace 3 output HDMI-0
+workspace 4 output HDMI-0
+workspace 5 output DP-0
+workspace 6 output DP-0
+workspace 7 output DP-0
+workspace 8 output DP-0
+
+# Comandos de inicialização (exec-once)
+exec --no-startup-id noctalia-shell
+exec --no-startup-id i3-msg 'workspace 1; exec zen-twilight'
+exec --no-startup-id i3-msg 'workspace 3; exec discord'
+exec --no-startup-id i3-msg 'workspace 4; exec obsidian'
+exec --no-startup-id nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'
+
+# Keybinds principais
+bindsym $mod+q kill
+bindsym $mod+m exit
+bindsym $mod+s floating toggle
+bindsym $mod+g layout toggle split  # mais próximo de togglegroup (cicla layouts no container)
+
+# Movimento de foco (vim-like + setas)
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+
+# Mover janelas
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+
+# Mover janela para workspace (silent)
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+
+# Aplicações
+bindsym $mod+Return exec wezterm
+bindsym $mod+n exec kitty
+bindsym $mod+e exec emacsclient -c -a 'emacs'
+bindsym Print exec screenshot
+bindsym $mod+Print exec screenshot-edit
+bindsym Control+Print exec grim -o DP-1 ~/Pictures/screenshot.png  # ajuste se necessário
+bindsym $mod+o exec obsidian
+bindsym $mod+i exec idea-ultimate
+bindsym $mod+space exec rofi -show drun -I
+
+# Mouse binds (equivalente a bindm)
+floating_modifier $mod
+bindsym $mod+button1 movewindow   # Super + botão esquerdo = move (funciona em floating e tiled com modifier)
+bindsym $mod+button3 resizewindow # Super + botão direito = resize
+
+# Regras de janelas (windowrulev2 equivalente)
+for_window [class="^pavucontrol$"] floating enable
+for_window [class="^artix-games-launcher$"] fullscreen enable
+for_window [class="^(file_progress|confirm|dialog|download|notification|error|confirmreset)$"] floating enable
+for_window [title="^(Open File|branchdialog|Confirm to replace files|File Operation Progress|mpv)$"] floating enable
+for_window [class="^(discord|Discord)$"] workspace number 3
+
+bar {
+    status_command i3status
+}
+
+# Recarregar config: $mod+Shift+c (padrão)
+# Restart: $mod+Shift+r (padrão)

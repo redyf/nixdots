@@ -4,12 +4,12 @@
   options.myConfig.desktop = {
     enable = lib.mkEnableOption "Enable desktop configuration";
 
-    gnome = {
-      enable = lib.mkEnableOption "Enable gnome";
-    };
-
     hyprland = {
       enable = lib.mkEnableOption "Enable hyprland";
+    };
+
+    i3 = {
+      enable = lib.mkEnableOption "Enable i3";
     };
 
     sway = {
@@ -22,8 +22,8 @@
   };
 
   imports = [
-    ./gnome.nix
     ./hyprland.nix
+    ./i3.nix
     ./sway.nix
     ./xserver.nix
   ];

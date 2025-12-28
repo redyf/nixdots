@@ -17,7 +17,6 @@
       enable = true;
       settings = {
         appLauncher = {
-          backgroundOpacity = 1;
           customLaunchPrefix = "";
           customLaunchPrefixEnabled = false;
           enableClipboardHistory = false;
@@ -38,7 +37,6 @@
         };
 
         bar = {
-          backgroundOpacity = 1;
           density = "compact";
           floating = false;
           marginHorizontal = 0.25;
@@ -194,7 +192,6 @@
         };
 
         dock = {
-          backgroundOpacity = 1;
           colorizeIcons = false;
           displayMode = "always_visible";
           enabled = false;
@@ -252,7 +249,6 @@
         };
 
         notifications = {
-          backgroundOpacity = 1;
           criticalUrgencyDuration = 15;
           doNotDisturb = false;
           location = "top_right";
