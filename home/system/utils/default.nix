@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   pkgs,
   config,
@@ -12,6 +11,7 @@
   config = lib.mkIf config.utils.enable {
     home = {
       packages = with pkgs; [
+        jless
         parted
         unzip
         polkit_gnome

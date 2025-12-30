@@ -171,6 +171,16 @@
           zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
           zstyle ':fzf-tab:complete:cd:*' fzf-preview '${pkgs.eza}/bin/eza -1 --color=always $realpath'
           zstyle ':fzf-tab:*' switch-group ',' '.'
+
+          autoload -Uz edit-command-line
+          zle -N edit-command-line
+          bindkey '^x^e' edit-command-line
+
+          alias -s json='jless'
+
+          alias -s {txt,nix}='$EDITOR'
+
+          alias -s md='bat'
         '';
       };
     };
