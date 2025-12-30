@@ -232,7 +232,7 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,wezterm"
+          "SUPER,RETURN,exec,ghostty"
           "SUPER,n,exec,kitty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"

@@ -52,6 +52,17 @@
 
         theme = "Catppuccin Macchiato";
 
+        keybind = [
+          "ctrl+minus=unbind"
+          "ctrl+-=unbind"
+          "ctrl+equal=unbind"
+          "ctrl+plus=unbind"
+
+          "ctrl+shift+plus=increase_font_size:1"
+          "ctrl+shift+equal=increase_font_size:1"
+          "ctrl+shift+minus=decrease_font_size:1"
+        ];
+
         # custom-shader = "shaders/aurora.glsl";
         # custom-shader = "shaders/cursor_smear.glsl";
         # custom-shader = "shaders/cursor_blaze.glsl";

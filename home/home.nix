@@ -54,7 +54,7 @@
       swww.enable = false;
       theme.enable = true;
       waybar.enable = false;
-      wezterm.enable = true;
+      wezterm.enable = false;
       wofi.enable = true;
     };
 
