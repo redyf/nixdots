@@ -117,6 +117,13 @@
         ];
 
         initContent = ''
+          bindkey -s ^f "tmux-sessionizer-script\n"
+          tmux-init
+          export PATH=$PATH:~/.local/bin/
+          export PATH=/tmp/lazy-lvim/bin:$PATH
+
+          ZSH_AUTOSUGGEST_USE_ASYNC="true"
+
           TRANSIENT_PROMPT=$(${pkgs.starship}/bin/starship module character)
 
           function zle-line-init() {
@@ -132,11 +139,18 @@
               local saved_prompt=$PROMPT
               local saved_rprompt=$RPROMPT
 
+              # IMPORTANTE: Desativa os hooks do Starship temporariamente
+              # para ele não redesenhar o prompt completo na linha anterior
+              local saved_precmd_functions=("''${precmd_functions[@]}")
+              precmd_functions=()
+
               PROMPT=$TRANSIENT_PROMPT
               RPROMPT="" 
               zle .reset-prompt
+              
               PROMPT=$saved_prompt
               RPROMPT=$saved_rprompt
+              precmd_functions=("''${saved_precmd_functions[@]}")
 
               if (( ret )); then
                   zle .send-break
@@ -146,14 +160,6 @@
               return ret
           }
           zle -N zle-line-init
-          # ---------------------------------
-
-          bindkey -s ^f "tmux-sessionizer-script\n"
-          tmux-init
-          export PATH=$PATH:~/.local/bin/
-          export PATH=/tmp/lazy-lvim/bin:$PATH
-
-          ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
           # Zstyle completions
           zstyle ':completion:*' sort false

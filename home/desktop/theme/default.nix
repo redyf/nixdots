@@ -45,7 +45,7 @@
           enable = true;
         };
         rofi.enable = true;
-        starship.enable = true;
+        starship.enable = false;
         sway.enable = true;
         tmux.enable = false;
         vesktop.enable = false;

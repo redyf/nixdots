@@ -81,7 +81,7 @@ in
           repeat_rate = 30;
           numlock_by_default = 1;
           accel_profile = "flat";
-          sensitivity = 0.4;
+          sensitivity = -0.4;
           force_no_accel = false;
           touchpad = {
             natural_scroll = 1;
