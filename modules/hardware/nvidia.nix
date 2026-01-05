@@ -28,7 +28,7 @@ in
         nvidiaSettings = true;
         powerManagement.enable = true;
         modesetting.enable = true;
-        package = config.boot.kernelPackages.nvidiaPackages.production;
+        package = config.boot.kernelPackages.nvidiaPackages.beta;
       };
       graphics = {
         enable = true;
@@ -62,6 +62,13 @@ in
 
         # Desativa a Filtragem Anisotrópica (AF).
         __GL_LOG_MAX_ANISO = "0";
+
+        # Essencial para sincronia explícita em drivers novos (555+)
+        NVD_BACKEND = "direct";
+
+        # Garante que o Hyprland use a implementação correta da NVIDIA
+        LIBVA_DRIVER_NAME = "nvidia";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
         CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
       };

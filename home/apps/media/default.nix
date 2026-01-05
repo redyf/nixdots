@@ -27,7 +27,6 @@
         mpv
         ffmpeg_6
         zathura
-        qbittorrent
         imagemagick
       ];
       # file = {

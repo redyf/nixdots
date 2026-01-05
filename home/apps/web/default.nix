@@ -10,7 +10,6 @@
   };
   config = lib.mkIf config.web.enable {
     home.packages = with pkgs; [
-      anydesk
       discord
     ];
   };

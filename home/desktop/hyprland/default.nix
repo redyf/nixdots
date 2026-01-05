@@ -46,6 +46,17 @@ in
       xwayland = {
         enable = true;
       };
+      plugins = [
+        inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
+      ];
+      extraConfig = ''
+        plugin {
+            csgo-vulkan-fix {
+                vkfix-app = cs2, 1280, 960
+                fix_mouse = true
+            }
+        }
+      '';
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
@@ -90,7 +101,7 @@ in
 
         cursor = {
           enable_hyprcursor = true;
-          no_hardware_cursors = true;
+          no_hardware_cursors = false;
         };
 
         general = {
@@ -98,6 +109,7 @@ in
           gaps_out = 0;
           border_size = 2;
           layout = "dwindle";
+          allow_tearing = true; # Only enable this if you can keep your fps up during gameplay
         };
 
         decoration = {
@@ -109,7 +121,7 @@ in
             render_power = 1;
           };
           blur = {
-            enabled = true;
+            enabled = false;
             size = 4;
             passes = 2;
             new_optimizations = true;
@@ -120,6 +132,13 @@ in
             xray = true;
           };
         };
+
+        # plugin = {
+        #   csgo-vulkan-fix = {
+        #     fix_mouse = true;
+        #     vkfix-app = "cs2, 1280, 960";
+        #   };
+        # };
 
         animations = {
           enabled = true;
@@ -151,7 +170,7 @@ in
         };
 
         misc = {
-          vfr = true; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
+          vfr = false; # misc:no_vfr -> misc:vfr. bool, heavily recommended to leave at default on. Saves on CPU usage.
           vrr = 1; # misc:vrr -> Adaptive sync of your monitor. 0 (off), 1 (on), 2 (fullscreen only). Default 0 to avoid white flashes on select hardware.
           disable_hyprland_logo = true;
         };
@@ -232,7 +251,7 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,ghostty"
+          "SUPER,RETURN,exec,wezterm"
           "SUPER,n,exec,kitty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
@@ -248,6 +267,10 @@ in
           "SUPER,mouse:272,movewindow"
           "SUPER,mouse:273,resizewindow"
         ];
+
+        # windowrule = [
+        #   "match:class cs2, immediate yes" Not needed unless you want tearing
+        # ];
 
         windowrulev2 = [
           "float,class:^(pavucontrol)$"
@@ -267,6 +290,12 @@ in
           "workspace 3, class:^(discord)$"
           "workspace 3, class:^(Discord)$"
           "opacity 1.0 1.0,class:^(wofi)$"
+          "fullscreen, class:^(gamescope)$"
+          "stayfocused, class:^(gamescope)$" # Garante que o foco não saia da janela
+          "monitor 0, class:^(gamescope)$" # Força a abrir no seu monitor principal
+          # "vrr 1, class:^(gamescope)$" # Enables G-Sync/VRR if your game keeps dropping fps
+          # "immediate, class:^(gamescope)$" # Only enable if using tearing
+          # "vrr 0, class:^(gamescope)$" # Disables g-sync and allow tearing if you can keep your fps up while gaming
         ];
 
         ecosystem = {
