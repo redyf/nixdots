@@ -46,17 +46,17 @@ in
       xwayland = {
         enable = true;
       };
-      plugins = [
-        inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
-      ];
-      extraConfig = ''
-        plugin {
-            csgo-vulkan-fix {
-                vkfix-app = cs2, 1280, 960
-                fix_mouse = true
-            }
-        }
-      '';
+      # plugins = [
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
+      # ];
+      # extraConfig = ''
+      #   plugin {
+      #       csgo-vulkan-fix {
+      #           vkfix-app = cs2, 1280, 960
+      #           fix_mouse = true
+      #       }
+      #   }
+      # '';
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
