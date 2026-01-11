@@ -88,7 +88,6 @@
           kc = "kubectx";
           kns = "kubens";
           ke = "kubectl exec -it";
-          cursor = "steam-run cursor-agent";
         };
 
         oh-my-zsh = {

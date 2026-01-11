@@ -31,6 +31,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.quickshell.follows = "quickshell";
     };
+    nvibrant = {
+      url = "github:mikaeladev/nix-nvibrant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -12,11 +12,6 @@
     ];
   };
 
-  # Let Home Manager install and manage itself.
-  programs = {
-    home-manager.enable = true;
-  };
-
   imports = [
     ./apps
     ./cli
@@ -54,7 +49,7 @@
       swww.enable = false;
       theme.enable = true;
       waybar.enable = false;
-      wezterm.enable = false;
+      wezterm.enable = true;
       wofi.enable = true;
     };
 

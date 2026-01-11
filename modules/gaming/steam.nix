@@ -17,12 +17,9 @@ in
         gamescopeSession = {
           enable = true;
           args = [
-            "-w 1280"
-            "-h 960"
-            "-W 1920"
-            "-H 1080"
+            "-w 1920"
+            "-h 1080"
             "-r 180"
-            "-S stretch"
             "--adaptive-sync"
             "--immediate-flips"
           ];
@@ -30,11 +27,8 @@ in
       };
       gamemode.enable = true;
     };
-    environment.systemPackages = with pkgs; [
-      mangohud
-    ];
     services.archisteamfarm = {
-      enable = false;
+      enable = true;
     };
   };
 }

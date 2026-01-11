@@ -14,38 +14,35 @@
         local wezterm = require 'wezterm'
         return {
           color_scheme = "catppuccin-macchiato",
-          cursor_blink_rate = 0,
-          default_cursor_style = "BlinkingBar",
-          
+          default_cursor_style = "SteadyBlock",
           font = wezterm.font {
-            family = "TX-02",
+            family = "MonoLisa",
             weight = "Medium",
             italic = false, 
           },
-
           font_rules = {
             {
               intensity = 'Bold',
               italic = false,
-              font = wezterm.font { family = 'TX-02', weight = 'Bold' },
-            },
-            {
-              intensity = 'Bold',
-              italic = true,
-              font = wezterm.font { family = 'TX-02', weight = 'Bold', italic = true },
+              font = wezterm.font { family = 'MonoLisa', weight = 'Bold', italic = false },
             },
             {
               intensity = 'Half', 
-              italic = true,
-              font = wezterm.font { family = 'TX-02', weight = 'Medium', italic = true },
+              italic = false,
+              font = wezterm.font { family = 'MonoLisa', weight = 'Medium', italic = false },
+            },
+            {
+              intensity = 'Normal', 
+              italic = false,
+              font = wezterm.font { family = 'MonoLisa', weight = 'Medium', italic = false },
             },
           },
-
-          font_size = 12.0,
+          harfbuzz_features = { 'ss07=1' },
+          font_size = 13.0,
           hide_tab_bar_if_only_one_tab = true,
           webgpu_power_preference = "HighPerformance",
           window_background_opacity = 0.8,
-          kde_window_background_blur = true,
+          kde_window_background_blur = false,
           warn_about_missing_glyphs = false,
         }
       '';

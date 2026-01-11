@@ -12,6 +12,10 @@
       enable = lib.mkEnableOption "Enable i3";
     };
 
+    kde = {
+      enable = lib.mkEnableOption "Enable kde";
+    };
+
     sway = {
       enable = lib.mkEnableOption "Enable sway";
     };
@@ -24,6 +28,7 @@
   imports = [
     ./hyprland.nix
     ./i3.nix
+    ./kde.nix
     ./sway.nix
     ./xserver.nix
   ];

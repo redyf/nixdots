@@ -15,6 +15,7 @@
         nerd-fonts.jetbrains-mono
         maple-mono.NF
         inputs.font-flake.packages.${system}.tx02
+        inputs.font-flake.packages.${system}.monolisa
       ];
     };
   };

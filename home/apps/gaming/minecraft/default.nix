@@ -19,7 +19,16 @@ in
   config = lib.mkIf config.minecraft.enable {
     home = {
       packages = with pkgs; [
-        prismlauncher
+        prismlauncher-unwrapped
+        (modrinth-app.overrideAttrs (oldAttrs: {
+          buildCommand = ''
+            					gappsWrapperArgs+=(
+            						--set GDK_BACKEND x11
+            						--set WEBKIT_DISABLE_DMABUF_RENDERER 1
+            					)
+            				''
+          + oldAttrs.buildCommand;
+        }))
       ];
       file = {
         ".local/share/PrismLauncher/themes/Catppuccin-Mocha" = {

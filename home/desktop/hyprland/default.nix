@@ -18,6 +18,7 @@ in
       slurp
       swappy
       wl-clipboard
+      inputs.nvibrant.packages.${system}.nvibrant
 
       (writeShellScriptBin "screenshot" ''
         grim -g "$(slurp)" - | wl-copy
@@ -202,6 +203,7 @@ in
           "[workspace 3 silent] discord"
           "[workspace 4 silent] obsidian"
           "nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'"
+          "nvibrant 0 512 512 0"
         ];
 
         bind = [

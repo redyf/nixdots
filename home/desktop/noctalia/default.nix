@@ -316,8 +316,8 @@
         };
 
         wallpaper = {
-          defaultWallpaper = "${homeDirectory}/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
-          directory = "${homeDirectory}/Wallpapers/";
+          defaultWallpaper = "${homeDirectory}/wallpapers/wallhaven-pk6y2p_1920x1080.png";
+          directory = "${homeDirectory}/wallpapers/";
           enableMultiMonitorDirectories = false;
           enabled = true;
           fillColor = "#000000";

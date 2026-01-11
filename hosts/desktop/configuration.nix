@@ -53,6 +53,7 @@
       enable = true;
       hyprland.enable = true;
       i3.enable = true;
+      kde.enable = false;
       sway.enable = false;
       xserver.enable = true;
     };

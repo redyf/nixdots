@@ -9,8 +9,6 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
-    services.xserver.windowManager.plasma6 = {
-      enable = true;
-    };
+    services.desktopManager.plasma6.enable = true;
   };
 }

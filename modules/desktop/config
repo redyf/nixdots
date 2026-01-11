@@ -118,6 +118,7 @@ for_window [class="^artix-games-launcher$"] fullscreen enable
 for_window [class="^(file_progress|confirm|dialog|download|notification|error|confirmreset)$"] floating enable
 for_window [title="^(Open File|branchdialog|Confirm to replace files|File Operation Progress|mpv)$"] floating enable
 for_window [class="^(discord|Discord)$"] workspace number 3
+for_window [class="gamescope"] floating enable, border none, focus
 
 bar {
     status_command i3status

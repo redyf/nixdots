@@ -14,8 +14,8 @@
       enable = true;
       package = pkgs.ghostty;
       settings = {
-        font-family = "Maple Mono NF";
-        font-size = 12;
+        font-family = "TX-02";
+        font-size = 13;
         font-style = "Medium";
         font-style-bold = "Bold";
         font-style-italic = "Italic";
@@ -42,7 +42,7 @@
 
         confirm-close-surface = false;
 
-        shell-integration = "zsh";
+        # shell-integration = "zsh";
         shell-integration-features = "no-cursor,no-sudo,title";
 
         gtk-single-instance = "desktop";

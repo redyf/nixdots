@@ -25,7 +25,7 @@
     tools.enable = lib.mkEnableOption "Enable CLI tools module";
   };
   config = lib.mkIf config.tools.enable {
-    agents.enable = lib.mkDefault true;
+    agents.enable = lib.mkDefault false;
     bat.enable = lib.mkDefault true;
     direnv.enable = lib.mkDefault true;
     eza.enable = lib.mkDefault true;

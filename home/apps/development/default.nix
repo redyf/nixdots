@@ -17,7 +17,7 @@
     database.enable = lib.mkDefault true;
     intellij.enable = lib.mkDefault true;
     obsidian.enable = lib.mkDefault true;
-    rider.enable = lib.mkDefault true;
+    rider.enable = lib.mkDefault false;
     vscode.enable = lib.mkDefault true;
   };
 }
