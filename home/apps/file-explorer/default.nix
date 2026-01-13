@@ -10,7 +10,7 @@
   };
   config = lib.mkIf config.file-explorer.enable {
     home.packages = with pkgs; [
-      xfce.thunar
+      thunar
       yazi
     ];
   };

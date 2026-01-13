@@ -292,9 +292,9 @@ in
           "workspace 3, class:^(discord)$"
           "workspace 3, class:^(Discord)$"
           "opacity 1.0 1.0,class:^(wofi)$"
-          "fullscreen, class:^(gamescope)$"
-          "stayfocused, class:^(gamescope)$" # Garante que o foco não saia da janela
-          "monitor 0, class:^(gamescope)$" # Força a abrir no seu monitor principal
+          # "fullscreen, class:^(gamescope)$"
+          # "stayfocused, class:^(gamescope)$" # Garante que o foco não saia da janela
+          # "monitor 0, class:^(gamescope)$" # Força a abrir no seu monitor principal
           # "vrr 1, class:^(gamescope)$" # Enables G-Sync/VRR if your game keeps dropping fps
           # "immediate, class:^(gamescope)$" # Only enable if using tearing
           # "vrr 0, class:^(gamescope)$" # Disables g-sync and allow tearing if you can keep your fps up while gaming

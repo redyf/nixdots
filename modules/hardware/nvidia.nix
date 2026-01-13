@@ -28,7 +28,7 @@ in
         nvidiaSettings = true;
         powerManagement.enable = true;
         modesetting.enable = true;
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
+        package = config.boot.kernelPackages.nvidiaPackages.production;
       };
       graphics = {
         enable = true;

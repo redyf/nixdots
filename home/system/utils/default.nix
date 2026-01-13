@@ -15,6 +15,7 @@
         parted
         unzip
         polkit_gnome
+        wget
       ];
     };
   };

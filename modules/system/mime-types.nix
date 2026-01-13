@@ -13,6 +13,12 @@ in
       enable = true;
       defaultApplications = {
         "text/x-csharp" = "rider.desktop";
+        "text/java" = "idea.desktop";
+        "text/html" = [ "zen-twilight.desktop" ];
+        "x-scheme-handler/http" = [ "zen-twilight.desktop" ];
+        "x-scheme-handler/https" = [ "zen-twilight.desktop" ];
+        "x-scheme-handler/about" = [ "zen-twilight.desktop" ];
+        "x-scheme-handler/unknown" = [ "zen-twilight.desktop" ];
       };
     };
   };
