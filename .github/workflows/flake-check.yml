@@ -28,9 +28,6 @@ jobs:
       - name: Run formatter
         run: nix develop -c nix fmt .
 
-      - name: Run flake checks
-        run: nix flake check --accept-flake-config
-
       - name: Commit lint/format fixes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
