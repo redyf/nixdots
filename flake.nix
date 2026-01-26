@@ -72,8 +72,6 @@
           homeDirectory ? "/home/${username}",
           hostname ? null,
           modules ? [ ],
-          includeHomeManager ? true,
-          homeManagerModule ? ./home/home.nix,
         }:
         nixosSystem {
           specialArgs = {
@@ -91,44 +89,15 @@
             ./hosts/${hostname}/configuration.nix
             { networking.hostName = hostname; }
           ]
-          ++ (
-            if includeHomeManager then
-              [
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    useUserPackages = true;
-                    useGlobalPkgs = false;
-                    extraSpecialArgs = {
-                      inherit
-                        inputs
-                        disko
-                        nixpkgs-stable
-                        username
-                        homeDirectory
-                        hostname
-                        ;
-                    };
-                    users."${username}" = import homeManagerModule {
-                      inherit inputs;
-                      pkgs = nixpkgsFor."${system}";
-                      inherit username homeDirectory;
-                    };
-                    backupFileExtension = "backup";
-                  };
-                }
-              ]
-            else
-              [ ]
-          )
           ++ modules;
         };
 
-      createHomeManagerConfiguration =
+      createHome =
         {
           system,
           username,
           homeDirectory,
+          homeModule,
           stateVersion ? "22.11",
           modules ? [ ],
         }:
@@ -144,10 +113,13 @@
           };
           pkgs = nixpkgsFor."${system}";
           modules = [
+            homeModule
             {
               home = {
-                inherit username homeDirectory stateVersion;
+                inherit username stateVersion;
+                homeDirectory = "/home/${username}";
               };
+              programs.home-manager.enable = true;
             }
           ]
           ++ modules;
@@ -159,7 +131,6 @@
           system = "x86_64-linux";
           username = "redyf";
           hostname = "desktop";
-          homeManagerModule = ./home/home.nix;
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
@@ -171,7 +142,6 @@
           system = "x86_64-linux";
           username = "selene";
           hostname = "selene";
-          homeManagerModule = ./home/selene.nix;
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
@@ -180,12 +150,13 @@
         };
       };
       homeConfigurations = {
-        "redyf" = createHomeManagerConfiguration {
-          system = "aarch64-linux";
+        "redyf" = createHome {
+          system = "x86_64-linux";
           username = "redyf";
           homeDirectory = "/home/redyf";
+          homeModule = ./home/home.nix;
           stateVersion = "22.11";
-          modules = [ ];
+          modules = [ stylix.homeModules.stylix ];
         };
       };
 
@@ -204,6 +175,6 @@
           };
         }
       );
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      formatter = forAllSystems (system: nixpkgsFor.${system}.nixfmt);
     };
 }
