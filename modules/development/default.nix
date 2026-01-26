@@ -20,6 +20,10 @@
       enable = lib.mkEnableOption "Enable K8s";
     };
 
+    localstack = {
+      enable = lib.mkEnableOption "Enable localstack";
+    };
+
     nginx = {
       enable = lib.mkEnableOption "Enable Nginx";
     };
@@ -34,6 +38,7 @@
     ./aws.nix
     ./k3s.nix
     ./k8s.nix
+    ./localstack.nix
     ./nginx.nix
     ./terraform.nix
   ];
