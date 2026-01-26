@@ -13,7 +13,7 @@
       packages = with pkgs; [
         nixd
         statix
-        nixfmt-rfc-style
+        nixfmt
       ];
     };
   };

@@ -37,7 +37,7 @@
               font = wezterm.font { family = 'MonoLisa', weight = 'Medium', italic = false },
             },
           },
-          harfbuzz_features = { 'ss07=1' },
+          harfbuzz_features = { 'ss02=1', 'ss07=1' },
           font_size = 13.0,
           hide_tab_bar_if_only_one_tab = true,
           webgpu_power_preference = "HighPerformance",

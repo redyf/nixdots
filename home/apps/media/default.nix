@@ -25,7 +25,7 @@
         playerctl
         pavucontrol
         mpv
-        ffmpeg_6
+        ffmpeg
         zathura
         imagemagick
       ];

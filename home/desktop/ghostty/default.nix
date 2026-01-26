@@ -64,7 +64,7 @@
         ];
 
         # custom-shader = "shaders/aurora.glsl";
-        # custom-shader = "shaders/cursor_smear.glsl";
+        custom-shader = "shaders/cursor_smear.glsl";
         # custom-shader = "shaders/cursor_blaze.glsl";
         # custom-shader = "shaders/cursor_blaze_no_trail.glsl";
         # custom-shader = "shaders/cursor_frozen.glsl";
