@@ -24,11 +24,11 @@ in
 
     hardware = {
       nvidia = {
-        open = false;
+        open = true;
         nvidiaSettings = true;
-        powerManagement.enable = true;
+        powerManagement.enable = false;
         modesetting.enable = true;
-        package = config.boot.kernelPackages.nvidiaPackages.production;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
       graphics = {
         enable = true;
