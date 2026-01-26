@@ -57,7 +57,7 @@ in
       targets = {
         grub.enable = false;
         gnome.enable = false;
-        gtk.enable = true;
+        gtk.enable = false;
         nixos-icons.enable = true;
         qt.enable = true;
       };

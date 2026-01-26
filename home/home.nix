@@ -42,12 +42,13 @@
       enable = true;
       foot.enable = false;
       ghostty.enable = true;
+      gtk-theme.enable = true;
       hyprland.enable = true;
       noctalia.enable = true;
       rofi.enable = false;
       sway.enable = false;
       swww.enable = false;
-      theme.enable = true;
+      stylix-theme.enable = true;
       waybar.enable = false;
       wezterm.enable = true;
       wofi.enable = true;

@@ -4,30 +4,29 @@
   config,
   ...
 }:
+let
+  themes = {
+    catppuccin-mocha = "catppuccin-mocha";
+    oxocarbon-dark = "oxocarbon-dark";
+    tokyo-night-moon = "tokyo-night-moon";
+    tokyo-night-dark = "tokyo-night-dark";
+    tokyo-night-storm = "tokyo-night-storm";
+  };
+in
 {
   options = {
-    theme.enable = lib.mkEnableOption "Enable theme module";
+    stylix-theme.enable = lib.mkEnableOption "Enable stylix home module";
   };
-  config = lib.mkIf config.theme.enable {
-    gtk = {
+  config = lib.mkIf config.stylix-theme.enable {
+    stylix = {
       enable = true;
-      cursorTheme = {
-        name = "macOS-BigSur";
+      polarity = "dark";
+      cursor = {
+        name = "macOS";
         package = pkgs.apple-cursor;
         size = 36;
       };
-
-      iconTheme = {
-        name = "WhiteSur";
-        package = pkgs.whitesur-icon-theme;
-      };
-      theme = {
-        name = lib.mkDefault "WhiteSur-dark";
-        package = lib.mkDefault pkgs.whitesur-gtk-theme;
-      };
-    };
-
-    stylix = lib.mkIf (builtins.hasAttr "stylix" config) {
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
       targets = {
         bat.enable = true;
         blender.enable = false;
@@ -35,15 +34,16 @@
           enable = true;
           rainbow.enable = true;
         };
+        firefox.enable = true;
         fzf.enable = true;
         foot.enable = true;
         ghostty.enable = false;
+        gtk.enable = true;
+        gnome.enable = false;
         hyprland.enable = true;
         mako.enable = true;
-        gnome.enable = false;
-        qt = {
-          enable = true;
-        };
+        nixos-icons.enable = true;
+        qt.enable = true;
         rofi.enable = true;
         starship.enable = false;
         sway.enable = true;
