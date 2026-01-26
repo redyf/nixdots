@@ -22,14 +22,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
     };
     nvibrant = {
       url = "github:mikaeladev/nix-nvibrant";
@@ -202,12 +197,12 @@
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
               git
-              nixfmt-rfc-style
+              nixfmt
               statix
             ];
           };
         }
       );
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     };
 }
