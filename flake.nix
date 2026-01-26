@@ -17,10 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     Neve.url = "github:redyf/Neve";
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -41,7 +37,6 @@
       home-manager,
       disko,
       stylix,
-      lanzaboote,
       ...
     }@inputs:
     let
@@ -134,7 +129,6 @@
           modules = [
             disko.nixosModules.disko
             hyprland.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
             stylix.nixosModules.stylix
           ];
         };

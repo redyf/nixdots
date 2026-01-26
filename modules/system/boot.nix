@@ -54,10 +54,6 @@ in
             + "/minegrub";
         };
       };
-      # lanzaboote = {
-      #   enable = true;
-      #   pkiBundle = "/var/lib/sbctl";
-      # };
     };
     environment.systemPackages = [
       pkgs.sbctl
