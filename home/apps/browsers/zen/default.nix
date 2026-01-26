@@ -10,8 +10,8 @@
     zen.enable = lib.mkEnableOption "Enable zen module";
   };
   config = lib.mkIf config.zen.enable {
-    home.packages = with pkgs; [
-      inputs.zen-browser.packages."${system}".twilight
+    home.packages = [
+      inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
     ];
   };
 }

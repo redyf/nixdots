@@ -20,7 +20,7 @@ in
       };
       sessionVariables = {
         NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-        DEFAULT_BROWSER = inputs.zen-browser.packages.${pkgs.system}.twilight;
+        DEFAULT_BROWSER = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight;
       };
     };
   };

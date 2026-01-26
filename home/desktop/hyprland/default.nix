@@ -6,7 +6,7 @@
   ...
 }:
 let
-  hyprlandFlake = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  hyprlandFlake = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 in
 {
   options = {
@@ -18,7 +18,7 @@ in
       slurp
       swappy
       wl-clipboard
-      inputs.nvibrant.packages.${system}.nvibrant
+      inputs.nvibrant.packages.${pkgs.stdenv.hostPlatform.system}.nvibrant
 
       (writeShellScriptBin "screenshot" ''
         grim -g "$(slurp)" - | wl-copy
@@ -47,17 +47,6 @@ in
       xwayland = {
         enable = true;
       };
-      # plugins = [
-      #   inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
-      # ];
-      # extraConfig = ''
-      #   plugin {
-      #       csgo-vulkan-fix {
-      #           vkfix-app = cs2, 1280, 960
-      #           fix_mouse = true
-      #       }
-      #   }
-      # '';
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
@@ -110,7 +99,7 @@ in
           gaps_out = 0;
           border_size = 2;
           layout = "dwindle";
-          allow_tearing = true; # Only enable this if you can keep your fps up during gameplay
+          allow_tearing = true;
         };
 
         decoration = {
@@ -133,13 +122,6 @@ in
             xray = true;
           };
         };
-
-        # plugin = {
-        #   csgo-vulkan-fix = {
-        #     fix_mouse = true;
-        #     vkfix-app = "cs2, 1280, 960";
-        #   };
-        # };
 
         animations = {
           enabled = true;
@@ -201,9 +183,9 @@ in
           "noctalia-shell"
           "[workspace 1 silent] zen-twilight"
           "[workspace 3 silent] discord"
-          "[workspace 4 silent] obsidian"
+          # "[workspace 4 silent] obsidian"
           "nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'"
-          "nvibrant 0 512 512 0"
+          "nvibrant 0 512 700 0"
         ];
 
         bind = [
@@ -214,7 +196,6 @@ in
           # "SUPER,tab,changegroupactive"
           # "SUPER,P,pseudo,"
 
-          # Vim binds
           "SUPER,h,movefocus,l"
           "SUPER,l,movefocus,r"
           "SUPER,k,movefocus,u"
@@ -234,7 +215,6 @@ in
           "SUPER,7,workspace,7"
           "SUPER,8,workspace,8"
 
-          ################################## Move ###########################################
           "SUPER SHIFT, H, movewindow, l"
           "SUPER SHIFT, L, movewindow, r"
           "SUPER SHIFT, K, movewindow, u"
@@ -253,15 +233,12 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
-          "SUPER,RETURN,exec,wezterm"
-          "SUPER,n,exec,kitty"
+          "SUPER,RETURN,exec,ghostty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"
           "CTRL,Print,exec,grim -o DP-1 ~/Pictures/screenshot.png"
           "SUPER,o,exec,obsidian"
-          "SUPER,i,exec,idea-ultimate"
-          "SUPER,z,exec,waybar"
           "SUPER,space,exec,wofi --show drun -I"
         ];
 
@@ -269,10 +246,6 @@ in
           "SUPER,mouse:272,movewindow"
           "SUPER,mouse:273,resizewindow"
         ];
-
-        # windowrule = [
-        #   "match:class cs2, immediate yes" Not needed unless you want tearing
-        # ];
 
         windowrulev2 = [
           "float,class:^(pavucontrol)$"
@@ -292,12 +265,6 @@ in
           "workspace 3, class:^(discord)$"
           "workspace 3, class:^(Discord)$"
           "opacity 1.0 1.0,class:^(wofi)$"
-          # "fullscreen, class:^(gamescope)$"
-          # "stayfocused, class:^(gamescope)$" # Garante que o foco não saia da janela
-          # "monitor 0, class:^(gamescope)$" # Força a abrir no seu monitor principal
-          # "vrr 1, class:^(gamescope)$" # Enables G-Sync/VRR if your game keeps dropping fps
-          # "immediate, class:^(gamescope)$" # Only enable if using tearing
-          # "vrr 0, class:^(gamescope)$" # Disables g-sync and allow tearing if you can keep your fps up while gaming
         ];
 
         ecosystem = {

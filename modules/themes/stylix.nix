@@ -32,10 +32,6 @@ in
           package = pkgs.nerd-fonts.jetbrains-mono;
           name = "JetBrainsMono Nerd Font";
         };
-        # {
-        #   package = inputs.font-flake.packages.${pkgs.system}.tx02;
-        #   name = "TX-02";
-        # }
         sansSerif = {
           package = pkgs.dejavu_fonts;
           name = "DejaVu Sans";

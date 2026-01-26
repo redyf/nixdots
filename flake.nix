@@ -59,6 +59,7 @@
         system:
         import nixpkgs {
           inherit system;
+          config.allowUnfree = true;
         }
       );
 
@@ -75,7 +76,6 @@
           homeManagerModule ? ./home/home.nix,
         }:
         nixosSystem {
-          inherit system;
           specialArgs = {
             inherit
               inputs
@@ -87,6 +87,7 @@
               ;
           };
           modules = [
+            { nixpkgs.hostPlatform = system; }
             ./hosts/${hostname}/configuration.nix
             { networking.hostName = hostname; }
           ]

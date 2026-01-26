@@ -10,8 +10,8 @@
     neve.enable = lib.mkEnableOption "Enable neve module";
   };
   config = lib.mkIf config.neve.enable {
-    home.packages = with pkgs; [
-      inputs.Neve.packages.${system}.default
+    home.packages = [
+      inputs.Neve.packages.${pkgs.stdenv.hostPackages.system}.default
     ];
   };
 }

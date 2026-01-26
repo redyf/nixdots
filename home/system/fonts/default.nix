@@ -13,9 +13,8 @@
     home = {
       packages = with pkgs; [
         nerd-fonts.jetbrains-mono
-        maple-mono.NF
-        inputs.font-flake.packages.${system}.tx02
-        inputs.font-flake.packages.${system}.monolisa
+        inputs.font-flake.packages.${stdenv.hostPlatform.system}.tx02
+        inputs.font-flake.packages.${stdenv.hostPlatform.system}.monolisa
       ];
     };
   };
