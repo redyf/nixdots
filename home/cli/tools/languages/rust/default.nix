@@ -10,7 +10,7 @@
   };
   config = lib.mkIf config.rust.enable {
     home.packages = with pkgs; [
-      rustc 
+      rustc
     ];
   };
 }

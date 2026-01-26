@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     jq.enable = lib.mkEnableOption "Enable jq module";
   };

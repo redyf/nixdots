@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     ripgrep.enable = lib.mkEnableOption "Enable ripgrep module";
   };

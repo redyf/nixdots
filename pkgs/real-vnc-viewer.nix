@@ -10,10 +10,8 @@
 stdenv.mkDerivation {
   name = "realvnc-viewer";
   src =
-    if stdenv.isAarch64
-    then
-      fetchurl
-      {
+    if stdenv.isAarch64 then
+      fetchurl {
         url = "https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.12.0-Linux-ARM64";
         sha256 = "sha256-r/eDIwIrAO/0vyGE/zloJG/sA7tqotJQCkXtpnoO1WE=";
       }
@@ -23,7 +21,14 @@ stdenv.mkDerivation {
         sha256 = "sha256-mFWdM6kYO0LZxF0vsEn4LRBj2hgzgvUqiWDEzMfwBzE=";
       };
   dontUnpack = true;
-  buildInputs = [xorg.libX11 xorg.libXext xorg.libSM xorg.libICE patchelf makeWrapper];
+  buildInputs = [
+    xorg.libX11
+    xorg.libXext
+    xorg.libSM
+    xorg.libICE
+    patchelf
+    makeWrapper
+  ];
   buildPhase = ''
     export INTERPRETER=$(cat $NIX_CC/nix-support/dynamic-linker)
     echo "INTERPRETER=$INTERPRETER"
