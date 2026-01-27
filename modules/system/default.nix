@@ -4,6 +4,10 @@
   options.myConfig.system = {
     enable = lib.mkEnableOption "Enable programs configuration";
 
+    ananicy = {
+      enable = lib.mkEnableOption "Enable ananicy daemon";
+    };
+
     audio = {
       enable = lib.mkEnableOption "Enable audio";
     };
@@ -22,6 +26,10 @@
 
     intel = {
       enable = lib.mkEnableOption "Enable intel kernel params";
+    };
+
+    kernel = {
+      enable = lib.mkEnableOption "Enable custom kernel";
     };
 
     keymap = {
@@ -70,11 +78,13 @@
   };
 
   imports = [
+    ./ananicy.nix
     ./audio.nix
     ./boot.nix
     ./environment.nix
     ./hardware.nix
     ./intel.nix
+    ./kernel.nix
     ./keymap.nix
     ./locale.nix
     ./mime-types.nix

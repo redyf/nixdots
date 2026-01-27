@@ -9,7 +9,6 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
-    # Configure console keymap
     console = {
       keyMap = "br-abnt2";
     };

@@ -97,11 +97,13 @@
 
     system = {
       enable = true;
+      ananicy.enable = true;
       audio.enable = true;
       boot.enable = true;
       environment.enable = true;
       hardware.enable = true;
       intel.enable = true;
+      kernel.enable = true;
       keymap.enable = true;
       locale.enable = true;
       mime-types.enable = true;

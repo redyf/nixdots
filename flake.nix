@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     font-flake.url = "github:redyf/font-flake";
@@ -26,6 +26,7 @@
       url = "github:mikaeladev/nix-nvibrant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
@@ -37,6 +38,7 @@
       home-manager,
       disko,
       stylix,
+      nix-cachyos-kernel,
       ...
     }@inputs:
     let
@@ -77,6 +79,7 @@
               username
               homeDirectory
               hostname
+              nix-cachyos-kernel
               ;
           };
           modules = [
