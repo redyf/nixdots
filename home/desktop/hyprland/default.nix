@@ -44,9 +44,7 @@ in
       enable = true;
       package = pkgs.hyprland;
       systemd.variables = [ "--all" ];
-      xwayland = {
-        enable = true;
-      };
+      xwayland.enable = true;
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
@@ -100,6 +98,10 @@ in
           border_size = 2;
           layout = "dwindle";
           allow_tearing = true;
+        };
+
+        render = {
+          direct_scanout = 1;
         };
 
         decoration = {
@@ -186,6 +188,7 @@ in
           # "[workspace 4 silent] obsidian"
           "nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'"
           "nvibrant 0 512 700 0"
+          "gpu-screen-recorder -w portal -s 1920x1080 -f 59.94 -q high -r 45 -replay-storage ram -a default_output -c mp4 -o /home/redyf/Vídeos/clips"
         ];
 
         bind = [
@@ -240,6 +243,9 @@ in
           "CTRL,Print,exec,grim -o DP-1 ~/Pictures/screenshot.png"
           "SUPER,o,exec,obsidian"
           "SUPER,space,exec,wofi --show drun -I"
+          # "SUPER CTRL, F10, exec, gpu-screen-recorder -w portal -s 1920x1080 -f 59.94 -q high -r 45 -replay-storage ram -a default_output -c mp4 -o /home/redyf/Vídeos/clips"
+          "SUPER SHIFT, F10, exec, pkill -f gpu-screen-recorder"
+          "SUPER, F10, exec, pkill -f -USR1 gpu-screen-recorder"
         ];
 
         bindm = [
@@ -269,6 +275,7 @@ in
 
         ecosystem = {
           no_update_news = true;
+          no_donation_nag = true;
         };
       };
     };

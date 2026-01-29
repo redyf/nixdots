@@ -28,6 +28,7 @@
         ffmpeg
         zathura
         imagemagick
+        gpu-screen-recorder
       ];
       # file = {
       #   ".config/obs-studio/themes/" = {
