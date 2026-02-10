@@ -13,7 +13,7 @@ in
   config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
     programs.hyprland = {
       enable = true;
-      package = pkgs.hyprland;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
   };

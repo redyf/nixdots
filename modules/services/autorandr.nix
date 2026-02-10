@@ -19,7 +19,7 @@ in
                 enable = true;
                 primary = true;
                 mode = "1920x1080";
-                rate = "165.00";
+                rate = "180.00";
                 position = "0x0";
               };
             };
