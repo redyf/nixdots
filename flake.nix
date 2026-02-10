@@ -49,8 +49,7 @@
       ...
     }@inputs:
     let
-      lib = nixpkgs.lib;
-      inherit (lib) nixosSystem;
+      inherit (nixpkgs.lib) nixosSystem;
       supportedSystems = [
         "x86_64-linux"
         "x86_64-darwin"
@@ -95,7 +94,7 @@
             ./hosts/${hostname}/configuration.nix
             { networking.hostName = hostname; }
           ]
-          ++ lib.optionals (builtins.pathExists ./hosts/${hostname}/disko.nix) [
+          ++ nixpkgs.lib.optionals (builtins.pathExists ./hosts/${hostname}/disko.nix) [
             disko.nixosModules.disko
             ./hosts/${hostname}/disko.nix
           ]
