@@ -35,7 +35,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    foot.enable = lib.mkDefault cfg.ghostty.enable;
+    foot.enable = lib.mkDefault cfg.foot.enable;
     ghostty.enable = lib.mkDefault cfg.ghostty.enable;
     gtk-theme.enable = lib.mkDefault cfg.gtk-theme.enable;
     hyprland.enable = lib.mkDefault cfg.hyprland.enable;
