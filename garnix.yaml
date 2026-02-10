@@ -1,0 +1,9 @@
+builds:
+  exclude: []
+  include:
+    - "*.x86_64-linux.*"
+    - defaultPackage.x86_64-linux
+    - devShell.x86_64-linux
+    - homeConfigurations.*
+    - darwinConfigurations.*
+    - nixosConfigurations.*
