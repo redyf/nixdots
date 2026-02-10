@@ -7,6 +7,11 @@
 }:
 let
   hyprlandFlake = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  tokyonight_border = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
+  tokyonight_background = "rgba(32344aaa)";
+  catppuccin_macchiato_active_border = "rgb(8aadf4) rgb(24273A) rgb(24273A) rgb(8aadf4) 45deg";
+  catppuccin_macchiato_inactive_border = "rgb(24273A) rgb(24273A) rgb(24273A) rgb(24273A) 45deg";
+  opacity = "0.95";
 in
 {
   options = {
@@ -42,9 +47,12 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = pkgs.hyprland;
+      package = null;
       systemd.variables = [ "--all" ];
       xwayland.enable = true;
+      plugins = [
+        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+      ];
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
@@ -87,6 +95,16 @@ in
           };
         };
 
+        plugin = {
+          hyprscrolling = {
+            column_width = 0.5;
+            fullscreen_on_one_column = true;
+            focus_fit_method = 1;
+            follow_focus = true;
+            follow_debounce_ms = 150;
+          };
+        };
+
         cursor = {
           enable_hyprcursor = true;
           no_hardware_cursors = false;
@@ -95,9 +113,11 @@ in
         general = {
           gaps_in = 2;
           gaps_out = 0;
-          border_size = 2;
-          layout = "dwindle";
+          border_size = 3;
+          layout = "scrolling";
           allow_tearing = true;
+          "col.active_border" = lib.mkDefault "${catppuccin_macchiato_active_border}";
+          "col.inactive_border" = lib.mkDefault "${catppuccin_macchiato_inactive_border}";
         };
 
         render = {
@@ -105,7 +125,7 @@ in
         };
 
         decoration = {
-          rounding = 0;
+          rounding = 12;
           shadow = {
             enabled = false;
             ignore_window = true;
@@ -128,6 +148,7 @@ in
         animations = {
           enabled = true;
           animation = [
+            "borderangle, 1, 100, linear, loop"
             "global, 1, 10, default"
             "border, 1, 5.39, easeOutQuint"
             "windows, 1, 4.79, easeOutQuint"
@@ -184,20 +205,18 @@ in
         exec-once = [
           "noctalia-shell"
           "[workspace 1 silent] zen-twilight"
-          "[workspace 3 silent] discord"
-          # "[workspace 4 silent] obsidian"
+          "[workspace 3 silent] vesktop"
+          "[workspace 4 silent] obsidian"
           "nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'"
           "nvibrant 0 512 700 0"
-          "gpu-screen-recorder -w portal -s 1920x1080 -f 59.94 -q high -r 45 -replay-storage ram -a default_output -c mp4 -o /home/redyf/Vídeos/clips"
+          # "gpu-screen-recorder -w portal -s 1920x1080 -f 59.94 -q high -r 45 -replay-storage ram -a default_output -c mp4 -o /home/redyf/Vídeos/clips"
         ];
 
         bind = [
           "SUPER,Q,killactive,"
-          "SUPER,M,exit,"
+          "SUPER SHIFT,M,exit,"
           "SUPER,S,togglefloating,"
           "SUPER,g,togglegroup"
-          # "SUPER,tab,changegroupactive"
-          # "SUPER,P,pseudo,"
 
           "SUPER,h,movefocus,l"
           "SUPER,l,movefocus,r"
@@ -218,8 +237,8 @@ in
           "SUPER,7,workspace,7"
           "SUPER,8,workspace,8"
 
-          "SUPER SHIFT, H, movewindow, l"
-          "SUPER SHIFT, L, movewindow, r"
+          # "SUPER SHIFT, H, movewindow, l"
+          # "SUPER SHIFT, L, movewindow, r"
           "SUPER SHIFT, K, movewindow, u"
           "SUPER SHIFT, J, movewindow, d"
           "SUPER SHIFT, left, movewindow, l"
@@ -236,6 +255,18 @@ in
           "SUPER $mainMod SHIFT, 7, movetoworkspacesilent, 7"
           "SUPER $mainMod SHIFT, 8, movetoworkspacesilent, 8"
 
+          "SUPER, period, layoutmsg, move +col"
+          "SUPER, comma, layoutmsg, move -col"
+          "SUPER, equal, layoutmsg, colresize +0.2"
+          "SUPER, minus, layoutmsg, colresize -0.2"
+
+          "SUPER, P, layoutmsg, promote"
+          "SUPER SHIFT, period, layoutmsg, swapcol r"
+          "SUPER SHIFT, comma, layoutmsg, swapcol l"
+          "SUPER SHIFT, H, layoutmsg, swapcol l"
+          "SUPER SHIFT, L, layoutmsg, swapcol r"
+          "SUPER, M, layoutmsg, togglefit"
+
           "SUPER,RETURN,exec,ghostty"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
@@ -243,7 +274,7 @@ in
           "CTRL,Print,exec,grim -o DP-1 ~/Pictures/screenshot.png"
           "SUPER,o,exec,obsidian"
           "SUPER,space,exec,wofi --show drun -I"
-          # "SUPER CTRL, F10, exec, gpu-screen-recorder -w portal -s 1920x1080 -f 59.94 -q high -r 45 -replay-storage ram -a default_output -c mp4 -o /home/redyf/Vídeos/clips"
+          "SUPER CTRL, F10, exec, gpu-screen-recorder -w portal -s 1920x1080 -f 59.94 -q high -r 45 -replay-storage ram -a default_output -c mp4 -o /home/redyf/Vídeos/clips"
           "SUPER SHIFT, F10, exec, pkill -f gpu-screen-recorder"
           "SUPER, F10, exec, pkill -f -USR1 gpu-screen-recorder"
         ];
@@ -253,24 +284,23 @@ in
           "SUPER,mouse:273,resizewindow"
         ];
 
-        windowrulev2 = [
-          "float,class:^(pavucontrol)$"
-          "fullscreen,class:^(artix-games-launcher)$"
-          "float,class:^(file_progress)$"
-          "float,class:^(confirm)$"
-          "float,class:^(dialog)$"
-          "float,class:^(download)$"
-          "float,class:^(notification)$"
-          "float,class:^(error)$"
-          "float,class:^(confirmreset)$"
-          "float,title:^(Open File)$"
-          "float,title:^(branchdialog)$"
-          "float,title:^(Confirm to replace files)$"
-          "float,title:^(File Operation Progress)$"
-          "float,title:^(mpv)$"
-          "workspace 3, class:^(discord)$"
-          "workspace 3, class:^(Discord)$"
-          "opacity 1.0 1.0,class:^(wofi)$"
+        windowrule = [
+          # "float,class:^(pavucontrol)$"
+          # "fullscreen,class:^(artix-games-launcher)$"
+          # "float,class:^(file_progress)$"
+          # "float,class:^(confirm)$"
+          # "float,class:^(dialog)$"
+          # "float,class:^(download)$"
+          # "float,class:^(notification)$"
+          # "float,class:^(error)$"
+          # "float,class:^(confirmreset)$"
+          # "float,title:^(Open File)$"
+          # "float,title:^(branchdialog)$"
+          # "float,title:^(Confirm to replace files)$"
+          # "float,title:^(File Operation Progress)$"
+          # "float,title:^(mpv)$"
+          "match:class vesktop, workspace 3"
+          # "opacity 1.0 1.0,class:^(wofi)$"
         ];
 
         ecosystem = {
