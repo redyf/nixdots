@@ -377,11 +377,11 @@
         "tx02": "tx02"
       },
       "locked": {
-        "lastModified": 1770228533,
-        "narHash": "sha256-tjJyo7EF0bVheGSF02F7VATxDdT5clBb1HoAXZ1aeJA=",
+        "lastModified": 1770753625,
+        "narHash": "sha256-HCoBcrBoK1m4DT+lg79Nb1djtMivzkUNVXZIP1xZMKw=",
         "owner": "redyf",
         "repo": "font-flake",
-        "rev": "f5480ae11adc21b4fadd41a802fdfd3319b4131b",
+        "rev": "a0cac9ad19d970378b3658b8c3ed6b0c2be392b9",
         "type": "github"
       },
       "original": {
@@ -990,11 +990,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1754772842,
-        "narHash": "sha256-aKmIQcvT857VRc3XbLvsuMdLeUuYfz+8zQ4eTXe78KE=",
+        "lastModified": 1770752672,
+        "narHash": "sha256-fd9dFhrvc7ObQQr6wDAWuv0RqWnhR7lWtt7enzTLr5w=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1ef586712f85b4b004caecd385d6b023e7fd2450",
+        "rev": "1c415018b24020442ee94e6b84a8a4a24078a61e",
         "type": "github"
       },
       "original": {
