@@ -15,7 +15,7 @@ in
         if pkgs.stdenv.isx86_64 then
           {
             enable = true;
-            ly.enable = true;
+            ly.enable = false;
           }
         else
           { enable = false; };
