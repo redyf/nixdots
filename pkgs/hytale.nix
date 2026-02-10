@@ -24,10 +24,15 @@
   libxi,
   icu,
   openssl,
+  version ? null,
+  hytaleHashes ? null,
 }:
 
 let
-  version = "2026.01.24-997c2cb";
+  sources = lib.importJSON ./pin.json;
+
+  finalVersion = if version != null then version else sources.version;
+  finalHytaleHashes = if hytaleHashes != null then hytaleHashes else sources.hashes;
 
   # TODO: add icon once a stable versioned source is available
   desktopItem = makeDesktopItem {
@@ -40,29 +45,20 @@ let
     startupWMClass = "com.hypixel.HytaleLauncher";
   };
 
-  sources = {
-    x86_64-linux = {
-      url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-${version}.zip";
-      hash = "sha256-p+x+dNEhMDnjVpyzrczxP/KiYkFrbU8sqbIvwtuEN80=";
-    };
-    aarch64-darwin = {
-      url = "https://launcher.hytale.com/builds/release/darwin/arm64/hytale-launcher-${version}.zip";
-      hash = "sha256-txi54x7v4cZrlag+ICGnaLBTrpPE3Q9xeZwzFpoOYE0=";
-    };
-  };
-
-  currentSource =
-    sources.${stdenv.hostPlatform.system}
-      or (throw "unsupported system: ${stdenv.hostPlatform.system}");
+  os = if stdenv.hostPlatform.system == "x86_64-linux" then "linux" else "darwin";
+  arch = if stdenv.hostPlatform.system == "x86_64-linux" then "amd64" else "arm64";
 
   src = fetchzip {
-    inherit (currentSource) url hash;
+    url = "https://launcher.hytale.com/builds/release/${os}/${arch}/hytale-launcher-${finalVersion}.zip";
+    hash =
+      finalHytaleHashes.${stdenv.hostPlatform.system}
+        or (throw "unsupported system: ${stdenv.hostPlatform.system}");
     stripRoot = false;
   };
 
   fhsEnv = buildFHSEnv {
     pname = "hytale-launcher";
-    inherit version;
+    version = finalVersion;
 
     targetPkgs = pkgs: [
       # launcher dependencies (webkit/tauri)
@@ -143,7 +139,8 @@ let
 
   darwinPackage = stdenv.mkDerivation {
     pname = "hytale-launcher";
-    inherit version src;
+    version = finalVersion;
+    inherit src;
 
     nativeBuildInputs = [ makeWrapper ];
 

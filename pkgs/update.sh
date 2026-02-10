@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -I nixpkgs=./. -i bash -p bash curl cacert jq nix nix-prefetch common-updater-scripts
+#!nix-shell --pure -I nixpkgs=./. -i bash -p bash curl cacert jq nix nix-prefetch
 
 launcherJson=$(curl -s https://launcher.hytale.com/version/release/launcher.json)
 
@@ -38,7 +38,13 @@ function update() {
   read -r url expectedHash < <(selectUrlAndHash "$@")
   read -r _zipHash zipPath < <(prefetch --expected-hash "$expectedHash" "$url")
   hash=$(fetchzipFile "$zipPath" --no-stripRoot)
-  update-source-version --system="$system" --ignore-same-version hytale-launcher "$latestVersion" "$hash"
+
+  currentPin="$(dirname "${BASH_SOURCE[0]}")/pin.json"
+  newPin=$(mktemp)
+  jq --arg ver "$latestVersion" --arg sys "$system" --arg hash "$hash" \
+     '.version = $ver | .hashes[$sys] = $hash' \
+     "$currentPin" > "$newPin"
+  mv "$newPin" "$currentPin"
 }
 
 update "x86_64-linux" "linux" "amd64"
