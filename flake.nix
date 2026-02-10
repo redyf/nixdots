@@ -8,7 +8,14 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
     font-flake.url = "github:redyf/font-flake";
@@ -42,7 +49,8 @@
       ...
     }@inputs:
     let
-      inherit (nixpkgs.lib) nixosSystem;
+      lib = nixpkgs.lib;
+      inherit (lib) nixosSystem;
       supportedSystems = [
         "x86_64-linux"
         "x86_64-darwin"
@@ -87,6 +95,10 @@
             ./hosts/${hostname}/configuration.nix
             { networking.hostName = hostname; }
           ]
+          ++ lib.optionals (builtins.pathExists ./hosts/${hostname}/disko.nix) [
+            disko.nixosModules.disko
+            ./hosts/${hostname}/disko.nix
+          ]
           ++ modules;
         };
 
@@ -130,7 +142,6 @@
           username = "redyf";
           hostname = "desktop";
           modules = [
-            disko.nixosModules.disko
             hyprland.nixosModules.default
             stylix.nixosModules.stylix
           ];
@@ -140,7 +151,6 @@
           username = "selene";
           hostname = "selene";
           modules = [
-            disko.nixosModules.disko
             hyprland.nixosModules.default
             stylix.nixosModules.stylix
           ];
