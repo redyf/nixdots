@@ -16,7 +16,7 @@
           color_scheme = "catppuccin-macchiato",
           default_cursor_style = "SteadyBlock",
           font = wezterm.font {
-            family = "MonoLisa",
+            family = "JetBrainsMono Nerd Font",
             weight = "Medium",
             italic = false, 
           },
@@ -24,20 +24,20 @@
             {
               intensity = 'Bold',
               italic = false,
-              font = wezterm.font { family = 'MonoLisa', weight = 'Bold', italic = false },
+              font = wezterm.font { family = 'JetBrainsMono Nerd Font', weight = 'Bold', italic = false },
             },
             {
               intensity = 'Half', 
               italic = false,
-              font = wezterm.font { family = 'MonoLisa', weight = 'Medium', italic = false },
+              font = wezterm.font { family = 'JetBrainsMono Nerd Font', weight = 'Medium', italic = false },
             },
             {
               intensity = 'Normal', 
               italic = false,
-              font = wezterm.font { family = 'MonoLisa', weight = 'Medium', italic = false },
+              font = wezterm.font { family = 'JetBrainsMono Nerd Font', weight = 'Medium', italic = false },
             },
           },
-          harfbuzz_features = { 'ss02=1', 'ss07=1' },
+          -- harfbuzz_features = { 'ss02=1', 'ss07=1' },
           font_size = 13.0,
           hide_tab_bar_if_only_one_tab = true,
           webgpu_power_preference = "HighPerformance",

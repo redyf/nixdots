@@ -23,12 +23,12 @@
   myHomeConfig = {
     apps = {
       enable = true;
-      browsers.enable = false;
-      development.enable = false;
+      browsers.enable = true;
+      development.enable = true;
       file-explorer.enable = true;
       gaming.enable = false;
       media.enable = false;
-      web.enable = false;
+      web.enable = true;
     };
 
     cli = {
@@ -40,16 +40,17 @@
 
     desktop = {
       enable = true;
-      foot.enable = true;
+      foot.enable = false;
       ghostty.enable = false;
-      hyprland.enable = false;
-      noctalia.enable = false;
+      gtk-theme.enable = true;
+      hyprland.enable = true;
+      noctalia.enable = true;
       rofi.enable = false;
-      sway.enable = true;
+      sway.enable = false;
       swww.enable = false;
-      theme.enable = true;
+      stylix-theme.enable = true;
       waybar.enable = false;
-      wezterm.enable = false;
+      wezterm.enable = true;
       wofi.enable = true;
     };
 
