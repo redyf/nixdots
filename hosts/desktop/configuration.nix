@@ -30,7 +30,7 @@
       enable = true;
       username = "redyf";
       isNormalUser = true;
-      description = "redyf"; # Optional - defaults to username if not specified
+      description = "Desktop host"; # Optional - defaults to username if not specified
       initialPassword = "123456";
       shell = pkgs.zsh;
 

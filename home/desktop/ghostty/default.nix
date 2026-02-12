@@ -5,16 +5,28 @@
   pkgs,
   ...
 }:
+let
+  ghostty-wrapped-overlay = self: super: {
+    ghostty = super.ghostty.overrideAttrs (old: {
+      buildInputs = old.buildInputs ++ [ pkgs.makeWrapper ];
+      postInstall = old.postInstall or "" + ''
+        wrapProgram "$out/bin/ghostty" \
+        --set GDK_BACKEND x11 \
+      '';
+    });
+  };
+in
 {
   options = {
     ghostty.enable = lib.mkEnableOption "Enable ghostty module";
   };
   config = lib.mkIf config.ghostty.enable {
+    nixpkgs.overlays = [ ghostty-wrapped-overlay ];
     programs.ghostty = {
       enable = true;
       package = pkgs.ghostty;
       settings = {
-        font-family = "TX-02";
+        font-family = "JetBrainsMono Nerd Font";
         font-size = 13;
         font-style = "Medium";
         font-style-bold = "Bold";

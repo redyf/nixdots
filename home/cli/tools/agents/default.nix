@@ -12,6 +12,7 @@
   config = lib.mkIf config.agents.enable {
     home.packages = [
       pkgs.gemini-cli-bin
+      pkgs.codex
     ];
   };
 }

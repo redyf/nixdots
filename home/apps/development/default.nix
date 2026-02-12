@@ -18,6 +18,6 @@
     intellij.enable = lib.mkDefault true;
     obsidian.enable = lib.mkDefault true;
     rider.enable = lib.mkDefault false;
-    vscode.enable = lib.mkDefault true;
+    vscode.enable = lib.mkDefault false;
   };
 }

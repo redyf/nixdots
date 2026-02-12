@@ -40,7 +40,7 @@ in
         ghostty.enable = false;
         gtk.enable = true;
         gnome.enable = false;
-        hyprland.enable = true;
+        hyprland.enable = false;
         mako.enable = true;
         nixos-icons.enable = true;
         qt.enable = true;

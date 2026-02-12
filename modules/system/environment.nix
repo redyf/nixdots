@@ -20,7 +20,7 @@ in
       };
       sessionVariables = {
         NIXOS_OZONE_WL = "1";
-        DEFAULT_BROWSER = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight;
+        DEFAULT_BROWSER = pkgs.firefox;
       };
     };
   };

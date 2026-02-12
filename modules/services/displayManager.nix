@@ -16,6 +16,7 @@ in
           {
             enable = true;
             ly.enable = false;
+            gdm.enable = true;
           }
         else
           { enable = false; };

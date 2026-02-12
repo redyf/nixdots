@@ -17,7 +17,7 @@
       enable = true;
       username = "selene";
       isNormalUser = true;
-      description = "selene"; # Optional - defaults to username if not specified
+      description = "Laptop host"; # Optional - defaults to username if not specified
       initialPassword = "123456";
       shell = pkgs.zsh;
 
