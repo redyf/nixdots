@@ -21,7 +21,7 @@ in
     ghostty.enable = lib.mkEnableOption "Enable ghostty module";
   };
   config = lib.mkIf config.ghostty.enable {
-    nixpkgs.overlays = [ ghostty-wrapped-overlay ];
+    # nixpkgs.overlays = [ ghostty-wrapped-overlay ];
     programs.ghostty = {
       enable = true;
       package = pkgs.ghostty;

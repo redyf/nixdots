@@ -34,6 +34,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -46,6 +50,7 @@
       disko,
       stylix,
       nix-cachyos-kernel,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -143,6 +148,7 @@
           modules = [
             hyprland.nixosModules.default
             stylix.nixosModules.stylix
+            sops-nix.nixosModules.sops
           ];
         };
         selene = createNixosConfiguration {
@@ -152,6 +158,7 @@
           modules = [
             hyprland.nixosModules.default
             stylix.nixosModules.stylix
+            sops-nix.nixosModules.sops
           ];
         };
       };

@@ -16,6 +16,8 @@
         unzip
         polkit_gnome
         wget
+        age
+        sops
       ];
     };
   };
