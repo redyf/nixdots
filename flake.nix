@@ -171,8 +171,6 @@
           stateVersion = "22.11";
           modules = [ stylix.homeModules.stylix ];
         };
-      };
-      homeConfigurations = {
         "selene" = createHome {
           system = "x86_64-linux";
           username = "selene";

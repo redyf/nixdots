@@ -123,7 +123,7 @@
     };
   };
 
-  networking.hostId = "fbb56d98"; # você vai gerar isso
+  networking.hostId = "fbb56d98";
 
   hardware.enableRedistributableFirmware = true;
 
@@ -133,6 +133,7 @@
     git
     docker-compose
     ntfs3g
+    wezterm
   ];
 
   system.stateVersion = "22.11"; # Don't change this

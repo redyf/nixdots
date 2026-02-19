@@ -1,85 +1,80 @@
-{
-  lib,
-  device ? throw "Set this to your disk device, e.g. /dev/sda",
-  ...
-}:
+_:
 
 {
   disko.devices = {
-    disk = {
-      main = {
-        type = "disk";
-        device = "/dev/nvme0n1";
+    disk.main = {
+      type = "disk";
+      device = "/dev/nvme0n1";
 
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              name = "ESP";
-              size = "1G";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
-              };
+      content = {
+        type = "gpt";
+        partitions = {
+          ESP = {
+            name = "ESP";
+            size = "1G";
+            type = "EF00";
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot";
+              mountOptions = [ "umask=0077" ];
             };
+          };
 
-            ZFS = {
-              name = "zfs";
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "rpool";
-              };
+          zfs = {
+            name = "zfs";
+            size = "100%";
+            content = {
+              type = "zfs";
+              pool = "rpool";
             };
           };
         };
       };
     };
 
-    zpool = {
-      rpool = {
-        type = "zpool";
-        mode = "single";
+    zpool.rpool = {
+      type = "zpool";
+      mode = "";
 
-        options = {
-          ashift = "12";
-          autotrim = "on";
+      options = {
+        ashift = "12";
+        autotrim = "on";
+      };
+
+      rootFsOptions = {
+        acltype = "posixacl";
+        atime = "off";
+        compression = "zstd";
+        mountpoint = "none";
+        xattr = "sa";
+      };
+
+      datasets = {
+        "local" = {
+          type = "zfs_fs";
+          options.mountpoint = "none";
         };
 
-        rootFsOptions = {
-          compression = "zstd";
-          atime = "off";
-          xattr = "sa";
-          acltype = "posixacl";
-          normalization = "formD";
+        "local/root" = {
+          type = "zfs_fs";
+          mountpoint = "/";
+          options.mountpoint = "legacy";
         };
 
-        datasets = {
-          "root" = {
-            type = "zfs_fs";
-            mountpoint = "/";
-            options = {
-              mountpoint = "legacy";
-            };
-          };
+        "local/home" = {
+          type = "zfs_fs";
+          mountpoint = "/home";
+          options.mountpoint = "legacy";
+        };
 
-          "home" = {
-            type = "zfs_fs";
-            mountpoint = "/home";
-            options = {
-              mountpoint = "legacy";
-            };
-          };
-
-          "nix" = {
-            type = "zfs_fs";
-            mountpoint = "/nix";
-            options = {
-              mountpoint = "legacy";
-            };
+        "local/nix" = {
+          type = "zfs_fs";
+          mountpoint = "/nix";
+          options = {
+            mountpoint = "legacy";
+            "com.sun:auto-snapshot" = "false";
+            atime = "off";
           };
         };
       };
