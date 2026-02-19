@@ -112,6 +112,11 @@
                 id = "Brightness";
               }
               {
+                alwaysShowPercentage = true;
+                id = "Battery";
+                warningThreshold = 30;
+              }
+              {
                 customFont = "";
                 formatHorizontal = "HH:mm ddd, MMM dd";
                 formatVertical = "HH mm - dd MM";

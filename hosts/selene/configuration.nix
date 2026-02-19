@@ -75,6 +75,8 @@
       flatpak.enable = false;
       fstrim.enable = false;
       input.enable = true;
+      tuned.enable = true;
+      upower.enable = true;
     };
 
     system = {
