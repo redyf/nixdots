@@ -109,6 +109,22 @@
     };
   };
 
+  boot = {
+    supportedFilesystems = [ "zfs" ];
+    extraModprobeConfig = ''
+      options zfs zfs_arc_max=4294967296
+    '';
+  };
+
+  services = {
+    zfs = {
+      autoScrub.enable = true;
+      trim.enable = true;
+    };
+  };
+
+  networking.hostId = "fbb56d98"; # você vai gerar isso
+
   hardware.enableRedistributableFirmware = true;
 
   nixpkgs.config.allowUnfree = true;
