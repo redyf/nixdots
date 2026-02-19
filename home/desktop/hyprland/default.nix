@@ -265,7 +265,7 @@ in
           "SUPER SHIFT, L, layoutmsg, swapcol r"
           "SUPER, M, layoutmsg, togglefit"
 
-          "SUPER,RETURN,exec,ghostty"
+          "SUPER,RETURN,exec,wezterm"
           "SUPER,e,exec,emacsclient -c -a 'emacs'"
           ",Print,exec,screenshot"
           "SUPER,Print,exec,screenshot-edit"

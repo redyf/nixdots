@@ -38,8 +38,8 @@
 
     desktop = {
       enable = true;
-      hyprland.enable = false;
-      sway.enable = true;
+      hyprland.enable = true;
+      sway.enable = false;
       xserver.enable = true;
     };
 
@@ -108,6 +108,8 @@
       virtualbox.enable = false;
     };
   };
+
+  hardware.enableRedistributableFirmware = true;
 
   nixpkgs.config.allowUnfree = true;
 

@@ -172,6 +172,15 @@
           modules = [ stylix.homeModules.stylix ];
         };
       };
+      homeConfigurations = {
+        "selene" = createHome {
+          system = "x86_64-linux";
+          username = "selene";
+          homeDirectory = "/home/selene";
+          homeModule = ./home/selene.nix;
+          modules = [ stylix.homeModules.stylix ];
+        };
+      };
 
       devShells = forAllSystems (
         system:

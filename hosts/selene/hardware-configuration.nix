@@ -10,9 +10,7 @@
 }:
 
 {
-  imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
-  ];
+  imports = [];
 
   boot.initrd.availableKernelModules = [
     "ahci"
