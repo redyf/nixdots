@@ -1,42 +1,84 @@
-# If you'd saved this configuration in ./disks/default.nix, and wanted to create a disk named /dev/nvme0n1, you would run the following command to partition, format and mount the disk.
-# sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disks/default.nix --arg device '"/dev/nvme0n1"'
 {
   lib,
   device ? throw "Set this to your disk device, e.g. /dev/sda",
   ...
 }:
+
 {
-  disko = {
-    # Do not let Disko manage fileSystems.* config for NixOS.
-    # Reason is that Disko mounts partitions by GPT partition names, which are
-    # easily overwritten with tools like fdisk. When you fail to deploy a new
-    # config in this case, the old config that comes with the disk image will
-    # not boot either.
-    enableConfig = true;
-    devices = {
-      disk.main = {
+  disko.devices = {
+    disk = {
+      main = {
         type = "disk";
         device = "/dev/nvme0n1";
+
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "1024M";
+              name = "ESP";
+              size = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
               };
             };
 
-            root = {
+            ZFS = {
+              name = "zfs";
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "btrfs";
-                mountpoint = "/";
+                type = "zfs";
+                pool = "rpool";
               };
+            };
+          };
+        };
+      };
+    };
+
+    zpool = {
+      rpool = {
+        type = "zpool";
+        mode = "single";
+
+        options = {
+          ashift = "12";
+          autotrim = "on";
+        };
+
+        rootFsOptions = {
+          compression = "zstd";
+          atime = "off";
+          xattr = "sa";
+          acltype = "posixacl";
+          normalization = "formD";
+        };
+
+        datasets = {
+          "root" = {
+            type = "zfs_fs";
+            mountpoint = "/";
+            options = {
+              mountpoint = "legacy";
+            };
+          };
+
+          "home" = {
+            type = "zfs_fs";
+            mountpoint = "/home";
+            options = {
+              mountpoint = "legacy";
+            };
+          };
+
+          "nix" = {
+            type = "zfs_fs";
+            mountpoint = "/nix";
+            options = {
+              mountpoint = "legacy";
             };
           };
         };
