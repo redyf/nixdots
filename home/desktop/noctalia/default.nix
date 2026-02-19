@@ -99,9 +99,14 @@
                 showUnreadBadge = true;
               }
               {
-                displayMode = "onhover";
                 id = "Battery";
+                displayMode = "icon-always";
                 warningThreshold = 30;
+                showPowerProfiles = true;
+                hideIfIdle = false;
+                hideIfNotDetected = true;
+                showNoctaliaPerformance = true;
+                alwaysShowPercentage = true;
               }
               {
                 displayMode = "onhover";
@@ -110,11 +115,6 @@
               {
                 displayMode = "onhover";
                 id = "Brightness";
-              }
-              {
-                alwaysShowPercentage = true;
-                id = "Battery";
-                warningThreshold = 30;
               }
               {
                 customFont = "";
@@ -262,6 +262,7 @@
           normalUrgencyDuration = 8;
           overlayLayer = true;
           respectExpireTimeout = false;
+          batteryWarningThreshold = 20;
         };
 
         osd = {
