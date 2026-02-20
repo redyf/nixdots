@@ -21,8 +21,8 @@
     jackett = {
       enable = lib.mkEnableOption "Enable jackett";
     };
-    tuned = {
-      enable = lib.mkEnableOption "Enable tuneD";
+    tlp = {
+      enable = lib.mkEnableOption "Enable tlp";
     };
     upower = {
       enable = lib.mkEnableOption "Enable Upower";
@@ -36,7 +36,7 @@
     ./fstrim.nix
     ./input.nix
     ./jackett.nix
-    ./tuned.nix
+    ./tlp.nix
     ./upower.nix
   ];
 }

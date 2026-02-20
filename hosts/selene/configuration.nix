@@ -75,21 +75,22 @@
       flatpak.enable = false;
       fstrim.enable = false;
       input.enable = true;
-      tuned.enable = true;
+      tlp.enable = true;
       upower.enable = true;
     };
 
     system = {
       enable = true;
+      amd.enable = true;
       audio.enable = true;
       boot.enable = true;
       environment.enable = true;
       hardware.enable = true;
-      intel.enable = true;
+      intel.enable = false;
       keymap.enable = true;
       locale.enable = true;
       networking.enable = true;
-      power-management.enable = true;
+      power-management.enable = false;
       security.enable = true;
       ssh.enable = true;
       systemd.enable = true;
@@ -127,7 +128,10 @@
 
   networking.hostId = "fbb56d98";
 
-  hardware.enableRedistributableFirmware = true;
+  hardware = {
+    enableRedistributableFirmware = true;
+    bluetooth.enable = false;
+  };
 
   nixpkgs.config.allowUnfree = true;
 

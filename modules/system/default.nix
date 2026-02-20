@@ -4,6 +4,10 @@
   options.myConfig.system = {
     enable = lib.mkEnableOption "Enable programs configuration";
 
+    amd = {
+      enable = lib.mkEnableOption "Enable amd module";
+    };
+
     ananicy = {
       enable = lib.mkEnableOption "Enable ananicy daemon";
     };
@@ -78,6 +82,7 @@
   };
 
   imports = [
+    ./amd.nix
     ./ananicy.nix
     ./audio.nix
     ./boot.nix
