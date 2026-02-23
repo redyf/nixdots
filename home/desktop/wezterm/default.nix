@@ -16,7 +16,7 @@
           color_scheme = "catppuccin-macchiato",
           default_cursor_style = "SteadyBlock",
           font = wezterm.font {
-            family = "JetBrainsMono Nerd Font",
+            family = "TX-02",
             weight = "Medium",
             italic = false, 
           },
@@ -24,17 +24,17 @@
             {
               intensity = 'Bold',
               italic = false,
-              font = wezterm.font { family = 'JetBrainsMono Nerd Font', weight = 'Bold', italic = false },
+              font = wezterm.font { family = 'TX-02', weight = 'Bold', italic = false },
             },
             {
               intensity = 'Half', 
               italic = false,
-              font = wezterm.font { family = 'JetBrainsMono Nerd Font', weight = 'Medium', italic = false },
+              font = wezterm.font { family = 'TX-02', weight = 'Medium', italic = false },
             },
             {
               intensity = 'Normal', 
               italic = false,
-              font = wezterm.font { family = 'JetBrainsMono Nerd Font', weight = 'Medium', italic = false },
+              font = wezterm.font { family = 'TX-02', weight = 'Medium', italic = false },
             },
           },
           -- harfbuzz_features = { 'ss02=1', 'ss07=1' },

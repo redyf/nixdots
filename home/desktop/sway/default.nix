@@ -17,17 +17,8 @@
         # Variáveis
         set $mod Mod4
 
-        # Monitores
-        output DP-3 mode 1920x1080@180Hz position 0,0
-        output HDMI-A-3 mode 1920x1080@144Hz position 1920,0 transform 270
+        output eDP-1 mode 1920x1200@60Hz position 0 0 scale 1 scale_filter smart
 
-        # Workspaces por monitor
-        workspace 1 output DP-3
-        workspace 2 output DP-3
-        workspace 3 output HDMI-A-3
-        workspace 4 output HDMI-A-3
-
-        # Input
         input * {
             xkb_layout "br"
             repeat_delay 140
@@ -37,7 +28,9 @@
         }
 
         input type:touchpad {
-            natural_scroll enabled
+          tap enabled
+          tap_button_map lrm
+          natural_scroll enabled
         }
 
         gaps inner 2
@@ -45,13 +38,11 @@
         default_border pixel 2
 
         exec noctalia-shell
-        exec zen-twilight
-        exec discord
         exec obsidian
 
         # Keybinds - Janelas
         bindsym $mod+q kill
-        bindsym $mod+m exit
+        bindsym $mod+Shift+m exit
         bindsym $mod+s floating toggle
 
         # Foco (vim)
@@ -98,8 +89,7 @@
         bindsym $mod+Shift+8 move container to workspace number 8
 
         # Apps
-        bindsym $mod+Return exec foot
-        bindsym $mod+n exec kitty
+        bindsym $mod+Return exec wezterm
         bindsym $mod+e exec emacsclient -c -a 'emacs'
         bindsym $mod+o exec obsidian
         bindsym $mod+i exec idea-ultimate
@@ -111,31 +101,29 @@
         bindsym $mod+Print exec screenshot-edit
         bindsym Control+Print exec grim -o DP-1 ~/Pictures/screenshot.png
 
-        # Outros
-        bindsym $mod+z exec waybar
-
         # Mouse
         floating_modifier $mod normal
 
-        # Window rules
-        for_window [app_id="pavucontrol"] floating enable
-        for_window [app_id="discord|Discord"] move to workspace 3
-        for_window [title="^(Open File)$"] floating enable
-        for_window [title="^(mpv)$"] floating enable
+        assign [app_id="firefox"] workspace number 1
+        assign [class="Firefox"] workspace number 1
+        assign [app_id="vesktop"] workspace number 3
+        assign [class="Vesktop"] workspace number 3
+        assign [app_id="obsidian"] workspace number 4
+        assign [class="Obsidian"] workspace number 4
 
-        bar {
-          position top
-          status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
-
-          colors {
-            background #${colors.base00}
-            statusline #${colors.base05}
-            focused_workspace #${colors.base0D} #${colors.base0D} #${colors.base00}
-            active_workspace #${colors.base03} #${colors.base03} #${colors.base05}
-            inactive_workspace #${colors.base00} #${colors.base00} #${colors.base05}
-            urgent_workspace #${colors.base09} #${colors.base09} #${colors.base00}
-          }
-        }
+        # bar {
+        #   position top
+        #   status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
+        #
+        #   colors {
+        #     background #${colors.base00}
+        #     statusline #${colors.base05}
+        #     focused_workspace #${colors.base0D} #${colors.base0D} #${colors.base00}
+        #     active_workspace #${colors.base03} #${colors.base03} #${colors.base05}
+        #     inactive_workspace #${colors.base00} #${colors.base00} #${colors.base05}
+        #     urgent_workspace #${colors.base09} #${colors.base09} #${colors.base00}
+        #   }
+        # }
       '';
   };
 }

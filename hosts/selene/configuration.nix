@@ -38,8 +38,8 @@
 
     desktop = {
       enable = true;
-      hyprland.enable = true;
-      sway.enable = false;
+      hyprland.enable = false;
+      sway.enable = true;
       xserver.enable = true;
     };
 

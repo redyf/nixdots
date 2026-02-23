@@ -43,10 +43,10 @@
       foot.enable = false;
       ghostty.enable = false;
       gtk-theme.enable = true;
-      hyprland.enable = true;
+      hyprland.enable = false;
       noctalia.enable = true;
       rofi.enable = false;
-      sway.enable = false;
+      sway.enable = true;
       swww.enable = false;
       stylix-theme.enable = true;
       waybar.enable = false;
@@ -65,6 +65,7 @@
       enable = true;
       fonts.enable = true;
       nixy.enable = true;
+      privateFonts.enable = true;
       utils.enable = true;
     };
   };
