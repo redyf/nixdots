@@ -87,6 +87,7 @@
       environment.enable = true;
       hardware.enable = true;
       intel.enable = false;
+      kernel.enable = true;
       keymap.enable = true;
       locale.enable = true;
       networking.enable = true;

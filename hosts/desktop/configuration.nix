@@ -100,6 +100,7 @@
       ananicy.enable = false;
       audio.enable = true;
       boot.enable = true;
+      cachy.enable = false;
       environment.enable = true;
       hardware.enable = true;
       intel.enable = true;

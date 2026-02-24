@@ -20,6 +20,10 @@
       enable = lib.mkEnableOption "Enable boot";
     };
 
+    cachy = {
+      enable = lib.mkEnableOption "Enable CachyOS Kernel";
+    };
+
     environment = {
       enable = lib.mkEnableOption "Enable environment";
     };
@@ -33,7 +37,7 @@
     };
 
     kernel = {
-      enable = lib.mkEnableOption "Enable custom kernel";
+      enable = lib.mkEnableOption "Enable kernel settings";
     };
 
     keymap = {
@@ -86,6 +90,7 @@
     ./ananicy.nix
     ./audio.nix
     ./boot.nix
+    ./cachy.nix
     ./environment.nix
     ./hardware.nix
     ./intel.nix
