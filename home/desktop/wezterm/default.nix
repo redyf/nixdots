@@ -22,23 +22,38 @@
           },
           font_rules = {
             {
+              intensity = 'Normal',
+              italic = true,
+              font = wezterm.font { family = 'TX-02', weight = 'Regular', italic = false, style = 'Normal' },
+            },
+            {
+              intensity = 'Half',
+              italic = true,
+              font = wezterm.font { family = 'TX-02', weight = 'Regular', italic = false, style = 'Normal' },
+            },
+            {
+              intensity = 'Bold',
+              italic = true,
+              font = wezterm.font { family = 'TX-02', weight = 'Bold', italic = false, style = 'Normal' },
+            },
+            {
+              intensity = 'Normal',
+              italic = false,
+              font = wezterm.font { family = 'TX-02', weight = 'Medium', italic = false, style = 'Normal' },
+            },
+            {
+              intensity = 'Half',
+              italic = false,
+              font = wezterm.font { family = 'TX-02', weight = 'Medium', italic = false, style = 'Normal' },
+            },
+            {
               intensity = 'Bold',
               italic = false,
-              font = wezterm.font { family = 'TX-02', weight = 'Bold', italic = false },
-            },
-            {
-              intensity = 'Half', 
-              italic = false,
-              font = wezterm.font { family = 'TX-02', weight = 'Medium', italic = false },
-            },
-            {
-              intensity = 'Normal', 
-              italic = false,
-              font = wezterm.font { family = 'TX-02', weight = 'Medium', italic = false },
+              font = wezterm.font { family = 'TX-02', weight = 'Bold', italic = false, style = 'Normal' },
             },
           },
           -- harfbuzz_features = { 'ss02=1', 'ss07=1' },
-          font_size = 13.0,
+          font_size = 16.0,
           hide_tab_bar_if_only_one_tab = true,
           webgpu_power_preference = "HighPerformance",
           window_background_opacity = 0.8,
