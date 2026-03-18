@@ -50,9 +50,6 @@ in
       package = null;
       systemd.variables = [ "--all" ];
       xwayland.enable = true;
-      plugins = [
-        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
-      ];
       settings = {
         "$mainMod" = "SUPER";
         monitor = [
@@ -92,16 +89,6 @@ in
           force_no_accel = false;
           touchpad = {
             natural_scroll = 1;
-          };
-        };
-
-        plugin = {
-          hyprscrolling = {
-            column_width = 0.5;
-            fullscreen_on_one_column = true;
-            focus_fit_method = 1;
-            follow_focus = true;
-            follow_debounce_ms = 150;
           };
         };
 
