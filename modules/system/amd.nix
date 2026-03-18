@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   lib,
   ...
@@ -10,6 +9,9 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
-    boot.initrd.kernelModules = [ "amdgpu" ];
+    boot = {
+      initrd.kernelModules = [ "amdgpu" ];
+      kernelParams = [ "amd_pstate=active" ];
+    };
   };
 }

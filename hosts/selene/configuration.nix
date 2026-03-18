@@ -46,7 +46,7 @@
     development = {
       enable = true;
       ansible.enable = false;
-      aws.enable = false;
+      aws.enable = true;
       k3s.enable = false;
       k8s.enable = false;
       nginx.enable = false;
@@ -114,6 +114,10 @@
   };
 
   boot = {
+    kernelParams = [
+      "i8042.reset"
+      "i8042.direct"
+    ];
     supportedFilesystems = [ "zfs" ];
     extraModprobeConfig = ''
       options zfs zfs_arc_max=4294967296

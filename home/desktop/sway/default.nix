@@ -9,6 +9,19 @@
     sway.enable = lib.mkEnableOption "Enable sway home module";
   };
   config = lib.mkIf config.sway.enable {
+    home.packages = with pkgs; [
+      grim
+      slurp
+      swappy
+      wl-clipboard
+      (writeShellScriptBin "screenshot" ''
+        grim -g "$(slurp)" - | wl-copy
+      '')
+
+      (writeShellScriptBin "screenshot-edit" ''
+        wl-paste | swappy -f -
+      '')
+    ];
     xdg.configFile."sway/config".text =
       let
         inherit (config.lib.stylix) colors;
@@ -106,24 +119,14 @@
 
         assign [app_id="firefox"] workspace number 1
         assign [class="Firefox"] workspace number 1
+        assign [app_id="org.wezfurlong.wezterm"] workspace number 2
+        assign [class="org.wezfurlong.Wezterm"] workspace number 2
         assign [app_id="vesktop"] workspace number 3
         assign [class="Vesktop"] workspace number 3
-        assign [app_id="obsidian"] workspace number 4
-        assign [class="Obsidian"] workspace number 4
-
-        # bar {
-        #   position top
-        #   status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
-        #
-        #   colors {
-        #     background #${colors.base00}
-        #     statusline #${colors.base05}
-        #     focused_workspace #${colors.base0D} #${colors.base0D} #${colors.base00}
-        #     active_workspace #${colors.base03} #${colors.base03} #${colors.base05}
-        #     inactive_workspace #${colors.base00} #${colors.base00} #${colors.base05}
-        #     urgent_workspace #${colors.base09} #${colors.base09} #${colors.base00}
-        #   }
-        # }
+        assign [app_id="obsidian"] workspace number 3
+        assign [class="Obsidian"] workspace number 3
+        assign [app_id="slack"] workspace number 4
+        assign [class="Slack"] workspace number 4
       '';
   };
 }

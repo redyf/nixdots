@@ -207,6 +207,7 @@ in
           "[workspace 4 silent] obsidian"
           "nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'"
           "nvibrant 0 512 700 0"
+          "wl-gammactl --gamma 1.12"
           # "gpu-screen-recorder -w portal -s 1920x1080 -f 59.94 -q high -r 45 -replay-storage ram -a default_output -c mp4 -o /home/redyf/Vídeos/clips"
         ];
 
@@ -297,6 +298,8 @@ in
           # "float,title:^(Confirm to replace files)$"
           # "float,title:^(File Operation Progress)$"
           # "float,title:^(mpv)$"
+          "match:class firefox, workspace 1"
+          "match:class wezterm, workspace 2"
           "match:class vesktop, workspace 3"
           # "opacity 1.0 1.0,class:^(wofi)$"
         ];
