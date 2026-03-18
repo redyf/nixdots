@@ -6,7 +6,6 @@
   ...
 }:
 let
-  hyprlandFlake = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   tokyonight_border = "rgba(7aa2f7ee) rgba(87aaf8ee) 45deg";
   tokyonight_background = "rgba(32344aaa)";
   catppuccin_macchiato_active_border = "rgb(8aadf4) rgb(24273A) rgb(24273A) rgb(8aadf4) 45deg";
@@ -130,6 +129,10 @@ in
             brightness = 1;
             xray = true;
           };
+        };
+
+        scrolling = {
+          column_width = 1.0;
         };
 
         animations = {
