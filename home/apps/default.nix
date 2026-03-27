@@ -9,6 +9,7 @@ in
     ./file-explorer
     ./gaming
     ./media
+    ./security
     ./web
   ];
 
@@ -19,6 +20,7 @@ in
     file-explorer.enable = lib.mkEnableOption "file explorer applications";
     gaming.enable = lib.mkEnableOption "gaming applications";
     media.enable = lib.mkEnableOption "media applications";
+    security.enable = lib.mkEnableOption "security applications";
     web.enable = lib.mkEnableOption "web applications";
   };
 
@@ -28,6 +30,7 @@ in
     file-explorer.enable = lib.mkDefault cfg.file-explorer.enable;
     gaming.enable = lib.mkDefault cfg.gaming.enable;
     media.enable = lib.mkDefault cfg.media.enable;
+    security.enable = lib.mkDefault cfg.security.enable;
     web.enable = lib.mkDefault cfg.web.enable;
   };
 }
