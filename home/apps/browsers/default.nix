@@ -1,6 +1,7 @@
 { lib, config, ... }:
 {
   imports = [
+    ./brave
     ./chrome
     ./firefox
     ./vivaldi
@@ -11,6 +12,7 @@
     browsers.enable = lib.mkEnableOption "Enable browsers module";
   };
   config = lib.mkIf config.browsers.enable {
+    brave.enable = lib.mkDefault true;
     chrome.enable = lib.mkDefault true;
     firefox.enable = lib.mkDefault true;
     vivaldi.enable = lib.mkDefault false;
