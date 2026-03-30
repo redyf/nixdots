@@ -28,6 +28,7 @@
       file-explorer.enable = true;
       gaming.enable = false;
       media.enable = true;
+      security.enable = true;
       web.enable = true;
     };
 
