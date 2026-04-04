@@ -63,7 +63,6 @@
       ansible.enable = false;
       aws.enable = true;
       k3s.enable = false;
-      k8s.enable = false;
       localstack.enable = true;
       nginx.enable = false;
       terraform.enable = true;

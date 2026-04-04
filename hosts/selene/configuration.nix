@@ -48,7 +48,6 @@
       ansible.enable = false;
       aws.enable = true;
       k3s.enable = false;
-      k8s.enable = false;
       nginx.enable = false;
       terraform.enable = false;
     };
