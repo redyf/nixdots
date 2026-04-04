@@ -11,9 +11,11 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.gaming.enable && cfg.enable) {
+    nixpkgs.overlays = [ inputs.millennium.overlays.default ];
     programs = {
       steam = {
         enable = true;
+        package = pkgs.millennium-steam;
       };
       gamemode.enable = true;
     };
