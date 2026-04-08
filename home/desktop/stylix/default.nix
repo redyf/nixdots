@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -29,20 +28,10 @@ in
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
       fonts = {
-        monospace =
-          let
-            hasFontFlake = inputs ? font-flake;
-          in
-          if hasFontFlake then
-            {
-              package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
-              name = "MonoLisa";
-            }
-          else
-            {
-              package = pkgs.nerd-fonts.jetbrains-mono;
-              name = "JetBrainsMono Nerd Font";
-            };
+        monospace = {
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "MonoLisa";
+        };
         sizes.terminal = 18;
       };
       targets = {

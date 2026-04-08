@@ -66,7 +66,6 @@
       enable = true;
       fonts.enable = true;
       nixy.enable = true;
-      privateFonts.enable = false;
       utils.enable = true;
     };
   };
