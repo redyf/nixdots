@@ -6,7 +6,7 @@
 {
   home = {
     inherit username homeDirectory;
-    stateVersion = "22.11";
+    stateVersion = "25.05";
     sessionPath = [
       "$HOME/.local/bin"
     ];
@@ -26,7 +26,7 @@
       browsers.enable = true;
       development.enable = true;
       file-explorer.enable = true;
-      gaming.enable = false;
+      gaming.enable = true;
       media.enable = false;
       security.enable = true;
       web.enable = true;
@@ -74,11 +74,6 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "dotnet-sdk-6.0.428"
-        "beekeeper-studio-5.3.4"
-        "ventoy-1.1.07"
-      ];
     };
   };
 }

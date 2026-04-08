@@ -138,5 +138,5 @@
     ntfs3g
   ];
 
-  system.stateVersion = "22.11"; # Don't change this
+  system.stateVersion = "25.05"; # Don't change this
 }

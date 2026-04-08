@@ -6,7 +6,7 @@
 {
   home = {
     inherit username homeDirectory;
-    stateVersion = "22.11";
+    stateVersion = "25.05";
     sessionPath = [
       "$HOME/.local/bin"
     ];

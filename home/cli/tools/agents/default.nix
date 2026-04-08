@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   config,
   pkgs,
@@ -10,9 +11,10 @@
   };
 
   config = lib.mkIf config.agents.enable {
+    nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
     home.packages = [
-      pkgs.gemini-cli-bin
-      pkgs.codex
+      pkgs.claude-code
+      pkgs.mcp-nixos
     ];
   };
 }

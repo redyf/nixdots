@@ -10,8 +10,7 @@
   };
   config = lib.mkIf config.vscode.enable {
     home.packages = with pkgs; [
-      code-cursor
-      zed-editor
+      vscode
     ];
   };
 }

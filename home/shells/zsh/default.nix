@@ -28,7 +28,6 @@
           "AUTO_MENU"
           "AUTO_PARAM_SLASH"
           "AUTO_PUSHD"
-          "APPEND_HISTORY"
           "ALWAYS_TO_END"
           "COMPLETE_IN_WORD"
           "CORRECT"
@@ -41,9 +40,7 @@
           "HIST_REDUCE_BLANKS"
           "HIST_SAVE_NO_DUPS"
           "HIST_VERIFY"
-          "INC_APPEND_HISTORY"
           "INTERACTIVE_COMMENTS"
-          "MENU_COMPLETE"
           "NO_NOMATCH"
           "PUSHD_IGNORE_DUPS"
           "PUSHD_TO_HOME"
@@ -88,13 +85,13 @@
           kc = "kubectx";
           kns = "kubens";
           ke = "kubectl exec -it";
+          tf = "terraform";
         };
 
         oh-my-zsh = {
           enable = true;
           theme = "";
           plugins = [
-            "git"
             "colorize"
             "colored-man-pages"
             "command-not-found"
@@ -118,8 +115,6 @@
         initContent = ''
           bindkey -s ^f "tmux-sessionizer-script\n"
           tmux-init
-          export PATH=$PATH:~/.local/bin/
-          export PATH=/tmp/lazy-lvim/bin:$PATH
 
           ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
@@ -172,7 +167,6 @@
           zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
 
           # fzf-tab styles
-          zstyle ':fzf-tab:complete:_zlua:*' query-string input
           zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
           zstyle ':fzf-tab:complete:cd:*' fzf-preview '${pkgs.eza}/bin/eza -1 --color=always $realpath'
           zstyle ':fzf-tab:*' switch-group ',' '.'

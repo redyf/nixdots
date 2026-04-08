@@ -143,8 +143,7 @@
     git
     docker-compose
     ntfs3g
-    wezterm
   ];
 
-  system.stateVersion = "22.11"; # Don't change this
+  system.stateVersion = "25.05"; # Don't change this
 }

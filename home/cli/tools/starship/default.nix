@@ -1,24 +1,22 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
+let
+  # mocha = import ./mocha.nix;
+  # oxocarbon = import ./oxocarbon.nix;
+  # simple = fromTOML (builtins.readFile ./simple.toml);
+  pure = fromTOML (builtins.readFile ./pure-preset.toml);
+in
 {
   options = {
     starship.enable = lib.mkEnableOption "Enable starship module";
   };
   config = lib.mkIf config.starship.enable {
-    programs.starship =
-      let
-        mocha = import ./mocha.nix;
-        oxocarbon = import ./oxocarbon.nix;
-        catppuccinPowerline = builtins.fromTOML (builtins.readFile ./catppuccin-powerline.toml);
-        pure = builtins.fromTOML (builtins.readFile ./pure-preset.toml);
-      in
-      {
-        enable = true;
-        settings = pure;
-      };
+    programs.starship = {
+      enable = true;
+      settings = pure;
+    };
   };
 }
