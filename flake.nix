@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,15 +15,30 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    disko.url = "github:nix-community/disko";
-    stylix.url = "github:danth/stylix";
-    font-flake.url = "github:redyf/font-flake";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    font-flake = {
+      url = "github:redyf/font-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    Neve.url = "github:redyf/Neve";
-    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
+    Neve = {
+      url = "github:redyf/Neve";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    xwayland-satellite = {
+      url = "github:Supreeeme/xwayland-satellite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,25 +47,26 @@
       url = "github:mikaeladev/nix-nvibrant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    claude-code = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      nixpkgs-stable,
-      hyprland,
       home-manager,
-      disko,
-      stylix,
-      nix-cachyos-kernel,
-      sops-nix,
       ...
     }@inputs:
     let
@@ -73,8 +88,6 @@
         }
       );
 
-      nixpkgsStableFor = forAllSystems (system: import nixpkgs-stable { inherit system; });
-
       createNixosConfiguration =
         {
           system,
@@ -87,12 +100,9 @@
           specialArgs = {
             inherit
               inputs
-              hyprland
-              disko
               username
               homeDirectory
               hostname
-              nix-cachyos-kernel
               ;
           };
           modules = [
@@ -101,7 +111,7 @@
             { networking.hostName = hostname; }
           ]
           ++ nixpkgs.lib.optionals (builtins.pathExists ./hosts/${hostname}/disko.nix) [
-            disko.nixosModules.disko
+            inputs.disko.nixosModules.disko
             ./hosts/${hostname}/disko.nix
           ]
           ++ modules;
@@ -113,14 +123,13 @@
           username,
           homeDirectory,
           homeModule,
-          stateVersion ? "22.11",
+          stateVersion ? "25.05",
           modules ? [ ],
         }:
         home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = {
             inherit
               inputs
-              hyprland
               username
               homeDirectory
               stateVersion
@@ -131,8 +140,7 @@
             homeModule
             {
               home = {
-                inherit username stateVersion;
-                homeDirectory = "/home/${username}";
+                inherit username stateVersion homeDirectory;
               };
               programs.home-manager.enable = true;
             }
@@ -147,9 +155,9 @@
           username = "redyf";
           hostname = "desktop";
           modules = [
-            hyprland.nixosModules.default
-            stylix.nixosModules.stylix
-            sops-nix.nixosModules.sops
+            inputs.hyprland.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+            inputs.sops-nix.nixosModules.sops
           ];
         };
         selene = createNixosConfiguration {
@@ -157,9 +165,9 @@
           username = "selene";
           hostname = "selene";
           modules = [
-            hyprland.nixosModules.default
-            stylix.nixosModules.stylix
-            sops-nix.nixosModules.sops
+            inputs.hyprland.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+            inputs.sops-nix.nixosModules.sops
           ];
         };
       };
@@ -169,15 +177,16 @@
           username = "redyf";
           homeDirectory = "/home/redyf";
           homeModule = ./home/home.nix;
-          stateVersion = "22.11";
-          modules = [ stylix.homeModules.stylix ];
+          stateVersion = "25.05";
+          modules = [ inputs.stylix.homeModules.stylix ];
         };
         "selene" = createHome {
           system = "x86_64-linux";
           username = "selene";
           homeDirectory = "/home/selene";
           homeModule = ./home/selene.nix;
-          modules = [ stylix.homeModules.stylix ];
+          stateVersion = "25.05";
+          modules = [ inputs.stylix.homeModules.stylix ];
         };
       };
 
@@ -188,7 +197,7 @@
         in
         {
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [
+            nativeBuildInputs = with pkgs; [
               git
               nixfmt
               statix
