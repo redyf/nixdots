@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -27,6 +28,23 @@ in
         size = 36;
       };
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
+      fonts = {
+        monospace =
+          let
+            hasFontFlake = inputs ? font-flake;
+          in
+          if hasFontFlake then
+            {
+              package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
+              name = "MonoLisa";
+            }
+          else
+            {
+              package = pkgs.nerd-fonts.jetbrains-mono;
+              name = "JetBrainsMono Nerd Font";
+            };
+        sizes.terminal = 18;
+      };
       targets = {
         bat.enable = true;
         blender.enable = false;
@@ -34,7 +52,7 @@ in
           enable = true;
           rainbow.enable = true;
         };
-        firefox.enable = true;
+        firefox.enable = false;
         fzf.enable = true;
         foot.enable = true;
         ghostty.enable = false;
@@ -50,7 +68,7 @@ in
         tmux.enable = false;
         vesktop.enable = false;
         waybar.enable = false;
-        wezterm.enable = false;
+        wezterm.enable = true;
         noctalia-shell.enable = false;
       };
     };
