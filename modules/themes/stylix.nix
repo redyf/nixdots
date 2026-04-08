@@ -28,10 +28,20 @@ in
         size = 36;
       };
       fonts = {
-        monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font";
-        };
+        monospace =
+          let
+            hasFontFlake = inputs ? font-flake;
+          in
+          if hasFontFlake then
+            {
+              package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
+              name = "MonoLisa";
+            }
+          else
+            {
+              package = pkgs.nerd-fonts.jetbrains-mono;
+              name = "JetBrainsMono Nerd Font";
+            };
         sansSerif = {
           package = pkgs.dejavu_fonts;
           name = "DejaVu Sans";
@@ -42,7 +52,7 @@ in
         };
         sizes = {
           applications = 11;
-          terminal = 12;
+          terminal = 18;
           desktop = 11;
           popups = 11;
         };
