@@ -13,10 +13,28 @@
       extraConfig = ''
         return {
           default_cursor_style = "SteadyBlock",
-          harfbuzz_features = { 'ss02=1', 'ss07=1' },
+          font = wezterm.font_with_fallback {
+            {
+              family = 'TX-02',
+              weight = 'Medium',
+              italic = false,
+            },
+            {
+              family = 'MonoLisa',
+              weight = 'Medium',
+              harfbuzz_features = { 'ss02=1', 'ss07=1' },
+            },
+            {
+              family = 'JetBrains Mono Nerd Font',
+              weight = 'Medium',
+            },
+          },
           hide_tab_bar_if_only_one_tab = true,
-          webgpu_power_preference = "HighPerformance",
-          window_background_opacity = 0.8,
+          freetype_load_flags = "NO_HINTING",
+          freetype_load_target = "Normal",
+          line_height = 1.0,
+          front_end = "OpenGL",
+          window_background_opacity = 1.0,
           kde_window_background_blur = false,
           warn_about_missing_glyphs = false,
         }

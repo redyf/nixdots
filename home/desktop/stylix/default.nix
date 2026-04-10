@@ -30,7 +30,7 @@ in
       fonts = {
         monospace = {
           package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "MonoLisa";
+          name = "TX-02";
         };
         sizes.terminal = 18;
       };

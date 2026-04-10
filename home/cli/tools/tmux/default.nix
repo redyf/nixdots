@@ -56,7 +56,6 @@
         bind -n C-p display-popup -w 90 -h 30 -E "zsh"
 
         unbind p
-        unbind r
 
         bind p paste-buffer
 
@@ -145,8 +144,6 @@
         set -g @color_yazi                      "#e5c890"
         set -g @icon_lazygit                    " "
         set -g @color_lazygit                   "#a6d189"
-        set -g @icon_neogit                     " "
-        set -g @color_neogit                    "#cba6f7"
         set -g @icon_fallback                   " "
         set -g @color_fallback                  "#8caaee"
         #======================================================================================================================================================================================================================#
@@ -232,27 +229,26 @@
     home.packages = with pkgs; [
       # https://frontendmasters.github.io/dev-prod-2/lessons/navigation/tmux
       tmux-sessionizer
-      gitmux
       # Script to find files with tmux in vim
       (writeShellScriptBin "tmux-sessionizer-script" ''
         selected=$(find ~/work ~/ztm ~/personal ~/projects ~/opensource ~/alura/ -maxdepth 1 -mindepth 1 -type d | fzf)
         if [[ -z "$selected" ]]; then
             exit 0
         fi
-        selected_name=$(basename $selected | tr ".,: " "____")
+        selected_name=$(basename "$selected" | tr ".,: " "____")
 
         switch_to() {
             if [[ -z "$TMUX" ]]; then
-                tmux attach-session -t $selected_name
+                tmux attach-session -t "$selected_name"
             else
-                tmux switch-client -t $selected_name
+                tmux switch-client -t "$selected_name"
             fi
         }
 
         if tmux has-session -t="$selected_name"; then
             switch_to
         else
-            tmux new-session -ds $selected_name -c $selected
+            tmux new-session -ds "$selected_name" -c "$selected"
             switch_to
         fi
       '')
@@ -264,15 +260,15 @@
             while true; do
                 session_name="base-$i"
                 if tmux has-session -t "$session_name" 2>/dev/null; then
-                    clients_count=$(tmux list-clients | grep $session_name | wc -l)
+                    clients_count=$(tmux list-clients -t "$session_name" 2>/dev/null | wc -l)
                     if [ $clients_count -eq 0 ]; then
-                        tmux attach-session -t $session_name
+                        tmux attach-session -t "$session_name"
                         break
                     fi
                     ((i++))
                 else
-                    tmux new-session -d -s $session_name
-                    tmux attach-session -d -t $session_name
+                    tmux new-session -d -s "$session_name"
+                    tmux attach-session -d -t "$session_name"
                     break
                 fi
             done
