@@ -12,11 +12,14 @@
       enable = true;
       extraConfig = ''
         return {
+          color_scheme = "Catppuccin Mocha",
           default_cursor_style = "SteadyBlock",
+          font_size = 18.0,
           font = wezterm.font_with_fallback {
             {
               family = 'TX-02',
-              weight = 'Medium',
+              weight = 'Regular',
+              harfbuzz_features = { 'ss02=1' },
               italic = false,
             },
             {
