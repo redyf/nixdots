@@ -7,19 +7,31 @@
 let
   gitSyncObsidian = pkgs.writeShellScriptBin "git-sync-obsidian" ''
     #!/usr/bin/env sh
-    VAULT_DIR="$HOME/Documentos/GitHub_Vault"
-    cd $VAULT_DIR || exit 1
+    VAULT_DIR="$HOME/Documents/GitHub_Vault"
+    LOCKFILE="/tmp/git-sync-obsidian.lock"
 
-    git add .
-    git commit -m "$(date '+%Y-%m-%d %H:%M:%S')" || exit 0
+    # Prevent concurrent runs
+    if [ -e "$LOCKFILE" ]; then
+      echo "Sync already running, skipping." >&2
+      exit 0
+    fi
+    trap 'rm -f "$LOCKFILE"' EXIT
+    touch "$LOCKFILE"
+
+    cd "$VAULT_DIR" || exit 1
+
+    # Pull remote changes first, then commit local ones on top
     git pull --rebase origin main || exit 1
     git lfs pull
+
+    git add .
+    git diff --cached --quiet || git commit -m "sync: $(date '+%Y-%m-%d %H:%M:%S')"
     git push origin main
   '';
 
   setupObsidianLFS = pkgs.writeShellScriptBin "setup-obsidian-lfs" ''
     #!/usr/bin/env sh
-    VAULT_DIR="$HOME/Documentos/GitHub_Vault"
+    VAULT_DIR="$HOME/Documents/GitHub_Vault"
     cd $VAULT_DIR || exit 1
 
     git lfs track "*.png" "*.jpg" "*.jpeg" "*.gif" "*.webp" "*.bmp"
@@ -43,7 +55,8 @@ in
       services.git-sync-obsidian = {
         Unit = {
           Description = "Sync Obsidian Vault with GitHub";
-          Wants = "git-sync-obsidian.timer";
+          Wants = [ "git-sync-obsidian.timer" "network-online.target" ];
+          After = [ "network-online.target" ];
         };
         Service = {
           ExecStart = "${gitSyncObsidian}/bin/git-sync-obsidian";
@@ -52,7 +65,10 @@ in
       };
       timers.git-sync-obsidian = {
         Unit.Description = "Run Git Sync for Obsidian Vault";
-        Timer.OnCalendar = "*:0/45";
+        Timer = {
+          OnCalendar = "*:0/45";
+          Persistent = true;
+        };
         Install.WantedBy = [ "timers.target" ];
       };
     };

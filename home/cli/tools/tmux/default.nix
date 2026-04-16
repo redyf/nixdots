@@ -53,7 +53,7 @@
         bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
         # Tmux popups
-        bind -n C-p display-popup -w 90 -h 30 -E "zsh"
+        # bind -n C-p display-popup -w 90 -h 30 -E "zsh"
 
         unbind p
 

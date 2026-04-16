@@ -16,6 +16,7 @@
       pkgs.codex
       pkgs.claude-code
       pkgs.mcp-nixos
+      pkgs.opencode
     ];
   };
 }
