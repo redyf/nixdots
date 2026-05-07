@@ -44,7 +44,7 @@
       foot.enable = false;
       ghostty.enable = false;
       gtk-theme.enable = true;
-      hyprland.enable = false;
+      hyprland.enable = true;
       noctalia.enable = true;
       rofi.enable = false;
       sway.enable = true;

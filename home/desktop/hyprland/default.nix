@@ -61,6 +61,8 @@
           force_no_accel = false;
           touchpad = {
             natural_scroll = 1;
+            tap-to-click = true;
+            drag_lock = true;
           };
         };
       };

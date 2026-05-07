@@ -38,7 +38,7 @@
 
     desktop = {
       enable = true;
-      hyprland.enable = false;
+      hyprland.enable = true;
       sway.enable = true;
       xserver.enable = true;
     };
@@ -53,8 +53,8 @@
     };
 
     gaming = {
-      enable = false;
-      steam.enable = false;
+      enable = true;
+      steam.enable = true;
     };
 
     hardware = {
