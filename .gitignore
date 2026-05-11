@@ -1,0 +1,12 @@
+result
+result-*
+
+age-key*.txt
+*-age-key.txt
+*.age
+keys.txt
+.sops.age
+
+*.swp
+*.swo
+.DS_Store

@@ -20,9 +20,15 @@ in
     };
 
     initialPassword = lib.mkOption {
-      type = lib.types.str;
-      description = "Initial password for the user";
-      default = "123456";
+      type = lib.types.nullOr lib.types.str;
+      description = "Initial password for the user (ignored if hashedPasswordFile is set).";
+      default = null;
+    };
+
+    hashedPasswordFile = lib.mkOption {
+      type = lib.types.nullOr lib.types.path;
+      description = "Path to a file containing the hashed password (e.g. provided by sops-nix).";
+      default = null;
     };
 
     description = lib.mkOption {
@@ -75,7 +81,8 @@ in
     users = {
       extraGroups.xboxusers.members = [ "redyf" ];
       users.${cfg.username} = {
-        inherit (cfg) isNormalUser initialPassword shell;
+        inherit (cfg) isNormalUser shell hashedPasswordFile;
+        initialPassword = lib.mkIf (cfg.hashedPasswordFile == null) cfg.initialPassword;
         description = if cfg.description != "" then cfg.description else cfg.username;
         extraGroups =
           cfg.groups.base

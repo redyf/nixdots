@@ -1,0 +1,7 @@
+keys:
+  - &desktop_mateus age12upw37y6ekmr5pxg0duu2kz92gg37jp904d62knhmrhrdlq80pusgnp8zd
+creation_rules:
+  - path_regex: hosts/desktop/secrets\.yaml$
+    key_groups:
+      - age:
+          - *desktop_mateus

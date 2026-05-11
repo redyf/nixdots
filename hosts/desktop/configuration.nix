@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -31,7 +32,7 @@
       username = "redyf";
       isNormalUser = true;
       description = "Desktop host"; # Optional - defaults to username if not specified
-      initialPassword = "123456";
+      hashedPasswordFile = config.sops.secrets."users/redyf/password".path;
       shell = pkgs.zsh;
 
       groups = {
@@ -110,7 +111,9 @@
       networking.enable = true;
       power-management.enable = true;
       security.enable = true;
+      sops.enable = true;
       ssh.enable = true;
+      tailscale.enable = true;
       systemd.enable = true;
       time.enable = true;
       xdg-portal.enable = true;

@@ -68,8 +68,21 @@
       enable = lib.mkEnableOption "Enable ssh";
     };
 
+    sops = {
+      enable = lib.mkEnableOption "Enable sops-nix secrets";
+      keyFile = lib.mkOption {
+        type = lib.types.str;
+        default = "/var/lib/sops-nix/key.txt";
+        description = "Path to the age key used to decrypt secrets on this host.";
+      };
+    };
+
     systemd = {
       enable = lib.mkEnableOption "Enable systemd";
+    };
+
+    tailscale = {
+      enable = lib.mkEnableOption "Enable tailscale";
     };
 
     time = {
@@ -101,7 +114,9 @@
     ./networking.nix
     ./power-management.nix
     ./security.nix
+    ./sops.nix
     ./ssh.nix
+    ./tailscale.nix
     ./systemd.nix
     ./time.nix
     ./xdg-portal.nix
