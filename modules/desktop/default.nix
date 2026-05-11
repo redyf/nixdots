@@ -4,6 +4,10 @@
   options.myConfig.desktop = {
     enable = lib.mkEnableOption "Enable desktop configuration";
 
+    gnome = {
+      enable = lib.mkEnableOption "Enable gnome";
+    };
+
     hyprland = {
       enable = lib.mkEnableOption "Enable hyprland";
     };
@@ -26,6 +30,7 @@
   };
 
   imports = [
+    ./gnome.nix
     ./hyprland.nix
     ./i3.nix
     ./kde.nix
