@@ -36,7 +36,6 @@ in
         rounding = 0;
         shadow = {
           enabled = false;
-          ignore_window = true;
           range = 20;
           render_power = 1;
         };
