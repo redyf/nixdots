@@ -1,6 +1,18 @@
 {
   description = "Redyf's Flake";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://hyprland.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
+    accept-flake-config = true;
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
@@ -56,17 +68,18 @@
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    font-flake = {
+      url = "github:redyf/font-flake";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      home-manager,
       ...
     }@inputs:
     let
-      inherit (nixpkgs.lib) nixosSystem;
       supportedSystems = [
         "x86_64-linux"
         "x86_64-darwin"
@@ -84,106 +97,17 @@
         }
       );
 
-      createNixosConfiguration =
-        {
-          system,
-          username,
-          homeDirectory ? "/home/${username}",
-          hostname ? null,
-          modules ? [ ],
-        }:
-        nixosSystem {
-          specialArgs = {
-            inherit
-              inputs
-              username
-              homeDirectory
-              hostname
-              ;
-          };
-          modules = [
-            { nixpkgs.hostPlatform = system; }
-            ./hosts/${hostname}/configuration.nix
-            { networking.hostName = hostname; }
-          ]
-          ++ nixpkgs.lib.optionals (builtins.pathExists ./hosts/${hostname}/disko.nix) [
-            inputs.disko.nixosModules.disko
-            ./hosts/${hostname}/disko.nix
-          ]
-          ++ modules;
-        };
-
-      createHome =
-        {
-          system,
-          username,
-          homeDirectory,
-          homeModule,
-          stateVersion ? "25.05",
-          modules ? [ ],
-        }:
-        home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = {
-            inherit
-              inputs
-              username
-              homeDirectory
-              stateVersion
-              ;
-          };
-          pkgs = nixpkgsFor."${system}";
-          modules = [
-            homeModule
-            {
-              home = {
-                inherit username stateVersion homeDirectory;
-              };
-              programs.home-manager.enable = true;
-            }
-          ]
-          ++ modules;
-        };
+      myLib = import ./lib { inherit inputs nixpkgs; };
     in
     {
-      nixosConfigurations = {
-        desktop = createNixosConfiguration {
-          system = "x86_64-linux";
-          username = "redyf";
-          hostname = "desktop";
-          modules = [
-            inputs.hyprland.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            inputs.sops-nix.nixosModules.sops
-          ];
-        };
-        selene = createNixosConfiguration {
-          system = "x86_64-linux";
-          username = "selene";
-          hostname = "selene";
-          modules = [
-            inputs.hyprland.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            inputs.sops-nix.nixosModules.sops
-          ];
-        };
+      nixosConfigurations = myLib.discoverHosts {
+        hostsPath = ./hosts;
+        inherit (myLib) mkHost;
       };
-      homeConfigurations = {
-        "redyf" = createHome {
-          system = "x86_64-linux";
-          username = "redyf";
-          homeDirectory = "/home/redyf";
-          homeModule = ./home/home.nix;
-          stateVersion = "25.05";
-          modules = [ inputs.stylix.homeModules.stylix ];
-        };
-        "selene" = createHome {
-          system = "x86_64-linux";
-          username = "selene";
-          homeDirectory = "/home/selene";
-          homeModule = ./home/selene.nix;
-          stateVersion = "25.05";
-          modules = [ inputs.stylix.homeModules.stylix ];
-        };
+
+      homeConfigurations = myLib.discoverHomes {
+        homePath = ./home;
+        inherit (myLib) mkHome;
       };
 
       devShells = forAllSystems (
@@ -201,6 +125,7 @@
           };
         }
       );
+
       formatter = forAllSystems (system: nixpkgsFor.${system}.nixfmt);
     };
 }

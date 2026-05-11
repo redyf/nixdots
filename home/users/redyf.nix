@@ -13,11 +13,11 @@
   };
 
   imports = [
-    ./apps
-    ./cli
-    ./desktop
-    ./shells
-    ./system
+    ../apps
+    ../cli
+    ../desktop
+    ../shells
+    ../system
   ];
 
   myHomeConfig = {
@@ -26,7 +26,7 @@
       browsers.enable = true;
       development.enable = true;
       file-explorer.enable = true;
-      gaming.enable = false;
+      gaming.enable = true;
       media.enable = true;
       security.enable = true;
       web.enable = true;

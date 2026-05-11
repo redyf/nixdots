@@ -13,11 +13,11 @@
   };
 
   imports = [
-    ./apps
-    ./cli
-    ./desktop
-    ./shells
-    ./system
+    ../apps
+    ../cli
+    ../desktop
+    ../shells
+    ../system
   ];
 
   myHomeConfig = {
