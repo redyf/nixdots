@@ -52,7 +52,7 @@
 
     desktop = {
       enable = true;
-      gnome.enable = true;
+      gnome.enable = false;
       hyprland.enable = true;
       i3.enable = true;
       kde.enable = false;

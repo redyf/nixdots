@@ -13,7 +13,6 @@ in
     ./sway
     ./swww
     ./stylix
-    ./waybar
     ./wezterm
     ./wofi
   ];
@@ -29,7 +28,6 @@ in
     sway.enable = lib.mkEnableOption "Sway window manager";
     swww.enable = lib.mkEnableOption "swww wallpaper daemon";
     stylix-theme.enable = lib.mkEnableOption "stylix theming";
-    waybar.enable = lib.mkEnableOption "Waybar status bar";
     wezterm.enable = lib.mkEnableOption "WezTerm terminal";
     wofi.enable = lib.mkEnableOption "Wofi launcher";
   };
@@ -44,7 +42,6 @@ in
     sway.enable = lib.mkDefault cfg.sway.enable;
     swww.enable = lib.mkDefault cfg.swww.enable;
     stylix-theme.enable = lib.mkDefault cfg.stylix-theme.enable;
-    waybar.enable = lib.mkDefault cfg.waybar.enable;
     wezterm.enable = lib.mkDefault cfg.wezterm.enable;
     wofi.enable = lib.mkDefault cfg.wofi.enable;
   };

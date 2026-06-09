@@ -18,7 +18,7 @@
       username = "selene";
       isNormalUser = true;
       description = "Laptop host"; # Optional - defaults to username if not specified
-      initialPassword = "123456";
+      # TODO: configure sops-nix for selene (like desktop host) and use hashedPasswordFile
       shell = pkgs.zsh;
 
       groups = {

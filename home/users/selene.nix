@@ -50,7 +50,6 @@
       sway.enable = true;
       swww.enable = false;
       stylix-theme.enable = true;
-      waybar.enable = false;
       wezterm.enable = true;
       wofi.enable = true;
     };

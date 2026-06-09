@@ -50,7 +50,6 @@
       sway.enable = false;
       swww.enable = false;
       stylix-theme.enable = true;
-      waybar.enable = false;
       wezterm.enable = true;
       wofi.enable = true;
     };
@@ -77,6 +76,7 @@
         "dotnet-sdk-6.0.428"
         "beekeeper-studio-5.3.4"
         "ventoy-1.1.07"
+        "electron-39.8.10"
       ];
     };
   };
