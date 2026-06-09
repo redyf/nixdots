@@ -77,6 +77,10 @@ sudo nixos-rebuild switch --flake '.#desktop'
 nmcli device wifi connect [SSID] password [passphrase]
 ```
 
+## Secrets
+
+This repo uses `sops-nix` for encrypted secrets, including the desktop user password. See [`docs/sops-setup.md`](docs/sops-setup.md) for the step-by-step guide.
+
 ## Installation
 
 > [!CAUTION]
