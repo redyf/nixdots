@@ -10,6 +10,9 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.development.enable && cfg.enable) {
-    environment.systemPackages = [ pkgs.awscli2 ];
+    environment.systemPackages = [
+      pkgs.awscli2
+      pkgs.ssm-session-manager-plugin
+    ];
   };
 }
