@@ -15,11 +15,16 @@
       lfs = {
         enable = true;
       };
+      includes = [
+        {
+          path = "/run/secrets/rendered/git-personal";
+        }
+        {
+          path = "/run/secrets/rendered/git-work";
+          condition = "gitdir:${homeDirectory}/work/*/";
+        }
+      ];
       settings = {
-        user = {
-          name = "redyf";
-          email = "mateusalvespereira7@gmail.com";
-        };
         core = {
           editor = "nvim";
         };
@@ -44,8 +49,29 @@
         };
       };
     };
-    home.packages = with pkgs; [
-      gh
-    ];
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      settings = {
+        "github.com" = {
+          hostname = "github.com";
+          user = "git";
+          identitiesOnly = true;
+          identityFile = "${homeDirectory}/.ssh/id_ed25519";
+        };
+
+        "github-work" = {
+          hostname = "github.com";
+          user = "git";
+          identitiesOnly = true;
+          identityFile = "${homeDirectory}/.ssh/id_ed25519_work";
+        };
+      };
+    };
+    home = {
+      packages = [
+        pkgs.gh
+      ];
+    };
   };
 }

@@ -1,13 +1,13 @@
 {
   config,
   lib,
-  inputs,
   hostname,
   ...
 }:
 
 let
   cfg = config.myConfig.system.sops;
+  username = config.myConfig.users.username;
   hostSecretsFile = ../../hosts + "/${hostname}/secrets.yaml";
 in
 {
@@ -20,8 +20,37 @@ in
         generateKey = false;
       };
 
-      secrets."users/${config.myConfig.users.username}/password" = {
-        neededForUsers = true;
+      secrets = {
+        "users/${username}/password" = {
+          neededForUsers = true;
+        };
+
+        "git/personal/name".owner = username;
+        "git/personal/email".owner = username;
+        "git/work/name".owner = username;
+        "git/work/email".owner = username;
+      };
+
+      templates = {
+        "git-personal" = {
+          owner = username;
+          mode = "0400";
+          content = ''
+            [user]
+              name = ${config.sops.placeholder."git/personal/name"}
+              email = ${config.sops.placeholder."git/personal/email"}
+          '';
+        };
+
+        "git-work" = {
+          owner = username;
+          mode = "0400";
+          content = ''
+            [user]
+              name = ${config.sops.placeholder."git/work/name"}
+              email = ${config.sops.placeholder."git/work/email"}
+          '';
+        };
       };
     };
   };
