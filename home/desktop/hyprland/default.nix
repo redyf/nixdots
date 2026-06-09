@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   lib,
   config,
   ...
@@ -20,17 +19,20 @@
     hyprland.enable = lib.mkEnableOption "Enable hyprland module";
   };
   config = lib.mkIf config.hyprland.enable {
+    xdg.portal.config.common.default = [ "hyprland" ];
+
     home.packages = with pkgs; [
       grim
       slurp
       swappy
       wl-clipboard
-      inputs.nvibrant.packages.${stdenv.hostPlatform.system}.nvibrant
+      hyprsunset
     ];
 
     wayland.windowManager.hyprland = {
       enable = true;
       package = null;
+      configType = "hyprlang";
       systemd.variables = [ "--all" ];
       xwayland.enable = true;
       settings = {
@@ -44,9 +46,13 @@
           force_zero_scaling = true;
         };
 
+        exec-once = [
+          "hyprsunset --gamma_max 200 --gamma 150"
+        ];
+
         input = {
-          kb_layout = "br";
-          kb_variant = "";
+          kb_layout = "us";
+          kb_variant = "intl";
           kb_model = "";
           kb_options = "";
           kb_rules = "";

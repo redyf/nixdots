@@ -12,10 +12,10 @@ in
   config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
     xdg.portal = {
       enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
       ];
-      config.common.default = "hyprland";
+      config.common.default = [ "hyprland" ];
     };
   };
 }

@@ -8,6 +8,9 @@
     firefox.enable = lib.mkEnableOption "Enable firefox module";
   };
   config = lib.mkIf config.firefox.enable {
-    programs.firefox.enable = true;
+    programs.firefox = {
+      enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
+    };
   };
 }

@@ -56,6 +56,10 @@
       enable = lib.mkEnableOption "Enable networking";
     };
 
+    nvibrant = {
+      enable = lib.mkEnableOption "Enable nvibrant";
+    };
+
     power-management = {
       enable = lib.mkEnableOption "Enable power-management";
     };
@@ -112,6 +116,7 @@
     ./locale.nix
     ./mime-types.nix
     ./networking.nix
+    ./nvibrant.nix
     ./power-management.nix
     ./security.nix
     ./sops.nix

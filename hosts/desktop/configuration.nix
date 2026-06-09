@@ -110,6 +110,7 @@
       locale.enable = true;
       mime-types.enable = true;
       networking.enable = true;
+      nvibrant.enable = true;
       power-management.enable = true;
       security.enable = true;
       sops.enable = true;
@@ -140,7 +141,20 @@
     git
     docker-compose
     ntfs3g
+    mongodb
+    mongosh
+    mongodb-tools
   ];
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      openssl
+      curl
+    ];
+  };
 
   system.stateVersion = "25.05"; # Don't change this
 }
