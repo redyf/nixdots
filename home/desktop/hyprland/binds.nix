@@ -59,8 +59,8 @@ _: {
 
         "SUPER,RETURN,exec,wezterm"
         "SUPER,e,exec,emacsclient -c -a 'emacs'"
-        ",Print,exec,screenshot"
-        "SUPER,Print,exec,screenshot-edit"
+        "SUPER SHIFT,s,exec,screenshot"
+        "SUPER SHIFT,e,exec,screenshot-edit"
         "CTRL,Print,exec,grim -o DP-1 ~/Pictures/screenshot.png"
         "SUPER,o,exec,obsidian"
         "SUPER,space,exec,wofi --show drun -I"

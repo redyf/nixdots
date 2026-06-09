@@ -22,7 +22,7 @@ in
         gaps_in = 2;
         gaps_out = 0;
         border_size = 3;
-        layout = "scrolling";
+        layout = "dwindle";
         allow_tearing = true;
         "col.active_border" = lib.mkDefault "${catppuccin_macchiato_active_border}";
         "col.inactive_border" = lib.mkDefault "${catppuccin_macchiato_inactive_border}";
