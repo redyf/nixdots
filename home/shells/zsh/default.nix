@@ -35,10 +35,8 @@
           "HIST_EXPIRE_DUPS_FIRST"
           "HIST_FCNTL_LOCK"
           "HIST_IGNORE_ALL_DUPS"
-          "HIST_IGNORE_DUPS"
           "HIST_IGNORE_SPACE"
           "HIST_REDUCE_BLANKS"
-          "HIST_SAVE_NO_DUPS"
           "HIST_VERIFY"
           "INTERACTIVE_COMMENTS"
           "NO_NOMATCH"
@@ -74,18 +72,6 @@
           wo = "pomodoro 'work'";
           br = "pomodoro 'break'";
           cy = "pomodoro 'cycle'";
-          k = "kubectl";
-          ka = "kubectl apply -f";
-          kg = "kubectl get";
-          kd = "kubectl describe";
-          kdel = "kubectl delete";
-          kl = "kubectl logs";
-          kgpo = "kubectl get pod";
-          kgd = "kubectl get deployments";
-          kc = "kubectx";
-          kns = "kubens";
-          ke = "kubectl exec -it";
-          tf = "terraform";
         };
 
         oh-my-zsh = {
@@ -115,8 +101,13 @@
         initContent = ''
           export PATH="$HOME/.bun/bin:$PATH"
 
-          bindkey -s ^f "tmux-sessionizer-script\n"
-          tmux-init
+          if command -v tmux-sessionizer-script >/dev/null; then
+              bindkey -s ^f "tmux-sessionizer-script\n"
+          fi
+
+          if command -v tmux-init >/dev/null; then
+              tmux-init
+          fi
 
           ZSH_AUTOSUGGEST_USE_ASYNC="true"
 

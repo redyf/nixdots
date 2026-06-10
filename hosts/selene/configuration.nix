@@ -63,6 +63,7 @@
       "i8042.direct"
     ];
     supportedFilesystems = [ "zfs" ];
+    zfs.forceImportRoot = false;
     extraModprobeConfig = ''
       options zfs zfs_arc_max=4294967296
     '';

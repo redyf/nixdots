@@ -24,6 +24,9 @@ jobs:
       - name: Cache Nix store
         uses: DeterminateSystems/magic-nix-cache-action@v7
 
+      - name: Nixfmt (format)
+        run: git ls-files '*.nix' ':!:hosts/*/hardware-configuration.nix' | xargs nix develop -c nixfmt --check
+
       - name: Statix (lint)
         run: nix develop -c statix check --config ./.statix.toml .
 
