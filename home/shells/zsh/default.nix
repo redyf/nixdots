@@ -113,6 +113,8 @@
         ];
 
         initContent = ''
+          export PATH="$HOME/.bun/bin:$PATH"
+
           bindkey -s ^f "tmux-sessionizer-script\n"
           tmux-init
 

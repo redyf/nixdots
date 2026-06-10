@@ -26,7 +26,6 @@
       slurp
       swappy
       wl-clipboard
-      hyprsunset
     ];
 
     wayland.windowManager.hyprland = {
@@ -45,10 +44,6 @@
         xwayland = {
           force_zero_scaling = true;
         };
-
-        exec-once = [
-          "hyprsunset --gamma_max 200 --gamma 150"
-        ];
 
         input = {
           kb_layout = "us";

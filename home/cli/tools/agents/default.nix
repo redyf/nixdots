@@ -12,13 +12,10 @@
 
   config = lib.mkIf config.agents.enable {
     nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
-    home.packages = with pkgs; [
-      codex
-      claude-code
-      mcp-nixos
-      opencode
-      rtk
-      repomix
+    home.packages = [
+      pkgs.claude-code
+      pkgs.mcp-nixos
+      pkgs.rtk
     ];
   };
 }
