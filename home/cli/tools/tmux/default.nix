@@ -6,6 +6,7 @@
 }:
 let
   theme = import ./theme.nix;
+  themeConan = import ./theme-conan.nix { inherit pkgs; };
 in
 {
   options = {
@@ -72,7 +73,7 @@ in
         # Tmux sessionizer
         bind -r f run-shell "tmux neww tmux-sessionizer-script"
 
-        ${theme}
+        ${themeConan}
       '';
     };
     home.packages = with pkgs; [
