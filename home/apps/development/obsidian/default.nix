@@ -55,7 +55,10 @@ in
       services.git-sync-obsidian = {
         Unit = {
           Description = "Sync Obsidian Vault with GitHub";
-          Wants = [ "git-sync-obsidian.timer" "network-online.target" ];
+          Wants = [
+            "git-sync-obsidian.timer"
+            "network-online.target"
+          ];
           After = [ "network-online.target" ];
         };
         Service = {
