@@ -81,6 +81,25 @@ nmcli device wifi connect [SSID] password [passphrase]
 
 This repo uses `sops-nix` for encrypted secrets, including the desktop user password. See [`docs/sops-setup.md`](docs/sops-setup.md) for the step-by-step guide.
 
+## Structure
+
+- `flake.nix` discovers NixOS hosts from `hosts/*` and Home Manager users from `home/users/*.nix`.
+- `hosts/<name>/configuration.nix` contains host-specific system settings.
+- `profiles/` contains shared defaults imported by hosts.
+- `modules/` contains reusable NixOS modules exposed under `myConfig`.
+- `home/` contains reusable Home Manager modules exposed under `myHomeConfig`.
+- `ci/font-flake-fallback` provides a public font fallback for unauthenticated builds.
+- `lib/` contains helper functions used to create hosts and home configurations.
+
+## Private Font
+
+The public default uses a local fallback flake that exposes `tx02` as JetBrains Mono. To use the private font flake locally, override the input:
+
+```bash
+nh os switch -- --override-input font-flake github:redyf/font-flake
+nh home switch -- --override-input font-flake github:redyf/font-flake
+```
+
 ## Installation
 
 > [!CAUTION]
@@ -130,17 +149,17 @@ mkdir -p /mnt/etc/
 # clone the repo
 git clone https://github.com/redyf/nixdots.git /mnt/etc/nixos --recurse-submodules
 # remove this file
-rm /mnt/etc/nixos/hosts/redyf/hardware-configuration.nix
+rm /mnt/etc/nixos/hosts/desktop/hardware-configuration.nix
 # generate the config and take some files
 nixos-generate-config --root /mnt
 rm /mnt/etc/nixos/configuration.nix
-mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/redyf/
+mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/desktop/
 # make sure you're in this path
 cd /mnt/etc/nixos
 # Install my config:
 nixos-install --flake '.#desktop'
 # Obs:
-If you'd like to use my config as a template, all you need to do is replace "desktop" with your username.
+If you'd like to use my config as a template, replace `desktop` with your host name and update the matching metadata in `hosts/<name>/meta.nix`.
 ```
 
 </details>

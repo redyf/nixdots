@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "BerkeleyMono": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754773656,
-        "narHash": "sha256-ZPV1KhyipXSgg9EFRuzU/wSFt5+Sl3pu2zS30GYLCrM=",
-        "ref": "refs/heads/main",
-        "rev": "31d231311bb7d1fa87f11625a22566f35e52b753",
-        "revCount": 2,
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/berkeley-mono.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/berkeley-mono.git"
-      }
-    },
     "Neve": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -169,22 +153,6 @@
         "owner": "CachyOS",
         "repo": "kernel-patches",
         "type": "github"
-      }
-    },
-    "cartograph": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1723304402,
-        "narHash": "sha256-/JvDN8l4wqUV1yk1CACDq8sZ96H9QfIlfeLI2lfyQMU=",
-        "ref": "refs/heads/main",
-        "rev": "86899aa09dcf18ff984aa8ff6d5cb5c35cc5dbb0",
-        "revCount": 1,
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/cartograph.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/cartograph.git"
       }
     },
     "claude-code": {
@@ -373,47 +341,21 @@
         "type": "github"
       }
     },
-    "flake-utils_3": {
-      "inputs": {
-        "systems": "systems_4"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "font-flake": {
       "inputs": {
-        "BerkeleyMono": "BerkeleyMono",
-        "cartograph": "cartograph",
-        "flake-utils": "flake-utils_3",
-        "maple": "maple",
-        "monolisa": "monolisa",
-        "nixpkgs": "nixpkgs",
-        "tx02": "tx02"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1775604889,
-        "narHash": "sha256-KoeMkDg/meX8fymsjaBI/L4OiXy+GVWl9axBPwUpw68=",
-        "owner": "redyf",
-        "repo": "font-flake",
-        "rev": "0062badc89741b5cbea372057b2068a2b9d92bc0",
-        "type": "github"
+        "path": "./ci/font-flake-fallback",
+        "type": "path"
       },
       "original": {
-        "owner": "redyf",
-        "repo": "font-flake",
-        "type": "github"
-      }
+        "path": "./ci/font-flake-fallback",
+        "type": "path"
+      },
+      "parent": []
     },
     "fromYaml": {
       "flake": false,
@@ -585,7 +527,7 @@
           "nixpkgs"
         ],
         "pre-commit-hooks": "pre-commit-hooks",
-        "systems": "systems_5",
+        "systems": "systems_4",
         "xdph": "xdph"
       },
       "locked": {
@@ -880,27 +822,11 @@
         "type": "github"
       }
     },
-    "maple": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1770227539,
-        "narHash": "sha256-XZrpqRRF3AM62IOcC/+K6UrWROplmMjJbXkhE61ackg=",
-        "ref": "refs/heads/main",
-        "rev": "23a6ed3c6369358bbb252e9cf93d6d4a62975a80",
-        "revCount": 1,
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/maple-font-brackets.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/maple-font-brackets.git"
-      }
-    },
     "millennium": {
       "inputs": {
         "luajit-src": "luajit-src",
         "millennium-src": "millennium-src",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "dir": "packages/nix",
@@ -935,22 +861,6 @@
         "type": "github"
       }
     },
-    "monolisa": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709742524,
-        "narHash": "sha256-mkw+WhtLw7498iNI4jTdeTq2eteJsfgxN0o8hs0q2l8=",
-        "ref": "refs/heads/main",
-        "rev": "c234fad704153e0244f160e1e293f35c4b2ff26e",
-        "revCount": 3,
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/monolisa.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/monolisa.git"
-      }
-    },
     "nix-cachyos-kernel": {
       "inputs": {
         "cachyos-kernel": "cachyos-kernel",
@@ -978,15 +888,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1770752672,
-        "narHash": "sha256-fd9dFhrvc7ObQQr6wDAWuv0RqWnhR7lWtt7enzTLr5w=",
-        "owner": "NixOS",
+        "lastModified": 1770115704,
+        "narHash": "sha256-KHFT9UWOF2yRPlAnSXQJh6uVcgNcWlFqqiAZ7OVlHNc=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1c415018b24020442ee94e6b84a8a4a24078a61e",
+        "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1007,22 +918,6 @@
       }
     },
     "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1770115704,
-        "narHash": "sha256-KHFT9UWOF2yRPlAnSXQJh6uVcgNcWlFqqiAZ7OVlHNc=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
       "locked": {
         "lastModified": 1780243769,
         "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
@@ -1088,7 +983,7 @@
           "noctalia",
           "nixpkgs"
         ],
-        "systems": "systems_6",
+        "systems": "systems_5",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
@@ -1185,7 +1080,7 @@
         "hyprland-plugins": "hyprland-plugins",
         "millennium": "millennium",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
         "nvibrant": "nvibrant",
         "sops-nix": "sops-nix",
@@ -1248,7 +1143,7 @@
           "nixpkgs"
         ],
         "nur": "nur",
-        "systems": "systems_7",
+        "systems": "systems_6",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
         "tinted-tmux": "tinted-tmux",
@@ -1316,16 +1211,16 @@
     },
     "systems_4": {
       "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
         "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
         "type": "github"
       },
       "original": {
         "owner": "nix-systems",
-        "repo": "default",
+        "repo": "default-linux",
         "type": "github"
       }
     },
@@ -1345,21 +1240,6 @@
       }
     },
     "systems_6": {
-      "locked": {
-        "lastModified": 1689347949,
-        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "type": "github"
-      }
-    },
-    "systems_7": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -1479,22 +1359,6 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
-      }
-    },
-    "tx02": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754861062,
-        "narHash": "sha256-0FKwc21OhztUo25DngEAUrF+hWovSnMo2gXc7eNFZnM=",
-        "ref": "refs/heads/main",
-        "rev": "2be7d179b5e4e07feba73ea398e5604ba70d9170",
-        "revCount": 3,
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/tx-02-trial.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/redyf/tx-02-trial.git"
       }
     },
     "xdph": {

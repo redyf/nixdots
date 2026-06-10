@@ -12,7 +12,7 @@
     gaming.enable = lib.mkEnableOption "Enable gaming module";
   };
   config = lib.mkIf config.gaming.enable {
-    artix-game-launcher.enable = lib.mkDefault true;
+    artix-game-launcher.enable = lib.mkDefault false;
     godot.enable = lib.mkDefault false;
     hytale.enable = lib.mkDefault false;
     minecraft.enable = lib.mkDefault false;

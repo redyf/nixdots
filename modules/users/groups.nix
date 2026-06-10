@@ -16,7 +16,6 @@ in
     username = lib.mkOption {
       type = lib.types.str;
       description = "Primary username for the system";
-      default = "redyf"; # Your default username
     };
 
     initialPassword = lib.mkOption {
@@ -79,7 +78,7 @@ in
 
   config = lib.mkIf cfg.enable {
     users = {
-      extraGroups.xboxusers.members = [ "redyf" ];
+      extraGroups.xboxusers.members = [ cfg.username ];
       users.${cfg.username} = {
         inherit (cfg) isNormalUser shell hashedPasswordFile;
         initialPassword = lib.mkIf (cfg.hashedPasswordFile == null) cfg.initialPassword;

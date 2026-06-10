@@ -28,4 +28,4 @@ jobs:
         run: nix develop -c statix check --config ./.statix.toml .
 
       - name: Flake check
-        run: nix flake check --show-trace --override-input font-flake ./ci/font-flake-fallback
+        run: nix flake check --show-trace

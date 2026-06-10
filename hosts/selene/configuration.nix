@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../profiles/nixos/base.nix
     ../../modules
   ];
 
@@ -30,31 +31,11 @@
     };
 
     cli = {
-      enable = true;
       appimage.enable = false;
-      nh.enable = true;
-      zsh.enable = true;
     };
 
     desktop = {
-      enable = true;
-      hyprland.enable = true;
       sway.enable = true;
-      xserver.enable = true;
-    };
-
-    development = {
-      enable = true;
-      ansible.enable = false;
-      aws.enable = true;
-      k3s.enable = false;
-      nginx.enable = false;
-      terraform.enable = false;
-    };
-
-    gaming = {
-      enable = true;
-      steam.enable = true;
     };
 
     hardware = {
@@ -62,53 +43,17 @@
       nvidia.enable = false;
     };
 
-    nix = {
-      enable = true;
-      nix.enable = true;
-    };
-
     services = {
-      enable = true;
-      autorandr.enable = true;
-      displayManager.enable = true;
-      flatpak.enable = false;
       fstrim.enable = false;
-      input.enable = true;
       tlp.enable = true;
       upower.enable = true;
     };
 
     system = {
-      enable = true;
       amd.enable = true;
-      audio.enable = true;
-      boot.enable = true;
-      environment.enable = true;
-      hardware.enable = true;
       intel.enable = false;
       kernel.enable = true;
-      keymap.enable = true;
-      locale.enable = true;
-      networking.enable = true;
       power-management.enable = false;
-      security.enable = true;
-      ssh.enable = true;
-      systemd.enable = true;
-      time.enable = true;
-      xdg-portal.enable = true;
-      zram.enable = true;
-    };
-
-    themes = {
-      enable = true;
-      stylix.enable = true;
-    };
-
-    virtualization = {
-      enable = true;
-      docker.enable = true;
-      virtmanager.enable = false;
-      virtualbox.enable = false;
     };
   };
 
@@ -136,14 +81,6 @@
     enableRedistributableFirmware = true;
     bluetooth.enable = false;
   };
-
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    git
-    docker-compose
-    ntfs3g
-  ];
 
   system.stateVersion = "25.05"; # Don't change this
 }

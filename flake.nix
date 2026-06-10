@@ -57,7 +57,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     font-flake = {
-      url = "github:redyf/font-flake";
+      url = "path:./ci/font-flake-fallback";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

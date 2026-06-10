@@ -69,6 +69,8 @@
     };
   };
 
+  artix-game-launcher.enable = true;
+
   nixpkgs = {
     config = {
       allowUnfree = true;
