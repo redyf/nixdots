@@ -71,6 +71,13 @@
 
   artix-game-launcher.enable = true;
 
+  git = {
+    sopsIdentity.enable = true;
+    work.enable = true;
+    maintenanceRepo = "${homeDirectory}/opensource/nixpkgs";
+    safeDirectories = [ "${homeDirectory}/opensource/nixdots" ];
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;

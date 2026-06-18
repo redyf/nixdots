@@ -10,6 +10,11 @@
 
     nh = {
       enable = lib.mkEnableOption "Enable NH";
+      flakePath = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+        description = "Path to the flake used by nh. Defaults to ~/opensource/nixdots.";
+      };
     };
 
     zsh = {

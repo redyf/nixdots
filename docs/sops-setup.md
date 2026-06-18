@@ -174,6 +174,15 @@ Use `config.sops.secrets."api_keys/github".path` when a program needs the secret
 
 The Git module reads identity data from SOPS-rendered config files instead of hardcoding names or emails in the repo.
 
+Enable those rendered identities from a personal Home Manager user file:
+
+```nix
+git = {
+  sopsIdentity.enable = true;
+  work.enable = true;
+};
+```
+
 Add these values to `hosts/<host>/secrets.yaml` with `sops`:
 
 ```yaml

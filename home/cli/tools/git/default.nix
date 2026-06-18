@@ -5,25 +5,48 @@
   homeDirectory,
   ...
 }:
+let
+  cfg = config.git;
+in
 {
   options = {
-    git.enable = lib.mkEnableOption "Enable git module";
+    git = {
+      enable = lib.mkEnableOption "Enable git module";
+      sopsIdentity.enable = lib.mkEnableOption "SOPS-rendered Git identity includes";
+      work.enable = lib.mkEnableOption "work Git/SSH settings";
+      workDirectory = lib.mkOption {
+        type = lib.types.str;
+        default = "${homeDirectory}/work";
+        description = "Directory that uses the work Git identity.";
+      };
+      maintenanceRepo = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+        description = "Repository path for Git maintenance.";
+      };
+      safeDirectories = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [ ];
+        description = "Git safe.directory entries.";
+      };
+    };
   };
-  config = lib.mkIf config.git.enable {
+  config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
       lfs = {
         enable = true;
       };
-      includes = [
-        {
-          path = "/run/secrets/rendered/git-personal";
-        }
-        {
-          path = "/run/secrets/rendered/git-work";
-          condition = "gitdir:${homeDirectory}/work/*/";
-        }
-      ];
+      includes =
+        lib.optionals cfg.sopsIdentity.enable [
+          { path = "/run/secrets/rendered/git-personal"; }
+        ]
+        ++ lib.optionals (cfg.sopsIdentity.enable && cfg.work.enable) [
+          {
+            path = "/run/secrets/rendered/git-work";
+            condition = "gitdir:${cfg.workDirectory}/*/";
+          }
+        ];
       settings = {
         core = {
           editor = "nvim";
@@ -43,10 +66,12 @@
           rebase = true;
           prune = true;
         };
-        maintenance.repo = "${homeDirectory}/opensource/nixpkgs";
-        safe = {
-          directory = "${homeDirectory}/opensource/nixdots";
-        };
+      }
+      // lib.optionalAttrs (cfg.maintenanceRepo != null) {
+        maintenance.repo = cfg.maintenanceRepo;
+      }
+      // lib.optionalAttrs (cfg.safeDirectories != [ ]) {
+        safe.directory = cfg.safeDirectories;
       };
     };
     programs.ssh = {
@@ -59,8 +84,16 @@
           identitiesOnly = true;
           identityFile = "${homeDirectory}/.ssh/id_ed25519";
         };
-
+      }
+      // lib.optionalAttrs cfg.work.enable {
         "github-work" = {
+          hostname = "github.com";
+          user = "git";
+          identitiesOnly = true;
+          identityFile = "${homeDirectory}/.ssh/id_ed25519_work";
+        };
+
+        "github-ezops" = {
           hostname = "github.com";
           user = "git";
           identitiesOnly = true;

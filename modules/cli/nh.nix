@@ -16,7 +16,7 @@ in
         enable = true;
         extraArgs = "--keep-since 4d --keep 3";
       };
-      flake = "${homeDirectory}/opensource/nixdots";
+      flake = if cfg.flakePath != null then cfg.flakePath else "${homeDirectory}/opensource/nixdots";
     };
   };
 }
