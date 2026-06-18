@@ -59,6 +59,24 @@
 
 ## Commands you should know:
 
+- Validate the flake:
+
+```bash
+nix flake check
+```
+
+- Build the safe example system without switching your machine:
+
+```bash
+nix build '.#nixosConfigurations.example.config.system.build.toplevel'
+```
+
+- Build the safe example Home Manager activation package:
+
+```bash
+nix build '.#homeConfigurations.example.activationPackage'
+```
+
 - Rebuild and switch to change the system configuration (in the configuration directory):
 
 ```
@@ -86,8 +104,10 @@ This repo uses `sops-nix` for encrypted secrets, including the desktop user pass
 - `flake.nix` discovers NixOS hosts from `hosts/*` and Home Manager users from `home/users/*.nix`.
 - `hosts/<name>/configuration.nix` contains host-specific system settings.
 - `profiles/` contains shared defaults imported by hosts.
+- `profiles/nixos/minimal.nix` and `profiles/home/minimal.nix` provide safer public defaults for examples.
 - `modules/` contains reusable NixOS modules exposed under `myConfig`.
 - `home/` contains reusable Home Manager modules exposed under `myHomeConfig`.
+- `hosts/example` and `home/users/example.nix` are the recommended starting points for users testing this repo.
 - `ci/font-flake-fallback` provides a public font fallback for unauthenticated builds.
 - `lib/` contains helper functions used to create hosts and home configurations.
 
@@ -103,10 +123,20 @@ nh home switch -- --override-input font-flake github:redyf/font-flake
 ## Installation
 
 > [!CAUTION]
-> This hosts system and home configurations are public for your own learning and
-> research. They are not meant to be used with any hardware other than mine.
-> Trying to build and deploy them to other systems without appropriate changes
-> can render your machines unbootable and damage data.
+> `desktop` and `selene` are my personal machines. Do not install them directly
+> on your hardware unless you have reviewed every host-specific setting,
+> generated your own hardware config, and understand the disk layout.
+> Deploying someone else's NixOS host can make a machine unbootable or destroy data.
+
+If you want to test this repository, start with the safe example outputs:
+
+```bash
+nix build '.#nixosConfigurations.example.config.system.build.toplevel'
+nix build '.#homeConfigurations.example.activationPackage'
+```
+
+The example host uses username `example` and initial password `nixos`. Treat it as
+a learning target, not a final install profile.
 
 I'll guide you through the Installation, but first make sure to download the Minimal ISO image available at [NixOS](https://nixos.org/download#nixos-iso) and make a bootable drive with it. I suggest using [Rufus](https://rufus.ie/en/) for the task as it's a great software,
 and an ethernet cable to make things easier. We shall begin!
@@ -156,10 +186,10 @@ rm /mnt/etc/nixos/configuration.nix
 mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/hosts/desktop/
 # make sure you're in this path
 cd /mnt/etc/nixos
-# Install my config:
+# Install my personal desktop config only after adapting hardware and secrets:
 nixos-install --flake '.#desktop'
 # Obs:
-If you'd like to use my config as a template, replace `desktop` with your host name and update the matching metadata in `hosts/<name>/meta.nix`.
+If you'd like to use my config as a template, copy `hosts/example` and `home/users/example.nix`, then update the matching metadata in `hosts/<name>/meta.nix`.
 ```
 
 </details>
@@ -169,6 +199,8 @@ Disko is also available for formatting partitions (Only for advanced users)
 
 <details>
 <summary>Disko</summary>
+
+Disko commands are destructive. Always pass the target disk explicitly and verify it with `lsblk` first.
 
 If you save disko's config file in **./disks/default.nix**, and run the following command:
 
