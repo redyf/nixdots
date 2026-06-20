@@ -10,13 +10,11 @@ in
 {
   config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
     networking = {
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = true;
+        wifi.powersave = false;
+      };
       firewall.enable = true;
-      enableIPv6 = false;
-      # no need to wait interfaces to have an IP to continue booting
-      dhcpcd.wait = "background";
-      # avoid checking if IP is already taken to boot a few seconds faster
-      dhcpcd.extraConfig = "noarp";
       # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
       # Configure network proxy if necessary
       # proxy.default = "http://user:password@proxy:port/";
