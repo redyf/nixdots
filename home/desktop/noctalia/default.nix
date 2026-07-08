@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  pkgs,
   homeDirectory,
   ...
 }:
@@ -15,6 +16,7 @@
   config = lib.mkIf config.noctalia.enable {
     programs.noctalia-shell = {
       enable = true;
+      package = pkgs.noctalia-shell;
       settings = {
         appLauncher = {
           customLaunchPrefix = "";

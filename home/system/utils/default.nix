@@ -18,6 +18,7 @@
         wget
         age
         sops
+        btop
       ];
     };
   };

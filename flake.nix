@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     Neve = {
@@ -75,15 +75,19 @@
 
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
+      overlays = [
+        (import ./overlays/bun.nix)
+      ];
+
       nixpkgsFor = forAllSystems (
         system:
         import nixpkgs {
-          inherit system;
+          inherit system overlays;
           config.allowUnfree = true;
         }
       );
 
-      myLib = import ./lib { inherit inputs nixpkgs; };
+      myLib = import ./lib { inherit inputs nixpkgs overlays; };
     in
     {
       nixosConfigurations = myLib.discoverHosts {

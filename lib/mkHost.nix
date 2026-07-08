@@ -1,6 +1,7 @@
 {
   inputs,
   nixpkgs,
+  overlays ? [ ],
 }:
 {
   hostname,
@@ -21,6 +22,7 @@ nixpkgs.lib.nixosSystem {
   };
   modules = [
     { nixpkgs.hostPlatform = system; }
+    { nixpkgs.overlays = overlays; }
     { networking.hostName = hostname; }
     (hostsPath + "/${hostname}/configuration.nix")
     inputs.hyprland.nixosModules.default

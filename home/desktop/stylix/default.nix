@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -29,7 +30,7 @@ in
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
       fonts = {
         monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
+          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.tx02;
           name = "TX-02";
         };
         sizes.terminal = 18;
@@ -56,7 +57,6 @@ in
         sway.enable = true;
         tmux.enable = false;
         vesktop.enable = false;
-        waybar.enable = false;
         wezterm.enable = true;
         noctalia-shell.enable = false;
       };

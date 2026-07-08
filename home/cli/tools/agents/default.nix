@@ -16,6 +16,7 @@
       pkgs.claude-code
       pkgs.mcp-nixos
       pkgs.rtk
+      pkgs.pi-coding-agent
     ];
   };
 }

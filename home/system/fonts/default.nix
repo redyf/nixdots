@@ -12,6 +12,7 @@
   config = lib.mkIf config.fonts.enable {
     home = {
       packages = with pkgs; [
+        inputs.font-flake.packages.${stdenv.hostPlatform.system}.monolisa
         nerd-fonts.jetbrains-mono
       ];
     };

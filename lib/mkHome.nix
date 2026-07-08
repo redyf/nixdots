@@ -1,6 +1,7 @@
 {
   inputs,
   nixpkgs,
+  overlays ? [ ],
 }:
 {
   username,
@@ -12,7 +13,7 @@
 }:
 let
   pkgs = import nixpkgs {
-    inherit system;
+    inherit system overlays;
     config.allowUnfree = true;
   };
 in

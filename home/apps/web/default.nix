@@ -12,6 +12,8 @@
     home.packages = with pkgs; [
       vesktop
       slack
+      openvpn
+      pritunl-client
       # (pkgs.writeShellScriptBin "slack-x11" ''
       #   exec env ELECTRON_OZONE_PLATFORM_HINT=x11 ${pkgs.slack}/bin/slack "$@"
       # '')
