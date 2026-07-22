@@ -29,7 +29,7 @@ in
       };
       fonts = {
         monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
+          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
           name = "MonoLisa";
         };
         sansSerif = {

@@ -81,7 +81,7 @@ in
       tmux-sessionizer
       # Script to find files with tmux in vim
       (writeShellScriptBin "tmux-sessionizer-script" ''
-        selected=$(find ~/work ~/ztm ~/personal ~/projects ~/opensource ~/alura/ -maxdepth 1 -mindepth 1 -type d | fzf)
+        selected=$(find ~/work/ ~/ztm/ ~/personal/ ~/projects/ ~/opensource/ -maxdepth 2 -mindepth 1 -type d | fzf)
         if [[ -z "$selected" ]]; then
             exit 0
         fi

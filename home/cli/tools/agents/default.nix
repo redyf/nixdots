@@ -14,9 +14,11 @@
     nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
     home.packages = [
       pkgs.claude-code
+      pkgs.opencode
+      pkgs.pi-coding-agent
       pkgs.mcp-nixos
       pkgs.rtk
-      pkgs.pi-coding-agent
+      pkgs.graphify
     ];
   };
 }

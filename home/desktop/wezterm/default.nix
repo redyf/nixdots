@@ -12,7 +12,7 @@
       enable = true;
       settings = {
         default_cursor_style = "SteadyBlock";
-        font_size = lib.mkForce 14.0;
+        font_size = lib.mkForce 15.0;
         font = lib.mkForce (
           lib.generators.mkLuaInline ''
             wezterm.font_with_fallback {
@@ -22,14 +22,18 @@
                 harfbuzz_features = { 'ss02=1', 'ss07=1' },
               },
               {
+                family = 'Berkeley Mono',
+                weight = 'Bold',
+              },
+              {
                 family = 'JetBrains Mono Nerd Font',
                 weight = 'Medium',
               },
               {
                 family = 'TX-02',
-                weight = 'Regular',
+                weight = 'Medium',
+                style = 'Normal',
                 harfbuzz_features = { 'ss02=1' },
-                italic = false,
               },
             }
           ''

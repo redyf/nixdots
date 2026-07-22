@@ -2,13 +2,12 @@
   inputs,
   lib,
   config,
-  pkgs,
   homeDirectory,
   ...
 }:
 {
   imports = [
-    inputs.noctalia.homeModules.default
+    inputs.noctalia-shell.homeModules.default
   ];
   options = {
     noctalia.enable = lib.mkEnableOption "Enable Noctalia Shell module";
@@ -16,7 +15,6 @@
   config = lib.mkIf config.noctalia.enable {
     programs.noctalia-shell = {
       enable = true;
-      package = pkgs.noctalia-shell;
       settings = {
         appLauncher = {
           customLaunchPrefix = "";

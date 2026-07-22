@@ -30,8 +30,8 @@ in
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
       fonts = {
         monospace = {
-          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.tx02;
-          name = "TX-02";
+          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
+          name = "MonoLisa";
         };
         sizes.terminal = 18;
       };
