@@ -11,10 +11,6 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,17 +27,9 @@
       url = "github:redyf/Neve";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xwayland-satellite = {
-      url = "github:Supreeeme/xwayland-satellite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     noctalia-shell = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
     };
     nvibrant = {
       url = "github:mikaeladev/nix-nvibrant";
@@ -55,7 +43,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     claude-code = {
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,13 +51,12 @@
       url = "path:./ci/font-flake-fallback";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     sf-mono-liga-src = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
       flake = false;
+    };
+    hytale-launcher = {
+      url = "github:JPyke3/hytale-launcher-nix";
     };
   };
 
@@ -87,19 +73,15 @@
 
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      overlays = [
-        (import ./overlays/bun.nix)
-      ];
-
       nixpkgsFor = forAllSystems (
         system:
         import nixpkgs {
-          inherit system overlays;
+          inherit system;
           config.allowUnfree = true;
         }
       );
 
-      myLib = import ./lib { inherit inputs nixpkgs overlays; };
+      myLib = import ./lib { inherit inputs nixpkgs; };
     in
     {
       nixosConfigurations = myLib.discoverHosts {

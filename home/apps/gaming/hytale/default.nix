@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -10,8 +11,8 @@
   };
   config = lib.mkIf config.hytale.enable {
     home = {
-      packages = with pkgs; [
-        (callPackage ../../../../pkgs/hytale.nix { })
+      packages = [
+        inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
     };
   };
