@@ -18,7 +18,8 @@
       pkgs.pi-coding-agent
       pkgs.mcp-nixos
       pkgs.rtk
-      pkgs.graphify
+      pkgs.terraform-mcp-server
+      pkgs.ketch
     ];
   };
 }

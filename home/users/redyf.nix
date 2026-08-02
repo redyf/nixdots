@@ -7,6 +7,7 @@
   home = {
     inherit username homeDirectory;
     stateVersion = "25.05";
+    pointerCursor.enable = true;
     sessionPath = [
       "$HOME/.local/bin"
     ];
@@ -28,7 +29,7 @@
       file-explorer.enable = true;
       gaming.enable = true;
       media.enable = true;
-      security.enable = true;
+      security.enable = false;
       web.enable = true;
     };
 
@@ -68,8 +69,6 @@
       utils.enable = true;
     };
   };
-
-  artix-game-launcher.enable = true;
 
   git = {
     sopsIdentity.enable = true;

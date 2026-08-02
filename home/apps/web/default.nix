@@ -10,7 +10,7 @@
   };
   config = lib.mkIf config.web.enable {
     home.packages = with pkgs; [
-      vesktop
+      discord
       slack
       openvpn
       pritunl-client

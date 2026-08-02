@@ -26,7 +26,7 @@ exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 180 --pos 0x0 
                             --output HDMI-0 --mode 1920x1080 --rate 144 --pos 1920x0 --rotate left
 
 # Input: teclado BR, NumLock on por padrão, accel flat (ponteiro sem aceleração)
-exec --no-startup-id setxkbmap -layout br 
+exec --no-startup-id setxkbmap -layout us -variant intl
 exec --no-startup-id numlockx on
 exec --no-startup-id xset m 1 0  # sensitivity=1.0, accel_profile flat + force_no_accel
 
@@ -98,7 +98,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 
 # Aplicações
 bindsym $mod+Return exec wezterm
-bindsym $mod+n exec kitty
+bindsym $mod+n exec ghostty
 bindsym $mod+e exec emacsclient -c -a 'emacs'
 bindsym Print exec screenshot
 bindsym $mod+Print exec screenshot-edit

@@ -10,6 +10,7 @@ let
   cfg = config.myConfig.themes.stylix;
   themes = {
     catppuccin-mocha = "catppuccin-mocha";
+    catppuccin-macchiato = "catppuccin-macchiato";
     oxocarbon-dark = "oxocarbon-dark";
     tokyo-night-moon = "tokyo-night-moon";
     tokyo-night-dark = "tokyo-night-dark";
@@ -21,7 +22,7 @@ in
     stylix = {
       enable = true;
       autoEnable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-macchiato}.yaml";
       cursor = {
         name = "macOS";
         package = pkgs.apple-cursor;
@@ -57,7 +58,7 @@ in
       targets = {
         grub.enable = false;
         gnome.enable = false;
-        gtk.enable = false;
+        gtk.enable = true;
         nixos-icons.enable = true;
         qt.enable = true;
       };

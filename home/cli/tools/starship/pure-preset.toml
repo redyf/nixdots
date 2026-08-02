@@ -13,7 +13,7 @@ $character"""
 [directory]
 
 [character]
-success_symbol = "[➜](bold green)" # ➜ ✗ λ
+success_symbol = "[➜](bold green)" # ➜ ✗ λ 󰏿 
 error_symbol = "[➜](bold red)"
 vimcmd_symbol = "[➜](bold purple)"
 

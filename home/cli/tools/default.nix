@@ -7,6 +7,7 @@
   imports = [
     ./agents
     ./bat
+    ./cymbal
     ./direnv
     ./eza
     ./fd
@@ -27,6 +28,7 @@
   config = lib.mkIf config.tools.enable {
     agents.enable = lib.mkDefault true;
     bat.enable = lib.mkDefault true;
+    cymbal.enable = lib.mkDefault true;
     direnv.enable = lib.mkDefault true;
     eza.enable = lib.mkDefault true;
     fd.enable = lib.mkDefault true;

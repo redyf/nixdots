@@ -8,6 +8,7 @@
 let
   themes = {
     catppuccin-mocha = "catppuccin-mocha";
+    catppuccin-macchiato = "catppuccin-macchiato";
     oxocarbon-dark = "oxocarbon-dark";
     tokyo-night-moon = "tokyo-night-moon";
     tokyo-night-dark = "tokyo-night-dark";
@@ -27,7 +28,7 @@ in
         package = pkgs.apple-cursor;
         size = 36;
       };
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-mocha}.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-macchiato}.yaml";
       fonts = {
         monospace = {
           package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
@@ -59,6 +60,7 @@ in
         vesktop.enable = false;
         wezterm.enable = true;
         noctalia-shell.enable = false;
+        zen-browser.enable = true;
       };
     };
   };

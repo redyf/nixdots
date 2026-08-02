@@ -1,5 +1,7 @@
 # AGENTS.md
 
+> Updated: 2026-08-01
+
 ## What This Repo Is
 - NixOS flake for personal hosts `desktop` and `selene`, plus a safe public `example` host.
 - `flake.nix` discovers `hosts/*` as `nixosConfigurations` and `home/users/*.nix` as `homeConfigurations`.
@@ -12,6 +14,7 @@
 - `home/users/<name>.nix` imports `../apps`, `../cli`, `../desktop`, `../shells`, `../system`.
 - `profiles/nixos/base.nix` owns shared NixOS defaults. Host files should only override or add host-specific choices.
 - `myConfig.*` is the NixOS module namespace; `myHomeConfig.*` is the Home Manager namespace.
+- `pkgs/*.nix` holds custom packages, called from home modules via `callPackage ../../../../pkgs/<name>.nix`.
 
 ## Commands
 - `nh os switch` is the preferred rebuild command on the desktop host.
@@ -35,6 +38,7 @@
 - `hosts/desktop/disko.nix` and `hosts/selene/disko.nix` are parameterized with a required `device`; keep destructive disk choices explicit.
 - `modules/cli/nh.nix` defaults the flake path to `${homeDirectory}/opensource/nixdots`, but `myConfig.cli.nh.flakePath` can override it.
 - `home/cli/tools/git/default.nix` keeps SOPS-rendered identities and work SSH hosts opt-in; enable them from personal user files, not reusable profiles.
+- `font-flake` is a local-path flake input (`ci/font-flake-fallback/`) providing proprietary fonts (Monolisa, etc.); the real private font flake is not in this repo.
 
 ## Public Reuse / Onboarding
 - Prefer `hosts/example` and `home/users/example.nix` over telling users to install `.#desktop` or `.#selene`.
@@ -49,6 +53,10 @@
 - Use `lib.mkDefault` in shared profiles and concrete assignments in host/user files.
 - Keep `profiles/nixos/base.nix` as the personal default baseline. If a safer public baseline is needed, add a separate minimal profile instead of weakening `base.nix`.
 - Remove stale option namespaces instead of extending them. Root import files should import modules, not define unused control planes.
+
+## References
+- [docs/sops-setup.md](./docs/sops-setup.md) — SOPS/age setup walkthrough.
+- [docs/security-audit.md](./docs/security-audit.md) — security review notes.
 
 ## Editing Rules
 - Keep changes minimal and in the smallest module that owns the setting.

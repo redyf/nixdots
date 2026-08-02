@@ -17,23 +17,27 @@
           lib.generators.mkLuaInline ''
             wezterm.font_with_fallback {
               {
+                family = 'Berkeley Mono',
+                weight = 'Medium',
+              },
+              {
                 family = 'MonoLisa',
                 weight = 'Medium',
                 harfbuzz_features = { 'ss02=1', 'ss07=1' },
-              },
-              {
-                family = 'Berkeley Mono',
-                weight = 'Bold',
-              },
-              {
-                family = 'JetBrains Mono Nerd Font',
-                weight = 'Medium',
               },
               {
                 family = 'TX-02',
                 weight = 'Medium',
                 style = 'Normal',
                 harfbuzz_features = { 'ss02=1' },
+              },
+              {
+                family = 'Liga SFMono Nerd Font',
+                weight = 'Regular',
+              },
+              {
+                family = 'JetBrains Mono Nerd Font',
+                weight = 'Medium',
               },
             }
           ''
@@ -44,7 +48,7 @@
         line_height = 1.0;
         front_end = "OpenGL";
         window_background_opacity = 1.0;
-        kde_window_background_blur = false;
+        wayland_window_background_blur = false;
         warn_about_missing_glyphs = false;
       };
     };

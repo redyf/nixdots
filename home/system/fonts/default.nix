@@ -13,26 +13,10 @@
     home = {
       packages = with pkgs; [
         inputs.font-flake.packages.${stdenv.hostPlatform.system}.monolisa
+        inputs.font-flake.packages.${stdenv.hostPlatform.system}.tx02
+        inputs.font-flake.packages.${stdenv.hostPlatform.system}.berkeley-mono
+        inputs.font-flake.packages.${stdenv.hostPlatform.system}.sf-mono
         nerd-fonts.jetbrains-mono
-        # (pkgs.stdenv.mkDerivation {
-        #   pname = "BerkeleyFont";
-        #   version = "1.0";
-        #   src = /home/redyf/opensource/font-flake/Berkeley;
-        #   installPhase = ''
-        #     mkdir -p $out/share/fonts/truetype
-        #     mv *.ttf $out/share/fonts/truetype/
-        #   '';
-        # })
-        # (stdenvNoCC.mkDerivation {
-        #   pname = "sf-mono-liga-bin";
-        #   version = "dev";
-        #   src = inputs.sf-mono-liga-src;
-        #   dontConfigure = true;
-        #   installPhase = ''
-        #     mkdir -p $out/share/fonts/opentype
-        #     cp -R $src/*.otf $out/share/fonts/opentype/
-        #   '';
-        # })
       ];
     };
     fonts.fontconfig = {

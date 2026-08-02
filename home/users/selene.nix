@@ -7,6 +7,7 @@
   home = {
     inherit username homeDirectory;
     stateVersion = "25.05";
+    pointerCursor.enable = true;
     sessionPath = [
       "$HOME/.local/bin"
     ];

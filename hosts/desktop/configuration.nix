@@ -83,7 +83,7 @@
       nvibrant.enable = true;
       power-management.enable = true;
       sops.enable = true;
-      tailscale.enable = true;
+      tailscale.enable = false;
     };
   };
 
