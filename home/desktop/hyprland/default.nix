@@ -31,39 +31,46 @@
     wayland.windowManager.hyprland = {
       enable = true;
       package = null;
-      configType = "hyprlang";
+      configType = "lua";
       systemd.variables = [ "--all" ];
       xwayland.enable = true;
       settings = {
-        "$mainMod" = "SUPER";
-
-        env = [
-          "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        ];
-
-        xwayland = {
-          force_zero_scaling = true;
+        # $mainMod -> variável local Lua (usada nos binds)
+        mod = {
+          _var = "SUPER";
         };
 
-        input = {
-          kb_layout = "us";
-          kb_variant = "intl";
-          kb_model = "";
-          kb_options = "";
-          kb_rules = "";
+        env = [
+          {
+            _args = [
+              "ELECTRON_OZONE_PLATFORM_HINT"
+              "auto"
+            ];
+          }
+        ];
 
-          follow_mouse = 1;
-          mouse_refocus = false;
-          repeat_delay = 140;
-          repeat_rate = 30;
-          numlock_by_default = 1;
-          accel_profile = "flat";
-          sensitivity = -0.4;
-          force_no_accel = false;
-          touchpad = {
-            natural_scroll = 1;
-            tap-to-click = true;
-            drag_lock = true;
+        config = {
+          xwayland = {
+            force_zero_scaling = true;
+          };
+
+          input = {
+            kb_layout = "us";
+            kb_variant = "intl";
+
+            follow_mouse = 1;
+            mouse_refocus = false;
+            repeat_delay = 140;
+            repeat_rate = 30;
+            numlock_by_default = true;
+            accel_profile = "flat";
+            sensitivity = -0.4;
+            force_no_accel = false;
+            touchpad = {
+              natural_scroll = true;
+              tap_to_click = true;
+              drag_lock = 1;
+            };
           };
         };
       };
