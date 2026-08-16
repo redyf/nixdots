@@ -7,6 +7,8 @@
 let
   theme = import ./theme.nix;
   themeConan = import ./theme-conan.nix { inherit pkgs; };
+  macchiato = import ./macchiato.nix { inherit config; };
+  primaryTmux = import ./primary-tmux.nix { inherit pkgs; };
 in
 {
   options = {
@@ -73,7 +75,7 @@ in
         # Tmux sessionizer
         bind -r f run-shell "tmux neww tmux-sessionizer-script"
 
-        ${themeConan}
+        ${macchiato}
       '';
     };
     home.packages = with pkgs; [
