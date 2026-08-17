@@ -35,7 +35,6 @@
       systemd.variables = [ "--all" ];
       xwayland.enable = true;
       settings = {
-        # $mainMod -> variável local Lua (usada nos binds)
         mod = {
           _var = "SUPER";
         };

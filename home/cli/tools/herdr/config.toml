@@ -1,0 +1,48 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+space"
+
+# Windows (tmux: bind -n M-J/M-K)
+previous_tab = "alt+j"
+next_tab = "alt+k"
+
+# Splits (tmux: " = split -v, % = split -h)
+split_vertical = "prefix+v"
+split_horizontal = "prefix+minus"
+
+# Panes (tmux: prefix+h/j/k/l)
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Swap panes (tmux: prefix+shift+h/j/k/l)
+swap_pane_left = "prefix+shift+h"
+swap_pane_down = "prefix+shift+j"
+swap_pane_up = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+
+# Copy mode (tmux: prefix+[ with vi keys)
+copy_mode = "prefix+["
+
+# Close pane (tmux: prefix+x)
+close_pane = "prefix+x"
+
+# Zoom (tmux: prefix+z)
+zoom = "prefix+z"
+
+# Resize mode (tmux: prefix+r)
+resize_mode = "prefix+r"
+
+# Detach (tmux: prefix+d)
+detach = "prefix+q"
+
+# Sessionizer (tmux: prefix+f)
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "sessionizer"
+width = "80%"
+height = "80%"

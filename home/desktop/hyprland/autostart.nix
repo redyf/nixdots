@@ -5,7 +5,6 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
-      # exec-once (hyprlang) -> evento hyprland.start
       on = {
         _args = [
           "hyprland.start"
@@ -20,10 +19,13 @@
         ];
       };
 
-      # era: exec-once "[workspace 4 silent] obsidian"
       window_rule = [
         {
           match.class = "obsidian";
+          workspace = "3";
+        }
+        {
+          match.class = "slack";
           workspace = "4";
         }
       ];

@@ -30,8 +30,8 @@ in
       };
       fonts = {
         monospace = {
-          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
-          name = "MonoLisa";
+          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.tx02;
+          name = "TX-02";
         };
         sansSerif = {
           package = pkgs.dejavu_fonts;

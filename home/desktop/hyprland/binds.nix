@@ -88,7 +88,7 @@ in
         (m "space" "hl.dsp.exec_cmd(\"wofi --show drun -I\")")
         (k "CTRL + Print" "hl.dsp.exec_cmd(\"grim -o DP-1 ~/Pictures/screenshot.png\")")
 
-        # bindm: arrastar / redimensionar com o mouse
+        # bindm: drag / resize with mouse
         (m "mouse:272" "hl.dsp.window.drag()")
         (m "mouse:273" "hl.dsp.window.resize()")
       ];
