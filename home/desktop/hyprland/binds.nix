@@ -73,10 +73,10 @@ in
         (m "equal" "hl.dsp.layout(\"colresize +0.2\")")
         (m "minus" "hl.dsp.layout(\"colresize -0.2\")")
         (m "P" "hl.dsp.layout(\"promote\")")
-        (m "SHIFT + period" "hl.dsp.layout(\"swapcol r\")")
-        (m "SHIFT + comma" "hl.dsp.layout(\"swapcol l\")")
-        (m "SHIFT + H" "hl.dsp.layout(\"swapcol l\")")
-        (m "SHIFT + L" "hl.dsp.layout(\"swapcol r\")")
+        (m "SHIFT + period" "hl.dsp.window.move({ direction = \"r\" })")
+        (m "SHIFT + comma" "hl.dsp.window.move({ direction = \"l\" })")
+        (m "SHIFT + H" "hl.dsp.window.move({ direction = \"l\" })")
+        (m "SHIFT + L" "hl.dsp.window.move({ direction = \"r\" })")
         (m "M" "hl.dsp.layout(\"togglefit\")")
 
         # exec

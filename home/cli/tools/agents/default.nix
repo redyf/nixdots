@@ -12,14 +12,17 @@
 
   config = lib.mkIf config.agents.enable {
     nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
-    home.packages = [
-      pkgs.claude-code
-      pkgs.opencode
-      pkgs.pi-coding-agent
-      pkgs.mcp-nixos
-      pkgs.rtk
-      pkgs.terraform-mcp-server
-      pkgs.ketch
-    ];
+    home.packages =
+      (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+        claude-code
+        opencode2
+        pi
+      ])
+      ++ (with pkgs; [
+        mcp-nixos
+        rtk
+        terraform-mcp-server
+        ketch
+      ]);
   };
 }
