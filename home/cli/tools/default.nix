@@ -35,7 +35,7 @@
     fd.enable = lib.mkDefault true;
     fzf.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
-    herdr.enable = lib.mkDefault true;
+    herdr.enable = lib.mkDefault false;
     http.enable = lib.mkDefault true;
     jq.enable = lib.mkDefault true;
     languages.enable = lib.mkDefault true;
