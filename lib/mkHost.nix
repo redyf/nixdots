@@ -29,7 +29,7 @@ nixpkgs.lib.nixosSystem {
     inputs.stylix.nixosModules.stylix
     inputs.sops-nix.nixosModules.sops
     inputs.nvibrant.nixosModules.default
-
+    inputs.serpantinum.nixosModules.default
   ]
   ++ nixpkgs.lib.optionals (builtins.pathExists (hostsPath + "/${hostname}/disko.nix")) [
     inputs.disko.nixosModules.disko

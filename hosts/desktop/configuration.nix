@@ -91,6 +91,7 @@
     mongodb
     mongosh
     mongodb-tools
+    pulseaudio
   ];
 
   programs.nix-ld = {
@@ -102,6 +103,8 @@
       curl
     ];
   };
+
+  programs.serpantinum.enable = true;
 
   system.stateVersion = "25.05"; # Don't change this
 }

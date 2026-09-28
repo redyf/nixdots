@@ -17,7 +17,9 @@
         claude-code
         opencode2
         pi
+        prime-agent
       ])
+      ++ [ inputs.openchamber.packages.${pkgs.stdenv.hostPlatform.system}.default ]
       ++ (with pkgs; [
         mcp-nixos
         rtk

@@ -4,12 +4,14 @@ let
 in
 {
   imports = [
+    ./caelestia
     ./foot
     ./ghostty
     ./gtk
     ./hyprland
     ./noctalia
     ./rofi
+    ./serpantinum
     ./sway
     ./swww
     ./stylix
@@ -19,12 +21,14 @@ in
 
   options.myHomeConfig.desktop = {
     enable = lib.mkEnableOption "desktop environment and window managers";
+    caelestia.enable = lib.mkEnableOption "caelestia shell";
     foot.enable = lib.mkEnableOption "foo terminal";
     ghostty.enable = lib.mkEnableOption "ghostty terminal";
     gtk-theme.enable = lib.mkEnableOption "GTK theming";
     hyprland.enable = lib.mkEnableOption "Hyprland window manager";
     noctalia.enable = lib.mkEnableOption "Noctalia shell";
     rofi.enable = lib.mkEnableOption "Rofi launcher";
+    serpantinum.enable = lib.mkEnableOption "Serpantinum shell";
     sway.enable = lib.mkEnableOption "Sway window manager";
     swww.enable = lib.mkEnableOption "swww wallpaper daemon";
     stylix-theme.enable = lib.mkEnableOption "stylix theming";
@@ -33,12 +37,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    caelestia.enable = lib.mkDefault cfg.caelestia.enable;
     foot.enable = lib.mkDefault cfg.foot.enable;
     ghostty.enable = lib.mkDefault cfg.ghostty.enable;
     gtk-theme.enable = lib.mkDefault cfg.gtk-theme.enable;
     hyprland.enable = lib.mkDefault cfg.hyprland.enable;
     noctalia.enable = lib.mkDefault cfg.noctalia.enable;
     rofi.enable = lib.mkDefault cfg.rofi.enable;
+    serpantinum.enable = lib.mkDefault cfg.serpantinum.enable;
     sway.enable = lib.mkDefault cfg.sway.enable;
     swww.enable = lib.mkDefault cfg.swww.enable;
     stylix-theme.enable = lib.mkDefault cfg.stylix-theme.enable;

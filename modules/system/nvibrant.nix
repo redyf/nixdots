@@ -12,7 +12,7 @@ let
       passthru = previousAttrs.passthru // {
         srcAttrs = previousAttrs.passthru.srcAttrs // {
           open-gpu = previousAttrs.passthru.srcAttrs.open-gpu.overrideAttrs (_: {
-            hash = "sha256-vma87HifYp551b4SxfLGtSke4i4PvfNWnkufIXl8AW0=";
+            hash = "sha256-N3PDSqj2vR6aDBcQk+AfXma4T/ie+W0vUTCdDsKA7vY=";
           });
         };
       };

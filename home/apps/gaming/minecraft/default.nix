@@ -19,7 +19,7 @@ in
   config = lib.mkIf config.minecraft.enable {
     home = {
       packages = with pkgs; [
-        prismlauncher-unwrapped
+        # prismlauncher-unwrapped
         (modrinth-app.overrideAttrs (oldAttrs: {
           buildCommand = ''
             					gappsWrapperArgs+=(

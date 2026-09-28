@@ -85,7 +85,9 @@ in
         (m "SHIFT + S" "hl.dsp.exec_cmd(\"screenshot\")")
         (m "SHIFT + E" "hl.dsp.exec_cmd(\"screenshot-edit\")")
         (m "O" "hl.dsp.exec_cmd(\"obsidian\")")
-        (m "space" "hl.dsp.exec_cmd(\"wofi --show drun -I\")")
+        # (m "space" "hl.dsp.exec_cmd(\"wofi --show drun -I\")")
+        (m "space" "hl.dsp.exec_cmd(\"serpantinum msg toggle launcher\")")
+        (m "SHIFT + c" "hl.dsp.exec_cmd(\"serpantinum msg toggle wallpaper\")")
         (k "CTRL + Print" "hl.dsp.exec_cmd(\"grim -o DP-1 ~/Pictures/screenshot.png\")")
 
         # bindm: drag / resize with mouse

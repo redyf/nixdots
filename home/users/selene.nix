@@ -42,13 +42,15 @@
 
     desktop = {
       enable = true;
+      caelestia.enable = false;
       foot.enable = false;
-      ghostty.enable = false;
+      ghostty.enable = true;
       gtk-theme.enable = true;
       hyprland.enable = true;
-      noctalia.enable = true;
+      noctalia.enable = false;
       rofi.enable = false;
-      sway.enable = true;
+      serpantinum.enable = true;
+      sway.enable = false;
       swww.enable = false;
       stylix-theme.enable = true;
       wezterm.enable = true;
@@ -79,6 +81,7 @@
         "ventoy-1.1.07"
         "electron-40.10.5"
         "electron-39.8.10"
+        "electron-41.10.6"
       ];
     };
   };

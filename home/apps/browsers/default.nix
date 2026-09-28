@@ -15,7 +15,7 @@
     brave.enable = lib.mkDefault true;
     chrome.enable = lib.mkDefault false;
     firefox.enable = lib.mkDefault true;
-    vivaldi.enable = lib.mkDefault true;
+    vivaldi.enable = lib.mkDefault false;
     zen.enable = lib.mkDefault true;
   };
 }
