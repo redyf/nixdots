@@ -61,6 +61,7 @@
     kernelParams = [
       "i8042.reset"
       "i8042.direct"
+      "amd_pstate=active"
     ];
     supportedFilesystems = [ "zfs" ];
     zfs.forceImportRoot = false;

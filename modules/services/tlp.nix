@@ -26,7 +26,13 @@ in
 
         USB_AUTOSUSPEND = "1";
 
-        WIFI_PWR_ON_BAT = "off";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_ENERGY_PERF_POLICY_ON_AC  = "performance";
+        CPU_BOOST_ON_BAT = "0";
+        CPU_BOOST_ON_AC  = "1";
+
+        WIFI_PWR_ON_BAT = "on";
+        WIFI_PWR_ON_AC  = "off";
       };
     };
   };
