@@ -113,7 +113,7 @@ This repo uses `sops-nix` for encrypted secrets, including the desktop user pass
 
 ## Private Font
 
-The public default uses a local fallback flake that exposes `tx02` as JetBrains Mono. To use the private font flake locally, override the input:
+The public default uses a local fallback flake that exposes every private font (`tx02`, `monolisa`, `berkeley-mono`, `sf-mono`) as JetBrains Mono. To use the private font flake locally, override the input:
 
 ```bash
 nh os switch -- --override-input font-flake github:redyf/font-flake
@@ -173,11 +173,11 @@ After mounting the partitions, you can move to the second part...
 
 ```
 # go inside a nix shell with the specified programs
-nix-shell -p git nixUnstable neovim
+nix-shell -p git neovim
 # create this folder if necessary
 mkdir -p /mnt/etc/
 # clone the repo
-git clone https://github.com/redyf/nixdots.git /mnt/etc/nixos --recurse-submodules
+git clone https://github.com/redyf/nixdots.git /mnt/etc/nixos
 # remove this file
 rm /mnt/etc/nixos/hosts/desktop/hardware-configuration.nix
 # generate the config and take some files
@@ -213,94 +213,6 @@ you will partition, format and mount the disk for /dev/nvme0n1 (change as needed
 </details>
 
 <hr>
-
-## NixOS Raspberry PI5 Installation (Not working anymore because raspberry-pi-nix was archived)
-
-### Requirements
-
-- rpi-imager
-- sd-card
-- Raspberry-PI5
-- Another device to connect remotely (PC, Laptop, etc)
-- Ethernet connection
-
-### Installation Steps
-
-1. **Open rpi-imager** and select your device, then Raspberry Pi OS and sd-card.
-2. **Customize settings** to your needs, like defining a user/hostname and enabling ssh.
-3. **Insert the sd-card** in your Raspberry PI5 and boot.
-
-4. **Install Nix** on it by running the following command:
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
-
-5. **Install Cachix client** by running:
-
-```bash
-nix-env -iA cachix -f https://cachix.org/api/v1/install
-```
-
-6. **Start using the binary cache** by running:
-
-```bash
-cachix use nix-community
-```
-
-7. **Clone the following repo**:
-
-```bash
-https://github.com/nix-community/raspberry-pi-nix.git
-```
-
-8. **Customize `flake.nix`** to match your needs, like changing hostname, timezones, etc.
-
-9. **Build an image** suitable for flashing to an sd-card by running:
-
-```
-nix build '.#nixosConfigurations.rpi-example.config.system.build.sdImage'
-```
-
-10. **Connect to your main machine** with ssh and copy the image to it using scp. You can use the following commands:
-
-```
-scp /path/to/file username@a:/path/to/destination
-```
-
-or
-
-```
-scp username@b:/path/to/file /path/to/destination
-```
-
-11. **Decompress the image with zstd**, this is going to generate a .img file.
-
-```bash
-sudo zstd -d result/sd-image/nixos-sd-image-24.05.20240619.dd457de-aarch64-linux.img.zst
-```
-
-11. **Copy the image to your sd-card**:
-
-```bash
-sudo dd bs=4M if=result/sd-image/nixos-sd-image-24.05.20240619.dd457de-aarch64-linux.img of=/dev/mmcblk0 conv=fsync oflag=direct status=progress
-```
-
-12. **Boot the Raspberry-PI5 with the sd-card and you should be good to go**
-
-All references are written below. I wouldn't be able to install it without them! I really appreciate their hard work, make sure to give them a star.
-
-<hr>
-
-## All references/credits for the NixOS Raspberry-PI 5 setup:
-
-- [Raspberry PI 5 support](https://github.com/NixOS/nixpkgs/issues/260754)
-- [NixOS on ARM/Raspberry Pi 5](https://wiki.nixos.org/wiki/NixOS_on_ARM/Raspberry_Pi_5)
-- [Pi 5 support](https://github.com/nix-community/raspberry-pi-nix/issues/13)
-- [raspberry-pi-nix](https://github.com/nix-community/raspberry-pi-nix)
-- [raspberry-pi-nix binary cache](https://app.cachix.org/cache/raspberry-pi-nix)
-- [nix-rpi5](https://gitlab.com/vriska/nix-rpi5)
-- [raspberrypi/firmware](https://github.com/raspberrypi/firmware)
 
 ## Shoutout to:
 

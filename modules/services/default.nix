@@ -4,19 +4,19 @@
   options.myConfig.services = {
     enable = lib.mkEnableOption "Enable Services configuration";
     autorandr = {
-      enable = lib.mkEnableOption "Enable displayManager";
+      enable = lib.mkEnableOption "Enable autorandr";
     };
     displayManager = {
       enable = lib.mkEnableOption "Enable displayManager";
     };
     flatpak = {
-      enable = lib.mkEnableOption "Enable displayManager";
+      enable = lib.mkEnableOption "Enable flatpak";
     };
     fstrim = {
-      enable = lib.mkEnableOption "Enable displayManager";
+      enable = lib.mkEnableOption "Enable fstrim";
     };
     input = {
-      enable = lib.mkEnableOption "Enable displayManager";
+      enable = lib.mkEnableOption "Enable input";
     };
     jackett = {
       enable = lib.mkEnableOption "Enable jackett";

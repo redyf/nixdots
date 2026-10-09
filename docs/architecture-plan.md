@@ -43,26 +43,26 @@ Regras:
 ## TODO
 
 ### P0: bugs e quebras atuais
-- [ ] Formatar `modules/services/tlp.nix:30-35`. `nixfmt --check` falha, então o CI quebra.
-- [ ] `pkgs/real-vnc-viewer.nix:19`: o código diz `stdenv.stdenv.isx86_64 {`, o certo é `fetchurl {`. Corrigir, ou apagar se o pacote não for usado.
-- [ ] `modules/system/cachy.nix:5` recebe `nix-cachyos-kernel` como argumento, mas ele não está em specialArgs. Trocar por `inputs.nix-cachyos-kernel`.
-- [ ] `home/cli/neve/default.nix:14`: `stdenv.hostPackages.system` parece typo de `stdenv.hostPlatform.system`. Não confirmei; verificar.
-- [ ] O fallback `ci/font-flake-fallback` só exporta `tx02`. Os módulos HM pedem `monolisa`, `berkeley-mono` e `sf-mono` (`home/system/fonts/default.nix:15-18`, `home/desktop/stylix/default.nix:34`). Adicionar esses três ao fallback. Hoje o CI não pega o erro porque `flake check` não avalia `homeConfigurations`.
-- [ ] Overlays nunca são aplicados: `flake.nix:86` não passa `overlays`, e `overlays/bun.nix` e `overlays/opencode.nix` estão órfãos. Decidir: ligar ou apagar.
-- [ ] O diff em andamento mudou o teclado do Hyprland HM para br/abnt2. Isso afeta os dois users, mas `modules/desktop/xserver.nix:26-27` ainda usa us/intl. Mover o layout para o host ou para o user.
+- [x] Formatar `modules/services/tlp.nix:30-35`. `nixfmt --check` falha, então o CI quebra.
+- [~] **Ignorado** (decisão do usuário: não mexer em `pkgs/`). `pkgs/real-vnc-viewer.nix:19`: o código diz `stdenv.stdenv.isx86_64 {`, o certo é `fetchurl {`. Corrigir, ou apagar se o pacote não for usado.
+- [x] `modules/system/cachy.nix:5` recebe `nix-cachyos-kernel` como argumento, mas ele não está em specialArgs. Trocar por `inputs.nix-cachyos-kernel`.
+- [x] `home/cli/neve/default.nix:14`: `stdenv.hostPackages.system` parece typo de `stdenv.hostPlatform.system`. Confirmado: `stdenv ? hostPackages` é `false`.
+- [x] O fallback `ci/font-flake-fallback` só exporta `tx02`. Os módulos HM pedem `monolisa`, `berkeley-mono` e `sf-mono` (`home/system/fonts/default.nix:15-18`, `home/desktop/stylix/default.nix:34`). Adicionar esses três ao fallback. Hoje o CI não pega o erro porque `flake check` não avalia `homeConfigurations`.
+- [x] Overlays nunca são aplicados: `flake.nix:86` não passa `overlays`, e `overlays/bun.nix` e `overlays/opencode.nix` estão órfãos. **Apagados.**
+- [ ] **Pendente:** a mudança está só no checkout principal (não commitada), fora da worktree. O diff em andamento mudou o teclado do Hyprland HM para br/abnt2. Isso afeta os dois users, mas `modules/desktop/xserver.nix:26-27` ainda usa us/intl. Mover o layout para o host ou para o user.
 
 ### P1: limpeza e docs
-- [ ] Apagar os pacotes mortos em `pkgs/`: apidog, artixlauncher, omasnap, real-vnc-viewer, research. Só `cymbal` é usado.
-- [ ] Remover inputs sem uso: `sf-mono-liga-src`. Avaliar também:
-  - `claude-code`: o pacote vem do `llm-agents`.
-  - `hyprland`: o pacote vem de `pkgs.hyprland`, então o cache `hyprland.cachix.org` não ajuda.
-- [ ] Adicionar `inputs.nixpkgs.follows` em `llm-agents`, `serpantinum` e `hytale-launcher`. Hoje o lock tem 4 cópias de nixpkgs.
-- [ ] Apagar `flake.lock.backup`, ou adicionar no `.gitignore`.
-- [ ] Reescrever o `CLAUDE.md`. Ele cita coisas que não existem mais: `createNixosConfiguration`, `home/selene.nix`, `privateFonts`, garnix, 4 systems. O `AGENTS.md` está correto; usar ele como base.
-- [ ] Corrigir o README: tirar `rpi-example` (`:262`) e `--recurse-submodules` (`:180`).
-- [ ] Corrigir as descrições copiadas de "Enable displayManager" em `modules/services/default.nix:7,13,16,19`.
-- [ ] Remover o argumento `inputs` não usado de `gamescope.nix`, `nvidia.nix` e `environment.nix`.
-- [ ] `amd_pstate=active` está em dois lugares: `hosts/selene/configuration.nix:64` e `modules/system/amd.nix:14`. Deixar só no módulo.
+- [~] **Ignorado** (decisão do usuário). Apagar os pacotes mortos em `pkgs/`: apidog, artixlauncher, omasnap, real-vnc-viewer, research. Só `cymbal` é usado.
+- [x] Remover inputs sem uso: `sf-mono-liga-src`. Avaliar também:
+  - **Removido:** `claude-code`: o pacote vem do `llm-agents`.
+  - **Mantido** (decisão do usuário): `hyprland`: o pacote vem de `pkgs.hyprland`, então o cache `hyprland.cachix.org` não ajuda.
+- [x] `follows` adicionado em `serpantinum` e `hytale-launcher`. `llm-agents` fica **sem** follows: o README dele avisa que só testa contra o próprio pin e o cache `cache.numtide.com` só funciona assim.
+- [ ] **Pendente:** arquivo só existe no checkout principal (não rastreado). Apagar `flake.lock.backup`, ou adicionar no `.gitignore`.
+- [x] `CLAUDE.md` novo só importa `@AGENTS.md`. O `CLAUDE.md` antigo (não rastreado) no checkout principal precisa ser apagado antes do merge.
+- [x] Corrigir o README: tirar `rpi-example` (seção RPi inteira, já marcada como quebrada) e `--recurse-submodules` (`:180`).
+- [x] Corrigir as descrições copiadas de "Enable displayManager" em `modules/services/default.nix:7,13,16,19`.
+- [x] Remover o argumento `inputs` não usado de `gamescope.nix`, `nvidia.nix` e `environment.nix`.
+- [x] `amd_pstate=active` está em dois lugares: `hosts/selene/configuration.nix:64` e `modules/system/amd.nix:14`. Deixar só no módulo.
 
 ### P2: fonte única de identidade
 - [ ] Hosts escrevem o username na mão: `hosts/desktop/configuration.nix:33,36` e `hosts/selene/configuration.nix:19`. Usar `username` vindo do `meta.nix`, como o host `example` já faz.

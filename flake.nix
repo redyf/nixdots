@@ -43,23 +43,21 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    claude-code = {
-      url = "github:sadjow/claude-code-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     font-flake = {
       url = "path:./ci/font-flake-fallback";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
     hytale-launcher = {
       url = "github:JPyke3/hytale-launcher-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    # No `follows`: upstream only tests against its own nixpkgs pin and
+    # cache.numtide.com only hits for that pin.
     llm-agents.url = "github:numtide/llm-agents.nix";
-    serpantinum.url = "github:ilyamiro/serpantinum";
+    serpantinum = {
+      url = "github:ilyamiro/serpantinum";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
