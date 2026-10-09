@@ -114,9 +114,9 @@ Regras:
 - [ ] Trocar `callPackage ../../../../pkgs/cymbal.nix` (`home/cli/tools/cymbal/default.nix:13`) por `pkgs.cymbal`.
 
 ### P8: secrets
-- [ ] `.sops.yaml`: hoje tem uma chave só. Separar em uma chave admin (a sua age key) e uma chave por host (a host key SSH convertida via `ssh-to-age`). Criar uma regra por host, por exemplo `hosts/selene/secrets.yaml`, com admin + host.
-- [ ] Ligar sops no selene e usar `hashedPasswordFile`. Hoje ele não tem senha (`hosts/selene/configuration.nix:22`).
-- [ ] `modules/system/sops.nix:11` monta o path `hosts/<hostname>/secrets.yaml`. Ele quebra se o arquivo não existir; documentar isso ou proteger.
+- [x] `.sops.yaml` ganhou a chave `selene` e uma regra para `hosts/selene/secrets.yaml` (destinatários: `desktop_mateus` + `selene`, para editar dos dois lados). O fluxo continua sendo chave age por host em `/var/lib/sops-nix/key.txt`.
+- [ ] **Falta o usuário criar** `hosts/selene/secrets.yaml` com o hash da senha. Depois disso: ligar `sops.enable` e `hashedPasswordFile` no selene.
+- [x] `sops.nix`: assertion clara se o `secrets.yaml` do host não existir; segredos de git só com `myConfig.system.sops.gitIdentity.enable` (desktop liga; selene não precisa deles).
 
 ### P9: CI e qualidade
 - [x] Decidido **avaliar, não buildar**: `checks.<system>.home-configurations` força o eval de todo `<user>@<host>` (o `flake check` já avalia os nixosConfigurations). Buildar desktop/selene no runner gratuito exigiria muito disco e muito pacote unfree fora do cache.nixos.org.

@@ -71,7 +71,10 @@
       kernel.enable = false;
       mime-types.enable = true;
       power-management.enable = true;
-      sops.enable = true;
+      sops = {
+        enable = true;
+        gitIdentity.enable = true;
+      };
       tailscale.enable = false;
     };
   };

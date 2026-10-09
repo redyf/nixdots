@@ -75,6 +75,10 @@
         default = "/var/lib/sops-nix/key.txt";
         description = "Path to the age key used to decrypt secrets on this host.";
       };
+      gitIdentity.enable = lib.mkEnableOption ''
+        git/personal/* and git/work/* secrets rendered to
+        /run/secrets/rendered/git-{personal,work} (used by the Home Manager
+        git.sopsIdentity option)'';
     };
 
     systemd = {
