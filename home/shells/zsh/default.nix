@@ -72,6 +72,7 @@
           wo = "pomodoro 'work'";
           br = "pomodoro 'break'";
           cy = "pomodoro 'cycle'";
+          tf = "terraform";
           k = "kubectl";
         };
 

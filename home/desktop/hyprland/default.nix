@@ -26,6 +26,7 @@
       slurp
       swappy
       wl-clipboard
+      easyeffects
     ];
 
     wayland.windowManager.hyprland = {

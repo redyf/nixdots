@@ -10,9 +10,7 @@ in
 {
   config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
     security = {
-      sudo = {
-        enable = true;
-      };
+      sudo.enable = true;
       polkit.enable = true;
     };
   };

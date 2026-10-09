@@ -60,10 +60,6 @@
     };
     llm-agents.url = "github:numtide/llm-agents.nix";
     serpantinum.url = "github:ilyamiro/serpantinum";
-    openchamber = {
-      url = "github:redyf/openchamber-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

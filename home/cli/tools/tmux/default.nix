@@ -75,6 +75,9 @@ in
         # Tmux sessionizer
         bind -r f run-shell "tmux neww tmux-sessionizer-script"
 
+        # Extended keys
+        set -g extended-keys on
+
         ${macchiato}
       '';
     };

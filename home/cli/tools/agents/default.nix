@@ -15,11 +15,10 @@
     home.packages =
       (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
         claude-code
+        claude-desktop
         opencode2
         pi
-        prime-agent
       ])
-      ++ [ inputs.openchamber.packages.${pkgs.stdenv.hostPlatform.system}.default ]
       ++ (with pkgs; [
         mcp-nixos
         rtk

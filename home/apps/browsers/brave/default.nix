@@ -11,6 +11,7 @@
   config = lib.mkIf config.brave.enable {
     home.packages = [
       pkgs.brave
+      pkgs.brave-origin
     ];
   };
 }
