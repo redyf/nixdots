@@ -13,7 +13,8 @@ in
       enable = false;
       cpuFreqGovernor = "performance";
     };
-    systemd.tmpfiles.rules = [
+    # intel_pstate sysfs only exists on Intel CPUs.
+    systemd.tmpfiles.rules = lib.mkIf config.myConfig.system.intel.enable [
       "w /sys/devices/system/cpu/intel_pstate/min_perf_pct - - - - 75"
     ];
   };
