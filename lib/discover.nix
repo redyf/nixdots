@@ -9,19 +9,6 @@ let
       entries = builtins.readDir path;
     in
     lib.attrNames (lib.filterAttrs (_: type: type == "directory") entries);
-
-  listNixFiles =
-    path:
-    let
-      entries = builtins.readDir path;
-    in
-    map (lib.removeSuffix ".nix") (
-      lib.attrNames (
-        lib.filterAttrs (
-          name: type: type == "regular" && lib.hasSuffix ".nix" name && name != "default.nix"
-        ) entries
-      )
-    );
 in
 {
   # Reads hosts/<name>/meta.nix for each subdirectory and produces an attrset suitable for `nixosConfigurations`.
@@ -43,24 +30,40 @@ in
     in
     lib.genAttrs hostnames mkOne;
 
-  # Reads home/users/*.nix and produces an attrset for `homeConfigurations`.
-  # Per-user metadata can live in home/users/<name>.meta.nix or be inferred.
+  # One Home Manager configuration per host, keyed "<username>@<hostname>"
+  # (the name `home-manager` and `nh home switch` try first). The user comes
+  # from hosts/<name>/meta.nix and must have a home/users/<username>.nix.
   discoverHomes =
     {
+      hostsPath,
       homePath,
       mkHome,
-      defaults ? { },
     }:
     let
-      usersDir = homePath + "/users";
-      usernames = listNixFiles usersDir;
+      hosts =
+        lib.filter
+          ({ meta, ... }: meta ? username && builtins.pathExists (homePath + "/users/${meta.username}.nix"))
+          (
+            map (hostname: {
+              inherit hostname;
+              meta = readMeta (hostsPath + "/${hostname}");
+            }) (listSubdirs hostsPath)
+          );
       mkOne =
-        username:
-        let
-          metaFile = usersDir + "/${username}.meta.nix";
-          meta = if builtins.pathExists metaFile then import metaFile else { };
-        in
-        mkHome (defaults // { inherit username; } // meta);
+        { hostname, meta }:
+        lib.nameValuePair "${meta.username}@${hostname}" (
+          mkHome (
+            {
+              inherit hostname homePath;
+              inherit (meta) username;
+            }
+            // lib.getAttrs (lib.filter (k: meta ? ${k}) [
+              "system"
+              "homeDirectory"
+              "roles"
+            ]) meta
+          )
+        );
     in
-    lib.genAttrs usernames mkOne;
+    lib.listToAttrs (map mkOne hosts);
 }

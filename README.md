@@ -74,7 +74,7 @@ nix build '.#nixosConfigurations.example.config.system.build.toplevel'
 - Build the safe example Home Manager activation package:
 
 ```bash
-nix build '.#homeConfigurations.example.activationPackage'
+nix build '.#homeConfigurations."example@example".activationPackage'
 ```
 
 - Rebuild and switch to change the system configuration (in the configuration directory):
@@ -101,7 +101,7 @@ This repo uses `sops-nix` for encrypted secrets, including the desktop user pass
 
 ## Structure
 
-- `flake.nix` discovers NixOS hosts from `hosts/*` and Home Manager users from `home/users/*.nix`.
+- `flake.nix` discovers NixOS hosts from `hosts/*` and builds one Home Manager configuration per host, named `<username>@<hostname>` (e.g. `selene@selene`). `nh home switch` picks it automatically.
 - `hosts/<name>/configuration.nix` contains host-specific system settings.
 - `profiles/` contains shared defaults imported by hosts.
 - `profiles/nixos/` holds roles (`common`, `workstation`, `gaming`, `dev`, `laptop`, `minimal`) that hosts list in `meta.nix`. `profiles/home/minimal.nix` provides safer public Home Manager defaults.
@@ -132,7 +132,7 @@ If you want to test this repository, start with the safe example outputs:
 
 ```bash
 nix build '.#nixosConfigurations.example.config.system.build.toplevel'
-nix build '.#homeConfigurations.example.activationPackage'
+nix build '.#homeConfigurations."example@example".activationPackage'
 ```
 
 The example host uses username `example` and initial password `nixos`. Treat it as

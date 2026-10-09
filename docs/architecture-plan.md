@@ -76,7 +76,7 @@ Regras:
 - [x] `meta.nix` ganha `roles = [ ... ]`. O `mkHost` importa `modules/` e `profiles/nixos/<role>.nix` para cada role.
 - [x] Selene: o usuário decidiu **manter** Hyprland + Sway, Steam, Docker e GRUB. Saíram só o autorandr e o xrandr do DP-0, que agora ficam em `hosts/desktop` (opção nova `myConfig.desktop.xserver.displaySetup`). O conflito 165 Hz × 180 Hz continua, anotado no host.
 - [ ] Coisas a parametrizar, sem hardcode:
-  - [ ] Monitores do Hyprland: `home/desktop/hyprland/monitors.nix:6-12` (DP-3, HDMI-A-3). Depende do P5 (HM saber o host).
+  - [x] Monitores do Hyprland foram para `home/hosts/desktop.nix`. No selene o Hyprland detecta sozinho (decisão do usuário).
   - [x] Wallpaper agora usa `home.homeDirectory`.
   - [ ] Portal padrão Hyprland (`modules/system/xdg-portal.nix:18`).
   - [x] `XDG_SESSION_TYPE=wayland` global removido (o display manager define por sessão).
@@ -94,11 +94,11 @@ Regras:
 - [ ] `hosts/selene/hardware-configuration.nix` parece gerado numa VM: tem virtio, `kvm-intel` em CPU AMD, e não tem `not-detected.nix`. Regerar com `nixos-generate-config` no notebook real.
 
 ### P5: home-manager standalone por host
-- [ ] Mudar as chaves para `homeConfigurations."<user>@<host>"`, que o home-manager e o nh tentam primeiro. Preciso confirmar que o `nh home switch` faz esse lookup. Assim o mesmo user pode ter configs diferentes por máquina.
-- [ ] `discover.nix`: gerar uma config HM por host, usando `username` e `system` do `hosts/<h>/meta.nix`. Passar `hostname`, `system` e `roles` em `extraSpecialArgs`, para os módulos HM saberem onde rodam sem `osConfig`.
-- [ ] `selene.nix` e `redyf.nix` são cerca de 90% iguais. Criar `profiles/home/common.nix` (e `desktop.nix`, `dev.nix`). O user file fica só com a diferença.
-- [ ] Hoje `selene.nix` liga o Hyprland no HM, mas o host usa Sway com `sway.enable = false` no HM. Alinhar com o host.
-- [ ] `home/cli/tools/git/default.nix:42,46` lê `/run/secrets/rendered/*`, que só existe em host NixOS com sops. Proteger com uma opção, ou usar o módulo sops-nix do HM (`sops-nix.homeManagerModules.sops`).
+- [x] Chaves agora são `redyf@desktop`, `selene@selene` e `example@example`. Confirmado no `--help` do nh 4.4.2: sem `-c`, ele tenta `<username>@<hostname>` e depois `<username>`. As chaves antigas só com o nome do usuário foram removidas.
+- [x] `discoverHomes` lê os `hosts/*/meta.nix`. `mkHome` recebe `hostname` e `roles` (também como argumentos de módulo HM) e importa `home/hosts/<hostname>.nix` se existir.
+- [x] `profiles/home/common.nix` criado. `selene.nix` e `redyf.nix` só guardam a diferença (gaming/media/security e o bloco git do redyf).
+- [~] Hyprland + Sway no selene: o usuário decidiu manter os dois (P3).
+- [x] Git com `/run/secrets`: já é opcional (`git.sopsIdentity.enable`) e só `redyf@desktop` liga, que é o host com sops. Nada a mudar.
 
 ### P6: pronto para multi-arch
 - [ ] `lib/default.nix`: exportar `systems` (lista) e `forAllSystems`. Começar só com `x86_64-linux`, e adicionar `aarch64-linux` quando houver host.

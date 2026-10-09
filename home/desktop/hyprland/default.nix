@@ -11,7 +11,6 @@
     ./binds.nix
     ./decoration.nix
     ./misc.nix
-    ./monitors.nix
     ./screenshot.nix
     ./window-rules.nix
   ];

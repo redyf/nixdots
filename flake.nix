@@ -82,6 +82,7 @@
       };
 
       homeConfigurations = myLib.discoverHomes {
+        hostsPath = ./hosts;
         homePath = ./home;
         inherit (myLib) mkHome;
       };

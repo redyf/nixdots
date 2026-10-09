@@ -4,14 +4,14 @@
 
 ## What This Repo Is
 - NixOS flake for personal hosts `desktop` and `selene`, plus a safe public `example` host.
-- `flake.nix` discovers `hosts/*` as `nixosConfigurations` and `home/users/*.nix` as `homeConfigurations`.
-- Host metadata lives in `hosts/<name>/meta.nix` (`username`, `system`, `roles`, optional `homeDirectory`/`modules`); home metadata can live in `home/users/<name>.meta.nix`.
+- `flake.nix` discovers `hosts/*` as `nixosConfigurations` and builds one `homeConfigurations."<username>@<hostname>"` per host whose `meta.nix` user has a `home/users/<username>.nix` (`nh home switch` picks `$USER@$HOSTNAME` automatically).
+- Host metadata lives in `hosts/<name>/meta.nix` (`username`, `system`, `roles`, optional `homeDirectory`/`modules`); Home Manager reads the same file.
 - This is primarily a personal NixOS configuration. Treat public reuse as a secondary goal that should be made safe through explicit example/minimal profiles, not by weakening the personal hosts.
 
 ## Source Of Truth
 - Trust `flake.nix`, `lib/*.nix`, workflow files, and lockfiles over README prose.
 - `lib/mkHost.nix` imports `modules/` and `profiles/nixos/<role>.nix` for every role listed in `meta.nix`. Host `configuration.nix` files only import their generated hardware file. The `example` host intentionally avoids generated hardware config.
-- `home/users/<name>.nix` imports `../apps`, `../cli`, `../desktop`, `../shells`, `../system`.
+- `home/users/<name>.nix` holds per-user differences and imports `profiles/home/common.nix` (personal users) or `profiles/home/minimal.nix` (example). `home/hosts/<hostname>.nix` (optional) holds per-machine user settings such as monitor layouts. HM modules receive `hostname` and `roles` as module arguments.
 - `profiles/nixos/` holds roles: `common` (every personal host), `workstation` (graphical), `gaming`, `dev`, `laptop`, and `minimal` (public example). Host files should only override or add host-specific choices (monitors, disks, hardware).
 - `myConfig.*` is the NixOS module namespace; `myHomeConfig.*` is the Home Manager namespace.
 - `pkgs/*.nix` holds custom packages, called from home modules via `callPackage ../../../../pkgs/<name>.nix`.

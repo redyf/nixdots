@@ -5,12 +5,19 @@
 }:
 {
   username,
+  # Host this configuration targets; home/hosts/<hostname>.nix is imported
+  # when present (monitors and other machine-specific user settings).
+  hostname,
+  roles ? [ ],
   system ? "x86_64-linux",
   homeDirectory ? "/home/${username}",
   stateVersion ? "25.05",
   modules ? [ ],
   homePath ? ../home,
 }:
+let
+  hostFile = homePath + "/hosts/${hostname}.nix";
+in
 inputs.home-manager.lib.homeManagerConfiguration {
   # Standalone Home Manager re-imports nixpkgs from `nixpkgs.*` options, so
   # config and overlays are set as module options below, not here.
@@ -20,10 +27,15 @@ inputs.home-manager.lib.homeManagerConfiguration {
       inputs
       username
       homeDirectory
+      hostname
+      roles
       ;
   };
   modules = [
     (homePath + "/users/${username}.nix")
+  ]
+  ++ nixpkgs.lib.optional (builtins.pathExists hostFile) hostFile
+  ++ [
     inputs.stylix.homeModules.stylix
     {
       home = {
