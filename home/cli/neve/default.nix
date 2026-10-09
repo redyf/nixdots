@@ -11,7 +11,7 @@
   };
   config = lib.mkIf config.neve.enable {
     home.packages = [
-      inputs.Neve.packages.${pkgs.stdenv.hostPackages.system}.default
+      inputs.Neve.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
