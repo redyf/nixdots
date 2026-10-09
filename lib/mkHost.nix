@@ -8,8 +8,11 @@
   system ? "x86_64-linux",
   username,
   homeDirectory ? "/home/${username}",
+  # Names of files in profiles/nixos/ to import, e.g. [ "common" "laptop" ].
+  roles ? [ ],
   modules ? [ ],
   hostsPath ? ../hosts,
+  profilesPath ? ../profiles/nixos,
 }:
 nixpkgs.lib.nixosSystem {
   specialArgs = {
@@ -18,9 +21,11 @@ nixpkgs.lib.nixosSystem {
       username
       homeDirectory
       hostname
+      roles
       ;
   };
   modules = [
+    ../modules
     {
       nixpkgs = {
         hostPlatform = system;
@@ -36,6 +41,7 @@ nixpkgs.lib.nixosSystem {
     inputs.nvibrant.nixosModules.default
     inputs.serpantinum.nixosModules.default
   ]
+  ++ map (role: profilesPath + "/${role}.nix") roles
   ++ nixpkgs.lib.optionals (builtins.pathExists (hostsPath + "/${hostname}/disko.nix")) [
     inputs.disko.nixosModules.disko
     (hostsPath + "/${hostname}/disko.nix")

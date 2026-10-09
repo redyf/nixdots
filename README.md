@@ -104,7 +104,7 @@ This repo uses `sops-nix` for encrypted secrets, including the desktop user pass
 - `flake.nix` discovers NixOS hosts from `hosts/*` and Home Manager users from `home/users/*.nix`.
 - `hosts/<name>/configuration.nix` contains host-specific system settings.
 - `profiles/` contains shared defaults imported by hosts.
-- `profiles/nixos/minimal.nix` and `profiles/home/minimal.nix` provide safer public defaults for examples.
+- `profiles/nixos/` holds roles (`common`, `workstation`, `gaming`, `dev`, `laptop`, `minimal`) that hosts list in `meta.nix`. `profiles/home/minimal.nix` provides safer public Home Manager defaults.
 - `modules/` contains reusable NixOS modules exposed under `myConfig`.
 - `home/` contains reusable Home Manager modules exposed under `myHomeConfig`.
 - `hosts/example` and `home/users/example.nix` are the recommended starting points for users testing this repo.

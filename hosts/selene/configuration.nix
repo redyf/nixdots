@@ -1,10 +1,7 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../../profiles/nixos/base.nix
-    ../../modules
-  ];
+  # Shared modules and profiles (roles) come from mkHost + meta.nix.
+  imports = [ ./hardware-configuration.nix ];
 
   # Configure the user with specific groups
   myConfig = {
@@ -36,11 +33,7 @@
       nvidia.enable = false;
     };
 
-    services = {
-      fstrim.enable = false;
-      tlp.enable = true;
-      upower.enable = true;
-    };
+    services.fstrim.enable = false;
 
     system = {
       amd.enable = true;

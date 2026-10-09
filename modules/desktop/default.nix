@@ -26,6 +26,12 @@
 
     xserver = {
       enable = lib.mkEnableOption "Enable xserver";
+      displaySetup = lib.mkOption {
+        type = lib.types.lines;
+        default = "";
+        example = "xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary";
+        description = "Host-specific monitor commands run at X session start (e.g. xrandr).";
+      };
     };
   };
 

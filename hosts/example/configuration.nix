@@ -4,11 +4,6 @@
   ...
 }:
 {
-  imports = [
-    ../../modules
-    ../../profiles/nixos/minimal.nix
-  ];
-
   myConfig = {
     users = {
       enable = true;

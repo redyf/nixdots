@@ -37,15 +37,9 @@ in
         let
           meta = readMeta (hostsPath + "/${hostname}");
         in
-        mkHost (
-          {
-            inherit hostname;
-            inherit (meta) username;
-          }
-          // lib.optionalAttrs (meta ? system) { inherit (meta) system; }
-          // lib.optionalAttrs (meta ? homeDirectory) { inherit (meta) homeDirectory; }
-          // lib.optionalAttrs (meta ? modules) { inherit (meta) modules; }
-        );
+        # meta.nix keys map 1:1 to mkHost arguments (username, system,
+        # homeDirectory, roles, modules); unknown keys fail evaluation.
+        mkHost ({ inherit hostname; } // meta);
     in
     lib.genAttrs hostnames mkOne;
 

@@ -4,11 +4,8 @@
   ...
 }:
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../../profiles/nixos/base.nix
-    ../../modules
-  ];
+  # Shared modules and profiles (roles) come from mkHost + meta.nix.
+  imports = [ ./hardware-configuration.nix ];
 
   # fileSystems."/mnt/windows" = {
   #   device = "UUID=F0FEDBD0FEDB8D6A";
@@ -48,6 +45,8 @@
       i3.enable = true;
       kde.enable = false;
       sway.enable = false;
+      # NOTE: autorandr below uses 180 Hz for the same output.
+      xserver.displaySetup = "xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary";
     };
 
     development = {
@@ -65,6 +64,7 @@
     };
 
     services = {
+      autorandr.enable = true;
       fstrim.enable = true;
       jackett.enable = false;
     };
@@ -100,6 +100,14 @@
   };
 
   programs.serpantinum.enable = true;
+
+  services.autorandr.profiles.redyf.config.DP-0 = {
+    enable = true;
+    primary = true;
+    mode = "1920x1080";
+    rate = "180.00";
+    position = "0x0";
+  };
 
   system.stateVersion = "25.05"; # Don't change this
 }
