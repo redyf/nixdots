@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   # Shared modules and profiles (roles) come from mkHost + meta.nix.
   imports = [ ./hardware-configuration.nix ];
@@ -9,7 +13,7 @@
       enable = true;
       isNormalUser = true;
       description = "Laptop host"; # Optional - defaults to username if not specified
-      # TODO: configure sops-nix for selene (like desktop host) and use hashedPasswordFile
+      hashedPasswordFile = config.sops.secrets."users/${config.myConfig.users.username}/password".path;
       shell = pkgs.zsh;
 
       groups = {
@@ -35,6 +39,7 @@
       intel.enable = false;
       kernel.enable = true;
       power-management.enable = false;
+      sops.enable = true;
     };
   };
 
