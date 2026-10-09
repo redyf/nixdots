@@ -115,7 +115,7 @@ Regras:
 
 ### P8: secrets
 - [x] `.sops.yaml` ganhou a chave `selene` e uma regra para `hosts/selene/secrets.yaml` (destinatários: `desktop_mateus` + `selene`, para editar dos dois lados). O fluxo continua sendo chave age por host em `/var/lib/sops-nix/key.txt`.
-- [x] `hosts/selene/secrets.yaml` criado pelo usuário (destinatários desktop_mateus + selene). Selene liga `sops.enable` e usa `hashedPasswordFile`; o manifest do sops-nix valida que `users/selene/password` existe no arquivo.
+- [x] `hosts/selene/secrets.yaml` criado pelo usuário (destinatários desktop_mateus + selene). Selene liga `sops.enable` e usa `hashedPasswordFile`; o manifest do sops-nix valida que `users/selene/password` existe no arquivo. Selene decifra com a host key SSH (`keyFile = null`); testado com `nh os test`: `/run/secrets-for-users/users/selene/password` criado.
 - [x] `sops.nix`: assertion clara se o `secrets.yaml` do host não existir; segredos de git só com `myConfig.system.sops.gitIdentity.enable` (desktop liga; selene não precisa deles).
 
 ### P9: CI e qualidade
