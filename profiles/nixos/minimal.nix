@@ -71,7 +71,6 @@
       locale.enable = lib.mkDefault true;
       mime-types.enable = lib.mkDefault true;
       networking.enable = lib.mkDefault true;
-      nvibrant.enable = lib.mkDefault false;
       power-management.enable = lib.mkDefault false;
       security.enable = lib.mkDefault true;
       sops.enable = lib.mkDefault false;

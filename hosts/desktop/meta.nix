@@ -6,5 +6,6 @@
     "workstation"
     "gaming"
     "dev"
+    "nvidia"
   ];
 }

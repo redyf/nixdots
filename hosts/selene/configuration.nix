@@ -28,11 +28,6 @@
       sway.enable = true;
     };
 
-    hardware = {
-      enable = false;
-      nvidia.enable = false;
-    };
-
     services.fstrim.enable = false;
 
     system = {

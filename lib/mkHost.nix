@@ -35,11 +35,10 @@ nixpkgs.lib.nixosSystem {
     }
     { networking.hostName = hostname; }
     (hostsPath + "/${hostname}/configuration.nix")
-    inputs.hyprland.nixosModules.default
+    # Input modules every host needs (modules/ sets their options). Feature
+    # specific ones (hyprland, serpantinum, nvibrant) are imported by roles.
     inputs.stylix.nixosModules.stylix
     inputs.sops-nix.nixosModules.sops
-    inputs.nvibrant.nixosModules.default
-    inputs.serpantinum.nixosModules.default
   ]
   ++ map (role: profilesPath + "/${role}.nix") roles
   ++ nixpkgs.lib.optionals (builtins.pathExists (hostsPath + "/${hostname}/disko.nix")) [

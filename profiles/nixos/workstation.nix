@@ -1,6 +1,13 @@
 # Role: workstation — graphical machine with a user sitting in front of it.
-{ lib, ... }:
+{ inputs, lib, ... }:
 {
+  imports = [
+    inputs.hyprland.nixosModules.default
+    inputs.serpantinum.nixosModules.default
+  ];
+
+  programs.serpantinum.enable = lib.mkDefault true;
+
   myConfig = {
     desktop = {
       enable = lib.mkDefault true;

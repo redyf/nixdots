@@ -58,11 +58,6 @@
       gamescope.enable = true;
     };
 
-    hardware = {
-      enable = true;
-      nvidia.enable = true;
-    };
-
     services = {
       autorandr.enable = true;
       fstrim.enable = true;
@@ -75,7 +70,6 @@
       intel.enable = true;
       kernel.enable = false;
       mime-types.enable = true;
-      nvibrant.enable = true;
       power-management.enable = true;
       sops.enable = true;
       tailscale.enable = false;
@@ -98,8 +92,6 @@
       curl
     ];
   };
-
-  programs.serpantinum.enable = true;
 
   services.autorandr.profiles.redyf.config.DP-0 = {
     enable = true;
