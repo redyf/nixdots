@@ -87,10 +87,8 @@ Regras:
 - [ ] Renomear para não confundir `myConfig.hardware.nvidia` com `myConfig.system.hardware`.
 
 ### P4: módulos de input só onde são usados
-- [ ] `lib/mkHost.nix:28-32` importa hyprland, stylix, sops-nix, nvibrant e serpantinum em todo host. Deixar só stylix e sops como base. Mover o resto para `meta.nix` (`extraModules`) ou para o papel que usa:
-  - nvibrant → `nvidia.nix`.
-  - serpantinum → desktop.
-  - hyprland → `hyprland.nix`.
+- [x] `mkHost` só importa stylix e sops-nix. Papel `workstation` (desktop + selene) importa hyprland e serpantinum e liga `programs.serpantinum`. Papel novo `nvidia` (só desktop) importa nvibrant e liga NVIDIA; `modules/system/nvibrant.nix` foi para dentro do papel.
+  - Achado: o módulo NixOS do serpantinum liga `power-profiles-daemon` (mkDefault), que conflita com TLP. O módulo `tlp` agora desliga o ppd. O widget de perfil de energia do serpantinum pode não funcionar no selene.
 - [ ] Disko: o `mkHost` nunca passa `device`, mas os dois `disko.nix` usam `device ? throw`. Ler `device` do `meta.nix`. Padronizar a estratégia: hoje o desktop usa `enableConfig = false`.
 - [ ] `hosts/desktop/disko.nix:26-30` tem partição BIOS (EF02) e ESP juntas, com GRUB EFI e `device = "nodev"`. Revisar antes de reinstalar.
 - [ ] `hosts/selene/hardware-configuration.nix` parece gerado numa VM: tem virtio, `kvm-intel` em CPU AMD, e não tem `not-detected.nix`. Regerar com `nixos-generate-config` no notebook real.
