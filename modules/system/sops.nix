@@ -24,10 +24,14 @@ in
         sops = {
           defaultSopsFile = hostSecretsFile;
           defaultSopsFormat = "yaml";
-          age = {
-            inherit (cfg) keyFile;
-            generateKey = false;
-          };
+          age =
+            if cfg.keyFile != null then
+              {
+                inherit (cfg) keyFile;
+                generateKey = false;
+              }
+            else
+              { sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ]; };
 
           secrets."users/${username}/password".neededForUsers = true;
         };

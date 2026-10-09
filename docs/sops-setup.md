@@ -231,7 +231,7 @@ If the work repository uses a separate SSH key, make sure the private key exists
 
 ## Adding Another Host
 
-For another host, generate a new age key on that machine, install it the same way, and add a new creation rule:
+For another host, either generate a new age key on that machine and install it the same way, or (simpler, used by `selene`) derive the recipient from its SSH host key with `nix shell nixpkgs#ssh-to-age -c ssh-to-age < /etc/ssh/ssh_host_ed25519_key.pub` and set `myConfig.system.sops.keyFile = null;` on that host. Then add a new creation rule:
 
 ```yaml
 keys:

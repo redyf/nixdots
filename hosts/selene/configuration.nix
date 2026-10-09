@@ -39,7 +39,11 @@
       intel.enable = false;
       kernel.enable = true;
       power-management.enable = false;
-      sops.enable = true;
+      sops = {
+        enable = true;
+        # The selene age recipient is derived from the SSH host key.
+        keyFile = null;
+      };
     };
   };
 

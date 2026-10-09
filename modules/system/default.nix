@@ -71,9 +71,13 @@
     sops = {
       enable = lib.mkEnableOption "Enable sops-nix secrets";
       keyFile = lib.mkOption {
-        type = lib.types.str;
+        type = lib.types.nullOr lib.types.str;
         default = "/var/lib/sops-nix/key.txt";
-        description = "Path to the age key used to decrypt secrets on this host.";
+        description = ''
+          Path to the age key used to decrypt secrets on this host. Set to
+          null to derive the age key from the SSH host key
+          (/etc/ssh/ssh_host_ed25519_key) instead.
+        '';
       };
       gitIdentity.enable = lib.mkEnableOption ''
         git/personal/* and git/work/* secrets rendered to
