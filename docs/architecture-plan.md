@@ -72,29 +72,16 @@ Regras:
 - [x] Corrigido o diagnóstico: o HM standalone **sempre** reimporta nixpkgs a partir das opções `nixpkgs.*` (o `pkgs` passado só fornece `pkgs.path`). Então o `mkHome` agora passa `nixpkgs.legacyPackages` e define `nixpkgs.config`/`overlays` como opção. Resultado verificado: os 6 `.drv` (3 hosts + 3 users) ficaram idênticos.
 
 ### P3: papéis (profiles) e separação desktop × laptop
-- [ ] Hoje `profiles/nixos/base.nix` é na prática "o desktop do redyf". Quebrar em:
-  - `common.nix`: nix, locale, ssh, zram, audio, networking, zsh, nh.
-  - `desktop-pc.nix`: autorandr, xserver/i3, GRUB com os-prober e tema.
-  - `laptop.nix`: tlp, upower, bluetooth, systemd-boot opcional, sem autorandr.
-  - `gaming.nix`: steam, gamescope.
-  - `dev.nix`: docker, aws, terraform.
-  - `nvidia.nix`.
-- [ ] `meta.nix` ganha `roles = [ ... ]`. O `mkHost` importa `profiles/nixos/<role>.nix` para cada role.
-- [ ] Hoje o selene herda coisas do desktop:
-  - Hyprland + xserver.
-  - Autorandr para DP-0 a 180 Hz (`modules/services/autorandr.nix:16-22`).
-  - xrandr para DP-0 a 165 Hz (`modules/desktop/xserver.nix:21`), que também conflita com o 180 Hz acima.
-  - GRUB minegrub (`modules/system/boot.nix:41-55`).
-  - Steam e Docker.
-
-  Mover para os papéis certos ou para opções do host.
+- [x] `base.nix` virou os papéis `common`, `workstation`, `gaming`, `dev` e `laptop` (mais o `minimal` já existente). Não criei `desktop-pc` nem `nvidia`: o que era do desktop é do monitor, então foi para o host; NVIDIA continua no host.
+- [x] `meta.nix` ganha `roles = [ ... ]`. O `mkHost` importa `modules/` e `profiles/nixos/<role>.nix` para cada role.
+- [x] Selene: o usuário decidiu **manter** Hyprland + Sway, Steam, Docker e GRUB. Saíram só o autorandr e o xrandr do DP-0, que agora ficam em `hosts/desktop` (opção nova `myConfig.desktop.xserver.displaySetup`). O conflito 165 Hz × 180 Hz continua, anotado no host.
 - [ ] Coisas a parametrizar, sem hardcode:
-  - Monitores do Hyprland: `home/desktop/hyprland/monitors.nix:6-12` (DP-3, HDMI-A-3).
-  - Wallpaper `/home/redyf/wallpapers` (`home/desktop/serpantinum/default.nix:20`).
-  - Portal padrão Hyprland (`modules/system/xdg-portal.nix:18`).
-  - `XDG_SESSION_TYPE=wayland` global (`modules/system/environment.nix:17`).
+  - [ ] Monitores do Hyprland: `home/desktop/hyprland/monitors.nix:6-12` (DP-3, HDMI-A-3). Depende do P5 (HM saber o host).
+  - [x] Wallpaper agora usa `home.homeDirectory`.
+  - [ ] Portal padrão Hyprland (`modules/system/xdg-portal.nix:18`).
+  - [ ] `XDG_SESSION_TYPE=wayland` global (`modules/system/environment.nix:17`).
 - [ ] `DEFAULT_BROWSER = pkgs.firefox` é uma derivation, não um binário, e conflita com o MIME default (zen) em `modules/system/mime-types.nix:17`. Escolher um só.
-- [ ] `modules/system/power-management.nix:17` escreve no caminho `intel_pstate`. Proteger com `myConfig.system.intel.enable`.
+- [x] `modules/system/power-management.nix:17` escreve no caminho `intel_pstate`. Proteger com `myConfig.system.intel.enable`.
 - [ ] Dupla checagem `categoria.enable && leaf.enable`: ligar só o leaf não faz nada. Escolher: só leaf, ou categoria liga os leafs via `mkDefault`. Recomendo **só leaf**: categoria vira `mkDefault` dos filhos.
 - [ ] `myConfig.users` tem opções declaradas em `groups.nix:13`, e `users/default.nix` está comentado. Reorganizar. Tirar `xboxusers` incondicional (`:81`) e `gamemode` do grupo de virtualisation (`:96`).
 - [ ] Renomear para não confundir `myConfig.hardware.nvidia` com `myConfig.system.hardware`.
