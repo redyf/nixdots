@@ -58,6 +58,10 @@
       url = "github:ilyamiro/serpantinum";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -67,13 +71,12 @@
       ...
     }@inputs:
     let
-      supportedSystems = [
-        "x86_64-linux"
-      ];
-
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-
       myLib = import ./lib { inherit inputs nixpkgs; };
+      inherit (myLib) forAllSystems;
+
+      treefmtFor = forAllSystems (
+        system: inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
     in
     {
       nixosConfigurations = myLib.discoverHosts {
@@ -94,15 +97,24 @@
         in
         {
           default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [
-              git
-              nixfmt
-              statix
+            nativeBuildInputs = [
+              pkgs.git
+              pkgs.statix
+              pkgs.deadnix
+              treefmtFor.${system}.config.build.wrapper
             ];
           };
         }
       );
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+      formatter = forAllSystems (system: treefmtFor.${system}.config.build.wrapper);
+
+      checks = forAllSystems (system: {
+        formatting = treefmtFor.${system}.config.build.check self;
+        home-configurations = myLib.mkHomeEvalCheck {
+          pkgs = nixpkgs.legacyPackages.${system};
+          inherit (self) homeConfigurations;
+        };
+      });
     };
 }

@@ -19,19 +19,19 @@
 ## Commands
 - `nh os switch` is the preferred rebuild command on the desktop host.
 - `sudo nixos-rebuild switch --flake '.#desktop'` is the direct rebuild fallback.
-- `nix flake check` is the main validation command.
-- `nix develop -c nixfmt --check <files>` checks formatting; CI runs this before linting.
-- `nix develop -c statix check --config ./.statix.toml .` runs linting in CI order.
+- `nix flake check` is the main validation command. It runs treefmt (nixfmt + statix) as a check, evaluates every nixosConfiguration and every `<user>@<host>` homeConfiguration.
+- `nix fmt` formats the tree with treefmt (`treefmt.nix`: nixfmt + statix, hardware-configuration.nix excluded).
+- `nix develop -c deadnix --no-lambda-pattern-names .` lists dead code; it is not enforced (some unused tmux/ghostty themes are kept on purpose).
 - `nix eval .#nixosConfigurations.desktop.config.sops.secrets."users/redyf/password".path` checks the desktop secret path.
 
 ## Workflow Notes
-- CI in `.github/workflows/flake-check.yml` runs `nixfmt --check`, then `statix check`, then `nix flake check`.
+- CI in `.github/workflows/flake-check.yml` installs Nix (nix-quick-install-action), caches the store (cache-nix-action) and runs `nix flake check`.
 - `system.stateVersion` and `home.stateVersion` are pinned to `25.05`; do not bump casually.
 - `allowUnfree = true` is enabled in flake, host, and home config paths.
 - Keep generated `hardware-configuration.nix` files out of broad refactors.
 
 ## Nix-Specific Gotchas
-- `.statix.toml` ignores `hosts/*/hardware-configuration.nix`; keep those generated files out of lint noise.
+- `treefmt.nix` (and `.statix.toml` for manual statix runs) exclude `hosts/*/hardware-configuration.nix`; keep those generated files out of lint noise.
 - `hosts/desktop/secrets.yaml` is managed by `sops-nix`; `hosts/desktop/configuration.nix` expects `myConfig.system.sops.enable = true` and `myConfig.users.username = "redyf"`.
 - `.sops.yaml` currently only defines a creation rule for `hosts/desktop/secrets.yaml`.
 - `hosts/selene/configuration.nix` does not use `sops-nix` for the user password yet.

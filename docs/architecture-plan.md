@@ -101,10 +101,10 @@ Regras:
 - [x] Git com `/run/secrets`: já é opcional (`git.sopsIdentity.enable`) e só `redyf@desktop` liga, que é o host com sops. Nada a mudar.
 
 ### P6: pronto para multi-arch
-- [ ] `lib/default.nix`: exportar `systems` (lista) e `forAllSystems`. Começar só com `x86_64-linux`, e adicionar `aarch64-linux` quando houver host.
-- [ ] Procurar e trocar `pkgs.system`, `stdenv.isLinux`, `stdenv.isx86_64` etc. por `pkgs.stdenv.hostPlatform.*`.
-- [ ] `modules/services/displayManager.nix:15` checa `isx86_64`, então em aarch64 o display manager fica desligado sem aviso. Remover a checagem, ou usar `assert`/`warnings`.
-- [ ] `overlays/bun.nix:6` tem `linux-x64` fixo. Derivar da plataforma.
+- [x] `lib/default.nix`: exportar `systems` (lista) e `forAllSystems`. Começar só com `x86_64-linux`, e adicionar `aarch64-linux` quando houver host.
+- [x] Único uso no nosso código era o displayManager. `pkgs/real-vnc-viewer.nix` ainda usa `stdenv.isAarch64` (ignorado: decisão de não mexer em `pkgs/`). O aviso `stdenv.isx86_64 is deprecated` vinha desse displayManager e sumiu.
+- [x] Removida a checagem; ly roda em qualquer Linux. `modules/services/displayManager.nix:15` checa `isx86_64`, então em aarch64 o display manager fica desligado sem aviso. Remover a checagem, ou usar `assert`/`warnings`.
+- [~] Overlay apagado no P0. `overlays/bun.nix:6` tem `linux-x64` fixo. Derivar da plataforma.
 - [ ] Quando houver host ARM: `boot.binfmt.emulatedSystems = [ "aarch64-linux" ]` no desktop para builds ocasionais, e `nixos-rebuild --target-host` para deploy. deploy-rs ou colmena só se passar de ~3 hosts remotos.
 - [ ] Darwin: deixar para quando houver um Mac. Seria um `lib/mkDarwin.nix` paralelo ao `mkHost`. O HM standalone continua funcionando lá.
 
@@ -119,12 +119,10 @@ Regras:
 - [ ] `modules/system/sops.nix:11` monta o path `hosts/<hostname>/secrets.yaml`. Ele quebra se o arquivo não existir; documentar isso ou proteger.
 
 ### P9: CI e qualidade
-- [ ] O CI deve buildar `nixosConfigurations.<h>.config.system.build.toplevel` e `homeConfigurations.<u@h>.activationPackage`. Hoje só roda `flake check`. Para isso:
-  - Adicionar `checks.x86_64-linux` com esses dois por host/user, gerados pelo `lib`, para não manter lista na mão.
-  - Ou usar `nix-fast-build`.
-- [ ] Usar treefmt-nix (nixfmt + deadnix + statix) como `formatter`. Opcional: git-hooks.nix para pre-commit.
-- [ ] Trocar o action `DeterminateSystems/magic-nix-cache-action@v7`. Ele usa uma API não oficial e pode quebrar. Alternativas: `nix-community/cache-nix-action` ou Cachix.
-- [ ] Atualizar o `nix-installer-action@v13`, que é uma versão antiga. Não verifiquei qual é a atual.
+- [x] Decidido **avaliar, não buildar**: `checks.<system>.home-configurations` força o eval de todo `<user>@<host>` (o `flake check` já avalia os nixosConfigurations). Buildar desktop/selene no runner gratuito exigiria muito disco e muito pacote unfree fora do cache.nixos.org.
+- [x] treefmt-nix (nixfmt + statix) é o `formatter` e o check `formatting`. deadnix ficou de fora: acusa temas alternativos do tmux e um overlay comentado do ghostty que são intencionais.
+- [x] CI usa `nixbuild/nix-quick-install-action@v35` + `nix-community/cache-nix-action@v7` (cache no GitHub Actions, sem conta externa) e `actions/checkout@v7`.
+- [x] Instalador trocado (ver item acima). O `nix-installer-action` atual instala Determinate Nix por padrão; preferi Nix upstream.
 - [ ] `nix.registry` e `nixPath` já vêm automáticos para nixpkgs via `nixosSystem`. Opcional: registrar os outros inputs com `nix.registry = lib.mapAttrs (_: f: { flake = f; }) inputs`.
 
 ### P10: opcional
