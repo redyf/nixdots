@@ -79,11 +79,11 @@ Regras:
   - [ ] Monitores do Hyprland: `home/desktop/hyprland/monitors.nix:6-12` (DP-3, HDMI-A-3). Depende do P5 (HM saber o host).
   - [x] Wallpaper agora usa `home.homeDirectory`.
   - [ ] Portal padrão Hyprland (`modules/system/xdg-portal.nix:18`).
-  - [ ] `XDG_SESSION_TYPE=wayland` global (`modules/system/environment.nix:17`).
-- [ ] `DEFAULT_BROWSER = pkgs.firefox` é uma derivation, não um binário, e conflita com o MIME default (zen) em `modules/system/mime-types.nix:17`. Escolher um só.
+  - [x] `XDG_SESSION_TYPE=wayland` global removido (o display manager define por sessão).
+- [x] Navegador padrão = **Brave** (decisão do usuário): `DEFAULT_BROWSER = lib.getExe pkgs.brave` e MIME `brave-browser.desktop`. Obs.: só o desktop liga `mime-types`.
 - [x] `modules/system/power-management.nix:17` escreve no caminho `intel_pstate`. Proteger com `myConfig.system.intel.enable`.
-- [ ] Dupla checagem `categoria.enable && leaf.enable`: ligar só o leaf não faz nada. Escolher: só leaf, ou categoria liga os leafs via `mkDefault`. Recomendo **só leaf**: categoria vira `mkDefault` dos filhos.
-- [ ] `myConfig.users` tem opções declaradas em `groups.nix:13`, e `users/default.nix` está comentado. Reorganizar. Tirar `xboxusers` incondicional (`:81`) e `gamemode` do grupo de virtualisation (`:96`).
+- [ ] **Adiado** (decisão do usuário: depois do P4/P5). Dupla checagem `categoria.enable && leaf.enable`: ligar só o leaf não faz nada. Escolher: só leaf, ou categoria liga os leafs via `mkDefault`. Recomendo **só leaf**: categoria vira `mkDefault` dos filhos.
+- [x] `xboxusers` e `gamemode` agora dependem de `myConfig.gaming.enable`. (Reorganizar `groups.nix` × `users/default.nix` ainda pendente, é cosmético.)
 - [ ] Renomear para não confundir `myConfig.hardware.nvidia` com `myConfig.system.hardware`.
 
 ### P4: módulos de input só onde são usados
