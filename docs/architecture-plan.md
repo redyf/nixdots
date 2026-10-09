@@ -65,11 +65,11 @@ Regras:
 - [x] `amd_pstate=active` está em dois lugares: `hosts/selene/configuration.nix:64` e `modules/system/amd.nix:14`. Deixar só no módulo.
 
 ### P2: fonte única de identidade
-- [ ] Hosts escrevem o username na mão: `hosts/desktop/configuration.nix:33,36` e `hosts/selene/configuration.nix:19`. Usar `username` vindo do `meta.nix`, como o host `example` já faz.
-- [ ] Fazer `myConfig.users.username` default para o specialArg `username`. Unificar `modules/system/sops.nix:10` e `modules/nix/nix.nix:34` para lerem a mesma fonte.
-- [ ] `home.username`, `homeDirectory` e `stateVersion` aparecem 3 vezes (mkHome default, módulo do mkHome, user file). Deixar só no `mkHome`.
-- [ ] `allowUnfree` está em 8 lugares. Deixar em um lugar para NixOS (mkHost/base) e um para HM (o `import nixpkgs` do mkHome). Mover `permittedInsecurePackages` dos users para o mkHome ou para um módulo HM comum.
-- [ ] HM importa nixpkgs de novo quando o módulo define `nixpkgs.config` ou `nixpkgs.overlays`. Isso acontece nos users e em `home/cli/tools/agents/default.nix:14`. Passar tudo pelo `pkgs` do mkHome.
+- [x] Hosts escrevem o username na mão: `hosts/desktop/configuration.nix:33,36` e `hosts/selene/configuration.nix:19`. Usar `username` vindo do `meta.nix`, como o host `example` já faz.
+- [x] Fazer `myConfig.users.username` default para o specialArg `username`. Unificar `modules/system/sops.nix:10` e `modules/nix/nix.nix:34` para lerem a mesma fonte.
+- [x] `home.username`, `homeDirectory` e `stateVersion` aparecem 3 vezes (mkHome default, módulo do mkHome, user file). Deixar só no `mkHome`.
+- [x] `allowUnfree` e `permittedInsecurePackages` agora vivem só em `lib/nixpkgs-config.nix`, usado pelo `mkHost` e pelo `mkHome` (como opção `nixpkgs.config` do módulo).
+- [x] Corrigido o diagnóstico: o HM standalone **sempre** reimporta nixpkgs a partir das opções `nixpkgs.*` (o `pkgs` passado só fornece `pkgs.path`). Então o `mkHome` agora passa `nixpkgs.legacyPackages` e define `nixpkgs.config`/`overlays` como opção. Resultado verificado: os 6 `.drv` (3 hosts + 3 users) ficaram idênticos.
 
 ### P3: papéis (profiles) e separação desktop × laptop
 - [ ] Hoje `profiles/nixos/base.nix` é na prática "o desktop do redyf". Quebrar em:

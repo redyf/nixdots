@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  username,
   ...
 }:
 {
@@ -13,7 +12,6 @@
   myConfig = {
     users = {
       enable = true;
-      inherit username;
       description = "Example user";
       initialPassword = "nixos";
       shell = pkgs.zsh;

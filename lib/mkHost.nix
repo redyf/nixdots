@@ -21,8 +21,13 @@ nixpkgs.lib.nixosSystem {
       ;
   };
   modules = [
-    { nixpkgs.hostPlatform = system; }
-    { nixpkgs.overlays = overlays; }
+    {
+      nixpkgs = {
+        hostPlatform = system;
+        config = import ./nixpkgs-config.nix;
+        inherit overlays;
+      };
+    }
     { networking.hostName = hostname; }
     (hostsPath + "/${hostname}/configuration.nix")
     inputs.hyprland.nixosModules.default

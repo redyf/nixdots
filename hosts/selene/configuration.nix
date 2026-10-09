@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  username,
-  ...
-}:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -16,7 +10,6 @@
   myConfig = {
     users = {
       enable = true;
-      username = "selene";
       isNormalUser = true;
       description = "Laptop host"; # Optional - defaults to username if not specified
       # TODO: configure sops-nix for selene (like desktop host) and use hashedPasswordFile

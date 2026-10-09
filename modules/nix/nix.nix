@@ -1,9 +1,7 @@
 {
   config,
-  homeDirectory,
   lib,
   pkgs,
-  username,
   ...
 }:
 
@@ -12,11 +10,6 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.nix.enable && cfg.enable) {
-    nixpkgs = {
-      config = {
-        allowUnfree = true;
-      };
-    };
     nix = {
       package = pkgs.nixVersions.stable;
       settings = {
@@ -31,7 +24,7 @@ in
         log-lines = 50;
         sandbox = "relaxed";
         trusted-users = [
-          "${username}"
+          config.myConfig.users.username
         ];
         substituters = [
           "https://cache.nixos.org"

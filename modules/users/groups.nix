@@ -3,6 +3,7 @@
   config,
   lib,
   pkgs,
+  username,
   ...
 }:
 
@@ -15,7 +16,8 @@ in
 
     username = lib.mkOption {
       type = lib.types.str;
-      description = "Primary username for the system";
+      default = username;
+      description = "Primary username for the system (defaults to `username` from hosts/<name>/meta.nix)";
     };
 
     initialPassword = lib.mkOption {

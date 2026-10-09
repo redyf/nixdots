@@ -73,14 +73,6 @@
 
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      nixpkgsFor = forAllSystems (
-        system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        }
-      );
-
       myLib = import ./lib { inherit inputs nixpkgs; };
     in
     {
@@ -97,7 +89,7 @@
       devShells = forAllSystems (
         system:
         let
-          pkgs = nixpkgsFor.${system};
+          pkgs = nixpkgs.legacyPackages.${system};
         in
         {
           default = pkgs.mkShell {
@@ -110,6 +102,6 @@
         }
       );
 
-      formatter = forAllSystems (system: nixpkgsFor.${system}.nixfmt);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
     };
 }

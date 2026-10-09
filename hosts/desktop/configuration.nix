@@ -1,10 +1,6 @@
 {
   config,
-  inputs,
-  lib,
   pkgs,
-  username,
-  homeDirectory,
   ...
 }:
 {
@@ -30,10 +26,9 @@
   myConfig = {
     users = {
       enable = true;
-      username = "redyf";
       isNormalUser = true;
       description = "Desktop host"; # Optional - defaults to username if not specified
-      hashedPasswordFile = config.sops.secrets."users/redyf/password".path;
+      hashedPasswordFile = config.sops.secrets."users/${config.myConfig.users.username}/password".path;
       shell = pkgs.zsh;
 
       groups = {

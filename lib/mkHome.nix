@@ -11,20 +11,15 @@
   modules ? [ ],
   homePath ? ../home,
 }:
-let
-  pkgs = import nixpkgs {
-    inherit system overlays;
-    config.allowUnfree = true;
-  };
-in
 inputs.home-manager.lib.homeManagerConfiguration {
-  inherit pkgs;
+  # Standalone Home Manager re-imports nixpkgs from `nixpkgs.*` options, so
+  # config and overlays are set as module options below, not here.
+  pkgs = nixpkgs.legacyPackages.${system};
   extraSpecialArgs = {
     inherit
       inputs
       username
       homeDirectory
-      stateVersion
       ;
   };
   modules = [
@@ -33,6 +28,10 @@ inputs.home-manager.lib.homeManagerConfiguration {
     {
       home = {
         inherit username stateVersion homeDirectory;
+      };
+      nixpkgs = {
+        config = import ./nixpkgs-config.nix;
+        inherit overlays;
       };
       programs.home-manager.enable = true;
     }

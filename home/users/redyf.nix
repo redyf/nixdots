@@ -1,12 +1,6 @@
-{
-  username,
-  homeDirectory,
-  ...
-}:
+{ homeDirectory, ... }:
 {
   home = {
-    inherit username homeDirectory;
-    stateVersion = "25.05";
     pointerCursor.enable = true;
     sessionPath = [
       "$HOME/.local/bin"
@@ -77,19 +71,5 @@
     work.enable = true;
     maintenanceRepo = "${homeDirectory}/opensource/nixpkgs";
     safeDirectories = [ "${homeDirectory}/opensource/nixdots" ];
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [
-        "dotnet-sdk-6.0.428"
-        "beekeeper-studio-5.3.4"
-        "ventoy-1.1.07"
-        "electron-40.10.5"
-        "electron-39.8.10"
-        "electron-41.10.6"
-      ];
-    };
   };
 }
