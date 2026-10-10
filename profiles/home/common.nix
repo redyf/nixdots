@@ -23,6 +23,8 @@
       browsers.enable = lib.mkDefault true;
       development.enable = lib.mkDefault true;
       file-explorer.enable = lib.mkDefault true;
+      # Only artix-game-launcher is on by default inside home/apps/gaming.
+      gaming.enable = lib.mkDefault true;
       web.enable = lib.mkDefault true;
     };
 

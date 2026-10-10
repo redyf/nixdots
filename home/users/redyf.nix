@@ -3,7 +3,6 @@
   imports = [ ../../profiles/home/common.nix ];
 
   myHomeConfig.apps = {
-    gaming.enable = true;
     media.enable = true;
     security.enable = false;
   };
