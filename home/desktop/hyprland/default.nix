@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  keyboard,
   ...
 }:
 {
@@ -59,8 +60,9 @@
           };
 
           input = {
-            kb_layout = "us";
-            kb_variant = "intl";
+            # From `keyboard` in hosts/<host>/meta.nix.
+            kb_layout = keyboard.layout;
+            kb_variant = keyboard.variant;
 
             follow_mouse = 1;
             mouse_refocus = false;

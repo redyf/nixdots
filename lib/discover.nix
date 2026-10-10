@@ -61,6 +61,7 @@ in
               "system"
               "homeDirectory"
               "roles"
+              "keyboard"
             ]) meta
           )
         );

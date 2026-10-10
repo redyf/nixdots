@@ -22,10 +22,7 @@ in
             nitrogen --restore
           '';
         };
-        xkb = {
-          layout = "us";
-          variant = "intl";
-        };
+        # xkb layout: set by modules/system/keymap.nix from meta.nix.
       };
     };
   };

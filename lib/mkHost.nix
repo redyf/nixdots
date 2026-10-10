@@ -10,6 +10,12 @@
   homeDirectory ? "/home/${username}",
   # Names of files in profiles/nixos/ to import, e.g. [ "common" "laptop" ].
   roles ? [ ],
+  # XKB layout of this machine's keyboard, shared by NixOS (X11, console)
+  # and Home Manager (Hyprland, Sway) through the `keyboard` module argument.
+  keyboard ? {
+    layout = "us";
+    variant = "";
+  },
   modules ? [ ],
   hostsPath ? ../hosts,
   profilesPath ? ../profiles/nixos,
@@ -22,6 +28,7 @@ nixpkgs.lib.nixosSystem {
       homeDirectory
       hostname
       roles
+      keyboard
       ;
   };
   modules = [

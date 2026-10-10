@@ -9,6 +9,11 @@
   # when present (monitors and other machine-specific user settings).
   hostname,
   roles ? [ ],
+  # Same value as mkHost's `keyboard` (from hosts/<hostname>/meta.nix).
+  keyboard ? {
+    layout = "us";
+    variant = "";
+  },
   system ? "x86_64-linux",
   homeDirectory ? "/home/${username}",
   stateVersion ? "25.05",
@@ -29,6 +34,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
       homeDirectory
       hostname
       roles
+      keyboard
       ;
   };
   modules = [

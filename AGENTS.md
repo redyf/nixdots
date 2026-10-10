@@ -5,7 +5,7 @@
 ## What This Repo Is
 - NixOS flake for personal hosts `desktop` and `selene`, plus a safe public `example` host.
 - `flake.nix` discovers `hosts/*` as `nixosConfigurations` and builds one `homeConfigurations."<username>@<hostname>"` per host whose `meta.nix` user has a `home/users/<username>.nix` (`nh home switch` picks `$USER@$HOSTNAME` automatically).
-- Host metadata lives in `hosts/<name>/meta.nix` (`username`, `system`, `roles`, optional `homeDirectory`/`modules`); Home Manager reads the same file.
+- Host metadata lives in `hosts/<name>/meta.nix` (`username`, `system`, `roles`, `keyboard = { layout; variant; }`, optional `homeDirectory`/`modules`); Home Manager reads the same file.
 - This is primarily a personal NixOS configuration. Treat public reuse as a secondary goal that should be made safe through explicit example/minimal profiles, not by weakening the personal hosts.
 
 ## Source Of Truth

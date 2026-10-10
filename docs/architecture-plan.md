@@ -49,7 +49,7 @@ Regras:
 - [x] `home/cli/neve/default.nix:14`: `stdenv.hostPackages.system` parece typo de `stdenv.hostPlatform.system`. Confirmado: `stdenv ? hostPackages` é `false`.
 - [x] O fallback `ci/font-flake-fallback` só exporta `tx02`. Os módulos HM pedem `monolisa`, `berkeley-mono` e `sf-mono` (`home/system/fonts/default.nix:15-18`, `home/desktop/stylix/default.nix:34`). Adicionar esses três ao fallback. Hoje o CI não pega o erro porque `flake check` não avalia `homeConfigurations`.
 - [x] Overlays nunca são aplicados: `flake.nix:86` não passa `overlays`, e `overlays/bun.nix` e `overlays/opencode.nix` estão órfãos. **Apagados.**
-- [ ] **Pendente:** a mudança está só no checkout principal (não commitada), fora da worktree. O diff em andamento mudou o teclado do Hyprland HM para br/abnt2. Isso afeta os dois users, mas `modules/desktop/xserver.nix:26-27` ainda usa us/intl. Mover o layout para o host ou para o user.
+- [x] Teclado por host: `keyboard = { layout; variant; }` no `meta.nix` (desktop us/intl, selene br/abnt2). NixOS usa em `services.xserver.xkb`, console (`useXkbConfig`) e `XKB_DEFAULT_*`; HM usa no Hyprland e no Sway. A mudança br/abnt2 não commitada no checkout principal fica obsoleta.
 
 ### P1: limpeza e docs
 - [~] **Ignorado** (decisão do usuário). Apagar os pacotes mortos em `pkgs/`: apidog, artixlauncher, omasnap, real-vnc-viewer, research. Só `cymbal` é usado.

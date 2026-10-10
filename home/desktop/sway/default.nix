@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  keyboard,
   ...
 }:
 {
@@ -33,7 +34,8 @@
         output eDP-1 mode 1920x1200@60Hz position 0 0 scale 1 scale_filter smart
 
         input * {
-            xkb_layout "br"
+            xkb_layout "${keyboard.layout}"
+            xkb_variant "${keyboard.variant}"
             repeat_delay 140
             repeat_rate 30
             accel_profile "flat"
