@@ -56,7 +56,6 @@
 
 ## References
 - [docs/sops-setup.md](./docs/sops-setup.md) — SOPS/age setup walkthrough.
-- [docs/security-audit.md](./docs/security-audit.md) — security review notes.
 
 ## Editing Rules
 - Keep changes minimal and in the smallest module that owns the setting.
