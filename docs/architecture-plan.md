@@ -75,16 +75,16 @@ Regras:
 - [x] `base.nix` virou os papéis `common`, `workstation`, `gaming`, `dev` e `laptop` (mais o `minimal` já existente). Não criei `desktop-pc` nem `nvidia`: o que era do desktop é do monitor, então foi para o host; NVIDIA continua no host.
 - [x] `meta.nix` ganha `roles = [ ... ]`. O `mkHost` importa `modules/` e `profiles/nixos/<role>.nix` para cada role.
 - [x] Selene: o usuário decidiu **manter** Hyprland + Sway, Steam, Docker e GRUB. Saíram só o autorandr e o xrandr do DP-0, que agora ficam em `hosts/desktop` (opção nova `myConfig.desktop.xserver.displaySetup`). O conflito 165 Hz × 180 Hz continua, anotado no host.
-- [ ] Coisas a parametrizar, sem hardcode:
+- [x] Coisas a parametrizar, sem hardcode:
   - [x] Monitores do Hyprland foram para `home/hosts/desktop.nix`. No selene o Hyprland detecta sozinho (decisão do usuário).
   - [x] Wallpaper agora usa `home.homeDirectory`.
-  - [ ] Portal padrão Hyprland (`modules/system/xdg-portal.nix:18`).
+  - [x] Portal: bug real. O HM gravava `~/.config/xdg-desktop-portal/portals.conf` (default=hyprland), que vence o `sway-portals.conf` do sistema (confirmado em `xdp-portal-config.c`). Agora o HM grava `hyprland-portals.conf` e o fallback do sistema é `gtk`.
   - [x] `XDG_SESSION_TYPE=wayland` global removido (o display manager define por sessão).
 - [x] Navegador padrão = **Brave** (decisão do usuário): `DEFAULT_BROWSER = lib.getExe pkgs.brave` e MIME `brave-browser.desktop`. Obs.: só o desktop liga `mime-types`.
 - [x] `modules/system/power-management.nix:17` escreve no caminho `intel_pstate`. Proteger com `myConfig.system.intel.enable`.
 - [ ] **Adiado** (decisão do usuário: depois do P4/P5). Dupla checagem `categoria.enable && leaf.enable`: ligar só o leaf não faz nada. Escolher: só leaf, ou categoria liga os leafs via `mkDefault`. Recomendo **só leaf**: categoria vira `mkDefault` dos filhos.
 - [x] `xboxusers` e `gamemode` agora dependem de `myConfig.gaming.enable`. (Reorganizar `groups.nix` × `users/default.nix` ainda pendente, é cosmético.)
-- [ ] Renomear para não confundir `myConfig.hardware.nvidia` com `myConfig.system.hardware`.
+- [x] Renomeado `myConfig.system.hardware` → `myConfig.system.graphics` (só liga `hardware.graphics`). `myConfig.hardware.nvidia` ficou como está (categoria de drivers de GPU).
 
 ### P4: módulos de input só onde são usados
 - [x] `mkHost` só importa stylix e sops-nix. Papel `workstation` (desktop + selene) importa hyprland e serpantinum e liga `programs.serpantinum`. Papel novo `nvidia` (só desktop) importa nvibrant e liga NVIDIA; `modules/system/nvibrant.nix` foi para dentro do papel.
@@ -123,7 +123,7 @@ Regras:
 - [x] treefmt-nix (nixfmt + statix) é o `formatter` e o check `formatting`. deadnix ficou de fora: acusa temas alternativos do tmux e um overlay comentado do ghostty que são intencionais.
 - [x] CI usa `nixbuild/nix-quick-install-action@v35` + `nix-community/cache-nix-action@v7` (cache no GitHub Actions, sem conta externa) e `actions/checkout@v7`.
 - [x] Instalador trocado (ver item acima). O `nix-installer-action` atual instala Determinate Nix por padrão; preferi Nix upstream.
-- [ ] `nix.registry` e `nixPath` já vêm automáticos para nixpkgs via `nixosSystem`. Opcional: registrar os outros inputs com `nix.registry = lib.mapAttrs (_: f: { flake = f; }) inputs`.
+- [x] Todos os inputs flake (menos `self` e `nixpkgs`, que o `nixosSystem` já registra) entram em `nix.registry`.
 
 ### P10: opcional
 - [ ] Reduzir `with pkgs;` (44 usos). É estilo; a comunidade prefere listas explícitas.
