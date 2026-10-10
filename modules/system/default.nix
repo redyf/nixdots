@@ -28,8 +28,8 @@
       enable = lib.mkEnableOption "Enable environment";
     };
 
-    hardware = {
-      enable = lib.mkEnableOption "Enable hardware";
+    graphics = {
+      enable = lib.mkEnableOption "Enable hardware.graphics (GPU acceleration, 32-bit included)";
     };
 
     intel = {
@@ -113,7 +113,7 @@
     ./boot.nix
     ./cachy.nix
     ./environment.nix
-    ./hardware.nix
+    ./graphics.nix
     ./intel.nix
     ./kernel.nix
     ./keymap.nix

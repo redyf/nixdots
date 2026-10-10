@@ -17,7 +17,7 @@
       enable = lib.mkDefault true;
       boot.enable = lib.mkDefault true;
       environment.enable = lib.mkDefault true;
-      hardware.enable = lib.mkDefault true;
+      graphics.enable = lib.mkDefault true;
       keymap.enable = lib.mkDefault true;
       locale.enable = lib.mkDefault true;
       networking.enable = lib.mkDefault true;

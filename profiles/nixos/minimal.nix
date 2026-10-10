@@ -64,7 +64,7 @@
       boot.enable = lib.mkDefault false;
       cachy.enable = lib.mkDefault false;
       environment.enable = lib.mkDefault true;
-      hardware.enable = lib.mkDefault true;
+      graphics.enable = lib.mkDefault true;
       intel.enable = lib.mkDefault false;
       kernel.enable = lib.mkDefault false;
       keymap.enable = lib.mkDefault true;

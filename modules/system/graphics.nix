@@ -5,7 +5,7 @@
 }:
 
 let
-  cfg = config.myConfig.system.hardware;
+  cfg = config.myConfig.system.graphics;
 in
 {
   config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
