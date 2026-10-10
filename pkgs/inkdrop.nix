@@ -91,7 +91,6 @@ if stdenv.hostPlatform.isDarwin then
       runHook postInstall
     '';
 
-    # Keep the upstream code signature intact.
     dontFixup = true;
   }
 else
@@ -140,14 +139,12 @@ else
       cp -r usr/lib/inkdrop $out/lib/inkdrop
       cp -r usr/share $out/share
 
-      # Drop prebuilt leveldown binaries for other platforms; autoPatchelf can't handle them.
       prebuilds=$out/lib/inkdrop/resources/app.asar.unpacked/node_modules/leveldown/prebuilds
       find $prebuilds -mindepth 1 -maxdepth 1 ! -name linux-x64 -exec rm -r {} +
       rm $prebuilds/linux-x64/node.napi.musl.node
 
       install -Dm444 usr/share/pixmaps/inkdrop.png $out/share/icons/hicolor/256x256/apps/inkdrop.png
 
-      # Inkdrop spawns ipm with an env that has no PATH; give its launcher coreutils.
       substituteInPlace $out/lib/inkdrop/resources/app/ipm/bin/ipm \
         --replace-fail "set -e" "set -e
       export PATH=${lib.makeBinPath [ coreutils ]}\''${PATH:+:\$PATH}"
@@ -159,7 +156,6 @@ else
       makeWrapper $out/lib/inkdrop/inkdrop $out/bin/inkdrop \
         "''${gappsWrapperArgs[@]}" \
         --prefix LD_LIBRARY_PATH : ${
-          # Loaded with dlopen by Electron/ANGLE at runtime.
           lib.makeLibraryPath [
             (lib.getLib systemd)
             libGL

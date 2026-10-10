@@ -20,7 +20,6 @@ in
         else
           { enable = false; };
     };
-    # Unlock the GNOME keyring with the login password.
     security.pam.services.ly.enableGnomeKeyring = lib.mkIf (
       config.services.displayManager.ly.enable && config.services.gnome.gnome-keyring.enable
     ) true;
