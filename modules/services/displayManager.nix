@@ -20,5 +20,8 @@ in
         else
           { enable = false; };
     };
+    security.pam.services.ly.enableGnomeKeyring = lib.mkIf (
+      config.services.displayManager.ly.enable && config.services.gnome.gnome-keyring.enable
+    ) true;
   };
 }

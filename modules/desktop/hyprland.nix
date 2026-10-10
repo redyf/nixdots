@@ -15,5 +15,6 @@ in
       package = pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
     };
+    services.gnome.gnome-keyring.enable = true;
   };
 }
