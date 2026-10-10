@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -12,6 +13,13 @@ in
   config = lib.mkIf (config.myConfig.nix.enable && cfg.enable) {
     nix = {
       package = pkgs.nixVersions.stable;
+      # Pin `nix run <input>#...` / `nix shell <input>#...` to this flake's
+      # lock. nixpkgs is already registered by nixpkgs.lib.nixosSystem.
+      registry = lib.mapAttrs (_: flake: { inherit flake; }) (
+        lib.filterAttrs (
+          name: input: name != "self" && name != "nixpkgs" && input ? _type && input._type == "flake"
+        ) inputs
+      );
       settings = {
         experimental-features = [
           "nix-command"
