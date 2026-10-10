@@ -18,7 +18,12 @@
     hyprland.enable = lib.mkEnableOption "Enable hyprland module";
   };
   config = lib.mkIf config.hyprland.enable {
-    xdg.portal.config.common.default = [ "hyprland" ];
+    # hyprland-portals.conf, not portals.conf: the user-level portals.conf
+    # wins over every system *-portals.conf and would also hijack Sway.
+    xdg.portal.config.hyprland.default = [
+      "hyprland"
+      "gtk"
+    ];
 
     home.packages = with pkgs; [
       grim
