@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  keyboard,
   ...
 }:
 {
@@ -11,7 +12,6 @@
     ./binds.nix
     ./decoration.nix
     ./misc.nix
-    ./monitors.nix
     ./screenshot.nix
     ./window-rules.nix
   ];
@@ -19,7 +19,12 @@
     hyprland.enable = lib.mkEnableOption "Enable hyprland module";
   };
   config = lib.mkIf config.hyprland.enable {
-    xdg.portal.config.common.default = [ "hyprland" ];
+    # hyprland-portals.conf, not portals.conf: the user-level portals.conf
+    # wins over every system *-portals.conf and would also hijack Sway.
+    xdg.portal.config.hyprland.default = [
+      "hyprland"
+      "gtk"
+    ];
 
     home.packages = with pkgs; [
       grim
@@ -55,8 +60,9 @@
           };
 
           input = {
-            kb_layout = "us";
-            kb_variant = "intl";
+            # From `keyboard` in hosts/<host>/meta.nix.
+            kb_layout = keyboard.layout;
+            kb_variant = keyboard.variant;
 
             follow_mouse = 1;
             mouse_refocus = false;

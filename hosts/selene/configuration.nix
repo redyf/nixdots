@@ -1,25 +1,19 @@
 {
-  inputs,
-  lib,
+  config,
   pkgs,
-  username,
   ...
 }:
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../../profiles/nixos/base.nix
-    ../../modules
-  ];
+  # Shared modules and profiles (roles) come from mkHost + meta.nix.
+  imports = [ ./hardware-configuration.nix ];
 
   # Configure the user with specific groups
   myConfig = {
     users = {
       enable = true;
-      username = "selene";
       isNormalUser = true;
       description = "Laptop host"; # Optional - defaults to username if not specified
-      # TODO: configure sops-nix for selene (like desktop host) and use hashedPasswordFile
+      hashedPasswordFile = config.sops.secrets."users/${config.myConfig.users.username}/password".path;
       shell = pkgs.zsh;
 
       groups = {
@@ -38,22 +32,18 @@
       sway.enable = true;
     };
 
-    hardware = {
-      enable = false;
-      nvidia.enable = false;
-    };
-
-    services = {
-      fstrim.enable = false;
-      tlp.enable = true;
-      upower.enable = true;
-    };
+    services.fstrim.enable = false;
 
     system = {
       amd.enable = true;
       intel.enable = false;
       kernel.enable = true;
       power-management.enable = false;
+      sops = {
+        enable = true;
+        # The selene age recipient is derived from the SSH host key.
+        keyFile = null;
+      };
     };
   };
 
@@ -61,7 +51,6 @@
     kernelParams = [
       "i8042.reset"
       "i8042.direct"
-      "amd_pstate=active"
     ];
     supportedFilesystems = [ "zfs" ];
     zfs.forceImportRoot = false;

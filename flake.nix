@@ -43,23 +43,25 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    claude-code = {
-      url = "github:sadjow/claude-code-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     font-flake = {
       url = "path:./ci/font-flake-fallback";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
     hytale-launcher = {
       url = "github:JPyke3/hytale-launcher-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    # No `follows`: upstream only tests against its own nixpkgs pin and
+    # cache.numtide.com only hits for that pin.
     llm-agents.url = "github:numtide/llm-agents.nix";
-    serpantinum.url = "github:ilyamiro/serpantinum";
+    serpantinum = {
+      url = "github:ilyamiro/serpantinum";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -69,21 +71,12 @@
       ...
     }@inputs:
     let
-      supportedSystems = [
-        "x86_64-linux"
-      ];
-
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-
-      nixpkgsFor = forAllSystems (
-        system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        }
-      );
-
       myLib = import ./lib { inherit inputs nixpkgs; };
+      inherit (myLib) forAllSystems;
+
+      treefmtFor = forAllSystems (
+        system: inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
     in
     {
       nixosConfigurations = myLib.discoverHosts {
@@ -92,6 +85,7 @@
       };
 
       homeConfigurations = myLib.discoverHomes {
+        hostsPath = ./hosts;
         homePath = ./home;
         inherit (myLib) mkHome;
       };
@@ -99,19 +93,28 @@
       devShells = forAllSystems (
         system:
         let
-          pkgs = nixpkgsFor.${system};
+          pkgs = nixpkgs.legacyPackages.${system};
         in
         {
           default = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [
-              git
-              nixfmt
-              statix
+            nativeBuildInputs = [
+              pkgs.git
+              pkgs.statix
+              pkgs.deadnix
+              treefmtFor.${system}.config.build.wrapper
             ];
           };
         }
       );
 
-      formatter = forAllSystems (system: nixpkgsFor.${system}.nixfmt);
+      formatter = forAllSystems (system: treefmtFor.${system}.config.build.wrapper);
+
+      checks = forAllSystems (system: {
+        formatting = treefmtFor.${system}.config.build.check self;
+        home-configurations = myLib.mkHomeEvalCheck {
+          pkgs = nixpkgs.legacyPackages.${system};
+          inherit (self) homeConfigurations;
+        };
+      });
     };
 }

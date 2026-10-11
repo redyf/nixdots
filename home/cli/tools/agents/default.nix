@@ -11,7 +11,6 @@
   };
 
   config = lib.mkIf config.agents.enable {
-    nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
     home.packages =
       (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
         claude-code

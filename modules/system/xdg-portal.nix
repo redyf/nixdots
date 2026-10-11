@@ -15,7 +15,9 @@ in
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
-      config.common.default = [ "hyprland" ];
+      # Fallback for sessions without their own <desktop>-portals.conf (e.g.
+      # i3). Hyprland and Sway ship/set their own.
+      config.common.default = [ "gtk" ];
     };
   };
 }

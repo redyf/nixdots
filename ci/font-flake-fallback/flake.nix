@@ -22,7 +22,11 @@
           };
         in
         {
+          # Public stand-ins for every package the private font-flake exposes.
           tx02 = pkgs.nerd-fonts.jetbrains-mono;
+          monolisa = pkgs.nerd-fonts.jetbrains-mono;
+          berkeley-mono = pkgs.nerd-fonts.jetbrains-mono;
+          sf-mono = pkgs.nerd-fonts.jetbrains-mono;
         }
       );
     };

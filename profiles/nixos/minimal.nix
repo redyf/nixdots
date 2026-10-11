@@ -64,14 +64,13 @@
       boot.enable = lib.mkDefault false;
       cachy.enable = lib.mkDefault false;
       environment.enable = lib.mkDefault true;
-      hardware.enable = lib.mkDefault true;
+      graphics.enable = lib.mkDefault true;
       intel.enable = lib.mkDefault false;
       kernel.enable = lib.mkDefault false;
       keymap.enable = lib.mkDefault true;
       locale.enable = lib.mkDefault true;
       mime-types.enable = lib.mkDefault true;
       networking.enable = lib.mkDefault true;
-      nvibrant.enable = lib.mkDefault false;
       power-management.enable = lib.mkDefault false;
       security.enable = lib.mkDefault true;
       sops.enable = lib.mkDefault false;
@@ -95,8 +94,6 @@
       virtualbox.enable = lib.mkDefault false;
     };
   };
-
-  nixpkgs.config.allowUnfree = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [ git ];
 }

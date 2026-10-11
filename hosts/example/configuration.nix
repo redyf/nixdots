@@ -1,19 +1,12 @@
 {
   lib,
   pkgs,
-  username,
   ...
 }:
 {
-  imports = [
-    ../../modules
-    ../../profiles/nixos/minimal.nix
-  ];
-
   myConfig = {
     users = {
       enable = true;
-      inherit username;
       description = "Example user";
       initialPassword = "nixos";
       shell = pkgs.zsh;

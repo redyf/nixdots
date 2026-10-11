@@ -3,11 +3,13 @@
   config,
   lib,
   pkgs,
+  username,
   ...
 }:
 
 let
   cfg = config.myConfig.users;
+  gaming = config.myConfig.gaming.enable;
 in
 {
   options.myConfig.users = {
@@ -15,7 +17,8 @@ in
 
     username = lib.mkOption {
       type = lib.types.str;
-      description = "Primary username for the system";
+      default = username;
+      description = "Primary username for the system (defaults to `username` from hosts/<name>/meta.nix)";
     };
 
     initialPassword = lib.mkOption {
@@ -78,7 +81,7 @@ in
 
   config = lib.mkIf cfg.enable {
     users = {
-      extraGroups.xboxusers.members = [ cfg.username ];
+      extraGroups.xboxusers.members = lib.mkIf gaming [ cfg.username ];
       users.${cfg.username} = {
         inherit (cfg) isNormalUser shell hashedPasswordFile;
         initialPassword = lib.mkIf (cfg.hashedPasswordFile == null) cfg.initialPassword;
@@ -93,8 +96,8 @@ in
             "docker"
             "kvm"
             "libvirtd"
-            "gamemode"
           ])
+          ++ (lib.optionals gaming [ "gamemode" ])
           ++ (lib.optionals cfg.groups.media [
             "audio"
             "video"

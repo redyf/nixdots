@@ -28,8 +28,8 @@
       enable = lib.mkEnableOption "Enable environment";
     };
 
-    hardware = {
-      enable = lib.mkEnableOption "Enable hardware";
+    graphics = {
+      enable = lib.mkEnableOption "Enable hardware.graphics (GPU acceleration, 32-bit included)";
     };
 
     intel = {
@@ -56,10 +56,6 @@
       enable = lib.mkEnableOption "Enable networking";
     };
 
-    nvibrant = {
-      enable = lib.mkEnableOption "Enable nvibrant";
-    };
-
     power-management = {
       enable = lib.mkEnableOption "Enable power-management";
     };
@@ -75,10 +71,18 @@
     sops = {
       enable = lib.mkEnableOption "Enable sops-nix secrets";
       keyFile = lib.mkOption {
-        type = lib.types.str;
+        type = lib.types.nullOr lib.types.str;
         default = "/var/lib/sops-nix/key.txt";
-        description = "Path to the age key used to decrypt secrets on this host.";
+        description = ''
+          Path to the age key used to decrypt secrets on this host. Set to
+          null to derive the age key from the SSH host key
+          (/etc/ssh/ssh_host_ed25519_key) instead.
+        '';
       };
+      gitIdentity.enable = lib.mkEnableOption ''
+        git/personal/* and git/work/* secrets rendered to
+        /run/secrets/rendered/git-{personal,work} (used by the Home Manager
+        git.sopsIdentity option)'';
     };
 
     systemd = {
@@ -109,14 +113,13 @@
     ./boot.nix
     ./cachy.nix
     ./environment.nix
-    ./hardware.nix
+    ./graphics.nix
     ./intel.nix
     ./kernel.nix
     ./keymap.nix
     ./locale.nix
     ./mime-types.nix
     ./networking.nix
-    ./nvibrant.nix
     ./power-management.nix
     ./security.nix
     ./sops.nix

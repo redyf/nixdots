@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -10,15 +9,9 @@ let
 in
 {
   config = lib.mkIf (config.myConfig.services.enable && cfg.enable) {
-    services = {
-      displayManager =
-        if pkgs.stdenv.isx86_64 then
-          {
-            enable = true;
-            ly.enable = true;
-          }
-        else
-          { enable = false; };
+    services.displayManager = {
+      enable = true;
+      ly.enable = true;
     };
     security.pam.services.ly.enableGnomeKeyring = lib.mkIf (
       config.services.displayManager.ly.enable && config.services.gnome.gnome-keyring.enable

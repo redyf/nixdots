@@ -1,4 +1,7 @@
+# Home Manager settings for the `desktop` host, whatever the user.
+# Imported by lib/mkHome.nix for every "<user>@desktop" configuration.
 _: {
+  # Monitor layout: DP-3 main, HDMI-A-3 rotated on the right.
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [

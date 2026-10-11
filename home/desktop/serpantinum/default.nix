@@ -17,7 +17,7 @@
       systemd.enable = true;
 
       settings = {
-        wallpaperDir = "/home/redyf/wallpapers";
+        wallpaperDir = "${config.home.homeDirectory}/wallpapers";
 
         general = {
           language = "en";

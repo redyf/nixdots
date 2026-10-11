@@ -14,7 +14,7 @@
   config = lib.mkIf config.gaming.enable {
     artix-game-launcher.enable = lib.mkDefault true;
     godot.enable = lib.mkDefault false;
-    hytale.enable = lib.mkDefault true;
+    hytale.enable = lib.mkDefault false;
     minecraft.enable = lib.mkDefault false;
     unity.enable = lib.mkDefault false;
   };

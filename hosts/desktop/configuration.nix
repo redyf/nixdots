@@ -1,18 +1,11 @@
 {
   config,
-  inputs,
-  lib,
   pkgs,
-  username,
-  homeDirectory,
   ...
 }:
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../../profiles/nixos/base.nix
-    ../../modules
-  ];
+  # Shared modules and profiles (roles) come from mkHost + meta.nix.
+  imports = [ ./hardware-configuration.nix ];
 
   # fileSystems."/mnt/windows" = {
   #   device = "UUID=F0FEDBD0FEDB8D6A";
@@ -30,10 +23,9 @@
   myConfig = {
     users = {
       enable = true;
-      username = "redyf";
       isNormalUser = true;
       description = "Desktop host"; # Optional - defaults to username if not specified
-      hashedPasswordFile = config.sops.secrets."users/redyf/password".path;
+      hashedPasswordFile = config.sops.secrets."users/${config.myConfig.users.username}/password".path;
       shell = pkgs.zsh;
 
       groups = {
@@ -53,6 +45,8 @@
       i3.enable = true;
       kde.enable = false;
       sway.enable = false;
+      # NOTE: autorandr below uses 180 Hz for the same output.
+      xserver.displaySetup = "xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary";
     };
 
     development = {
@@ -64,12 +58,8 @@
       gamescope.enable = true;
     };
 
-    hardware = {
-      enable = true;
-      nvidia.enable = true;
-    };
-
     services = {
+      autorandr.enable = true;
       fstrim.enable = true;
       jackett.enable = false;
     };
@@ -80,9 +70,11 @@
       intel.enable = true;
       kernel.enable = false;
       mime-types.enable = true;
-      nvibrant.enable = true;
       power-management.enable = true;
-      sops.enable = true;
+      sops = {
+        enable = true;
+        gitIdentity.enable = true;
+      };
       tailscale.enable = false;
     };
   };
@@ -104,7 +96,13 @@
     ];
   };
 
-  programs.serpantinum.enable = true;
+  services.autorandr.profiles.redyf.config.DP-0 = {
+    enable = true;
+    primary = true;
+    mode = "1920x1080";
+    rate = "180.00";
+    position = "0x0";
+  };
 
   system.stateVersion = "25.05"; # Don't change this
 }

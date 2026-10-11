@@ -18,14 +18,11 @@ in
         displayManager = {
           sessionCommands = ''
             xset r rate 150 30
-            xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary
+            ${cfg.displaySetup}
             nitrogen --restore
           '';
         };
-        xkb = {
-          layout = "us";
-          variant = "intl";
-        };
+        # xkb layout: set by modules/system/keymap.nix from meta.nix.
       };
     };
   };

@@ -174,7 +174,7 @@ Use `config.sops.secrets."api_keys/github".path` when a program needs the secret
 
 The Git module reads identity data from SOPS-rendered config files instead of hardcoding names or emails in the repo.
 
-Enable those rendered identities from a personal Home Manager user file:
+Enable the secrets on the host (`myConfig.system.sops.gitIdentity.enable = true;` in `hosts/<host>/configuration.nix`), then enable the rendered identities from a personal Home Manager user file:
 
 ```nix
 git = {
@@ -231,7 +231,7 @@ If the work repository uses a separate SSH key, make sure the private key exists
 
 ## Adding Another Host
 
-For another host, generate a new age key on that machine, install it the same way, and add a new creation rule:
+For another host, either generate a new age key on that machine and install it the same way, or (simpler, used by `selene`) derive the recipient from its SSH host key with `nix shell nixpkgs#ssh-to-age -c ssh-to-age < /etc/ssh/ssh_host_ed25519_key.pub` and set `myConfig.system.sops.keyFile = null;` on that host. Then add a new creation rule:
 
 ```yaml
 keys:
@@ -248,7 +248,7 @@ creation_rules:
           - *selene_user
 ```
 
-Then create `hosts/selene/secrets.yaml` with the same structure, enable `myConfig.system.sops.enable = true`, and point the user to `config.sops.secrets."users/selene/password".path`.
+Then create `hosts/selene/secrets.yaml` (only `users/<username>/password` is required; the `git` keys are needed only when `myConfig.system.sops.gitIdentity.enable` is on), enable `myConfig.system.sops.enable = true`, and set `myConfig.users.hashedPasswordFile = config.sops.secrets."users/${config.myConfig.users.username}/password".path`. Evaluation fails with a clear assertion if sops is enabled before the file exists.
 
 If you add the desktop key as a recipient for `selene`, you can edit `selene` secrets from the desktop, but a leaked desktop key would also decrypt those secrets.
 

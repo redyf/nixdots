@@ -8,24 +8,9 @@ let
   cfg = config.myConfig.services.autorandr;
 in
 {
+  # Monitor profiles are host-specific: set `services.autorandr.profiles` in
+  # hosts/<name>/configuration.nix.
   config = lib.mkIf (config.myConfig.services.enable && cfg.enable) {
-    services = {
-      autorandr = {
-        enable = true;
-        profiles = {
-          redyf = {
-            config = {
-              DP-0 = {
-                enable = true;
-                primary = true;
-                mode = "1920x1080";
-                rate = "180.00";
-                position = "0x0";
-              };
-            };
-          };
-        };
-      };
-    };
+    services.autorandr.enable = true;
   };
 }

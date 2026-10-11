@@ -1,7 +1,16 @@
+# Public age recipients only. Each host decrypts with its own private key in
+# /var/lib/sops-nix/key.txt (see docs/sops-setup.md).
 keys:
   - &desktop_mateus age12upw37y6ekmr5pxg0duu2kz92gg37jp904d62knhmrhrdlq80pusgnp8zd
+  - &selene age1zkq9tkguwdzcc38g9vqkycxc9z8q8mmc77h3kqd9xu7cfqh6c9lqr3z95q
 creation_rules:
   - path_regex: hosts/desktop/secrets\.yaml$
     key_groups:
       - age:
           - *desktop_mateus
+  # desktop_mateus is listed too so the file can be edited from the desktop.
+  - path_regex: hosts/selene/secrets\.yaml$
+    key_groups:
+      - age:
+          - *desktop_mateus
+          - *selene
