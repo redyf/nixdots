@@ -34,6 +34,8 @@
 
     services.fstrim.enable = false;
 
+    virtualization.virtualbox.enable = true;
+
     system = {
       amd.enable = true;
       intel.enable = false;

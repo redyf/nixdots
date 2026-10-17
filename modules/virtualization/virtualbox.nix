@@ -17,5 +17,7 @@ in
         };
       };
     };
+
+    users.extraGroups.vboxusers.members = [ config.myConfig.users.username ];
   };
 }
