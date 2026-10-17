@@ -10,7 +10,7 @@
   };
   config = lib.mkIf config.artix-game-launcher.enable {
     home.packages = [
-      pkgs.artix-games-launcher
+      (pkgs.callPackage ../../../../pkgs/artix-experimental-launcher.nix { })
     ];
   };
 }
