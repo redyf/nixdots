@@ -79,7 +79,11 @@
     };
   };
 
+  # Encrypt work data and credentials at rest; unlocked by the login password.
+  security.pam.enableFscrypt = true;
+
   environment.systemPackages = with pkgs; [
+    fscrypt-experimental
     mongodb
     mongosh
     mongodb-tools

@@ -97,7 +97,9 @@ in
             "kvm"
             "libvirtd"
           ])
-          ++ (lib.optionals gaming [ "gamemode" ])
+          ++ (lib.optionals gaming [
+            "gamemode"
+          ])
           ++ (lib.optionals cfg.groups.media [
             "audio"
             "video"

@@ -17,13 +17,13 @@
           lib.generators.mkLuaInline ''
             wezterm.font_with_fallback {
               {
-                family = 'Berkeley Mono',
-                weight = 'Medium',
-              },
-              {
                 family = 'MonoLisa',
                 weight = 'Medium',
                 harfbuzz_features = { 'ss02=1', 'ss07=1' },
+              },
+              {
+                family = 'Berkeley Mono',
+                weight = 'Medium',
               },
               {
                 family = 'TX-02',

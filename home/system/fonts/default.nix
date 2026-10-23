@@ -15,7 +15,6 @@
         inputs.font-flake.packages.${stdenv.hostPlatform.system}.monolisa
         inputs.font-flake.packages.${stdenv.hostPlatform.system}.tx02
         inputs.font-flake.packages.${stdenv.hostPlatform.system}.berkeley-mono
-        inputs.font-flake.packages.${stdenv.hostPlatform.system}.sf-mono
         nerd-fonts.jetbrains-mono
       ];
     };

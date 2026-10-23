@@ -51,8 +51,6 @@
       url = "github:JPyke3/hytale-launcher-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # No `follows`: upstream only tests against its own nixpkgs pin and
-    # cache.numtide.com only hits for that pin.
     llm-agents.url = "github:numtide/llm-agents.nix";
     serpantinum = {
       url = "github:ilyamiro/serpantinum";

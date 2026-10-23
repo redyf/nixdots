@@ -4,8 +4,10 @@
 
   myHomeConfig.apps = {
     media.enable = true;
-    security.enable = false;
+    security.enable = true;
   };
+
+  minecraft.enable = true;
 
   git = {
     sopsIdentity.enable = true;

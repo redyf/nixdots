@@ -16,7 +16,7 @@
   config = lib.mkIf config.development.enable {
     api-client.enable = lib.mkDefault true;
     database.enable = lib.mkDefault true;
-    inkdrop.enable = lib.mkDefault true;
+    inkdrop.enable = lib.mkDefault false;
     intellij.enable = lib.mkDefault false;
     obsidian.enable = lib.mkDefault true;
     rider.enable = lib.mkDefault false;

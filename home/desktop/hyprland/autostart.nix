@@ -15,9 +15,9 @@
               -- hl.exec_cmd("wl-paste --type text --watch cliphist store")
               -- hl.exec_cmd("wl-paste --type image --watch cliphist store")
               -- hl.exec_cmd("systemctl --user enable --now easyeffects")
+              -- hl.exec_cmd("obsidian")
               hl.exec_cmd("nvidia-settings -a '[gpu:0]/GpuPowerMizerMode=1'")
               hl.exec_cmd("nvibrant 0 512 700 0")
-              hl.exec_cmd("obsidian")
               hl.exec_cmd("systemctl --user enable --now easyeffects")
             end
           '')
