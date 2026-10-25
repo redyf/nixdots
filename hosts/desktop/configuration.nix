@@ -75,6 +75,8 @@
       };
       tailscale.enable = false;
     };
+
+    virtualization.virtualbox.enable = true;
   };
 
   # Encrypt work data and credentials at rest; unlocked by the login password.
