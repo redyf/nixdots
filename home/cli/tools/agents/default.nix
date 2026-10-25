@@ -22,7 +22,7 @@ in
         pi
       ])
       ++ (with pkgs; [
-        mcp-nixos
+        # mcp-nixos: broken in nixpkgs (fastmcp-slim needs mcp < 2); re-add once fixed
         rtk
         terraform-mcp-server
         ketch
