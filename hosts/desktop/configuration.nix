@@ -65,8 +65,6 @@
     };
 
     system = {
-      ananicy.enable = false;
-      cachy.enable = false;
       intel.enable = true;
       kernel.enable = false;
       mime-types.enable = true;

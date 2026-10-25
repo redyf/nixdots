@@ -8,20 +8,12 @@
       enable = lib.mkEnableOption "Enable amd module";
     };
 
-    ananicy = {
-      enable = lib.mkEnableOption "Enable ananicy daemon";
-    };
-
     audio = {
       enable = lib.mkEnableOption "Enable audio";
     };
 
     boot = {
       enable = lib.mkEnableOption "Enable boot";
-    };
-
-    cachy = {
-      enable = lib.mkEnableOption "Enable CachyOS Kernel";
     };
 
     environment = {
@@ -108,10 +100,8 @@
 
   imports = [
     ./amd.nix
-    ./ananicy.nix
     ./audio.nix
     ./boot.nix
-    ./cachy.nix
     ./environment.nix
     ./graphics.nix
     ./intel.nix

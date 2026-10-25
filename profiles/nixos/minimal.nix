@@ -59,10 +59,8 @@
     system = {
       enable = lib.mkDefault true;
       amd.enable = lib.mkDefault false;
-      ananicy.enable = lib.mkDefault false;
       audio.enable = lib.mkDefault true;
       boot.enable = lib.mkDefault false;
-      cachy.enable = lib.mkDefault false;
       environment.enable = lib.mkDefault true;
       graphics.enable = lib.mkDefault true;
       intel.enable = lib.mkDefault false;
