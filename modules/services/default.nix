@@ -21,6 +21,9 @@
     jackett = {
       enable = lib.mkEnableOption "Enable jackett";
     };
+    nuvio = {
+      enable = lib.mkEnableOption "Enable Nuvio media app";
+    };
     tlp = {
       enable = lib.mkEnableOption "Enable tlp";
     };
@@ -36,6 +39,7 @@
     ./fstrim.nix
     ./input.nix
     ./jackett.nix
+    ./nuvio.nix
     ./tlp.nix
     ./upower.nix
   ];
