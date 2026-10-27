@@ -6,10 +6,13 @@
   ...
 }:
 {
+  imports = [ ./nuvio ];
+
   options = {
     media.enable = lib.mkEnableOption "Enable media module";
   };
   config = lib.mkIf config.media.enable {
+    nuvio.enable = lib.mkDefault false;
     programs.obs-studio = {
       enable = true;
       package = pkgs.obs-studio.override { cudaSupport = true; };

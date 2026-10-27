@@ -8,6 +8,7 @@
   };
 
   minecraft.enable = true;
+  nuvio.enable = true;
 
   git = {
     sopsIdentity.enable = true;
