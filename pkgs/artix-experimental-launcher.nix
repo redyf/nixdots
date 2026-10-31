@@ -7,12 +7,12 @@
 
 let
   pname = "artix-experimental-launcher";
-  version = "2.1.0";
+  version = "3.5.0";
 
   # The download is a zip holding a single AppImage.
   zip = fetchzip {
     url = "https://chaoslabs.artix.com/Ruffle/${version}/ArtixGamesLauncher-Ruffle-${version}-linux-x64.zip";
-    hash = "sha256-Kut5DU+ex9vuFg+ublZ7J73Ri3drSnfLfSuSABjgQjU=";
+    hash = "sha256-8Xt+oL8PFCqhZNe8k/OgG22heMU8tzjS+td5fuv0OEM=";
     stripRoot = false;
   };
 
