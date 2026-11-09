@@ -18,23 +18,5 @@
         nerd-fonts.jetbrains-mono
       ];
     };
-    fonts.fontconfig = {
-      enable = true;
-      configFile."sfmono-hinting.conf" = {
-        enable = true;
-        text = ''
-          <?xml version="1.0"?>
-          <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
-          <fontconfig>
-            <match target="font">
-              <test name="family"><string>Liga SFMono Nerd Font</string></test>
-              <edit name="autohint" mode="assign"><bool>true</bool></edit>
-              <edit name="hinting" mode="assign"><bool>true</bool></edit>
-              <edit name="hintstyle" mode="assign"><const>hintslight</const></edit>
-            </match>
-          </fontconfig>
-        '';
-      };
-    };
   };
 }

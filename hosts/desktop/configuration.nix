@@ -45,12 +45,11 @@
       i3.enable = true;
       kde.enable = false;
       sway.enable = false;
-      # NOTE: autorandr below uses 180 Hz for the same output.
       xserver.displaySetup = "xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary";
     };
 
     development = {
-      localstack.enable = true;
+      localstack.enable = false;
       terraform.enable = true;
     };
 
@@ -73,7 +72,7 @@
         enable = true;
         gitIdentity.enable = true;
       };
-      tailscale.enable = false;
+      tailscale.enable = true;
     };
   };
 
