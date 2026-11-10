@@ -20,14 +20,6 @@
         content = {
           type = "gpt";
           partitions = {
-            # Compared to MBR, GPT partition table doesn't reserve space for MBR
-            # boot record. We need to reserve the first 1MB for MBR boot record,
-            # so Grub can be installed here.
-            boot = {
-              name = "boot";
-              size = "1M";
-              type = "EF02";
-            };
             esp = {
               name = "ESP";
               size = "1024M";
