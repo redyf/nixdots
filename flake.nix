@@ -77,7 +77,12 @@
       );
     in
     {
-      inherit (myLib) nixosConfigurations homeConfigurations;
+      inherit (myLib)
+        nixosConfigurations
+        homeConfigurations
+        overlays
+        packages
+        ;
 
       devShells = forAllSystems (
         system:

@@ -10,13 +10,13 @@
 stdenv.mkDerivation {
   name = "realvnc-viewer";
   src =
-    if stdenv.isAarch64 then
+    if stdenv.hostPlatform.isAarch64 then
       fetchurl {
         url = "https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.12.0-Linux-ARM64";
         sha256 = "sha256-r/eDIwIrAO/0vyGE/zloJG/sA7tqotJQCkXtpnoO1WE=";
       }
     else
-      stdenv.stdenv.isx86_64 {
+      fetchurl {
         url = "https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.12.0-Linux-x64";
         sha256 = "sha256-mFWdM6kYO0LZxF0vsEn4LRBj2hgzgvUqiWDEzMfwBzE=";
       };

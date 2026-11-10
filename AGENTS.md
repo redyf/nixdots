@@ -14,7 +14,7 @@
 - `lib/mkHome.nix` imports `home/` for every user (every directory with a `default.nix` is a module). `users/<name>.nix` holds per-user differences and imports `profiles/home/common.nix` (personal users) or `profiles/home/minimal.nix` (example). `hosts/<hostname>/home.nix` (optional) holds per-machine user settings such as monitor layouts. NixOS and HM modules receive `hostname`, `username`, `homeDirectory`, `keyboard` and `theme` (`theme.nix`) as module arguments.
 - `profiles/nixos/` holds roles: `common` (every personal host), `workstation` (graphical), `gaming`, `dev`, `laptop`, `nvidia` (desktop only), and `minimal` (public example). Host files should only override or add host-specific choices (monitors, disks, hardware).
 - `myConfig.*` is the NixOS module namespace; `myHomeConfig.*` is the Home Manager namespace. Each module declares its own `enable` option at the path matching its file (`modules/services/tlp.nix` → `myConfig.services.tlp.enable`); there are no category-level `enable` switches, so profiles list the leaves they want.
-- `pkgs/*.nix` holds custom packages, called from home modules via `callPackage ../../../../pkgs/<name>.nix`.
+- `pkgs/<name>/package.nix` holds custom packages. `lib/default.nix` turns them into an overlay (`overlays.default`, applied by `mkHost` and `mkHome`), so modules use `pkgs.<name>`, and into the `packages` flake output.
 
 ## Commands
 - `nh os switch` is the preferred rebuild command on the desktop host.

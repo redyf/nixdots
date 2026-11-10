@@ -107,13 +107,11 @@ Regras:
 - [x] Único uso no nosso código era o displayManager. `pkgs/real-vnc-viewer.nix` ainda usa `stdenv.isAarch64` (ignorado: decisão de não mexer em `pkgs/`). O aviso `stdenv.isx86_64 is deprecated` vinha desse displayManager e sumiu.
 - [x] Removida a checagem; ly roda em qualquer Linux. `modules/services/displayManager.nix:15` checa `isx86_64`, então em aarch64 o display manager fica desligado sem aviso. Remover a checagem, ou usar `assert`/`warnings`.
 - [~] Overlay apagado no P0. `overlays/bun.nix:6` tem `linux-x64` fixo. Derivar da plataforma.
-- [ ] Quando houver host ARM: `boot.binfmt.emulatedSystems = [ "aarch64-linux" ]` no desktop para builds ocasionais, e `nixos-rebuild --target-host` para deploy. deploy-rs ou colmena só se passar de ~3 hosts remotos.
-- [ ] Darwin: deixar para quando houver um Mac. Seria um `lib/mkDarwin.nix` paralelo ao `mkHost`. O HM standalone continua funcionando lá.
 
 ### P7: pacotes e overlays como outputs
-- [ ] Reorganizar para `pkgs/<nome>/package.nix`. Expor `packages = forAllSystems (s: lib.packagesFromDirectoryRecursive { callPackage = pkgs.callPackage; directory = ./pkgs; })`.
-- [ ] `overlays.default = final: prev: { ...pacotes locais... }`. Aplicar via `lib` em mkHost e mkHome.
-- [ ] Trocar `callPackage ../../../../pkgs/cymbal.nix` (`home/cli/tools/cymbal/default.nix:13`) por `pkgs.cymbal`.
+- [x] Reorganizado para `pkgs/<nome>/package.nix`, exposto em `packages` (`lib.packagesFromDirectoryRecursive`).
+- [x] `overlays.default` aplicado em `mkHost` e `mkHome`.
+- [x] Os módulos HM usam `pkgs.cymbal`, `pkgs.inkdrop` e `pkgs.artix-experimental-launcher`.
 
 ### P8: secrets
 - [x] `.sops.yaml` ganhou a chave `selene` e uma regra para `hosts/selene/secrets.yaml` (destinatários: `desktop_mateus` + `selene`, para editar dos dois lados). O fluxo continua sendo chave age por host em `/var/lib/sops-nix/key.txt`.

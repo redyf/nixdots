@@ -110,6 +110,7 @@ This repo uses `sops-nix` for encrypted secrets, including the desktop user pass
 - `users/<name>.nix` holds per-user Home Manager settings; `hosts/<name>/home.nix` (optional) holds per-machine ones such as monitor layouts.
 - `hosts/example` and `users/example.nix` are the recommended starting points for users testing this repo.
 - `ci/font-flake-fallback` provides a public font fallback for unauthenticated builds.
+- `pkgs/<name>/package.nix` holds custom packages, exposed as `pkgs.<name>` in every configuration and as the flake's `packages` / `overlays.default`.
 - `lib/` contains helper functions used to create hosts and home configurations.
 
 ## Extending the config
@@ -139,6 +140,10 @@ Turn it on from a role in `profiles/nixos/<role>.nix` with `lib.mkDefault true`,
 ### Add a Home Manager module
 
 Create `home/<group>/<name>/default.nix` with the same shape, using `myHomeConfig.<group>.<name>.enable`. A directory with a `default.nix` is one module, so helper files can live next to it. Enable it in `profiles/home/common.nix` (shared) or `users/<user>.nix` (one user).
+
+### Add a package
+
+Create `pkgs/<name>/package.nix` (a `callPackage`-style function) and `git add` it. It is available as `pkgs.<name>` in NixOS and Home Manager modules, and builds with `nix build .#<name>`.
 
 ### Add a host
 

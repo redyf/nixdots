@@ -7,8 +7,6 @@
 {
   options.myHomeConfig.apps.development.inkdrop.enable = lib.mkEnableOption "inkdrop";
   config = lib.mkIf config.myHomeConfig.apps.development.inkdrop.enable {
-    home.packages = [
-      (pkgs.callPackage ../../../../pkgs/inkdrop.nix { })
-    ];
+    home.packages = [ pkgs.inkdrop ];
   };
 }

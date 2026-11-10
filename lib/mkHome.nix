@@ -1,6 +1,7 @@
 {
   inputs,
   specialArgs,
+  overlay,
 }:
 {
   hostname,
@@ -30,7 +31,10 @@ inputs.home-manager.lib.homeManagerConfiguration {
         stateVersion = "25.05";
         sessionPath = [ "$HOME/.local/bin" ];
       };
-      nixpkgs.config = import ./nixpkgs-config.nix;
+      nixpkgs = {
+        config = import ./nixpkgs-config.nix;
+        overlays = [ overlay ];
+      };
       programs.home-manager.enable = true;
     }
   ];

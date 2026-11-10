@@ -20,8 +20,16 @@ let
       "roles"
     ];
 
-  mkHost = import ./mkHost.nix { inherit inputs specialArgs; };
-  mkHome = import ./mkHome.nix { inherit inputs specialArgs; };
+  # Local packages: pkgs/<name>/package.nix becomes pkgs.<name>.
+  overlay =
+    final: _prev:
+    lib.packagesFromDirectoryRecursive {
+      inherit (final) callPackage;
+      directory = ../pkgs;
+    };
+
+  mkHost = import ./mkHost.nix { inherit inputs specialArgs overlay; };
+  mkHome = import ./mkHome.nix { inherit inputs specialArgs overlay; };
 
   # One Home Manager configuration per host, keyed "<username>@<hostname>"
   # (the name `home-manager` and `nh home switch` try first). The user needs a
@@ -30,6 +38,17 @@ let
 in
 {
   forAllSystems = lib.genAttrs systems;
+  overlays.default = overlay;
+  packages = lib.genAttrs systems (
+    system:
+    let
+      pkgs = import nixpkgs {
+        inherit system;
+        config = import ./nixpkgs-config.nix;
+      };
+    in
+    overlay pkgs pkgs
+  );
   nixosConfigurations = lib.mapAttrs (_: mkHost) hosts;
   homeConfigurations = lib.mapAttrs' (
     hostname: host: lib.nameValuePair "${host.username}@${hostname}" (mkHome host)

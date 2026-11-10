@@ -1,6 +1,7 @@
 {
   inputs,
   specialArgs,
+  overlay,
 }:
 {
   hostname,
@@ -16,6 +17,7 @@ inputs.nixpkgs.lib.nixosSystem {
       nixpkgs = {
         hostPlatform = system;
         config = import ./nixpkgs-config.nix;
+        overlays = [ overlay ];
       };
       networking.hostName = hostname;
     }
