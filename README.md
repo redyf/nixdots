@@ -112,6 +112,60 @@ This repo uses `sops-nix` for encrypted secrets, including the desktop user pass
 - `ci/font-flake-fallback` provides a public font fallback for unauthenticated builds.
 - `lib/` contains helper functions used to create hosts and home configurations.
 
+## Extending the config
+
+Flakes only see files tracked by git, so `git add` new files before building.
+
+### Add a NixOS module
+
+Create `modules/<dir>/<name>.nix`. It is imported automatically; nothing else needs editing.
+
+```nix
+{ config, lib, ... }:
+let
+  cfg = config.myConfig.<dir>.<name>;
+in
+{
+  options.myConfig.<dir>.<name>.enable = lib.mkEnableOption "<what it does>";
+
+  config = lib.mkIf cfg.enable {
+    # ...
+  };
+}
+```
+
+Turn it on from a role in `profiles/nixos/<role>.nix` with `lib.mkDefault true`, or from a host's `configuration.nix` with a plain `true`.
+
+### Add a Home Manager module
+
+Create `home/<group>/<name>/default.nix` with the same shape, using `myHomeConfig.<group>.<name>.enable`. A directory with a `default.nix` is one module, so helper files can live next to it. Enable it in `profiles/home/common.nix` (shared) or `users/<user>.nix` (one user).
+
+### Add a host
+
+1. Create `hosts/<name>/` with:
+   - `meta.nix`: `username`, `system`, `roles` and optionally `keyboard = { layout; variant; }`.
+   - `configuration.nix`: imports the generated `hardware-configuration.nix` and holds only host-specific choices.
+   - optional `disko.nix`, `secrets.yaml` (plus a rule in `.sops.yaml`) and `home.nix` (per-machine Home Manager settings such as monitor layouts).
+2. If `username` is new, add `users/<username>.nix` (see below). Without it the host still gets a NixOS configuration, but no Home Manager one.
+3. Build it with `nh os switch .` (or `sudo nixos-rebuild switch --flake '.#<name>'`) and `nh home switch .`.
+
+`hosts/example` is the smallest working reference.
+
+### Add a user
+
+Create `users/<name>.nix` that imports `profiles/home/common.nix` (full setup) or `profiles/home/minimal.nix` (no GUI) and sets only what differs. Point a host at it with `username` in that host's `meta.nix`.
+
+### Dependencies between the NixOS and Home Manager layers
+
+Home Manager runs standalone, so it cannot see the NixOS configuration, and nothing checks that the two agree. Keep these pairs in sync:
+
+- `profiles/home/common.nix` enables `hyprland`, `serpantinum`, `stylix-theme` and `gtk-theme`. They assume the host has the `workstation` role (NixOS Hyprland, `programs.serpantinum` and `myConfig.themes.stylix`).
+- `cli.tools.tmux` reads colours from Stylix, so it needs `desktop.stylix-theme` enabled.
+- `cli.tools.git.sopsIdentity` needs `myConfig.system.sops.gitIdentity.enable` on the host.
+- The Hyprland monitor names in `hosts/<name>/home.nix` must match the outputs of that machine.
+
+If many features start to need NixOS and Home Manager changes together, the [dendritic pattern](https://github.com/mightyiam/dendritic) (one file per feature that defines both sides, built on `flake-parts`) would be worth revisiting. For a few hosts the current split is simpler to read.
+
 ## Private Font
 
 The public default uses a local fallback flake that exposes every private font (`tx02`, `monolisa`, `berkeley-mono`, `sf-mono`) as JetBrains Mono. To use the private font flake locally, override the input:
