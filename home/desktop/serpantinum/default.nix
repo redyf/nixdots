@@ -2,8 +2,17 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }:
+let
+  base = inputs.serpantinum.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  # Upstream serpantinum-core links -lsqlite3 but does not declare sqlite.
+  core = base.serpantinum-core.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
+    buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.sqlite ];
+  });
+in
 {
   imports = [
     inputs.serpantinum.homeManagerModules.default
@@ -14,6 +23,7 @@
   config = lib.mkIf config.serpantinum.enable {
     programs.serpantinum = {
       enable = true;
+      package = base.override { serpantinum-core = core; };
       systemd.enable = true;
 
       settings = {
