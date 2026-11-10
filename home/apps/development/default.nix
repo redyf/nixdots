@@ -1,7 +1,6 @@
 { lib, config, ... }:
 {
   imports = [
-    ./api-client
     ./db
     ./inkdrop
     ./intellij
@@ -14,7 +13,6 @@
     development.enable = lib.mkEnableOption "Enable development module";
   };
   config = lib.mkIf config.development.enable {
-    api-client.enable = lib.mkDefault true;
     database.enable = lib.mkDefault true;
     inkdrop.enable = lib.mkDefault false;
     intellij.enable = lib.mkDefault false;
