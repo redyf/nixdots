@@ -12,7 +12,7 @@
       enable = true;
       settings = {
         default_cursor_style = "SteadyBlock";
-        font_size = lib.mkForce 14.0;
+        font_size = lib.mkForce 12.0;
         font = lib.mkForce (
           lib.generators.mkLuaInline ''
             wezterm.font_with_fallback {
