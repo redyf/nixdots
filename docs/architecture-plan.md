@@ -59,7 +59,7 @@ Regras:
   - **Removido:** `claude-code`: o pacote vem do `llm-agents`.
   - **Mantido** (decisão do usuário): `hyprland`: o pacote vem de `pkgs.hyprland`, então o cache `hyprland.cachix.org` não ajuda.
 - [x] `follows` adicionado em `serpantinum` e `hytale-launcher`. `llm-agents` fica **sem** follows: o README dele avisa que só testa contra o próprio pin e o cache `cache.numtide.com` só funciona assim.
-- [ ] **Pendente:** arquivo só existe no checkout principal (não rastreado). Apagar `flake.lock.backup`, ou adicionar no `.gitignore`.
+- [x] `flake.lock.backup` não existe mais no checkout principal.
 - [x] `CLAUDE.md` novo só importa `@AGENTS.md`. O `CLAUDE.md` antigo (não rastreado) no checkout principal precisa ser apagado antes do merge.
 - [x] Corrigir o README: tirar `rpi-example` (seção RPi inteira, já marcada como quebrada) e `--recurse-submodules` (`:180`).
 - [x] Corrigir as descrições copiadas de "Enable displayManager" em `modules/services/default.nix:7,13,16,19`.
@@ -93,7 +93,7 @@ Regras:
   - Achado: o módulo NixOS do serpantinum liga `power-profiles-daemon` (mkDefault), que conflita com TLP. O módulo `tlp` agora desliga o ppd. O usuário confirmou que manter o TLP é o certo (os widgets do serpantinum usam TLP).
 - [~] **Mantido como está** (decisão do usuário). Disko: o `mkHost` nunca passa `device`, mas os dois `disko.nix` usam `device ? throw`. Ler `device` do `meta.nix`. Padronizar a estratégia: hoje o desktop usa `enableConfig = false`.
 - [ ] `hosts/desktop/disko.nix:26-30` tem partição BIOS (EF02) e ESP juntas, com GRUB EFI e `device = "nodev"`. Revisar antes de reinstalar.
-- [ ] `hosts/selene/hardware-configuration.nix` parece gerado numa VM: tem virtio, `kvm-intel` em CPU AMD, e não tem `not-detected.nix`. Regerar com `nixos-generate-config` no notebook real.
+- [x] `hosts/selene/hardware-configuration.nix` regerado com `nixos-generate-config --show-hardware-config --no-filesystems` no notebook (sem `fileSystems`, que vêm do disko).
 
 ### P5: home-manager standalone por host
 - [x] Chaves agora são `redyf@desktop`, `selene@selene` e `example@example`. Confirmado no `--help` do nh 4.4.2: sem `-c`, ele tenta `<username>@<hostname>` e depois `<username>`. As chaves antigas só com o nome do usuário foram removidas.
