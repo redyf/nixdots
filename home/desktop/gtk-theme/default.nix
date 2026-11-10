@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    gtk-theme.enable = lib.mkEnableOption "Enable gtk module";
-  };
-  config = lib.mkIf config.gtk-theme.enable {
+  options.myHomeConfig.desktop.gtk-theme.enable = lib.mkEnableOption "gtk";
+  config = lib.mkIf config.myHomeConfig.desktop.gtk-theme.enable {
     gtk = {
       enable = true;
       iconTheme = {

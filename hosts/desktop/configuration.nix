@@ -1,71 +1,35 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   # Shared modules and profiles (roles) come from mkHost + meta.nix.
   imports = [ ./hardware-configuration.nix ];
 
-  # fileSystems."/mnt/windows" = {
-  #   device = "UUID=F0FEDBD0FEDB8D6A";
-  #   fsType = "ntfs";
-  #   options = [
-  #     "uid=1000"
-  #     "gid=100"
-  #     "umask=022"
-  #     "rw"
-  #     "nofail"
-  #   ];
-  # };
-
-  # Configure the user with specific groups
   myConfig = {
     users = {
-      enable = true;
-      isNormalUser = true;
-      description = "Desktop host"; # Optional - defaults to username if not specified
-      hashedPasswordFile = config.sops.secrets."users/${config.myConfig.users.username}/password".path;
-      shell = pkgs.zsh;
-
+      description = "Desktop host";
       groups = {
-        # development = true;
         virtualisation = true;
-        # media = true;
         input = true;
       };
     };
 
-    cli = {
-      appimage.enable = true;
-    };
+    cli.appimage.enable = true;
 
     desktop = {
-      gnome.enable = false;
       i3.enable = true;
-      kde.enable = false;
-      sway.enable = false;
       xserver.displaySetup = "xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary";
     };
 
-    development = {
-      localstack.enable = false;
-      terraform.enable = true;
-    };
+    development.terraform.enable = true;
 
-    gaming = {
-      gamescope.enable = true;
-    };
+    gaming.gamescope.enable = true;
 
     services = {
       autorandr.enable = true;
       fstrim.enable = true;
-      jackett.enable = false;
     };
 
     system = {
       intel.enable = true;
-      kernel.enable = false;
       mime-types.enable = true;
       power-management.enable = true;
       sops = {

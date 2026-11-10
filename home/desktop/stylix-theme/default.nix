@@ -3,38 +3,26 @@
   pkgs,
   lib,
   config,
+  theme,
   ...
 }:
-let
-  themes = {
-    catppuccin-mocha = "catppuccin-mocha";
-    catppuccin-macchiato = "catppuccin-macchiato";
-    oxocarbon-dark = "oxocarbon-dark";
-    tokyo-night-moon = "tokyo-night-moon";
-    tokyo-night-dark = "tokyo-night-dark";
-    tokyo-night-storm = "tokyo-night-storm";
-  };
-in
 {
-  options = {
-    stylix-theme.enable = lib.mkEnableOption "Enable stylix home module";
-  };
-  config = lib.mkIf config.stylix-theme.enable {
+  options.myHomeConfig.desktop.stylix-theme.enable = lib.mkEnableOption "stylix home";
+  config = lib.mkIf config.myHomeConfig.desktop.stylix-theme.enable {
     stylix = {
       enable = true;
-      polarity = "dark";
+      inherit (theme) polarity;
       cursor = {
-        name = "macOS";
+        inherit (theme.cursor) name size;
         package = pkgs.apple-cursor;
-        size = 36;
       };
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-macchiato}.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme.scheme}.yaml";
       fonts = {
         monospace = {
           package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
           name = "MonoLisa";
         };
-        sizes.terminal = 18;
+        sizes.terminal = theme.terminalFontSize;
       };
       targets = {
         bat.enable = true;

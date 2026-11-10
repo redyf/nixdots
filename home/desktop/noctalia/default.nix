@@ -9,10 +9,8 @@
   imports = [
     inputs.noctalia-shell.homeModules.default
   ];
-  options = {
-    noctalia.enable = lib.mkEnableOption "Enable Noctalia Shell module";
-  };
-  config = lib.mkIf config.noctalia.enable {
+  options.myHomeConfig.desktop.noctalia.enable = lib.mkEnableOption "Noctalia Shell";
+  config = lib.mkIf config.myHomeConfig.desktop.noctalia.enable {
     programs.noctalia-shell = {
       enable = true;
       settings = {

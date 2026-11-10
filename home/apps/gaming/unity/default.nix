@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    unity.enable = lib.mkEnableOption "Enable Unity module";
-  };
-  config = lib.mkIf config.unity.enable {
+  options.myHomeConfig.apps.gaming.unity.enable = lib.mkEnableOption "Unity";
+  config = lib.mkIf config.myHomeConfig.apps.gaming.unity.enable {
     home = {
       packages = [
         pkgs.unityhub

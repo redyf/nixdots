@@ -11,10 +11,8 @@ let
   primaryTmux = import ./primary-tmux.nix { inherit pkgs; };
 in
 {
-  options = {
-    tmux.enable = lib.mkEnableOption "Enable tmux module";
-  };
-  config = lib.mkIf config.tmux.enable {
+  options.myHomeConfig.cli.tools.tmux.enable = lib.mkEnableOption "tmux";
+  config = lib.mkIf config.myHomeConfig.cli.tools.tmux.enable {
     programs.tmux = {
       enable = true;
       clock24 = true;
@@ -58,9 +56,6 @@ in
         bind -T copy-mode-vi v send-keys -X begin-selection
         bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
         bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-
-        # Tmux popups
-        # bind -n C-p display-popup -w 90 -h 30 -E "zsh"
 
         unbind p
 

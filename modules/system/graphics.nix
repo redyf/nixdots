@@ -8,7 +8,10 @@ let
   cfg = config.myConfig.system.graphics;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.graphics.enable =
+    lib.mkEnableOption "hardware.graphics (GPU acceleration, 32-bit included)";
+
+  config = lib.mkIf cfg.enable {
     hardware = {
       graphics = {
         enable = true;

@@ -8,13 +8,20 @@ let
   cfg = config.myConfig.desktop.xserver;
 in
 {
-  config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
+  options.myConfig.desktop.xserver = {
+    enable = lib.mkEnableOption "xserver";
+    displaySetup = lib.mkOption {
+      type = lib.types.lines;
+      default = "";
+      example = "xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary";
+      description = "Host-specific monitor commands run at X session start (e.g. xrandr).";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
     services = {
       xserver = {
         enable = true;
-        windowManager = {
-          awesome.enable = false;
-        };
         displayManager = {
           sessionCommands = ''
             xset r rate 150 30

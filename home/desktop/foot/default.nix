@@ -1,14 +1,11 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 {
-  options = {
-    foot.enable = lib.mkEnableOption "Enable foo term module";
-  };
-  config = lib.mkIf config.foot.enable {
+  options.myHomeConfig.desktop.foot.enable = lib.mkEnableOption "foo term";
+  config = lib.mkIf config.myHomeConfig.desktop.foot.enable {
     programs.foot = {
       enable = true;
       settings = {

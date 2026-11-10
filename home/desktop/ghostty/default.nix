@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   config,
   pkgs,
@@ -17,10 +16,8 @@ let
   };
 in
 {
-  options = {
-    ghostty.enable = lib.mkEnableOption "Enable ghostty module";
-  };
-  config = lib.mkIf config.ghostty.enable {
+  options.myHomeConfig.desktop.ghostty.enable = lib.mkEnableOption "ghostty";
+  config = lib.mkIf config.myHomeConfig.desktop.ghostty.enable {
     # nixpkgs.overlays = [ ghostty-wrapped-overlay ];
     programs.ghostty = {
       enable = true;

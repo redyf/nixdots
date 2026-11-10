@@ -4,10 +4,8 @@
   ...
 }:
 {
-  options = {
-    ripgrep.enable = lib.mkEnableOption "Enable ripgrep module";
-  };
-  config = lib.mkIf config.ripgrep.enable {
+  options.myHomeConfig.cli.tools.ripgrep.enable = lib.mkEnableOption "ripgrep";
+  config = lib.mkIf config.myHomeConfig.cli.tools.ripgrep.enable {
     programs.ripgrep = {
       enable = true;
     };

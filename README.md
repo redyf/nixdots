@@ -31,7 +31,7 @@
  -----------------------------------
  ╭─ Distro  -> NixOS
  ├─ Editor  -> Neovim
- ├─ Browser -> Zen
+ ├─ Browser -> Brave
  ├─ Shell   -> Zsh
  ╰─ Resource Monitor -> Btop
  ╭─ Model -> DELL XPS 8940
@@ -40,9 +40,9 @@
  ╰─ Resolution -> 1920x1080@165hz
  ╭─ WM       -> Hyprland
  ├─ Terminal -> Ghostty
- ├─ Theme    -> Tokyonight
+ ├─ Theme    -> Catppuccin Macchiato
  ├─ Icons    -> Papirus-Dark
- ├─ Font     -> TX-02
+ ├─ Font     -> MonoLisa
  ╰─ Hotel    -> Trivago
                         
 ```
@@ -104,10 +104,11 @@ This repo uses `sops-nix` for encrypted secrets, including the desktop user pass
 - `flake.nix` discovers NixOS hosts from `hosts/*` and builds one Home Manager configuration per host, named `<username>@<hostname>` (e.g. `selene@selene`). `nh home switch` picks it automatically.
 - `hosts/<name>/configuration.nix` contains host-specific system settings.
 - `profiles/` contains shared defaults imported by hosts.
-- `profiles/nixos/` holds roles (`common`, `workstation`, `gaming`, `dev`, `laptop`, `minimal`) that hosts list in `meta.nix`. `profiles/home/minimal.nix` provides safer public Home Manager defaults.
-- `modules/` contains reusable NixOS modules exposed under `myConfig`.
-- `home/` contains reusable Home Manager modules exposed under `myHomeConfig`.
-- `hosts/example` and `home/users/example.nix` are the recommended starting points for users testing this repo.
+- `profiles/nixos/` holds roles (`common`, `workstation`, `gaming`, `dev`, `laptop`, `nvidia`, `minimal`) that hosts list in `meta.nix`. `profiles/home/minimal.nix` provides safer public Home Manager defaults.
+- `modules/` contains reusable NixOS modules exposed under `myConfig`. Every `.nix` file there is imported automatically and declares its own `myConfig.<dir>.<name>.enable`.
+- `home/` contains reusable Home Manager modules exposed under `myHomeConfig`. Every directory with a `default.nix` is imported automatically and declares its own `myHomeConfig.<path>.enable`.
+- `users/<name>.nix` holds per-user Home Manager settings; `hosts/<name>/home.nix` (optional) holds per-machine ones such as monitor layouts.
+- `hosts/example` and `users/example.nix` are the recommended starting points for users testing this repo.
 - `ci/font-flake-fallback` provides a public font fallback for unauthenticated builds.
 - `lib/` contains helper functions used to create hosts and home configurations.
 
@@ -189,7 +190,7 @@ cd /mnt/etc/nixos
 # Install my personal desktop config only after adapting hardware and secrets:
 nixos-install --flake '.#desktop'
 # Obs:
-If you'd like to use my config as a template, copy `hosts/example` and `home/users/example.nix`, then update the matching metadata in `hosts/<name>/meta.nix`.
+If you'd like to use my config as a template, copy `hosts/example` and `users/example.nix`, then update the matching metadata in `hosts/<name>/meta.nix`.
 ```
 
 </details>
@@ -202,10 +203,10 @@ Disko is also available for formatting partitions (Only for advanced users)
 
 Disko commands are destructive. Always pass the target disk explicitly and verify it with `lsblk` first.
 
-If you save disko's config file in **./disks/default.nix**, and run the following command:
+If you run disko against **hosts/\<host\>/disko.nix**, the command looks like this:
 
 ```nix
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disks/default.nix --arg device '/dev/nvme0n1'
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./hosts/desktop/disko.nix --arg device '/dev/nvme0n1'
 ```
 
 you will partition, format and mount the disk for /dev/nvme0n1 (change as needed).

@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.system.ssh;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.ssh.enable = lib.mkEnableOption "ssh";
+
+  config = lib.mkIf cfg.enable {
     services = {
       openssh = {
         enable = true;

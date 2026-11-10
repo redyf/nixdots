@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    security.enable = lib.mkEnableOption "Enable security module";
-  };
-  config = lib.mkIf config.security.enable {
+  options.myHomeConfig.apps.security.enable = lib.mkEnableOption "security";
+  config = lib.mkIf config.myHomeConfig.apps.security.enable {
     home.packages = with pkgs; [
       bitwarden-desktop
     ];

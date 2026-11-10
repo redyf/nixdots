@@ -3,18 +3,13 @@
 {
   myConfig = {
     cli = {
-      enable = lib.mkDefault true;
       nh.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
     };
 
-    nix = {
-      enable = lib.mkDefault true;
-      nix.enable = lib.mkDefault true;
-    };
+    nix.enable = lib.mkDefault true;
 
     system = {
-      enable = lib.mkDefault true;
       boot.enable = lib.mkDefault true;
       environment.enable = lib.mkDefault true;
       graphics.enable = lib.mkDefault true;

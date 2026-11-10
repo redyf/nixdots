@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    wofi.enable = lib.mkEnableOption "Enable wofi module";
-  };
-  config = lib.mkIf config.wofi.enable {
+  options.myHomeConfig.desktop.wofi.enable = lib.mkEnableOption "wofi";
+  config = lib.mkIf config.myHomeConfig.desktop.wofi.enable {
     home = {
       packages = with pkgs; [
         wofi

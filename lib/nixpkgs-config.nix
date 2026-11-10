@@ -1,5 +1,3 @@
-# Single nixpkgs `config` shared by every NixOS host (mkHost) and every
-# Home Manager configuration (mkHome).
 {
   allowUnfree = true;
   permittedInsecurePackages = [

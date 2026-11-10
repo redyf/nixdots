@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    caelestia.enable = lib.mkEnableOption "Enable caelestia module";
-  };
-  config = lib.mkIf config.caelestia.enable {
+  options.myHomeConfig.desktop.caelestia.enable = lib.mkEnableOption "caelestia";
+  config = lib.mkIf config.myHomeConfig.desktop.caelestia.enable {
     home.packages = [
       pkgs.caelestia-shell
     ];

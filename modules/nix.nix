@@ -1,16 +1,37 @@
 {
   config,
   inputs,
+  username,
   lib,
   pkgs,
   ...
 }:
 
 let
-  cfg = config.myConfig.nix.nix;
+  cfg = config.myConfig.nix;
+  caches = [
+    {
+      url = "https://cache.nixos.org";
+      key = "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=";
+    }
+    {
+      url = "https://nix-community.cachix.org";
+      key = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
+    }
+    {
+      url = "https://hyprland.cachix.org";
+      key = "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=";
+    }
+    {
+      url = "https://cache.numtide.com";
+      key = "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=";
+    }
+  ];
 in
 {
-  config = lib.mkIf (config.myConfig.nix.enable && cfg.enable) {
+  options.myConfig.nix.enable = lib.mkEnableOption "nix daemon settings";
+
+  config = lib.mkIf cfg.enable {
     nix = {
       package = pkgs.nixVersions.stable;
       # Pin `nix run <input>#...` / `nix shell <input>#...` to this flake's
@@ -32,26 +53,11 @@ in
         log-lines = 50;
         sandbox = "relaxed";
         trusted-users = [
-          config.myConfig.users.username
+          username
         ];
-        substituters = [
-          "https://cache.nixos.org"
-          "https://nix-community.cachix.org"
-          "https://hyprland.cachix.org"
-          "https://cache.numtide.com"
-        ];
-        trusted-substituters = [
-          "https://cache.nixos.org"
-          "https://nix-community.cachix.org"
-          "https://hyprland.cachix.org"
-          "https://cache.numtide.com"
-        ];
-        trusted-public-keys = [
-          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-          "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-        ];
+        substituters = map (cache: cache.url) caches;
+        trusted-substituters = map (cache: cache.url) caches;
+        trusted-public-keys = map (cache: cache.key) caches;
       };
       gc = {
         automatic = false;

@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.system.locale;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.locale.enable = lib.mkEnableOption "locale";
+
+  config = lib.mkIf cfg.enable {
     i18n = {
       defaultLocale = "pt_BR.UTF-8";
       extraLocaleSettings = {

@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    yaml.enable = lib.mkEnableOption "Enable yaml module";
-  };
-  config = lib.mkIf config.yaml.enable {
+  options.myHomeConfig.cli.tools.languages.yaml.enable = lib.mkEnableOption "yaml";
+  config = lib.mkIf config.myHomeConfig.cli.tools.languages.yaml.enable {
     home.packages = with pkgs; [
       yaml-language-server
     ];

@@ -6,10 +6,8 @@
   ...
 }:
 {
-  options = {
-    neve.enable = lib.mkEnableOption "Enable neve module";
-  };
-  config = lib.mkIf config.neve.enable {
+  options.myHomeConfig.cli.neve.enable = lib.mkEnableOption "neve";
+  config = lib.mkIf config.myHomeConfig.cli.neve.enable {
     home.packages = [
       inputs.Neve.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

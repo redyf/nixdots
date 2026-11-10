@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.system.xdg-portal;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.xdg-portal.enable = lib.mkEnableOption "xdg-portal";
+
+  config = lib.mkIf cfg.enable {
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [

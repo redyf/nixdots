@@ -5,11 +5,9 @@
   ...
 }:
 {
-  options = {
-    zsh.enable = lib.mkEnableOption "Enable zsh module";
-  };
+  options.myHomeConfig.shells.zsh.enable = lib.mkEnableOption "zsh";
 
-  config = lib.mkIf config.zsh.enable {
+  config = lib.mkIf config.myHomeConfig.shells.zsh.enable {
     home = {
       shell = {
         enableZshIntegration = true;

@@ -1,5 +1,7 @@
 # Plano: arquitetura multi-host / multi-arch para nixdots
 
+> Layout atual: `lib/hosts.nix` normaliza o `meta.nix` (substitui `lib/discover.nix`); `home/users/` virou `users/`; `home/hosts/<host>.nix` virou `hosts/<host>/home.nix`; `modules/` e `home/` importam seus módulos automaticamente (`lib/modules-in.nix`).
+
 ## Contexto
 
 O repo já tem uma base boa: `lib/mkHost.nix`, `lib/mkHome.nix`, `lib/discover.nix` (descobre `hosts/*` e `home/users/*`), `profiles/`, `myConfig.*` / `myHomeConfig.*`.
@@ -82,7 +84,7 @@ Regras:
   - [x] `XDG_SESSION_TYPE=wayland` global removido (o display manager define por sessão).
 - [x] Navegador padrão = **Brave** (decisão do usuário): `DEFAULT_BROWSER = lib.getExe pkgs.brave` e MIME `brave-browser.desktop`. Obs.: só o desktop liga `mime-types`.
 - [x] `modules/system/power-management.nix:17` escreve no caminho `intel_pstate`. Proteger com `myConfig.system.intel.enable`.
-- [ ] **Adiado** (decisão do usuário: depois do P4/P5). Dupla checagem `categoria.enable && leaf.enable`: ligar só o leaf não faz nada. Escolher: só leaf, ou categoria liga os leafs via `mkDefault`. Recomendo **só leaf**: categoria vira `mkDefault` dos filhos.
+- [x] Dupla checagem `categoria.enable && leaf.enable` removida: cada módulo declara a própria opção `enable` e só ela liga o módulo. Os papéis (`profiles/`) listam os leafs.
 - [x] `xboxusers` e `gamemode` agora dependem de `myConfig.gaming.enable`. (Reorganizar `groups.nix` × `users/default.nix` ainda pendente, é cosmético.)
 - [x] Renomeado `myConfig.system.hardware` → `myConfig.system.graphics` (só liga `hardware.graphics`). `myConfig.hardware.nvidia` ficou como está (categoria de drivers de GPU).
 
@@ -127,7 +129,7 @@ Regras:
 
 ### P10: opcional
 - [ ] Reduzir `with pkgs;` (44 usos). É estilo; a comunidade prefere listas explícitas.
-- [ ] A categoria `myHomeConfig.*` só repassa para opções top-level (`fonts.enable`, `git.enable`…). `fonts.enable` colide com o namespace `fonts` do HM. Mover tudo para dentro de `myHomeConfig.*`.
+- [x] A categoria `myHomeConfig.*` só repassava para opções top-level (`fonts.enable`, `git.enable`…). Agora cada módulo declara `myHomeConfig.<caminho>.enable` direto.
 
 ---
 

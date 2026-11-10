@@ -4,16 +4,16 @@
 
 ## What This Repo Is
 - NixOS flake for personal hosts `desktop` and `selene`, plus a safe public `example` host.
-- `flake.nix` discovers `hosts/*` as `nixosConfigurations` and builds one `homeConfigurations."<username>@<hostname>"` per host whose `meta.nix` user has a `home/users/<username>.nix` (`nh home switch` picks `$USER@$HOSTNAME` automatically).
-- Host metadata lives in `hosts/<name>/meta.nix` (`username`, `system`, `roles`, `keyboard = { layout; variant; }`, optional `homeDirectory`/`modules`); Home Manager reads the same file.
+- `flake.nix` discovers `hosts/*` as `nixosConfigurations` and builds one `homeConfigurations."<username>@<hostname>"` per host whose `meta.nix` user has a `users/<username>.nix` (`nh home switch` picks `$USER@$HOSTNAME` automatically).
+- Host metadata lives in `hosts/<name>/meta.nix` (`username`, `system`, `roles`, optional `keyboard = { layout; variant; }`); `lib/hosts.nix` fills the defaults and both NixOS and Home Manager read the result.
 - This is primarily a personal NixOS configuration. Treat public reuse as a secondary goal that should be made safe through explicit example/minimal profiles, not by weakening the personal hosts.
 
 ## Source Of Truth
 - Trust `flake.nix`, `lib/*.nix`, workflow files, and lockfiles over README prose.
-- `lib/mkHost.nix` imports `modules/` and `profiles/nixos/<role>.nix` for every role listed in `meta.nix`. Host `configuration.nix` files only import their generated hardware file. The `example` host intentionally avoids generated hardware config.
-- `home/users/<name>.nix` holds per-user differences and imports `profiles/home/common.nix` (personal users) or `profiles/home/minimal.nix` (example). `home/hosts/<hostname>.nix` (optional) holds per-machine user settings such as monitor layouts. HM modules receive `hostname` and `roles` as module arguments.
-- `profiles/nixos/` holds roles: `common` (every personal host), `workstation` (graphical), `gaming`, `dev`, `laptop`, and `minimal` (public example). Host files should only override or add host-specific choices (monitors, disks, hardware).
-- `myConfig.*` is the NixOS module namespace; `myHomeConfig.*` is the Home Manager namespace.
+- `lib/mkHost.nix` imports `modules/` (every `.nix` file in it is a module; `lib/modules-in.nix`) and `profiles/nixos/<role>.nix` for every role listed in `meta.nix`. Host `configuration.nix` files only import their generated hardware file. The `example` host intentionally avoids generated hardware config.
+- `lib/mkHome.nix` imports `home/` for every user (every directory with a `default.nix` is a module). `users/<name>.nix` holds per-user differences and imports `profiles/home/common.nix` (personal users) or `profiles/home/minimal.nix` (example). `hosts/<hostname>/home.nix` (optional) holds per-machine user settings such as monitor layouts. NixOS and HM modules receive `hostname`, `username`, `homeDirectory`, `keyboard` and `theme` (`theme.nix`) as module arguments.
+- `profiles/nixos/` holds roles: `common` (every personal host), `workstation` (graphical), `gaming`, `dev`, `laptop`, `nvidia` (desktop only), and `minimal` (public example). Host files should only override or add host-specific choices (monitors, disks, hardware).
+- `myConfig.*` is the NixOS module namespace; `myHomeConfig.*` is the Home Manager namespace. Each module declares its own `enable` option at the path matching its file (`modules/services/tlp.nix` → `myConfig.services.tlp.enable`); there are no category-level `enable` switches, so profiles list the leaves they want.
 - `pkgs/*.nix` holds custom packages, called from home modules via `callPackage ../../../../pkgs/<name>.nix`.
 
 ## Commands
@@ -27,21 +27,20 @@
 ## Workflow Notes
 - CI in `.github/workflows/flake-check.yml` installs Nix (nix-quick-install-action), caches the store (cache-nix-action) and runs `nix flake check`.
 - `system.stateVersion` and `home.stateVersion` are pinned to `25.05`; do not bump casually.
-- `allowUnfree = true` is enabled in flake, host, and home config paths.
+- `allowUnfree = true` and the insecure-package allowlist live only in `lib/nixpkgs-config.nix`, shared by `mkHost` and `mkHome`.
 - Keep generated `hardware-configuration.nix` files out of broad refactors.
 
 ## Nix-Specific Gotchas
 - `treefmt.nix` (and `.statix.toml` for manual statix runs) exclude `hosts/*/hardware-configuration.nix`; keep those generated files out of lint noise.
-- `hosts/desktop/secrets.yaml` is managed by `sops-nix`; `hosts/desktop/configuration.nix` expects `myConfig.system.sops.enable = true` and `myConfig.users.username = "redyf"`.
-- `.sops.yaml` currently only defines a creation rule for `hosts/desktop/secrets.yaml`.
-- `hosts/selene/configuration.nix` does not use `sops-nix` for the user password yet.
+- `hosts/desktop/secrets.yaml` is managed by `sops-nix`; `hosts/desktop/configuration.nix` expects `myConfig.system.sops.enable = true`; the user comes from `meta.nix`.
+- `.sops.yaml` defines creation rules for `hosts/desktop/secrets.yaml` and `hosts/selene/secrets.yaml`. Both hosts take the user password from sops (selene derives its age key from the SSH host key, `keyFile = null`).
 - `hosts/desktop/disko.nix` and `hosts/selene/disko.nix` are parameterized with a required `device`; keep destructive disk choices explicit.
 - `modules/cli/nh.nix` defaults the flake path to `${homeDirectory}/opensource/nixdots`, but `myConfig.cli.nh.flakePath` can override it.
 - `home/cli/tools/git/default.nix` keeps SOPS-rendered identities and work SSH hosts opt-in; enable them from personal user files, not reusable profiles.
 - `font-flake` is a local-path flake input (`ci/font-flake-fallback/`) providing proprietary fonts (Monolisa, etc.); the real private font flake is not in this repo.
 
 ## Public Reuse / Onboarding
-- Prefer `hosts/example` and `home/users/example.nix` over telling users to install `.#desktop` or `.#selene`.
+- Prefer `hosts/example` and `users/example.nix` over telling users to install `.#desktop` or `.#selene`.
 - A reusable example host should avoid `sops-nix`, private caches, NVIDIA-specific settings, fixed monitor names, fixed disk devices, and personal paths.
 - A reusable Home Manager example should avoid `/run/secrets`, personal SSH keys, work identities, local wallpaper paths, and location-specific settings.
 - Personal UI settings belong in personal modules or user files. If a module is enabled by a generic profile, it should either work without personal files or expose options for those paths.

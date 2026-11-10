@@ -1,9 +1,18 @@
 # Home Manager settings for the `desktop` host, whatever the user.
-# Imported by lib/mkHome.nix for every "<user>@desktop" configuration.
-_: {
+{ lib, ... }:
+{
   # Monitor layout: DP-1 main, HDMI-A-2 rotated on the right.
   wayland.windowManager.hyprland = {
     settings = {
+      bind = [
+        {
+          _args = [
+            "CTRL + Print"
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"grim -o DP-1 ~/Pictures/screenshot.png\")")
+          ];
+        }
+      ];
+
       monitor = [
         {
           output = "DP-1";

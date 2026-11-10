@@ -4,10 +4,8 @@
   ...
 }:
 {
-  options = {
-    zoxide.enable = lib.mkEnableOption "Enable zoxide module";
-  };
-  config = lib.mkIf config.zoxide.enable {
+  options.myHomeConfig.cli.tools.zoxide.enable = lib.mkEnableOption "zoxide";
+  config = lib.mkIf config.myHomeConfig.cli.tools.zoxide.enable {
     programs.zoxide = {
       enable = true;
       options = [

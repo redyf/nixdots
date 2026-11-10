@@ -1,15 +1,19 @@
 {
   pkgs,
+  config,
+  lib,
   ...
 }:
 {
-  home.packages = with pkgs; [
-    (writeShellScriptBin "screenshot" ''
-      grim -g "$(slurp)" - | wl-copy
-    '')
+  config = lib.mkIf config.myHomeConfig.desktop.hyprland.enable {
+    home.packages = with pkgs; [
+      (writeShellScriptBin "screenshot" ''
+        grim -g "$(slurp)" - | wl-copy
+      '')
 
-    (writeShellScriptBin "screenshot-edit" ''
-      wl-paste | swappy -f -
-    '')
-  ];
+      (writeShellScriptBin "screenshot-edit" ''
+        wl-paste | swappy -f -
+      '')
+    ];
+  };
 }

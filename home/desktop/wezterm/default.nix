@@ -4,10 +4,8 @@
   ...
 }:
 {
-  options = {
-    wezterm.enable = lib.mkEnableOption "Enable Wezterm module";
-  };
-  config = lib.mkIf config.wezterm.enable {
+  options.myHomeConfig.desktop.wezterm.enable = lib.mkEnableOption "Wezterm";
+  config = lib.mkIf config.myHomeConfig.desktop.wezterm.enable {
     programs.wezterm = {
       enable = true;
       settings = {

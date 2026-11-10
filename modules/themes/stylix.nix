@@ -3,30 +3,23 @@
   config,
   lib,
   pkgs,
+  theme,
   ...
 }:
 
 let
   cfg = config.myConfig.themes.stylix;
-  themes = {
-    catppuccin-mocha = "catppuccin-mocha";
-    catppuccin-macchiato = "catppuccin-macchiato";
-    oxocarbon-dark = "oxocarbon-dark";
-    tokyo-night-moon = "tokyo-night-moon";
-    tokyo-night-dark = "tokyo-night-dark";
-    tokyo-night-storm = "tokyo-night-storm";
-  };
 in
 {
-  config = lib.mkIf (config.myConfig.themes.enable && cfg.enable) {
+  options.myConfig.themes.stylix.enable = lib.mkEnableOption "stylix";
+
+  config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
-      autoEnable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${themes.catppuccin-macchiato}.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme.scheme}.yaml";
       cursor = {
-        name = "macOS";
+        inherit (theme.cursor) name size;
         package = pkgs.apple-cursor;
-        size = 36;
       };
       fonts = {
         monospace = {
@@ -43,7 +36,7 @@ in
         };
         sizes = {
           applications = 11;
-          terminal = 18;
+          terminal = theme.terminalFontSize;
           desktop = 11;
           popups = 11;
         };
@@ -54,7 +47,7 @@ in
         desktop = 1.0;
         popups = 1.0;
       };
-      polarity = "dark";
+      inherit (theme) polarity;
       targets = {
         grub.enable = false;
         gnome.enable = false;

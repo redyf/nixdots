@@ -6,10 +6,8 @@
   ...
 }:
 {
-  options = {
-    zen.enable = lib.mkEnableOption "Enable zen module";
-  };
-  config = lib.mkIf config.zen.enable {
+  options.myHomeConfig.apps.browsers.zen.enable = lib.mkEnableOption "zen";
+  config = lib.mkIf config.myHomeConfig.apps.browsers.zen.enable {
     home.packages = [
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

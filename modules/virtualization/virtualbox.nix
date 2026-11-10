@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  username,
   ...
 }:
 
@@ -8,7 +9,9 @@ let
   cfg = config.myConfig.virtualization.virtualbox;
 in
 {
-  config = lib.mkIf (config.myConfig.virtualization.enable && cfg.enable) {
+  options.myConfig.virtualization.virtualbox.enable = lib.mkEnableOption "VirtualBox";
+
+  config = lib.mkIf cfg.enable {
     virtualisation = {
       virtualbox = {
         host = {
@@ -18,6 +21,6 @@ in
       };
     };
 
-    users.extraGroups.vboxusers.members = [ config.myConfig.users.username ];
+    users.extraGroups.vboxusers.members = [ username ];
   };
 }

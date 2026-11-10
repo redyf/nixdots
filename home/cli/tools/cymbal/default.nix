@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    cymbal.enable = lib.mkEnableOption "Enable cymbal module";
-  };
-  config = lib.mkIf config.cymbal.enable {
+  options.myHomeConfig.cli.tools.cymbal.enable = lib.mkEnableOption "cymbal";
+  config = lib.mkIf config.myHomeConfig.cli.tools.cymbal.enable {
     home.packages = with pkgs; [
       (callPackage ../../../../pkgs/cymbal.nix { })
     ];

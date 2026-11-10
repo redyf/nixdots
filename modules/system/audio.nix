@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.system.audio;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.audio.enable = lib.mkEnableOption "audio";
+
+  config = lib.mkIf cfg.enable {
     services = {
       pipewire = {
         enable = true;
@@ -16,10 +18,7 @@ in
           enable = true;
           support32Bit = true;
         };
-        wireplumber.enable = true;
-        jack.enable = false;
         pulse.enable = true;
-        audio.enable = true;
       };
     };
   };

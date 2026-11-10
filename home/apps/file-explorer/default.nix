@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    file-explorer.enable = lib.mkEnableOption "Enable file-explorer module";
-  };
-  config = lib.mkIf config.file-explorer.enable {
+  options.myHomeConfig.apps.file-explorer.enable = lib.mkEnableOption "file-explorer";
+  config = lib.mkIf config.myHomeConfig.apps.file-explorer.enable {
     home.packages = with pkgs; [
       thunar
       yazi

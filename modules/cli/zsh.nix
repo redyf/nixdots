@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.cli.zsh;
 in
 {
-  config = lib.mkIf (config.myConfig.cli.enable && cfg.enable) {
+  options.myConfig.cli.zsh.enable = lib.mkEnableOption "Zsh";
+
+  config = lib.mkIf cfg.enable {
     programs.zsh = {
       enable = true;
     };

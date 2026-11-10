@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    rofi.enable = lib.mkEnableOption "Enable rofi module";
-  };
-  config = lib.mkIf config.rofi.enable {
+  options.myHomeConfig.desktop.rofi.enable = lib.mkEnableOption "rofi";
+  config = lib.mkIf config.myHomeConfig.desktop.rofi.enable {
     home.packages = with pkgs; [
       rofi
       rofi-emoji

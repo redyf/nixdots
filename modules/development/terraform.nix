@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.development.terraform;
 in
 {
-  config = lib.mkIf (config.myConfig.development.enable && cfg.enable) {
+  options.myConfig.development.terraform.enable = lib.mkEnableOption "Terraform";
+
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.terraform ];
   };
 }

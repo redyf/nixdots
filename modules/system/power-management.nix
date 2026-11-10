@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.system.power-management;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.power-management.enable = lib.mkEnableOption "power-management";
+
+  config = lib.mkIf cfg.enable {
     powerManagement = {
       enable = false;
       cpuFreqGovernor = "performance";

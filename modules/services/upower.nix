@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.services.upower;
 in
 {
-  config = lib.mkIf (config.myConfig.services.enable && cfg.enable) {
+  options.myConfig.services.upower.enable = lib.mkEnableOption "Upower";
+
+  config = lib.mkIf cfg.enable {
     services = {
       upower = {
         enable = true;

@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    rust.enable = lib.mkEnableOption "Enable rust module";
-  };
-  config = lib.mkIf config.rust.enable {
+  options.myHomeConfig.cli.tools.languages.rust.enable = lib.mkEnableOption "rust";
+  config = lib.mkIf config.myHomeConfig.cli.tools.languages.rust.enable {
     home.packages = with pkgs; [
       rustc
     ];

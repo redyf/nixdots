@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.services.jackett;
 in
 {
-  config = lib.mkIf (config.myConfig.services.enable && cfg.enable) {
+  options.myConfig.services.jackett.enable = lib.mkEnableOption "jackett";
+
+  config = lib.mkIf cfg.enable {
     services = {
       jackett = {
         enable = true;

@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    javascript.enable = lib.mkEnableOption "Enable javascript module";
-  };
-  config = lib.mkIf config.javascript.enable {
+  options.myHomeConfig.cli.tools.languages.javascript.enable = lib.mkEnableOption "javascript";
+  config = lib.mkIf config.myHomeConfig.cli.tools.languages.javascript.enable {
     home.packages = with pkgs; [
       bun
       nodejs_latest

@@ -6,10 +6,8 @@
   ...
 }:
 {
-  options = {
-    fonts.enable = lib.mkEnableOption "Enable fonts module";
-  };
-  config = lib.mkIf config.fonts.enable {
+  options.myHomeConfig.system.fonts.enable = lib.mkEnableOption "fonts";
+  config = lib.mkIf config.myHomeConfig.system.fonts.enable {
     home = {
       packages = with pkgs; [
         inputs.font-flake.packages.${stdenv.hostPlatform.system}.monolisa

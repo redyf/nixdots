@@ -69,7 +69,7 @@
       ...
     }@inputs:
     let
-      myLib = import ./lib { inherit inputs nixpkgs; };
+      myLib = import ./lib { inherit inputs; };
       inherit (myLib) forAllSystems;
 
       treefmtFor = forAllSystems (
@@ -77,16 +77,7 @@
       );
     in
     {
-      nixosConfigurations = myLib.discoverHosts {
-        hostsPath = ./hosts;
-        inherit (myLib) mkHost;
-      };
-
-      homeConfigurations = myLib.discoverHomes {
-        hostsPath = ./hosts;
-        homePath = ./home;
-        inherit (myLib) mkHome;
-      };
+      inherit (myLib) nixosConfigurations homeConfigurations;
 
       devShells = forAllSystems (
         system:

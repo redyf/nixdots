@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    c.enable = lib.mkEnableOption "Enable C module";
-  };
-  config = lib.mkIf config.c.enable {
+  options.myHomeConfig.cli.tools.languages.c.enable = lib.mkEnableOption "C";
+  config = lib.mkIf config.myHomeConfig.cli.tools.languages.c.enable {
     home.packages = with pkgs; [
       gcc
       gnumake

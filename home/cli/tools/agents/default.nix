@@ -9,11 +9,9 @@ let
   llmAgents = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  options = {
-    agents.enable = lib.mkEnableOption "Enable AI agents module";
-  };
+  options.myHomeConfig.cli.tools.agents.enable = lib.mkEnableOption "AI agents";
 
-  config = lib.mkIf config.agents.enable {
+  config = lib.mkIf config.myHomeConfig.cli.tools.agents.enable {
     home.packages =
       (with llmAgents; [
         claude-code
