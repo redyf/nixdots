@@ -23,6 +23,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    brave = {
+      url = "git+https://codeberg.org/buckley310/brave-browser-nix?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     Neve = {
       url = "github:redyf/Neve";
       inputs.nixpkgs.follows = "nixpkgs";

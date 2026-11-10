@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -10,8 +11,7 @@
   };
   config = lib.mkIf config.brave.enable {
     home.packages = [
-      pkgs.brave
-      pkgs.brave-origin
+      inputs.brave.packages.${pkgs.stdenv.hostPlatform.system}.brave-origin
     ];
   };
 }

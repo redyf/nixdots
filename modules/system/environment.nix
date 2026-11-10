@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   config,
   lib,
@@ -18,7 +19,7 @@ in
       };
       sessionVariables = {
         NIXOS_OZONE_WL = "1";
-        DEFAULT_BROWSER = lib.getExe pkgs.brave;
+        DEFAULT_BROWSER = lib.getExe inputs.brave.packages.${pkgs.stdenv.hostPlatform.system}.brave-origin;
       };
     };
   };

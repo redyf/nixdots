@@ -123,6 +123,27 @@
         "type": "github"
       }
     },
+    "brave": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794098541,
+        "narHash": "sha256-BcItUzUgcKeWxMr5ccY4Fyd26RnVPKCd/5DJAayhCgQ=",
+        "ref": "main",
+        "rev": "5a80e5bfadb4ba376038656f7dd840848a355b28",
+        "revCount": 6,
+        "type": "git",
+        "url": "https://codeberg.org/buckley310/brave-browser-nix"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://codeberg.org/buckley310/brave-browser-nix"
+      }
+    },
     "bun2nix": {
       "inputs": {
         "flake-parts": [
@@ -894,6 +915,7 @@
     "root": {
       "inputs": {
         "Neve": "Neve",
+        "brave": "brave",
         "disko": "disko",
         "font-flake": "font-flake",
         "home-manager": "home-manager",
