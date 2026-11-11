@@ -25,8 +25,6 @@
       # Variáveis
       set $mod Mod4
 
-      output eDP-1 mode 1920x1200@60Hz position 0 0 scale 1 scale_filter smart
-
       input * {
           xkb_layout "${keyboard.layout}"
           xkb_variant "${keyboard.variant}"
@@ -108,7 +106,6 @@
       # Screenshots
       bindsym Print exec screenshot
       bindsym $mod+Print exec screenshot-edit
-      bindsym Control+Print exec grim -o DP-1 ~/Pictures/screenshot.png
 
       # Mouse
       floating_modifier $mod normal

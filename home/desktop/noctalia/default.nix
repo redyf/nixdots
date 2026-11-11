@@ -326,13 +326,7 @@
           enabled = true;
           fillColor = "#000000";
           fillMode = "crop";
-          monitors = [
-            {
-              directory = "${homeDirectory}/Wallpapers/";
-              name = "DP-3";
-              wallpaper = "${homeDirectory}/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
-            }
-          ];
+          monitors = [ ];
           randomEnabled = true;
           randomIntervalSec = 1800;
           recursiveSearch = true;

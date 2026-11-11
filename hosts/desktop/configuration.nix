@@ -16,7 +16,8 @@
 
     desktop = {
       i3.enable = true;
-      xserver.displaySetup = "xrandr --output DP-0 --mode 1920x1080 --rate 165 --primary";
+      # Same layout as hosts/desktop/home.nix (X11 names the HDMI-A-2 connector HDMI-2).
+      xserver.displaySetup = "xrandr --output DP-1 --mode 1920x1080 --rate 180 --primary --output HDMI-2 --mode 1920x1080 --rate 119.98 --right-of DP-1 --rotate left";
     };
 
     development.terraform.enable = true;
@@ -24,7 +25,6 @@
     gaming.gamescope.enable = true;
 
     services = {
-      autorandr.enable = true;
       fstrim.enable = true;
     };
 
@@ -59,14 +59,6 @@
       openssl
       curl
     ];
-  };
-
-  services.autorandr.profiles.redyf.config.DP-0 = {
-    enable = true;
-    primary = true;
-    mode = "1920x1080";
-    rate = "180.00";
-    position = "0x0";
   };
 
   system.stateVersion = "25.05"; # Don't change this

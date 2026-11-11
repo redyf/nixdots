@@ -1,7 +1,16 @@
 # Home Manager settings for the `desktop` host, whatever the user.
-{ lib, ... }:
+{ config, lib, ... }:
 {
-  # Monitor layout: DP-1 main, HDMI-A-2 rotated on the right.
+  # Monitor layout: DP-1 main, HDMI-A-2 rotated on the right. The i3 (X11)
+  # equivalent is xserver.displaySetup in configuration.nix.
+  xdg.configFile = lib.mkIf config.myHomeConfig.desktop.sway.enable {
+    "sway/config".text = lib.mkAfter ''
+      output DP-1 mode 1920x1080@180Hz position 0 0
+      output HDMI-A-2 mode 1920x1080@119.980Hz position 1920 0 transform 90
+      bindsym Control+Print exec grim -o DP-1 ~/Pictures/screenshot.png
+    '';
+  };
+
   wayland.windowManager.hyprland = {
     settings = {
       bind = [
