@@ -6,7 +6,7 @@
     apps = {
       media.enable = true;
       security.enable = true;
-      gaming.minecraft.enable = true;
+      gaming.minecraft.enable = false;
     };
 
     cli.tools.git = {
