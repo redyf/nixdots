@@ -1,58 +1,41 @@
 {
   inputs,
-  nixpkgs,
-  overlays ? [ ],
+  specialArgs,
+  overlay,
 }:
 {
-  username,
-  # Host this configuration targets; home/hosts/<hostname>.nix is imported
-  # when present (monitors and other machine-specific user settings).
   hostname,
-  roles ? [ ],
-  # Same value as mkHost's `keyboard` (from hosts/<hostname>/meta.nix).
-  keyboard ? {
-    layout = "us";
-    variant = "";
-  },
-  system ? "x86_64-linux",
-  homeDirectory ? "/home/${username}",
-  stateVersion ? "25.05",
-  modules ? [ ],
-  homePath ? ../home,
-}:
+  system,
+  username,
+  homeDirectory,
+  ...
+}@host:
 let
-  hostFile = homePath + "/hosts/${hostname}.nix";
+  hostHome = ../hosts/${hostname}/home.nix;
 in
 inputs.home-manager.lib.homeManagerConfiguration {
   # Standalone Home Manager re-imports nixpkgs from `nixpkgs.*` options, so
-  # config and overlays are set as module options below, not here.
-  pkgs = nixpkgs.legacyPackages.${system};
-  extraSpecialArgs = {
-    inherit
-      inputs
-      username
-      homeDirectory
-      hostname
-      roles
-      keyboard
-      ;
-  };
+  # config is set as a module option below, not here.
+  pkgs = inputs.nixpkgs.legacyPackages.${system};
+  extraSpecialArgs = specialArgs host;
   modules = [
-    (homePath + "/users/${username}.nix")
+    ../home
+    ../users/${username}.nix
   ]
-  ++ nixpkgs.lib.optional (builtins.pathExists hostFile) hostFile
+  ++ inputs.nixpkgs.lib.optional (builtins.pathExists hostHome) hostHome
   ++ [
     inputs.stylix.homeModules.stylix
     {
       home = {
-        inherit username stateVersion homeDirectory;
+        inherit username homeDirectory;
+        stateVersion = "25.05";
+        sessionPath = [ "$HOME/.local/bin" ];
       };
       nixpkgs = {
         config = import ./nixpkgs-config.nix;
-        inherit overlays;
+        overlays = [ overlay ];
       };
       programs.home-manager.enable = true;
     }
-  ]
-  ++ modules;
+  ];
 }

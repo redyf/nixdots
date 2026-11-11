@@ -4,10 +4,8 @@
   ...
 }:
 {
-  options = {
-    fzf.enable = lib.mkEnableOption "Enable fzf module";
-  };
-  config = lib.mkIf config.fzf.enable {
+  options.myHomeConfig.cli.tools.fzf.enable = lib.mkEnableOption "fzf";
+  config = lib.mkIf config.myHomeConfig.cli.tools.fzf.enable {
     programs.fzf = {
       enable = true;
       defaultOptions = [

@@ -13,13 +13,10 @@ let
   };
 in
 {
-  options = {
-    minecraft.enable = lib.mkEnableOption "Enable minecraft module";
-  };
-  config = lib.mkIf config.minecraft.enable {
+  options.myHomeConfig.apps.gaming.minecraft.enable = lib.mkEnableOption "minecraft";
+  config = lib.mkIf config.myHomeConfig.apps.gaming.minecraft.enable {
     home = {
       packages = with pkgs; [
-        # prismlauncher-unwrapped
         (modrinth-app.overrideAttrs (oldAttrs: {
           buildCommand = ''
             					gappsWrapperArgs+=(

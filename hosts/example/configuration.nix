@@ -1,23 +1,13 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, ... }:
 {
   myConfig = {
     users = {
-      enable = true;
       description = "Example user";
       initialPassword = "nixos";
-      shell = pkgs.zsh;
-
       groups.input = true;
     };
 
-    desktop = {
-      enable = true;
-      gnome.enable = true;
-    };
+    desktop.gnome.enable = true;
 
     services.displayManager.enable = true;
   };

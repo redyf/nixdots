@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.desktop.sway;
 in
 {
-  config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
+  options.myConfig.desktop.sway.enable = lib.mkEnableOption "sway";
+
+  config = lib.mkIf cfg.enable {
     programs.sway = {
       enable = true;
     };

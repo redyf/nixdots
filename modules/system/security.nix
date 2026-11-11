@@ -8,9 +8,10 @@ let
   cfg = config.myConfig.system.security;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.security.enable = lib.mkEnableOption "security";
+
+  config = lib.mkIf cfg.enable {
     security = {
-      sudo.enable = true;
       polkit.enable = true;
     };
   };

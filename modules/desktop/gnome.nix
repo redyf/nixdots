@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.desktop.gnome;
 in
 {
-  config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
+  options.myConfig.desktop.gnome.enable = lib.mkEnableOption "gnome";
+
+  config = lib.mkIf cfg.enable {
     services.desktopManager.gnome.enable = true;
   };
 }

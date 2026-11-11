@@ -4,16 +4,11 @@
   ...
 }:
 let
-  # mocha = import ./mocha.nix;
-  # oxocarbon = import ./oxocarbon.nix;
-  # simple = fromTOML (builtins.readFile ./simple.toml);
   pure = fromTOML (builtins.readFile ./pure-preset.toml);
 in
 {
-  options = {
-    starship.enable = lib.mkEnableOption "Enable starship module";
-  };
-  config = lib.mkIf config.starship.enable {
+  options.myHomeConfig.cli.tools.starship.enable = lib.mkEnableOption "starship";
+  config = lib.mkIf config.myHomeConfig.cli.tools.starship.enable {
     programs.starship = {
       enable = true;
       settings = pure;

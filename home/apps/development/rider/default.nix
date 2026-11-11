@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    rider.enable = lib.mkEnableOption "Enable rider module";
-  };
-  config = lib.mkIf config.rider.enable {
+  options.myHomeConfig.apps.development.rider.enable = lib.mkEnableOption "rider";
+  config = lib.mkIf config.myHomeConfig.apps.development.rider.enable {
     home.packages = with pkgs; [
       jetbrains.rider
     ];

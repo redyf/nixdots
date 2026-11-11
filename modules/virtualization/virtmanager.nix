@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.virtualization.virtmanager;
 in
 {
-  config = lib.mkIf (config.myConfig.virtualization.enable && cfg.enable) {
+  options.myConfig.virtualization.virtmanager.enable = lib.mkEnableOption "VirtManager";
+
+  config = lib.mkIf cfg.enable {
     programs.virt-manager.enable = true;
 
     virtualisation.libvirtd = {

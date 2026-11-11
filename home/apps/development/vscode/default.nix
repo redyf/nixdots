@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    vscode.enable = lib.mkEnableOption "Enable vscode module";
-  };
-  config = lib.mkIf config.vscode.enable {
+  options.myHomeConfig.apps.development.vscode.enable = lib.mkEnableOption "vscode";
+  config = lib.mkIf config.myHomeConfig.apps.development.vscode.enable {
     home.packages = with pkgs; [
       vscode
       lens

@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.cli.appimage;
 in
 {
-  config = lib.mkIf (config.myConfig.cli.enable && cfg.enable) {
+  options.myConfig.cli.appimage.enable = lib.mkEnableOption "appimage-run";
+
+  config = lib.mkIf cfg.enable {
     programs.appimage = {
       enable = true;
       binfmt = true;

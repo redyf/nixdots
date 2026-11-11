@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.development.aws;
 in
 {
-  config = lib.mkIf (config.myConfig.development.enable && cfg.enable) {
+  options.myConfig.development.aws.enable = lib.mkEnableOption "aws cli";
+
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.awscli2
       pkgs.ssm-session-manager-plugin

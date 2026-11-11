@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    godot.enable = lib.mkEnableOption "Enable godot module";
-  };
-  config = lib.mkIf config.godot.enable {
+  options.myHomeConfig.apps.gaming.godot.enable = lib.mkEnableOption "godot";
+  config = lib.mkIf config.myHomeConfig.apps.gaming.godot.enable {
     home = {
       packages = [
         pkgs.godot

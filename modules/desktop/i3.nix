@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.desktop.i3;
 in
 {
-  config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
+  options.myConfig.desktop.i3.enable = lib.mkEnableOption "i3";
+
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.rofi ];
     services.xserver.windowManager.i3 = {
       enable = true;

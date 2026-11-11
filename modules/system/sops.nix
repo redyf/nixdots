@@ -2,16 +2,33 @@
   config,
   lib,
   hostname,
+  username,
   ...
 }:
 
 let
   cfg = config.myConfig.system.sops;
-  username = config.myConfig.users.username;
   hostSecretsFile = ../../hosts + "/${hostname}/secrets.yaml";
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) (
+  options.myConfig.system.sops = {
+    enable = lib.mkEnableOption "sops-nix secrets";
+    keyFile = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = "/var/lib/sops-nix/key.txt";
+      description = ''
+        Path to the age key used to decrypt secrets on this host. Set to
+        null to derive the age key from the SSH host key
+        (/etc/ssh/ssh_host_ed25519_key) instead.
+      '';
+    };
+    gitIdentity.enable = lib.mkEnableOption ''
+      git/personal/* and git/work/* secrets rendered to
+      /run/secrets/rendered/git-{personal,work} (used by the Home Manager
+      git.sopsIdentity option)'';
+  };
+
+  config = lib.mkIf cfg.enable (
     lib.mkMerge [
       {
         assertions = [
@@ -23,18 +40,20 @@ in
 
         sops = {
           defaultSopsFile = hostSecretsFile;
-          defaultSopsFormat = "yaml";
           age =
             if cfg.keyFile != null then
               {
                 inherit (cfg) keyFile;
-                generateKey = false;
               }
             else
               { sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ]; };
 
           secrets."users/${username}/password".neededForUsers = true;
         };
+
+        myConfig.users.hashedPasswordFile =
+          lib.mkDefault
+            config.sops.secrets."users/${username}/password".path;
       }
 
       (lib.mkIf cfg.gitIdentity.enable {

@@ -9,9 +9,11 @@ let
   cfg = config.myConfig.system.keymap;
 in
 {
+  options.myConfig.system.keymap.enable = lib.mkEnableOption "keymap";
+
   # Keyboard layout comes from `keyboard` in hosts/<name>/meta.nix. The xkb
   # options are set even without X11 so the console can reuse them.
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  config = lib.mkIf cfg.enable {
     services.xserver.xkb = {
       inherit (keyboard) layout variant;
     };

@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.development.localstack;
 in
 {
-  config = lib.mkIf (config.myConfig.development.enable && cfg.enable) {
+  options.myConfig.development.localstack.enable = lib.mkEnableOption "localstack";
+
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       localstack
     ];

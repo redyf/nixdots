@@ -1,56 +1,35 @@
 {
   inputs,
-  nixpkgs,
-  overlays ? [ ],
+  specialArgs,
+  overlay,
 }:
 {
   hostname,
-  system ? "x86_64-linux",
-  username,
-  homeDirectory ? "/home/${username}",
-  # Names of files in profiles/nixos/ to import, e.g. [ "common" "laptop" ].
-  roles ? [ ],
-  # XKB layout of this machine's keyboard, shared by NixOS (X11, console)
-  # and Home Manager (Hyprland, Sway) through the `keyboard` module argument.
-  keyboard ? {
-    layout = "us";
-    variant = "";
-  },
-  modules ? [ ],
-  hostsPath ? ../hosts,
-  profilesPath ? ../profiles/nixos,
-}:
-nixpkgs.lib.nixosSystem {
-  specialArgs = {
-    inherit
-      inputs
-      username
-      homeDirectory
-      hostname
-      roles
-      keyboard
-      ;
-  };
+  system,
+  roles,
+  ...
+}@host:
+inputs.nixpkgs.lib.nixosSystem {
+  specialArgs = specialArgs host;
   modules = [
     ../modules
     {
       nixpkgs = {
         hostPlatform = system;
         config = import ./nixpkgs-config.nix;
-        inherit overlays;
+        overlays = [ overlay ];
       };
+      networking.hostName = hostname;
     }
-    { networking.hostName = hostname; }
-    (hostsPath + "/${hostname}/configuration.nix")
+    ../hosts/${hostname}/configuration.nix
     # Input modules every host needs (modules/ sets their options). Feature
     # specific ones (hyprland, serpantinum, nvibrant) are imported by roles.
     inputs.stylix.nixosModules.stylix
     inputs.sops-nix.nixosModules.sops
   ]
-  ++ map (role: profilesPath + "/${role}.nix") roles
-  ++ nixpkgs.lib.optionals (builtins.pathExists (hostsPath + "/${hostname}/disko.nix")) [
+  ++ map (role: ../profiles/nixos/${role}.nix) roles
+  ++ inputs.nixpkgs.lib.optionals (builtins.pathExists ../hosts/${hostname}/disko.nix) [
     inputs.disko.nixosModules.disko
-    (hostsPath + "/${hostname}/disko.nix")
-  ]
-  ++ modules;
+    ../hosts/${hostname}/disko.nix
+  ];
 }

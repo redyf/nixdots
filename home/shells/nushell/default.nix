@@ -4,10 +4,8 @@
   ...
 }:
 {
-  options = {
-    nushell.enable = lib.mkEnableOption "Enable nushell module";
-  };
-  config = lib.mkIf config.nushell.enable {
+  options.myHomeConfig.shells.nushell.enable = lib.mkEnableOption "nushell";
+  config = lib.mkIf config.myHomeConfig.shells.nushell.enable {
     home = {
       shell = {
         enableNushellIntegration = true;

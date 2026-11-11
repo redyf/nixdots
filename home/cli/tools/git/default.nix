@@ -6,31 +6,30 @@
   ...
 }:
 let
-  cfg = config.git;
+  cfg = config.myHomeConfig.cli.tools.git;
 in
 {
-  options = {
-    git = {
-      enable = lib.mkEnableOption "Enable git module";
-      sopsIdentity.enable = lib.mkEnableOption "SOPS-rendered Git identity includes";
-      work.enable = lib.mkEnableOption "work Git/SSH settings";
-      workDirectory = lib.mkOption {
-        type = lib.types.str;
-        default = "${homeDirectory}/work";
-        description = "Directory that uses the work Git identity.";
-      };
-      maintenanceRepo = lib.mkOption {
-        type = lib.types.nullOr lib.types.str;
-        default = null;
-        description = "Repository path for Git maintenance.";
-      };
-      safeDirectories = lib.mkOption {
-        type = lib.types.listOf lib.types.str;
-        default = [ ];
-        description = "Git safe.directory entries.";
-      };
+  options.myHomeConfig.cli.tools.git = {
+    enable = lib.mkEnableOption "git";
+    sopsIdentity.enable = lib.mkEnableOption "SOPS-rendered Git identity includes";
+    work.enable = lib.mkEnableOption "work Git/SSH settings";
+    workDirectory = lib.mkOption {
+      type = lib.types.str;
+      default = "${homeDirectory}/work";
+      description = "Directory that uses the work Git identity.";
+    };
+    maintenanceRepo = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "Repository path for Git maintenance.";
+    };
+    safeDirectories = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "Git safe.directory entries.";
     };
   };
+
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;

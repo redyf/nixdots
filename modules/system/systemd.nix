@@ -8,8 +8,9 @@ let
   cfg = config.myConfig.system.systemd;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
-    # Change systemd stop job timeout in NixOS configuration (Default = 90s)
+  options.myConfig.system.systemd.enable = lib.mkEnableOption "systemd";
+
+  config = lib.mkIf cfg.enable {
     systemd = {
       services.NetworkManager-wait-online.enable = false;
       settings.Manager = {

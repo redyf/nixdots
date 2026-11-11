@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.development.k3s;
 in
 {
-  config = lib.mkIf (config.myConfig.development.enable && cfg.enable) {
+  options.myConfig.development.k3s.enable = lib.mkEnableOption "K3s";
+
+  config = lib.mkIf cfg.enable {
     services.k3s = {
       enable = true;
       # Bind API server to loopback only — prevents port 6443 from being exposed on the network

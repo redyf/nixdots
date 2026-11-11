@@ -6,10 +6,8 @@
   ...
 }:
 {
-  options = {
-    hytale.enable = lib.mkEnableOption "Enable hytale module";
-  };
-  config = lib.mkIf config.hytale.enable {
+  options.myHomeConfig.apps.gaming.hytale.enable = lib.mkEnableOption "hytale";
+  config = lib.mkIf config.myHomeConfig.apps.gaming.hytale.enable {
     home = {
       packages = [
         inputs.hytale-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default

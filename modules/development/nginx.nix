@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.development.nginx;
 in
 {
-  config = lib.mkIf (config.myConfig.development.enable && cfg.enable) {
+  options.myConfig.development.nginx.enable = lib.mkEnableOption "Nginx";
+
+  config = lib.mkIf cfg.enable {
     services.nginx = {
       enable = true;
       virtualHosts."localhost" = {

@@ -9,10 +9,8 @@
   imports = [
     inputs.noctalia-shell.homeModules.default
   ];
-  options = {
-    noctalia.enable = lib.mkEnableOption "Enable Noctalia Shell module";
-  };
-  config = lib.mkIf config.noctalia.enable {
+  options.myHomeConfig.desktop.noctalia.enable = lib.mkEnableOption "Noctalia Shell";
+  config = lib.mkIf config.myHomeConfig.desktop.noctalia.enable {
     programs.noctalia-shell = {
       enable = true;
       settings = {
@@ -314,7 +312,7 @@
         ui = {
           fontDefault = "JetBrainsMono Nerd Font";
           fontDefaultScale = 1;
-          fontFixed = "Maple Mono NF";
+          fontFixed = config.stylix.fonts.monospace.name;
           fontFixedScale = 1;
           panelsAttachedToBar = true;
           panelsOverlayLayer = true;
@@ -328,13 +326,7 @@
           enabled = true;
           fillColor = "#000000";
           fillMode = "crop";
-          monitors = [
-            {
-              directory = "${homeDirectory}/Wallpapers/";
-              name = "DP-3";
-              wallpaper = "${homeDirectory}/Wallpapers/wallhaven-pk6y2p_1920x1080.png";
-            }
-          ];
+          monitors = [ ];
           randomEnabled = true;
           randomIntervalSec = 1800;
           recursiveSearch = true;

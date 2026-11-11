@@ -15,10 +15,8 @@
     ./screenshot.nix
     ./window-rules.nix
   ];
-  options = {
-    hyprland.enable = lib.mkEnableOption "Enable hyprland module";
-  };
-  config = lib.mkIf config.hyprland.enable {
+  options.myHomeConfig.desktop.hyprland.enable = lib.mkEnableOption "hyprland";
+  config = lib.mkIf config.myHomeConfig.desktop.hyprland.enable {
     # hyprland-portals.conf, not portals.conf: the user-level portals.conf
     # wins over every system *-portals.conf and would also hijack Sway.
     xdg.portal.config.hyprland.default = [
@@ -60,7 +58,6 @@
           };
 
           input = {
-            # From `keyboard` in hosts/<host>/meta.nix.
             kb_layout = keyboard.layout;
             kb_variant = keyboard.variant;
 

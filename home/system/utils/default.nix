@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    utils.enable = lib.mkEnableOption "Enable system utils module";
-  };
-  config = lib.mkIf config.utils.enable {
+  options.myHomeConfig.system.utils.enable = lib.mkEnableOption "system utils";
+  config = lib.mkIf config.myHomeConfig.system.utils.enable {
     home = {
       packages = with pkgs; [
         jless

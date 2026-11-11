@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    http.enable = lib.mkEnableOption "Enable http module";
-  };
-  config = lib.mkIf config.http.enable {
+  options.myHomeConfig.cli.tools.http.enable = lib.mkEnableOption "http";
+  config = lib.mkIf config.myHomeConfig.cli.tools.http.enable {
     home.packages = with pkgs; [
       curl
       openssl

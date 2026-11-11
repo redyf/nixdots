@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    swww.enable = lib.mkEnableOption "Enable swww module";
-  };
-  config = lib.mkIf config.swww.enable {
+  options.myHomeConfig.desktop.swww.enable = lib.mkEnableOption "swww";
+  config = lib.mkIf config.myHomeConfig.desktop.swww.enable {
     home.packages = with pkgs; [
       swww
       feh

@@ -17,10 +17,8 @@ in
   imports = [
     inputs.serpantinum.homeManagerModules.default
   ];
-  options = {
-    serpantinum.enable = lib.mkEnableOption "Enable Serpantinum Shell module";
-  };
-  config = lib.mkIf config.serpantinum.enable {
+  options.myHomeConfig.desktop.serpantinum.enable = lib.mkEnableOption "Serpantinum Shell";
+  config = lib.mkIf config.myHomeConfig.desktop.serpantinum.enable {
     programs.serpantinum = {
       enable = true;
       package = base.override { serpantinum-core = core; };
@@ -57,7 +55,7 @@ in
         };
 
         theme = {
-          fontFamily = "TX-02";
+          fontFamily = config.stylix.fonts.monospace.name;
           borderRadius = 12;
           matugen = true;
         };

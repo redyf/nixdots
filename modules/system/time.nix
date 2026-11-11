@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.system.time;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.time.enable = lib.mkEnableOption "time";
+
+  config = lib.mkIf cfg.enable {
     time.timeZone = "America/Bahia";
   };
 }

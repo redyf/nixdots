@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.gaming.gamescope;
 in
 {
-  config = lib.mkIf (config.myConfig.gaming.enable && cfg.enable) {
+  options.myConfig.gaming.gamescope.enable = lib.mkEnableOption "gamescope";
+
+  config = lib.mkIf cfg.enable {
     programs.gamescope = {
       enable = true;
       package = pkgs.gamescope.overrideAttrs (_: {

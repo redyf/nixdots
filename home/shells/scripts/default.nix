@@ -5,15 +5,13 @@
   ...
 }:
 {
-  options = {
-    scripts.enable = lib.mkEnableOption "Enable scripts module";
-  };
-  config = lib.mkIf config.scripts.enable {
+  options.myHomeConfig.shells.scripts.enable = lib.mkEnableOption "scripts";
+  config = lib.mkIf config.myHomeConfig.shells.scripts.enable {
     home = {
       sessionVariables = {
         MANPAGER = "sh -c 'col -bx | bat -l man -p'";
         MANROFFOPT = "-c";
-        DIRENV_LOG_FORMAT = ""; # Blank so direnv will shut up
+        DIRENV_LOG_FORMAT = "";
       };
       packages = with pkgs; [
         timer

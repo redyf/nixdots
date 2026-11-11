@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    web.enable = lib.mkEnableOption "Enable web module";
-  };
-  config = lib.mkIf config.web.enable {
+  options.myHomeConfig.apps.web.enable = lib.mkEnableOption "web";
+  config = lib.mkIf config.myHomeConfig.apps.web.enable {
     home.packages = with pkgs; [
       discord
       slack
@@ -16,10 +14,6 @@
       pritunl-client
       dig
       cloudflared
-      # (pkgs.writeShellScriptBin "slack-x11" ''
-      #   exec env ELECTRON_OZONE_PLATFORM_HINT=x11 ${pkgs.slack}/bin/slack "$@"
-      # '')
-      # slack-x11
     ];
   };
 }

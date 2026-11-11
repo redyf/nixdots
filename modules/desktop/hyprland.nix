@@ -9,7 +9,9 @@ let
   cfg = config.myConfig.desktop.hyprland;
 in
 {
-  config = lib.mkIf (config.myConfig.desktop.enable && cfg.enable) {
+  options.myConfig.desktop.hyprland.enable = lib.mkEnableOption "hyprland";
+
+  config = lib.mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
       package = pkgs.hyprland;

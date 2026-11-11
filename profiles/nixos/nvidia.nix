@@ -24,10 +24,7 @@ in
 {
   imports = [ inputs.nvibrant.nixosModules.default ];
 
-  myConfig.hardware = {
-    enable = lib.mkDefault true;
-    nvidia.enable = lib.mkDefault true;
-  };
+  myConfig.hardware.nvidia.enable = lib.mkDefault true;
 
   environment.systemPackages = [ nvibrantPackage ];
 

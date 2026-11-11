@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.services.tlp;
 in
 {
-  config = lib.mkIf (config.myConfig.services.enable && cfg.enable) {
+  options.myConfig.services.tlp.enable = lib.mkEnableOption "tlp";
+
+  config = lib.mkIf cfg.enable {
     # TLP and power-profiles-daemon conflict; serpantinum enables the latter
     # with mkDefault, so a plain value wins.
     services.power-profiles-daemon.enable = false;

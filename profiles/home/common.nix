@@ -1,68 +1,67 @@
 # Shared Home Manager baseline for the personal users (selene, redyf).
-# User files in home/users/ only keep what differs.
+# User files in users/ only keep what differs.
 { lib, ... }:
 {
-  imports = [
-    ../../home/apps
-    ../../home/cli
-    ../../home/desktop
-    ../../home/shells
-    ../../home/system
-  ];
-
-  home = {
-    pointerCursor.enable = lib.mkDefault true;
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
-  };
+  home.pointerCursor.enable = lib.mkDefault true;
 
   myHomeConfig = {
     apps = {
-      enable = lib.mkDefault true;
-      browsers.enable = lib.mkDefault true;
-      development.enable = lib.mkDefault true;
+      browsers.brave.enable = lib.mkDefault true;
+      development = {
+        database.enable = lib.mkDefault true;
+        obsidian.enable = lib.mkDefault true;
+        vscode.enable = lib.mkDefault true;
+      };
       file-explorer.enable = lib.mkDefault true;
-      # Only artix-game-launcher is on by default inside home/apps/gaming.
-      gaming.enable = lib.mkDefault true;
+      gaming.artix-game-launcher.enable = lib.mkDefault true;
       web.enable = lib.mkDefault true;
     };
 
     cli = {
-      enable = lib.mkDefault true;
       neovim.enable = lib.mkDefault true;
-      neve.enable = lib.mkDefault false;
-      tools.enable = lib.mkDefault true;
+      tools = {
+        agents.enable = lib.mkDefault true;
+        bat.enable = lib.mkDefault true;
+        direnv.enable = lib.mkDefault true;
+        eza.enable = lib.mkDefault true;
+        fd.enable = lib.mkDefault true;
+        fzf.enable = lib.mkDefault true;
+        git.enable = lib.mkDefault true;
+        http.enable = lib.mkDefault true;
+        jq.enable = lib.mkDefault true;
+        languages = {
+          c.enable = lib.mkDefault true;
+          javascript.enable = lib.mkDefault true;
+          lua.enable = lib.mkDefault true;
+          python.enable = lib.mkDefault true;
+          rust.enable = lib.mkDefault true;
+          yaml.enable = lib.mkDefault true;
+        };
+        ripgrep.enable = lib.mkDefault true;
+        starship.enable = lib.mkDefault true;
+        tmux.enable = lib.mkDefault true;
+        zoxide.enable = lib.mkDefault true;
+      };
     };
 
     desktop = {
-      enable = lib.mkDefault true;
-      caelestia.enable = lib.mkDefault false;
-      foot.enable = lib.mkDefault false;
       ghostty.enable = lib.mkDefault true;
       gtk-theme.enable = lib.mkDefault true;
       hyprland.enable = lib.mkDefault true;
-      noctalia.enable = lib.mkDefault false;
-      rofi.enable = lib.mkDefault false;
       serpantinum.enable = lib.mkDefault true;
-      sway.enable = lib.mkDefault false;
-      swww.enable = lib.mkDefault false;
       stylix-theme.enable = lib.mkDefault true;
       wezterm.enable = lib.mkDefault true;
       wofi.enable = lib.mkDefault true;
     };
 
     shells = {
-      enable = lib.mkDefault true;
-      nushell.enable = lib.mkDefault false;
       scripts.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
     };
 
     system = {
-      enable = lib.mkDefault true;
       fonts.enable = lib.mkDefault true;
-      nixy.enable = lib.mkDefault true;
+      nix.enable = lib.mkDefault true;
       utils.enable = lib.mkDefault true;
     };
   };

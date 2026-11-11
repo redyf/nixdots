@@ -6,10 +6,8 @@
   ...
 }:
 {
-  options = {
-    herdr.enable = lib.mkEnableOption "Enable herdr module";
-  };
-  config = lib.mkIf config.herdr.enable {
+  options.myHomeConfig.cli.tools.herdr.enable = lib.mkEnableOption "herdr";
+  config = lib.mkIf config.myHomeConfig.cli.tools.herdr.enable {
     home.packages = [
       inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.herdr
     ];

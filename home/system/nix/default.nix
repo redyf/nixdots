@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    nixy.enable = lib.mkEnableOption "Enable nix module";
-  };
-  config = lib.mkIf config.nixy.enable {
+  options.myHomeConfig.system.nix.enable = lib.mkEnableOption "nix";
+  config = lib.mkIf config.myHomeConfig.system.nix.enable {
     home = {
       packages = with pkgs; [
         nixd

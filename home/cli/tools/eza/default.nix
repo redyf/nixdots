@@ -4,10 +4,8 @@
   ...
 }:
 {
-  options = {
-    eza.enable = lib.mkEnableOption "Enable eza module";
-  };
-  config = lib.mkIf config.eza.enable {
+  options.myHomeConfig.cli.tools.eza.enable = lib.mkEnableOption "eza";
+  config = lib.mkIf config.myHomeConfig.cli.tools.eza.enable {
     programs.eza = {
       enable = true;
       icons = "auto";

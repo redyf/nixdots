@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.services.fstrim;
 in
 {
-  config = lib.mkIf (config.myConfig.services.enable && cfg.enable) {
+  options.myConfig.services.fstrim.enable = lib.mkEnableOption "fstrim";
+
+  config = lib.mkIf cfg.enable {
     services = {
       fstrim.enable = true;
     };

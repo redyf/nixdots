@@ -1,23 +1,30 @@
-_: {
-  wayland.windowManager.hyprland = {
-    settings = {
-      config = {
-        render = {
-          direct_scanout = 1;
-        };
+{
+  config,
+  lib,
+  ...
+}:
+{
+  config = lib.mkIf config.myHomeConfig.desktop.hyprland.enable {
+    wayland.windowManager.hyprland = {
+      settings = {
+        config = {
+          render = {
+            direct_scanout = 1;
+          };
 
-        misc = {
-          vrr = 1;
-          disable_hyprland_logo = true;
-        };
+          misc = {
+            vrr = 1;
+            disable_hyprland_logo = true;
+          };
 
-        debug = {
-          damage_tracking = 2;
-        };
+          debug = {
+            damage_tracking = 2;
+          };
 
-        ecosystem = {
-          no_update_news = true;
-          no_donation_nag = true;
+          ecosystem = {
+            no_update_news = true;
+            no_donation_nag = true;
+          };
         };
       };
     };

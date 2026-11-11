@@ -8,7 +8,9 @@ let
   cfg = config.myConfig.system.zram;
 in
 {
-  config = lib.mkIf (config.myConfig.system.enable && cfg.enable) {
+  options.myConfig.system.zram.enable = lib.mkEnableOption "zram";
+
+  config = lib.mkIf cfg.enable {
     zramSwap = {
       enable = true;
       memoryPercent = 50;

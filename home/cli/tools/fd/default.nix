@@ -5,10 +5,8 @@
   ...
 }:
 {
-  options = {
-    fd.enable = lib.mkEnableOption "Enable fd module";
-  };
-  config = lib.mkIf config.fd.enable {
+  options.myHomeConfig.cli.tools.fd.enable = lib.mkEnableOption "fd";
+  config = lib.mkIf config.myHomeConfig.cli.tools.fd.enable {
     home.packages = with pkgs; [ fd ];
   };
 }
