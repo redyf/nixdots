@@ -21,15 +21,15 @@
             allow_tearing = true;
             col.active_border = {
               colors = [
-                "rgb(8aadf4)"
-                "rgb(24273a)"
-                "rgb(24273a)"
-                "rgb(8aadf4)"
+                "rgb(${config.lib.stylix.colors.base0D})"
+                "rgb(${config.lib.stylix.colors.base00})"
+                "rgb(${config.lib.stylix.colors.base00})"
+                "rgb(${config.lib.stylix.colors.base0D})"
               ];
               angle = 45;
             };
             col.inactive_border = {
-              colors = [ "rgb(24273a)" ];
+              colors = [ "rgb(${config.lib.stylix.colors.base00})" ];
               angle = 0;
             };
           };

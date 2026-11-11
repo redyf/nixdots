@@ -42,7 +42,7 @@
         nixos-icons.enable = true;
         qt.enable = true;
         rofi.enable = true;
-        starship.enable = false;
+        starship.enable = true;
         sway.enable = true;
         tmux.enable = false;
         vesktop.enable = false;
