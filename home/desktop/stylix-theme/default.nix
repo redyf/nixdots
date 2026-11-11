@@ -19,8 +19,8 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme.scheme}.yaml";
       fonts = {
         monospace = {
-          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.monolisa;
-          name = "MonoLisa";
+          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.${theme.monospace.package};
+          inherit (theme.monospace) name;
         };
         sizes.terminal = theme.terminalFontSize;
       };

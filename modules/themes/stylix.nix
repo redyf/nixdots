@@ -23,8 +23,8 @@ in
       };
       fonts = {
         monospace = {
-          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.tx02;
-          name = "TX-02";
+          package = inputs.font-flake.packages.${pkgs.stdenv.hostPlatform.system}.${theme.monospace.package};
+          inherit (theme.monospace) name;
         };
         sansSerif = {
           package = pkgs.dejavu_fonts;

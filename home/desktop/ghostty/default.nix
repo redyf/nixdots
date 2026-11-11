@@ -23,7 +23,7 @@ in
       enable = true;
       package = pkgs.ghostty;
       settings = {
-        font-family = "JetBrainsMono Nerd Font";
+        font-family = config.stylix.fonts.monospace.name;
         font-size = 13;
         font-style = "Medium";
         font-style-bold = "Bold";

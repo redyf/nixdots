@@ -55,7 +55,7 @@ in
         };
 
         theme = {
-          fontFamily = "TX-02";
+          fontFamily = config.stylix.fonts.monospace.name;
           borderRadius = 12;
           matugen = true;
         };

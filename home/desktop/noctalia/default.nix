@@ -312,7 +312,7 @@
         ui = {
           fontDefault = "JetBrainsMono Nerd Font";
           fontDefaultScale = 1;
-          fontFixed = "Maple Mono NF";
+          fontFixed = config.stylix.fonts.monospace.name;
           fontFixedScale = 1;
           panelsAttachedToBar = true;
           panelsOverlayLayer = true;
