@@ -28,11 +28,11 @@
 
         window_rule = [
           {
-            match.class = "obsidian";
+            match.class = "md.obsidian.Obsidian";
             workspace = "3";
           }
           {
-            match.class = "slack";
+            match.class = "Slack";
             workspace = "4";
           }
         ];

@@ -9,15 +9,15 @@
       settings = {
         window_rule = [
           {
-            match.class = "firefox";
+            match.class = "brave-origin";
             workspace = "1";
           }
           {
-            match.class = "wezterm";
+            match.class = "org.wezfurlong.wezterm";
             workspace = "2";
           }
           {
-            match.class = "vesktop";
+            match.class = "discord";
             workspace = "3";
           }
         ];
