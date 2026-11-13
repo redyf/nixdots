@@ -2,11 +2,13 @@
 
 This repo uses `sops-nix` to keep secrets encrypted in Git. The encrypted file is committed, but the private age key stays only on the machine that needs to decrypt it.
 
-Current desktop flow:
+Current flow:
 
 ```text
 hosts/<host>/secrets.yaml -> /var/lib/sops-nix/key.txt -> /run/secrets-for-users/users/<username>/password
 ```
+
+`desktop` decrypts with the age key in `/var/lib/sops-nix/key.txt`. `selene` derives its age key from the SSH host key instead (`myConfig.system.sops.keyFile = null`, see [Adding Another Host](#adding-another-host)). `<username>` is the `username` in `hosts/<host>/meta.nix`.
 
 ## Safety Rules
 
@@ -109,18 +111,13 @@ This should print nothing.
 
 ## 5. Enable It In NixOS
 
-The desktop host should enable SOPS and use the generated secret path:
+Enable SOPS in `hosts/<host>/configuration.nix`:
 
 ```nix
-myConfig = {
-  users = {
-    username = "<username>";
-    hashedPasswordFile = config.sops.secrets."users/<username>/password".path;
-  };
-
-  system.sops.enable = true;
-};
+myConfig.system.sops.enable = true;
 ```
+
+The module (`modules/system/sops.nix`) declares `users/<username>/password` for the `username` in `hosts/<host>/meta.nix` and sets `myConfig.users.hashedPasswordFile` to its path.
 
 Validate the secret path:
 
@@ -159,13 +156,16 @@ api_keys:
     github: ghp_example_only_do_not_use
 ```
 
-Declare the secret in Nix:
+Declare the secret in Nix (`username` is a module argument, taken from `meta.nix`):
 
 ```nix
-sops.secrets."api_keys/github" = {
-  owner = config.myConfig.users.username;
-  mode = "0400";
-};
+{ username, ... }:
+{
+  sops.secrets."api_keys/github" = {
+    owner = username;
+    mode = "0400";
+  };
+}
 ```
 
 Use `config.sops.secrets."api_keys/github".path` when a program needs the secret.
@@ -248,7 +248,7 @@ creation_rules:
           - *selene_user
 ```
 
-Then create `hosts/selene/secrets.yaml` (only `users/<username>/password` is required; the `git` keys are needed only when `myConfig.system.sops.gitIdentity.enable` is on), enable `myConfig.system.sops.enable = true`, and set `myConfig.users.hashedPasswordFile = config.sops.secrets."users/${config.myConfig.users.username}/password".path`. Evaluation fails with a clear assertion if sops is enabled before the file exists.
+Then create `hosts/selene/secrets.yaml` (only `users/<username>/password` is required; the `git` keys are needed only when `myConfig.system.sops.gitIdentity.enable` is on), and enable `myConfig.system.sops.enable = true`; the password file option is set by the module. Evaluation fails with a clear assertion if sops is enabled before the file exists.
 
 If you add the desktop key as a recipient for `selene`, you can edit `selene` secrets from the desktop, but a leaked desktop key would also decrypt those secrets.
 
@@ -280,5 +280,5 @@ This is manageable because those values can be regenerated or typed again. It be
 | `config file not found, or has no creation rules` | Run from the repo root and check `.sops.yaml` `path_regex`. |
 | `no key could decrypt the data` | Check `SOPS_AGE_KEY_FILE` and confirm the matching public key is in `.sops.yaml`. |
 | Boot cannot decrypt secrets | Confirm `/var/lib/sops-nix/key.txt` exists and is owned by `root:root` with mode `600`. |
-| `users/<username>/password` is missing | Check `myConfig.system.sops.enable`, `myConfig.users.username`, and the YAML path. |
+| `users/<username>/password` is missing | Check `myConfig.system.sops.enable`, `username` in `hosts/<host>/meta.nix`, and the YAML path. |
 | Login fails after switch | Regenerate the hash with `mkpasswd -m sha-512` and check `journalctl -u sops-install-secrets-for-users`. |
