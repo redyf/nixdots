@@ -11,7 +11,7 @@
     <a href="https://github.com/redyf/nixdots">
         <img src="https://img.shields.io/github/repo-size/redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/redyf/nixdots/LICENSE">
+    <a href="https://github.com/redyf/nixdots/blob/main/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
     </a>
     <br>
@@ -37,11 +37,11 @@
  ╭─ Model -> DELL XPS 8940
  ├─ CPU   -> Intel i5-10400f @ 4.3GHz
  ├─ GPU   -> NVIDIA GeForce GTX 1650 SUPER
- ╰─ Resolution -> 1920x1080@165hz
+ ╰─ Resolution -> 1920x1080@180hz
  ╭─ WM       -> Hyprland
  ├─ Terminal -> Ghostty
  ├─ Theme    -> Catppuccin Macchiato
- ├─ Icons    -> Papirus-Dark
+ ├─ Icons    -> WhiteSur
  ├─ Font     -> MonoLisa
  ╰─ Hotel    -> Trivago
                         
@@ -89,6 +89,18 @@ OR
 sudo nixos-rebuild switch --flake '.#desktop'
 ```
 
+- Rebuild and switch the Home Manager configuration (picks `$USER@$HOSTNAME`):
+
+```
+nh home switch
+```
+
+- Format the tree (treefmt: nixfmt + statix):
+
+```bash
+nix fmt
+```
+
 - Connect to internet (Change what's inside the brackets with your info).
 
 ```
@@ -97,18 +109,20 @@ nmcli device wifi connect [SSID] password [passphrase]
 
 ## Secrets
 
-This repo uses `sops-nix` for encrypted secrets, including the desktop user password. See [`docs/sops-setup.md`](docs/sops-setup.md) for the step-by-step guide.
+This repo uses `sops-nix` for encrypted secrets, including the user password on both personal hosts (`desktop` and `selene`). See [`docs/sops-setup.md`](docs/sops-setup.md) for the step-by-step guide.
 
 ## Structure
 
 - `flake.nix` discovers NixOS hosts from `hosts/*` and builds one Home Manager configuration per host, named `<username>@<hostname>` (e.g. `selene@selene`). `nh home switch` picks it automatically.
+- `hosts/<name>/meta.nix` holds the host metadata: `username`, `system`, `roles` and optionally `keyboard`.
 - `hosts/<name>/configuration.nix` contains host-specific system settings.
-- `profiles/` contains shared defaults imported by hosts.
-- `profiles/nixos/` holds roles (`common`, `workstation`, `gaming`, `dev`, `laptop`, `nvidia`, `minimal`) that hosts list in `meta.nix`. `profiles/home/minimal.nix` provides safer public Home Manager defaults.
+- `profiles/nixos/` holds roles (`common`, `workstation`, `gaming`, `dev`, `laptop`, `nvidia`, `minimal`). `lib/mkHost.nix` imports the ones a host lists in `meta.nix`.
+- `profiles/home/common.nix` is the Home Manager baseline for the personal users; `profiles/home/minimal.nix` provides safer public defaults. User files import one of them.
 - `modules/` contains reusable NixOS modules exposed under `myConfig`. Every `.nix` file there is imported automatically and declares its own `myConfig.<dir>.<name>.enable`.
 - `home/` contains reusable Home Manager modules exposed under `myHomeConfig`. Every directory with a `default.nix` is imported automatically and declares its own `myHomeConfig.<path>.enable`.
 - `users/<name>.nix` holds per-user Home Manager settings; `hosts/<name>/home.nix` (optional) holds per-machine ones such as monitor layouts.
 - `hosts/example` and `users/example.nix` are the recommended starting points for users testing this repo.
+- `theme.nix` holds the appearance (scheme, cursor, monospace font) shared by Stylix on both layers.
 - `ci/font-flake-fallback` provides a public font fallback for unauthenticated builds.
 - `pkgs/<name>/package.nix` holds custom packages, exposed as `pkgs.<name>` in every configuration and as the flake's `packages` / `overlays.default`.
 - `lib/` contains helper functions used to create hosts and home configurations.
@@ -187,6 +201,9 @@ nh home switch -- --override-input font-flake github:redyf/font-flake
 > on your hardware unless you have reviewed every host-specific setting,
 > generated your own hardware config, and understand the disk layout.
 > Deploying someone else's NixOS host can make a machine unbootable or destroy data.
+>
+> Both hosts also take the user password from `hosts/<name>/secrets.yaml`, which
+> only my age keys can decrypt. Without your own secrets file the user has no password.
 
 If you want to test this repository, start with the safe example outputs:
 
@@ -265,7 +282,7 @@ Disko commands are destructive. Always pass the target disk explicitly and verif
 If you run disko against **hosts/\<host\>/disko.nix**, the command looks like this:
 
 ```nix
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./hosts/desktop/disko.nix --arg device '/dev/nvme0n1'
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./hosts/desktop/disko.nix --arg device '"/dev/nvme0n1"'
 ```
 
 you will partition, format and mount the disk for /dev/nvme0n1 (change as needed).

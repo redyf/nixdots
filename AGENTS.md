@@ -1,7 +1,5 @@
 # AGENTS.md
 
-> Updated: 2026-08-01
-
 ## What This Repo Is
 - NixOS flake for personal hosts `desktop` and `selene`, plus a safe public `example` host.
 - `flake.nix` discovers `hosts/*` as `nixosConfigurations` and builds one `homeConfigurations."<username>@<hostname>"` per host whose `meta.nix` user has a `users/<username>.nix` (`nh home switch` picks `$USER@$HOSTNAME` automatically).
@@ -10,14 +8,15 @@
 
 ## Source Of Truth
 - Trust `flake.nix`, `lib/*.nix`, workflow files, and lockfiles over README prose.
-- `lib/mkHost.nix` imports `modules/` (every `.nix` file in it is a module; `lib/modules-in.nix`) and `profiles/nixos/<role>.nix` for every role listed in `meta.nix`. Host `configuration.nix` files only import their generated hardware file. The `example` host intentionally avoids generated hardware config.
+- `lib/mkHost.nix` imports `modules/` (every `.nix` file in it is a module; `lib/modules-in.nix`) and `profiles/nixos/<role>.nix` for every role listed in `meta.nix`. It also adds `hosts/<name>/disko.nix` (and the disko module) when the host has one. Host `configuration.nix` files only import their generated hardware file. The `example` host intentionally avoids generated hardware config.
 - `lib/mkHome.nix` imports `home/` for every user (every directory with a `default.nix` is a module). `users/<name>.nix` holds per-user differences and imports `profiles/home/common.nix` (personal users) or `profiles/home/minimal.nix` (example). `hosts/<hostname>/home.nix` (optional) holds per-machine user settings such as monitor layouts. NixOS and HM modules receive `hostname`, `username`, `homeDirectory`, `keyboard` and `theme` (`theme.nix`) as module arguments.
 - `profiles/nixos/` holds roles: `common` (every personal host), `workstation` (graphical), `gaming`, `dev`, `laptop`, `nvidia` (desktop only), and `minimal` (public example). Host files should only override or add host-specific choices (monitors, disks, hardware).
 - `myConfig.*` is the NixOS module namespace; `myHomeConfig.*` is the Home Manager namespace. Each module declares its own `enable` option at the path matching its file (`modules/services/tlp.nix` → `myConfig.services.tlp.enable`); there are no category-level `enable` switches, so profiles list the leaves they want.
+- `theme.nix` is the single source for scheme, polarity, cursor, terminal font size and the monospace font. Both Stylix modules read it (`modules/themes/stylix.nix`, `home/desktop/stylix-theme/default.nix`); apps should take colours and fonts from Stylix instead of hardcoding them.
 - `pkgs/<name>/package.nix` holds custom packages. `lib/default.nix` turns them into an overlay (`overlays.default`, applied by `mkHost` and `mkHome`), so modules use `pkgs.<name>`, and into the `packages` flake output.
 
 ## Commands
-- `nh os switch` is the preferred rebuild command on the desktop host.
+- `nh os switch` is the preferred rebuild command on both personal hosts; `nh home switch` rebuilds Home Manager.
 - `sudo nixos-rebuild switch --flake '.#desktop'` is the direct rebuild fallback.
 - `nix flake check` is the main validation command. It runs treefmt (nixfmt + statix) as a check, evaluates every nixosConfiguration and every `<user>@<host>` homeConfiguration.
 - `nix fmt` formats the tree with treefmt (`treefmt.nix`: nixfmt + statix, hardware-configuration.nix excluded).
@@ -37,7 +36,10 @@
 - `hosts/desktop/disko.nix` and `hosts/selene/disko.nix` are parameterized with a required `device`; keep destructive disk choices explicit.
 - `modules/cli/nh.nix` defaults the flake path to `${homeDirectory}/opensource/nixdots`, but `myConfig.cli.nh.flakePath` can override it.
 - `home/cli/tools/git/default.nix` keeps SOPS-rendered identities and work SSH hosts opt-in; enable them from personal user files, not reusable profiles.
-- `font-flake` is a local-path flake input (`ci/font-flake-fallback/`) providing proprietary fonts (Monolisa, etc.); the real private font flake is not in this repo.
+- `font-flake` is a local-path flake input (`ci/font-flake-fallback/`) that exposes `tx02`, `monolisa`, `berkeley-mono` and `sf-mono` as JetBrains Mono Nerd Font. The real private fonts are not in this repo; use them with `--override-input font-flake github:redyf/font-flake`.
+- Home Manager runs standalone and cannot see the NixOS configuration; nothing checks that the two layers agree (see "Dependencies between the NixOS and Home Manager layers" in `README.md`).
+- Flakes only see files tracked by git: `git add` new files before building.
+- Feature-specific input modules (hyprland, serpantinum, nvibrant) are imported by the `workstation` and `nvidia` roles, not by `mkHost`.
 
 ## Public Reuse / Onboarding
 - Prefer `hosts/example` and `users/example.nix` over telling users to install `.#desktop` or `.#selene`.
