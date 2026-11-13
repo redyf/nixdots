@@ -1,7 +1,5 @@
 # AGENTS.md
 
-> Updated: 2026-11-12
-
 ## What This Repo Is
 - NixOS flake for personal hosts `desktop` and `selene`, plus a safe public `example` host.
 - `flake.nix` discovers `hosts/*` as `nixosConfigurations` and builds one `homeConfigurations."<username>@<hostname>"` per host whose `meta.nix` user has a `users/<username>.nix` (`nh home switch` picks `$USER@$HOSTNAME` automatically).
