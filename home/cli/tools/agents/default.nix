@@ -18,7 +18,6 @@ in
         claude-desktop
         opencode2
         pi
-        herdr
       ])
       ++ (with pkgs; [
         terraform-mcp-server
