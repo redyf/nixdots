@@ -7,12 +7,12 @@
 
 let
   pname = "artix-experimental-launcher";
-  version = "4.6.0";
+  version = "5.6.1";
 
   # The download is a zip holding a single AppImage.
   zip = fetchzip {
     url = "https://chaoslabs.artix.com/Ruffle/${version}/ArtixGamesLauncher-BattleOnEngine-${version}-linux-x64.zip";
-    hash = "sha256-ro5RNzrI3aA5T7u2VVA63UaTRiqqMyTxqJX1vq4R0Hg=";
+    hash = "sha256-7Z28WMQFbanpExNuT9i4vP9cXtq8Yc7qaPvpOQl1YDM=";
     stripRoot = false;
   };
 
