@@ -19,7 +19,8 @@ in
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme.scheme}.yaml";
       cursor = {
         inherit (theme.cursor) name size;
-        package = pkgs.apple-cursor;
+        package = pkgs.bibata-cursors;
+        # package = pkgs.apple-cursor;
       };
       fonts = {
         monospace = {

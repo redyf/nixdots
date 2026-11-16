@@ -3,7 +3,8 @@
   scheme = "catppuccin-macchiato";
   polarity = "dark";
   cursor = {
-    name = "macOS";
+    name = "Bibata-Modern-Classic";
+    # name = "macOS";
     size = 36;
   };
   terminalFontSize = 18;
