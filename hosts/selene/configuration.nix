@@ -14,6 +14,8 @@
 
     desktop.sway.enable = true;
 
+    development.terraform.enable = true;
+
     virtualization.virtualbox.enable = true;
 
     system = {
@@ -24,6 +26,7 @@
         # The selene age recipient is derived from the SSH host key.
         keyFile = null;
       };
+      tailscale.enable = true;
     };
   };
 
