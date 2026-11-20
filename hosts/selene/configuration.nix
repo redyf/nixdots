@@ -30,6 +30,8 @@
     };
   };
 
+  services.gnome.gcr-ssh-agent.enable = false;
+
   boot = {
     kernelParams = [
       "i8042.reset"
@@ -51,7 +53,6 @@
 
   hardware = {
     enableRedistributableFirmware = true;
-    # serpantinum enables bluetooth by default.
     bluetooth.enable = false;
   };
 
