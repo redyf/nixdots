@@ -40,6 +40,8 @@
     };
   };
 
+  services.gnome.gcr-ssh-agent.enable = false;
+
   # Encrypt work data and credentials at rest; unlocked by the login password.
   security.pam.enableFscrypt = true;
 

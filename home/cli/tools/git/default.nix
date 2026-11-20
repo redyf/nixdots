@@ -30,8 +30,9 @@ in
       type = lib.types.str;
       default = "${homeDirectory}/.ssh/id_ed25519_work";
       description = ''
-        Key used by the github-ezops alias (only with work.enable). With an SSH agent that holds the keys (such as Bitwarden),
-        point this at the public key so only that key is offered.
+        Key used by the github-ezops alias (only with work.enable). With an SSH
+        agent that holds the keys (such as Bitwarden), point this at the public
+        key so only that key is offered.
       '';
     };
     maintenanceRepo = lib.mkOption {

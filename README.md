@@ -181,7 +181,7 @@ Home Manager runs standalone, so it cannot see the NixOS configuration, and noth
 - `profiles/home/common.nix` enables `hyprland`, `serpantinum`, `stylix-theme` and `gtk-theme`. They assume the host has the `workstation` role (NixOS Hyprland, `programs.serpantinum` and `myConfig.themes.stylix`).
 - `cli.tools.tmux` reads colours from Stylix, so it needs `desktop.stylix-theme` enabled.
 - `cli.tools.git.sopsIdentity` needs `myConfig.system.sops.gitIdentity.enable` on the host.
-- Using Bitwarden desktop as the SSH agent (`users/selene.nix` sets `SSH_AUTH_SOCK` to its socket) needs `services.gnome.gcr-ssh-agent.enable = false` on the host, otherwise the gnome-keyring agent takes over `SSH_AUTH_SOCK`.
+- `apps.security.sshAgent` (Bitwarden desktop as the SSH agent, sets `SSH_AUTH_SOCK` to its socket) needs `services.gnome.gcr-ssh-agent.enable = false` on the host, otherwise the gnome-keyring agent takes over `SSH_AUTH_SOCK`.
 - The Hyprland monitor names in `hosts/<name>/home.nix` must match the outputs of that machine.
 
 If many features start to need NixOS and Home Manager changes together, the [dendritic pattern](https://github.com/mightyiam/dendritic) (one file per feature that defines both sides, built on `flake-parts`) would be worth revisiting. For a few hosts the current split is simpler to read.
