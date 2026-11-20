@@ -30,8 +30,7 @@ in
       type = lib.types.str;
       default = "${homeDirectory}/.ssh/id_ed25519_work";
       description = ''
-        Key used by the github-work and github-ezops aliases (only with
-        work.enable). With an SSH agent that holds the keys (such as Bitwarden),
+        Key used by the github-ezops alias (only with work.enable). With an SSH agent that holds the keys (such as Bitwarden),
         point this at the public key so only that key is offered.
       '';
     };
@@ -102,13 +101,6 @@ in
         };
       }
       // lib.optionalAttrs cfg.work.enable {
-        "github-work" = {
-          hostname = "github.com";
-          user = "git";
-          identitiesOnly = true;
-          identityFile = cfg.workIdentityFile;
-        };
-
         "github-ezops" = {
           hostname = "github.com";
           user = "git";

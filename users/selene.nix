@@ -8,7 +8,7 @@
   myHomeConfig.cli.tools.git.githubIdentityFile = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
   myHomeConfig.cli.tools.git.work.enable = false;
   myHomeConfig.cli.tools.git.workIdentityFile =
-    "${config.home.homeDirectory}/.ssh/mateus-pereira-ezops.pub";
+    "${config.home.homeDirectory}/.ssh/id_ed25519_work.pub";
   systemd.user.services.bitwarden-desktop = {
     Unit = {
       Description = "Bitwarden desktop (SSH agent)";
