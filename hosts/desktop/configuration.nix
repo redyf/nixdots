@@ -24,6 +24,9 @@
 
     gaming.gamescope.enable = true;
 
+    # NVIDIA GPU is out for repair; flip back to true when it returns.
+    hardware.nvidia.enable = false;
+
     services = {
       fstrim.enable = true;
     };

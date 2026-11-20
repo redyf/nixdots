@@ -2,6 +2,7 @@
 # nvibrant's NixOS module is only imported here, so hosts without this role
 # never see its options.
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -24,18 +25,24 @@ in
 {
   imports = [ inputs.nvibrant.nixosModules.default ];
 
-  myConfig.hardware.nvidia.enable = lib.mkDefault true;
+  config = lib.mkMerge [
+    # Toggle the whole GPU stack (drivers + nvibrant) from the host with
+    # myConfig.hardware.nvidia.enable = false; the role stays in meta.nix.
+    { myConfig.hardware.nvidia.enable = lib.mkDefault true; }
 
-  environment.systemPackages = [ nvibrantPackage ];
+    (lib.mkIf config.myConfig.hardware.nvidia.enable {
+      environment.systemPackages = [ nvibrantPackage ];
 
-  services.nvibrant = {
-    enable = true;
-    package = nvibrantPackage;
-    vibrancy = [
-      "0%"
-      "100%"
-      "137%"
-      "0%"
-    ];
-  };
+      services.nvibrant = {
+        enable = true;
+        package = nvibrantPackage;
+        vibrancy = [
+          "0%"
+          "100%"
+          "137%"
+          "0%"
+        ];
+      };
+    })
+  ];
 }
