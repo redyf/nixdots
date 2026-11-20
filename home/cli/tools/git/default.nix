@@ -18,6 +18,23 @@ in
       default = "${homeDirectory}/work";
       description = "Directory that uses the work Git identity.";
     };
+    githubIdentityFile = lib.mkOption {
+      type = lib.types.str;
+      default = "${homeDirectory}/.ssh/id_ed25519";
+      description = ''
+        Key used for github.com. With an SSH agent that holds the keys (such as
+        Bitwarden), point this at the public key so only that key is offered.
+      '';
+    };
+    workIdentityFile = lib.mkOption {
+      type = lib.types.str;
+      default = "${homeDirectory}/.ssh/id_ed25519_work";
+      description = ''
+        Key used by the github-work and github-ezops aliases (only with
+        work.enable). With an SSH agent that holds the keys (such as Bitwarden),
+        point this at the public key so only that key is offered.
+      '';
+    };
     maintenanceRepo = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
@@ -81,7 +98,7 @@ in
           hostname = "github.com";
           user = "git";
           identitiesOnly = true;
-          identityFile = "${homeDirectory}/.ssh/id_ed25519";
+          identityFile = cfg.githubIdentityFile;
         };
       }
       // lib.optionalAttrs cfg.work.enable {
@@ -89,14 +106,14 @@ in
           hostname = "github.com";
           user = "git";
           identitiesOnly = true;
-          identityFile = "${homeDirectory}/.ssh/id_ed25519_work";
+          identityFile = cfg.workIdentityFile;
         };
 
         "github-ezops" = {
           hostname = "github.com";
           user = "git";
           identitiesOnly = true;
-          identityFile = "${homeDirectory}/.ssh/id_ed25519_work";
+          identityFile = cfg.workIdentityFile;
         };
       };
     };
