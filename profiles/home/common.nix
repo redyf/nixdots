@@ -23,7 +23,11 @@
     cli = {
       neovim.enable = lib.mkDefault true;
       tools = {
-        agents.enable = lib.mkDefault true;
+        agents = {
+          clients.enable = lib.mkDefault true;
+          harnesses.enable = lib.mkDefault true;
+          orchestrators.enable = lib.mkDefault true;
+        };
         bat.enable = lib.mkDefault true;
         direnv.enable = lib.mkDefault true;
         eza.enable = lib.mkDefault true;
