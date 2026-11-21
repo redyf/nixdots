@@ -48,6 +48,7 @@
         window_background_opacity = lib.mkForce 1;
         wayland_window_background_blur = false;
         warn_about_missing_glyphs = false;
+        mux_enable_ssh_agent = false;
       };
     };
   };
