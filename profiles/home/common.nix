@@ -6,7 +6,10 @@
 
   myHomeConfig = {
     apps = {
-      browsers.brave.enable = lib.mkDefault true;
+      browsers = {
+        brave.enable = lib.mkDefault true;
+        zen.enable = lib.mkDefault true;
+      };
       development = {
         database.enable = lib.mkDefault true;
         obsidian.enable = lib.mkDefault true;
