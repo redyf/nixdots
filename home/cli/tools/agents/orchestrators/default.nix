@@ -12,7 +12,6 @@
   config = lib.mkIf config.myHomeConfig.cli.tools.agents.orchestrators.enable {
     home.packages = with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       orca
-      herdr-app
       t3code-desktop
     ];
   };
