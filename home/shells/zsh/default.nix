@@ -101,14 +101,6 @@
         initContent = ''
           export PATH="$HOME/.bun/bin:$PATH"
 
-          if command -v tmux-sessionizer-script >/dev/null; then
-              bindkey -s ^f "tmux-sessionizer-script\n"
-          fi
-
-          if command -v tmux-init >/dev/null; then
-              tmux-init
-          fi
-
           ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
           TRANSIENT_PROMPT=$(${pkgs.starship}/bin/starship module character)

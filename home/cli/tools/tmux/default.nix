@@ -67,64 +67,11 @@ in
         # Renumber all windows when any window is closed
         set -g renumber-windows on
 
-        # Tmux sessionizer
-        bind -r f run-shell "tmux neww tmux-sessionizer-script"
-
         # Extended keys
         set -g extended-keys on
 
         ${macchiato}
       '';
     };
-    home.packages = with pkgs; [
-      # https://frontendmasters.github.io/dev-prod-2/lessons/navigation/tmux
-      tmux-sessionizer
-      # Script to find files with tmux in vim
-      (writeShellScriptBin "tmux-sessionizer-script" ''
-        selected=$(find ~/work/ ~/ztm/ ~/personal/ ~/projects/ ~/opensource/ -maxdepth 2 -mindepth 1 -type d | fzf)
-        if [[ -z "$selected" ]]; then
-            exit 0
-        fi
-        selected_name=$(basename "$selected" | tr ".,: " "____")
-
-        switch_to() {
-            if [[ -z "$TMUX" ]]; then
-                tmux attach-session -t "$selected_name"
-            else
-                tmux switch-client -t "$selected_name"
-            fi
-        }
-
-        if tmux has-session -t="$selected_name"; then
-            switch_to
-        else
-            tmux new-session -ds "$selected_name" -c "$selected"
-            switch_to
-        fi
-      '')
-      (pkgs.writeShellScriptBin "tmux-init"
-        # bash
-        ''
-          if [ -z "$TMUX" ]; then
-            i=0
-            while true; do
-                session_name="base-$i"
-                if tmux has-session -t "$session_name" 2>/dev/null; then
-                    clients_count=$(tmux list-clients -t "$session_name" 2>/dev/null | wc -l)
-                    if [ $clients_count -eq 0 ]; then
-                        tmux attach-session -t "$session_name"
-                        break
-                    fi
-                    ((i++))
-                else
-                    tmux new-session -d -s "$session_name"
-                    tmux attach-session -d -t "$session_name"
-                    break
-                fi
-            done
-          fi
-        ''
-      )
-    ];
   };
 }

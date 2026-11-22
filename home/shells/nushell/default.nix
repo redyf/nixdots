@@ -115,14 +115,6 @@
               mode: [emacs, vi_insert, vi_normal]
               event: { send: ExecuteHostCommand, cmd: "commandline edit --insert (fzf)" }
             },
-            {
-              name: tmux_sessionizer_script
-              modifier: control
-              keycode: char_f
-              mode: [emacs, vi_normal, vi_insert]
-              event: { send: ExecuteHostCommand, cmd: "tmux-sessionizer-script"
-              }
-            },
             ]
           } 
           $env.FZF_DEFAULT_OPTS = [
