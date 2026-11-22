@@ -10,6 +10,7 @@
     home.packages = with pkgs; [
       discord
       slack
+      teamspeak6-client
       openvpn
       pritunl-client
       dig
