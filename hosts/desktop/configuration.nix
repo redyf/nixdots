@@ -17,15 +17,12 @@
     desktop = {
       i3.enable = true;
       # Same layout as hosts/desktop/home.nix (X11 names the HDMI-A-2 connector HDMI-2).
-      xserver.displaySetup = "xrandr --output DP-1 --mode 1920x1080 --rate 180 --primary --output HDMI-2 --mode 1920x1080 --rate 119.98 --right-of DP-1 --rotate left";
+      xserver.displaySetup = "xrandr --output DP-1 --mode 1920x1080 --rate 180 --primary --output HDMI-2 --mode 1920x1080 --rate 144 --right-of DP-1 --rotate left";
     };
 
     development.terraform.enable = true;
 
     gaming.gamescope.enable = true;
-
-    # NVIDIA GPU is out for repair; flip back to true when it returns.
-    hardware.nvidia.enable = false;
 
     services = {
       fstrim.enable = true;
